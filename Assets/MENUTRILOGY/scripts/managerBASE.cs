@@ -1,0 +1,262 @@
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.IO;
+using System;
+
+public class managerBASE : MonoBehaviour
+{
+
+    public int cmenu;
+
+    public Text boton1;
+	public Text boton2;
+	public Text boton3;
+	public Text boton4;
+	public Text boton5;
+	public Text boton6;
+	public Text boton7;
+
+	[SerializeField]
+	public datosconfig datosconfig;
+	public string repath;
+
+
+	public void GetFilePath()
+    {
+        string result;
+ 
+    #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
+            // mac
+            result = Path.Combine(Application.streamingAssetsPath,"AlienData");
+            result = Path.Combine(result, $"alienconfigdata.data");
+    
+    #elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+            // windows
+            result = Path.Combine(Application.persistentDataPath,"AlienData");
+            result = Path.Combine(result, $"alienconfigdata.data");
+    
+    #elif UNITY_ANDROID
+            // android
+            result = Path.Combine(Application.persistentDataPath,"AlienData");
+            result = Path.Combine(result, $"alienconfigdata.data");
+    
+    #elif UNITY_IOS
+            // ios
+            result = Path.Combine(Application.persistentDataPath,"AlienData");
+            result = Path.Combine(result, $"alienconfigdata.data");
+    #endif
+ 
+        repath = result;
+    }
+
+	public void guardar()
+    {
+        GetFilePath();
+        string path = repath;
+        if(File.Exists(path))
+        {
+            string datosconfig1 = JsonUtility.ToJson(datosconfig);
+            File.WriteAllText(path,datosconfig1);
+            Debug.Log(datosconfig1);
+        }
+        else if(!File.Exists(path))
+        {
+            System.IO.FileInfo file = new System.IO.FileInfo(path);
+            file.Directory.Create();
+            string datosconfig1 = JsonUtility.ToJson(datosconfig);
+            File.WriteAllText(path,datosconfig1);
+            Debug.Log(datosconfig1);
+        }
+        
+    }
+
+	public void cargar()
+    {
+        GetFilePath();
+        string path = repath;
+        if(File.Exists(path))
+        {
+            string datosconfig1 = File.ReadAllText(path);
+            datosconfig = JsonUtility.FromJson<datosconfig>(datosconfig1);
+            Debug.Log(datosconfig1);
+        }
+        
+    }
+
+	public void borrar_data()
+    {
+        GetFilePath();
+        string path = repath;
+        if(File.Exists(path))
+        {
+            string datosconfig1 = JsonUtility.ToJson("");
+            File.WriteAllText(path,datosconfig1);
+        }
+        cargar();
+        
+    }
+
+	private void Awake() 
+	{
+		cargar();
+	}
+	private void Start()
+	{
+
+		cargar();
+
+        if(datosconfig.idioma == "es")
+	    {
+            if(cmenu == 1)
+            {
+                boton1.text = "controles";
+                boton2.text = "pc o consola";
+                boton3.text = "dispositivo tactil";
+                boton4.text = "en que dispositivo estas jugando?";
+                boton5.text = "si estas jugando en un pc tableta o android selecciona dispositivo tactil si estas en los anteriores dispositivos con un mando o en pc o consola selecciona pc o consola";
+                boton6.text = "una vez selecionado para cambiarlo entra a opciones";
+            }
+            if(cmenu == 2)
+            {
+                boton1.text = "entrar";
+                boton2.text = "salir";
+            }
+            if(cmenu == 3)
+            {
+                boton1.text = "elige una distancia de dibujado subirla consume recursos del dispositivo";
+                boton2.text = "distancia de dibujado";
+                boton3.text = "una vez selecionado para cambiarlo entra a opciones";
+            }
+            if(cmenu == 4)
+            {
+                boton1.text = "mejora grafica";
+                boton2.text = "post procesado desactivado";
+                boton3.text = "post procesado activado";
+                boton4.text = "si juegas en un dispositivo con recursos moderados podras usar la mejora grafica";
+                boton5.text = "el post procesado puede crashear el juego en ciertos dispositivos si esto sucede resetea la configuracion con el boton de recuperacion al inicio del juego";
+                boton6.text = "una vez selecionado para cambiarlo entra a opciones";
+            }
+            if(cmenu == 5)
+            {
+                boton1.text = "controles";
+                boton2.text = "idioma";
+                boton3.text = "distancia de dibujado";
+                boton4.text = "post procesado";
+            }
+        }
+        if(datosconfig.idioma == "en")
+	    {
+            if(cmenu == 1)
+            {
+                boton1.text = "controls";
+                boton2.text = "pc or console";
+                boton3.text = "touch device";
+                boton4.text = "what device are you playing on?";
+                boton5.text = "if you are playing on a tablet or android pc select touch device if you are on the above devices with a controller or on pc or console select pc or console";
+                boton6.text = "once selected to change it go to settings";
+            }
+            if(cmenu == 2)
+            {
+                boton1.text = "play";
+                boton2.text = "exit";
+            }
+            if(cmenu == 3)
+            {
+                boton1.text = "choose a drawing distance upload it consumes device resources";
+                boton2.text = "draw distance";
+                boton3.text = "once selected to change it go to settings";
+            }
+            if(cmenu == 4)
+            {
+                boton1.text = "mejora grafica";
+                boton2.text = "post processing disabled";
+                boton3.text = "post processing enabled";
+                boton4.text = "If you play on a device with moderate resources you can use the graphic improvement";
+                boton5.text = "The post processing may crash the game on certain devices. If this happens, reset the settings with the recovery button at the start of the game.";
+                boton6.text = "once selected to change it go to settings";
+            }
+            if(cmenu == 5)
+            {
+                boton1.text = "controls";
+                boton2.text = "language";
+                boton3.text = "drawing distance";
+                boton4.text = "post processed";
+            }
+        }
+        if(datosconfig.idioma == "cat")
+	    {
+            if(cmenu == 1)
+            {
+                boton1.text = "controls";
+                boton2.text = "pc o consola";
+                boton3.text = "dispositiu tactil";
+                boton4.text = "en quin dispositiu estas jugan?";
+                boton5.text = "si estas jugan a un pc tableta o android selecciona dispositiu tactil si estas als anteriors dispositius amb un control o a un pc o consola selecciona pc o consola";
+                boton6.text = "una vegada selecionat per cambiaro entra a opcions";
+            }
+            if(cmenu == 2)
+            {
+                boton1.text = "entra";
+                boton2.text = "sortir";
+            }
+            if(cmenu == 3)
+            {
+                boton1.text = "escull una distancia de dibuxat pujarla consumeix recursos del dispositiu";
+                boton2.text = "distancia de dibuxat";
+                boton3.text = "una vegada selecionat per cambiaro entra a opcions";
+            }
+            if(cmenu == 4)
+            {
+                boton1.text = "millora grafica";
+                boton2.text = "post procesat desactivat";
+                boton3.text = "post procesat activat";
+                boton4.text = "si juegas en un dispositiu amb recursos moderats podras usar la millora grafica";
+                boton5.text = "el post procesat pot crashejar el joc en certs dispositius si aixo pasa resetea la configuracio amb el boton de recuperacion al inici del joc";
+                boton6.text = "una vegada selecionat per cambiaro entra a opcions";
+            }
+            if(cmenu == 5)
+            {
+                boton1.text = "controls";
+                boton2.text = "idioma";
+                boton3.text = "distancia de dibuxat";
+                boton4.text = "post procesat";
+            }
+        }
+		
+
+	}
+    public void Update()
+    {
+        if(datosconfig.idioma == "es")
+	    {
+            if(cmenu == 5)
+            {
+                boton1.text = "controles";
+                boton2.text = "idioma";
+                boton3.text = "distancia de dibujado";
+                boton4.text = "post procesado";
+            }
+        }
+        if(datosconfig.idioma == "en")
+	    {
+            if(cmenu == 5)
+            {
+                boton1.text = "controls";
+                boton2.text = "language";
+                boton3.text = "drawing distance";
+                boton4.text = "post processed";
+            }
+        }
+        if(datosconfig.idioma == "cat")
+	    {
+            if(cmenu == 5)
+            {
+                boton1.text = "controls";
+                boton2.text = "idioma";
+                boton3.text = "distancia de dibuxat";
+                boton4.text = "post procesat";
+            }
+        }
+    }
+}
