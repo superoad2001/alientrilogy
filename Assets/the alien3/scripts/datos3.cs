@@ -18,6 +18,8 @@ public class datos3
 	public int armastotal;
 	public int armadurastotal;
 	public int diariostotal;
+	public int enemigos;
+
 
 	public int tdiario1;
 	public int tdiario2;
@@ -48,6 +50,8 @@ public class datos3
 	public int pocionfue;
 
 	public float vidamaxima = 5;
+
+	public int herencia;
 
 	public int monedas;
 

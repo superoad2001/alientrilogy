@@ -379,6 +379,8 @@ public class jugador1_al2 : MonoBehaviour
         manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
         if(respawn == true)
         {
+            manager.datostrof.alien2muere = 1;
+            manager.guardartro();
             if(manager.datosserial.respawntipo == 1 && manager.nivel == 0)
             {
                 transform.position = new Vector3(-467.200012f,505.200012f,455f);
@@ -3327,6 +3329,8 @@ public class jugador1_al2 : MonoBehaviour
         {invulc -= 1 * Time.deltaTime;}
         if (muerte == true)
         {
+            manager.datostrof.alien2muere = 1;
+            manager.guardartro();
             if(manager.nivel == 26)
             {
                 if(manager.datosserial.finalbueno == 1)

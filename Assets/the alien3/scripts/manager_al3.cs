@@ -6,6 +6,7 @@ using System;
 
 public class manager_al3: MonoBehaviour
 {
+	public int trofeoact;
 	public int jefen = 0;
 	public int cmenu = 0;
 	public int menu = 1;
@@ -89,6 +90,10 @@ public class manager_al3: MonoBehaviour
 
 	[SerializeField]
 	public datosconfig datosconfig;
+	[SerializeField]
+	public datosextra datostrof;
+
+	public string repathtro;
 	
 
 	public void GetFilePath()
@@ -145,6 +150,53 @@ public class manager_al3: MonoBehaviour
  
         repathconfig = result;
     }
+	public void GetFilePathtro()
+    {
+        string result;
+ 
+    #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
+            // mac
+            result = Path.Combine(Application.streamingAssetsPath,"AlienData");
+            result = Path.Combine(result, $"alientorfeodata.data");
+    
+    #elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+            // windows
+            result = Path.Combine(Application.persistentDataPath,"AlienData");
+            result = Path.Combine(result, $"alientorfeodata.data");
+    
+    #elif UNITY_ANDROID
+            // android
+            result = Path.Combine(Application.persistentDataPath,"AlienData");
+            result = Path.Combine(result, $"alientorfeodata.data");
+    
+    #elif UNITY_IOS
+            // ios
+            result = Path.Combine(Application.persistentDataPath,"AlienData");
+            result = Path.Combine(result, $"alientorfeodata.data");
+    #endif
+ 
+        repathtro = result;
+    }
+	public void guardartro()
+    {
+        GetFilePathtro();
+        string path = repathtro;
+        if(File.Exists(path))
+        {
+            string datosconfig2 = JsonUtility.ToJson(datostrof);
+            File.WriteAllText(path,datosconfig2);
+            Debug.Log(datosconfig2);
+        }
+        else if(!File.Exists(path))
+        {
+            System.IO.FileInfo file = new System.IO.FileInfo(path);
+            file.Directory.Create();
+            string datosconfig2 = JsonUtility.ToJson(datostrof);
+            File.WriteAllText(path,datosconfig2);
+            Debug.Log(datosconfig2);
+        }
+        
+    }
 
 	public void guardar()
     {
@@ -166,25 +218,61 @@ public class manager_al3: MonoBehaviour
         }
         
     }
-
+	public void guardarconfig()
+    {
+        GetFilePathconfig();
+        string path = repathconfig;
+        if(File.Exists(path))
+        {
+            string datosconfig1 = JsonUtility.ToJson(datosconfig);
+            File.WriteAllText(path,datosconfig1);
+            Debug.Log(datosconfig1);
+        }
+        else if(!File.Exists(path))
+        {
+            System.IO.FileInfo file = new System.IO.FileInfo(path);
+            file.Directory.Create();
+            string datosconfig1 = JsonUtility.ToJson(datosconfig);
+            File.WriteAllText(path,datosconfig1);
+            Debug.Log(datosconfig1);
+        }
+        
+    }
+	public void cargartro()
+    {
+        GetFilePathtro();
+        string path = repathtro;
+        if(File.Exists(path))
+        {
+            string datosconfig2 = File.ReadAllText(path);
+            datostrof = JsonUtility.FromJson<datosextra>(datosconfig2);
+            Debug.Log(datosconfig2);
+        }
+        
+    }
+	public void cargarconfig()
+    {
+        GetFilePathconfig();
+        string path = repathconfig;
+        if(File.Exists(path))
+        {
+            string datosconfig1 = File.ReadAllText(path);
+            datosconfig = JsonUtility.FromJson<datosconfig>(datosconfig1);
+            Debug.Log(datosconfig1);
+        }
+        
+    }
 	public void cargar()
     {
         GetFilePath();
-		GetFilePathconfig();
         string path = repath;
-		string path2 = repathconfig;
         if(File.Exists(path))
         {
             string datosinventario = File.ReadAllText(path);
             datosserial = JsonUtility.FromJson<datos3>(datosinventario);
             Debug.Log(datosinventario);
         }
-		if(File.Exists(path2))
-        {
-            string datosconfig2 = File.ReadAllText(path2);
-            datosconfig = JsonUtility.FromJson<datosconfig>(datosconfig2);
-            Debug.Log(datosconfig2);
-        }
+
         
     }
 
@@ -203,10 +291,75 @@ public class manager_al3: MonoBehaviour
 	private void Awake() 
 	{
 		cargar();
+		cargarconfig();
+		cargartro();
 	}
 	private void Start()
 	{
+		cargarconfig();
 		cargar();
+		cargartro();
+
+		if(datosserial.tarma[0] == 1)
+		{armastotal++;}
+        if(datosserial.tarma[1] == 1)
+		{armastotal++;}
+        if(datosserial.tarma[2] == 1)
+		{armastotal++;}
+        if(datosserial.tarma[3] == 1)
+		{armastotal++;}
+        if(datosserial.tarma[4] == 1)
+		{armastotal++;}
+        if(datosserial.tarma[5] == 1)
+		{armastotal++;}
+        if(datosserial.tarma[6] == 1)
+		{armastotal++;}
+        if(datosserial.tarma[7] == 1)
+		{armastotal++;}
+        if(datosserial.tarma[8] == 1)
+		{armastotal++;}
+        if(datosserial.tarma[9] == 1)
+		{armastotal++;}
+        if(datosserial.tarma[10] == 1)
+		{armastotal++;}
+        if(datosserial.tarma[11] == 1)
+		{armastotal++;}
+        if(datosserial.tarma[12] == 1)
+		{armastotal++;}
+        if(datosserial.tarma[13] == 1)
+		{armastotal++;}
+        if(datosserial.tarma[14] == 1)
+		{armastotal++;}
+
+        if(datosserial.tarmad[0] == 1)
+		{armadurastotal++;}
+        if(datosserial.tarmad[1] == 1)
+		{armadurastotal++;}
+        if(datosserial.tarmad[2] == 1)
+		{armadurastotal++;}
+        if(datosserial.tarmad[3] == 1)
+		{armadurastotal++;}
+        if(datosserial.tarmad[4] == 1)
+		{armadurastotal++;}
+        if(datosserial.tarmad[5] == 1)
+		{armadurastotal++;}
+        if(datosserial.tarmad[6] == 1)
+		{armadurastotal++;}
+        if(datosserial.tarmad[7] == 1)
+		{armadurastotal++;}
+        if(datosserial.tarmad[8] == 1)
+		{armadurastotal++;}
+        if(datosserial.tarmad[9] == 1)
+		{armadurastotal++;}
+
+
+		if(trofeoact == 1)
+		{datostrof.completaalien3m = 1;}
+		if(trofeoact == 2)
+		{datostrof.completaalien3v = 1;}
+		if(trofeoact == 3)
+		{datostrof.alien3acabaeltutorial = 1;}
+		guardartro();
 
 		
 		jugador1_al3 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al3>();
@@ -257,9 +410,45 @@ public class manager_al3: MonoBehaviour
 
 	private void Update()
 	{
-		manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+		manager_al2 manageral2 = UnityEngine.Object.FindObjectOfType<manager_al2>();
 
-		if(manager.datosconfig.idioma == "es")
+		if(datosserial.monedas >= 5000 && datostrof.alien3ahorra5000monedas != 1)
+		{
+			datostrof.alien3ahorra5000monedas = 1;
+			guardartro();
+		}
+		if(datosserial.vidamaxima ==  100 && datostrof.alien3consiguetodadlasmejorasvida != 1)
+		{
+			datostrof.alien3consiguetodadlasmejorasvida = 1;
+			guardartro();
+		}
+		if(datosserial.marma1 == 0 && datosserial.marma5 == 0 &&  datosserial.marma6 == 0 && datosserial.marma7 == 0 && datosserial.marma8 == 0 && datosserial.marma9 == 0 && datosserial.marma10 == 0 && datosserial.marma11 == 0 && datosserial.marma13 == 0 && datosserial.marma14 == 0 && datosserial.marma15 == 0 && datostrof.alien3gastatodalamuniciondetodaslasarmas != 1)
+		{
+			datostrof.alien3gastatodalamuniciondetodaslasarmas = 1;
+			guardartro();
+		}
+		if(armastotal == 15 && datostrof.alien3consiguetodaslasarmas != 1)
+		{
+			datostrof.alien3consiguetodaslasarmas = 1;
+			guardartro();
+		}
+		if(armadurastotal == 15 && datostrof.alien3consiguetodaslasarmaduras!= 1)
+		{
+			datostrof.alien3consiguetodaslasarmaduras = 1;
+			guardartro();
+		}
+		if(datosserial.enemigos >= 100 && datostrof.alien3vence100enemigos != 1)
+		{
+			datostrof.alien3vence100enemigos = 1;
+			guardartro();
+		}
+		if(datosserial.enemigos >= 200 && datostrof.alien3vence200enemigos != 1)
+		{
+			datostrof.alien3vence200enemigos = 1;
+			guardartro();
+		}
+
+		if(datosconfig.idioma == "es")
 		{
 			if(jefen == 1)
 			{
@@ -340,8 +529,14 @@ public class manager_al3: MonoBehaviour
 			{
 				bloque1.text = "saltar";
 			}
+			if(cmenu == 7)
+			{
+				bloque1.text = "tu padre te a dejado "+manageral2.datosserial.monedas+" monedas";
+				bloque2.text = "recojer dinero de papa";
+				bloque3.text = "dejar dinero de papa";
+			}
 		}
-		if(manager.datosconfig.idioma == "en")
+		if(datosconfig.idioma == "en")
 		{
 			if(jefen == 1)
 			{
@@ -422,8 +617,14 @@ public class manager_al3: MonoBehaviour
 			{
 				bloque1.text = "skip";
 			}
+			if(cmenu == 7)
+			{
+				bloque1.text = "your father has left you "+manageral2.datosserial.monedas+ " coins";
+				bloque2.text = "take daddy's money";
+				bloque3.text = "don't take daddy's money";
+			}
 		}
-		if(manager.datosconfig.idioma == "cat")
+		if(datosconfig.idioma == "cat")
 		{
 			if(jefen == 1)
 			{
@@ -503,6 +704,12 @@ public class manager_al3: MonoBehaviour
 			if(cmenu == 6)
 			{
 				bloque1.text = "saltar";
+			}
+			if(cmenu == 7)
+			{
+				bloque1.text = "el teu pare te a deixat "+manageral2.datosserial.monedas+" monedas";
+				bloque2.text = "recollir diners de en pare";
+				bloque3.text = "deixar diners de en pare";
 			}
 		}
 		jugador1_al3 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al3>();

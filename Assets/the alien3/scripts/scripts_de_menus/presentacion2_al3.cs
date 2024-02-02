@@ -37,7 +37,7 @@ public class presentacion2_al3: MonoBehaviour
         temp += 1 * Time.deltaTime;
         if(temp >= 9)
         {
-            SceneManager.LoadScene("espacio_al3");
+            SceneManager.LoadScene("transferir_al3");
         }
     }
 }

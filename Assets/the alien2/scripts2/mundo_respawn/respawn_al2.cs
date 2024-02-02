@@ -19,12 +19,17 @@ public class respawn_al2 : MonoBehaviour
     }
     private void OnCollisionEnter(Collision col)
 	{
+		manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
 		if (col.gameObject.tag == "Player")
 		{
+			manager.datostrof.alien2muere = 1;
+            manager.guardartro();
 			SceneManager.LoadScene("mundo_abierto_al2");
 		}
 		if (col.gameObject.tag == "Player2")
 		{
+			manager.datostrof.alien2muere = 1;
+            manager.guardartro();
 			SceneManager.LoadScene("mundo_abierto_al2");
 		}
 	}

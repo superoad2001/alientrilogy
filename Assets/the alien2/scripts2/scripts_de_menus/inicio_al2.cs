@@ -50,7 +50,9 @@ public class inicio_al2 : MonoBehaviour
 		}
 		if (this.botonc == true && temp >= 1)
 		{
-			SceneManager.LoadScene("opciones_al2");
+			manager.datosconfig.lastgame = 3;
+            manager.guardarconfig();
+			SceneManager.LoadScene("opcionesbase");
 		}
 		if (this.botond == true && temp >= 1)
 		{

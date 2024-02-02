@@ -293,6 +293,14 @@ public class datos2
 
 	public int fragmentoN3;
 
+	public int tienda1c;
+	public int tienda2c;
+	public int tienda3c;
+	public int tienda4c;
+	public int tienda5c;
+	public int tienda6c;
+	public int tienda7c;
+
 
 	public int pociones;
 

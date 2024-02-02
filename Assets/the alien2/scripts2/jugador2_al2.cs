@@ -442,6 +442,8 @@ public class jugador2_al2 : MonoBehaviour
         {tiempovel += 1 * Time.deltaTime;}
         if (muerte == true)
         {
+            manager.datostrof.alien2muere = 1;
+            manager.guardartro();
             SceneManager.LoadScene("mundo_abierto_al2");
         }
         mc = 0;

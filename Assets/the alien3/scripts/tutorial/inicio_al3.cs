@@ -175,7 +175,9 @@ public class inicio_al3: MonoBehaviour
 		}
 		if (this.botonc == true && temp >= 1)
 		{
-			SceneManager.LoadScene("opciones_al3");
+			manager.datosconfig.lastgame = 4;
+            manager.guardarconfig();
+			SceneManager.LoadScene("opcionesbase");
 		}
 		if (this.botond == true && temp >= 1)
 		{

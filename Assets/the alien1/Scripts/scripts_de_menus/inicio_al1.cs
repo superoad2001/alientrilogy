@@ -29,6 +29,7 @@ public class inicio_al1 : MonoBehaviour
 
 	private void Update()
 	{
+		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
 
 		if(!audio.isPlaying)
 		{
@@ -54,7 +55,9 @@ public class inicio_al1 : MonoBehaviour
 		}
 		if (this.botonc == true && temp >= 1)
 		{
-			SceneManager.LoadScene("opciones_al1");
+			manager.datosconfig.lastgame = 2;
+            manager.guardarconfig();
+			SceneManager.LoadScene("opcionesbase");
 		}
 		if (this.botond == true && temp >= 1)
 		{

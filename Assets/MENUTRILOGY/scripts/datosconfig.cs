@@ -11,4 +11,5 @@ public class datosconfig
     public int plat;
     public int distancia;
     public int postpro;
+    public int lastgame;
 }

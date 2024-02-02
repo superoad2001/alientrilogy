@@ -9,6 +9,8 @@ using System;
 // Token: 0x0200000B RID: 11
 public class manager_al1 : MonoBehaviour
 {
+
+	public int trofeoact;
 	public int nivel = 0;
 	public AudioSource audio;
 	public AudioSource audio1;
@@ -52,6 +54,9 @@ public class manager_al1 : MonoBehaviour
 	public datos1 datosserial;
 	[SerializeField]
 	public datosconfig datosconfig;
+	[SerializeField]
+	public datosextra datostrof;
+	public string repathtro;
 	// Token: 0x06000025 RID: 37 RVA: 0x0000334C File Offset: 0x0000154C
 
 
@@ -112,6 +117,54 @@ public class manager_al1 : MonoBehaviour
  
         repathconfig = result;
     }
+	
+	public void GetFilePathtro()
+    {
+        string result;
+ 
+    #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
+            // mac
+            result = Path.Combine(Application.streamingAssetsPath,"AlienData");
+            result = Path.Combine(result, $"alientorfeodata.data");
+    
+    #elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+            // windows
+            result = Path.Combine(Application.persistentDataPath,"AlienData");
+            result = Path.Combine(result, $"alientorfeodata.data");
+    
+    #elif UNITY_ANDROID
+            // android
+            result = Path.Combine(Application.persistentDataPath,"AlienData");
+            result = Path.Combine(result, $"alientorfeodata.data");
+    
+    #elif UNITY_IOS
+            // ios
+            result = Path.Combine(Application.persistentDataPath,"AlienData");
+            result = Path.Combine(result, $"alientorfeodata.data");
+    #endif
+ 
+        repathtro = result;
+    }
+	public void guardartro()
+    {
+        GetFilePathtro();
+        string path = repathtro;
+        if(File.Exists(path))
+        {
+            string datosconfig2 = JsonUtility.ToJson(datostrof);
+            File.WriteAllText(path,datosconfig2);
+            Debug.Log(datosconfig2);
+        }
+        else if(!File.Exists(path))
+        {
+            System.IO.FileInfo file = new System.IO.FileInfo(path);
+            file.Directory.Create();
+            string datosconfig2 = JsonUtility.ToJson(datostrof);
+            File.WriteAllText(path,datosconfig2);
+            Debug.Log(datosconfig2);
+        }
+        
+    }
 
 	public void guardar()
     {
@@ -130,6 +183,38 @@ public class manager_al1 : MonoBehaviour
             string datosinventario = JsonUtility.ToJson(datosserial);
             File.WriteAllText(path,datosinventario);
             Debug.Log(datosinventario);
+        }
+        
+    }
+	public void guardarconfig()
+    {
+        GetFilePathconfig();
+        string path = repathconfig;
+        if(File.Exists(path))
+        {
+            string datosconfig1 = JsonUtility.ToJson(datosconfig);
+            File.WriteAllText(path,datosconfig1);
+            Debug.Log(datosconfig1);
+        }
+        else if(!File.Exists(path))
+        {
+            System.IO.FileInfo file = new System.IO.FileInfo(path);
+            file.Directory.Create();
+            string datosconfig1 = JsonUtility.ToJson(datosconfig);
+            File.WriteAllText(path,datosconfig1);
+            Debug.Log(datosconfig1);
+        }
+        
+    }
+	public void cargartro()
+    {
+        GetFilePathtro();
+        string path = repathtro;
+        if(File.Exists(path))
+        {
+            string datosconfig2 = File.ReadAllText(path);
+            datostrof = JsonUtility.FromJson<datosextra>(datosconfig2);
+            Debug.Log(datosconfig2);
         }
         
     }
@@ -181,15 +266,27 @@ public class manager_al1 : MonoBehaviour
 
 		cargar();
 		cargarconfig();
+		cargartro();
 	}
 	}
 	public void Start()
 	{
 		cargar();
 		cargarconfig();
+		cargartro();
+
+		if(trofeoact == 1)
+		{datostrof.completaalien1m = 1;}
+		if(trofeoact == 2)
+		{datostrof.completaalien1v = 1;}
+		if(trofeoact == 3)
+		{datostrof.alien1saladelrey = 1;}
+		if(trofeoact == 4)
+		{datostrof.alien1salasecreta = 1;}
+		guardartro();
 
 		jugador_al1 jugador = UnityEngine.Object.FindObjectOfType<jugador_al1>();
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		
 
 		if(datosserial.idioma == "es")
 		{

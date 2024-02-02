@@ -75,6 +75,8 @@ public class enemigo1_al3: MonoBehaviour
         if(vida <= 0)
         {
             manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+            manager.datosserial.enemigos++;
+            manager.guardar();
             if(jefe == 1)
             {
                 if(jefe1_p == 1)

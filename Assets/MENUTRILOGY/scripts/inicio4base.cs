@@ -189,7 +189,14 @@ public class inicio4base : MonoBehaviour
     {
 		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
 		manager.guardar();
-		SceneManager.LoadScene("menutrilogy");
+		if(manager.datosconfig.lastgame == 1)
+		{SceneManager.LoadScene("menutrilogy");}
+		if(manager.datosconfig.lastgame == 2)
+		{SceneManager.LoadScene("menu_de_carga_al1");}
+		if(manager.datosconfig.lastgame == 3)
+		{SceneManager.LoadScene("menu_de_carga_al2");}
+		if(manager.datosconfig.lastgame == 4)
+		{SceneManager.LoadScene("carga_al3");}
     }
 
 

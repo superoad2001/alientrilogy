@@ -33,6 +33,7 @@ public class inicio3base : MonoBehaviour
     }
     public void comenzar()
     {
+        managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
         if(juego == 1)
         {
             SceneManager.LoadScene("presentacion_al1");
@@ -51,6 +52,8 @@ public class inicio3base : MonoBehaviour
         }
         if(juego == 5)
         {
+            manager.datosconfig.lastgame = 1;
+            manager.guardar();
             SceneManager.LoadScene("opcionesbase");
         }
     }

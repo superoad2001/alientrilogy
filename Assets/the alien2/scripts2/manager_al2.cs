@@ -7,7 +7,7 @@ using System;
 public class manager_al2 : MonoBehaviour
 {
 	public int inicio;
-
+	public int trofeoact;
 	public int tuto = 0;
 	public int estado = 0;
 	public int menu = 0;
@@ -124,8 +124,11 @@ public class manager_al2 : MonoBehaviour
 	public datos2 datosserial;
 	[SerializeField]
 	public datosconfig datosconfig;
+	[SerializeField]
+	public datosextra datostrof;
 	public string repath;
 	public string repathconfig;
+	public string repathtro;
 
 
 	public void GetFilePath()
@@ -182,7 +185,53 @@ public class manager_al2 : MonoBehaviour
  
         repathconfig = result;
     }
-
+	public void GetFilePathtro()
+    {
+        string result;
+ 
+    #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
+            // mac
+            result = Path.Combine(Application.streamingAssetsPath,"AlienData");
+            result = Path.Combine(result, $"alientorfeodata.data");
+    
+    #elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+            // windows
+            result = Path.Combine(Application.persistentDataPath,"AlienData");
+            result = Path.Combine(result, $"alientorfeodata.data");
+    
+    #elif UNITY_ANDROID
+            // android
+            result = Path.Combine(Application.persistentDataPath,"AlienData");
+            result = Path.Combine(result, $"alientorfeodata.data");
+    
+    #elif UNITY_IOS
+            // ios
+            result = Path.Combine(Application.persistentDataPath,"AlienData");
+            result = Path.Combine(result, $"alientorfeodata.data");
+    #endif
+ 
+        repathtro = result;
+    }
+	public void guardartro()
+    {
+        GetFilePathtro();
+        string path = repathtro;
+        if(File.Exists(path))
+        {
+            string datosconfig2 = JsonUtility.ToJson(datostrof);
+            File.WriteAllText(path,datosconfig2);
+            Debug.Log(datosconfig2);
+        }
+        else if(!File.Exists(path))
+        {
+            System.IO.FileInfo file = new System.IO.FileInfo(path);
+            file.Directory.Create();
+            string datosconfig2 = JsonUtility.ToJson(datostrof);
+            File.WriteAllText(path,datosconfig2);
+            Debug.Log(datosconfig2);
+        }
+        
+    }
 	public void guardar()
     {
         GetFilePath();
@@ -220,6 +269,18 @@ public class manager_al2 : MonoBehaviour
             string datosconfig1 = JsonUtility.ToJson(datosconfig);
             File.WriteAllText(path,datosconfig1);
             Debug.Log(datosconfig1);
+        }
+        
+    }
+	public void cargartro()
+    {
+        GetFilePathtro();
+        string path = repathtro;
+        if(File.Exists(path))
+        {
+            string datosconfig2 = File.ReadAllText(path);
+            datostrof = JsonUtility.FromJson<datosextra>(datosconfig2);
+            Debug.Log(datosconfig2);
         }
         
     }
@@ -266,13 +327,46 @@ public class manager_al2 : MonoBehaviour
 	{
 		cargar();
 		cargarconfig();
+		cargartro();
 	}
 	private void Start()
 	{
 
 		cargar();
 		cargarconfig();
+		cargartro();
 		jugador1_al2 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al2>();
+
+		if(trofeoact == 1)
+		{datostrof.completaalien2m = 1;}
+		if(trofeoact == 2)
+		{datostrof.completaalien2v = 1;}
+		if(trofeoact == 3)
+		{datostrof.alien2sacaelfinalalternativo = 1;}
+		if(trofeoact == 4)
+		{datostrof.alien2saladelrey = 1;}
+
+		if(trofeoact == 5)
+		{datosserial.tienda1c = 1;}
+		if(trofeoact == 6)
+		{datosserial.tienda2c = 1;}
+		if(trofeoact == 7)
+		{datosserial.tienda3c = 1;}
+		if(trofeoact == 8)
+		{datosserial.tienda4c = 1;}
+		if(trofeoact == 9)
+		{datosserial.tienda5c = 1;}
+		if(trofeoact == 10)
+		{datosserial.tienda6c = 1;}
+		if(trofeoact == 11)
+		{datosserial.tienda7c = 1;}
+
+
+		if(datosserial.tienda1c == 1 && datosserial.tienda2c == 1 && datosserial.tienda3c == 1 && datosserial.tienda4c == 1 && datosserial.tienda5c == 1 && datosserial.tienda6c == 1 && datosserial.tienda7c == 1)
+		{
+			datostrof.alien2compraentodaslastiendas1vez = 1;
+		}
+		guardartro();
 		
 
 		if(datosserial.trozosnv1 == 3)
@@ -1066,6 +1160,18 @@ public class manager_al2 : MonoBehaviour
 	{
 		jugador1_al2 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al2>();
 		jugador2_al2 jugador2 = UnityEngine.Object.FindObjectOfType<jugador2_al2>();
+
+		if(datosserial.monedas >= 1000 && datostrof.alien2ahorra1000monedas != 1)
+		{
+			datostrof.alien2ahorra1000monedas = 1;
+			guardartro();
+		}
+		if(datosserial.vidamaxima ==  6 && datostrof.alien2obtentodaslasmejorasvida != 1)
+		{
+			datostrof.alien2obtentodaslasmejorasvida = 1;
+			guardartro();
+		}
+
 
 		if(datosserial.idioma == "es")
 		{

@@ -21,6 +21,9 @@ public class piso4_al1 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
+			manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+			manager.datostrof.alien1muere = 1;
+			manager.guardartro();
 			SceneManager.LoadScene("piso4_al1");
 		}
 	}

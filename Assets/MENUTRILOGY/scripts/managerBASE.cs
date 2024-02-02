@@ -19,7 +19,10 @@ public class managerBASE : MonoBehaviour
 
 	[SerializeField]
 	public datosconfig datosconfig;
+    [SerializeField]
+	public datosextra datostrof;
 	public string repath;
+    public string repathtro;
 
 
 	public void GetFilePath()
@@ -49,6 +52,33 @@ public class managerBASE : MonoBehaviour
  
         repath = result;
     }
+    public void GetFilePathtro()
+    {
+        string result;
+ 
+    #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
+            // mac
+            result = Path.Combine(Application.streamingAssetsPath,"AlienData");
+            result = Path.Combine(result, $"alientorfeodata.data");
+    
+    #elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+            // windows
+            result = Path.Combine(Application.persistentDataPath,"AlienData");
+            result = Path.Combine(result, $"alientorfeodata.data");
+    
+    #elif UNITY_ANDROID
+            // android
+            result = Path.Combine(Application.persistentDataPath,"AlienData");
+            result = Path.Combine(result, $"alientorfeodata.data");
+    
+    #elif UNITY_IOS
+            // ios
+            result = Path.Combine(Application.persistentDataPath,"AlienData");
+            result = Path.Combine(result, $"alientorfeodata.data");
+    #endif
+ 
+        repathtro = result;
+    }
 
 	public void guardar()
     {
@@ -70,6 +100,26 @@ public class managerBASE : MonoBehaviour
         }
         
     }
+    public void guardartro()
+    {
+        GetFilePathtro();
+        string path = repathtro;
+        if(File.Exists(path))
+        {
+            string datosconfig2 = JsonUtility.ToJson(datostrof);
+            File.WriteAllText(path,datosconfig2);
+            Debug.Log(datosconfig2);
+        }
+        else if(!File.Exists(path))
+        {
+            System.IO.FileInfo file = new System.IO.FileInfo(path);
+            file.Directory.Create();
+            string datosconfig2 = JsonUtility.ToJson(datostrof);
+            File.WriteAllText(path,datosconfig2);
+            Debug.Log(datosconfig2);
+        }
+        
+    }
 
 	public void cargar()
     {
@@ -80,6 +130,18 @@ public class managerBASE : MonoBehaviour
             string datosconfig1 = File.ReadAllText(path);
             datosconfig = JsonUtility.FromJson<datosconfig>(datosconfig1);
             Debug.Log(datosconfig1);
+        }
+        
+    }
+    public void cargartro()
+    {
+        GetFilePathtro();
+        string path = repathtro;
+        if(File.Exists(path))
+        {
+            string datosconfig2 = File.ReadAllText(path);
+            datostrof = JsonUtility.FromJson<datosextra>(datosconfig2);
+            Debug.Log(datosconfig2);
         }
         
     }
@@ -100,11 +162,13 @@ public class managerBASE : MonoBehaviour
 	private void Awake() 
 	{
 		cargar();
+        cargartro();
 	}
 	private void Start()
 	{
 
 		cargar();
+        cargartro();
 
         if(datosconfig.idioma == "es")
 	    {

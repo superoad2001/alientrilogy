@@ -393,7 +393,7 @@ public class jugador_al1 : MonoBehaviour
 				manager.guardar();
 				SceneManager.LoadScene("cinematicafinal_al1");
 			}
-		if(bajar1 == true && tiempoascensor > 3){SceneManager.LoadScene("mundo");}
+		if(bajar1 == true && tiempoascensor > 3){SceneManager.LoadScene("mundo_al1");}
 		if(subir0 == true && tiempoascensor > 3){SceneManager.LoadScene("piso1_al1");}
 		if(subir2 == true && tiempoascensor > 3){SceneManager.LoadScene("piso3_al1");}
 		if(bajar2 == true && tiempoascensor > 3){SceneManager.LoadScene("piso1_al1");}
