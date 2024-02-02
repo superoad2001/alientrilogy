@@ -2523,6 +2523,7 @@ GameObject:
   - component: {fileID: 103188976}
   - component: {fileID: 103188975}
   - component: {fileID: 103188978}
+  - component: {fileID: 103188979}
   m_Layer: 0
   m_Name: normal
   m_TagString: MainCamera
@@ -2764,6 +2765,19 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &103188979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103188973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea72bf7785bee244b4a1b16ea49e12f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
 --- !u!1 &110642042
 GameObject:
   m_ObjectHideFlags: 0
@@ -3133,7 +3147,13 @@ MonoBehaviour:
     recordnv18: 888
     recordnv19: 888
     recordnv20: 888
+  datosconfig:
+    idioma: 
+    plat: 0
+    distancia: 0
+    postpro: 0
   repath: 
+  repathconfig: 
 --- !u!4 &110642044
 Transform:
   m_ObjectHideFlags: 0
@@ -6469,6 +6489,7 @@ GameObject:
   - component: {fileID: 1303696315}
   - component: {fileID: 1303696316}
   - component: {fileID: 1303696317}
+  - component: {fileID: 1303696318}
   m_Layer: 0
   m_Name: normal
   m_TagString: MainCamera
@@ -6554,7 +6575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 1303696315}
+  volumeTrigger: {fileID: 103188974}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -6602,6 +6623,19 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &1303696318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303696314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea72bf7785bee244b4a1b16ea49e12f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
 --- !u!1 &1313934580
 GameObject:
   m_ObjectHideFlags: 0

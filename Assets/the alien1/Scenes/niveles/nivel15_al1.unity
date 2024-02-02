@@ -1908,10 +1908,10 @@ GameObject:
   m_Component:
   - component: {fileID: 197}
   - component: {fileID: 199}
-  - component: {fileID: 554}
   - component: {fileID: 175}
   - component: {fileID: 556}
   - component: {fileID: 557}
+  - component: {fileID: 558}
   m_Layer: 0
   m_Name: normal
   m_TagString: MainCamera
@@ -2335,6 +2335,7 @@ Transform:
   m_LocalScale: {x: 45.00002, y: 45.00002, z: 45.00003}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 197}
   - {fileID: 144}
   - {fileID: 838693749}
   m_Father: {fileID: 128848627}
@@ -2843,8 +2844,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 112.4, z: -1464.3}
   m_LocalScale: {x: 0, y: 45, z: 90}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 197}
+  m_Children: []
   m_Father: {fileID: 194}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &160
@@ -3480,12 +3480,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2}
-  m_LocalScale: {x: 0, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.01, z: -3.12}
+  m_LocalScale: {x: 0, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 159}
+  m_Father: {fileID: 126}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &198
 Transform:
@@ -12744,7 +12744,7 @@ MonoBehaviour:
   mundos: 0
   jugador1: {fileID: 27}
   jefe1: {fileID: 13}
-  normal: {fileID: 199}
+  normal: {fileID: 0}
   tiement: 0
   juego: 2
   tutorial: 0
@@ -13363,22 +13363,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 37}
   velocidadmaxima: 95
---- !u!114 &554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9908c2c53e299b64f896323680045101, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jugador: {fileID: 27}
-  posicion: {x: 100, y: -5, z: -150}
-  posiciond: {x: 0, y: 0, z: 0}
-  posicionmun: {x: 0, y: 0, z: 0}
 --- !u!114 &555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13466,6 +13450,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
+--- !u!95 &558
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e19ed9cda80f15d4b9d4701e3601d884, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &73405161
 GameObject:
   m_ObjectHideFlags: 0
