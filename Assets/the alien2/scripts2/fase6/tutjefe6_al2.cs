@@ -1,0 +1,45 @@
+ using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Rewired;
+using UnityEngine.SceneManagement;
+
+public class tutjefe6_al2 : MonoBehaviour
+{
+    // Start is called before the first frame update
+    public GameObject tactil;
+    public int Ac = 0;
+	[SerializeField]private int playerID = 0;
+	[SerializeField]private Player player;
+    void Start()
+    {
+        player = ReInput.players.GetPlayer(playerID);
+        manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+		if(manager.datosconfig.plat == 1)
+        {
+            tactil.SetActive(false);
+
+        }
+        if(manager.datosconfig.plat == 2)
+        {
+            tactil.SetActive(true);
+
+        }
+    }
+    public void A()
+	{
+		Ac = 1;
+	}
+    public float temp;
+    // Update is called once per frame
+    void Update()
+    {
+        if (player.GetAxis("a")> 0f && temp > 1|| Ac == 1 && temp > 1)
+        {
+            SceneManager.LoadScene("jefe6_1_al2");
+
+        }
+        if( temp < 15)
+        {temp += 1 * Time.deltaTime;}
+    }
+}
