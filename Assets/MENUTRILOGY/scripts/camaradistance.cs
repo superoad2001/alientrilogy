@@ -26,21 +26,21 @@ public class camaradistance : MonoBehaviour
         {
             if(manager1.datosconfig.distancia == 200 || manager1.datosconfig.distancia == 500 || manager1.datosconfig.distancia == 1000 || manager1.datosconfig.distancia == 2000 || manager1.datosconfig.distancia == 3000)
             {
-            cam.farClipPlane = manager0.datosconfig.distancia;
+            cam.farClipPlane = manager1.datosconfig.distancia;
             }
         }
         if(manager2 != null)
         {
             if(manager2.datosconfig.distancia == 200 || manager2.datosconfig.distancia == 500 || manager2.datosconfig.distancia == 1000 || manager2.datosconfig.distancia == 2000 || manager2.datosconfig.distancia == 3000)
             {
-            cam.farClipPlane = manager0.datosconfig.distancia;
+            cam.farClipPlane = manager2.datosconfig.distancia;
             }
         }
         if(manager3 != null)
         {
             if(manager3.datosconfig.distancia == 200 || manager3.datosconfig.distancia == 500 || manager3.datosconfig.distancia == 1000 || manager3.datosconfig.distancia == 2000 || manager3.datosconfig.distancia == 3000)
             {
-            cam.farClipPlane = manager0.datosconfig.distancia;
+            cam.farClipPlane = manager3.datosconfig.distancia;
             }
         }
         
