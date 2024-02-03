@@ -29,26 +29,8 @@ public class managerBASE : MonoBehaviour
     {
         string result;
  
-    #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
-            // mac
-            result = Path.Combine(Application.streamingAssetsPath,"AlienData");
-            result = Path.Combine(result, $"alienconfigdata.data");
-    
-    #elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
-            // windows
-            result = Path.Combine(Application.persistentDataPath,"AlienData");
-            result = Path.Combine(result, $"alienconfigdata.data");
-    
-    #elif UNITY_ANDROID
-            // android
-            result = Path.Combine(Application.persistentDataPath,"AlienData");
-            result = Path.Combine(result, $"alienconfigdata.data");
-    
-    #elif UNITY_IOS
-            // ios
-            result = Path.Combine(Application.persistentDataPath,"AlienData");
-            result = Path.Combine(result, $"alienconfigdata.data");
-    #endif
+        result = Path.Combine(Application.persistentDataPath,"AlienData");
+        result = Path.Combine(result, $"alienconfigdata.data");
  
         repath = result;
     }
@@ -56,26 +38,8 @@ public class managerBASE : MonoBehaviour
     {
         string result;
  
-    #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
-            // mac
-            result = Path.Combine(Application.streamingAssetsPath,"AlienData");
-            result = Path.Combine(result, $"alientorfeodata.data");
-    
-    #elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
-            // windows
-            result = Path.Combine(Application.persistentDataPath,"AlienData");
-            result = Path.Combine(result, $"alientorfeodata.data");
-    
-    #elif UNITY_ANDROID
-            // android
-            result = Path.Combine(Application.persistentDataPath,"AlienData");
-            result = Path.Combine(result, $"alientorfeodata.data");
-    
-    #elif UNITY_IOS
-            // ios
-            result = Path.Combine(Application.persistentDataPath,"AlienData");
-            result = Path.Combine(result, $"alientorfeodata.data");
-    #endif
+        result = Path.Combine(Application.persistentDataPath,"AlienData");
+        result = Path.Combine(result, $"alientorfeodata.data");
  
         repathtro = result;
     }
@@ -208,6 +172,10 @@ public class managerBASE : MonoBehaviour
                 boton3.text = "distancia de dibujado";
                 boton4.text = "post procesado";
             }
+            if(cmenu == 6)
+            {
+                boton1.text = "atras";
+            }
         }
         if(datosconfig.idioma == "en")
 	    {
@@ -247,6 +215,10 @@ public class managerBASE : MonoBehaviour
                 boton3.text = "drawing distance";
                 boton4.text = "post processed";
             }
+            if(cmenu == 6)
+            {
+                boton1.text = "back";
+            }
         }
         if(datosconfig.idioma == "cat")
 	    {
@@ -285,6 +257,10 @@ public class managerBASE : MonoBehaviour
                 boton2.text = "idioma";
                 boton3.text = "distancia de dibuxat";
                 boton4.text = "post procesat";
+            }
+            if(cmenu == 6)
+            {
+                boton1.text = "anrere";
             }
         }
 		

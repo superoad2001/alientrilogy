@@ -135,26 +135,8 @@ public class manager_al2 : MonoBehaviour
     {
         string result;
  
-    #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
-            // mac
-            result = Path.Combine(Application.streamingAssetsPath,"AlienData");
-            result = Path.Combine(result, $"alien2data.data");
-    
-    #elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
-            // windows
-            result = Path.Combine(Application.persistentDataPath,"AlienData");
-            result = Path.Combine(result, $"alien2data.data");
-    
-    #elif UNITY_ANDROID
-            // android
-            result = Path.Combine(Application.persistentDataPath,"AlienData");
-            result = Path.Combine(result, $"alien2data.data");
-    
-    #elif UNITY_IOS
-            // ios
-            result = Path.Combine(Application.persistentDataPath,"AlienData");
-            result = Path.Combine(result, $"alien2data.data");
-    #endif
+		result = Path.Combine(Application.persistentDataPath,"AlienData");
+        result = Path.Combine(result, $"alien2data.data");	
  
         repath = result;
     }
@@ -162,26 +144,8 @@ public class manager_al2 : MonoBehaviour
     {
         string result;
  
-    #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
-            // mac
-            result = Path.Combine(Application.streamingAssetsPath,"AlienData");
-            result = Path.Combine(result, $"alienconfigdata.data");
-    
-    #elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
-            // windows
-            result = Path.Combine(Application.persistentDataPath,"AlienData");
-            result = Path.Combine(result, $"alienconfigdata.data");
-    
-    #elif UNITY_ANDROID
-            // android
-            result = Path.Combine(Application.persistentDataPath,"AlienData");
-            result = Path.Combine(result, $"alienconfigdata.data");
-    
-    #elif UNITY_IOS
-            // ios
-            result = Path.Combine(Application.persistentDataPath,"AlienData");
-            result = Path.Combine(result, $"alienconfigdata.data");
-    #endif
+		result = Path.Combine(Application.persistentDataPath,"AlienData");
+        result = Path.Combine(result, $"alienconfigdata.data");
  
         repathconfig = result;
     }
@@ -189,26 +153,8 @@ public class manager_al2 : MonoBehaviour
     {
         string result;
  
-    #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
-            // mac
-            result = Path.Combine(Application.streamingAssetsPath,"AlienData");
-            result = Path.Combine(result, $"alientorfeodata.data");
-    
-    #elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
-            // windows
-            result = Path.Combine(Application.persistentDataPath,"AlienData");
-            result = Path.Combine(result, $"alientorfeodata.data");
-    
-    #elif UNITY_ANDROID
-            // android
-            result = Path.Combine(Application.persistentDataPath,"AlienData");
-            result = Path.Combine(result, $"alientorfeodata.data");
-    
-    #elif UNITY_IOS
-            // ios
-            result = Path.Combine(Application.persistentDataPath,"AlienData");
-            result = Path.Combine(result, $"alientorfeodata.data");
-    #endif
+		result = Path.Combine(Application.persistentDataPath,"AlienData");
+        result = Path.Combine(result, $"alientorfeodata.data");
  
         repathtro = result;
     }

@@ -41,7 +41,7 @@ public class jugador1_al3: MonoBehaviour
     public bool atkact = true;
     public bool atkact2 = true;
     public bool saltador;
-    public float vida = 2;
+    public float vida = 5;
     public bool muerte;
     public float vidaaux;
     public bool dimensiion;
@@ -178,6 +178,8 @@ public class jugador1_al3: MonoBehaviour
         {
             pasosnave.Play();
         }
+        if(manager.juego != 4)
+        {vida = manager.datosserial.vidamaxima;}
          
         
     }
@@ -271,7 +273,7 @@ public class jugador1_al3: MonoBehaviour
         else{verticalpadc = 0;}
         if(manager.datosconfig.idioma == "es")
         {
-            cuentavidas.text = "VIDAS: "+ (int)vida;
+            cuentavidas.text = "VIT: "+ (int)vida;
         }
         if(manager.datosconfig.idioma == "en")
         {
@@ -279,7 +281,7 @@ public class jugador1_al3: MonoBehaviour
         }
         if(manager.datosconfig.idioma == "cat")
         {
-            cuentavidas.text = "VIDAS: "+ (int)vida;
+            cuentavidas.text = "VIT: "+ (int)vida;
         }
         vidab.fillAmount = vida/vidaaux;
 
