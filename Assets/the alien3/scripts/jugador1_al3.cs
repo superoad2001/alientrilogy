@@ -19,6 +19,7 @@ public class jugador1_al3: MonoBehaviour
     public int gemas;
     public bool lavaaux;
     public bool suelo;
+    public float r3;
     public int proteccion = 1;
     public bool atksb;
     public float temp10;
@@ -88,6 +89,7 @@ public class jugador1_al3: MonoBehaviour
     public float tempselec;
     public bool navemode;
     public float tempdanor;
+    public int armaduramode = 1;
 
 
 
@@ -258,19 +260,13 @@ public class jugador1_al3: MonoBehaviour
         ltc = player.GetAxis("lt");
         rtc = player.GetAxis("rt");
         pausac = player.GetAxis("pausa");
+        r3 = player.GetAxis("r3");
 
 
-        if(player.GetAxis("horizontalpad") > 0)
-        {horizontalpadc = 1;}
-        else if(player.GetAxis("horizontalpad") < 0)
-        {horizontalpadc = -1;}
-        else{horizontalpadc = 0;}
-
-        if(player.GetAxis("verticalpad") > 0)
-        {verticalpadc = 1;}
-        else if(player.GetAxis("verticalpad") < 0)
-        {verticalpadc = -1;}
-        else{verticalpadc = 0;}
+        horizontalpadc = player.GetAxis("horizontalpad");
+        
+        verticalpadc = player.GetAxis("verticalpad");
+        
         if(manager.datosconfig.idioma == "es")
         {
             cuentavidas.text = "VIT: "+ (int)vida;
@@ -519,36 +515,40 @@ public class jugador1_al3: MonoBehaviour
 
 
 
-        if(verticalpadc > 0 && horizontalpadc == 0 && tiendat == false)
+        if(verticalpadc > 0 && horizontalpadc <= 0.5f && horizontalpadc >= -0.5f && tiendat == false)
         {
             manager.datosserial.arma = manager.datosserial.armass2;
             manager.guardar();
         }
-        else if(verticalpadc > 0 && horizontalpadc > 0 && suelo == true && tiendat == false)
+        else if(r3 > 0 && suelo == true && tiendat == false && armaduramode == 2 && temp9 > 0.5f)
         {
             anim.SetBool("jetpack1",false);
             manager.datosserial.armadura = manager.datosserial.armadurass2;
             manager.guardar();
             jumpfcarga = false;
+            armaduramode = 1;
+            temp9 = 0;
         }
-        else if(verticalpadc > 0 && horizontalpadc < 0 && suelo == true && tiendat == false)
+        else if(r3 > 0 && suelo == true && tiendat == false && armaduramode == 1 && temp9 > 0.5f)
         {
             anim.SetBool("jetpack1",false);
             manager.datosserial.armadura = manager.datosserial.armadurass1;
             manager.guardar();
             jumpfcarga = false;
+            armaduramode = 2;
+            temp9 = 0;
         }
         else if(verticalpadc == 0 && horizontalpadc > 0 && tiendat == false)
         {
             manager.datosserial.arma = manager.datosserial.armass3;
             manager.guardar();
         }
-        else if(verticalpadc == 0 && horizontalpadc < 0&& tiendat == false)
+        else if(verticalpadc >= -0.5f && verticalpadc <= 0.5f && horizontalpadc < 0&& tiendat == false)
         {
             manager.datosserial.arma = manager.datosserial.armass1;
             manager.guardar();
         }
-        else if(verticalpadc < 0 && horizontalpadc == 0&& tiendat == false)
+        else if(verticalpadc < 0 && horizontalpadc <= 0.5f && horizontalpadc >= -0.5f&& tiendat == false)
         {
             manager.datosserial.arma = manager.datosserial.armass4;
             manager.guardar();

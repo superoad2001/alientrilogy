@@ -62,6 +62,27 @@ public class inicio_al3: MonoBehaviour
 		if(manager.datosserial.espacio != 0)
 		{manager.datosserial.espacio = espacio;}
 		manager.guardar();
+		if(manager.datosserial.com == 1)
+		{
+			player.GetComponent<jugador1_al3>().enabled = true;
+			if(manager.juego == 1)
+			{
+			cam.GetComponent<movcam_al3>().enabled = true;
+			}
+			menum.Stop();
+			juegom.Play();
+			obj.SetActive(true);
+			canvas.SetActive(false);
+			if(mundo == 0)
+			{
+				audio1.Play();
+			}
+			if(manager.datosconfig.plat == 2)
+			{
+				
+				tactil.SetActive(true);
+			}
+		}
 
 	}
 	public void Awake()
@@ -72,27 +93,6 @@ public class inicio_al3: MonoBehaviour
 			if(manager.datosserial.espacio != 0)
 			{manager.datosserial.espacio = espacio;}
 			manager.guardar();
-			if(manager.datosserial.com == 1)
-			{
-				player.GetComponent<jugador1_al3>().enabled = true;
-				if(manager.juego == 1)
-				{
-				cam.GetComponent<movcam_al3>().enabled = true;
-				}
-				menum.Stop();
-				juegom.Play();
-				obj.SetActive(true);
-				canvas.SetActive(false);
-				if(mundo == 0)
-				{
-					audio1.Play();
-				}
-				if(manager.datosconfig.plat == 2)
-				{
-					
-					tactil.SetActive(true);
-				}
-			}
 		}
 
 

@@ -1119,7 +1119,7 @@ public class manager_al2 : MonoBehaviour
 		}
 
 
-		if(datosserial.idioma == "es")
+		if(datosconfig.idioma == "es")
 		{
 			if(menu == -2)
 			{
@@ -1550,7 +1550,7 @@ public class manager_al2 : MonoBehaviour
 			}
 			}
 		}
-		if(datosserial.idioma == "en")
+		if(datosconfig.idioma == "en")
 		{
 			if(menu == -2)
 			{
@@ -1981,7 +1981,7 @@ public class manager_al2 : MonoBehaviour
 			}
 			}
 		}
-		if(datosserial.idioma == "cat")
+		if(datosconfig.idioma == "cat")
 		{
 			if(menu == -2)
 			{

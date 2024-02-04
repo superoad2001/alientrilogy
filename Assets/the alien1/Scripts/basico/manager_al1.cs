@@ -235,7 +235,7 @@ public class manager_al1 : MonoBehaviour
 		jugador_al1 jugador = UnityEngine.Object.FindObjectOfType<jugador_al1>();
 		
 
-		if(datosserial.idioma == "es")
+		if(datosconfig.idioma == "es")
 		{
 			if (this.piso == 1 && this.datosserial.gemas == 0 && jugador.dentrotienda == false)
 			{
@@ -267,7 +267,7 @@ public class manager_al1 : MonoBehaviour
 				audio6.Play();
 			}
 		}
-		if(datosserial.idioma == "en")
+		if(datosconfig.idioma == "en")
 		{
 			if (this.piso == 1 && this.datosserial.gemas == 0 && jugador.dentrotienda == false)
 			{
@@ -299,7 +299,7 @@ public class manager_al1 : MonoBehaviour
 				audio6en.Play();
 			}
 		}
-		if(datosserial.idioma == "cat")
+		if(datosconfig.idioma == "cat")
 		{
 			if (this.piso == 1 && this.datosserial.gemas == 0 && jugador.dentrotienda == false)
 			{
@@ -390,7 +390,7 @@ public class manager_al1 : MonoBehaviour
 		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
 		
 
-	if(datosserial.idioma == "es")
+	if(datosconfig.idioma == "es")
 	{
 		if(tuto == -2)
 		{
@@ -695,7 +695,7 @@ public class manager_al1 : MonoBehaviour
 			this.mision.text = "MISION fase final: vuela arriba a la plataforma de aterrizaje y sal de esta galaxia";
 		}
 		}
-	if(datosserial.idioma == "en")
+	if(datosconfig.idioma == "en")
 	{
 		if(tuto == -2)
 		{
@@ -1000,7 +1000,7 @@ public class manager_al1 : MonoBehaviour
 			this.mision.text = "MISSION final phase: fly up to the landing platform and get out of this galaxy";
 		}
 		}
-	if(datosserial.idioma == "cat")
+	if(datosconfig.idioma == "cat")
 	{
 		if(tuto == -2)
 		{

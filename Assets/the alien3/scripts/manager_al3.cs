@@ -312,7 +312,7 @@ public class manager_al3: MonoBehaviour
 		
 
 
-		if(niveltouch == true && datosserial.plat == 2)
+		if(niveltouch == true && datosconfig.plat == 2)
 		{
 			touch.SetActive(true);
 		}
