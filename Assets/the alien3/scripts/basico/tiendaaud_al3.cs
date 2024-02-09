@@ -8,7 +8,16 @@ public class tiendaaud_al3: MonoBehaviour
     public AudioSource audes;
     public AudioSource auden;
     public AudioSource audcat;
+
+
+
+    public AudioSource audio1;
+	public AudioSource audio1es;
+	public AudioSource audio1en;
+	public AudioSource audio1cat;
     public bool arma = true;
+
+    public bool tut = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +34,21 @@ public class tiendaaud_al3: MonoBehaviour
         {
             aud = audcat;
         }
+
+
+        
+        if (manager.datosconfig.idioma == "es")
+		{
+			audio1 = audio1es;
+		}
+		if (manager.datosconfig.idioma == "en")
+		{
+			audio1 = audio1en;
+		}
+		if (manager.datosconfig.idioma == "cat")
+		{
+			audio1 = audio1cat;
+		}
     }
 
     // Update is called once per frame
@@ -37,6 +61,8 @@ public class tiendaaud_al3: MonoBehaviour
         if(col.gameObject.tag == "Player" && arma == true)
         {
         aud.Play();
+        if(tut == true)
+        {audio1.Stop();}
         }
     }
     private void OnTriggerExit(Collider col)

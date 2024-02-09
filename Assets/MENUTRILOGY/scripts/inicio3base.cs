@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Rewired;
 
 public class inicio3base : MonoBehaviour
 {
 
+    [SerializeField]private int playerID = 0;
+	[SerializeField]private Player player;
     public Text logo1;
     public Text logo2;
     public Text logo3;
@@ -60,12 +63,20 @@ public class inicio3base : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = ReInput.players.GetPlayer(playerID);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(player.GetAxis("horizontalpad") > 0)
+        {
+            der();
+        }
+        if(player.GetAxis("horizontalpad") < 0)
+        {
+            izq();
+        }
         managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
         if(juego == 1) 
         {
@@ -124,7 +135,18 @@ public class inicio3base : MonoBehaviour
             logoo4.transform.localPosition = new Vector3(453.5f,-23f,0f);
             logo3.fontSize = 73;
             logo4.fontSize = 289;
-            logo3.text = "extras";
+            if(manager.datosconfig.idioma == "es")
+            {
+            logo3.text = "trofeos";
+            }
+            if(manager.datosconfig.idioma == "en")
+            {
+            logo3.text = "trophys";
+            }
+            if(manager.datosconfig.idioma == "cat")
+            {
+            logo3.text = "trofeus";
+            }
             logo4.text = "";
         }
         if(juego == 5) 

@@ -441,7 +441,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2819642, g: 0.3840419, b: 0.5119389, a: 1}
+  m_IndirectSpecularColor: {r: 0.28211257, g: 0.38412246, b: 0.51195127, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!108 &34
 Light:
@@ -981,6 +981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917b465516839374ba08c92e1110147b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trofeoact: 0
   jefen: 0
   cmenu: 7
   menu: 0
@@ -1032,6 +1033,7 @@ MonoBehaviour:
     armastotal: 0
     armadurastotal: 0
     diariostotal: 0
+    enemigos: 0
     tdiario1: 0
     tdiario2: 0
     tdiario3: 0
@@ -1157,6 +1159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inicio: 0
+  trofeoact: 0
   tuto: 0
   estado: 0
   menu: 0
@@ -1383,6 +1386,13 @@ MonoBehaviour:
     fragmentoN1: 0
     fragmentoN2: 0
     fragmentoN3: 0
+    tienda1c: 0
+    tienda2c: 0
+    tienda3c: 0
+    tienda4c: 0
+    tienda5c: 0
+    tienda6c: 0
+    tienda7c: 0
     pociones: 0
     pocionvel: 0
     pocioninvul: 0
@@ -1723,11 +1733,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.02414448, g: 0, b: 0.7169812, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0, b: 0, a: 1}
-    m_PressedColor: {r: 0.227451, g: 0, b: 0, a: 1}
-    m_SelectedColor: {r: 0.227451, g: 0, b: 0, a: 1}
-    m_DisabledColor: {r: 0.227451, g: 0, b: 0, a: 0.5019608}
+    m_NormalColor: {r: 0.02414448, g: 0, b: 0.7169812, a: 0.46666667}
+    m_HighlightedColor: {r: 0.023529414, g: 0, b: 0.7176471, a: 1}
+    m_PressedColor: {r: 0.023529414, g: 0, b: 0.7176471, a: 1}
+    m_SelectedColor: {r: 0.023529414, g: 0, b: 0.7176471, a: 1}
+    m_DisabledColor: {r: 0.023529414, g: 0, b: 0.7176471, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1778,8 +1788,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -1571778360, guid: 2edce19a67e1a1b49aa3c3e681b2f452, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1935,11 +1945,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.02414448, g: 0, b: 0.7169812, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0, b: 0, a: 1}
-    m_PressedColor: {r: 0.227451, g: 0, b: 0, a: 1}
-    m_SelectedColor: {r: 0.227451, g: 0, b: 0, a: 1}
-    m_DisabledColor: {r: 0.227451, g: 0, b: 0, a: 0.5019608}
+    m_NormalColor: {r: 0.02414448, g: 0, b: 0.7169812, a: 0.46666667}
+    m_HighlightedColor: {r: 0.023529414, g: 0, b: 0.7176471, a: 1}
+    m_PressedColor: {r: 0.023529414, g: 0, b: 0.7176471, a: 1}
+    m_SelectedColor: {r: 0.023529414, g: 0, b: 0.7176471, a: 1}
+    m_DisabledColor: {r: 0.023529414, g: 0, b: 0.7176471, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1990,8 +2000,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -1571778360, guid: 2edce19a67e1a1b49aa3c3e681b2f452, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
