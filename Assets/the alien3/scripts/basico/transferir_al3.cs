@@ -24,8 +24,6 @@ public class transferir_al3 : MonoBehaviour
         manager.datosserial.monedas += manager2.datosserial.monedas;
         manager.datosserial.herencia = 1;
         manager.guardar();
-        manager.datostrof.alien3aceptalaherencia = 1;
-        manager.guardartro();
         if(ver == 1)
         {SceneManager.LoadScene("espacio_al3");}
         if(ver == 2)

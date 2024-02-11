@@ -24,6 +24,14 @@ public class saltador_al2 : MonoBehaviour
 
 				jugador.tiemposalto = 0.5f;
 				jugador.saltador = true;
+				pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+				manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+				if(manager.datostrof.alien2usaelsaltador == 0)
+				{
+					manager.datostrof.alien2usaelsaltador = 1;
+					manager.guardartro();
+					push.push(38);
+				}
 
 		}
 	}

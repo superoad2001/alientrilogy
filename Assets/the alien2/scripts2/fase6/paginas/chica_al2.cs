@@ -26,6 +26,7 @@ public class chica_al2 : MonoBehaviour
 
     public void OnTriggerEnter(Collider col)
     {
+        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
         manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
         if (col.gameObject.tag == "Player")
 		{
@@ -37,6 +38,13 @@ public class chica_al2 : MonoBehaviour
             {audioen.Play();}
             manager.datosserial.finalbueno = 1;
             manager.guardar();
+
+            if(manager.datostrof.alien2hablarcontumujer == 0)
+            {
+                manager.datostrof.alien2hablarcontumujer = 1;
+                manager.guardartro();
+                push.push(28);
+            }
 		}
     }
 

@@ -27,6 +27,7 @@ public class armadt_al3: MonoBehaviour
         manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
         manager.datosserial.armadura = armad;
         manager.datosserial.tarmad[armad] = 1;
+        manager.datosserial.armadurastotal++;
         
         manager.guardar();
         audio0.Play();

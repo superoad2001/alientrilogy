@@ -20,13 +20,16 @@ public class acttroobj_al3 : MonoBehaviour
     private void OnCollisionEnter(Collision col)
 	{
         manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
 		if (col.gameObject.tag == "Player")
 		{
-            if(trofeo == 1)
+            if(trofeo == 1 && manager.datostrof.alien3huevooculto == 0)
             {
                 
                 manager.datostrof.alien3huevooculto = 1;
                 manager.guardartro();
+                push.push(100);
+                
             }
             aviso.Play();
         }

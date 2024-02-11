@@ -21,6 +21,7 @@ public class nivel14_c1_al2 : MonoBehaviour
 		if (col.gameObject.tag == "Player" && manager.datosserial.nivel14ch1 == 0)
 		{
 			manager.datosserial.nivel14ch1 = 1;
+			manager.datosserial.checkpoints++;
 			manager.guardar();
 			audio1.Play();
 

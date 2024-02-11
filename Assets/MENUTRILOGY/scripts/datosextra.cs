@@ -58,6 +58,16 @@ public class datosextra
     public int alien2desbloqueaelcheckpoint1delnivel1;
     public int alien2usaelsaltador;
     public int alien2usaelacelerador;
+    public int alien2usalanaveenelespacio;
+
+
+
+
+
+
+
+
+
     public int completaalien2m;
     public int completaalien3m;
     public int alien3huevooculto;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.38134724, g: 0.46806973, b: 0.6135808, a: 1}
+  m_IndirectSpecularColor: {r: 0.3813185, g: 0.46816975, b: 0.6135837, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &48
 LightmapSettings:
@@ -323,11 +323,11 @@ MonoBehaviour:
   verticalActionId: -1
   submitActionId: -1
   cancelActionId: -1
-  m_HorizontalAxis: lhorizontal
-  m_VerticalAxis: lvertical
+  m_HorizontalAxis: 
+  m_VerticalAxis: verticalpad
   m_SubmitButton: a
   m_CancelButton: 
-  m_InputActionsPerSecond: 10
+  m_InputActionsPerSecond: 2
   m_RepeatDelay: 0
   m_allowMouseInput: 1
   m_allowMouseInputIfTouchSupported: 1
@@ -581,67 +581,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 188643440}
   m_CullTransparentMesh: 1
---- !u!1001 &338469079
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020285497824951370, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_Name
-      value: Rewired Input Manager (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
 --- !u!1001 &379999468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -757,10 +696,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 991246977}
-    m_SelectOnDown: {fileID: 1152024230}
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 991246977}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 991246977}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0.56078434}
@@ -1279,7 +1218,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 144584692}
-  - {fileID: 802581117}
   - {fileID: 1436589483}
   - {fileID: 560637140}
   - {fileID: 33246268}
@@ -1454,104 +1392,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &802581116
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 802581117}
-  - component: {fileID: 802581120}
-  - component: {fileID: 802581119}
-  - component: {fileID: 802581118}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &802581117
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802581116}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -469.13052, y: -249.91066, z: 0}
-  m_LocalScale: {x: 1.0960994, y: 1.0960994, z: 1.0960994}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 750305627}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &802581118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802581116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10efa70eea88e69459c632aac286892d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  rewiredInputManager: {fileID: 0}
-  useAllRewiredGamePlayers: 0
-  useRewiredSystemPlayer: 0
-  rewiredPlayerIds: 00000000
-  usePlayingPlayersOnly: 0
-  playerMice: []
-  moveOneElementPerAxisPress: 0
-  setActionsById: 0
-  horizontalActionId: -1
-  verticalActionId: -1
-  submitActionId: -1
-  cancelActionId: -1
-  m_HorizontalAxis: lhorizontal
-  m_VerticalAxis: lvertical
-  m_SubmitButton: a
-  m_CancelButton: 
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0
-  m_allowMouseInput: 1
-  m_allowMouseInputIfTouchSupported: 1
-  m_allowTouchInput: 1
-  m_deselectIfBackgroundClicked: 1
-  m_deselectBeforeSelecting: 1
-  m_ForceModuleActive: 0
---- !u!114 &802581119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802581116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a64ed98c1a9f1148a0c628be414deea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &802581120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802581116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 991246976}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
 --- !u!1 &896072115
 GameObject:
   m_ObjectHideFlags: 0
@@ -2392,19 +2232,33 @@ MonoBehaviour:
     plat: 0
     distancia: 0
     postpro: 0
+    resoluciones: 0
     lastgame: 0
+    aplicarres: 0
   datostrof:
     completaalien1v: 0
-    completaalien2v: 0
-    completaalien3v: 0
     completaalien1m: 0
-    completaalien2m: 0
-    completaalien3m: 0
     alien1huevooculto: 0
     alien1muere: 0
     alien1secretobajoelasteroide: 0
     alien1saladelrey: 0
     alien1salasecreta: 0
+    alien1mejora1: 0
+    alien1mejora2: 0
+    alien1mejora3: 0
+    alien1mejora4: 0
+    alien1mejora5: 0
+    alien1consigue1gema: 0
+    alien1consigue10monedas: 0
+    alien1consigue50monedas: 0
+    alien1consiguelagrangema: 0
+    alien1consigue15gemas: 0
+    alien1usaelcochedelmundo: 0
+    alien1usalanaveenelespacio: 0
+    alien1visitaotroasteroide: 0
+    alien1primeracinematica: 0
+    completaalien2v: 0
+    completaalien3v: 0
     alien2huevooculto: 0
     alien2muere: 0
     alien2ahorra1000monedas: 0
@@ -2412,6 +2266,29 @@ MonoBehaviour:
     alien2saladelrey: 0
     alien2compraentodaslastiendas1vez: 0
     alien2sacaelfinalalternativo: 0
+    alien2mejora1: 0
+    alien2mejora2: 0
+    alien2mejora3: 0
+    alien2mejora4: 0
+    alien2mejora5: 0
+    alien2hablarcontumujer: 0
+    alien2primeracinematica: 0
+    alien2unapaginadeldiario: 0
+    alien2consigue4llaves: 0
+    alien2consiguetodaslaspaginas: 0
+    alien2escuchaunapaginadeldiario: 0
+    alien2usaelcochedelmundo: 0
+    alien2hipnotizaunpirata: 0
+    alien2abrelatiendabloqueadadelaprimerazona: 0
+    alien2encuentralatiendaocultadelasegundazona: 0
+    alien2usalanavegumi: 0
+    alien2desbloqueatodosloscheckpoits: 0
+    alien2desbloqueaelcheckpoint1delnivel1: 0
+    alien2usaelsaltador: 0
+    alien2usaelacelerador: 0
+    alien2usalanaveenelespacio: 0
+    completaalien2m: 0
+    completaalien3m: 0
     alien3huevooculto: 0
     alien3consiguetodaslasarmas: 0
     alien3ahorra5000monedas: 0
@@ -2423,8 +2300,49 @@ MonoBehaviour:
     alien3gastatodalamuniciondetodaslasarmas: 0
     alien3muere: 0
     alien3aceptalaherencia: 0
+    alien3jefe1: 0
+    alien3jefe2: 0
+    alien3jefe3: 0
+    alien3jefe4: 0
+    alien3jefe5: 0
+    alien3jefe6: 0
+    alien3jefe1nave: 0
+    alien3jefe5nave: 0
+    alien3primeramejoradevida: 0
+    alien3primeraarma: 0
+    alien3primeraarmadura: 0
+    alien3entraalmenuextras: 0
+    alien3entraalaguiadelpause: 0
+    alien3entraaseleccionrapidaenelpause: 0
+    alien3consiguetodaslaspaginas: 0
+    alien3escuchaunapagina: 0
+    alien3consigue10gemas: 0
+    alien3consigue20gemas: 0
+    alien3consigue40gemas: 0
+    alien3consigue70gemas: 0
+    alien3consigue100gemas: 0
+    alien3compraladestructora: 0
+    alien3planeta1nave: 0
+    alien3planeta2nave: 0
+    alien3planeta3nave: 0
+    alien3planeta4nave: 0
+    alien3planeta5nave: 0
+    alien3planeta6nave: 0
+    alien3planeta7nave: 0
+    alien3planeta8nave: 0
+    alien3planeta9nave: 0
+    alien3planeta10nave: 0
+    alien3planeta11nave: 0
+    alien3planeta12nave: 0
+    alien3planeta13nave: 0
+    alien3planeta14nave: 0
+    alien3planeta15nave: 0
+    alien3planeta16nave: 0
+    alien3planeta17nave: 0
   repath: 
   repathtro: 
+  opcres: 0
+  opcionesr: []
 --- !u!4 &1381835887
 Transform:
   m_ObjectHideFlags: 0
@@ -2519,6 +2437,63 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: THE ALIEN
+--- !u!1001 &1436820220
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493714, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_Name
+      value: Rewired Input Manager_al3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
 --- !u!1001 &1468118379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3015,6 +2990,7 @@ MonoBehaviour:
   logoo3: {fileID: 33246267}
   logoo4: {fileID: 1125536943}
   juego: 1
+  temp: 0
 --- !u!4 &1875354168
 Transform:
   m_ObjectHideFlags: 0
@@ -3871,5 +3847,5 @@ SceneRoots:
   - {fileID: 1897430739}
   - {fileID: 736672825}
   - {fileID: 1369375796}
-  - {fileID: 338469079}
   - {fileID: 379999468}
+  - {fileID: 1436820220}

@@ -1197,6 +1197,7 @@ public class tienda_al3: MonoBehaviour
             municion = false;
             tutp3.Play();
             manager.datosserial.arma = 1;
+            manager.datosserial.armastotal++;
             manager.guardar();
             }
             else
@@ -1211,7 +1212,7 @@ public class tienda_al3: MonoBehaviour
 			manager.datosserial.monedas -= 30;
 			manager.datosserial.monedas -= 30;
 			manager.datosserial.tarma[1] = 1;
-            manager.guardar();
+            
             pocionvida = false;
             pocionres = false;
             pocionfuerza = false;
@@ -1231,7 +1232,9 @@ public class tienda_al3: MonoBehaviour
             arma14 = false;
             arma15 = false;
             municion = false;
+            manager.datosserial.armastotal++;
             manager.datosserial.arma = 2;
+            manager.guardar();
             }
             else
             {
@@ -1266,6 +1269,8 @@ public class tienda_al3: MonoBehaviour
             arma15 = false;
             municion = false;
             manager.datosserial.arma = 3;
+            manager.datosserial.armastotal++;
+            manager.guardar();
             }
             else
             {
@@ -1300,6 +1305,8 @@ public class tienda_al3: MonoBehaviour
             arma15 = false;
             municion = false;
             manager.datosserial.arma = 4;
+            manager.datosserial.armastotal++;
+            manager.guardar();
             }
             else
             {
@@ -1334,6 +1341,8 @@ public class tienda_al3: MonoBehaviour
             arma15 = false;
             municion = false;
             manager.datosserial.arma = 5;
+            manager.datosserial.armastotal++;
+            manager.guardar();
             }
             else
             {
@@ -1368,6 +1377,8 @@ public class tienda_al3: MonoBehaviour
             arma15 = false;
             municion = false;
             manager.datosserial.arma = 6;
+            manager.datosserial.armastotal++;
+            manager.guardar();
             }
             else
             {
@@ -1402,6 +1413,8 @@ public class tienda_al3: MonoBehaviour
             arma15 = false;
             municion = false;
             manager.datosserial.arma = 7;
+            manager.datosserial.armastotal++;
+            manager.guardar();
             }
             else
             {
@@ -1436,6 +1449,8 @@ public class tienda_al3: MonoBehaviour
             arma15 = false;
             municion = false;
             manager.datosserial.arma = 8;
+            manager.datosserial.armastotal++;
+            manager.guardar();
             }
             else
             {
@@ -1470,6 +1485,8 @@ public class tienda_al3: MonoBehaviour
             arma15 = false;
             municion = false;
             manager.datosserial.arma = 9;
+            manager.datosserial.armastotal++;
+            manager.guardar();
             }
             else
             {
@@ -1504,6 +1521,8 @@ public class tienda_al3: MonoBehaviour
             arma15 = false;
             municion = false;
             manager.datosserial.arma = 10;
+            manager.datosserial.armastotal++;
+            manager.guardar();
             }
             else
             {
@@ -1538,6 +1557,8 @@ public class tienda_al3: MonoBehaviour
             arma15 = false;
             municion = false;
             manager.datosserial.arma = 11;
+            manager.datosserial.armastotal++;
+            manager.guardar();
             }
             else
             {
@@ -1572,6 +1593,8 @@ public class tienda_al3: MonoBehaviour
             arma15 = false;
             municion = false;
             manager.datosserial.arma = 12;
+            manager.datosserial.armastotal++;
+            manager.guardar();
             }
             else
             {
@@ -1606,6 +1629,8 @@ public class tienda_al3: MonoBehaviour
             arma15 = false;
             municion = false;
             manager.datosserial.arma = 13;
+            manager.datosserial.armastotal++;
+            manager.guardar();
             }
             else
             {
@@ -1640,6 +1665,8 @@ public class tienda_al3: MonoBehaviour
             arma15 = false;
             municion = false;
             manager.datosserial.arma = 14;
+            manager.datosserial.armastotal++;
+            manager.guardar();
             }
             else
             {
@@ -1653,7 +1680,6 @@ public class tienda_al3: MonoBehaviour
 			manager.datosserial.monedas -= 2000;
 			manager.datosserial.monedas -= 2000;
             manager.datosserial.tarma[14] = 1;
-            manager.guardar();
             pocionvida = false;
             pocionres = false;
             pocionfuerza = false;
@@ -1674,6 +1700,16 @@ public class tienda_al3: MonoBehaviour
             arma15 = false;
             municion = false;
             manager.datosserial.arma = 15;
+            manager.datosserial.armastotal++;
+            manager.guardar();
+            pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+
+            if(manager.datostrof.alien3compraladestructora == 0)
+            {
+                manager.datostrof.alien3compraladestructora = 1;
+                manager.guardartro();
+                push.push(96);
+            }
             }
             else
             {

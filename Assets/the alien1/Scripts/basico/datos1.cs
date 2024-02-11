@@ -51,6 +51,8 @@ public class datos1
 
 	public int tengosalto;
 
+	public bool alien1muere;
+
 	public int tengonave;
 
 	public int fragmento;

@@ -26,11 +26,15 @@ public class tiendavel_al1 : MonoBehaviour
 	// Token: 0x060001E8 RID: 488 RVA: 0x00007294 File Offset: 0x00005494
 	private void OnTriggerEnter(Collider col)
 	{
+		pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
 		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
 		if (col.gameObject.tag == "Player")
 		{
 			manager.datosserial.tengovel = 1;
 			manager.guardar();
+			manager.datostrof.alien1mejora1 = 1;
+			manager.guardartro();
+			push.push(2);
 			UnityEngine.Object.Destroy(base.gameObject);
 		}
 	}

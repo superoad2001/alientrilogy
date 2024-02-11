@@ -34,6 +34,7 @@ public class dia1_al2 : MonoBehaviour
     public void OnTriggerEnter(Collider col)
     {
         manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
         if (col.gameObject.tag == "Player")
 		{
 			if(manager.datosconfig.idioma == "es")
@@ -42,6 +43,12 @@ public class dia1_al2 : MonoBehaviour
             {audiocat.Play();}
             if(manager.datosconfig.idioma == "en")
             {audioen.Play();}
+            if(manager.datostrof.alien2escuchaunapaginadeldiario == 0)
+            {
+                manager.datostrof.alien2escuchaunapaginadeldiario = 1;
+                push.push(26);
+                manager.guardartro();
+            }
 		}
     }
 

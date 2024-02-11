@@ -20,6 +20,8 @@ public class datos3
 	public int diariostotal;
 	public int enemigos;
 
+	public int alien3muere;
+
 
 	public int tdiario1;
 	public int tdiario2;

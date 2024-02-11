@@ -133,8 +133,10 @@ public class enemigo1_al3: MonoBehaviour
             if(manager.jefe1_act1 == true && manager.jefe1_act2 == true)
             {
                 if(manager.datosserial.espacio2act == 0)
-                {manager.datosserial.espacio2act = 1;
-                manager.guardar();}
+                {
+                    manager.datosserial.espacio2act = 1;
+                    manager.guardar();
+                }
                 SceneManager.LoadScene("escena3_al3");
             }
             

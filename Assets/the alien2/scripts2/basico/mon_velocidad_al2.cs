@@ -26,6 +26,14 @@ public class mon_velocidad_al2 : MonoBehaviour
 			jugador.velozidad();
 			jugador.velocidad = this.velocidadmaxima;
 			audio1.Play();
-		}
+			pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+			manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+            if(manager.datostrof.alien2usaelacelerador== 0)
+            {
+                manager.datostrof.alien2usaelacelerador = 1;
+                manager.guardartro();
+                push.push(37);
+            }
+        }
 	}
 }

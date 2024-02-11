@@ -29,8 +29,13 @@ public class tiendasalto_al1 : MonoBehaviour
 		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
 		if (col.gameObject.tag == "Player")
 		{
+			pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
 			manager.datosserial.tengosalto = 1;
 			manager.guardar();
+			manager.datostrof.alien1mejora3 = 1;
+			manager.guardartro();
+			push.push(4);
+			
 			UnityEngine.Object.Destroy(base.gameObject);
 		}
 	}

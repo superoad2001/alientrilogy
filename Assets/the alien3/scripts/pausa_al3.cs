@@ -130,10 +130,6 @@ public class pausa_al3: MonoBehaviour
 	public int tdiario14;
 	public int tdiario15;
 
-    public int armastotal;
-	public int armadurastotal;
-	public int diariostotal;
-
     public GameObject guia;
 	public GameObject guia2;
     public bool guiaboton;
@@ -2995,6 +2991,14 @@ public class pausa_al3: MonoBehaviour
     }
     public void seleccion()
     {
+        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+		pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        if(manager.datostrof.alien3entraaseleccionrapidaenelpause == 0)
+        {
+            manager.datostrof.alien3entraaseleccionrapidaenelpause = 1;
+            manager.guardartro();
+            push.push(79);
+        }
         menuc.SetActive(false);
         seleccionc.SetActive(true);
     }
@@ -3005,118 +3009,34 @@ public class pausa_al3: MonoBehaviour
     }
     public void inventario()
     {
-        diariostotal = 0;
-        armastotal = 0;
-        armadurastotal = 0;
-        if(manager.datosserial.tdiario1 == 1)
-		{diariostotal++;}
-		if(manager.datosserial.tdiario2 == 1)
-		{diariostotal++;}
-		if(manager.datosserial.tdiario3 == 1)
-		{diariostotal++;}
-		if(manager.datosserial.tdiario4 == 1)
-		{diariostotal++;}
-		if(manager.datosserial.tdiario5 == 1)
-		{diariostotal++;}
-		if(manager.datosserial.tdiario6 == 1)
-		{diariostotal++;}
-		if(manager.datosserial.tdiario7 == 1)
-		{diariostotal++;}
-		if(manager.datosserial.tdiario8 == 1)
-		{diariostotal++;}
-		if(manager.datosserial.tdiario9 == 1)
-		{diariostotal++;}
-		if(manager.datosserial.tdiario10 == 1)
-		{diariostotal++;}
-		if(manager.datosserial.tdiario11 == 1)
-		{diariostotal++;}
-		if(manager.datosserial.tdiario12 == 1)
-		{diariostotal++;}
-		if(manager.datosserial.tdiario13 == 1)
-		{diariostotal++;}
-		if(manager.datosserial.tdiario14 == 1)
-		{diariostotal++;}
-		if(manager.datosserial.tdiario15 == 1)
-		{diariostotal++;}
 
-        if(manager.datosserial.tarma[0] == 1)
-		{armastotal++;}
-        if(manager.datosserial.tarma[1] == 1)
-		{armastotal++;}
-        if(manager.datosserial.tarma[2] == 1)
-		{armastotal++;}
-        if(manager.datosserial.tarma[3] == 1)
-		{armastotal++;}
-        if(manager.datosserial.tarma[4] == 1)
-		{armastotal++;}
-        if(manager.datosserial.tarma[5] == 1)
-		{armastotal++;}
-        if(manager.datosserial.tarma[6] == 1)
-		{armastotal++;}
-        if(manager.datosserial.tarma[7] == 1)
-		{armastotal++;}
-        if(manager.datosserial.tarma[8] == 1)
-		{armastotal++;}
-        if(manager.datosserial.tarma[9] == 1)
-		{armastotal++;}
-        if(manager.datosserial.tarma[10] == 1)
-		{armastotal++;}
-        if(manager.datosserial.tarma[11] == 1)
-		{armastotal++;}
-        if(manager.datosserial.tarma[12] == 1)
-		{armastotal++;}
-        if(manager.datosserial.tarma[13] == 1)
-		{armastotal++;}
-        if(manager.datosserial.tarma[14] == 1)
-		{armastotal++;}
-
-        if(manager.datosserial.tarmad[0] == 1)
-		{armadurastotal++;}
-        if(manager.datosserial.tarmad[1] == 1)
-		{armadurastotal++;}
-        if(manager.datosserial.tarmad[2] == 1)
-		{armadurastotal++;}
-        if(manager.datosserial.tarmad[3] == 1)
-		{armadurastotal++;}
-        if(manager.datosserial.tarmad[4] == 1)
-		{armadurastotal++;}
-        if(manager.datosserial.tarmad[5] == 1)
-		{armadurastotal++;}
-        if(manager.datosserial.tarmad[6] == 1)
-		{armadurastotal++;}
-        if(manager.datosserial.tarmad[7] == 1)
-		{armadurastotal++;}
-        if(manager.datosserial.tarmad[8] == 1)
-		{armadurastotal++;}
-        if(manager.datosserial.tarmad[9] == 1)
-		{armadurastotal++;}
         
         if(manager.datosconfig.idioma == "es")
         {
             vidai.text = "pociones de vida : x"+manager.datosserial.pociones;
             fuerzai.text = "pociones de fuerza : x"+manager.datosserial.pocionfue;
             resi.text = "pociones de resistencia : x"+manager.datosserial.pocionres;
-            armasi.text = "armas : "+armastotal+"/15";
-            armadurasi.text = "armaduras : "+armadurastotal+"/10";
-            diariosi.text = "diarios de papa : "+diariostotal+"/15";
+            armasi.text = "armas : "+manager.datosserial.armastotal+"/15";
+            armadurasi.text = "armaduras : "+manager.datosserial.armadurastotal+"/10";
+            diariosi.text = "diarios de papa : "+manager.datosserial.diariostotal+"/15";
         }
         if(manager.datosconfig.idioma == "en")
         {
             vidai.text = "life potions : x"+manager.datosserial.pociones;
             fuerzai.text = "strength potions : x"+manager.datosserial.pocionfue;
             resi.text = "stamina potions : x"+manager.datosserial.pocionres;
-            armasi.text = "guns : "+armastotal+"/15";
-            armadurasi.text = "armors : "+armadurastotal+"/10";
-            diariosi.text = "dad diaries : "+diariostotal+"/15";
+            armasi.text = "guns : "+manager.datosserial.armastotal+"/15";
+            armadurasi.text = "armors : "+manager.datosserial.armadurastotal+"/10";
+            diariosi.text = "dad diaries : "+manager.datosserial.diariostotal+"/15";
         }
         if(manager.datosconfig.idioma == "cat")
         {
             vidai.text = "pocions de vida : x"+manager.datosserial.pociones;
             fuerzai.text = "pocions de forca : x"+manager.datosserial.pocionfue;
             resi.text = "pocions de resistencia : x"+manager.datosserial.pocionres;
-            armasi.text = "armas : "+armastotal+"/15";
-            armadurasi.text = "armadures : "+armadurastotal+"/10";
-            diariosi.text = "diaris de papa : "+diariostotal+"/15";
+            armasi.text = "armas : "+manager.datosserial.armastotal+"/15";
+            armadurasi.text = "armadures : "+manager.datosserial.armadurastotal+"/10";
+            diariosi.text = "diaris de papa : "+manager.datosserial.diariostotal+"/15";
         }
         
         menuc.SetActive(false);
@@ -3124,13 +3044,30 @@ public class pausa_al3: MonoBehaviour
     }
     public void extras()
     {
+        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+		pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        if(manager.datostrof.alien3entraalmenuextras == 0)
+        {
+            manager.datostrof.alien3entraalmenuextras = 1;
+            manager.guardartro();
+            push.push(78);
+        }
         menuc.SetActive(false);
         extrasc.SetActive(true);
     }
     public void guia_()
     {
+        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+		pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        if(manager.datostrof.alien3entraalaguiadelpause == 0)
+        {
+            manager.datostrof.alien3entraalaguiadelpause = 1;
+            manager.guardartro();
+            push.push(77);
+        }
         menuc.SetActive(false);
         guiac.SetActive(true);
+
     }
     public void guia_2_()
     {
@@ -4194,6 +4131,13 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
+		pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        if(manager.datostrof.alien3escuchaunapagina == 0)
+        {
+            manager.datostrof.alien3escuchaunapagina = 1;
+            manager.guardartro();
+            push.push(86);
+        }
         }
         else{no.Play();}
     }
@@ -4216,6 +4160,13 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
+        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        if(manager.datostrof.alien3escuchaunapagina == 0)
+        {
+            manager.datostrof.alien3escuchaunapagina = 1;
+            manager.guardartro();
+            push.push(86);
+        }
         }
         else{no.Play();}
     }
@@ -4238,6 +4189,13 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
+        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        if(manager.datostrof.alien3escuchaunapagina == 0)
+        {
+            manager.datostrof.alien3escuchaunapagina = 1;
+            manager.guardartro();
+            push.push(86);
+        }
         }
         else{no.Play();}
     }
@@ -4260,6 +4218,13 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
+        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        if(manager.datostrof.alien3escuchaunapagina == 0)
+        {
+            manager.datostrof.alien3escuchaunapagina = 1;
+            manager.guardartro();
+            push.push(86);
+        }
         }
         else{no.Play();}
     }
@@ -4282,6 +4247,13 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
+        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        if(manager.datostrof.alien3escuchaunapagina == 0)
+        {
+            manager.datostrof.alien3escuchaunapagina = 1;
+            manager.guardartro();
+            push.push(86);
+        }
         }
         else{no.Play();}
     }
@@ -4304,6 +4276,13 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
+        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        if(manager.datostrof.alien3escuchaunapagina == 0)
+        {
+            manager.datostrof.alien3escuchaunapagina = 1;
+            manager.guardartro();
+            push.push(86);
+        }
         }
         else{no.Play();}
     }
@@ -4326,6 +4305,13 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
+        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        if(manager.datostrof.alien3escuchaunapagina == 0)
+        {
+            manager.datostrof.alien3escuchaunapagina = 1;
+            manager.guardartro();
+            push.push(86);
+        }
         }
         else{no.Play();}
     }
@@ -4348,6 +4334,13 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
+        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        if(manager.datostrof.alien3escuchaunapagina == 0)
+        {
+            manager.datostrof.alien3escuchaunapagina = 1;
+            manager.guardartro();
+            push.push(86);
+        }
         }
         else{no.Play();}
     }
@@ -4370,6 +4363,13 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
+        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        if(manager.datostrof.alien3escuchaunapagina == 0)
+        {
+            manager.datostrof.alien3escuchaunapagina = 1;
+            manager.guardartro();
+            push.push(86);
+        }
         }
         else{no.Play();}
     }
@@ -4392,6 +4392,13 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
+        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        if(manager.datostrof.alien3escuchaunapagina == 0)
+        {
+            manager.datostrof.alien3escuchaunapagina = 1;
+            manager.guardartro();
+            push.push(86);
+        }
         }
         else{no.Play();}
     }
@@ -4414,6 +4421,13 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
+        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        if(manager.datostrof.alien3escuchaunapagina == 0)
+        {
+            manager.datostrof.alien3escuchaunapagina = 1;
+            manager.guardartro();
+            push.push(86);
+        }
         }
         else{no.Play();}
     }
@@ -4436,6 +4450,13 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
+        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        if(manager.datostrof.alien3escuchaunapagina == 0)
+        {
+            manager.datostrof.alien3escuchaunapagina = 1;
+            manager.guardartro();
+            push.push(86);
+        }
         }
         else{no.Play();}
     }
@@ -4458,6 +4479,13 @@ public class pausa_al3: MonoBehaviour
         diario13.Play();
         diario14.Stop();
         diario15.Stop();
+        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        if(manager.datostrof.alien3escuchaunapagina == 0)
+        {
+            manager.datostrof.alien3escuchaunapagina = 1;
+            manager.guardartro();
+            push.push(86);
+        }
         }
         else{no.Play();}
     }
@@ -4480,6 +4508,13 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Play();
         diario15.Stop();
+        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        if(manager.datostrof.alien3escuchaunapagina == 0)
+        {
+            manager.datostrof.alien3escuchaunapagina = 1;
+            manager.guardartro();
+            push.push(86);
+        }
         }
         else{no.Play();}
     }
@@ -4502,6 +4537,13 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Play();
+        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        if(manager.datostrof.alien3escuchaunapagina == 0)
+        {
+            manager.datostrof.alien3escuchaunapagina = 1;
+            manager.guardartro();
+            push.push(86);
+        }
         }
         else{no.Play();}
     }

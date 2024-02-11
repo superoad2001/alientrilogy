@@ -29,9 +29,13 @@ public class tiendanave_al1 : MonoBehaviour
 		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
 		if (col.gameObject.tag == "Player")
 		{
+			pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
 			manager.datosserial.tengonave = 1;
 			manager.datosserial.cinematicaf = 1;
 			manager.guardar();
+			manager.datostrof.alien1mejora4 = 1;
+			manager.guardartro();
+			push.push(5);
 			UnityEngine.Object.Destroy(base.gameObject);
 		}
 	}

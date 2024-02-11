@@ -281,16 +281,53 @@ public class manager_al2 : MonoBehaviour
 		cargar();
 		cargarconfig();
 		cargartro();
-		jugador1_al2 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al2>();
 
-		if(trofeoact == 1)
-		{datostrof.completaalien2m = 1;}
-		if(trofeoact == 2)
-		{datostrof.completaalien2v = 1;}
-		if(trofeoact == 3)
-		{datostrof.alien2sacaelfinalalternativo = 1;}
-		if(trofeoact == 4)
-		{datostrof.alien2saladelrey = 1;}
+		if(datosserial.mejora1c == 0 && datosserial.llaves == 4 && datosserial.tengosaltod == 0)
+		{
+			datosserial.mejora1c = 1;
+			guardar();
+			SceneManager.LoadScene("mejora1c_al2");
+		}
+		if(datosserial.mejora2c == 0 && datosserial.llaves == 4 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 0 && datosserial.block1 == 1)
+		{
+			datosserial.mejora2c = 1;
+			guardar();
+			SceneManager.LoadScene("mejora2c_al2");
+		}
+		if(datosserial.mejora3c == 0 && datosserial.llaves == 4 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 1 && datosserial.tengocoche == 0 && datosserial.block1 == 1 && datosserial.block2 == 1)
+		{
+			datosserial.mejora3c = 1;
+			guardar();
+			SceneManager.LoadScene("mejora3c_al2");
+		}
+		if(datosserial.mejora4c == 0 && datosserial.llaves == 4 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 1 && datosserial.tengocoche == 1 && datosserial.tengomental == 0 && datosserial.block1 == 1 && datosserial.block2 == 1 && datosserial.block3 == 1)
+		{
+			datosserial.mejora4c = 1;
+			guardar();
+			SceneManager.LoadScene("mejora4c_al2");
+		}
+		if(datosserial.mejora5c == 0 && datosserial.llaves == 4 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 1 && datosserial.tengocoche == 1 && datosserial.tengomental == 1 && datosserial.tengonave == 0 && datosserial.block1 == 1 && datosserial.block2 == 1 && datosserial.block3 == 1 && datosserial.block4 == 1)
+		{
+			datosserial.mejora5c = 1;
+			guardar();
+			SceneManager.LoadScene("mejora5c_al2");
+		}
+		if(datosserial.tiendasc == 0 && datosserial.tengosaltod == 1 && datosserial.block1 == 1)
+		{
+			datosserial.tiendasc = 1;
+			guardar();
+			SceneManager.LoadScene("tiendasc_al2");
+		}
+
+
+		jugador1_al2 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al2>();
+		
+
+
+
+
+
+
 
 		if(trofeoact == 5)
 		{datosserial.tienda1c = 1;}
@@ -306,13 +343,7 @@ public class manager_al2 : MonoBehaviour
 		{datosserial.tienda6c = 1;}
 		if(trofeoact == 11)
 		{datosserial.tienda7c = 1;}
-
-
-		if(datosserial.tienda1c == 1 && datosserial.tienda2c == 1 && datosserial.tienda3c == 1 && datosserial.tienda4c == 1 && datosserial.tienda5c == 1 && datosserial.tienda6c == 1 && datosserial.tienda7c == 1)
-		{
-			datostrof.alien2compraentodaslastiendas1vez = 1;
-		}
-		guardartro();
+		guardar();
 		
 
 		if(datosserial.trozosnv1 == 3)
@@ -1106,18 +1137,125 @@ public class manager_al2 : MonoBehaviour
 	{
 		jugador1_al2 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al2>();
 		jugador2_al2 jugador2 = UnityEngine.Object.FindObjectOfType<jugador2_al2>();
+		pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
 
-		if(datosserial.monedas >= 1000 && datostrof.alien2ahorra1000monedas != 1)
+		if(datostrof.alien2compraentodaslastiendas1vez == 0 && datosserial.tienda1c == 1 && datosserial.tienda2c == 1 && datosserial.tienda3c == 1 && datosserial.tienda4c == 1 && datosserial.tienda5c == 1 && datosserial.tienda6c == 1 && datosserial.tienda7c == 1)
+		{
+			datostrof.alien2compraentodaslastiendas1vez = 1;
+			guardartro();
+			push.push(46);
+		}
+		guardartro();
+		if(datosserial.monedas >= 1000 && datostrof.alien2ahorra1000monedas == 0)
 		{
 			datostrof.alien2ahorra1000monedas = 1;
 			guardartro();
+			push.push(45);
 		}
-		if(datosserial.vidamaxima ==  6 && datostrof.alien2obtentodaslasmejorasvida != 1)
+		if(datosserial.vidamaxima ==  6 && datostrof.alien2obtentodaslasmejorasvida == 0)
 		{
 			datostrof.alien2obtentodaslasmejorasvida = 1;
 			guardartro();
+			push.push(49);
 		}
 
+		if(trofeoact == 1 && datostrof.completaalien2m == 0)
+		{
+			datostrof.completaalien2m = 1;
+			push.push(43);
+		}
+		if(trofeoact == 2 && datostrof.completaalien2v == 0)
+		{
+			datostrof.completaalien2v = 1;
+			push.push(44);
+		}
+		if(trofeoact == 3 && datostrof.alien2sacaelfinalalternativo == 0)
+		{
+			datostrof.alien2sacaelfinalalternativo = 1;
+			push.push(50);
+		}
+		if(trofeoact == 4 && datostrof.alien2saladelrey == 0)
+		{
+			datostrof.alien2saladelrey = 1;
+			push.push(51);
+		}
+
+		if(trofeoact == 12 && datostrof.alien2primeracinematica == 0)
+		{
+			datostrof.alien2primeracinematica = 1;
+			push.push(22);
+		}
+		if(datosserial.checkpoints >= 1 && datostrof.alien2desbloqueaelcheckpoint1delnivel1 == 0)
+		{
+			datostrof.alien2desbloqueaelcheckpoint1delnivel1 = 1;
+			push.push(23);
+		}
+		if(trofeoact == 12 && datosserial.llaves >= 4 && datostrof.alien2consigue4llaves == 0)
+		{
+			datostrof.alien2consigue4llaves = 1;
+			push.push(24);
+		}
+		if(paginas >= 1  && datostrof.alien2unapaginadeldiario == 0)
+		{
+			datostrof.alien2unapaginadeldiario = 1;
+			push.push(25);
+		}
+		if(paginas >= 20  && datostrof.alien2consiguetodaslaspaginas == 0)
+		{
+			datostrof.alien2consiguetodaslaspaginas = 1;
+			push.push(27);
+		}
+		if(datosserial.checkpoints >= 40 && datostrof.alien2desbloqueatodosloscheckpoits == 0)
+		{
+			datostrof.alien2desbloqueatodosloscheckpoits = 1;
+			push.push(29);
+		}
+		if(trofeoact == 12 && datosserial.mejora1c == 1 && datostrof.alien2mejora1 == 0)
+		{
+			datostrof.alien2mejora1 = 1;
+			push.push(32);
+		}
+		if(trofeoact == 12 && datosserial.mejora2c == 1 && datostrof.alien2mejora2 == 0)
+		{
+			datostrof.alien2mejora2 = 1;
+			push.push(33);
+		}
+		if(trofeoact == 12 && datosserial.mejora3c == 1 && datostrof.alien2mejora3 == 0)
+		{
+			datostrof.alien2mejora3 = 1;
+			push.push(34);
+		}
+		if(trofeoact == 12 && datosserial.mejora4c == 1 && datostrof.alien2mejora4 == 0)
+		{
+			datostrof.alien2mejora4 = 1;
+			push.push(35);
+		}
+		if( trofeoact == 12 && datosserial.mejora5c == 1 && datostrof.alien2mejora5 == 0)
+		{
+			datostrof.alien2mejora5 = 1;
+			push.push(36);
+		}
+		if( trofeoact == 13 && datostrof.alien2usaelcochedelmundo == 0)
+		{
+			datostrof.alien2usaelcochedelmundo = 1;
+			push.push(39);
+		}
+		if( trofeoact == 14 && datostrof.alien2usalanaveenelespacio == 0)
+		{
+			datostrof.alien2usalanaveenelespacio = 1;
+			push.push(41);
+		}
+		if( trofeoact == 15 && datostrof.alien2usalanavegumi == 0)
+		{
+			datostrof.alien2usalanavegumi = 1;
+			push.push(42);
+		}
+		if( trofeoact == 12 && datostrof.alien2muere == 0  && datosserial.alien2muere == 1)
+		{
+			datostrof.alien2muere = 1;
+			push.push(48);
+		}
+		guardartro();
 
 		if(datosconfig.idioma == "es")
 		{
@@ -2413,42 +2551,6 @@ public class manager_al2 : MonoBehaviour
 			}
 		}
 		
-		if(datosserial.mejora1c == 0 && datosserial.llaves == 4 && datosserial.tengosaltod == 0)
-		{
-			datosserial.mejora1c = 1;
-			guardar();
-			SceneManager.LoadScene("mejora1c_al2");
-		}
-		if(datosserial.mejora2c == 0 && datosserial.llaves == 4 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 0 && datosserial.block1 == 1)
-		{
-			datosserial.mejora2c = 1;
-			guardar();
-			SceneManager.LoadScene("mejora2c_al2");
-		}
-		if(datosserial.mejora3c == 0 && datosserial.llaves == 4 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 1 && datosserial.tengocoche == 0 && datosserial.block1 == 1 && datosserial.block2 == 1)
-		{
-			datosserial.mejora3c = 1;
-			guardar();
-			SceneManager.LoadScene("mejora3c_al2");
-		}
-		if(datosserial.mejora4c == 0 && datosserial.llaves == 4 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 1 && datosserial.tengocoche == 1 && datosserial.tengomental == 0 && datosserial.block1 == 1 && datosserial.block2 == 1 && datosserial.block3 == 1)
-		{
-			datosserial.mejora4c = 1;
-			guardar();
-			SceneManager.LoadScene("mejora4c_al2");
-		}
-		if(datosserial.mejora5c == 0 && datosserial.llaves == 4 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 1 && datosserial.tengocoche == 1 && datosserial.tengomental == 1 && datosserial.tengonave == 0 && datosserial.block1 == 1 && datosserial.block2 == 1 && datosserial.block3 == 1 && datosserial.block4 == 1)
-		{
-			datosserial.mejora5c = 1;
-			guardar();
-			SceneManager.LoadScene("mejora5c_al2");
-		}
-		if(datosserial.tiendasc == 0 && datosserial.tengosaltod == 1 && datosserial.block1 == 1)
-		{
-			datosserial.tiendasc = 1;
-			guardar();
-			SceneManager.LoadScene("tiendasc_al2");
-		}
 
 		pause = false;
 

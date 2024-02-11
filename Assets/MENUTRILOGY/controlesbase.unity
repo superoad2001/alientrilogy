@@ -290,7 +290,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.38134724, g: 0.46806973, b: 0.6135808, a: 1}
+  m_IndirectSpecularColor: {r: 0.3813185, g: 0.46816975, b: 0.6135837, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!108 &23
 Light:
@@ -498,7 +498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SendPointerHoverToParent: 1
-  rewiredInputManager: {fileID: 0}
+  rewiredInputManager: {fileID: 1743449740}
   useAllRewiredGamePlayers: 0
   useRewiredSystemPlayer: 0
   rewiredPlayerIds: 00000000
@@ -510,11 +510,11 @@ MonoBehaviour:
   verticalActionId: -1
   submitActionId: -1
   cancelActionId: -1
-  m_HorizontalAxis: lhorizontal
-  m_VerticalAxis: lvertical
+  m_HorizontalAxis: horizontalpad
+  m_VerticalAxis: verticalpad
   m_SubmitButton: a
   m_CancelButton: 
-  m_InputActionsPerSecond: 10
+  m_InputActionsPerSecond: 2
   m_RepeatDelay: 0
   m_allowMouseInput: 1
   m_allowMouseInputIfTouchSupported: 1
@@ -1051,19 +1051,33 @@ MonoBehaviour:
     plat: 0
     distancia: 0
     postpro: 0
+    resoluciones: 0
     lastgame: 0
+    aplicarres: 0
   datostrof:
     completaalien1v: 0
-    completaalien2v: 0
-    completaalien3v: 0
     completaalien1m: 0
-    completaalien2m: 0
-    completaalien3m: 0
     alien1huevooculto: 0
     alien1muere: 0
     alien1secretobajoelasteroide: 0
     alien1saladelrey: 0
     alien1salasecreta: 0
+    alien1mejora1: 0
+    alien1mejora2: 0
+    alien1mejora3: 0
+    alien1mejora4: 0
+    alien1mejora5: 0
+    alien1consigue1gema: 0
+    alien1consigue10monedas: 0
+    alien1consigue50monedas: 0
+    alien1consiguelagrangema: 0
+    alien1consigue15gemas: 0
+    alien1usaelcochedelmundo: 0
+    alien1usalanaveenelespacio: 0
+    alien1visitaotroasteroide: 0
+    alien1primeracinematica: 0
+    completaalien2v: 0
+    completaalien3v: 0
     alien2huevooculto: 0
     alien2muere: 0
     alien2ahorra1000monedas: 0
@@ -1071,6 +1085,29 @@ MonoBehaviour:
     alien2saladelrey: 0
     alien2compraentodaslastiendas1vez: 0
     alien2sacaelfinalalternativo: 0
+    alien2mejora1: 0
+    alien2mejora2: 0
+    alien2mejora3: 0
+    alien2mejora4: 0
+    alien2mejora5: 0
+    alien2hablarcontumujer: 0
+    alien2primeracinematica: 0
+    alien2unapaginadeldiario: 0
+    alien2consigue4llaves: 0
+    alien2consiguetodaslaspaginas: 0
+    alien2escuchaunapaginadeldiario: 0
+    alien2usaelcochedelmundo: 0
+    alien2hipnotizaunpirata: 0
+    alien2abrelatiendabloqueadadelaprimerazona: 0
+    alien2encuentralatiendaocultadelasegundazona: 0
+    alien2usalanavegumi: 0
+    alien2desbloqueatodosloscheckpoits: 0
+    alien2desbloqueaelcheckpoint1delnivel1: 0
+    alien2usaelsaltador: 0
+    alien2usaelacelerador: 0
+    alien2usalanaveenelespacio: 0
+    completaalien2m: 0
+    completaalien3m: 0
     alien3huevooculto: 0
     alien3consiguetodaslasarmas: 0
     alien3ahorra5000monedas: 0
@@ -1082,8 +1119,49 @@ MonoBehaviour:
     alien3gastatodalamuniciondetodaslasarmas: 0
     alien3muere: 0
     alien3aceptalaherencia: 0
+    alien3jefe1: 0
+    alien3jefe2: 0
+    alien3jefe3: 0
+    alien3jefe4: 0
+    alien3jefe5: 0
+    alien3jefe6: 0
+    alien3jefe1nave: 0
+    alien3jefe5nave: 0
+    alien3primeramejoradevida: 0
+    alien3primeraarma: 0
+    alien3primeraarmadura: 0
+    alien3entraalmenuextras: 0
+    alien3entraalaguiadelpause: 0
+    alien3entraaseleccionrapidaenelpause: 0
+    alien3consiguetodaslaspaginas: 0
+    alien3escuchaunapagina: 0
+    alien3consigue10gemas: 0
+    alien3consigue20gemas: 0
+    alien3consigue40gemas: 0
+    alien3consigue70gemas: 0
+    alien3consigue100gemas: 0
+    alien3compraladestructora: 0
+    alien3planeta1nave: 0
+    alien3planeta2nave: 0
+    alien3planeta3nave: 0
+    alien3planeta4nave: 0
+    alien3planeta5nave: 0
+    alien3planeta6nave: 0
+    alien3planeta7nave: 0
+    alien3planeta8nave: 0
+    alien3planeta9nave: 0
+    alien3planeta10nave: 0
+    alien3planeta11nave: 0
+    alien3planeta12nave: 0
+    alien3planeta13nave: 0
+    alien3planeta14nave: 0
+    alien3planeta15nave: 0
+    alien3planeta16nave: 0
+    alien3planeta17nave: 0
   repath: 
   repathtro: 
+  opcres: 0
+  opcionesr: []
 --- !u!1 &390392855
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,67 +1849,6 @@ RectTransform:
   m_AnchoredPosition: {x: -237.00008, y: -24.000008}
   m_SizeDelta: {x: 271, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &959279812
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 181832472226415730, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020285497824951370, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
-      propertyPath: m_Name
-      value: Rewired Input Manager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
 --- !u!1 &1020225555
 GameObject:
   m_ObjectHideFlags: 0
@@ -2332,6 +2349,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649015661}
   m_CullTransparentMesh: 1
+--- !u!1001 &1743449739
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493712, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078648612897493714, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+      propertyPath: m_Name
+      value: Rewired Input Manager_al3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+--- !u!114 &1743449740 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9078648612897493715, guid: 50583d2179ea01f40bf684a4b0fdb56a, type: 3}
+  m_PrefabInstance: {fileID: 1743449739}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581b3e3c96df0ef42aef16b63b27b87f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1935269037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2587,6 +2672,6 @@ SceneRoots:
   - {fileID: 472989158}
   - {fileID: 1433713825}
   - {fileID: 1140440335}
-  - {fileID: 959279812}
   - {fileID: 354162640}
   - {fileID: 562897205}
+  - {fileID: 1743449739}

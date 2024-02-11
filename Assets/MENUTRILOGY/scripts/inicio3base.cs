@@ -19,6 +19,7 @@ public class inicio3base : MonoBehaviour
     public GameObject logoo3;
     public GameObject logoo4;
     public int juego = 1;
+    public float temp;
 
     public void izq()
     {
@@ -69,13 +70,15 @@ public class inicio3base : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.GetAxis("horizontalpad") > 0)
+        if(player.GetAxis("horizontalpad") > 0 && temp > 0.5f)
         {
             der();
+            temp = 0;
         }
-        if(player.GetAxis("horizontalpad") < 0)
+        if(player.GetAxis("horizontalpad") < 0 && temp > 0.5f)
         {
             izq();
+            temp = 0;
         }
         managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
         if(juego == 1) 
@@ -175,5 +178,7 @@ public class inicio3base : MonoBehaviour
             }
             logo4.text = "";
         }
+        if(temp < 15)
+        {temp += 1 * Time.deltaTime;}
     }
 }

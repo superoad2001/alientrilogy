@@ -35,7 +35,7 @@ public class presentacionbase : MonoBehaviour
             pres.text = "presenta";
         }
         temp += 1 * Time.deltaTime;
-        if(temp >= 13)
+        if(temp >= 14)
         {
             SceneManager.LoadScene("menutrilogy");
         }

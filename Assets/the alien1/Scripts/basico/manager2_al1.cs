@@ -28,6 +28,8 @@ public class manager2_al1 : MonoBehaviour
     public Text nv14;
     public Text nv15;
 
+    public bool rey;
+
     public datos1 datosserial;
     // Start is called before the first frame update
     void Start()
@@ -58,7 +60,7 @@ public class manager2_al1 : MonoBehaviour
     void Update()
     {
         manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
-        if(manager.juego != -1)
+        if(rey == false)
         {
         contador += 1 * Time.deltaTime;
             if(manager.datosconfig.idioma == "es")

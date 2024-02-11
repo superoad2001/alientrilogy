@@ -404,8 +404,8 @@ public class jugador1_al3: MonoBehaviour
             tempsaltom += 1 * Time.deltaTime;
             if(tempsaltom > 3.5f)
             {
-                manager.datostrof.alien3muere = 1;
-                manager.guardartro();
+                manager.datosserial.alien3muere = 1;
+                manager.guardar();
                 SceneManager.LoadScene("carga_al3");
             }
         }
@@ -2193,8 +2193,8 @@ public class jugador1_al3: MonoBehaviour
         if (muerte == true)
         {
 
-            manager.datostrof.alien3muere = 1;
-            manager.guardartro();
+            manager.datosserial.alien3muere = 1;
+            manager.guardar();
             SceneManager.LoadScene("carga_al3");
         }
 

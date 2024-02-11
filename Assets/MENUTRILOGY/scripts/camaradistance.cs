@@ -21,6 +21,10 @@ public class camaradistance : MonoBehaviour
             {
             cam.farClipPlane = manager0.datosconfig.distancia;
             }
+            if(manager0.datosconfig.resoluciones == 1)
+            {
+                
+            }
         }
         if(manager1 != null)
         {

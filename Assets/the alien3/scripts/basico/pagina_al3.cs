@@ -100,89 +100,104 @@ public class pagina_al3: MonoBehaviour
 		if(diariop == 1 && tdiario1 == 0)
 		{
 			manager.datosserial.tdiario1 = 1;
+			manager.datosserial.diariostotal++;
 			manager.guardar();
 			UnityEngine.Object.Destroy(base.gameObject);
 		}
 		if(diariop == 2 && tdiario2 == 0)
 		{
 			manager.datosserial.tdiario2 = 1;
+			manager.datosserial.diariostotal++;
 			manager.guardar();
 			UnityEngine.Object.Destroy(base.gameObject);
 		}
 		if(diariop == 3 && tdiario3 == 0)
 		{
 			manager.datosserial.tdiario3 = 1;
+			manager.datosserial.diariostotal++;
 			manager.guardar();
 			UnityEngine.Object.Destroy(base.gameObject);
 		}
 		if(diariop == 4 && tdiario4 == 0)
 		{
 			manager.datosserial.tdiario4 = 1;
+			manager.datosserial.diariostotal++;
 			manager.guardar();
 			UnityEngine.Object.Destroy(base.gameObject);
 		}
 		if(diariop == 5 && tdiario5 == 0)
 		{
 			manager.datosserial.tdiario5 = 1;
+			manager.datosserial.diariostotal++;
 			manager.guardar();
 			UnityEngine.Object.Destroy(base.gameObject);
 		}
 		if(diariop == 6 && tdiario6 == 0)
 		{
 			manager.datosserial.tdiario6 = 1;
+			manager.datosserial.diariostotal++;
 			manager.guardar();
 			UnityEngine.Object.Destroy(base.gameObject);
 		}
 		if(diariop == 7 && tdiario7 == 0)
 		{
 			manager.datosserial.tdiario7 = 1;
+			manager.datosserial.diariostotal++;
 			UnityEngine.Object.Destroy(base.gameObject);
 		}
 		if(diariop == 8 && tdiario8 == 0)
 		{
 			manager.datosserial.tdiario8 = 1;
+			manager.datosserial.diariostotal++;
 			manager.guardar();
 			UnityEngine.Object.Destroy(base.gameObject);
 		}
 		if(diariop == 9 && tdiario9 == 0)
 		{
 			manager.datosserial.tdiario9 = 1;
+			manager.datosserial.diariostotal++;
 			manager.guardar();
 			UnityEngine.Object.Destroy(base.gameObject);
 		}
 		if(diariop == 10 && tdiario10 == 0)
 		{
 			manager.datosserial.tdiario10 = 1;
+			manager.datosserial.diariostotal++;
 			manager.guardar();
 			UnityEngine.Object.Destroy(base.gameObject);
 		}
 		if(diariop == 11 && tdiario11 == 0)
 		{
 			manager.datosserial.tdiario11 = 1;
+			manager.datosserial.diariostotal++;
 			manager.guardar();
 			UnityEngine.Object.Destroy(base.gameObject);
 		}
 		if(diariop == 12 && tdiario12 == 0)
 		{
 			manager.datosserial.tdiario12 = 1;
+			manager.datosserial.diariostotal++;
 			manager.guardar();
 			UnityEngine.Object.Destroy(base.gameObject);
 		}
 		if(diariop == 13 && tdiario13 == 0)
 		{
 			manager.datosserial.tdiario13 = 1;
+			manager.datosserial.diariostotal++;
 			manager.guardar();
 			UnityEngine.Object.Destroy(base.gameObject);
 		}
 		if(diariop == 14 && tdiario14 == 0)
 		{
 			manager.datosserial.tdiario14 = 1;
+			manager.datosserial.diariostotal++;
 			manager.guardar();
 			UnityEngine.Object.Destroy(base.gameObject);
 		}
 		if(diariop == 15 && tdiario15 == 0)
 		{
 			manager.datosserial.tdiario15 = 1;
+			manager.datosserial.diariostotal++;
 			manager.guardar();
 			UnityEngine.Object.Destroy(base.gameObject);
 		}

@@ -21,6 +21,7 @@ public class nivel20_c2_al2 : MonoBehaviour
 		if (col.gameObject.tag == "Player" && manager.datosserial.nivel20ch2 == 0)
 		{
 			manager.datosserial.nivel20ch2 = 1;
+			manager.datosserial.checkpoints++;
 			manager.guardar();
 			audio1.Play();
 

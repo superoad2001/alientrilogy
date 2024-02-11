@@ -12,6 +12,7 @@ public class manager_al1 : MonoBehaviour
 
 	public int trofeoact;
 	public int nivel = 0;
+	public bool otroasteroide = false;
 	public AudioSource audio;
 	public AudioSource audio1;
 	public AudioSource audio2;
@@ -222,15 +223,37 @@ public class manager_al1 : MonoBehaviour
 		cargarconfig();
 		cargartro();
 
-		if(trofeoact == 1)
-		{datostrof.completaalien1m = 1;}
-		if(trofeoact == 2)
-		{datostrof.completaalien1v = 1;}
-		if(trofeoact == 3)
-		{datostrof.alien1saladelrey = 1;}
-		if(trofeoact == 4)
-		{datostrof.alien1salasecreta = 1;}
-		guardartro();
+
+		if(datosserial.mejora1 == 0 && datosserial.gemas >= 3 && datosserial.monedas >= 10)
+		{
+			datosserial.mejora1 = 1;
+			guardar();
+			SceneManager.LoadScene("mejora1_al1");
+		}
+		if(datosserial.mejora2 == 0 && datosserial.gemas >= 6 && datosserial.monedas >= 20)
+		{
+			datosserial.mejora2 = 1;
+			guardar();
+			SceneManager.LoadScene("mejora2_al1");
+		}
+		if(datosserial.mejora3 == 0 && datosserial.gemas >= 9 && datosserial.monedas >= 30)
+		{
+			datosserial.mejora3 = 1;
+			guardar();
+			SceneManager.LoadScene("mejora3_al1");
+		}
+		if(datosserial.mejora4 == 0 && datosserial.gemas >= 12 && datosserial.monedas >= 40)
+		{
+			datosserial.mejora4 = 1;
+			guardar();
+			SceneManager.LoadScene("mejora4_al1");
+		}
+		if(datosserial.mejora5 == 0 && datosserial.fragmento >= 3 && datosserial.monedas >= 50)
+		{
+			datosserial.mejora5 = 1;
+			guardar();
+			SceneManager.LoadScene("mejora5_al1");
+		}
 
 		jugador_al1 jugador = UnityEngine.Object.FindObjectOfType<jugador_al1>();
 		
@@ -388,6 +411,88 @@ public class manager_al1 : MonoBehaviour
 	{
 		jugador_al1 jugador = UnityEngine.Object.FindObjectOfType<jugador_al1>();
 		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+		if(trofeoact == 1 && datostrof.completaalien1m == 0)
+		{
+			datostrof.completaalien1m = 1;
+			push.push(15);
+		}
+		if(trofeoact == 2 && datostrof.completaalien1v == 0)
+		{
+			datostrof.completaalien1v = 1;
+			push.push(16);
+		}
+		if(trofeoact == 3 && datostrof.alien1saladelrey == 0)
+		{
+			datostrof.alien1saladelrey = 1;
+			push.push(19);
+		}
+		if(trofeoact == 4 && datostrof.alien1salasecreta == 0)
+		{
+			datostrof.alien1salasecreta = 1;
+			push.push(20);
+		}
+		if(trofeoact == 5 && datostrof.alien1primeracinematica == 0)
+		{
+			datostrof.alien1primeracinematica = 1;
+			push.push(1);
+		}
+		if(trofeoact == 6 && datosserial.tengomejora == 1 && datostrof.alien1mejora5 == 0)
+		{
+			datostrof.alien1mejora5 = 1;
+			push.push(6);
+		}
+		if(trofeoact == 5 && datosserial.gemas >= 1 && datostrof.alien1consigue1gema == 0)
+		{
+			datostrof.alien1consigue1gema = 1;
+			push.push(7);
+		}
+		if(trofeoact == 5 && datosserial.gemas >= 15 && datostrof.alien1consigue15gemas == 0)
+		{
+			datostrof.alien1consigue15gemas = 1;
+			push.push(9);
+		}
+		if(trofeoact == 5 && datosserial.monedas >= 10 && datostrof.alien1consigue10monedas == 0)
+		{
+			datostrof.alien1consigue10monedas = 1;
+			push.push(8);
+		}
+		if(trofeoact == 5 && datosserial.monedas >= 50 && datosserial.fragmento >= 3 && datostrof.alien1consigue50monedas == 0)
+		{
+			datostrof.alien1consigue50monedas = 1;
+			push.push(10);
+		}
+		if(trofeoact == 7 && datosserial.monedas >= 50 && datosserial.fragmento < 3 && datostrof.alien1consigue50monedas == 0)
+		{
+			datostrof.alien1consigue50monedas = 1;
+			push.push(10);
+		}
+		if(trofeoact == 5 && datosserial.fragmento >= 3 && datostrof.alien1consiguelagrangema == 0)
+		{
+			datostrof.alien1consiguelagrangema = 1;
+			push.push(11);
+		}
+		if(trofeoact == 7 && datostrof.alien1usaelcochedelmundo == 0)
+		{
+			datostrof.alien1usaelcochedelmundo = 1;
+			push.push(12);
+		}
+		if(trofeoact == 6 && datostrof.alien1usalanaveenelespacio == 0)
+		{
+			datostrof.alien1usalanaveenelespacio = 1;
+			push.push(13);
+		}
+		if(trofeoact == 7 && otroasteroide == true && datostrof.alien1visitaotroasteroide == 0)
+		{
+			datostrof.alien1visitaotroasteroide = 1;
+			push.push(14);
+		}
+		if(trofeoact == 5 && datosserial.alien1muere == true && datostrof.alien1muere == 0)
+		{
+			datostrof.alien1muere = 1;
+			push.push(17);
+		}
+		guardartro();
 		
 
 	if(datosconfig.idioma == "es")
@@ -1307,36 +1412,6 @@ public class manager_al1 : MonoBehaviour
 		}
 
 
-		if(datosserial.mejora1 == 0 && datosserial.gemas >= 3 && datosserial.monedas >= 10)
-		{
-			manager.datosserial.mejora1 = 1;
-			manager.guardar();
-			SceneManager.LoadScene("mejora1_al1");
-		}
-		if(datosserial.mejora2 == 0 && datosserial.gemas >= 6 && datosserial.monedas >= 20)
-		{
-			manager.datosserial.mejora2 = 1;
-			manager.guardar();
-			SceneManager.LoadScene("mejora2_al1");
-		}
-		if(datosserial.mejora3 == 0 && datosserial.gemas >= 9 && datosserial.monedas >= 30)
-		{
-			manager.datosserial.mejora3 = 1;
-			manager.guardar();
-			SceneManager.LoadScene("mejora3_al1");
-		}
-		if(datosserial.mejora4 == 0 && datosserial.gemas >= 12 && datosserial.monedas >= 40)
-		{
-			manager.datosserial.mejora4 = 1;
-			manager.guardar();
-			SceneManager.LoadScene("mejora4_al1");
-		}
-		if(datosserial.mejora5 == 0 && datosserial.fragmento >= 3 && datosserial.monedas >= 50)
-		{
-			manager.datosserial.mejora5 = 1;
-			manager.guardar();
-			SceneManager.LoadScene("mejora5_al1");
-		}
 
 	}
 

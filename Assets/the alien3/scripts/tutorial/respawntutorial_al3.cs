@@ -20,8 +20,8 @@ public class respawntutorial_al3: MonoBehaviour
         if (col.gameObject.tag == "Player")
 		{
             manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
-            manager.datostrof.alien3muere = 1;
-            manager.guardartro();
+            manager.datosserial.alien3muere = 1;
+            manager.guardar();
 			SceneManager.LoadScene("carga_al3");
 		}
     }

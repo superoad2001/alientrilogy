@@ -11630,8 +11630,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a80d181ba660844af54399509bd4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trofeoact: 0
+  trofeoact: 7
   nivel: 0
+  otroasteroide: 0
   audio: {fileID: 0}
   audio1: {fileID: 0}
   audio2: {fileID: 0}
@@ -11691,6 +11692,7 @@ MonoBehaviour:
     tengovel: 0
     tengocoche: 0
     tengosalto: 0
+    alien1muere: 0
     tengonave: 0
     fragmento: 0
     tengollave1: 0
@@ -11780,11 +11782,7 @@ MonoBehaviour:
     lastgame: 0
   datostrof:
     completaalien1v: 0
-    completaalien2v: 0
-    completaalien3v: 0
     completaalien1m: 0
-    completaalien2m: 0
-    completaalien3m: 0
     alien1huevooculto: 0
     alien1muere: 0
     alien1secretobajoelasteroide: 0
@@ -11795,7 +11793,7 @@ MonoBehaviour:
     alien1mejora3: 0
     alien1mejora4: 0
     alien1mejora5: 0
-    alien3consigue1gema: 0
+    alien1consigue1gema: 0
     alien1consigue10monedas: 0
     alien1consigue50monedas: 0
     alien1consiguelagrangema: 0
@@ -11804,6 +11802,8 @@ MonoBehaviour:
     alien1usalanaveenelespacio: 0
     alien1visitaotroasteroide: 0
     alien1primeracinematica: 0
+    completaalien2v: 0
+    completaalien3v: 0
     alien2huevooculto: 0
     alien2muere: 0
     alien2ahorra1000monedas: 0
@@ -11824,6 +11824,16 @@ MonoBehaviour:
     alien2escuchaunapaginadeldiario: 0
     alien2usaelcochedelmundo: 0
     alien2hipnotizaunpirata: 0
+    alien2abrelatiendabloqueadadelaprimerazona: 0
+    alien2encuentralatiendaocultadelasegundazona: 0
+    alien2usalanavegumi: 0
+    alien2desbloqueatodosloscheckpoits: 0
+    alien2desbloqueaelcheckpoint1delnivel1: 0
+    alien2usaelsaltador: 0
+    alien2usaelacelerador: 0
+    alien2usalanaveenelespacio: 0
+    completaalien2m: 0
+    completaalien3m: 0
     alien3huevooculto: 0
     alien3consiguetodaslasarmas: 0
     alien3ahorra5000monedas: 0
@@ -12661,6 +12671,103 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &124178770
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915071198684984707, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_Name
+      value: notificacion
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 81354e72663e9434293209a26d585657, type: 3}
 --- !u!33 &124842224
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -33498,3 +33605,4 @@ SceneRoots:
   - {fileID: 578453895}
   - {fileID: 877131508}
   - {fileID: 461394652}
+  - {fileID: 124178770}

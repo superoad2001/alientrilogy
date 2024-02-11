@@ -29,7 +29,7 @@ public class escenacarga_al3: MonoBehaviour
         {
             audio0 = audiocat;
         }
-        GetComponent<AudioSource>().Play();
+        audio0.Play();
     }
 
     // Update is called once per frame

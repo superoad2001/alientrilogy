@@ -28,6 +28,9 @@ public class datos2
 	public int block4;
 
 	public int block5;
+	public int checkpoints;
+
+	public int alien2muere;
 
 	public int llaveN1;
 

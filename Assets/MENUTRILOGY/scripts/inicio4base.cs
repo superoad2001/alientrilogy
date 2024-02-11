@@ -20,9 +20,14 @@ public class inicio4base : MonoBehaviour
 	public Text idiomat;
 	public Text postt;
 	public Text distanciat;
+	public Resolution[] resoluciones;
+	public List<string>opcionesr = new List<string>();
+	public int opcres = 0;
+	public Text resolt;
 	public void Start()
 	{
 		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+		revresol_();
 		plat = manager.datosconfig.plat;
 		idioma = manager.datosconfig.idioma;
 		postpro = manager.datosconfig.postpro;
@@ -36,6 +41,45 @@ public class inicio4base : MonoBehaviour
 		{distancia = 4;}
 		if(manager.datosconfig.distancia == 3000)
 		{distancia = 5;}
+	}
+	public void revresol_()
+	{
+		resoluciones = Screen.resolutions;
+		
+		int resolactual = 0;
+		for (int i = 0; i < resoluciones.Length; i++)
+		{
+			string opcion = resoluciones[i].width + " x " + resoluciones[i].height;
+			opcionesr.Add(opcion);
+			if(Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width &&	resoluciones[i].height == Screen.currentResolution.height)
+			{
+				resolactual = i;
+			}	
+		}
+		opcres = resolactual;
+
+	}
+	public void Resizq()
+	{
+		if(opcres > 0)
+		{
+		opcres--;
+		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+		manager.datosconfig.resoluciones = opcres;
+		Resolution resolucion = resoluciones[opcres];
+		Screen.SetResolution(resolucion.width,resolucion.height,Screen.fullScreen);
+		}
+	}
+	public void Resder()
+	{
+		if(opcres < opcionesr.Count - 1)
+		{
+		opcres++;
+		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+		manager.datosconfig.resoluciones = opcres;
+		Resolution resolucion = resoluciones[opcres];
+		Screen.SetResolution(resolucion.width,resolucion.height,Screen.fullScreen);
+		}
 	}
 
 
@@ -140,6 +184,8 @@ public class inicio4base : MonoBehaviour
 		{
 			manager.datosconfig.distancia = 3000;
 		}
+
+		resolt.text = opcionesr[opcres];
 	
 
 	}
@@ -188,6 +234,7 @@ public class inicio4base : MonoBehaviour
 	public void aplicar()
     {
 		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+		manager.datosconfig.aplicarres = true;
 		manager.guardar();
 		if(manager.datosconfig.lastgame == 1)
 		{SceneManager.LoadScene("menutrilogy");}
