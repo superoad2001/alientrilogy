@@ -135,11 +135,9 @@ public class managerBASE : MonoBehaviour
 
 		cargar();
         cargartro();
-        if(datosconfig.aplicarres == false)
+        if(datosconfig.aplicarres == true)
         {
-            revresol_();
-            Resolution resolucion = resoluciones[datosconfig.resoluciones];
-		    Screen.SetResolution(resolucion.width,resolucion.height,Screen.fullScreen);
+		    Screen.SetResolution(datosconfig.resolh,datosconfig.resolv,Screen.fullScreen);
         }
 
 
@@ -308,24 +306,4 @@ public class managerBASE : MonoBehaviour
             }
         }
     }
-    public Resolution[] resoluciones;
-    public int opcres = 0;
-	public List<string>opcionesr = new List<string>();
-    public void revresol_()
-	{
-		resoluciones = Screen.resolutions;
-		
-		int resolactual = 0;
-		for (int i = 0; i < resoluciones.Length; i++)
-		{
-			string opcion = resoluciones[i].width + " x " + resoluciones[i].height;
-			opcionesr.Add(opcion);
-			if(Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width &&	resoluciones[i].height == Screen.currentResolution.height)
-			{
-				resolactual = i;
-			}	
-		}
-		opcres = resolactual;
-
-	}
 }

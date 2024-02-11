@@ -14,5 +14,8 @@ public class datosconfig
     public int resoluciones;
     public int lastgame = 1;
 
-    public bool aplicarres;
+    public bool aplicarres = false;
+
+    public int resolh;
+    public int resolv;
 }
