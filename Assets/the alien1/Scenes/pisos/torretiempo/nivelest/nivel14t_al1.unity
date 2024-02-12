@@ -4421,7 +4421,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.32325175, g: 0.066374175, b: 0.0006578143, a: 1}
+  m_IndirectSpecularColor: {r: 0.3236389, g: 0.06670768, b: 0.0010760409, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!108 &203
 Light:
@@ -6878,6 +6878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a49ebd632f8934409519f6122c88290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saltoc: 1
 --- !u!114 &272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7218,6 +7219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trofeoact: 0
   nivel: 14
+  otroasteroide: 0
   audio: {fileID: 0}
   audio1: {fileID: 0}
   audio2: {fileID: 0}
@@ -7277,6 +7279,7 @@ MonoBehaviour:
     tengovel: 0
     tengocoche: 0
     tengosalto: 0
+    alien1muere: 0
     tengonave: 0
     fragmento: 0
     tengollave1: 0
@@ -7363,19 +7366,35 @@ MonoBehaviour:
     plat: 0
     distancia: 0
     postpro: 0
+    resoluciones: 0
     lastgame: 0
+    aplicarres: 0
+    resolh: 1280
+    resolv: 720
   datostrof:
     completaalien1v: 0
-    completaalien2v: 0
-    completaalien3v: 0
     completaalien1m: 0
-    completaalien2m: 0
-    completaalien3m: 0
     alien1huevooculto: 0
     alien1muere: 0
     alien1secretobajoelasteroide: 0
     alien1saladelrey: 0
     alien1salasecreta: 0
+    alien1mejora1: 0
+    alien1mejora2: 0
+    alien1mejora3: 0
+    alien1mejora4: 0
+    alien1mejora5: 0
+    alien1consigue1gema: 0
+    alien1consigue10monedas: 0
+    alien1consigue50monedas: 0
+    alien1consiguelagrangema: 0
+    alien1consigue15gemas: 0
+    alien1usaelcochedelmundo: 0
+    alien1usalanaveenelespacio: 0
+    alien1visitaotroasteroide: 0
+    alien1primeracinematica: 0
+    completaalien2v: 0
+    completaalien3v: 0
     alien2huevooculto: 0
     alien2muere: 0
     alien2ahorra1000monedas: 0
@@ -7383,6 +7402,29 @@ MonoBehaviour:
     alien2saladelrey: 0
     alien2compraentodaslastiendas1vez: 0
     alien2sacaelfinalalternativo: 0
+    alien2mejora1: 0
+    alien2mejora2: 0
+    alien2mejora3: 0
+    alien2mejora4: 0
+    alien2mejora5: 0
+    alien2hablarcontumujer: 0
+    alien2primeracinematica: 0
+    alien2unapaginadeldiario: 0
+    alien2consigue4llaves: 0
+    alien2consiguetodaslaspaginas: 0
+    alien2escuchaunapaginadeldiario: 0
+    alien2usaelcochedelmundo: 0
+    alien2hipnotizaunpirata: 0
+    alien2abrelatiendabloqueadadelaprimerazona: 0
+    alien2encuentralatiendaocultadelasegundazona: 0
+    alien2usalanavegumi: 0
+    alien2desbloqueatodosloscheckpoits: 0
+    alien2desbloqueaelcheckpoint1delnivel1: 0
+    alien2usaelsaltador: 0
+    alien2usaelacelerador: 0
+    alien2usalanaveenelespacio: 0
+    completaalien2m: 0
+    completaalien3m: 0
     alien3huevooculto: 0
     alien3consiguetodaslasarmas: 0
     alien3ahorra5000monedas: 0
@@ -7394,6 +7436,45 @@ MonoBehaviour:
     alien3gastatodalamuniciondetodaslasarmas: 0
     alien3muere: 0
     alien3aceptalaherencia: 0
+    alien3jefe1: 0
+    alien3jefe2: 0
+    alien3jefe3: 0
+    alien3jefe4: 0
+    alien3jefe5: 0
+    alien3jefe6: 0
+    alien3jefe1nave: 0
+    alien3jefe5nave: 0
+    alien3primeramejoradevida: 0
+    alien3primeraarma: 0
+    alien3primeraarmadura: 0
+    alien3entraalmenuextras: 0
+    alien3entraalaguiadelpause: 0
+    alien3entraaseleccionrapidaenelpause: 0
+    alien3consiguetodaslaspaginas: 0
+    alien3escuchaunapagina: 0
+    alien3consigue10gemas: 0
+    alien3consigue20gemas: 0
+    alien3consigue40gemas: 0
+    alien3consigue70gemas: 0
+    alien3consigue100gemas: 0
+    alien3compraladestructora: 0
+    alien3planeta1nave: 0
+    alien3planeta2nave: 0
+    alien3planeta3nave: 0
+    alien3planeta4nave: 0
+    alien3planeta5nave: 0
+    alien3planeta6nave: 0
+    alien3planeta7nave: 0
+    alien3planeta8nave: 0
+    alien3planeta9nave: 0
+    alien3planeta10nave: 0
+    alien3planeta11nave: 0
+    alien3planeta12nave: 0
+    alien3planeta13nave: 0
+    alien3planeta14nave: 0
+    alien3planeta15nave: 0
+    alien3planeta16nave: 0
+    alien3planeta17nave: 0
   repathtro: 
   mundos: 0
   jugador1: {fileID: 41}
@@ -13717,6 +13798,7 @@ MonoBehaviour:
   nv13: {fileID: 0}
   nv14: {fileID: 0}
   nv15: {fileID: 0}
+  rey: 0
   datosserial:
     plat: 0
     idioma: 
@@ -13740,6 +13822,7 @@ MonoBehaviour:
     tengovel: 0
     tengocoche: 0
     tengosalto: 0
+    alien1muere: 0
     tengonave: 0
     fragmento: 0
     tengollave1: 0

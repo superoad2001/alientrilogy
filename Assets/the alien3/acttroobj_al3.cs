@@ -17,7 +17,7 @@ public class acttroobj_al3 : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider col)
 	{
         manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
         pushup push = UnityEngine.Object.FindObjectOfType<pushup>();

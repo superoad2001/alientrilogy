@@ -472,7 +472,7 @@ public class manager_al1 : MonoBehaviour
 			datostrof.alien1consiguelagrangema = 1;
 			push.push(11);
 		}
-		if(trofeoact == 7 && datostrof.alien1usaelcochedelmundo == 0)
+		if(trofeoact == 8 && datostrof.alien1usaelcochedelmundo == 0)
 		{
 			datostrof.alien1usaelcochedelmundo = 1;
 			push.push(12);

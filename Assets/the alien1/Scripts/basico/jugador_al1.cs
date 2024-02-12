@@ -880,6 +880,13 @@ public class jugador_al1 : MonoBehaviour
 		this._rb.AddForce(this.jumpforce * 1f * Vector3.up);}
 		audio1.Play();
 	}
+	public void saltoalto3()
+	{
+		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		if (jumpc > 0f){
+		this._rb.AddForce(this.jumpforce * 3f * Vector3.up);}
+		audio1.Play();
+	}
 
 	// Token: 0x06000021 RID: 33 RVA: 0x0000318C File Offset: 0x0000138C
 	public void OnCollisionEnter(Collision col)

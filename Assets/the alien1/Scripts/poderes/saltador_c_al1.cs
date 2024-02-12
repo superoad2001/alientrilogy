@@ -4,6 +4,7 @@ using UnityEngine;
 // Token: 0x0200000F RID: 15
 public class saltador_c_al1 : MonoBehaviour
 {
+	public bool saltoc;
 	// Token: 0x06000034 RID: 52 RVA: 0x00003A23 File Offset: 0x00001C23
 	private void Start()
 	{
@@ -19,10 +20,16 @@ public class saltador_c_al1 : MonoBehaviour
 	{
 		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
 		jugador_al1 jugador = UnityEngine.Object.FindObjectOfType<jugador_al1>();
-		if (col.gameObject.tag == "Player" && manager.datosserial.tengosalto == 1)
+		if (col.gameObject.tag == "Player" && manager.datosserial.tengosalto == 1 && saltoc == false)
 		{
 			jugador.tiemposalto = 0.5f;
 				jugador.saltoalto2();
+
+		}
+		if (col.gameObject.tag == "Player" && manager.datosserial.tengosalto == 1 && saltoc == true)
+		{
+			jugador.tiemposalto = 0.5f;
+				jugador.saltoalto3();
 
 		}
 	}
