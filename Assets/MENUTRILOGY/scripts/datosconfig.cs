@@ -16,6 +16,6 @@ public class datosconfig
 
     public bool aplicarres = false;
 
-    public int resolh;
-    public int resolv;
+    public int resolh = 1280;
+    public int resolv = 720;
 }

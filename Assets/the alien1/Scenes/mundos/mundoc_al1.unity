@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 771}
   - component: {fileID: 844}
   - component: {fileID: 845}
+  - component: {fileID: 1605375231}
   m_Layer: 0
   m_Name: moneda (25)
   m_TagString: Untagged
@@ -224,6 +225,7 @@ GameObject:
   - component: {fileID: 774}
   - component: {fileID: 847}
   - component: {fileID: 1207135227}
+  - component: {fileID: 1207135228}
   m_Layer: 0
   m_Name: moneda (27)
   m_TagString: Untagged
@@ -822,6 +824,7 @@ GameObject:
   - component: {fileID: 794}
   - component: {fileID: 83}
   - component: {fileID: 795}
+  - component: {fileID: 796}
   m_Layer: 0
   m_Name: moneda (29)
   m_TagString: Untagged
@@ -1320,6 +1323,7 @@ GameObject:
   - component: {fileID: 808}
   - component: {fileID: 891}
   - component: {fileID: 895}
+  - component: {fileID: 896}
   m_Layer: 0
   m_Name: moneda (28)
   m_TagString: Untagged
@@ -1551,6 +1555,7 @@ GameObject:
   - component: {fileID: 815}
   - component: {fileID: 901}
   - component: {fileID: 902}
+  - component: {fileID: 903}
   m_Layer: 0
   m_Name: moneda (26)
   m_TagString: Untagged
@@ -7697,7 +7702,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.04372645, g: 0.1038504, b: 0.14313969, a: 1}
+  m_IndirectSpecularColor: {r: 0.044981793, g: 0.10441441, b: 0.14430031, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!108 &722
 Light:
@@ -9466,6 +9471,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a44a5c4cc960cef42bc1cdbb5503e47b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio1: {fileID: 1585992304}
 --- !u!136 &797
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10236,7 +10254,11 @@ MonoBehaviour:
     plat: 0
     distancia: 0
     postpro: 0
+    resoluciones: 0
     lastgame: 0
+    aplicarres: 0
+    resolh: 1280
+    resolv: 720
   datostrof:
     completaalien1v: 0
     completaalien1m: 0
@@ -10759,6 +10781,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e5ca63b0d223b747bab29162e6aa959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio1: {fileID: 1585992304}
 --- !u!114 &901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10793,6 +10828,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6277bef6787571548a22038bfcf9134f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio1: {fileID: 1585992304}
 --- !u!114 &909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12523,6 +12571,7 @@ GameObject:
   - component: {fileID: 567051659}
   - component: {fileID: 567051658}
   - component: {fileID: 567051662}
+  - component: {fileID: 567051663}
   m_Layer: 0
   m_Name: moneda (21)
   m_TagString: Untagged
@@ -12652,6 +12701,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &567051663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567051656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0668829b248b5284aa4830e119fa2d71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio1: {fileID: 1585992304}
 --- !u!23 &579146394
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15595,6 +15657,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1207135228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e610579843f2f9a41ab335437220cab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio1: {fileID: 1585992304}
 --- !u!64 &1207722196
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16831,6 +16906,7 @@ GameObject:
   - component: {fileID: 1545455343}
   - component: {fileID: 1545455342}
   - component: {fileID: 1545455346}
+  - component: {fileID: 1545455347}
   m_Layer: 0
   m_Name: moneda (22)
   m_TagString: Untagged
@@ -16960,6 +17036,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1545455347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545455340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2866244d214c14e4c977a47165ad1cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio1: {fileID: 1585992304}
 --- !u!1 &1545618376
 GameObject:
   m_ObjectHideFlags: 0
@@ -17400,6 +17489,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1605375231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 231ba1105c3029e4493f0eadff2b24ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio1: {fileID: 1585992304}
 --- !u!64 &1619230535
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17759,6 +17861,7 @@ GameObject:
   - component: {fileID: 1669073096}
   - component: {fileID: 1669073095}
   - component: {fileID: 1669073099}
+  - component: {fileID: 1669073100}
   m_Layer: 0
   m_Name: moneda (23)
   m_TagString: Untagged
@@ -17888,6 +17991,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1669073100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669073093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 713795d08cf6abe43a5a83bbd1fb0548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio1: {fileID: 1585992304}
 --- !u!1 &1695123868
 GameObject:
   m_ObjectHideFlags: 0
@@ -18080,6 +18196,7 @@ GameObject:
   - component: {fileID: 1718028927}
   - component: {fileID: 1718028926}
   - component: {fileID: 1718028930}
+  - component: {fileID: 1718028931}
   m_Layer: 0
   m_Name: moneda (24)
   m_TagString: Untagged
@@ -18209,6 +18326,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1718028931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718028924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1769fa2cb459b1748868f10d0ebcbed0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio1: {fileID: 1585992304}
 --- !u!1 &1718645736
 GameObject:
   m_ObjectHideFlags: 0
@@ -30432,6 +30562,7 @@ GameObject:
   - component: {fileID: 2141609770}
   - component: {fileID: 2141609769}
   - component: {fileID: 2141609773}
+  - component: {fileID: 2141609774}
   m_Layer: 0
   m_Name: moneda (20)
   m_TagString: Untagged
@@ -30561,6 +30692,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2141609774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141609767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82bc42af9eb108458badf24b59968ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio1: {fileID: 1585992304}
 --- !u!114 &8170153791532490080
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -67,8 +67,8 @@ public class inicio4base : MonoBehaviour
 		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
 		Resolution resolucion = resoluciones[opcres];
 		Screen.SetResolution(resolucion.width,resolucion.height,Screen.fullScreen);
-		manager.datosconfig.resolh = resolucion.width;
-		manager.datosconfig.resolv = resolucion.height;
+		manager.datosconfig.resolh = Screen.currentResolution.width;
+		manager.datosconfig.resolv = Screen.currentResolution.height;
 		}
 	}
 	public void Resder()
@@ -79,8 +79,8 @@ public class inicio4base : MonoBehaviour
 		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
 		Resolution resolucion = resoluciones[opcres];
 		Screen.SetResolution(resolucion.width,resolucion.height,Screen.fullScreen);
-		manager.datosconfig.resolh = resolucion.width;
-		manager.datosconfig.resolv = resolucion.height;
+		manager.datosconfig.resolh = Screen.currentResolution.width;
+		manager.datosconfig.resolv = Screen.currentResolution.height;
 		}
 	}
 
