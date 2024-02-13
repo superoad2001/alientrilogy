@@ -12,8 +12,8 @@ public class shaderchange : MonoBehaviour
     void Start()
     {
 
-        shad1 = Shader.Find("Standard");
-        shad2 = Shader.Find("Shader Graphs/prueba");
+        shad1 = Shader.Find("Shader Graphs/base");
+        shad2 = Shader.Find("Shader Graphs/shader2");
         allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>() ;
         foreach(GameObject obj in allObjects)
         {

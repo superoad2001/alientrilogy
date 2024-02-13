@@ -25032,7 +25032,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44576848, g: 0.44444618, b: 0.44533616, a: 1}
+  m_IndirectSpecularColor: {r: 0.44458285, g: 0.44439715, b: 0.44419748, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!108 &1515
 Light:
@@ -26879,6 +26879,8 @@ MonoBehaviour:
     resoluciones: 0
     lastgame: 0
     aplicarres: 0
+    resolh: 1280
+    resolv: 720
   datostrof:
     completaalien1v: 0
     completaalien1m: 0
@@ -31080,6 +31082,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: agua
       objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583155, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -32974,31 +32980,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a64ed98c1a9f1148a0c628be414deea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  rewiredInputManager: {fileID: 0}
-  useAllRewiredGamePlayers: 1
-  useRewiredSystemPlayer: 1
-  rewiredPlayerIds: 00000000
-  usePlayingPlayersOnly: 0
-  playerMice: []
-  moveOneElementPerAxisPress: 0
-  setActionsById: 0
-  horizontalActionId: -1
-  verticalActionId: -1
-  submitActionId: -1
-  cancelActionId: -1
-  m_HorizontalAxis: lhorizontal
-  m_VerticalAxis: lvertical
-  m_SubmitButton: a
-  m_CancelButton: UICancel
-  m_InputActionsPerSecond: 4.5
-  m_RepeatDelay: 0
-  m_allowMouseInput: 1
-  m_allowMouseInputIfTouchSupported: 1
-  m_allowTouchInput: 1
-  m_deselectIfBackgroundClicked: 1
-  m_deselectBeforeSelecting: 1
-  m_ForceModuleActive: 0
 --- !u!114 &1118242766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33011,10 +32992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c713b21795839dc46bda1965a2d50861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 567820466}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 5
-  _alwaysUpdate: 0
 --- !u!1 &1120848299
 GameObject:
   m_ObjectHideFlags: 0
@@ -33571,6 +33548,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 159007873}
     m_Modifications:
     - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
@@ -33630,6 +33611,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583165, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
