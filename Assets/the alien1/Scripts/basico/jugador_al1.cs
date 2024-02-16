@@ -133,9 +133,7 @@ public class jugador_al1 : MonoBehaviour
 	{
 	tiempoascensor += Time.deltaTime;
 	manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
-	if(manager.datosconfig.plat == 1)
-	{
-	
+
 	if(player.GetAxis("lhorizontal") > 0)
 	{lhorizontalc = 1;}
 	else if(player.GetAxis("lhorizontal") < 0)
@@ -154,15 +152,6 @@ public class jugador_al1 : MonoBehaviour
 	mc = player.GetAxis("b");
 	nc = player.GetAxis("x");
 	pausac = player.GetAxis("pausa");
-	}
-	
-	if(manager.datosconfig.plat == 2)
-	{
-	lhorizontalc = joyl.Horizontal;
-	lverticalc =  joyl.Vertical;
-	rhorizontalc =  joyr.Horizontal;
-	rverticalc =  joyr.Vertical;
-	}
 
 
 
@@ -416,6 +405,7 @@ public class jugador_al1 : MonoBehaviour
 
 		if (pausac > 0 && temp9 > 0.7f)
 		{
+			manager.pauseact = true;
 			pausa1.SetActive(true);
 			pausac = 0;
 			temp9 = 0;

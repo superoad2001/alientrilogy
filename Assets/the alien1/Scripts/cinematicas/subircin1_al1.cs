@@ -29,7 +29,7 @@ public class subircin1_al1 : MonoBehaviour
 	// Token: 0x06000039 RID: 57 RVA: 0x00003A96 File Offset: 0x00001C96
 	private void Update()
 	{
-		if (player.GetAxis("b") > 0f || botonm == true)
+		if (player.GetAxis("b") > 0f)
 		{
 			SceneManager.LoadScene("piso1_c_al1");
 		}

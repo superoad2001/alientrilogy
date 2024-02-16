@@ -150,6 +150,8 @@ public class jugador1_al3: MonoBehaviour
     public bool selcarga;
     public GameObject selecionrap;
 
+    public Animator seleccionanim;
+
 	
     // Start is called before the first frame update
     void Start()
@@ -157,6 +159,7 @@ public class jugador1_al3: MonoBehaviour
         player = ReInput.players.GetPlayer(playerID);
         manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
         manager.cargar();
+        seleccionanim = selecionrap.GetComponent<Animator>();
         if(manager.datosconfig.plat == 1)
         {
             Cursor.visible = false;
@@ -558,8 +561,8 @@ public class jugador1_al3: MonoBehaviour
             actsel1 = true;
             tempselec = 0;
             anim.SetBool("caminar",true);
-            if(tempselec <= 3)
-            {selecionrap.SetActive(true);}
+            if(tempselec <= 5)
+            {seleccionanim.SetBool("show",true);}
             if(tempselec < 15)
             {tempselec += 1 * Time.deltaTime;}
             
@@ -567,8 +570,8 @@ public class jugador1_al3: MonoBehaviour
         else if(ltc> 0f && manager.juego != 6 && manager.juego != 4&& manager.juego != 5 && actsel1 == true)
         {
             anim.SetBool("caminar",true);
-            if(tempselec > 3)
-            {selecionrap.SetActive(false);}
+            if(tempselec > 5)
+            {seleccionanim.SetBool("show",false);}
             if(tempselec < 15)
             {tempselec += 1 * Time.deltaTime;}
             
@@ -577,7 +580,7 @@ public class jugador1_al3: MonoBehaviour
         {
             actsel1 = false;
             anim.SetBool("caminar",false);
-            selecionrap.SetActive(false);
+            seleccionanim.SetBool("show",false);
         }
 
         if(nc> 0f && atkact2 == true && suelo == false && manager.juego != 6 && manager.juego != 4 && manager.juego != 5 && escalar == false)

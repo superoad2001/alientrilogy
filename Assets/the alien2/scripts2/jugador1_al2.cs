@@ -81,8 +81,6 @@ public class jugador1_al2 : MonoBehaviour
 	public float nc;
     public float rbc;
     public float lbc;
-    public Joystick joyl;
-	public Joystick joyr;
     public GameObject tactil;
 
 	
@@ -404,8 +402,6 @@ public class jugador1_al2 : MonoBehaviour
             }
             respawn = false;
         }
-        if(manager.datosconfig.plat == 1)
-        {
         if(player.GetAxis("lhorizontal") > 0)
         {lhorizontalc = 1;}
         else if(player.GetAxis("lhorizontal") < 0)
@@ -425,14 +421,6 @@ public class jugador1_al2 : MonoBehaviour
         rbc = player.GetAxis("rb");
         lbc = player.GetAxis("lb");
         pausac = player.GetAxis("pausa");
-        }
-        if(manager.datosconfig.plat == 2)
-        {
-        lhorizontalc = joyl.Horizontal;
-        lverticalc =  joyl.Vertical;
-        rhorizontalc =  joyr.Horizontal;
-        rverticalc =  joyr.Vertical;
-        }
         if(manager.datosserial.personaje == 1 || manager.datosserial.personaje == 0)
         {
 

@@ -118,8 +118,6 @@ public class jugador2_al2 : MonoBehaviour
     {
         
         manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
-        if(manager.datosconfig.plat == 1)
-        {
         if(player.GetAxis("lhorizontal") > 0)
         {lhorizontalc = 1;}
         else if(player.GetAxis("lhorizontal") < 0)
@@ -138,14 +136,6 @@ public class jugador2_al2 : MonoBehaviour
         nc = player.GetAxis("x");
         rbc = player.GetAxis("rb");
         lbc = player.GetAxis("lb");
-        }
-        if(manager.datosconfig.plat == 2)
-        {
-        lhorizontalc = joyl.Horizontal;
-        lverticalc =  joyl.Vertical;
-        rhorizontalc =  joyr.Horizontal;
-        rverticalc =  joyr.Vertical;
-        }
         if(manager.datosserial.personaje == 2)
         {
         if (jumpc > 0f && saltop == true && tiemposalto > 1.4f)

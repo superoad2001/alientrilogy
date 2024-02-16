@@ -773,6 +773,8 @@ MonoBehaviour:
     resoluciones: 0
     lastgame: 0
     aplicarres: 0
+    resolh: 1280
+    resolv: 720
   datostrof:
     completaalien1v: 0
     completaalien1m: 0
@@ -996,6 +998,7 @@ MonoBehaviour:
   mundosalto: 1
   selcarga: 0
   selecionrap: {fileID: 103348539}
+  seleccionanim: {fileID: 0}
   jumpfcarga: 0
   temp9: 0
   pausac: 0
@@ -2321,6 +2324,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2419792345110102849, guid: a67c146ec469542449c946df6e951b23, type: 3}
   m_PrefabInstance: {fileID: 2419792345208175226}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &103348545
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103348539}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9f5f54c48eee1ea488f20b9fa05a8b03, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &105849310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27749,6 +27773,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2419792344809863557, guid: a67c146ec469542449c946df6e951b23, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -614
+      objectReference: {fileID: 0}
     - target: {fileID: 2419792344816692410, guid: a67c146ec469542449c946df6e951b23, type: 3}
       propertyPath: m_FirstSelected
       value: 
@@ -27851,12 +27879,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2419792345110102849, guid: a67c146ec469542449c946df6e951b23, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2419792345404507043, guid: a67c146ec469542449c946df6e951b23, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2419792345110102849, guid: a67c146ec469542449c946df6e951b23, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 103348545}
   m_SourcePrefab: {fileID: 100100000, guid: a67c146ec469542449c946df6e951b23, type: 3}
 --- !u!1001 &3571143278822298763
 PrefabInstance:

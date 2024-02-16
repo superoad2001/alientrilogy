@@ -17,6 +17,7 @@ public class pausa_al1 : MonoBehaviour
     public Text boton3;
     public Text boton4;
     public float temp;
+    public int piso = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,12 +71,28 @@ public class pausa_al1 : MonoBehaviour
 			Cursor.visible = false;
         	Cursor.lockState = CursorLockMode.Locked;
 		}
-    }
+        manager.pauseact = false;    
+        }
     public void salir(){
         SceneManager.LoadScene("presentacion_al1");
     }
 
     public void salirnivel(){
-        SceneManager.LoadScene("piso1_al1");
+        if(piso == 1)
+        {SceneManager.LoadScene("piso1_al1");}
+        if(piso == 2)
+        {SceneManager.LoadScene("piso2_al1");}
+        if(piso == 3)
+        {SceneManager.LoadScene("piso3_al1");}
+        if(piso == 4)
+        {SceneManager.LoadScene("piso4_al1");}
+        if(piso == -1)
+        {SceneManager.LoadScene("piso1t_al1");}
+        if(piso == -2)
+        {SceneManager.LoadScene("piso2t_al1");}
+        if(piso == -3)
+        {SceneManager.LoadScene("piso3t_al1");}
+        if(piso == -4)
+        {SceneManager.LoadScene("piso4t_al1");}
     }
 }

@@ -14,6 +14,7 @@ public class manager_al1 : MonoBehaviour
 	public int nivel = 0;
 	public bool otroasteroide = false;
 	public AudioSource audio;
+	public bool dentrotienda;
 	public AudioSource audio1;
 	public AudioSource audio2;
 	public AudioSource audio3;
@@ -47,6 +48,8 @@ public class manager_al1 : MonoBehaviour
 	public int menu = 0;
 	public int estados = 0;
 	public int tuto = 0;
+
+	public bool pauseact = false;
 
 	public string repath;
 	public string repathconfig;
@@ -260,96 +263,96 @@ public class manager_al1 : MonoBehaviour
 
 		if(datosconfig.idioma == "es")
 		{
-			if (this.piso == 1 && this.datosserial.gemas == 0 && jugador.dentrotienda == false)
+			if (this.piso == 1 && this.datosserial.gemas == 0 && dentrotienda == false)
 			{
 				audio.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 1 && this.datosserial.gemas <= 3 && datosserial.tengovel == 0 && jugador.dentrotienda == false)
+			if (this.piso == 1 && this.datosserial.gemas >= 1 && this.datosserial.gemas <= 3 && datosserial.tengovel == 0 && dentrotienda == false)
 			{
 				audio1.Play();
 			}
 			
-			if (this.piso == 1 && this.datosserial.gemas >= 3 && this.datosserial.gemas <= 6 && jugador.dentrotienda == false && datosserial.tengovel == 1 && datosserial.tengocoche == 0)
+			if (this.piso == 1 && this.datosserial.gemas >= 3 && this.datosserial.gemas <= 6 && dentrotienda == false && datosserial.tengovel == 1 && datosserial.tengocoche == 0)
 			{
 				audio2.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 6 && this.datosserial.gemas <= 9 && datosserial.tengocoche == 1 && jugador.dentrotienda == false && datosserial.tengosalto == 0)
+			if (this.piso == 1 && this.datosserial.gemas >= 6 && this.datosserial.gemas <= 9 && datosserial.tengocoche == 1 && dentrotienda == false && datosserial.tengosalto == 0)
 			{
 				audio3.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 9 && this.datosserial.gemas <= 12 && datosserial.tengosalto == 1 && jugador.dentrotienda == false && datosserial.tengonave == 0)
+			if (this.piso == 1 && this.datosserial.gemas >= 9 && this.datosserial.gemas <= 12 && datosserial.tengosalto == 1 && dentrotienda == false && datosserial.tengonave == 0)
 			{
 				audio4.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 12 && datosserial.tengonave == 1 && jugador.dentrotienda == false && datosserial.fragmento < 3 && datosserial.tengomejora == 0 && datosserial.tengollave4 == 0)
+			if (this.piso == 1 && this.datosserial.gemas >= 12 && datosserial.tengonave == 1 && dentrotienda == false && datosserial.fragmento < 3 && datosserial.tengomejora == 0 && datosserial.tengollave4 == 0)
 			{
 				audio5.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas == 15 && datosserial.tengomejora == 0 && jugador.dentrotienda == false && datosserial.fragmento == 3 && datosserial.tengollave4 == 0 && datosserial.monedas == 50)
+			if (this.piso == 1 && this.datosserial.gemas == 15 && datosserial.tengomejora == 0 && dentrotienda == false && datosserial.fragmento == 3 && datosserial.tengollave4 == 0 && datosserial.monedas == 50)
 			{
 				audio6.Play();
 			}
 		}
 		if(datosconfig.idioma == "en")
 		{
-			if (this.piso == 1 && this.datosserial.gemas == 0 && jugador.dentrotienda == false)
+			if (this.piso == 1 && this.datosserial.gemas == 0 && dentrotienda == false)
 			{
 				audioen.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 1 && this.datosserial.gemas <= 3 && datosserial.tengovel == 0 && jugador.dentrotienda == false)
+			if (this.piso == 1 && this.datosserial.gemas >= 1 && this.datosserial.gemas <= 3 && datosserial.tengovel == 0 && dentrotienda == false)
 			{
 				audio1en.Play();
 			}
 			
-			if (this.piso == 1 && this.datosserial.gemas >= 3 && this.datosserial.gemas <= 6 && jugador.dentrotienda == false && datosserial.tengovel == 1 && datosserial.tengocoche == 0)
+			if (this.piso == 1 && this.datosserial.gemas >= 3 && this.datosserial.gemas <= 6 && dentrotienda == false && datosserial.tengovel == 1 && datosserial.tengocoche == 0)
 			{
 				audio2en.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 6 && this.datosserial.gemas <= 9 && datosserial.tengocoche == 1 && jugador.dentrotienda == false && datosserial.tengosalto == 0)
+			if (this.piso == 1 && this.datosserial.gemas >= 6 && this.datosserial.gemas <= 9 && datosserial.tengocoche == 1 && dentrotienda == false && datosserial.tengosalto == 0)
 			{
 				audio3en.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 9 && this.datosserial.gemas <= 12 && datosserial.tengosalto == 1 && jugador.dentrotienda == false && datosserial.tengonave == 0)
+			if (this.piso == 1 && this.datosserial.gemas >= 9 && this.datosserial.gemas <= 12 && datosserial.tengosalto == 1 && dentrotienda == false && datosserial.tengonave == 0)
 			{
 				audio4en.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 12 && datosserial.tengonave == 1 && jugador.dentrotienda == false && datosserial.fragmento < 3 && datosserial.tengomejora == 0 && datosserial.tengollave4 == 0)
+			if (this.piso == 1 && this.datosserial.gemas >= 12 && datosserial.tengonave == 1 && dentrotienda == false && datosserial.fragmento < 3 && datosserial.tengomejora == 0 && datosserial.tengollave4 == 0)
 			{
 				audio5en.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas == 15 && datosserial.tengomejora == 0 && jugador.dentrotienda == false && datosserial.fragmento == 3 && datosserial.tengollave4 == 0 && datosserial.monedas == 50)
+			if (this.piso == 1 && this.datosserial.gemas == 15 && datosserial.tengomejora == 0 && dentrotienda == false && datosserial.fragmento == 3 && datosserial.tengollave4 == 0 && datosserial.monedas == 50)
 			{
 				audio6en.Play();
 			}
 		}
 		if(datosconfig.idioma == "cat")
 		{
-			if (this.piso == 1 && this.datosserial.gemas == 0 && jugador.dentrotienda == false)
+			if (this.piso == 1 && this.datosserial.gemas == 0 && dentrotienda == false)
 			{
 				audiocat.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 1 && this.datosserial.gemas <= 3 && datosserial.tengovel == 0 && jugador.dentrotienda == false)
+			if (this.piso == 1 && this.datosserial.gemas >= 1 && this.datosserial.gemas <= 3 && datosserial.tengovel == 0 && dentrotienda == false)
 			{
 				audio1cat.Play();
 			}
 			
-			if (this.piso == 1 && this.datosserial.gemas >= 3 && this.datosserial.gemas <= 6 && jugador.dentrotienda == false && datosserial.tengovel == 1 && datosserial.tengocoche == 0)
+			if (this.piso == 1 && this.datosserial.gemas >= 3 && this.datosserial.gemas <= 6 && dentrotienda == false && datosserial.tengovel == 1 && datosserial.tengocoche == 0)
 			{
 				audio2cat.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 6 && this.datosserial.gemas <= 9 && datosserial.tengocoche == 1 && jugador.dentrotienda == false && datosserial.tengosalto == 0)
+			if (this.piso == 1 && this.datosserial.gemas >= 6 && this.datosserial.gemas <= 9 && datosserial.tengocoche == 1 && dentrotienda == false && datosserial.tengosalto == 0)
 			{
 				audio3cat.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 9 && this.datosserial.gemas <= 12 && datosserial.tengosalto == 1 && jugador.dentrotienda == false && datosserial.tengonave == 0)
+			if (this.piso == 1 && this.datosserial.gemas >= 9 && this.datosserial.gemas <= 12 && datosserial.tengosalto == 1 && dentrotienda == false && datosserial.tengonave == 0)
 			{
 				audio4cat.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 12 && datosserial.tengonave == 1 && jugador.dentrotienda == false && datosserial.fragmento < 3 && datosserial.tengomejora == 0 && datosserial.tengollave4 == 0)
+			if (this.piso == 1 && this.datosserial.gemas >= 12 && datosserial.tengonave == 1 && dentrotienda == false && datosserial.fragmento < 3 && datosserial.tengomejora == 0 && datosserial.tengollave4 == 0)
 			{
 				audio5cat.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas == 15 && datosserial.tengomejora == 0 && jugador.dentrotienda == false && datosserial.fragmento == 3 && datosserial.tengollave4 == 0 && datosserial.monedas == 50)
+			if (this.piso == 1 && this.datosserial.gemas == 15 && datosserial.tengomejora == 0 && dentrotienda == false && datosserial.fragmento == 3 && datosserial.tengollave4 == 0 && datosserial.monedas == 50)
 			{
 				audio6cat.Play();
 			}
@@ -617,17 +620,17 @@ public class manager_al1 : MonoBehaviour
 			boton5.text = "si estas jugando en un pc tableta o android selecciona dispositivo tactil si estas en los anteriores dispositivos con un mando o en pc o consola selecciona pc o consola";
 			boton6.text = "una vez selecionado para cambiarlo entra a opciones";
 		}
-		if (this.juego == 0 && this.piso == 1 && jugador.dentrotienda == true)
+		if (this.juego == 0 && this.piso == 1 && dentrotienda == true && pauseact == false)
 		{
-			this.cuentamonedas.text = "monedas:  " + this.datosserial.monedas;
-			this.cuentagemas.text = "gemas:  " + this.datosserial.gemas;
+			this.cuentamonedas.text = "monedas:  " + this.datosserial.monedas+"/50";
+			this.cuentagemas.text = "gemas:  " + this.datosserial.gemas+"/15";
 			this.cuentafrag.text = "fragmentos de gran gema: " + this.datosserial.fragmento + "/3";
 
 		}
-		if (this.juego == 0 && this.piso == 1 && jugador.dentrotienda == false || this.juego == 0 && this.piso == 2 && jugador.dentrotienda == false|| this.juego == 0 && this.piso == 3 && jugador.dentrotienda == false|| this.juego == 0 && this.piso == 4 && jugador.dentrotienda == false)
+		if (this.juego == 0 && this.piso == 1 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 2 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 3 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 4 && dentrotienda == false && pauseact == false)
 		{
-			this.cuentamonedas.text = "monedas:  " + this.datosserial.monedas;
-			this.cuentagemas.text = "gemas:  " + this.datosserial.gemas;
+			this.cuentamonedas.text = "monedas:  " + this.datosserial.monedas+"/50";
+			this.cuentagemas.text = "gemas:  " + this.datosserial.gemas+"/15";
 			this.cuentafrag.text = "fragmentos de gran gema: " + this.datosserial.fragmento + "/3";
 
 			if (datosserial.gemas == 0)
@@ -787,13 +790,16 @@ public class manager_al1 : MonoBehaviour
 		{
 			this.mision.text = "MISION fase final: ve al espacio con la nave y largate de esta galaxia                 has desbloqueado la torre del tiempo sube arriba del quinto piso y supera los records negtivos";
 		}
-		if (this.juego == 4 && this.piso == 10 || this.juego == 1 && this.piso == 10 || this.juego == 4 && this.piso == 1)
+		if (this.juego == 4 && this.piso == 10  && pauseact == false|| this.juego == 1 && this.piso == 10  && pauseact == false|| this.juego == 4 && this.piso == 1 && pauseact == false)
 		{
-			this.cuentamonedas.text = "monedas:  " + this.datosserial.monedas;
+			this.cuentagemas.text = "gemas:  " + this.datosserial.gemas+"/15";
+			this.cuentamonedas.text = "monedas:  " + this.datosserial.monedas+"/50";
+			
 		}
-				if (this.juego == 4 && this.piso == 10 && this.mundos == true || this.juego == 1 && this.piso == 10 && this.mundos == true || this.juego == 4 && this.piso == 1 && this.mundos == true )
+				if (this.juego == 4 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 1 && this.piso == 10 && this.mundos == true && pauseact == false || this.juego == 4 && this.piso == 1 && this.mundos == true && pauseact == false)
 		{
-			this.cuentagemas.text = "gemas:  " + this.datosserial.gemas;
+			this.cuentagemas.text = "gemas:  " + this.datosserial.gemas+"/15";
+			this.cuentamonedas.text = "monedas:  " + this.datosserial.monedas+"/50";
 		}
 		if (juego == 6 && datosserial.tengomejora == 1)
 		{
@@ -922,17 +928,17 @@ public class manager_al1 : MonoBehaviour
 			boton5.text = "if you are playing on a tablet or android pc select touch device if you are on the above devices with a controller or on pc or console select pc or console";
 			boton6.text = "once selected to change it go to settings";
 		}
-		if (this.juego == 0 && this.piso == 1 && jugador.dentrotienda == true)
+		if (this.juego == 0 && this.piso == 1 && dentrotienda == true && pauseact == false)
 		{
-			this.cuentamonedas.text = "coins:  " + this.datosserial.monedas;
-			this.cuentagemas.text = "gems:  " + this.datosserial.gemas;
+			this.cuentamonedas.text = "coins:  " + this.datosserial.monedas+"/50";
+			this.cuentagemas.text = "gems:  " + this.datosserial.gemas+"/15";
 			this.cuentafrag.text = "special gem fragments: " + this.datosserial.fragmento + "/3";
 
 		}
-		if (this.juego == 0 && this.piso == 1 && jugador.dentrotienda == false || this.juego == 0 && this.piso == 2 && jugador.dentrotienda == false|| this.juego == 0 && this.piso == 3 && jugador.dentrotienda == false|| this.juego == 0 && this.piso == 4 && jugador.dentrotienda == false)
+		if (this.juego == 0 && this.piso == 1 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 2 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 3 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 4 && dentrotienda == false && pauseact == false)
 		{
-			this.cuentamonedas.text = "coins:  " + this.datosserial.monedas;
-			this.cuentagemas.text = "gems:  " + this.datosserial.gemas;
+			this.cuentamonedas.text = "coins:  " + this.datosserial.monedas+"/50";
+			this.cuentagemas.text = "gems:  " + this.datosserial.gemas+"/15";
 			this.cuentafrag.text = "special gem fragments: " + this.datosserial.fragmento + "/3";
 
 			if (datosserial.gemas == 0)
@@ -1092,13 +1098,15 @@ public class manager_al1 : MonoBehaviour
 		{
 			this.mision.text = "MISSION final phase: go to space with the ship and get out of this galaxy you have unlocked the tower of time go up to the fifth floor and beat your recordss";
 		}
-		if (this.juego == 4 && this.piso == 10 || this.juego == 1 && this.piso == 10 || this.juego == 4 && this.piso == 1)
+		if (this.juego == 4 && this.piso == 10  && pauseact == false|| this.juego == 1 && this.piso == 10 && pauseact == false || this.juego == 4 && this.piso == 1 && pauseact == false)
 		{
-			this.cuentamonedas.text = "coins:  " + this.datosserial.monedas;
+			this.cuentagemas.text = "gems:  " + this.datosserial.gemas+"/15";
+			this.cuentamonedas.text = "coins:  " + this.datosserial.monedas+"/50";
 		}
-				if (this.juego == 4 && this.piso == 10 && this.mundos == true || this.juego == 1 && this.piso == 10 && this.mundos == true || this.juego == 4 && this.piso == 1 && this.mundos == true )
+				if (this.juego == 4 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 1 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 4 && this.piso == 1 && this.mundos == true && pauseact == false)
 		{
-			this.cuentagemas.text = "gems:  " + this.datosserial.gemas;
+			this.cuentagemas.text = "gems:  " + this.datosserial.gemas+"/15";
+			this.cuentamonedas.text = "coins:  " + this.datosserial.monedas+"/50";
 		}
 		if (juego == 6 && datosserial.tengomejora == 1)
 		{
@@ -1227,17 +1235,17 @@ public class manager_al1 : MonoBehaviour
 			boton5.text = "si estas jugan a un pc tableta o android selecciona dispositiu tactil si estas als anteriors dispositius amb un control o a un pc o consola selecciona pc o consola";
 			boton6.text = "una vegada selecionat per cambiaro entra a opcions";
 		}
-		if (this.juego == 0 && this.piso == 1 && jugador.dentrotienda == true)
+		if (this.juego == 0 && this.piso == 1 && dentrotienda == true && pauseact == false)
 		{
-			this.cuentamonedas.text = "diners:  " + this.datosserial.monedas;
-			this.cuentagemas.text = "gemmes:  " + this.datosserial.gemas;
+			this.cuentamonedas.text = "diners:  " + this.datosserial.monedas+"/50";
+			this.cuentagemas.text = "gemmes:  " + this.datosserial.gemas+"/15";
 			this.cuentafrag.text = "fragments de gran gemme: " + this.datosserial.fragmento + "/3";
 
 		}
-		if (this.juego == 0 && this.piso == 1 && jugador.dentrotienda == false || this.juego == 0 && this.piso == 2 && jugador.dentrotienda == false|| this.juego == 0 && this.piso == 3 && jugador.dentrotienda == false|| this.juego == 0 && this.piso == 4 && jugador.dentrotienda == false)
+		if (this.juego == 0 && this.piso == 1 && dentrotienda == false  && pauseact == false || this.juego == 0 && this.piso == 2 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 3 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 4 && dentrotienda == false && pauseact == false)
 		{
-			this.cuentamonedas.text = "diners:  " + this.datosserial.monedas;
-			this.cuentagemas.text = "gemmes:  " + this.datosserial.gemas;
+			this.cuentamonedas.text = "diners:  " + this.datosserial.monedas+"/50";
+			this.cuentagemas.text = "gemmes:  " + this.datosserial.gemas+"/15";
 			this.cuentafrag.text = "fragments de gran gemme: " + this.datosserial.fragmento + "/3";
 
 			if (datosserial.gemas == 0)
@@ -1397,13 +1405,15 @@ public class manager_al1 : MonoBehaviour
 		{
 			this.mision.text = "MISIO fase final: ves al espai amb la nau y vesten de aquesta galaxia                 has desbloquejat la torre del temps puja a d alt del cinque pis y supera els records negatius";
 		}
-		if (this.juego == 4 && this.piso == 10 || this.juego == 1 && this.piso == 10 || this.juego == 4 && this.piso == 1)
+		if (this.juego == 4 && this.piso == 10  && pauseact == false|| this.juego == 1 && this.piso == 10  && pauseact == false|| this.juego == 4 && this.piso == 1 && pauseact == false)
 		{
-			this.cuentamonedas.text = "diners:  " + this.datosserial.monedas;
+			this.cuentamonedas.text = "diners:  " + this.datosserial.monedas+"/50";
+			this.cuentagemas.text = "gemmes:  " + this.datosserial.gemas+"/15";
 		}
-				if (this.juego == 4 && this.piso == 10 && this.mundos == true || this.juego == 1 && this.piso == 10 && this.mundos == true || this.juego == 4 && this.piso == 1 && this.mundos == true )
+		if (this.juego == 4 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 1 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 4 && this.piso == 1 && this.mundos == true  && pauseact == false)
 		{
-			this.cuentagemas.text = "gemmes:  " + this.datosserial.gemas;
+			this.cuentamonedas.text = "diners:  " + this.datosserial.monedas+"/50";
+			this.cuentagemas.text = "gemmes:  " + this.datosserial.gemas+"/15";
 		}
 		if (juego == 6 && datosserial.tengomejora == 1)
 		{
