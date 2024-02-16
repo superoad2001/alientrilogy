@@ -13,10 +13,10 @@ public class jugador2_al2 : MonoBehaviour
 
 	public AudioSource audio1;
     public AudioSource audio2;
-    public int vida = 2;
+    public float vida = 2;
     public bool muerte;
     public Text vidas;
-    public int vidaaux;
+    public float vidaaux;
     public bool dimensiion;
     public float rotspeed = 180;
 	public GameObject camara;
@@ -68,7 +68,6 @@ public class jugador2_al2 : MonoBehaviour
     public float lbc;
     public Joystick joyl;
 	public Joystick joyr;
-    public GameObject tactil;
     // Start is called before the first frame update
     void Start()
     {
@@ -78,12 +77,10 @@ public class jugador2_al2 : MonoBehaviour
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            tactil.SetActive(false);
 
         }
         if(manager.datosconfig.plat == 2)
         {
-            tactil.SetActive(true);
 
         }
         this._rb = base.GetComponent<Rigidbody>();

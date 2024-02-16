@@ -25,10 +25,10 @@ public class jugador1_al2 : MonoBehaviour
 	public AudioSource pasos1;
 	public AudioSource pasos2;
     public bool saltador;
-    public int vida = 2;
+    public float vida = 2;
     public bool muerte;
     public Text vidas;
-    public int vidaaux;
+    public float vidaaux;
     public bool dimensiion;
     public float rotspeed = 180;
 	public GameObject camara;
