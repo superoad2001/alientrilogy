@@ -1622,7 +1622,7 @@ public class manager_al2 : MonoBehaviour
 			}
 			if(nivel == 0 && datosserial.llaves < 4 && datosserial.tengosaltod == 0 && datosserial.block1 == 0)
 			{
-				mision.text = "mision: consigue las llaves de los 4 datosserial.niveles disponibles";
+				mision.text = "mision: consigue las llaves de los 4 niveles disponibles";
 			}
 			if(nivel == 0 && datosserial.llaves == 4 && datosserial.tengosaltod == 0 && datosserial.block1 == 0)
 			{
@@ -1634,7 +1634,7 @@ public class manager_al2 : MonoBehaviour
 			}
 			if(nivel == 0 && datosserial.llaves < 4 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 0 && datosserial.block1 == 1 && datosserial.block2 == 0)
 			{
-				mision.text = "mision: consigue las llaves de los 4 datosserial.niveles disponibles";
+				mision.text = "mision: consigue las llaves de los 4 niveles disponibles";
 			}
 			if(nivel == 0 && datosserial.llaves == 4 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 0 && datosserial.block1 == 1 && datosserial.block2 == 0)
 			{
@@ -1646,7 +1646,7 @@ public class manager_al2 : MonoBehaviour
 			}
 			if(nivel == 0 && datosserial.llaves < 4 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 1 && datosserial.tengocoche == 0 && datosserial.block1 == 1 && datosserial.block2 == 1 && datosserial.block3 == 0)
 			{
-				mision.text = "mision: consigue las llaves de los 4 datosserial.niveles disponibles";
+				mision.text = "mision: consigue las llaves de los 4 niveles disponibles";
 			}
 			if(nivel == 0 && datosserial.llaves == 4 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 1 && datosserial.tengocoche == 0 && datosserial.block1 == 1 && datosserial.block2 == 1 && datosserial.block3 == 0)
 			{
@@ -1658,7 +1658,7 @@ public class manager_al2 : MonoBehaviour
 			}
 			if(nivel == 0 && datosserial.llaves < 4 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 1 && datosserial.tengocoche == 1  && datosserial.tengomental == 0 && datosserial.block1 == 1 && datosserial.block2 == 1 && datosserial.block3 == 1 && datosserial.block4 == 0)
 			{
-				mision.text = "mision: consigue las llaves de los 4 datosserial.niveles disponibles";
+				mision.text = "mision: consigue las llaves de los 4 niveles disponibles";
 			}
 			if(nivel == 0 && datosserial.llaves == 4 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 1 && datosserial.tengocoche == 1 && datosserial.tengomental == 0 && datosserial.block1 == 1 && datosserial.block2 == 1 && datosserial.block3 == 1 && datosserial.block4 == 0)
 			{
@@ -1670,7 +1670,7 @@ public class manager_al2 : MonoBehaviour
 			}
 			if(nivel == 0 && datosserial.llaves < 4 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 1 && datosserial.tengocoche == 1  && datosserial.tengomental == 1 && datosserial.tengonave == 0 && datosserial.block1 == 1 && datosserial.block2 == 1 && datosserial.block3 == 1 && datosserial.block4 == 1 && datosserial.block5 == 0)
 			{
-				mision.text = "mision: consigue las llaves de los 4 datosserial.niveles disponibles";
+				mision.text = "mision: consigue las llaves de los 4 niveles disponibles";
 			}
 			if(nivel == 0 && datosserial.llaves == 4 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 1 && datosserial.tengocoche == 1 && datosserial.tengomental == 1 && datosserial.tengonave == 0 && datosserial.block1 == 1 && datosserial.block2 == 1 && datosserial.block3 == 1 && datosserial.block4 == 1 && datosserial.block5 == 0 )
 			{
@@ -1686,7 +1686,7 @@ public class manager_al2 : MonoBehaviour
 			}
 			if(nivel == 0 && datosserial.llaves == 0 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 1 && datosserial.tengocoche == 1 && datosserial.tengomental == 1 && datosserial.tengonave == 1 && datosserial.block1 == 1 && datosserial.block2 == 1 && datosserial.block3 == 1 && datosserial.block4 == 1 && datosserial.block5 == 1 && datosserial.finalmalo == 1 && paginas < 20)
 			{
-				mision.text = "mision: busca las 20 paginas en los datosserial.niveles y ve a la isla familiar";
+				mision.text = "mision: busca las 20 paginas en los niveles y ve a la isla familiar";
 			}
 			if(nivel == 0 && datosserial.llaves == 0 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 1 && datosserial.tengocoche == 1 && datosserial.tengomental == 1 && datosserial.tengonave == 1 && datosserial.block1 == 1 && datosserial.block2 == 1 && datosserial.block3 == 1 && datosserial.block4 == 1 && datosserial.block5 == 1 && paginas == 20 && datosserial.finalbueno == 0)
 			{
@@ -2580,7 +2580,6 @@ public class manager_al2 : MonoBehaviour
 		}
 		
 
-		pause = false;
 
 	}
 }

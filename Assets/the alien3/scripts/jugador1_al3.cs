@@ -159,7 +159,8 @@ public class jugador1_al3: MonoBehaviour
         player = ReInput.players.GetPlayer(playerID);
         manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
         manager.cargar();
-        seleccionanim = selecionrap.GetComponent<Animator>();
+        if(manager.juego == 1 || manager.juego == 2 ||  manager.juego == 3)
+        {seleccionanim = selecionrap.GetComponent<Animator>();}
         if(manager.datosconfig.plat == 1)
         {
             Cursor.visible = false;
@@ -175,9 +176,11 @@ public class jugador1_al3: MonoBehaviour
 		this.velocidadaux = this.velocidad;
         if(navemode == false)
         {
+            vidaaux = manager.datosserial.vidamaxima;
         }
         else if(navemode == true)
         {
+            vidaaux = vida;
         }
         if(manager.juego == 6)
         {
@@ -2226,12 +2229,6 @@ public class jugador1_al3: MonoBehaviour
             temppocion2 -= 1 * Time.deltaTime;
         }
         
-        mc = 0;
-        nc = 0;
-        yc = 0;
-        lbc = 0;
-        rbc = 0;
-        pausac = 0;
         
     }
 

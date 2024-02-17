@@ -59,7 +59,7 @@ public class inicio_al3: MonoBehaviour
 			audio1 = audio1cat;
 		}
 		manager.datosserial.menu = mundo;
-		if(manager.datosserial.espacio != 0)
+		if(espacio != 0)
 		{manager.datosserial.espacio = espacio;}
 		manager.guardar();
 		if(manager.datosserial.com == 1)
@@ -90,7 +90,7 @@ public class inicio_al3: MonoBehaviour
 			manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
 			manager.cargar();
 			manager.datosserial.menu = mundo;
-			if(manager.datosserial.espacio != 0)
+			if(espacio != 0)
 			{manager.datosserial.espacio = espacio;}
 			manager.guardar();
 		}

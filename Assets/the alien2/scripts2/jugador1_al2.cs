@@ -24,6 +24,7 @@ public class jugador1_al2 : MonoBehaviour
     public AudioSource pasosnave;
 	public AudioSource pasos1;
 	public AudioSource pasos2;
+    public AudioSource claxon;
     public bool saltador;
     public float vida = 2;
     public bool muerte;
@@ -2882,21 +2883,43 @@ public class jugador1_al2 : MonoBehaviour
             }
             
         }
-            if(blanco == 21)
+        if(blanco == 21)
+        {
+        if(objeto == 0)
+        {
+            if(manager.datosconfig.idioma == "es")
             {
+            objetotext.text = "DISPAROS";
+            }
+            if(manager.datosconfig.idioma == "en")
+            {
+            objetotext.text = "WEAPON";
+            }
+            if(manager.datosconfig.idioma == "cat")
+            {
+            objetotext.text = "BALAS";
+            }
+        }
+        }
+        if(blanco == 22)
+        {
             if(objeto == 0)
             {
                 if(manager.datosconfig.idioma == "es")
                 {
-                objetotext.text = "DISPAROS";
+                objetotext.text = "CLAXON";
                 }
                 if(manager.datosconfig.idioma == "en")
                 {
-                objetotext.text = "WEAPON";
+                objetotext.text = "HORN";
                 }
                 if(manager.datosconfig.idioma == "cat")
                 {
-                objetotext.text = "BALAS";
+                objetotext.text = "CLAXON";
+                }
+                if(nc > 0f)
+                {
+                    claxon.Play();
                 }
             }
         }
@@ -3345,6 +3368,7 @@ public class jugador1_al2 : MonoBehaviour
 			pausa1.SetActive(true);
 			pausac = 0;
 			temp9 = 0;
+            manager.pause = true;
 			juego.SetActive(false);
 			Cursor.visible = true;
         	Cursor.lockState = CursorLockMode.None;
@@ -3352,11 +3376,6 @@ public class jugador1_al2 : MonoBehaviour
         if(temp9 < 15)
         {temp9 += 1 * Time.deltaTime;}
         
-        mc = 0;
-        nc = 0;
-        lbc = 0;
-        rbc = 0;
-        pausac = 0;
         
     }
 
