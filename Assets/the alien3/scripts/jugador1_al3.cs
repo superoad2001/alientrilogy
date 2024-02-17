@@ -571,7 +571,7 @@ public class jugador1_al3: MonoBehaviour
         {
             anim.SetBool("caminar",true);
             if(tempselec > 5)
-            {seleccionanim.SetBool("show",false);}
+            {}
             if(tempselec < 15)
             {tempselec += 1 * Time.deltaTime;}
             
