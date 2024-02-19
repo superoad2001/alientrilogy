@@ -33,6 +33,10 @@ public class managerBASE : MonoBehaviour
  
         result = Path.Combine(Application.persistentDataPath,"AlienData");
         result = Path.Combine(result, $"alienconfigdata.data");
+        #if UNITY_EDITOR
+    	result = Path.Combine(Application.persistentDataPath,"AlienDatadev");
+        result = Path.Combine(result, $"alienconfigdata.data");
+		#endif
  
         repath = result;
     }
@@ -42,6 +46,10 @@ public class managerBASE : MonoBehaviour
  
         result = Path.Combine(Application.persistentDataPath,"AlienData");
         result = Path.Combine(result, $"alientorfeodata.data");
+        #if UNITY_EDITOR
+    	result = Path.Combine(Application.persistentDataPath,"AlienDatadev");
+        result = Path.Combine(result, $"alientrofdata.data");
+		#endif
  
         repathtro = result;
     }

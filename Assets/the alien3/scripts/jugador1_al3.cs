@@ -16,7 +16,6 @@ public class jugador1_al3: MonoBehaviour
     public float pasotiempo;
     public int randompaso;
     public bool saltop = true;
-    public int gemas;
     public bool lavaaux;
     public bool suelo;
     public float r3;
@@ -292,17 +291,17 @@ public class jugador1_al3: MonoBehaviour
             if(manager.datosconfig.idioma == "es")
             {
             cuentamonedas.text = "monedas : "+manager.datosserial.monedas;
-            gemast.text = "gemas : "+gemas;
+            gemast.text = "gemas : "+manager.datosserial.gemas;
             }
             if(manager.datosconfig.idioma == "en")
             {
             cuentamonedas.text = "coins : "+manager.datosserial.monedas;
-            gemast.text = "gems : "+gemas;
+            gemast.text = "gems : "+manager.datosserial.gemas;
             }
             if(manager.datosconfig.idioma == "cat")
             {
             cuentamonedas.text = "monedas : "+manager.datosserial.monedas;
-            gemast.text = "gemmes : "+gemas;
+            gemast.text = "gemmes : "+manager.datosserial.gemas;
             }
         }
 

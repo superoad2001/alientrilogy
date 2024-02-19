@@ -58,11 +58,11 @@ public class tgemas_al3: MonoBehaviour
         manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
         if (col.gameObject.tag == "Player" && player.GetAxis("y") > 0 && jugador.tempboton > 0.5f)
 		{
-            if(tp == 1 && zona == 1 && jugador.gemas >= 5)
+            if(tp == 1 && zona == 1 && manager.datosserial.gemas >= 5)
             {
                 col.transform.position = new Vector3(23.6000004f,-9.22886467f + 3f,154.399994f);
             }
-            else if(tp == 1 && zona == 1 && jugador.gemas < 5)
+            else if(tp == 1 && zona == 1 && manager.datosserial.gemas < 5)
             {
                 no.Play();
                 necesitogemas.Play();
@@ -72,11 +72,11 @@ public class tgemas_al3: MonoBehaviour
                 col.transform.position = new Vector3(23.6000004f,-9.22886467f + 3f,102.300003f);
             }
 
-            if(tp == 1 && zona == 2 && jugador.gemas >= 12)
+            if(tp == 1 && zona == 2 && manager.datosserial.gemas >= 12)
             {
                 col.transform.position = new Vector3(510.700012f,-9.80000019f +5f,-237.899994f);
             }
-            else if(tp == 1 && zona == 2 && jugador.gemas < 12)
+            else if(tp == 1 && zona == 2 && manager.datosserial.gemas < 12)
             {
                 no.Play();
                 necesitogemas.Play();
@@ -87,11 +87,11 @@ public class tgemas_al3: MonoBehaviour
             }
 
 
-             if(tp == 1 && zona == 3 && jugador.gemas >= 21)
+             if(tp == 1 && zona == 3 && manager.datosserial.gemas >= 21)
             {
                 col.transform.position = new Vector3(539.476318f,89.0290833f + 3f,-21.1664886f);
             }
-            else if(tp == 1 && zona == 3 && jugador.gemas < 21)
+            else if(tp == 1 && zona == 3 && manager.datosserial.gemas < 21)
             {
                 no.Play();
                 necesitogemas.Play();
@@ -101,11 +101,11 @@ public class tgemas_al3: MonoBehaviour
                 col.transform.position = new Vector3(556.298889f,-10.1348286f + 3f,-42.9965706f);
             }
 
-            if(tp == 1 && zona == 4 && jugador.gemas >= 39)
+            if(tp == 1 && zona == 4 && manager.datosserial.gemas >= 39)
             {
                 col.transform.position = new Vector3(628.202271f,-9.22464657f +3f,593.874146f);
             }
-            else if(tp == 1 && zona == 4 && jugador.gemas < 39)
+            else if(tp == 1 && zona == 4 && manager.datosserial.gemas < 39)
             {
                 no.Play();
                 necesitogemas.Play();
@@ -116,31 +116,31 @@ public class tgemas_al3: MonoBehaviour
                 col.transform.position = new Vector3(270.489502f,-9.22689915f + 3f,576.981384f);
             }
 
-            if(tp == 1 && zona == 5 && jugador.gemas >= 70)
+            if(tp == 1 && zona == 5 && manager.datosserial.gemas >= 70)
             {
                 SceneManager.LoadScene("mundo15_2_al3");
             }
-            else if(tp == 1 && zona == 5 && jugador.gemas < 70)
+            else if(tp == 1 && zona == 5 && manager.datosserial.gemas < 70)
             {
                 no.Play();
                 necesitogemas.Play();
             }
 
-            if(tp == 1 && zona == 6 && jugador.gemas >= 100 && manager.datosserial.final1 == 1)
+            if(tp == 1 && zona == 6 && manager.datosserial.gemas >= 100 && manager.datosserial.final1 == 1)
             {
                 SceneManager.LoadScene("escena13_al3");
             }
-            else if(tp == 1 && zona == 6 && jugador.gemas < 100 && manager.datosserial.final1 == 0 )
+            else if(tp == 1 && zona == 6 && manager.datosserial.gemas < 100 && manager.datosserial.final1 == 0 )
             {
                 no.Play();
                 necesitogemas.Play();
             }
-            else if(tp == 1 && zona == 6 && jugador.gemas >= 100 && manager.datosserial.final1 == 0 )
+            else if(tp == 1 && zona == 6 && manager.datosserial.gemas >= 100 && manager.datosserial.final1 == 0 )
             {
                 no.Play();
                 necesitofinal.Play();
             }
-            else if(tp == 1 && zona == 6 && jugador.gemas < 100 && manager.datosserial.final1 == 1 )
+            else if(tp == 1 && zona == 6 && manager.datosserial.gemas < 100 && manager.datosserial.final1 == 1 )
             {
                 no.Play();
                 necesitogemas.Play();
