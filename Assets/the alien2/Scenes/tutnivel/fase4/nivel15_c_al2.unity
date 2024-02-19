@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 13}
   - component: {fileID: 27}
+  - component: {fileID: 28}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -143,13 +144,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1}
+  serializedVersion: 2
   m_LocalRotation: {x: 0.4082179, y: -0.2345697, z: 0.1093816, w: 0.8754261}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50.000004, y: 29.999996, z: 0.0000054693223}
 --- !u!4 &15
 Transform:
@@ -158,13 +159,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
 --- !u!4 &16
 Transform:
@@ -173,13 +174,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 83.325, y: 246.2625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
 --- !u!4 &18
 Transform:
@@ -188,13 +189,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.37, y: 100.5, z: -0.0000001192093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
 --- !u!4 &19
 Transform:
@@ -203,13 +204,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.15, y: 501, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
 --- !u!20 &21
 Camera:
@@ -225,9 +226,17 @@ Camera:
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -450,6 +459,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &28
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!157 &31
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -514,7 +546,7 @@ NavMeshSettings:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_BuildSettings:
-    serializedVersion: 2
+    serializedVersion: 3
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
@@ -527,7 +559,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    accuratePlacement: 0
+    buildHeightMesh: 0
     maxJobWorkers: 0
     preserveTilesOutsideBounds: 0
     debug:
@@ -558,7 +590,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -577,7 +611,6 @@ RectTransform:
   - {fileID: 40}
   - {fileID: 1304556795}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -597,7 +630,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 39}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -1119,13 +1151,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74218156}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 182107010}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &182107008
 GameObject:
@@ -1156,7 +1188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62353bf573a4564e9b3d967dde6fcb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 0}
+  audio1: {fileID: 0}
   audioesp: {fileID: 362758640}
   audioen: {fileID: 1550410457}
   audiocat: {fileID: 74218157}
@@ -1167,6 +1199,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182107008}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 83.325, y: 246.2625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -1176,7 +1209,6 @@ Transform:
   - {fileID: 1550410458}
   - {fileID: 74218158}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &269987042
 GameObject:
@@ -1227,9 +1259,17 @@ Camera:
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1263,6 +1303,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269987042}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -1270,7 +1311,6 @@ Transform:
   m_Children:
   - {fileID: 299003839}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
 --- !u!1 &299003838
 GameObject:
@@ -1299,13 +1339,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299003838}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.49, y: -0.03, z: 1.78}
   m_LocalScale: {x: 1.6, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 269987046}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!328 &299003840
 VideoPlayer:
@@ -1326,6 +1366,7 @@ VideoPlayer:
   m_RenderMode: 3
   m_AspectRatio: 2
   m_DataSource: 0
+  m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 0
   m_TargetAudioSources:
@@ -1350,9 +1391,17 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299003838}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
@@ -1376,7 +1425,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 42cf23a43cd15e9458b5f0bda881ee8a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1482,7 +1531,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1500,7 +1551,6 @@ RectTransform:
   m_Children:
   - {fileID: 2009954302}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1627,19 +1677,20 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 362758639}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 182107010}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &559210963
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1822414473493776847, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
@@ -1691,6 +1742,9 @@ PrefabInstance:
       value: Rewired Input Manager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a754b07e48a11640aa390cae40b5496, type: 3}
 --- !u!1 &1106172419
 GameObject:
@@ -1721,11 +1775,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db0249d37956f347a8dcba8609aa72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plat: 1
   inicio: 0
+  trofeoact: 0
   tuto: -7
   estado: 0
   menu: 0
+  paginas: 0
   boton1: {fileID: 1304556796}
   boton2: {fileID: 49}
   boton3: {fileID: 0}
@@ -1734,7 +1789,8 @@ MonoBehaviour:
   boton6: {fileID: 0}
   boton7: {fileID: 0}
   boton8: {fileID: 0}
-  audio: {fileID: 0}
+  vidaui: {fileID: 0}
+  audio0: {fileID: 0}
   audio1: {fileID: 0}
   audio2: {fileID: 0}
   audio3: {fileID: 0}
@@ -1766,6 +1822,7 @@ MonoBehaviour:
   llaveo18: {fileID: 0}
   llaveo19: {fileID: 0}
   llaveo20: {fileID: 0}
+  nivel: 100000
   paginac1: {fileID: 0}
   paginac2: {fileID: 0}
   paginac3: {fileID: 0}
@@ -1786,134 +1843,7 @@ MonoBehaviour:
   paginac18: {fileID: 0}
   paginac19: {fileID: 0}
   paginac20: {fileID: 0}
-  block1: 0
-  block2: 0
-  block3: 0
-  block4: 0
-  block5: 0
-  llaveN1: 0
-  llaveN2: 0
-  llaveN3: 0
-  llaveN4: 0
-  llaveN5: 0
-  llaveN6: 0
-  llaveN7: 0
-  llaveN8: 0
-  llaveN9: 0
-  llaveN10: 0
-  llaveN11: 0
-  llaveN12: 0
-  llaveN13: 0
-  llaveN14: 0
-  llaveN15: 0
-  llaveN16: 0
-  llaveN17: 0
-  llaveN18: 0
-  llaveN19: 0
-  llaveN20: 0
-  pagina1: 0
-  pagina2: 0
-  pagina3: 0
-  pagina4: 0
-  pagina5: 0
-  pagina6: 0
-  pagina7: 0
-  pagina8: 0
-  pagina9: 0
-  pagina10: 0
-  pagina11: 0
-  pagina12: 0
-  pagina13: 0
-  pagina14: 0
-  pagina15: 0
-  pagina16: 0
-  pagina17: 0
-  pagina18: 0
-  pagina19: 0
-  pagina20: 0
-  paginas: 0
-  trozosnv1: 0
-  trozo1nv1: 0
-  trozo2nv1: 0
-  trozo3nv1: 0
-  trozosnv2: 0
-  trozo1nv2: 0
-  trozo2nv2: 0
-  trozo3nv2: 0
-  trozosnv3: 0
-  trozo1nv3: 0
-  trozo2nv3: 0
-  trozo3nv3: 0
-  trozosnv4: 0
-  trozo1nv4: 0
-  trozo2nv4: 0
-  trozo3nv4: 0
-  trozosnv5: 0
-  trozo1nv5: 0
-  trozo2nv5: 0
-  trozo3nv5: 0
-  trozosnv6: 0
-  trozo1nv6: 0
-  trozo2nv6: 0
-  trozo3nv6: 0
-  trozosnv7: 0
-  trozo1nv7: 0
-  trozo2nv7: 0
-  trozo3nv7: 0
-  trozosnv8: 0
-  trozo1nv8: 0
-  trozo2nv8: 0
-  trozo3nv8: 0
-  trozosnv9: 0
-  trozo1nv9: 0
-  trozo2nv9: 0
-  trozo3nv9: 0
-  trozosnv10: 0
-  trozo1nv10: 0
-  trozo2nv10: 0
-  trozo3nv10: 0
-  trozosnv11: 0
-  trozo1nv11: 0
-  trozo2nv11: 0
-  trozo3nv11: 0
-  trozosnv12: 0
-  trozo1nv12: 0
-  trozo2nv12: 0
-  trozo3nv12: 0
-  trozosnv13: 0
-  trozo1nv13: 0
-  trozo2nv13: 0
-  trozo3nv13: 0
-  trozosnv14: 0
-  trozo1nv14: 0
-  trozo2nv14: 0
-  trozo3nv14: 0
-  trozosnv15: 0
-  trozo1nv15: 0
-  trozo2nv15: 0
-  trozo3nv15: 0
-  trozosnv16: 0
-  trozo1nv16: 0
-  trozo2nv16: 0
-  trozo3nv16: 0
-  trozosnv17: 0
-  trozo1nv17: 0
-  trozo2nv17: 0
-  trozo3nv17: 0
-  trozosnv18: 0
-  trozo1nv18: 0
-  trozo2nv18: 0
-  trozo3nv18: 0
-  trozosnv19: 0
-  trozo1nv19: 0
-  trozo2nv19: 0
-  trozo3nv19: 0
-  trozosnv20: 0
-  trozo1nv20: 0
-  trozo2nv20: 0
-  trozo3nv20: 0
-  finalmalo: 0
-  finalbueno: 0
+  pause: 0
   mundos: 0
   unavez: 0
   jefe1: {fileID: 0}
@@ -1924,110 +1854,395 @@ MonoBehaviour:
   tutorial: 0
   personaje: 0
   espacio: 0
-  fragmentoN1: 0
-  fragmentoN2: 0
-  fragmentoN3: 0
   mision: {fileID: 0}
   mision2: {fileID: 0}
   cuentavidas: {fileID: 0}
   cuentallaves: {fileID: 0}
   cuentamonedas: {fileID: 0}
   cuentafrag: {fileID: 0}
-  pociones: 0
-  pocionvel: 0
-  pocioninvul: 0
-  pocionsalt: 0
-  vidamaxima: 2
-  tengosaltod: 0
-  tengodisparo: 0
-  tengomental: 0
-  mejoravida1: 0
-  mejoravida2: 0
-  mejoravida3: 0
-  mejoravida4: 0
-  disparos: 0
-  llaves: 0
-  nivelc: 0
-  nivel1c: 0
-  nivel2c: 0
-  nivel3c: 0
-  nivel4c: 0
-  nivel5c: 0
-  nivel6c: 0
-  nivel7c: 0
-  nivel8c: 0
-  nivel9c: 0
-  nivel10c: 0
-  nivel11c: 0
-  nivel12c: 0
-  nivel13c: 0
-  nivel14c: 0
-  nivel15c: 0
-  nivel16c: 0
-  nivel17c: 0
-  nivel18c: 0
-  nivel19c: 0
-  nivel20c: 0
-  nivel1ch1: 0
-  nivel1ch2: 0
-  nivel2ch1: 0
-  nivel2ch2: 0
-  nivel3ch1: 0
-  nivel3ch2: 0
-  nivel4ch1: 0
-  nivel4ch2: 0
-  nivel5ch1: 0
-  nivel5ch2: 0
-  nivel6ch1: 0
-  nivel6ch2: 0
-  nivel7ch1: 0
-  nivel7ch2: 0
-  nivel8ch1: 0
-  nivel8ch2: 0
-  nivel9ch1: 0
-  nivel9ch2: 0
-  nivel10ch1: 0
-  nivel10ch2: 0
-  nivel11ch1: 0
-  nivel11ch2: 0
-  nivel12ch1: 0
-  nivel12ch2: 0
-  nivel13ch1: 0
-  nivel13ch2: 0
-  nivel14ch1: 0
-  nivel14ch2: 0
-  nivel15ch1: 0
-  nivel15ch2: 0
-  nivel16ch1: 0
-  nivel16ch2: 0
-  nivel17ch1: 0
-  nivel17ch2: 0
-  nivel18ch1: 0
-  nivel18ch2: 0
-  nivel19ch1: 0
-  nivel19ch2: 0
-  nivel20ch1: 0
-  nivel20ch2: 0
-  nivel: 100000
-  monedas: 0
-  tengocoche: 0
-  tengonave: 0
-  fragmento: 0
-  tengollave1: 0
-  tengollave2: 0
-  tengollave3: 0
-  tengollave4: 0
-  cinematicaf: 0
-  tengomejora: 0
-  plataforma: 0
-  univel: 0
-  mejora1c: 0
-  mejora2c: 0
-  mejora3c: 0
-  mejora4c: 0
-  mejora5c: 0
-  tiendasc: 0
-  idioma: 
+  datosserial:
+    plat: 0
+    inicio: 0
+    tuto: 0
+    estado: 0
+    menu: 0
+    pause: 0
+    block1: 0
+    block2: 0
+    block3: 0
+    block4: 0
+    block5: 0
+    checkpoints: 0
+    alien2muere: 0
+    llaveN1: 0
+    llaveN2: 0
+    llaveN3: 0
+    llaveN4: 0
+    llaveN5: 0
+    llaveN6: 0
+    llaveN7: 0
+    llaveN8: 0
+    llaveN9: 0
+    llaveN10: 0
+    llaveN11: 0
+    llaveN12: 0
+    llaveN13: 0
+    llaveN14: 0
+    llaveN15: 0
+    llaveN16: 0
+    llaveN17: 0
+    llaveN18: 0
+    llaveN19: 0
+    llaveN20: 0
+    pagina1: 0
+    pagina2: 0
+    pagina3: 0
+    pagina4: 0
+    pagina5: 0
+    pagina6: 0
+    pagina7: 0
+    pagina8: 0
+    pagina9: 0
+    pagina10: 0
+    pagina11: 0
+    pagina12: 0
+    pagina13: 0
+    pagina14: 0
+    pagina15: 0
+    pagina16: 0
+    pagina17: 0
+    pagina18: 0
+    pagina19: 0
+    pagina20: 0
+    trozosnv1: 0
+    trozo1nv1: 0
+    trozo2nv1: 0
+    trozo3nv1: 0
+    trozosnv2: 0
+    trozo1nv2: 0
+    trozo2nv2: 0
+    trozo3nv2: 0
+    trozosnv3: 0
+    trozo1nv3: 0
+    trozo2nv3: 0
+    trozo3nv3: 0
+    trozosnv4: 0
+    trozo1nv4: 0
+    trozo2nv4: 0
+    trozo3nv4: 0
+    trozosnv5: 0
+    trozo1nv5: 0
+    trozo2nv5: 0
+    trozo3nv5: 0
+    trozosnv6: 0
+    trozo1nv6: 0
+    trozo2nv6: 0
+    trozo3nv6: 0
+    trozosnv7: 0
+    trozo1nv7: 0
+    trozo2nv7: 0
+    trozo3nv7: 0
+    trozosnv8: 0
+    trozo1nv8: 0
+    trozo2nv8: 0
+    trozo3nv8: 0
+    trozosnv9: 0
+    trozo1nv9: 0
+    trozo2nv9: 0
+    trozo3nv9: 0
+    trozosnv10: 0
+    trozo1nv10: 0
+    trozo2nv10: 0
+    trozo3nv10: 0
+    trozosnv11: 0
+    trozo1nv11: 0
+    trozo2nv11: 0
+    trozo3nv11: 0
+    trozosnv12: 0
+    trozo1nv12: 0
+    trozo2nv12: 0
+    trozo3nv12: 0
+    trozosnv13: 0
+    trozo1nv13: 0
+    trozo2nv13: 0
+    trozo3nv13: 0
+    trozosnv14: 0
+    trozo1nv14: 0
+    trozo2nv14: 0
+    trozo3nv14: 0
+    trozosnv15: 0
+    trozo1nv15: 0
+    trozo2nv15: 0
+    trozo3nv15: 0
+    trozosnv16: 0
+    trozo1nv16: 0
+    trozo2nv16: 0
+    trozo3nv16: 0
+    trozosnv17: 0
+    trozo1nv17: 0
+    trozo2nv17: 0
+    trozo3nv17: 0
+    trozosnv18: 0
+    trozo1nv18: 0
+    trozo2nv18: 0
+    trozo3nv18: 0
+    trozosnv19: 0
+    trozo1nv19: 0
+    trozo2nv19: 0
+    trozo3nv19: 0
+    trozosnv20: 0
+    trozo1nv20: 0
+    trozo2nv20: 0
+    trozo3nv20: 0
+    finalmalo: 0
+    finalbueno: 0
+    mundos: 0
+    unavez: 0
+    tiement: 0
+    respawntipo: 0
+    tutorial: 0
+    personaje: 0
+    espacio: 0
+    fragmentoN1: 0
+    fragmentoN2: 0
+    fragmentoN3: 0
+    tienda1c: 0
+    tienda2c: 0
+    tienda3c: 0
+    tienda4c: 0
+    tienda5c: 0
+    tienda6c: 0
+    tienda7c: 0
+    pociones: 0
+    pocionvel: 0
+    pocioninvul: 0
+    pocionsalt: 0
+    vidamaxima: 2
+    tengosaltod: 0
+    tengodisparo: 0
+    tengomental: 0
+    mejoravida1: 0
+    mejoravida2: 0
+    mejoravida3: 0
+    mejoravida4: 0
+    disparos: 0
+    llaves: 0
+    nivelc: 0
+    nivel1c: 0
+    nivel2c: 0
+    nivel3c: 0
+    nivel4c: 0
+    nivel5c: 0
+    nivel6c: 0
+    nivel7c: 0
+    nivel8c: 0
+    nivel9c: 0
+    nivel10c: 0
+    nivel11c: 0
+    nivel12c: 0
+    nivel13c: 0
+    nivel14c: 0
+    nivel15c: 0
+    nivel16c: 0
+    nivel17c: 0
+    nivel18c: 0
+    nivel19c: 0
+    nivel20c: 0
+    nivel1ch1: 0
+    nivel1ch2: 0
+    nivel2ch1: 0
+    nivel2ch2: 0
+    nivel3ch1: 0
+    nivel3ch2: 0
+    nivel4ch1: 0
+    nivel4ch2: 0
+    nivel5ch1: 0
+    nivel5ch2: 0
+    nivel6ch1: 0
+    nivel6ch2: 0
+    nivel7ch1: 0
+    nivel7ch2: 0
+    nivel8ch1: 0
+    nivel8ch2: 0
+    nivel9ch1: 0
+    nivel9ch2: 0
+    nivel10ch1: 0
+    nivel10ch2: 0
+    nivel11ch1: 0
+    nivel11ch2: 0
+    nivel12ch1: 0
+    nivel12ch2: 0
+    nivel13ch1: 0
+    nivel13ch2: 0
+    nivel14ch1: 0
+    nivel14ch2: 0
+    nivel15ch1: 0
+    nivel15ch2: 0
+    nivel16ch1: 0
+    nivel16ch2: 0
+    nivel17ch1: 0
+    nivel17ch2: 0
+    nivel18ch1: 0
+    nivel18ch2: 0
+    nivel19ch1: 0
+    nivel19ch2: 0
+    nivel20ch1: 0
+    nivel20ch2: 0
+    monedas: 0
+    tengocoche: 0
+    tengonave: 0
+    fragmento: 0
+    tengollave1: 0
+    tengollave2: 0
+    tengollave3: 0
+    tengollave4: 0
+    cinematicaf: 0
+    tengomejora: 0
+    univel: 0
+    mejora1c: 0
+    mejora2c: 0
+    mejora3c: 0
+    mejora4c: 0
+    mejora5c: 0
+    tiendasc: 0
+    idioma: no
+    recordnv1: 888
+    recordnv2: 888
+    recordnv3: 888
+    recordnv4: 888
+    recordnv5: 888
+    recordnv6: 888
+    recordnv7: 888
+    recordnv8: 888
+    recordnv9: 888
+    recordnv10: 888
+    recordnv11: 888
+    recordnv12: 888
+    recordnv13: 888
+    recordnv14: 888
+    recordnv15: 888
+    recordnv16: 888
+    recordnv17: 888
+    recordnv18: 888
+    recordnv19: 888
+    recordnv20: 888
+  datosconfig:
+    idioma: 
+    plat: 0
+    distancia: 0
+    postpro: 0
+    resoluciones: 0
+    lastgame: 1
+    aplicarres: 0
+    resolh: 1280
+    resolv: 720
+  datostrof:
+    completaalien1v: 0
+    completaalien1m: 0
+    alien1huevooculto: 0
+    alien1muere: 0
+    alien1secretobajoelasteroide: 0
+    alien1saladelrey: 0
+    alien1salasecreta: 0
+    alien1mejora1: 0
+    alien1mejora2: 0
+    alien1mejora3: 0
+    alien1mejora4: 0
+    alien1mejora5: 0
+    alien1consigue1gema: 0
+    alien1consigue10monedas: 0
+    alien1consigue50monedas: 0
+    alien1consiguelagrangema: 0
+    alien1consigue15gemas: 0
+    alien1usaelcochedelmundo: 0
+    alien1usalanaveenelespacio: 0
+    alien1visitaotroasteroide: 0
+    alien1primeracinematica: 0
+    completaalien2v: 0
+    completaalien3v: 0
+    alien2huevooculto: 0
+    alien2muere: 0
+    alien2ahorra1000monedas: 0
+    alien2obtentodaslasmejorasvida: 0
+    alien2saladelrey: 0
+    alien2compraentodaslastiendas1vez: 0
+    alien2sacaelfinalalternativo: 0
+    alien2mejora1: 0
+    alien2mejora2: 0
+    alien2mejora3: 0
+    alien2mejora4: 0
+    alien2mejora5: 0
+    alien2hablarcontumujer: 0
+    alien2primeracinematica: 0
+    alien2unapaginadeldiario: 0
+    alien2consigue4llaves: 0
+    alien2consiguetodaslaspaginas: 0
+    alien2escuchaunapaginadeldiario: 0
+    alien2usaelcochedelmundo: 0
+    alien2hipnotizaunpirata: 0
+    alien2abrelatiendabloqueadadelaprimerazona: 0
+    alien2encuentralatiendaocultadelasegundazona: 0
+    alien2usalanavegumi: 0
+    alien2desbloqueatodosloscheckpoits: 0
+    alien2desbloqueaelcheckpoint1delnivel1: 0
+    alien2usaelsaltador: 0
+    alien2usaelacelerador: 0
+    alien2usalanaveenelespacio: 0
+    completaalien2m: 0
+    completaalien3m: 0
+    alien3huevooculto: 0
+    alien3consiguetodaslasarmas: 0
+    alien3ahorra5000monedas: 0
+    alien3consiguetodaslasarmaduras: 0
+    alien3acabaeltutorial: 0
+    alien3vence100enemigos: 0
+    alien3vence200enemigos: 0
+    alien3consiguetodadlasmejorasvida: 0
+    alien3gastatodalamuniciondetodaslasarmas: 0
+    alien3muere: 0
+    alien3aceptalaherencia: 0
+    alien3jefe1: 0
+    alien3jefe2: 0
+    alien3jefe3: 0
+    alien3jefe4: 0
+    alien3jefe5: 0
+    alien3jefe6: 0
+    alien3jefe1nave: 0
+    alien3jefe5nave: 0
+    alien3primeramejoradevida: 0
+    alien3primeraarma: 0
+    alien3primeraarmadura: 0
+    alien3entraalmenuextras: 0
+    alien3entraalaguiadelpause: 0
+    alien3entraaseleccionrapidaenelpause: 0
+    alien3consiguetodaslaspaginas: 0
+    alien3escuchaunapagina: 0
+    alien3consigue10gemas: 0
+    alien3consigue20gemas: 0
+    alien3consigue40gemas: 0
+    alien3consigue70gemas: 0
+    alien3consigue100gemas: 0
+    alien3compraladestructora: 0
+    alien3planeta1nave: 0
+    alien3planeta2nave: 0
+    alien3planeta3nave: 0
+    alien3planeta4nave: 0
+    alien3planeta5nave: 0
+    alien3planeta6nave: 0
+    alien3planeta7nave: 0
+    alien3planeta8nave: 0
+    alien3planeta9nave: 0
+    alien3planeta10nave: 0
+    alien3planeta11nave: 0
+    alien3planeta12nave: 0
+    alien3planeta13nave: 0
+    alien3planeta14nave: 0
+    alien3planeta15nave: 0
+    alien3planeta16nave: 0
+    alien3planeta17nave: 0
+  repath: 
+  repathconfig: 
+  repathtro: 
 --- !u!4 &1106172421
 Transform:
   m_ObjectHideFlags: 0
@@ -2035,13 +2250,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106172419}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 281.18842, y: 250.25745, z: -11.980682}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1304556794
 GameObject:
@@ -2074,7 +2289,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 39}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -2243,13 +2457,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550410456}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 182107010}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2009954301
 GameObject:
@@ -2284,7 +2498,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 312392327}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -2414,3 +2627,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009954301}
   m_CullTransparentMesh: 1
+--- !u!1660057539 &9223372036854775807
+SceneRoots:
+  m_ObjectHideFlags: 0
+  m_Roots:
+  - {fileID: 559210963}
+  - {fileID: 13}
+  - {fileID: 15}
+  - {fileID: 16}
+  - {fileID: 18}
+  - {fileID: 19}
+  - {fileID: 39}
+  - {fileID: 312392327}
+  - {fileID: 1106172421}
+  - {fileID: 269987046}
+  - {fileID: 182107010}

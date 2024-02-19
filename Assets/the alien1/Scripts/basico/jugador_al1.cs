@@ -809,7 +809,6 @@ public class jugador_al1 : MonoBehaviour
 					jumpforce = jumpforce / 1.8f;
 					anim.SetBool("salto",true);
 			}
-			else{anim.SetBool("salto",false);}
 		}
 		if (manager.juego == 0)
 		{
@@ -821,7 +820,6 @@ public class jugador_al1 : MonoBehaviour
 					jumpforce = jumpforce / 1.8f;
 					anim.SetBool("salto",true);
 			}
-			else{anim.SetBool("salto",false);}
 		}
 		if (manager.juego == 4)
 		{
@@ -833,7 +831,6 @@ public class jugador_al1 : MonoBehaviour
 					jumpforce = jumpforce / 1.8f;
 					anim.SetBool("salto",true);
 			}
-			else{anim.SetBool("salto",false);}
 		}
 		if(temp9 < 15)
         {temp9 += 1 * Time.deltaTime;}
@@ -893,6 +890,7 @@ public class jugador_al1 : MonoBehaviour
 			jumpforce = jumpforcebase;
 			if(tiempovelint > 2)
 			{suelo = true;}
+			anim.SetBool("salto",false);
 
 		
 		}

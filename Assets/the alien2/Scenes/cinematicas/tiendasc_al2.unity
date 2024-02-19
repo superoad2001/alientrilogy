@@ -44,6 +44,7 @@ GameObject:
   m_Component:
   - component: {fileID: 11}
   - component: {fileID: 21}
+  - component: {fileID: 22}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -416,6 +417,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &22
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!124 &23
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1736,7 +1760,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 42cf23a43cd15e9458b5f0bda881ee8a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1963,6 +1987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inicio: 0
+  trofeoact: 0
   tuto: 0
   estado: 0
   menu: 0
@@ -1975,6 +2000,7 @@ MonoBehaviour:
   boton6: {fileID: 0}
   boton7: {fileID: 0}
   boton8: {fileID: 0}
+  vidaui: {fileID: 0}
   audio0: {fileID: 0}
   audio1: {fileID: 0}
   audio2: {fileID: 0}
@@ -2057,6 +2083,8 @@ MonoBehaviour:
     block3: 0
     block4: 0
     block5: 0
+    checkpoints: 0
+    alien2muere: 0
     llaveN1: 0
     llaveN2: 0
     llaveN3: 0
@@ -2189,6 +2217,13 @@ MonoBehaviour:
     fragmentoN1: 0
     fragmentoN2: 0
     fragmentoN3: 0
+    tienda1c: 0
+    tienda2c: 0
+    tienda3c: 0
+    tienda4c: 0
+    tienda5c: 0
+    tienda6c: 0
+    tienda7c: 0
     pociones: 0
     pocionvel: 0
     pocioninvul: 0
@@ -2302,7 +2337,123 @@ MonoBehaviour:
     recordnv18: 888
     recordnv19: 888
     recordnv20: 888
+  datosconfig:
+    idioma: 
+    plat: 0
+    distancia: 0
+    postpro: 0
+    resoluciones: 0
+    lastgame: 1
+    aplicarres: 0
+    resolh: 1280
+    resolv: 720
+  datostrof:
+    completaalien1v: 0
+    completaalien1m: 0
+    alien1huevooculto: 0
+    alien1muere: 0
+    alien1secretobajoelasteroide: 0
+    alien1saladelrey: 0
+    alien1salasecreta: 0
+    alien1mejora1: 0
+    alien1mejora2: 0
+    alien1mejora3: 0
+    alien1mejora4: 0
+    alien1mejora5: 0
+    alien1consigue1gema: 0
+    alien1consigue10monedas: 0
+    alien1consigue50monedas: 0
+    alien1consiguelagrangema: 0
+    alien1consigue15gemas: 0
+    alien1usaelcochedelmundo: 0
+    alien1usalanaveenelespacio: 0
+    alien1visitaotroasteroide: 0
+    alien1primeracinematica: 0
+    completaalien2v: 0
+    completaalien3v: 0
+    alien2huevooculto: 0
+    alien2muere: 0
+    alien2ahorra1000monedas: 0
+    alien2obtentodaslasmejorasvida: 0
+    alien2saladelrey: 0
+    alien2compraentodaslastiendas1vez: 0
+    alien2sacaelfinalalternativo: 0
+    alien2mejora1: 0
+    alien2mejora2: 0
+    alien2mejora3: 0
+    alien2mejora4: 0
+    alien2mejora5: 0
+    alien2hablarcontumujer: 0
+    alien2primeracinematica: 0
+    alien2unapaginadeldiario: 0
+    alien2consigue4llaves: 0
+    alien2consiguetodaslaspaginas: 0
+    alien2escuchaunapaginadeldiario: 0
+    alien2usaelcochedelmundo: 0
+    alien2hipnotizaunpirata: 0
+    alien2abrelatiendabloqueadadelaprimerazona: 0
+    alien2encuentralatiendaocultadelasegundazona: 0
+    alien2usalanavegumi: 0
+    alien2desbloqueatodosloscheckpoits: 0
+    alien2desbloqueaelcheckpoint1delnivel1: 0
+    alien2usaelsaltador: 0
+    alien2usaelacelerador: 0
+    alien2usalanaveenelespacio: 0
+    completaalien2m: 0
+    completaalien3m: 0
+    alien3huevooculto: 0
+    alien3consiguetodaslasarmas: 0
+    alien3ahorra5000monedas: 0
+    alien3consiguetodaslasarmaduras: 0
+    alien3acabaeltutorial: 0
+    alien3vence100enemigos: 0
+    alien3vence200enemigos: 0
+    alien3consiguetodadlasmejorasvida: 0
+    alien3gastatodalamuniciondetodaslasarmas: 0
+    alien3muere: 0
+    alien3aceptalaherencia: 0
+    alien3jefe1: 0
+    alien3jefe2: 0
+    alien3jefe3: 0
+    alien3jefe4: 0
+    alien3jefe5: 0
+    alien3jefe6: 0
+    alien3jefe1nave: 0
+    alien3jefe5nave: 0
+    alien3primeramejoradevida: 0
+    alien3primeraarma: 0
+    alien3primeraarmadura: 0
+    alien3entraalmenuextras: 0
+    alien3entraalaguiadelpause: 0
+    alien3entraaseleccionrapidaenelpause: 0
+    alien3consiguetodaslaspaginas: 0
+    alien3escuchaunapagina: 0
+    alien3consigue10gemas: 0
+    alien3consigue20gemas: 0
+    alien3consigue40gemas: 0
+    alien3consigue70gemas: 0
+    alien3consigue100gemas: 0
+    alien3compraladestructora: 0
+    alien3planeta1nave: 0
+    alien3planeta2nave: 0
+    alien3planeta3nave: 0
+    alien3planeta4nave: 0
+    alien3planeta5nave: 0
+    alien3planeta6nave: 0
+    alien3planeta7nave: 0
+    alien3planeta8nave: 0
+    alien3planeta9nave: 0
+    alien3planeta10nave: 0
+    alien3planeta11nave: 0
+    alien3planeta12nave: 0
+    alien3planeta13nave: 0
+    alien3planeta14nave: 0
+    alien3planeta15nave: 0
+    alien3planeta16nave: 0
+    alien3planeta17nave: 0
   repath: 
+  repathconfig: 
+  repathtro: 
 --- !u!4 &2000488684
 Transform:
   m_ObjectHideFlags: 0

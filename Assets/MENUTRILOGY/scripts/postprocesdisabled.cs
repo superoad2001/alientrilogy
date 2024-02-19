@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
 
 public class postprocesdisabled : MonoBehaviour
 {
-    public PostProcessVolume objeto;
+    public Volume objeto;
     // Start is called before the first frame update
     void Start()
     {

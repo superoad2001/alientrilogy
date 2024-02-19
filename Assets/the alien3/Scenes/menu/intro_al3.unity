@@ -44,6 +44,7 @@ GameObject:
   m_Component:
   - component: {fileID: 11}
   - component: {fileID: 21}
+  - component: {fileID: 22}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -64,6 +65,7 @@ GameObject:
   - component: {fileID: 23}
   - component: {fileID: 19}
   - component: {fileID: 24}
+  - component: {fileID: 26}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -261,7 +263,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.012670833, g: 0.03198121, b: 0.05055003, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!108 &21
 Light:
@@ -325,6 +327,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &22
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!124 &23
 Behaviour:
   m_ObjectHideFlags: 0
@@ -452,6 +477,50 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 9b912513369b01b4aa1c3b1ab183941b, type: 2}
+--- !u!114 &26
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!223 &28
 Canvas:
   m_ObjectHideFlags: 0
@@ -1365,9 +1434,6 @@ MonoBehaviour:
   bloque5: {fileID: 0}
   bloque6: {fileID: 0}
   bloque7: {fileID: 0}
-  armastotal: 0
-  armadurastotal: 0
-  diariostotal: 0
   audio: {fileID: 0}
   audio1: {fileID: 0}
   audio2: {fileID: 0}
@@ -1405,6 +1471,7 @@ MonoBehaviour:
     armadurastotal: 0
     diariostotal: 0
     enemigos: 0
+    alien3muere: 0
     tdiario1: 0
     tdiario2: 0
     tdiario3: 0
@@ -1470,19 +1537,35 @@ MonoBehaviour:
     plat: 0
     distancia: 0
     postpro: 0
+    resoluciones: 0
     lastgame: 0
+    aplicarres: 0
+    resolh: 1280
+    resolv: 720
   datostrof:
     completaalien1v: 0
-    completaalien2v: 0
-    completaalien3v: 0
     completaalien1m: 0
-    completaalien2m: 0
-    completaalien3m: 0
     alien1huevooculto: 0
     alien1muere: 0
     alien1secretobajoelasteroide: 0
     alien1saladelrey: 0
     alien1salasecreta: 0
+    alien1mejora1: 0
+    alien1mejora2: 0
+    alien1mejora3: 0
+    alien1mejora4: 0
+    alien1mejora5: 0
+    alien1consigue1gema: 0
+    alien1consigue10monedas: 0
+    alien1consigue50monedas: 0
+    alien1consiguelagrangema: 0
+    alien1consigue15gemas: 0
+    alien1usaelcochedelmundo: 0
+    alien1usalanaveenelespacio: 0
+    alien1visitaotroasteroide: 0
+    alien1primeracinematica: 0
+    completaalien2v: 0
+    completaalien3v: 0
     alien2huevooculto: 0
     alien2muere: 0
     alien2ahorra1000monedas: 0
@@ -1490,6 +1573,29 @@ MonoBehaviour:
     alien2saladelrey: 0
     alien2compraentodaslastiendas1vez: 0
     alien2sacaelfinalalternativo: 0
+    alien2mejora1: 0
+    alien2mejora2: 0
+    alien2mejora3: 0
+    alien2mejora4: 0
+    alien2mejora5: 0
+    alien2hablarcontumujer: 0
+    alien2primeracinematica: 0
+    alien2unapaginadeldiario: 0
+    alien2consigue4llaves: 0
+    alien2consiguetodaslaspaginas: 0
+    alien2escuchaunapaginadeldiario: 0
+    alien2usaelcochedelmundo: 0
+    alien2hipnotizaunpirata: 0
+    alien2abrelatiendabloqueadadelaprimerazona: 0
+    alien2encuentralatiendaocultadelasegundazona: 0
+    alien2usalanavegumi: 0
+    alien2desbloqueatodosloscheckpoits: 0
+    alien2desbloqueaelcheckpoint1delnivel1: 0
+    alien2usaelsaltador: 0
+    alien2usaelacelerador: 0
+    alien2usalanaveenelespacio: 0
+    completaalien2m: 0
+    completaalien3m: 0
     alien3huevooculto: 0
     alien3consiguetodaslasarmas: 0
     alien3ahorra5000monedas: 0
@@ -1501,6 +1607,45 @@ MonoBehaviour:
     alien3gastatodalamuniciondetodaslasarmas: 0
     alien3muere: 0
     alien3aceptalaherencia: 0
+    alien3jefe1: 0
+    alien3jefe2: 0
+    alien3jefe3: 0
+    alien3jefe4: 0
+    alien3jefe5: 0
+    alien3jefe6: 0
+    alien3jefe1nave: 0
+    alien3jefe5nave: 0
+    alien3primeramejoradevida: 0
+    alien3primeraarma: 0
+    alien3primeraarmadura: 0
+    alien3entraalmenuextras: 0
+    alien3entraalaguiadelpause: 0
+    alien3entraaseleccionrapidaenelpause: 0
+    alien3consiguetodaslaspaginas: 0
+    alien3escuchaunapagina: 0
+    alien3consigue10gemas: 0
+    alien3consigue20gemas: 0
+    alien3consigue40gemas: 0
+    alien3consigue70gemas: 0
+    alien3consigue100gemas: 0
+    alien3compraladestructora: 0
+    alien3planeta1nave: 0
+    alien3planeta2nave: 0
+    alien3planeta3nave: 0
+    alien3planeta4nave: 0
+    alien3planeta5nave: 0
+    alien3planeta6nave: 0
+    alien3planeta7nave: 0
+    alien3planeta8nave: 0
+    alien3planeta9nave: 0
+    alien3planeta10nave: 0
+    alien3planeta11nave: 0
+    alien3planeta12nave: 0
+    alien3planeta13nave: 0
+    alien3planeta14nave: 0
+    alien3planeta15nave: 0
+    alien3planeta16nave: 0
+    alien3planeta17nave: 0
   repathtro: 
 --- !u!4 &571768453
 Transform:

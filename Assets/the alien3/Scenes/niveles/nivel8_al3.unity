@@ -39,6 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 282}
   - component: {fileID: 1079}
+  - component: {fileID: 1080}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -154,7 +155,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.78852946, g: 0.37456906, b: 0.23976746, a: 1}
+  m_IndirectSpecularColor: {r: 0.78984076, g: 0.376477, b: 0.24182487, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!108 &1079
 Light:
@@ -218,6 +219,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!157 &1198
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -4586,6 +4610,7 @@ GameObject:
   - component: {fileID: 726046808}
   - component: {fileID: 726046811}
   - component: {fileID: 726046812}
+  - component: {fileID: 726046813}
   m_Layer: 0
   m_Name: normal
   m_TagString: MainCamera
@@ -4840,6 +4865,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
+--- !u!114 &726046813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726046806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &728291226
 GameObject:
   m_ObjectHideFlags: 0
@@ -6306,6 +6375,7 @@ GameObject:
   - component: {fileID: 1035356598}
   - component: {fileID: 1035356596}
   - component: {fileID: 1035356605}
+  - component: {fileID: 1035356606}
   m_Layer: 0
   m_Name: jugador
   m_TagString: Player
@@ -6376,7 +6446,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1035356595}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -6451,7 +6521,6 @@ MonoBehaviour:
   pasotiempo: 0
   randompaso: 0
   saltop: 1
-  gemas: 0
   lavaaux: 0
   suelo: 0
   r3: 0
@@ -6549,6 +6618,7 @@ MonoBehaviour:
   mundosalto: 2
   selcarga: 0
   selecionrap: {fileID: 447793838}
+  seleccionanim: {fileID: 0}
   jumpfcarga: 0
   temp9: 0
   pausac: 0
@@ -6654,6 +6724,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2.484033, z: 1}
   m_Center: {x: 0, y: 0.9032028, z: 0}
+--- !u!114 &1035356606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035356595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1001 &1043243841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12530,6 +12623,8 @@ MonoBehaviour:
     resoluciones: 0
     lastgame: 0
     aplicarres: 0
+    resolh: 1280
+    resolv: 720
   datostrof:
     completaalien1v: 0
     completaalien1m: 0

@@ -15,7 +15,7 @@ NavMeshSettings:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_BuildSettings:
-    serializedVersion: 2
+    serializedVersion: 3
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
@@ -28,7 +28,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    accuratePlacement: 0
+    buildHeightMesh: 0
     maxJobWorkers: 0
     preserveTilesOutsideBounds: 0
     debug:
@@ -44,6 +44,7 @@ GameObject:
   m_Component:
   - component: {fileID: 11}
   - component: {fileID: 21}
+  - component: {fileID: 22}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -133,13 +134,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3}
+  serializedVersion: 2
   m_LocalRotation: {x: 0.4082179, y: -0.2345697, z: 0.1093816, w: 0.8754261}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: 30, z: 0.0000002872665}
 --- !u!4 &12
 Transform:
@@ -148,6 +149,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -157,7 +159,6 @@ Transform:
   - {fileID: 676348106}
   - {fileID: 1077186968}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &13
 Transform:
@@ -166,13 +167,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &14
 Transform:
@@ -181,13 +182,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 83.325, y: 246.2625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &15
 AudioSource:
@@ -299,9 +300,17 @@ Camera:
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -356,8 +365,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a80d181ba660844af54399509bd4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plat: 1
+  trofeoact: 0
+  nivel: 0
+  otroasteroide: 0
   audio: {fileID: 0}
+  dentrotienda: 0
   audio1: {fileID: 0}
   audio2: {fileID: 0}
   audio3: {fileID: 0}
@@ -381,13 +393,6 @@ MonoBehaviour:
   audio5cat: {fileID: 0}
   audio6cat: {fileID: 0}
   audio7cat: {fileID: 0}
-  plataforma: 0
-  mejora1: 0
-  mejora2: 0
-  mejora3: 0
-  mejora4: 0
-  mejora5: 0
-  idioma: 
   boton1: {fileID: 0}
   boton2: {fileID: 0}
   boton3: {fileID: 0}
@@ -398,8 +403,230 @@ MonoBehaviour:
   menu: 0
   estados: 0
   tuto: 0
+  pauseact: 0
+  repath: 
+  repathconfig: 
+  datosserial:
+    plat: 0
+    idioma: 
+    gemas: 0
+    gemaN1: 0
+    gemaN2: 0
+    gemaN3: 0
+    gemaN4: 0
+    gemaN5: 0
+    gemaN6: 0
+    gemaN7: 0
+    gemaN8: 0
+    gemaN9: 0
+    gemaN10: 0
+    gemaN11: 0
+    gemaN12: 0
+    fragmentoN1: 0
+    fragmentoN2: 0
+    fragmentoN3: 0
+    monedas: 0
+    tengovel: 0
+    tengocoche: 0
+    tengosalto: 0
+    alien1muere: 0
+    tengonave: 0
+    fragmento: 0
+    tengollave1: 0
+    tengollave2: 0
+    tengollave3: 0
+    tengollave4: 0
+    cinematicaf: 0
+    tengomejora: 0
+    mejora1: 0
+    mejora2: 0
+    mejora3: 0
+    mejora4: 0
+    mejora5: 0
+    gema1: 0
+    gema2: 0
+    gema3: 0
+    moneda1: 0
+    moneda2: 0
+    moneda3: 0
+    moneda4: 0
+    moneda5: 0
+    moneda6: 0
+    moneda7: 0
+    moneda8: 0
+    moneda9: 0
+    moneda10: 0
+    moneda11: 0
+    moneda12: 0
+    moneda13: 0
+    moneda14: 0
+    moneda15: 0
+    moneda16: 0
+    moneda17: 0
+    moneda18: 0
+    moneda19: 0
+    moneda20: 0
+    moneda21: 0
+    moneda22: 0
+    moneda23: 0
+    moneda24: 0
+    moneda25: 0
+    moneda26: 0
+    moneda27: 0
+    moneda28: 0
+    moneda29: 0
+    moneda30: 0
+    moneda31: 0
+    moneda32: 0
+    moneda33: 0
+    moneda34: 0
+    moneda35: 0
+    moneda36: 0
+    moneda37: 0
+    moneda38: 0
+    moneda39: 0
+    moneda40: 0
+    moneda41: 0
+    moneda42: 0
+    moneda43: 0
+    moneda44: 0
+    moneda45: 0
+    moneda46: 0
+    moneda47: 0
+    moneda48: 0
+    moneda49: 0
+    moneda50: 0
+    recordnv1: 888
+    recordnv2: 888
+    recordnv3: 888
+    recordnv4: 888
+    recordnv5: 888
+    recordnv6: 888
+    recordnv7: 888
+    recordnv8: 888
+    recordnv9: 888
+    recordnv10: 888
+    recordnv11: 888
+    recordnv12: 888
+    recordnv13: 888
+    recordnv14: 888
+    recordnv15: 888
+  datosconfig:
+    idioma: 
+    plat: 0
+    distancia: 0
+    postpro: 0
+    resoluciones: 0
+    lastgame: 1
+    aplicarres: 0
+    resolh: 1280
+    resolv: 720
+  datostrof:
+    completaalien1v: 0
+    completaalien1m: 0
+    alien1huevooculto: 0
+    alien1muere: 0
+    alien1secretobajoelasteroide: 0
+    alien1saladelrey: 0
+    alien1salasecreta: 0
+    alien1mejora1: 0
+    alien1mejora2: 0
+    alien1mejora3: 0
+    alien1mejora4: 0
+    alien1mejora5: 0
+    alien1consigue1gema: 0
+    alien1consigue10monedas: 0
+    alien1consigue50monedas: 0
+    alien1consiguelagrangema: 0
+    alien1consigue15gemas: 0
+    alien1usaelcochedelmundo: 0
+    alien1usalanaveenelespacio: 0
+    alien1visitaotroasteroide: 0
+    alien1primeracinematica: 0
+    completaalien2v: 0
+    completaalien3v: 0
+    alien2huevooculto: 0
+    alien2muere: 0
+    alien2ahorra1000monedas: 0
+    alien2obtentodaslasmejorasvida: 0
+    alien2saladelrey: 0
+    alien2compraentodaslastiendas1vez: 0
+    alien2sacaelfinalalternativo: 0
+    alien2mejora1: 0
+    alien2mejora2: 0
+    alien2mejora3: 0
+    alien2mejora4: 0
+    alien2mejora5: 0
+    alien2hablarcontumujer: 0
+    alien2primeracinematica: 0
+    alien2unapaginadeldiario: 0
+    alien2consigue4llaves: 0
+    alien2consiguetodaslaspaginas: 0
+    alien2escuchaunapaginadeldiario: 0
+    alien2usaelcochedelmundo: 0
+    alien2hipnotizaunpirata: 0
+    alien2abrelatiendabloqueadadelaprimerazona: 0
+    alien2encuentralatiendaocultadelasegundazona: 0
+    alien2usalanavegumi: 0
+    alien2desbloqueatodosloscheckpoits: 0
+    alien2desbloqueaelcheckpoint1delnivel1: 0
+    alien2usaelsaltador: 0
+    alien2usaelacelerador: 0
+    alien2usalanaveenelespacio: 0
+    completaalien2m: 0
+    completaalien3m: 0
+    alien3huevooculto: 0
+    alien3consiguetodaslasarmas: 0
+    alien3ahorra5000monedas: 0
+    alien3consiguetodaslasarmaduras: 0
+    alien3acabaeltutorial: 0
+    alien3vence100enemigos: 0
+    alien3vence200enemigos: 0
+    alien3consiguetodadlasmejorasvida: 0
+    alien3gastatodalamuniciondetodaslasarmas: 0
+    alien3muere: 0
+    alien3aceptalaherencia: 0
+    alien3jefe1: 0
+    alien3jefe2: 0
+    alien3jefe3: 0
+    alien3jefe4: 0
+    alien3jefe5: 0
+    alien3jefe6: 0
+    alien3jefe1nave: 0
+    alien3jefe5nave: 0
+    alien3primeramejoradevida: 0
+    alien3primeraarma: 0
+    alien3primeraarmadura: 0
+    alien3entraalmenuextras: 0
+    alien3entraalaguiadelpause: 0
+    alien3entraaseleccionrapidaenelpause: 0
+    alien3consiguetodaslaspaginas: 0
+    alien3escuchaunapagina: 0
+    alien3consigue10gemas: 0
+    alien3consigue20gemas: 0
+    alien3consigue40gemas: 0
+    alien3consigue70gemas: 0
+    alien3consigue100gemas: 0
+    alien3compraladestructora: 0
+    alien3planeta1nave: 0
+    alien3planeta2nave: 0
+    alien3planeta3nave: 0
+    alien3planeta4nave: 0
+    alien3planeta5nave: 0
+    alien3planeta6nave: 0
+    alien3planeta7nave: 0
+    alien3planeta8nave: 0
+    alien3planeta9nave: 0
+    alien3planeta10nave: 0
+    alien3planeta11nave: 0
+    alien3planeta12nave: 0
+    alien3planeta13nave: 0
+    alien3planeta14nave: 0
+    alien3planeta15nave: 0
+    alien3planeta16nave: 0
+    alien3planeta17nave: 0
+  repathtro: 
   mundos: 0
-  unavez: 1
   jugador1: {fileID: 0}
   jefe1: {fileID: 0}
   normal: {fileID: 0}
@@ -407,93 +634,12 @@ MonoBehaviour:
   juego: 0
   tutorial: 0
   espacio: 0
-  gemas: 0
-  gemaN1: 0
-  gemaN2: 0
-  gemaN3: 0
-  gemaN4: 0
-  gemaN5: 0
-  gemaN6: 0
-  gemaN7: 0
-  gemaN8: 0
-  gemaN9: 0
-  gemaN10: 0
-  gemaN11: 0
-  gemaN12: 0
-  fragmentoN1: 0
-  fragmentoN2: 0
-  fragmentoN3: 0
   mision: {fileID: 0}
   mision2: {fileID: 0}
   cuentagemas: {fileID: 0}
   cuentamonedas: {fileID: 0}
   cuentafrag: {fileID: 0}
-  monedas: 0
-  tengovel: 0
-  tengocoche: 0
-  tengosalto: 0
-  tengonave: 0
   piso: 0
-  fragmento: 0
-  tengollave1: 0
-  tengollave2: 0
-  tengollave3: 0
-  tengollave4: 0
-  cinematicaf: 0
-  tengomejora: 0
-  gema1: 0
-  gema2: 0
-  gema3: 0
-  moneda1: 0
-  moneda2: 0
-  moneda3: 0
-  moneda4: 0
-  moneda5: 0
-  moneda6: 0
-  moneda7: 0
-  moneda8: 0
-  moneda9: 0
-  moneda10: 0
-  moneda11: 0
-  moneda12: 0
-  moneda13: 0
-  moneda14: 0
-  moneda15: 0
-  moneda16: 0
-  moneda17: 0
-  moneda18: 0
-  moneda19: 0
-  moneda20: 0
-  moneda21: 0
-  moneda22: 0
-  moneda23: 0
-  moneda24: 0
-  moneda25: 0
-  moneda26: 0
-  moneda27: 0
-  moneda28: 0
-  moneda29: 0
-  moneda30: 0
-  moneda31: 0
-  moneda32: 0
-  moneda33: 0
-  moneda34: 0
-  moneda35: 0
-  moneda36: 0
-  moneda37: 0
-  moneda38: 0
-  moneda39: 0
-  moneda40: 0
-  moneda41: 0
-  moneda42: 0
-  moneda43: 0
-  moneda44: 0
-  moneda45: 0
-  moneda46: 0
-  moneda47: 0
-  moneda48: 0
-  moneda49: 0
-  moneda50: 0
 --- !u!81 &19
 AudioListener:
   m_ObjectHideFlags: 0
@@ -530,7 +676,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.044602625, g: 0.01858224, b: 0.00011298343, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!108 &21
 Light:
@@ -594,6 +740,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &22
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!124 &23
 Behaviour:
   m_ObjectHideFlags: 0
@@ -678,7 +847,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -695,7 +866,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -799,6 +969,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 181832472226415730, guid: 8e9d2fd9e3b4f7a40bc12c372e290032, type: 3}
@@ -850,6 +1021,9 @@ PrefabInstance:
       value: Rewired Input Manager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e9d2fd9e3b4f7a40bc12c372e290032, type: 3}
 --- !u!114 &380663065 stripped
 MonoBehaviour:
@@ -889,6 +1063,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 412371932}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 47.27, y: 10.4, z: 66.22}
   m_LocalScale: {x: 30, y: 30, z: 30}
@@ -896,7 +1071,6 @@ Transform:
   m_Children:
   - {fileID: 1826943712}
   m_Father: {fileID: 12}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &412371934
 MeshRenderer:
@@ -947,10 +1121,21 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 412371932}
-  serializedVersion: 2
+  serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -964,9 +1149,17 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 412371932}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &412371937
@@ -1001,13 +1194,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 475665918}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1503271976}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &475665920
 AudioSource:
@@ -1131,6 +1324,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676348105}
+  serializedVersion: 2
   m_LocalRotation: {x: -0.10816515, y: 0.5845949, z: -0.13547686, w: 0.79258764}
   m_LocalPosition: {x: 8.096876, y: 0.9131658, z: 9.905065}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -1138,7 +1332,6 @@ Transform:
   m_Children:
   - {fileID: 1001887272}
   m_Father: {fileID: 12}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -0.748, y: 72.955, z: -19.953}
 --- !u!135 &676348107
 SphereCollider:
@@ -1148,9 +1341,17 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676348105}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &676348108
@@ -1227,13 +1428,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681828328}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1503271976}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &681828330
 AudioSource:
@@ -1336,6 +1537,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 676348106}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 150b771c021f45d48873c0d8caddd485, type: 3}
@@ -1643,6 +1845,9 @@ PrefabInstance:
       value: 3.319
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 150b771c021f45d48873c0d8caddd485, type: 3}
 --- !u!4 &1001887272 stripped
 Transform:
@@ -1676,13 +1881,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077186967}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.01, z: 0.628}
   m_LocalScale: {x: 1.66, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 12}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!328 &1077186969
 VideoPlayer:
@@ -1703,6 +1908,7 @@ VideoPlayer:
   m_RenderMode: 3
   m_AspectRatio: 2
   m_DataSource: 0
+  m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources:
@@ -1727,9 +1933,17 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077186967}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
@@ -1753,7 +1967,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 42cf23a43cd15e9458b5f0bda881ee8a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1807,13 +2021,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305953810}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1503271976}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1305953812
 AudioSource:
@@ -1934,6 +2148,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503271975}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.99, z: -9.372}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -1943,13 +2158,13 @@ Transform:
   - {fileID: 475665919}
   - {fileID: 681828329}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1826943711
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 412371933}
     m_Modifications:
     - target: {fileID: 100006, guid: 77f6ae3287cd2b7418ea5f4d49e71b1e, type: 3}
@@ -2017,9 +2232,23 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77f6ae3287cd2b7418ea5f4d49e71b1e, type: 3}
 --- !u!4 &1826943712 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: 77f6ae3287cd2b7418ea5f4d49e71b1e, type: 3}
   m_PrefabInstance: {fileID: 1826943711}
   m_PrefabAsset: {fileID: 0}
+--- !u!1660057539 &9223372036854775807
+SceneRoots:
+  m_ObjectHideFlags: 0
+  m_Roots:
+  - {fileID: 11}
+  - {fileID: 12}
+  - {fileID: 13}
+  - {fileID: 14}
+  - {fileID: 31}
+  - {fileID: 380663064}
+  - {fileID: 1503271976}

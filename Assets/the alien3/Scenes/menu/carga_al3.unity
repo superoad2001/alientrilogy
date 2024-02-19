@@ -44,6 +44,7 @@ GameObject:
   m_Component:
   - component: {fileID: 11}
   - component: {fileID: 21}
+  - component: {fileID: 22}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -63,6 +64,7 @@ GameObject:
   - component: {fileID: 16}
   - component: {fileID: 23}
   - component: {fileID: 19}
+  - component: {fileID: 24}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -145,7 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a29859ee7b8e94694943c46d94bbbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: 0
   temp: 0
 --- !u!20 &16
 Camera:
@@ -298,6 +299,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &22
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!124 &23
 Behaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +330,50 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6}
   m_Enabled: 1
+--- !u!114 &24
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!157 &25
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -564,12 +632,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917b465516839374ba08c92e1110147b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trofeoact: 0
   jefen: 0
   cmenu: 3
-  idioma: 
-  plat: 1
   menu: 1
-  inicio: 0
   tempm11: 0
   jefetitulo: {fileID: 0}
   bloque1: {fileID: 1837912066}
@@ -579,9 +645,6 @@ MonoBehaviour:
   bloque5: {fileID: 0}
   bloque6: {fileID: 0}
   bloque7: {fileID: 0}
-  armastotal: 0
-  armadurastotal: 0
-  diariostotal: 0
   audio: {fileID: 0}
   audio1: {fileID: 0}
   audio2: {fileID: 0}
@@ -594,21 +657,6 @@ MonoBehaviour:
   boxcampos: {fileID: 0}
   p1c: {fileID: 0}
   p2c: {fileID: 0}
-  tdiario1: 0
-  tdiario2: 0
-  tdiario3: 0
-  tdiario4: 0
-  tdiario5: 0
-  tdiario6: 0
-  tdiario7: 0
-  tdiario8: 0
-  tdiario9: 0
-  tdiario10: 0
-  tdiario11: 0
-  tdiario12: 0
-  tdiario13: 0
-  tdiario14: 0
-  tdiario15: 0
   mundos: 0
   jefe1: {fileID: 0}
   normal: {fileID: 0}
@@ -617,31 +665,199 @@ MonoBehaviour:
   tutorial: 0
   espacio: 0
   cuentavidas: {fileID: 0}
-  pociones: 0
-  pocionres: 0
-  pocionfue: 0
-  vidamaxima: 10
   nivel: 0
-  monedas: 0
-  fragmento: 0
-  plataforma: 0
-  univel: 0
-  marma1: 0
-  marma2: 0
-  marma3: 0
-  marma4: 0
-  marma5: 0
-  marma6: 0
-  marma7: 0
-  marma8: 0
-  marma9: 0
-  marma10: 0
-  marma11: 3
-  marma13: 0
-  marma14: 0
-  marma15: 0
+  touch: {fileID: 0}
+  niveltouch: 0
   jefe1_act1: 0
   jefe1_act2: 0
+  repath: 
+  repathconfig: 
+  datosserial:
+    idioma: 
+    plat: 0
+    inicio: 0
+    com: 0
+    menu: 0
+    armastotal: 0
+    armadurastotal: 0
+    diariostotal: 0
+    enemigos: 0
+    alien3muere: 0
+    tdiario1: 0
+    tdiario2: 0
+    tdiario3: 0
+    tdiario4: 0
+    tdiario5: 0
+    tdiario6: 0
+    tdiario7: 0
+    tdiario8: 0
+    tdiario9: 0
+    tdiario10: 0
+    tdiario11: 0
+    tdiario12: 0
+    tdiario13: 0
+    tdiario14: 0
+    tdiario15: 0
+    mundos: 0
+    tiement: 0
+    tutorial: 0
+    pociones: 3
+    pocionres: 0
+    pocionfue: 0
+    vidamaxima: 5
+    herencia: 0
+    monedas: 0
+    fragmento: 0
+    univel: 0
+    marma1: 200
+    marma2: 0
+    marma3: 0
+    marma4: 0
+    marma5: 3
+    marma6: 10
+    marma7: 300
+    marma8: 25
+    marma9: 50
+    marma10: 28
+    marma11: 3
+    marma13: 2
+    marma14: 2
+    marma15: 40
+    espacio2act: 0
+    espacio3act: 0
+    espacio4act: 0
+    espacio5act: 0
+    armadurass1: 0
+    armadurass2: 0
+    armass1: 0
+    armass2: 0
+    armass3: 0
+    armass4: 0
+    espacio: 0
+    armadura: 0
+    arma: 0
+    gemas: 0
+    final1: 0
+    tarmad: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    tarma: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    tmejoravidan: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    tgema: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    finalmalo: 0
+  datosconfig:
+    idioma: 
+    plat: 0
+    distancia: 0
+    postpro: 0
+    resoluciones: 0
+    lastgame: 1
+    aplicarres: 0
+    resolh: 1280
+    resolv: 720
+  datostrof:
+    completaalien1v: 0
+    completaalien1m: 0
+    alien1huevooculto: 0
+    alien1muere: 0
+    alien1secretobajoelasteroide: 0
+    alien1saladelrey: 0
+    alien1salasecreta: 0
+    alien1mejora1: 0
+    alien1mejora2: 0
+    alien1mejora3: 0
+    alien1mejora4: 0
+    alien1mejora5: 0
+    alien1consigue1gema: 0
+    alien1consigue10monedas: 0
+    alien1consigue50monedas: 0
+    alien1consiguelagrangema: 0
+    alien1consigue15gemas: 0
+    alien1usaelcochedelmundo: 0
+    alien1usalanaveenelespacio: 0
+    alien1visitaotroasteroide: 0
+    alien1primeracinematica: 0
+    completaalien2v: 0
+    completaalien3v: 0
+    alien2huevooculto: 0
+    alien2muere: 0
+    alien2ahorra1000monedas: 0
+    alien2obtentodaslasmejorasvida: 0
+    alien2saladelrey: 0
+    alien2compraentodaslastiendas1vez: 0
+    alien2sacaelfinalalternativo: 0
+    alien2mejora1: 0
+    alien2mejora2: 0
+    alien2mejora3: 0
+    alien2mejora4: 0
+    alien2mejora5: 0
+    alien2hablarcontumujer: 0
+    alien2primeracinematica: 0
+    alien2unapaginadeldiario: 0
+    alien2consigue4llaves: 0
+    alien2consiguetodaslaspaginas: 0
+    alien2escuchaunapaginadeldiario: 0
+    alien2usaelcochedelmundo: 0
+    alien2hipnotizaunpirata: 0
+    alien2abrelatiendabloqueadadelaprimerazona: 0
+    alien2encuentralatiendaocultadelasegundazona: 0
+    alien2usalanavegumi: 0
+    alien2desbloqueatodosloscheckpoits: 0
+    alien2desbloqueaelcheckpoint1delnivel1: 0
+    alien2usaelsaltador: 0
+    alien2usaelacelerador: 0
+    alien2usalanaveenelespacio: 0
+    completaalien2m: 0
+    completaalien3m: 0
+    alien3huevooculto: 0
+    alien3consiguetodaslasarmas: 0
+    alien3ahorra5000monedas: 0
+    alien3consiguetodaslasarmaduras: 0
+    alien3acabaeltutorial: 0
+    alien3vence100enemigos: 0
+    alien3vence200enemigos: 0
+    alien3consiguetodadlasmejorasvida: 0
+    alien3gastatodalamuniciondetodaslasarmas: 0
+    alien3muere: 0
+    alien3aceptalaherencia: 0
+    alien3jefe1: 0
+    alien3jefe2: 0
+    alien3jefe3: 0
+    alien3jefe4: 0
+    alien3jefe5: 0
+    alien3jefe6: 0
+    alien3jefe1nave: 0
+    alien3jefe5nave: 0
+    alien3primeramejoradevida: 0
+    alien3primeraarma: 0
+    alien3primeraarmadura: 0
+    alien3entraalmenuextras: 0
+    alien3entraalaguiadelpause: 0
+    alien3entraaseleccionrapidaenelpause: 0
+    alien3consiguetodaslaspaginas: 0
+    alien3escuchaunapagina: 0
+    alien3consigue10gemas: 0
+    alien3consigue20gemas: 0
+    alien3consigue40gemas: 0
+    alien3consigue70gemas: 0
+    alien3consigue100gemas: 0
+    alien3compraladestructora: 0
+    alien3planeta1nave: 0
+    alien3planeta2nave: 0
+    alien3planeta3nave: 0
+    alien3planeta4nave: 0
+    alien3planeta5nave: 0
+    alien3planeta6nave: 0
+    alien3planeta7nave: 0
+    alien3planeta8nave: 0
+    alien3planeta9nave: 0
+    alien3planeta10nave: 0
+    alien3planeta11nave: 0
+    alien3planeta12nave: 0
+    alien3planeta13nave: 0
+    alien3planeta14nave: 0
+    alien3planeta15nave: 0
+    alien3planeta16nave: 0
+    alien3planeta17nave: 0
+  repathtro: 
 --- !u!4 &587409873
 Transform:
   m_ObjectHideFlags: 0

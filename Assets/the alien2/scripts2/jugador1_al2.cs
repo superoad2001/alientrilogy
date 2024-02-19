@@ -3319,8 +3319,6 @@ public class jugador1_al2 : MonoBehaviour
                 anim.SetBool("salto",true);
 
         }
-        else if (manager.juego != 5 && manager.juego != 4 && manager.juego != 6)
-        {anim.SetBool("salto",false);}
         if (this.tiempovel >= 2)
 		{
 		    this.velocidad = this.velocidadaux;
@@ -3393,111 +3391,133 @@ public class jugador1_al2 : MonoBehaviour
 
             suelo = true;
             salto2 = false;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "lava")
 		{
 			saltop = true;
             salto2 = false;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel1")
 		{
 			blanco = 1;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel2")
 		{
 			blanco = 2;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel3")
 		{
 			blanco = 3;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel4")
 		{
 			blanco = 4;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel5")
 		{
 			blanco = 5;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel6")
 		{
 			blanco = 6;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel7")
 		{
 			blanco = 7;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel8")
 		{
 			blanco = 8;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel9")
 		{
 			blanco = 9;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel10")
 		{
 			blanco = 10;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel11")
 		{
 			blanco = 11;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel12")
 		{
 			blanco = 12;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel13")
 		{
 			blanco = 13;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel14")
 		{
 			blanco = 14;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel15")
 		{
 			blanco = 15;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel16")
 		{
 			blanco = 16;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel17")
 		{
 			blanco = 17;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel18")
 		{
 			blanco = 18;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel19")
 		{
 			blanco = 19;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "nivel20")
 		{
 			blanco = 20;
             objeto = 1;
+            anim.SetBool("salto",false);
 		}
         if (col.gameObject.tag == "respawn" && manager.nivel != 0)
 		{
