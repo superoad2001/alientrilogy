@@ -422,7 +422,7 @@ public class jugador1_al2 : MonoBehaviour
         rbc = player.GetAxis("rb");
         lbc = player.GetAxis("lb");
         pausac = player.GetAxis("pausa");
-        if(manager.datosserial.personaje == 1 || manager.datosserial.personaje == 0)
+        if(manager.personaje == 1 || manager.personaje == 0)
         {
 
         if (jumpc > 0f && saltador == true)
@@ -545,7 +545,7 @@ public class jugador1_al2 : MonoBehaviour
                 {
                     jugador2_al2 jugador2 = UnityEngine.Object.FindObjectOfType<jugador2_al2>();
                     jugador2.tempboton = 0;
-                    manager.datosserial.personaje = 2;
+                    manager.personaje = 2;
                     tempboton = 0;
                     audio5.Play();
                     if(manager.datostrof.alien2hipnotizaunpirata == 0)
@@ -912,7 +912,7 @@ public class jugador1_al2 : MonoBehaviour
                 if(nc > 0f)
                 {
                     manager.datosserial.nivel3c = 1;
-                    manager.datosserial.univel = 2;
+                    manager.datosserial.univel = 3;
                     manager.guardar();   
                     SceneManager.LoadScene("nivel3_c_al2");
                 }
@@ -2999,13 +2999,13 @@ public class jugador1_al2 : MonoBehaviour
             {
                 dir = 3;
                 _rb.velocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.velocity.y, lverticalc * velocidad));
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
+                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,90,0),5* Time.deltaTime);
             }
             if (lhorizontalc < 0f)
             {
                 dir = 4;
                 _rb.velocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.velocity.y, lverticalc * velocidad));
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
+                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,-90,0),5* Time.deltaTime);
             }
             if (lverticalc > 0f)
             {
@@ -3017,7 +3017,7 @@ public class jugador1_al2 : MonoBehaviour
             {
                 dir = 2;
                 _rb.velocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.velocity.y, lverticalc * velocidad));
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
+                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,180,0),5* Time.deltaTime);
             }
             Vector3 movdire = _rb.velocity;
             movdire.y = 0;
@@ -3358,6 +3358,8 @@ public class jugador1_al2 : MonoBehaviour
                     SceneManager.LoadScene("final_malo_al2");
                 }
             }
+            else if(manager.torretiemponivel == true)
+            {SceneManager.LoadScene("torre_del_tiempo_al2");}
             else
             {SceneManager.LoadScene("mundo_abierto_al2");}
         }
@@ -3391,13 +3393,15 @@ public class jugador1_al2 : MonoBehaviour
 
             suelo = true;
             salto2 = false;
-            anim.SetBool("salto",false);
+            if(manager.juego != 5 || manager.juego != 4 || manager.juego != 6)
+            {anim.SetBool("salto",false);}
 		}
         if (col.gameObject.tag == "lava")
 		{
 			saltop = true;
             salto2 = false;
-            anim.SetBool("salto",false);
+            if(manager.juego != 5 || manager.juego != 4 || manager.juego != 6)
+            {anim.SetBool("salto",false);}
 		}
         if (col.gameObject.tag == "nivel1")
 		{

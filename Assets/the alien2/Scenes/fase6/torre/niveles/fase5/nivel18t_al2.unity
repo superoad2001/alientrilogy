@@ -823,6 +823,7 @@ GameObject:
   - component: {fileID: 787}
   - component: {fileID: 583}
   - component: {fileID: 629}
+  - component: {fileID: 788}
   m_Layer: 0
   m_Name: control (3)
   m_TagString: control
@@ -883,6 +884,7 @@ GameObject:
   - component: {fileID: 791}
   - component: {fileID: 584}
   - component: {fileID: 632}
+  - component: {fileID: 792}
   m_Layer: 0
   m_Name: control (2)
   m_TagString: control
@@ -1117,6 +1119,7 @@ GameObject:
   - component: {fileID: 826}
   - component: {fileID: 585}
   - component: {fileID: 649}
+  - component: {fileID: 827}
   m_Layer: 0
   m_Name: control (1)
   m_TagString: control
@@ -7126,6 +7129,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6329dfa6e02d5514dba382dc0553f04a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!114 &789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7150,6 +7176,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6329dfa6e02d5514dba382dc0553f04a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!114 &801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7240,6 +7289,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6329dfa6e02d5514dba382dc0553f04a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!114 &835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9535,6 +9607,7 @@ MonoBehaviour:
     recordnv18: 888
     recordnv19: 888
     recordnv20: 888
+    niveltc: 0
   manager: {fileID: 0}
 --- !u!4 &953328651
 Transform:
@@ -9819,6 +9892,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db0249d37956f347a8dcba8609aa72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torretiempo: 0
+  torretiemponivel: 1
   inicio: 0
   trofeoact: 0
   tuto: 0
@@ -10170,6 +10245,7 @@ MonoBehaviour:
     recordnv18: 888
     recordnv19: 888
     recordnv20: 888
+    niveltc: 0
   datosconfig:
     idioma: 
     plat: 0
@@ -10810,7 +10886,7 @@ MonoBehaviour:
   disp: {fileID: 1665890633}
   velocidad: 7
   jumpforce: 400
-  objetotext: {fileID: 0}
+  objetotext: {fileID: 1907569559}
   tiemposalto: 0
   tiempovel: 0
   velocidadmaxima: 9

@@ -17,6 +17,9 @@ public class nvt8_al2 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
+			manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+			manager.datosserial.niveltc = 8;
+			manager.guardar();
 			SceneManager.LoadScene("nivel8t_al2");
 		}
 	}

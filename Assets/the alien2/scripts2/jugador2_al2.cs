@@ -133,7 +133,7 @@ public class jugador2_al2 : MonoBehaviour
         nc = player.GetAxis("x");
         rbc = player.GetAxis("rb");
         lbc = player.GetAxis("lb");
-        if(manager.datosserial.personaje == 2)
+        if(manager.personaje == 2)
         {
         if (jumpc > 0f && saltop == true && tiemposalto > 1.4f)
         {
@@ -232,7 +232,7 @@ public class jugador2_al2 : MonoBehaviour
                     jugador1_al2 jugador1 = UnityEngine.Object.FindObjectOfType<jugador1_al2>();
                     jugador1.tempboton = 0;
                     tempboton = 0;
-                    manager.datosserial.personaje = 1;
+                    manager.personaje = 1;
                 }
             }
             if(objeto == 1 && lbc > 0f && tempboton > 0.5f)

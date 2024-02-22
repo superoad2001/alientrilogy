@@ -17,6 +17,9 @@ public class nvt4_al2 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
+			manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+			manager.datosserial.niveltc = 4;
+			manager.guardar();
 			SceneManager.LoadScene("nivel4t_al2");
 		}
 	}

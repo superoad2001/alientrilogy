@@ -17,6 +17,9 @@ public class nvt5_al2 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
+			manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+			manager.datosserial.niveltc = 5;
+			manager.guardar();
 			SceneManager.LoadScene("nivel5t_al2");
 		}
 	}

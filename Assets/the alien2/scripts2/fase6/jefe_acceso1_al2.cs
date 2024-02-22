@@ -17,7 +17,7 @@ public class jefe_acceso1_al2 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			SceneManager.LoadScene("jefecin");
+			SceneManager.LoadScene("jefecin_al2");
 		}
 	}
 }

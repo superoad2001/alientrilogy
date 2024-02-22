@@ -504,6 +504,8 @@ public class datos2
     public float recordnv18 = 888;
     public float recordnv19 = 888;
     public float recordnv20 = 888;
+
+	public int niveltc;
     // Start is called before the first frame update
     void Start()
     {

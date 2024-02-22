@@ -6,6 +6,9 @@ using System;
 
 public class manager_al2 : MonoBehaviour
 {
+
+	public bool torretiempo;
+	public bool torretiemponivel;
 	public int inicio;
 	public int trofeoact;
 	public int tuto = 0;
@@ -443,6 +446,110 @@ public class manager_al2 : MonoBehaviour
 
 
 		jugador1_al2 jugador1 = UnityEngine.Object.FindObjectOfType<jugador1_al2>();
+
+		if(torretiempo == true)
+		{
+			if(datosserial.niveltc == 1)
+			{
+				jugadorpos.transform.localPosition = new Vector3(34.5299988f,28.0733643f,-120f);
+				boxcampos.transform.localPosition = new Vector3(34.5299988f,28.0733643f,-120f);
+			}
+			if(datosserial.niveltc == 2)
+			{
+				jugadorpos.transform.localPosition = new Vector3(77.1399994f,28.0733643f,-120f);
+				boxcampos.transform.localPosition = new Vector3(77.1399994f,28.0733643f,-120f);
+			}
+			if(datosserial.niveltc == 3)
+			{
+				jugadorpos.transform.localPosition = new Vector3(121.230003f,28.0733643f,-120f);
+				boxcampos.transform.localPosition = new Vector3(121.230003f,28.0733643f,-120f);
+			}
+			if(datosserial.niveltc == 4)
+			{
+				jugadorpos.transform.localPosition = new Vector3(160.860001f,28.0733643f,-120f);
+				boxcampos.transform.localPosition = new Vector3(160.860001f,28.0733643f,-120f);
+			}
+			if(datosserial.niveltc == 5)
+			{
+				jugadorpos.transform.localPosition = new Vector3(33f,52.2000008f,-64.0699997f);
+				boxcampos.transform.localPosition = new Vector3(33f,52.2000008f,-64.0699997f);
+			}
+			if(datosserial.niveltc == 6)
+			{
+				jugadorpos.transform.localPosition = new Vector3(73.5999985f,52.2000008f,-64.0699997f);
+				boxcampos.transform.localPosition = new Vector3(73.5999985f,52.2000008f,-64.0699997f);
+			}
+			if(datosserial.niveltc == 7)
+			{
+				jugadorpos.transform.localPosition = new Vector3(119.5f,52.2000008f,-64.0699997f);
+				boxcampos.transform.localPosition = new Vector3(119.5f,52.2000008f,-64.0699997f);
+			}
+			if(datosserial.niveltc == 8)
+			{
+				jugadorpos.transform.localPosition = new Vector3(158.360001f,52.2000008f,-64.0699997f);
+				boxcampos.transform.localPosition = new Vector3(158.360001f,52.2000008f,-64.0699997f);
+			}
+			if(datosserial.niveltc == 9)
+			{
+				jugadorpos.transform.localPosition = new Vector3(33f,79.4700012f,-13f);
+				boxcampos.transform.localPosition = new Vector3(33f,79.4700012f,-13f);
+			}
+			if(datosserial.niveltc == 10)
+			{
+				jugadorpos.transform.localPosition = new Vector3(72.6999969f,79.4700012f,-13f);
+				boxcampos.transform.localPosition = new Vector3(72.6999969f,79.4700012f,-13f);
+			}
+			if(datosserial.niveltc == 11)
+			{
+				jugadorpos.transform.localPosition = new Vector3(119.300003f,79.4700012f,-13f);
+				boxcampos.transform.localPosition = new Vector3(119.300003f,79.4700012f,-13f);
+			}
+			if(datosserial.niveltc == 12)
+			{
+				jugadorpos.transform.localPosition = new Vector3(159.100006f,79.4700012f,-13f);
+				boxcampos.transform.localPosition = new Vector3(159.100006f,79.4700012f,-13f);
+			}
+			if(datosserial.niveltc == 13)
+			{
+				jugadorpos.transform.localPosition = new Vector3(31.3999996f,110.800003f,48.7000008f);
+				boxcampos.transform.localPosition = new Vector3(31.3999996f,110.800003f,48.7000008f);
+			}
+			if(datosserial.niveltc == 14)
+			{
+				jugadorpos.transform.localPosition = new Vector3(73.6999969f,110.800003f,48.7000008f);
+				boxcampos.transform.localPosition = new Vector3(73.6999969f,110.800003f,48.7000008f);
+			}
+			if(datosserial.niveltc == 15)
+			{
+				jugadorpos.transform.localPosition = new Vector3(118.699997f,110.800003f,48.7000008f);
+				boxcampos.transform.localPosition = new Vector3(118.699997f,110.800003f,48.7000008f);
+			}
+			if(datosserial.niveltc == 16)
+			{
+				jugadorpos.transform.localPosition = new Vector3(157.800003f,110.800003f,48.7000008f);
+				boxcampos.transform.localPosition = new Vector3(157.800003f,110.800003f,48.7000008f);
+			}
+			if(datosserial.niveltc == 17)
+			{
+				jugadorpos.transform.localPosition = new Vector3(31.3999996f,136.5f,106.800003f);
+				boxcampos.transform.localPosition = new Vector3(31.3999996f,136.5f,106.800003f);
+			}
+			if(datosserial.niveltc == 18)
+			{
+				jugadorpos.transform.localPosition = new Vector3(73.4000015f,136.5f,106.800003f);
+				boxcampos.transform.localPosition = new Vector3(73.4000015f,136.5f,106.800003f);
+			}
+			if(datosserial.niveltc == 19)
+			{
+				jugadorpos.transform.localPosition = new Vector3(119.599998f,136.5f,106.800003f);
+				boxcampos.transform.localPosition = new Vector3(119.599998f,136.5f,106.800003f);
+			}
+			if(datosserial.niveltc == 20)
+			{
+				jugadorpos.transform.localPosition = new Vector3(156.199997f,136.5f,106.800003f);
+				boxcampos.transform.localPosition = new Vector3(156.199997f,136.5f,106.800003f);
+			}
+		}
 
 		//fase 1
 		if(nivel  == 1 && datosserial.nivel1c == 1)

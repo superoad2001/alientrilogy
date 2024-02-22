@@ -17,6 +17,9 @@ public class rey_al2 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
+			manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+			manager.datosserial.niveltc = 0;
+			manager.guardar();
 			SceneManager.LoadScene("sala_del_rey_al2");
 		}
 	}

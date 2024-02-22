@@ -36,7 +36,7 @@ public class tutj1_al2 : MonoBehaviour
     {
         if (player.GetAxis("a") > 0f || Ac == 1 )
         {
-            SceneManager.LoadScene("jefe1");
+            SceneManager.LoadScene("jefe1_al2");
 
         }
     }
