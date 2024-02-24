@@ -134,17 +134,8 @@ public class jugador_al1 : MonoBehaviour
 	tiempoascensor += Time.deltaTime;
 	manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
 
-	if(player.GetAxis("lhorizontal") > 0)
-	{lhorizontalc = 1;}
-	else if(player.GetAxis("lhorizontal") < 0)
-	{lhorizontalc = -1;}
-	else{lhorizontalc = 0;}
-
-	if(player.GetAxis("lvertical") > 0)
-	{lverticalc = 1;}
-	else if(player.GetAxis("lvertical") < 0)
-	{lverticalc = -1;}
-	else{lverticalc = 0;}
+	lhorizontalc = player.GetAxis("lhorizontal");
+    lverticalc = player.GetAxis("lvertical");
 
 	rhorizontalc = player.GetAxis("rhorizontal");
 	rverticalc = player.GetAxis("rvertical");

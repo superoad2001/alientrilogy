@@ -115,17 +115,8 @@ public class jugador2_al2 : MonoBehaviour
     {
         
         manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
-        if(player.GetAxis("lhorizontal") > 0)
-        {lhorizontalc = 1;}
-        else if(player.GetAxis("lhorizontal") < 0)
-        {lhorizontalc = -1;}
-        else{lhorizontalc = 0;}
-
-        if(player.GetAxis("lvertical") > 0)
-        {lverticalc = 1;}
-        else if(player.GetAxis("lvertical") < 0)
-        {lverticalc = -1;}
-        else{lverticalc = 0;}
+        lhorizontalc = player.GetAxis("lhorizontal");
+        lverticalc = player.GetAxis("lvertical");
         rhorizontalc = player.GetAxis("rhorizontal");
         rverticalc = player.GetAxis("rvertical");
         jumpc = player.GetAxis("a");
