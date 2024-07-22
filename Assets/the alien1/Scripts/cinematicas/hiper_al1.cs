@@ -10,6 +10,7 @@ public class hiper_al1 : MonoBehaviour
 	public bool botonm = false;
 	[SerializeField]private int playerID = 0;
 	[SerializeField]private Player player;
+	public GameObject objeto;
 	public void boton_m()
     {
         botonm = true;
@@ -35,6 +36,7 @@ public class hiper_al1 : MonoBehaviour
 		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
 		if (col.gameObject.tag == "Player" && manager.datosserial.tengomejora == 1)
 		{
+			objeto.SetActive(true);
 			if(manager.datosconfig.idioma == "es")
 			{this.tutfinala.text = "pulsa (click derecho) o (B) para volver a casa";}
 			if(manager.datosconfig.idioma == "en")
@@ -51,6 +53,7 @@ public class hiper_al1 : MonoBehaviour
 	// Token: 0x06000015 RID: 21 RVA: 0x000024A7 File Offset: 0x000006A7
 	private void OnTriggerExit(Collider col)
 	{
+		objeto.SetActive(false);
 		if (col.gameObject.tag == "Player")
 		{
 			this.tutfinala.text = " ";

@@ -12,6 +12,7 @@ public class jugador1_al3: MonoBehaviour
     public AudioSource pasosnave;
 	public AudioSource pasos1;
 	public AudioSource pasos2;
+    public AudioSource claxon;
     public float temppaso = 1;
     public float pasotiempo;
     public int randompaso;
@@ -1012,6 +1013,25 @@ public class jugador1_al3: MonoBehaviour
             {platz.tp = true;}
             if(platy != null)
             {platy.tp = true;}
+            }
+        }
+        if (blanco == 9)
+        {
+            if(manager.datosconfig.idioma == "es")
+            {
+                objetotext.text = "claxon";
+            }
+            if(manager.datosconfig.idioma == "en")
+            {
+                objetotext.text = "horn";
+            }
+            if(manager.datosconfig.idioma == "cat")
+            {
+                objetotext.text = "claxon";
+            }
+            if(yc> 0f && tempboton > 0.5f)
+            {
+                claxon.Play();
             }
         }
         if(rbc > 0 && velact == false)

@@ -897,6 +897,7 @@ MonoBehaviour:
   pasosnave: {fileID: 0}
   pasos1: {fileID: 743392139}
   pasos2: {fileID: 859126191}
+  claxon: {fileID: 0}
   temppaso: 1
   pasotiempo: 0
   randompaso: 0
@@ -3357,6 +3358,7 @@ Transform:
   - {fileID: 1914201386}
   - {fileID: 621880044}
   - {fileID: 1115285941}
+  - {fileID: 2419792345208175227}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &187588789
@@ -28991,7 +28993,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 185119395}
     m_Modifications:
     - target: {fileID: 2419792344816692410, guid: a67c146ec469542449c946df6e951b23, type: 3}
       propertyPath: m_FirstSelected
@@ -29095,13 +29097,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2419792345110102849, guid: a67c146ec469542449c946df6e951b23, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a67c146ec469542449c946df6e951b23, type: 3}
+--- !u!224 &2419792345208175227 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2419792345110102842, guid: a67c146ec469542449c946df6e951b23, type: 3}
+  m_PrefabInstance: {fileID: 2419792345208175226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3571143278822298763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29110,6 +29117,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1638409265339781510, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: arma10_
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638409265339781510, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: arma10_
+      objectReference: {fileID: 0}
     - target: {fileID: 3571143278365247326, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
       propertyPath: m_Text
       value: 'mata
@@ -29238,7 +29253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3571143279704607481, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: arma10_
+      value: comprar_
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29504,7 +29519,6 @@ SceneRoots:
   - {fileID: 5053358430822094989}
   - {fileID: 9078648613841147898}
   - {fileID: 3571143278822298763}
-  - {fileID: 2419792345208175226}
   - {fileID: 1477}
   - {fileID: 185119395}
   - {fileID: 524446227}

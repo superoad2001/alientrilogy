@@ -897,6 +897,7 @@ MonoBehaviour:
   pasosnave: {fileID: 0}
   pasos1: {fileID: 277998564}
   pasos2: {fileID: 1497011188}
+  claxon: {fileID: 0}
   temppaso: 1
   pasotiempo: 0
   randompaso: 0
@@ -2342,6 +2343,7 @@ Transform:
   - {fileID: 121009855}
   - {fileID: 479790928}
   - {fileID: 719183269}
+  - {fileID: 2419792345208175227}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &186585919
@@ -6049,6 +6051,7 @@ GameObject:
   - component: {fileID: 725161268}
   - component: {fileID: 725161267}
   - component: {fileID: 725161266}
+  - component: {fileID: 725161269}
   m_Layer: 5
   m_Name: Button (Legacy) (6)
   m_TagString: Untagged
@@ -6091,7 +6094,7 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 3571143278822298766}
+    m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 3571143278822298767}
     m_SelectOnRight: {fileID: 0}
@@ -6121,8 +6124,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3571143278822298764}
-        m_TargetAssemblyTypeName: tienda, Assembly-CSharp
-        m_MethodName: arma13_
+        m_TargetAssemblyTypeName: tienda_al3, Assembly-CSharp
+        m_MethodName: comprar_
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6170,6 +6173,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725161264}
   m_CullTransparentMesh: 1
+--- !u!114 &725161269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725161264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3571143278822298764}
+          m_TargetAssemblyTypeName: tienda_al3, Assembly-CSharp
+          m_MethodName: arma13_
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3571143278822298764}
+          m_TargetAssemblyTypeName: tienda_al3, Assembly-CSharp
+          m_MethodName: arma13_
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &726097215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19127,7 +19175,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 185119395}
     m_Modifications:
     - target: {fileID: 2419792344816692410, guid: a67c146ec469542449c946df6e951b23, type: 3}
       propertyPath: m_FirstSelected
@@ -19231,13 +19279,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2419792345110102849, guid: a67c146ec469542449c946df6e951b23, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a67c146ec469542449c946df6e951b23, type: 3}
+--- !u!224 &2419792345208175227 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2419792345110102842, guid: a67c146ec469542449c946df6e951b23, type: 3}
+  m_PrefabInstance: {fileID: 2419792345208175226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3571143278822298763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19246,6 +19299,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1638409265339781510, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: arma14_
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638409265339781510, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: arma14_
+      objectReference: {fileID: 0}
     - target: {fileID: 3571143278365247326, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
       propertyPath: m_Text
       value: dispara aceleradores
@@ -19388,7 +19449,7 @@ PrefabInstance:
       objectReference: {fileID: 725161266}
     - target: {fileID: 3571143279704607481, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: arma14_
+      value: comprar_
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19414,17 +19475,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3571143279807149984, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
   m_PrefabInstance: {fileID: 3571143278822298763}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3571143278822298766 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3571143278767492215, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
-  m_PrefabInstance: {fileID: 3571143278822298763}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3571143278822298767 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3571143279704607481, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
@@ -19695,7 +19745,6 @@ SceneRoots:
   - {fileID: 5053358430822094989}
   - {fileID: 9078648613841147898}
   - {fileID: 3571143278822298763}
-  - {fileID: 2419792345208175226}
   - {fileID: 1477}
   - {fileID: 185119395}
   - {fileID: 524446227}

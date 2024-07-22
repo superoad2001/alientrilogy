@@ -12873,6 +12873,7 @@ Transform:
   - {fileID: 1580881695}
   - {fileID: 2140511970}
   - {fileID: 231824428}
+  - {fileID: 1501344168}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &981980129
@@ -15172,6 +15173,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1638409265339781510, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: arma15_
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638409265339781510, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: arma15_
+      objectReference: {fileID: 0}
     - target: {fileID: 3571143278365247326, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
       propertyPath: m_Text
       value: destructora_1.0
@@ -15298,7 +15307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3571143279704607481, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: arma15_
+      value: comprar_
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17516,7 +17525,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 981859478}
     m_Modifications:
     - target: {fileID: 2419792344816692410, guid: a67c146ec469542449c946df6e951b23, type: 3}
       propertyPath: m_FirstSelected
@@ -17620,7 +17629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2419792345110102849, guid: a67c146ec469542449c946df6e951b23, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17630,6 +17639,11 @@ PrefabInstance:
 --- !u!1 &1501344167 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2419792345110102849, guid: a67c146ec469542449c946df6e951b23, type: 3}
+  m_PrefabInstance: {fileID: 1501344166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1501344168 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2419792345110102842, guid: a67c146ec469542449c946df6e951b23, type: 3}
   m_PrefabInstance: {fileID: 1501344166}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1522727274
@@ -24233,7 +24247,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 779468615}
-  - {fileID: 1501344166}
   - {fileID: 1217927315}
   - {fileID: 493301687}
   - {fileID: 997712791}

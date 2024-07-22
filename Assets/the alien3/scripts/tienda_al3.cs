@@ -91,7 +91,6 @@ public class tienda_al3: MonoBehaviour
         {
             monedast.text = "monedas : "+ manager.datosserial.monedas;
             tmun.text = "municion";
-            tcom.text = "comprar";
             tpocv.text = "pocion de vida";
             tpocr.text = "pocion de resistencia";
             tpocf.text = "pocion de fuerza";
@@ -176,7 +175,6 @@ public class tienda_al3: MonoBehaviour
         {
             monedast.text = "coins : "+ manager.datosserial.monedas;
             tmun.text = "ammunition";
-            tcom.text = "buy";
             tpocv.text = "life potion";
             tpocr.text = "resistance potion";
             tpocf.text = "strength potion";
@@ -261,7 +259,6 @@ public class tienda_al3: MonoBehaviour
         {
             monedast.text = "monedas : "+ manager.datosserial.monedas;
             tmun.text = "municio";
-            tcom.text = "comprar";
             tpocv.text = "pocio de vida";
             tpocr.text = "pocio de resistencia";
             tpocf.text = "pocio de forca";
@@ -1074,7 +1071,6 @@ public class tienda_al3: MonoBehaviour
             if(manager.datosserial.monedas >= 10 && manager.datosserial.pociones < 100)
             {
 			manager.datosserial.monedas -= 10;
-			manager.datosserial.monedas -= 10;
             manager.datosserial.pociones++;
             manager.guardar();
             pocionvida = false;
@@ -1106,7 +1102,6 @@ public class tienda_al3: MonoBehaviour
         {
             if(manager.datosserial.monedas >= 20 && manager.datosserial.pocionres < 100)
             {
-			manager.datosserial.monedas -= 20;
 			manager.datosserial.monedas -= 20;
             manager.datosserial.pocionres++;
             manager.guardar();
@@ -1140,7 +1135,6 @@ public class tienda_al3: MonoBehaviour
             if(manager.datosserial.monedas >= 20 && manager.datosserial.pocionfue < 100)
             {
 			manager.datosserial.monedas -= 20;
-			manager.datosserial.monedas -= 20;
             manager.datosserial.pocionfue++;
             manager.guardar();
             pocionvida = false;
@@ -1172,7 +1166,6 @@ public class tienda_al3: MonoBehaviour
         {
             if(manager.datosserial.monedas >= 0 && manager.datosserial.tarma[0] == 0)
             {
-			manager.datosserial.monedas -= 0;
 			manager.datosserial.monedas -= 0;
 			manager.datosserial.tarma[0] = 1;
             manager.guardar();
@@ -1210,7 +1203,6 @@ public class tienda_al3: MonoBehaviour
             if(manager.datosserial.monedas >= 30 && manager.datosserial.tarma[1] == 0)
             {
 			manager.datosserial.monedas -= 30;
-			manager.datosserial.monedas -= 30;
 			manager.datosserial.tarma[1] = 1;
             
             pocionvida = false;
@@ -1245,7 +1237,6 @@ public class tienda_al3: MonoBehaviour
         {
             if(manager.datosserial.monedas >= 50 && manager.datosserial.tarma[2] == 0)
             {
-			manager.datosserial.monedas -= 50;
 			manager.datosserial.monedas -= 50;
 			manager.datosserial.tarma[2] = 1;
             manager.guardar();
@@ -1282,7 +1273,6 @@ public class tienda_al3: MonoBehaviour
             if(manager.datosserial.monedas >= 70 && manager.datosserial.tarma[3] == 0)
             {
 			manager.datosserial.monedas -= 70;
-			manager.datosserial.monedas -= 70;
 			manager.datosserial.tarma[3] = 1;
             manager.guardar();
             pocionvida = false;
@@ -1317,7 +1307,6 @@ public class tienda_al3: MonoBehaviour
         {
             if(manager.datosserial.monedas >= 130 && manager.datosserial.tarma[4] == 0)
             {
-			manager.datosserial.monedas -= 130;
 			manager.datosserial.monedas -= 130;
 			manager.datosserial.tarma[4] = 1;
             manager.guardar();
@@ -1354,7 +1343,6 @@ public class tienda_al3: MonoBehaviour
             if(manager.datosserial.monedas >= 250 && manager.datosserial.tarma[5] == 0)
             {
 			manager.datosserial.monedas -= 250;
-			manager.datosserial.monedas -= 250;
 			manager.datosserial.tarma[5] = 1;
             manager.guardar();
             pocionvida = false;
@@ -1389,7 +1377,6 @@ public class tienda_al3: MonoBehaviour
         {
             if(manager.datosserial.monedas >= 500 && manager.datosserial.tarma[6] == 0)
             {
-			manager.datosserial.monedas -= 500;
 			manager.datosserial.monedas -= 500;
 			manager.datosserial.tarma[6] = 1;
             manager.guardar();
@@ -1426,7 +1413,6 @@ public class tienda_al3: MonoBehaviour
             if(manager.datosserial.monedas >= 400 && manager.datosserial.tarma[7] == 0)
             {
 			manager.datosserial.monedas -= 400;
-			manager.datosserial.monedas -= 400;
 			manager.datosserial.tarma[7] = 1;
             manager.guardar();
             pocionvida = false;
@@ -1461,7 +1447,6 @@ public class tienda_al3: MonoBehaviour
         {
             if(manager.datosserial.monedas >= 200 && manager.datosserial.tarma[8] == 0)
             {
-			manager.datosserial.monedas -= 200;
 			manager.datosserial.monedas -= 200;
 			manager.datosserial.tarma[8] = 1;
             manager.guardar();
@@ -1498,7 +1483,6 @@ public class tienda_al3: MonoBehaviour
             if(manager.datosserial.monedas >= 650 && manager.datosserial.tarma[9] == 0)
             {
 			manager.datosserial.monedas -= 650;
-			manager.datosserial.monedas -= 650;
 			manager.datosserial.tarma[9] = 1;
             manager.guardar();
             pocionvida = false;
@@ -1533,7 +1517,6 @@ public class tienda_al3: MonoBehaviour
         {
             if(manager.datosserial.monedas >= 200 && manager.datosserial.tarma[10] == 0)
             {
-			manager.datosserial.monedas -= 200;
 			manager.datosserial.monedas -= 200;
 			manager.datosserial.tarma[10] = 1;
             manager.guardar();
@@ -1570,7 +1553,6 @@ public class tienda_al3: MonoBehaviour
             if(manager.datosserial.monedas >= 150 && manager.datosserial.tarma[11] == 0)
             {
 			manager.datosserial.monedas -= 150;
-			manager.datosserial.monedas -= 150;
 			manager.datosserial.tarma[11] = 1;
             manager.guardar();
             pocionvida = false;
@@ -1605,7 +1587,6 @@ public class tienda_al3: MonoBehaviour
         {
             if(manager.datosserial.monedas >= 1000 && manager.datosserial.tarma[12] == 0)
             {
-			manager.datosserial.monedas -= 1000;
 			manager.datosserial.monedas -= 1000;
 			manager.datosserial.tarma[12] = 1;
             manager.guardar();
@@ -1642,7 +1623,6 @@ public class tienda_al3: MonoBehaviour
             if(manager.datosserial.monedas >= 1000 && manager.datosserial.tarma[13] == 0)
             {
 			manager.datosserial.monedas -= 1000;
-			manager.datosserial.monedas -= 1000;
 			manager.datosserial.tarma[13] = 1;
             manager.guardar();
             pocionvida = false;
@@ -1677,7 +1657,6 @@ public class tienda_al3: MonoBehaviour
         {
             if(manager.datosserial.monedas >= 2000 && manager.datosserial.tarma[14] == 0)
             {
-			manager.datosserial.monedas -= 2000;
 			manager.datosserial.monedas -= 2000;
             manager.datosserial.tarma[14] = 1;
             pocionvida = false;
@@ -1720,7 +1699,6 @@ public class tienda_al3: MonoBehaviour
         {
             if(manager.datosserial.monedas >= 5)
             {
-			manager.datosserial.monedas -= 5;
 			manager.datosserial.monedas -= 5;
 
             manager.datosserial.marma1 = 200;

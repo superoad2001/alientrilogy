@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9078648612897493712}
   - component: {fileID: 9078648612897493715}
+  - component: {fileID: 5356894859652972834}
   m_Layer: 0
   m_Name: Rewired Input Manager_al3
   m_TagString: Untagged
@@ -358,8 +359,8 @@ MonoBehaviour:
       _name: horizontalpad
       _type: 0
       _descriptiveName: PAD X
-      _positiveDescriptiveName: 
-      _negativeDescriptiveName: 
+      _positiveDescriptiveName: padder
+      _negativeDescriptiveName: padizq
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 0
@@ -367,8 +368,8 @@ MonoBehaviour:
       _name: verticalpad
       _type: 0
       _descriptiveName: PAD Y
-      _positiveDescriptiveName: 
-      _negativeDescriptiveName: 
+      _positiveDescriptiveName: padarr
+      _negativeDescriptiveName: padabj
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 0
@@ -376,6 +377,15 @@ MonoBehaviour:
       _name: r3
       _type: 1
       _descriptiveName: r3
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
+    - _id: 28
+      _name: cruceta
+      _type: 0
+      _descriptiveName: Action0
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
       _behaviorId: 0
@@ -390,7 +400,7 @@ MonoBehaviour:
     actionCategoryMap:
       list:
       - categoryId: 0
-        actionIds: 0a0000000b0000000c0000000d0000000e0000000f00000010000000110000001200000013000000140000001500000016000000170000001800000019000000
+        actionIds: 0a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001c000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -700,6 +710,17 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 28
+        _elementType: 1
+        _elementIdentifierId: 6
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     keyboardMaps:
     - id: 0
       categoryId: 0
@@ -958,6 +979,17 @@ MonoBehaviour:
         _invert: 0
         _axisContribution: 0
         _keyboardKeyCode: 102
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 28
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 273
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
@@ -1512,7 +1544,7 @@ MonoBehaviour:
     controllerMapLayoutManagerRuleSets: []
     controllerMapEnablerRuleSets: []
     playerIdCounter: 2
-    actionIdCounter: 26
+    actionIdCounter: 29
     actionCategoryIdCounter: 2
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 2
@@ -1528,3 +1560,22 @@ MonoBehaviour:
     controllerMapLayoutManagerSetIdCounter: 0
     controllerMapEnablerSetIdCounter: 0
   _controllerDataFiles: {fileID: 11400000, guid: d21d2b20df8369642b76aafbb2576ba7, type: 2}
+--- !u!114 &5356894859652972834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9078648612897493714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5421653090b06848aab64715fe45a79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerMaps:
+  - {fileID: 11400000, guid: 9c41ba4af9ddd9846b8c0b5bca4e667e, type: 2}
+  - {fileID: 11400000, guid: fc3d97a45e9c5b04ab9bbf1bc27eb03c, type: 2}
+  - {fileID: 11400000, guid: a439f833217acbe4693fbf28b096c4c1, type: 2}
+  - {fileID: 11400000, guid: 4cd7cdb99a824394ba7d95c914e423c8, type: 2}
+  - {fileID: 11400000, guid: c59f605c999d0ae42af14bfb822159d5, type: 2}
+  - {fileID: 11400000, guid: f04b5d3d299540946bc69e04d554172b, type: 2}

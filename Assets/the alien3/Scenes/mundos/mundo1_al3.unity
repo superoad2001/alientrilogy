@@ -898,6 +898,7 @@ MonoBehaviour:
   pasosnave: {fileID: 0}
   pasos1: {fileID: 1070995176}
   pasos2: {fileID: 311556743}
+  claxon: {fileID: 0}
   temppaso: 1
   pasotiempo: 0
   randompaso: 0
@@ -2392,27 +2393,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2419792345110102849, guid: a67c146ec469542449c946df6e951b23, type: 3}
   m_PrefabInstance: {fileID: 2419792345208175226}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &103348545
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 103348539}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9f5f54c48eee1ea488f20b9fa05a8b03, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &105849310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3370,6 +3350,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2419792345208175227}
   - {fileID: 184608638}
   - {fileID: 1403399447}
   - {fileID: 1430610453}
@@ -5758,6 +5739,10 @@ PrefabInstance:
     - target: {fileID: 8888378867673391931, guid: 6f4a8df0d850ac9468a088bd95db8b05, type: 3}
       propertyPath: m_Name
       value: Canvas (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888378867673391931, guid: 6f4a8df0d850ac9468a088bd95db8b05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8888378867673397999, guid: 6f4a8df0d850ac9468a088bd95db8b05, type: 3}
       propertyPath: m_Pivot.x
@@ -27860,20 +27845,8 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 185119395}
     m_Modifications:
-    - target: {fileID: 2419792344809863557, guid: a67c146ec469542449c946df6e951b23, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -614
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419792344816692410, guid: a67c146ec469542449c946df6e951b23, type: 3}
-      propertyPath: m_FirstSelected
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419792344816692421, guid: a67c146ec469542449c946df6e951b23, type: 3}
-      propertyPath: rewiredInputManager
-      value: 
-      objectReference: {fileID: 1389150451}
     - target: {fileID: 2419792345110102842, guid: a67c146ec469542449c946df6e951b23, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -27881,10 +27854,6 @@ PrefabInstance:
     - target: {fileID: 2419792345110102842, guid: a67c146ec469542449c946df6e951b23, type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419792345110102842, guid: a67c146ec469542449c946df6e951b23, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2419792345110102842, guid: a67c146ec469542449c946df6e951b23, type: 3}
       propertyPath: m_AnchorMax.x
@@ -27966,22 +27935,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: seleccionrapida
       objectReference: {fileID: 0}
-    - target: {fileID: 2419792345110102849, guid: a67c146ec469542449c946df6e951b23, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419792345404507043, guid: a67c146ec469542449c946df6e951b23, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2419792345110102849, guid: a67c146ec469542449c946df6e951b23, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 103348545}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a67c146ec469542449c946df6e951b23, type: 3}
+--- !u!224 &2419792345208175227 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2419792345110102842, guid: a67c146ec469542449c946df6e951b23, type: 3}
+  m_PrefabInstance: {fileID: 2419792345208175226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3571143278822298763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27990,6 +27953,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1638409265339781510, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: arma2_
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638409265339781510, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: arma2_
+      objectReference: {fileID: 0}
     - target: {fileID: 3571143278365247326, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
       propertyPath: m_Text
       value: arma de mama
@@ -28112,7 +28083,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3571143279704607481, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: arma2_
+      value: comprar_
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581875850917525747, guid: 3d7dd542cef86c9469348ece80b4fe6b, type: 3}
+      propertyPath: setActionsById
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28430,7 +28405,6 @@ SceneRoots:
   - {fileID: 5053358430822094989}
   - {fileID: 1477}
   - {fileID: 3571143278822298763}
-  - {fileID: 2419792345208175226}
   - {fileID: 185119395}
   - {fileID: 524446227}
   - {fileID: 1389150450}
