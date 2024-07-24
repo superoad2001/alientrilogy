@@ -83,6 +83,7 @@ GameObject:
   - component: {fileID: 1165}
   - component: {fileID: 1017}
   - component: {fileID: 875}
+  - component: {fileID: 1425596011}
   m_Layer: 0
   m_Name: saltador
   m_TagString: suelo
@@ -245,6 +246,7 @@ GameObject:
   - component: {fileID: 1179}
   - component: {fileID: 1020}
   - component: {fileID: 876}
+  - component: {fileID: 1180}
   m_Layer: 0
   m_Name: saltador
   m_TagString: suelo
@@ -577,6 +579,7 @@ GameObject:
   - component: {fileID: 1206}
   - component: {fileID: 1021}
   - component: {fileID: 877}
+  - component: {fileID: 1207}
   m_Layer: 0
   m_Name: saltador
   m_TagString: suelo
@@ -914,6 +917,7 @@ GameObject:
   - component: {fileID: 1227}
   - component: {fileID: 1022}
   - component: {fileID: 878}
+  - component: {fileID: 1228}
   m_Layer: 0
   m_Name: saltador
   m_TagString: suelo
@@ -1323,6 +1327,7 @@ GameObject:
   - component: {fileID: 1254}
   - component: {fileID: 1023}
   - component: {fileID: 879}
+  - component: {fileID: 1255}
   m_Layer: 0
   m_Name: saltador
   m_TagString: suelo
@@ -1633,6 +1638,7 @@ GameObject:
   - component: {fileID: 1276}
   - component: {fileID: 1024}
   - component: {fileID: 880}
+  - component: {fileID: 1279}
   m_Layer: 0
   m_Name: saltador
   m_TagString: suelo
@@ -1884,6 +1890,7 @@ GameObject:
   - component: {fileID: 1290}
   - component: {fileID: 1025}
   - component: {fileID: 881}
+  - component: {fileID: 1291}
   m_Layer: 0
   m_Name: saltador
   m_TagString: suelo
@@ -1924,6 +1931,7 @@ GameObject:
   - component: {fileID: 1084}
   - component: {fileID: 1907070560}
   - component: {fileID: 1026}
+  - component: {fileID: 1907070561}
   m_Layer: 0
   m_Name: monedav (4)
   m_TagString: Untagged
@@ -2040,6 +2048,7 @@ GameObject:
   - component: {fileID: 1089}
   - component: {fileID: 2129113031}
   - component: {fileID: 1027}
+  - component: {fileID: 2129113032}
   m_Layer: 0
   m_Name: monedav (3)
   m_TagString: Untagged
@@ -2498,6 +2507,7 @@ GameObject:
   - component: {fileID: 1328}
   - component: {fileID: 1028}
   - component: {fileID: 882}
+  - component: {fileID: 1329}
   m_Layer: 0
   m_Name: saltador
   m_TagString: suelo
@@ -2615,6 +2625,7 @@ GameObject:
   - component: {fileID: 1340}
   - component: {fileID: 1029}
   - component: {fileID: 883}
+  - component: {fileID: 1341}
   m_Layer: 0
   m_Name: saltador
   m_TagString: suelo
@@ -13976,7 +13987,7 @@ AudioSource:
   m_GameObject: {fileID: 3}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 609c049ede114b24db346247d0c35ec3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -14072,7 +14083,7 @@ AudioSource:
   m_GameObject: {fileID: 5}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 609c049ede114b24db346247d0c35ec3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -14168,7 +14179,7 @@ AudioSource:
   m_GameObject: {fileID: 204}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4124961095145688302, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7f092afd25340e34c9f2c522966d7700, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.518
@@ -14283,7 +14294,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5444019, g: 0.50700164, b: 0.5242697, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!108 &1017
 Light:
@@ -15966,12 +15976,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!114 &1174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16031,6 +16041,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!114 &1182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16163,6 +16196,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!114 &1208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16319,6 +16375,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!114 &1232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16427,6 +16506,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!114 &1256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16511,6 +16613,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ea8f26d3aac4da4e8531154830c71c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!114 &1281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16559,6 +16684,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!114 &1302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16595,6 +16743,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!114 &1335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16643,6 +16814,126 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!1001 &14569055
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 961696964437691927, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915071198684984707, guid: 81354e72663e9434293209a26d585657, type: 3}
+      propertyPath: m_Name
+      value: notificacion
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 81354e72663e9434293209a26d585657, type: 3}
 --- !u!1 &51833576
 GameObject:
   m_ObjectHideFlags: 0
@@ -16956,7 +17247,7 @@ AudioSource:
   m_GameObject: {fileID: 288252444}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 609c049ede114b24db346247d0c35ec3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -17084,7 +17375,7 @@ AudioSource:
   m_GameObject: {fileID: 319279081}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 291a68acab0d5dd42a5ffb1de3f6c043, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.612
@@ -17475,7 +17766,7 @@ AudioSource:
   m_GameObject: {fileID: 574135152}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0bfd27bf58fae3440886d9bb2e3a653e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -18333,7 +18624,7 @@ AudioSource:
   m_GameObject: {fileID: 1252625399}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: aadb11223d7fa2f4bae9d137f5462bdc, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.49
@@ -18540,7 +18831,7 @@ AudioSource:
   m_GameObject: {fileID: 1289000381}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: fb2efe9aecc9bde4ea54af781f81314b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.476
@@ -18668,7 +18959,7 @@ AudioSource:
   m_GameObject: {fileID: 1312866214}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5189e0da390615b4397efadc98f3a595, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.21
@@ -18755,6 +19046,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1425596011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &1433461893
 GameObject:
   m_ObjectHideFlags: 0
@@ -18796,7 +19110,7 @@ AudioSource:
   m_GameObject: {fileID: 1433461893}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 294512f830564154994de9ee92c52494, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.21
@@ -18909,7 +19223,7 @@ AudioSource:
   m_GameObject: {fileID: 1465286793}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 1209b5201d56ef84a9113ff6b9110f11, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.533
@@ -19505,7 +19819,7 @@ AudioSource:
   m_GameObject: {fileID: 1590402049}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8ed07427b62a4fd48830590fd177288e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.61
@@ -19888,7 +20202,7 @@ AudioSource:
   m_GameObject: {fileID: 1859279787}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: f9a5a91afb7f2f24aa59ae3b5ce30221, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -19989,6 +20303,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio1: {fileID: 2007730260}
   velocidadmaxima: 20
+--- !u!114 &1907070561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &1931510230
 GameObject:
   m_ObjectHideFlags: 0
@@ -20254,7 +20591,7 @@ AudioSource:
   m_GameObject: {fileID: 2007730258}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 9a58a1d6cd6d0c54aa168c914cd057fb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -20515,7 +20852,7 @@ AudioSource:
   m_GameObject: {fileID: 2095362673}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: ea3a05b9be9833f4b91dedab7c6d89f6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.516
@@ -20616,6 +20953,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio1: {fileID: 2007730260}
   velocidadmaxima: 20
+--- !u!114 &2129113032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -20625,3 +20985,4 @@ SceneRoots:
   - {fileID: 1178729936}
   - {fileID: 623619396}
   - {fileID: 1971011494}
+  - {fileID: 14569055}
