@@ -168,6 +168,7 @@ MonoBehaviour:
   objetivo1b: {fileID: 0}
   anim: {fileID: 1546265992061505998}
   temp: 0
+  plat: 0
   vida: 4
   enemigo: 1
   enemigo3: 0
@@ -175,6 +176,7 @@ MonoBehaviour:
   balaprefab: {fileID: 0}
   balaprefab2: {fileID: 0}
   balaprefab3: {fileID: 0}
+  balaprefab4: {fileID: 0}
   pistola: {fileID: 0}
   tempe3: 0
   tempgolpe: 0
@@ -187,11 +189,13 @@ MonoBehaviour:
   gigante: 0
   cuentavidas: {fileID: 0}
   vidab: {fileID: 0}
+  vidab2: {fileID: 0}
   vidaux: 0
   vel: 2
   desactivar: 0
   enemigodet: {fileID: 0}
   moneda: {fileID: 2172128802953418307, guid: 7119dad7c9d1f8d49b4437fd693e3b43, type: 3}
+  juego: {fileID: 0}
 --- !u!136 &1546265992061505999
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -217,7 +221,7 @@ CapsuleCollider:
   m_Center: {x: 0, y: 0.9954071, z: 0.21722412}
 --- !u!95 &1546265992061505998
 Animator:
-  serializedVersion: 7
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -231,7 +235,6 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -397,7 +400,7 @@ AudioSource:
   m_GameObject: {fileID: 7199782640422121946}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 685ce486d06e8894dbda5b8f9c7cbfba, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.61
@@ -601,15 +604,15 @@ PrefabInstance:
       value: 0.05595945
       objectReference: {fileID: 0}
     - target: {fileID: -4633191737858435411, guid: 8eff89511b57a17489dde83d884ab34a, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0a7706c076cabb04b80349b25825e307, type: 2}
     - target: {fileID: -4396642182433536433, guid: 8eff89511b57a17489dde83d884ab34a, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4892a121b396d5148b4972589211de61, type: 2}
     - target: {fileID: -4008983296860226003, guid: 8eff89511b57a17489dde83d884ab34a, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0a7706c076cabb04b80349b25825e307, type: 2}
     - target: {fileID: 919132149155446097, guid: 8eff89511b57a17489dde83d884ab34a, type: 3}
@@ -617,11 +620,11 @@ PrefabInstance:
       value: Model
       objectReference: {fileID: 0}
     - target: {fileID: 1630794972795428178, guid: 8eff89511b57a17489dde83d884ab34a, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4892a121b396d5148b4972589211de61, type: 2}
     - target: {fileID: 2321523695958950486, guid: 8eff89511b57a17489dde83d884ab34a, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c9ab1b56cc75eab4a88bb297dbdafdb2, type: 2}
     - target: {fileID: 2838391200542782613, guid: 8eff89511b57a17489dde83d884ab34a, type: 3}
