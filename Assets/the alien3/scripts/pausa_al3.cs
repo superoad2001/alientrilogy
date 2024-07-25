@@ -114,22 +114,6 @@ public class pausa_al3: MonoBehaviour
 	[SerializeField]private Player player;
     public float temp;
 
-    public int tdiario1;
-	public int tdiario2;
-	public int tdiario3;
-	public int tdiario4;
-	public int tdiario5;
-	public int tdiario6;
-	public int tdiario7;
-	public int tdiario8;
-	public int tdiario9;
-	public int tdiario10;
-	public int tdiario11;
-	public int tdiario12;
-	public int tdiario13;
-	public int tdiario14;
-	public int tdiario15;
-
     public GameObject guia;
 	public GameObject guia2;
     public bool guiaboton;
@@ -492,123 +476,123 @@ public class pausa_al3: MonoBehaviour
             ttguia5.text = "gancho y puntos de soporte";
             ttguia6.text = "casco de oxigeno y gases";
 
-            if(tdiario1 == 1)
+            if(manager.datosserial.tdiario1 == 1)
             {
                 ttdiario1.text = "pagina 1";
             }
-            if(tdiario1 == 0)
+            if(manager.datosserial.tdiario1 == 0)
             {
                 ttdiario1.text = "pagina ?";
             }
-            if(tdiario2 == 1)
+            if(manager.datosserial.tdiario2 == 1)
             {
                 ttdiario2.text = "pagina 2";
             }
-            if(tdiario2 == 0)
+            if(manager.datosserial.tdiario2 == 0)
             {
                 ttdiario2.text = "pagina ?";
             }
-            if(tdiario3 == 1)
+            if(manager.datosserial.tdiario3 == 1)
             {
                 ttdiario3.text = "pagina 3";
             }
-            if(tdiario3 == 0)
+            if(manager.datosserial.tdiario3 == 0)
             {
                 ttdiario3.text = "pagina ?";
             }
-            if(tdiario4 == 1)
+            if(manager.datosserial.tdiario4 == 1)
             {
                 ttdiario4.text = "pagina 4";
             }
-            if(tdiario4 == 0)
+            if(manager.datosserial.tdiario4 == 0)
             {
                 ttdiario4.text = "pagina ?";
             }
-            if(tdiario5 == 1)
+            if(manager.datosserial.tdiario5 == 1)
             {
                 ttdiario5.text = "pagina 5";
             }
-            if(tdiario5 == 0)
+            if(manager.datosserial.tdiario5 == 0)
             {
                 ttdiario5.text = "pagina ?";
             }
-            if(tdiario6 == 1)
+            if(manager.datosserial.tdiario6 == 1)
             {
                 ttdiario6.text = "pagina 6";
             }
-            if(tdiario6 == 0)
+            if(manager.datosserial.tdiario6 == 0)
             {
                 ttdiario6.text = "pagina ?";
             }
-            if(tdiario7 == 1)
+            if(manager.datosserial.tdiario7 == 1)
             {
                 ttdiario7.text = "pagina 7";
             }
-            if(tdiario7 == 0)
+            if(manager.datosserial.tdiario7 == 0)
             {
                 ttdiario7.text = "pagina ?";
             }
-            if(tdiario8 == 1)
+            if(manager.datosserial.tdiario8 == 1)
             {
                 ttdiario8.text = "pagina 8";
             }
-            if(tdiario8 == 0)
+            if(manager.datosserial.tdiario8 == 0)
             {
                 ttdiario8.text = "pagina ?";
             }
-            if(tdiario9 == 1)
+            if(manager.datosserial.tdiario9 == 1)
             {
                 ttdiario9.text = "pagina 9";
             }
-            if(tdiario9 == 0)
+            if(manager.datosserial.tdiario9 == 0)
             {
                 ttdiario9.text = "pagina ?";
             }
-            if(tdiario10 == 1)
+            if(manager.datosserial.tdiario10 == 1)
             {
                 ttdiario10.text = "pagina 10";
             }
-            if(tdiario10 == 0)
+            if(manager.datosserial.tdiario10 == 0)
             {
                 ttdiario10.text = "pagina ?";
             }
-            if(tdiario11 == 1)
+            if(manager.datosserial.tdiario11 == 1)
             {
                 ttdiario11.text = "pagina 11";
             }
-            if(tdiario11 == 0)
+            if(manager.datosserial.tdiario11 == 0)
             {
                 ttdiario11.text = "pagina ?";
             }
-            if(tdiario12 == 1)
+            if(manager.datosserial.tdiario12 == 1)
             {
                 ttdiario12.text = "pagina 12";
             }
-            if(tdiario12 == 0)
+            if(manager.datosserial.tdiario12 == 0)
             {
                 ttdiario12.text = "pagina ?";
             }
-            if(tdiario13 == 1)
+            if(manager.datosserial.tdiario13 == 1)
             {
                 ttdiario13.text = "pagina 13";
             }
-            if(tdiario13 == 0)
+            if(manager.datosserial.tdiario13 == 0)
             {
                 ttdiario13.text = "pagina ?";
             }
-            if(tdiario14 == 1)
+            if(manager.datosserial.tdiario14 == 1)
             {
                 ttdiario14.text = "pagina 14";
             }
-            if(tdiario14 == 0)
+            if(manager.datosserial.tdiario14 == 0)
             {
                 ttdiario14.text = "pagina ?";
             }
-            if(tdiario15 == 1)
+            if(manager.datosserial.tdiario15 == 1)
             {
                 ttdiario15.text = "pagina 15";
             }
-            if(tdiario15 == 0)
+            if(manager.datosserial.tdiario15 == 0)
             {
                 ttdiario15.text = "pagina ?";
             }
@@ -1330,123 +1314,123 @@ public class pausa_al3: MonoBehaviour
             ttguia6.text = "oxygen and gas helmet";
 
 
-            if(tdiario1 == 1)
+            if(manager.datosserial.tdiario1 == 1)
             {
                 ttdiario1.text = "page 1";
             }
-            if(tdiario1 == 0)
+            if(manager.datosserial.tdiario1 == 0)
             {
                 ttdiario1.text = "page ?";
             }
-            if(tdiario2 == 1)
+            if(manager.datosserial.tdiario2 == 1)
             {
                 ttdiario2.text = "page 2";
             }
-            if(tdiario2 == 0)
+            if(manager.datosserial.tdiario2 == 0)
             {
                 ttdiario2.text = "page ?";
             }
-            if(tdiario3 == 1)
+            if(manager.datosserial.tdiario3 == 1)
             {
                 ttdiario3.text = "page 3";
             }
-            if(tdiario3 == 0)
+            if(manager.datosserial.tdiario3 == 0)
             {
                 ttdiario3.text = "page ?";
             }
-            if(tdiario4 == 1)
+            if(manager.datosserial.tdiario4 == 1)
             {
                 ttdiario4.text = "page 4";
             }
-            if(tdiario4 == 0)
+            if(manager.datosserial.tdiario4 == 0)
             {
                 ttdiario4.text = "page ?";
             }
-            if(tdiario5 == 1)
+            if(manager.datosserial.tdiario5 == 1)
             {
                 ttdiario5.text = "page 5";
             }
-            if(tdiario5 == 0)
+            if(manager.datosserial.tdiario5 == 0)
             {
                 ttdiario5.text = "page ?";
             }
-            if(tdiario6 == 1)
+            if(manager.datosserial.tdiario6 == 1)
             {
                 ttdiario6.text = "page 6";
             }
-            if(tdiario6 == 0)
+            if(manager.datosserial.tdiario6 == 0)
             {
                 ttdiario6.text = "page ?";
             }
-            if(tdiario7 == 1)
+            if(manager.datosserial.tdiario7 == 1)
             {
                 ttdiario7.text = "page 7";
             }
-            if(tdiario7 == 0)
+            if(manager.datosserial.tdiario7 == 0)
             {
                 ttdiario7.text = "page ?";
             }
-            if(tdiario8 == 1)
+            if(manager.datosserial.tdiario8 == 1)
             {
                 ttdiario8.text = "page 8";
             }
-            if(tdiario8 == 0)
+            if(manager.datosserial.tdiario8 == 0)
             {
                 ttdiario8.text = "page ?";
             }
-            if(tdiario9 == 1)
+            if(manager.datosserial.tdiario9 == 1)
             {
                 ttdiario9.text = "page 9";
             }
-            if(tdiario9 == 0)
+            if(manager.datosserial.tdiario9 == 0)
             {
                 ttdiario9.text = "page ?";
             }
-            if(tdiario10 == 1)
+            if(manager.datosserial.tdiario10 == 1)
             {
                 ttdiario10.text = "page 10";
             }
-            if(tdiario10 == 0)
+            if(manager.datosserial.tdiario10 == 0)
             {
                 ttdiario10.text = "page ?";
             }
-            if(tdiario11 == 1)
+            if(manager.datosserial.tdiario11 == 1)
             {
                 ttdiario11.text = "page 11";
             }
-            if(tdiario11 == 0)
+            if(manager.datosserial.tdiario11 == 0)
             {
                 ttdiario11.text = "page ?";
             }
-            if(tdiario12 == 1)
+            if(manager.datosserial.tdiario12 == 1)
             {
                 ttdiario12.text = "page 12";
             }
-            if(tdiario12 == 0)
+            if(manager.datosserial.tdiario12 == 0)
             {
                 ttdiario12.text = "page ?";
             }
-            if(tdiario13 == 1)
+            if(manager.datosserial.tdiario13 == 1)
             {
                 ttdiario13.text = "page 13";
             }
-            if(tdiario13 == 0)
+            if(manager.datosserial.tdiario13 == 0)
             {
                 ttdiario13.text = "page ?";
             }
-            if(tdiario14 == 1)
+            if(manager.datosserial.tdiario14 == 1)
             {
                 ttdiario14.text = "page 14";
             }
-            if(tdiario14 == 0)
+            if(manager.datosserial.tdiario14 == 0)
             {
                 ttdiario14.text = "page ?";
             }
-            if(tdiario15 == 1)
+            if(manager.datosserial.tdiario15 == 1)
             {
                 ttdiario15.text = "page 15";
             }
-            if(tdiario15 == 0)
+            if(manager.datosserial.tdiario15 == 0)
             {
                 ttdiario15.text = "page ?";
             }
@@ -2162,123 +2146,123 @@ public class pausa_al3: MonoBehaviour
             ttguia5.text = "ganxo y punts de suport";
             ttguia6.text = "casc de oxigen y gasos";
 
-            if(tdiario1 == 1)
+            if(manager.datosserial.tdiario1 == 1)
             {
                 ttdiario1.text = "pagina 1";
             }
-            if(tdiario1 == 0)
+            if(manager.datosserial.tdiario1 == 0)
             {
                 ttdiario1.text = "pagina ?";
             }
-            if(tdiario2 == 1)
+            if(manager.datosserial.tdiario2 == 1)
             {
                 ttdiario2.text = "pagina 2";
             }
-            if(tdiario2 == 0)
+            if(manager.datosserial.tdiario2 == 0)
             {
                 ttdiario2.text = "pagina ?";
             }
-            if(tdiario3 == 1)
+            if(manager.datosserial.tdiario3 == 1)
             {
                 ttdiario3.text = "pagina 3";
             }
-            if(tdiario3 == 0)
+            if(manager.datosserial.tdiario3 == 0)
             {
                 ttdiario3.text = "pagina ?";
             }
-            if(tdiario4 == 1)
+            if(manager.datosserial.tdiario4 == 1)
             {
                 ttdiario4.text = "pagina 4";
             }
-            if(tdiario4 == 0)
+            if(manager.datosserial.tdiario4 == 0)
             {
                 ttdiario4.text = "pagina ?";
             }
-            if(tdiario5 == 1)
+            if(manager.datosserial.tdiario5 == 1)
             {
                 ttdiario5.text = "pagina 5";
             }
-            if(tdiario5 == 0)
+            if(manager.datosserial.tdiario5 == 0)
             {
                 ttdiario5.text = "pagina ?";
             }
-            if(tdiario6 == 1)
+            if(manager.datosserial.tdiario6 == 1)
             {
                 ttdiario6.text = "pagina 6";
             }
-            if(tdiario6 == 0)
+            if(manager.datosserial.tdiario6 == 0)
             {
                 ttdiario6.text = "pagina ?";
             }
-            if(tdiario7 == 1)
+            if(manager.datosserial.tdiario7 == 1)
             {
                 ttdiario7.text = "pagina 7";
             }
-            if(tdiario7 == 0)
+            if(manager.datosserial.tdiario7 == 0)
             {
                 ttdiario7.text = "pagina ?";
             }
-            if(tdiario8 == 1)
+            if(manager.datosserial.tdiario8 == 1)
             {
                 ttdiario8.text = "pagina 8";
             }
-            if(tdiario8 == 0)
+            if(manager.datosserial.tdiario8 == 0)
             {
                 ttdiario8.text = "pagina ?";
             }
-            if(tdiario9 == 1)
+            if(manager.datosserial.tdiario9 == 1)
             {
                 ttdiario9.text = "pagina 9";
             }
-            if(tdiario9 == 0)
+            if(manager.datosserial.tdiario9 == 0)
             {
                 ttdiario9.text = "pagina ?";
             }
-            if(tdiario10 == 1)
+            if(manager.datosserial.tdiario10 == 1)
             {
                 ttdiario10.text = "pagina 10";
             }
-            if(tdiario10 == 0)
+            if(manager.datosserial.tdiario10 == 0)
             {
                 ttdiario10.text = "pagina ?";
             }
-            if(tdiario11 == 1)
+            if(manager.datosserial.tdiario11 == 1)
             {
                 ttdiario11.text = "pagina 11";
             }
-            if(tdiario11 == 0)
+            if(manager.datosserial.tdiario11 == 0)
             {
                 ttdiario11.text = "pagina ?";
             }
-            if(tdiario12 == 1)
+            if(manager.datosserial.tdiario12 == 1)
             {
                 ttdiario12.text = "pagina 12";
             }
-            if(tdiario12 == 0)
+            if(manager.datosserial.tdiario12 == 0)
             {
                 ttdiario12.text = "pagina ?";
             }
-            if(tdiario13 == 1)
+            if(manager.datosserial.tdiario13 == 1)
             {
                 ttdiario13.text = "pagina 13";
             }
-            if(tdiario13 == 0)
+            if(manager.datosserial.tdiario13 == 0)
             {
                 ttdiario13.text = "pagina ?";
             }
-            if(tdiario14 == 1)
+            if(manager.datosserial.tdiario14 == 1)
             {
                 ttdiario14.text = "pagina 14";
             }
-            if(tdiario14 == 0)
+            if(manager.datosserial.tdiario14 == 0)
             {
                 ttdiario14.text = "pagina ?";
             }
-            if(tdiario15 == 1)
+            if(manager.datosserial.tdiario15 == 1)
             {
                 ttdiario15.text = "pagina 15";
             }
-            if(tdiario15 == 0)
+            if(manager.datosserial.tdiario15 == 0)
             {
                 ttdiario15.text = "pagina ?";
             }
