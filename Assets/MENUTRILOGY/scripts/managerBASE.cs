@@ -18,6 +18,8 @@ public class managerBASE : MonoBehaviour
 	public Text boton5;
 	public Text boton6;
 	public Text boton7;
+    public Text boton8;
+    public Text boton9;
 
 	[SerializeField]
 	public datosconfig datosconfig;
@@ -186,6 +188,11 @@ public class managerBASE : MonoBehaviour
                 boton2.text = "idioma";
                 boton3.text = "distancia de dibujado";
                 boton4.text = "post procesado";
+                boton5.text = "sonido";
+                boton6.text = "musica";
+                boton7.text = "voces";
+                boton8.text = "sfx";
+                boton9.text = "trofeos";
             }
             if(cmenu == 6)
             {
@@ -229,6 +236,11 @@ public class managerBASE : MonoBehaviour
                 boton2.text = "language";
                 boton3.text = "drawing distance";
                 boton4.text = "post processed";
+                boton5.text = "sound";
+                boton6.text = "music";
+                boton7.text = "voices";
+                boton8.text = "sfx";
+                boton9.text = "trophies";
             }
             if(cmenu == 6)
             {
@@ -272,6 +284,11 @@ public class managerBASE : MonoBehaviour
                 boton2.text = "idioma";
                 boton3.text = "distancia de dibuxat";
                 boton4.text = "post procesat";
+                boton5.text = "so";
+                boton6.text = "musica";
+                boton7.text = "veus";
+                boton8.text = "sfx";
+                boton9.text = "trofeus";
             }
             if(cmenu == 6)
             {
@@ -291,6 +308,11 @@ public class managerBASE : MonoBehaviour
                 boton2.text = "idioma";
                 boton3.text = "distancia de dibujado";
                 boton4.text = "post procesado";
+                boton5.text = "sonido";
+                boton6.text = "musica";
+                boton7.text = "voces";
+                boton8.text = "sfx";
+                boton9.text = "trofeos";
             }
         }
         if(datosconfig.idioma == "en")
@@ -301,6 +323,11 @@ public class managerBASE : MonoBehaviour
                 boton2.text = "language";
                 boton3.text = "drawing distance";
                 boton4.text = "post processed";
+                boton5.text = "sound";
+                boton6.text = "music";
+                boton7.text = "voices";
+                boton8.text = "sfx";
+                boton9.text = "trophies";
             }
         }
         if(datosconfig.idioma == "cat")
@@ -311,6 +338,11 @@ public class managerBASE : MonoBehaviour
                 boton2.text = "idioma";
                 boton3.text = "distancia de dibuxat";
                 boton4.text = "post procesat";
+                boton5.text = "so";
+                boton6.text = "musica";
+                boton7.text = "veus";
+                boton8.text = "sfx";
+                boton9.text = "trofeus";
             }
         }
     }

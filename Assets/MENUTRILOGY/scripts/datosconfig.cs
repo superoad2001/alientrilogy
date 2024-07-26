@@ -18,4 +18,19 @@ public class datosconfig
 
     public int resolh = 1280;
     public int resolv = 720;
+
+    public float master = -21;
+    public float masterslider = 0.5f;
+
+    public float musica = -6;
+    public float musicaslider = 0.5f;
+    public float sfx = 9;
+    public float sfxslider = 3f;
+
+    public float voz = 14;
+    public float vozslider = 5f;
+
+    public float ui = 12;
+    public float uislider = 4f;
+
 }

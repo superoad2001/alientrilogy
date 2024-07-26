@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 // Token: 0x02000008 RID: 8
 public class inicio4base : MonoBehaviour
@@ -21,12 +22,20 @@ public class inicio4base : MonoBehaviour
 	public Text postt;
 	public Text distanciat;
 	public Resolution[] resoluciones;
-	public List<string>opcionesr = new List<string>();
+	public List<string> opcionesr = new List<string>();
 	public int opcres = 0;
 	public Text resolt;
+	public AudioMixer audiomixer;
 	public void Start()
 	{
 		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+
+		audiomixer.SetFloat ("MusicVolume",manager.datosconfig.musica);
+		audiomixer.SetFloat ("EnvironmentVolume",manager.datosconfig.voz);
+		audiomixer.SetFloat ("SFXVolume",manager.datosconfig.sfx);
+		audiomixer.SetFloat ("UIVolume",manager.datosconfig.ui);
+
+
 		revresol_();
 		plat = manager.datosconfig.plat;
 		idioma = manager.datosconfig.idioma;
@@ -236,6 +245,21 @@ public class inicio4base : MonoBehaviour
 	public void aplicar()
     {
 		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+		controlmusicabase controlslider = UnityEngine.Object.FindObjectOfType<controlmusicabase>();
+
+
+		audiomixer.GetFloat ("MusicVolume",out manager.datosconfig.musica);
+		manager.datosconfig.musicaslider = controlslider.slidermusica.value;
+
+		audiomixer.GetFloat ("EnvironmentVolume",out manager.datosconfig.voz);
+		manager.datosconfig.vozslider = controlslider.slidervoz.value;
+
+		audiomixer.GetFloat ("SFXVolume",out manager.datosconfig.sfx);
+		manager.datosconfig.sfxslider = controlslider.slidersfx.value;
+
+		audiomixer.GetFloat ("UIVolume",out manager.datosconfig.ui);
+		manager.datosconfig.uislider = controlslider.sliderui.value;
+
 		manager.datosconfig.aplicarres = true;
 		manager.guardar();
 		if(manager.datosconfig.lastgame == 1)

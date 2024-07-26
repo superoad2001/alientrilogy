@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Rewired;
+using UnityEngine.Audio;
 
 // Token: 0x02000009 RID: 9
 public class inicio0base : MonoBehaviour
@@ -9,10 +10,15 @@ public class inicio0base : MonoBehaviour
 	public string idioma;
 	public int plat;
 	public float temp;
+	public AudioMixer audiomixer;
 	// Token: 0x0600001A RID: 26 RVA: 0x00002523 File Offset: 0x00000723
 	private void Start()
 	{
 		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+		audiomixer.SetFloat ("MusicVolume",manager.datosconfig.musica);
+		audiomixer.SetFloat ("EnvironmentVolume",manager.datosconfig.voz);
+		audiomixer.SetFloat ("SFXVolume",manager.datosconfig.sfx);
+		audiomixer.SetFloat ("UIVolume",manager.datosconfig.ui);
 		idioma = manager.datosconfig.idioma;
 		plat = manager.datosconfig.plat;
 	}

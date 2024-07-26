@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Rewired;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class pausa_al1 : MonoBehaviour
 {
@@ -16,8 +17,12 @@ public class pausa_al1 : MonoBehaviour
     public Text boton2;
     public Text boton3;
     public Text boton4;
+    public Text boton5;
     public float temp;
     public int piso = 1;
+    public GameObject normal;
+    public GameObject opciones1;
+    public AudioMixer audiomixer;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +41,7 @@ public class pausa_al1 : MonoBehaviour
             if(manager.nivel >= 1 && manager.nivel <= 15)
             {boton3.text = "salir del nivel";}
             boton4.text = "pausa";
+            boton5.text = "opciones";
         }
         if(manager.datosconfig.idioma == "en")
         {
@@ -44,6 +50,7 @@ public class pausa_al1 : MonoBehaviour
             if(manager.nivel >= 1 && manager.nivel <= 15)
             {boton3.text = "exit of the level";}
             boton4.text = "pause";
+            boton5.text = "settings";
         }
         if(manager.datosconfig.idioma == "cat")
         {
@@ -52,6 +59,7 @@ public class pausa_al1 : MonoBehaviour
             if(manager.nivel >= 1 && manager.nivel <= 15)
             {boton3.text = "sortir a la base";}
             boton4.text = "pausa";
+            boton5.text = "opcions";
         }
         if(player.GetAxis("pausa") > 0 && temp > 0.7f)
         {
@@ -74,7 +82,7 @@ public class pausa_al1 : MonoBehaviour
         manager.pauseact = false;    
         }
     public void salir(){
-        SceneManager.LoadScene("presentacion_al1");
+        SceneManager.LoadScene("menu_de_carga_al1");
     }
 
     public void salirnivel(){
@@ -94,5 +102,35 @@ public class pausa_al1 : MonoBehaviour
         {SceneManager.LoadScene("piso3t_al1");}
         if(piso == -4)
         {SceneManager.LoadScene("piso4t_al1");}
+    }
+    public void opciones()
+    {
+        normal.SetActive(false);
+        opciones1.SetActive(true);
+    }
+    public void aplicar2()
+    {
+		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+		controlmusicabase controlslider = UnityEngine.Object.FindObjectOfType<controlmusicabase>();
+
+
+		audiomixer.GetFloat ("MusicVolume",out manager.datosconfig.musica);
+		manager.datosconfig.musicaslider = controlslider.slidermusica.value;
+
+		audiomixer.GetFloat ("EnvironmentVolume",out manager.datosconfig.voz);
+		manager.datosconfig.vozslider = controlslider.slidervoz.value;
+
+		audiomixer.GetFloat ("SFXVolume",out manager.datosconfig.sfx);
+		manager.datosconfig.sfxslider = controlslider.slidersfx.value;
+
+		audiomixer.GetFloat ("UIVolume",out manager.datosconfig.ui);
+		manager.datosconfig.uislider = controlslider.sliderui.value;
+
+		manager.datosconfig.aplicarres = true;
+		manager.guardar();
+
+        normal.SetActive(true);
+        opciones1.SetActive(false);
+		
     }
 }

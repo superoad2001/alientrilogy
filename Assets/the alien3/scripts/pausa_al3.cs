@@ -4,11 +4,13 @@ using UnityEngine;
 using Rewired;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+
 
 public class pausa_al3: MonoBehaviour
 {
-
-
+    public GameObject opciones1;
+    public AudioMixer audiomixer;
     public Text ttcont;
     public Text ttarmas;
     public Text ttarmaduras;
@@ -17,6 +19,7 @@ public class pausa_al3: MonoBehaviour
     public Text ttinventario;
     public Text ttextras;
     public Text ttguia;
+    public Text ttopciones;
     public Text ttsalir;
 
 
@@ -435,6 +438,7 @@ public class pausa_al3: MonoBehaviour
             ttinventario.text = "inventario";
             ttextras.text = "extras";
             ttguia.text = "guia de controles";
+            ttopciones.text = "opciones";
             ttsalir.text = "salir";
 
             ttatras1.text = "atras";
@@ -1273,6 +1277,7 @@ public class pausa_al3: MonoBehaviour
             ttinventario.text = "inventory";
             ttextras.text = "extras";
             ttguia.text = "guide of controls";
+            ttopciones.text = "settings";
             ttsalir.text = "exit";
 
             ttatras1.text = "back";
@@ -2106,6 +2111,7 @@ public class pausa_al3: MonoBehaviour
             ttinventario.text = "inventari";
             ttextras.text = "extras";
             ttguia.text = "guia de controls";
+            ttopciones.text = "opcions";
             ttsalir.text = "sortir";
 
             ttatras1.text = "anrere";
@@ -4576,6 +4582,36 @@ public class pausa_al3: MonoBehaviour
     public void trailer4_()
     {
         SceneManager.LoadScene("trailerfriends_al3");
+    }
+    public void aplicar2()
+    {
+		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+		controlmusicabase controlslider = UnityEngine.Object.FindObjectOfType<controlmusicabase>();
+
+
+		audiomixer.GetFloat ("MusicVolume",out manager.datosconfig.musica);
+		manager.datosconfig.musicaslider = controlslider.slidermusica.value;
+
+		audiomixer.GetFloat ("EnvironmentVolume",out manager.datosconfig.voz);
+		manager.datosconfig.vozslider = controlslider.slidervoz.value;
+
+		audiomixer.GetFloat ("SFXVolume",out manager.datosconfig.sfx);
+		manager.datosconfig.sfxslider = controlslider.slidersfx.value;
+
+		audiomixer.GetFloat ("UIVolume",out manager.datosconfig.ui);
+		manager.datosconfig.uislider = controlslider.sliderui.value;
+
+		manager.datosconfig.aplicarres = true;
+		manager.guardar();
+
+        menuc.SetActive(true);
+        opciones1.SetActive(false);
+		
+    }
+    public void opciones()
+    {
+        menuc.SetActive(false);
+        opciones1.SetActive(true);
     }
     
     
