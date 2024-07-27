@@ -8,11 +8,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ast 3 cr dark
-  m_Shader: {fileID: 4800000, guid: 0f4122b9a743b744abe2fb6a0a88868b, type: 3}
+  m_Shader: {fileID: 4800000, guid: 0d71372cfce069949bb2e0d5c9bb5421, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _WINDQUALITY_NONE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -31,12 +32,20 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _ExtraTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _GlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: d27897795cf19c047a586837b4201ce5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTexture:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -51,6 +60,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SubsurfaceTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _TranslucencyMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -58,29 +71,56 @@ Material:
     m_Ints: []
     m_Floats:
     - _AO: 0.53571427
+    - _AlphaCutoff: 0.5
     - _BLANCO: 0
     - _BUILTIN_QueueControl: -1
     - _BUILTIN_QueueOffset: 0
     - _BaseLight: 0.5
+    - _BillboardKwToggle: 0
+    - _BillboardShadowFade: 0.5
     - _Cull: 2
     - _Cutoff: 0.34285715
     - _DetailNormalMap: 1
+    - _EnvironmentReflections: 1
+    - _Glossiness: 0.5
+    - _HueVariationKwToggle: 0
+    - _MBAmplitude: 1.5
+    - _MBAmplitudeOffset: 2
+    - _MBDefaultBending: 0
+    - _MBFrequency: 1.11
+    - _MBFrequencyOffset: 0
+    - _MBMaxHeight: 10
+    - _MBPhase: 1
+    - _MBWindDir: 0
+    - _MBWindDirOffset: 20
     - _Metallic: 0
+    - _NormalMapKwToggle: 0
     - _OPACITY: 0
     - _Occlusion: 0.71428573
+    - _ReceiveShadows: 1
     - _ShadowStrength: 1
     - _Shininess: 0.7
+    - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
     - _SquashAmount: 1
+    - _SubsurfaceIndirect: 0.25
+    - _SubsurfaceKwToggle: 0
     - _TRANSPARENT: 0
     - _TranslucencyViewDependency: 0
+    - _TwoSided: 2
     - _WindQuality: 0
     m_Colors:
     - _Color: {r: 0.41176468, g: 0.41176468, b: 0.41176468, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
+    - _HueVariationColor: {r: 1, g: 0.5, b: 0, a: 0.1}
+    - _NoisePannerSpeed: {r: 0.05, g: 0.03, b: 0, a: 0}
+    - _NoiseTextureTilling: {r: 1, g: 1, b: 1, a: 1}
     - _Scale: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SubsurfaceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TranslucencyColor: {r: 0.13808389, g: 0.16176468, b: 0.074935116, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}

@@ -130,6 +130,7 @@ public class managerBASE : MonoBehaviour
         {
             string datosconfig1 = JsonUtility.ToJson("");
             File.WriteAllText(path,datosconfig1);
+            Screen.SetResolution(datosconfig.resolh,datosconfig.resolv,Screen.fullScreen);
         }
         cargar();
         

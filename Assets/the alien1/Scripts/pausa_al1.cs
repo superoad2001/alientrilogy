@@ -63,6 +63,8 @@ public class pausa_al1 : MonoBehaviour
         }
         if(player.GetAxis("pausa") > 0 && temp > 0.7f)
         {
+            if(opciones1.activeSelf)
+            {aplicar2();}
             continuar();
         }
         if(temp < 15)
