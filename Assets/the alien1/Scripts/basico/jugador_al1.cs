@@ -48,7 +48,6 @@ public class jugador_al1 : MonoBehaviour
 	private void Start()
 	{
 		player = ReInput.players.GetPlayer(playerID);
-
 		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
 		if(manager.datosconfig.plat == 1)
 		{
@@ -928,6 +927,7 @@ public class jugador_al1 : MonoBehaviour
 			}
 			this.ascensor = true;
 			
+			
 		}
 		if (col.gameObject.tag == "ascensor" && manager.juego == 4)
 		{
@@ -945,6 +945,10 @@ public class jugador_al1 : MonoBehaviour
 			{suelo = true;}
 		
 		}
+		if (col.gameObject.tag == "suelo" || col.gameObject.tag == "ascensor")
+			{
+				anim.SetBool("salto",false);
+			}
 	}
 
 
@@ -959,6 +963,8 @@ public class jugador_al1 : MonoBehaviour
 				this.ascensortut.text = " ";
 			}
 			this.ascensor = false;
+			anim.SetBool("salto",true);
+
 		}
 		if (col.gameObject.tag == "ascensor" && manager.juego == 0)
 		{
@@ -967,10 +973,12 @@ public class jugador_al1 : MonoBehaviour
 				this.ascensortut.text = " ";
 			}
 			this.ascensor = false;
+			anim.SetBool("salto",true);
 		}
 		if (col.gameObject.tag == "suelo")
 		{
 			suelo = false;
+			anim.SetBool("salto",true);
 		}
 	
 	}
