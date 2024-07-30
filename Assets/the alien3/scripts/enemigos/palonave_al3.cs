@@ -16,4 +16,14 @@ public class palonave_al3: MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position,new Vector3(jugador.transform.position.x,jugador.transform.position.y,transform.position.z) ,10 * Time.deltaTime);
     }
+    private void OnTriggerEnter(Collider col)
+	{
+        manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+		if (col.gameObject.tag == "Player")
+		{
+			
+            transform.localPosition = new Vector3(0f,1.53999996f,-4.38500023f);
+		}
+
+	}
 }

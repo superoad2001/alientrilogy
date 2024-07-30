@@ -3544,6 +3544,12 @@ public class jugador1_al2 : MonoBehaviour
 
             suelo = true;
 		}
+        if (col.gameObject.tag == "suelo" || col.gameObject.tag == "lava" || col.gameObject.tag == "control" || col.gameObject.tag == "nivel1" || col.gameObject.tag == "nivel2" || col.gameObject.tag == "nivel3" || col.gameObject.tag == "nivel4" || col.gameObject.tag == "nivel5" || col.gameObject.tag == "nivel6" || col.gameObject.tag == "nivel7" || col.gameObject.tag == "nivel8" || col.gameObject.tag == "nivel9" || col.gameObject.tag == "nivel10"
+        || col.gameObject.tag == "nivel11" || col.gameObject.tag == "nivel12" || col.gameObject.tag == "nivel13" || col.gameObject.tag == "nivel14" || col.gameObject.tag == "nivel15" || col.gameObject.tag == "nivel16" || col.gameObject.tag == "nivel17" || col.gameObject.tag == "nivel18" || col.gameObject.tag == "nivel19" || col.gameObject.tag == "nivel20")
+        {
+			anim.SetBool("salto",false);
+            suelo = true;
+		}
 	}
     private void OnCollisionExit(Collision col)
 	{
@@ -3657,6 +3663,12 @@ public class jugador1_al2 : MonoBehaviour
 		{
 			control = false;
 		}
+        if (col.gameObject.tag == "suelo" || col.gameObject.tag == "lava" || col.gameObject.tag == "control" || col.gameObject.tag == "nivel1" || col.gameObject.tag == "nivel2" || col.gameObject.tag == "nivel3" || col.gameObject.tag == "nivel4" || col.gameObject.tag == "nivel5" || col.gameObject.tag == "nivel6" || col.gameObject.tag == "nivel7" || col.gameObject.tag == "nivel8" || col.gameObject.tag == "nivel9" || col.gameObject.tag == "nivel10"
+        || col.gameObject.tag == "nivel11" || col.gameObject.tag == "nivel12" || col.gameObject.tag == "nivel13" || col.gameObject.tag == "nivel14" || col.gameObject.tag == "nivel15" || col.gameObject.tag == "nivel16" || col.gameObject.tag == "nivel17" || col.gameObject.tag == "nivel18" || col.gameObject.tag == "nivel19" || col.gameObject.tag == "nivel20")
+		{
+			suelo = false;
+			anim.SetBool("salto",true);
+		}
         
 
 	}
@@ -3680,6 +3692,7 @@ public class jugador1_al2 : MonoBehaviour
 		{
 			control = false;
 		}
+		
 
 	}
     private void OnTriggerStay(Collider col)

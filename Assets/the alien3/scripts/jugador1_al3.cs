@@ -2300,6 +2300,12 @@ public class jugador1_al3: MonoBehaviour
             barravuelo = 0;
             volador = false;
 		}
+        if (col.gameObject.tag == "boton" || col.gameObject.tag == "control")
+        {
+			saltop = true;
+            jumpforce = jumpforcebase;
+            suelo = true;
+        }
         
 
 	}
@@ -2315,6 +2321,10 @@ public class jugador1_al3: MonoBehaviour
 		{
             lavaaux = true;
 		}
+        if (col.gameObject.tag == "suelo" || col.gameObject.tag == "lava" || col.gameObject.tag == "boton" || col.gameObject.tag == "escalar" || col.gameObject.tag == "control")
+        {
+            anim.SetBool("salto",false);
+        }
 	}
     private void OnCollisionExit(Collision col)
 	{
@@ -2342,6 +2352,15 @@ public class jugador1_al3: MonoBehaviour
             
             blanco = 0;
 		}
+        if (col.gameObject.tag == "suelo" || col.gameObject.tag == "lava" || col.gameObject.tag == "boton" || col.gameObject.tag == "escalar" || col.gameObject.tag == "control")
+		{
+			suelo = false;
+			anim.SetBool("salto",true);
+		}
+        if (col.gameObject.tag == "boton" || col.gameObject.tag == "control")
+        {
+            suelo = false;
+        }
         
 
 	}

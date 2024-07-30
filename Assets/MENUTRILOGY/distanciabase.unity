@@ -295,7 +295,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.38134724, g: 0.46806973, b: 0.6135808, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!108 &23
 Light:
@@ -799,12 +798,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1 &108992756
 GameObject:
   m_ObjectHideFlags: 0
@@ -2327,6 +2326,8 @@ MonoBehaviour:
   boton5: {fileID: 0}
   boton6: {fileID: 0}
   boton7: {fileID: 0}
+  boton8: {fileID: 0}
+  boton9: {fileID: 0}
   datosconfig:
     idioma: 
     plat: 0
@@ -2337,6 +2338,16 @@ MonoBehaviour:
     aplicarres: 0
     resolh: 1280
     resolv: 720
+    master: -21
+    masterslider: 0.5
+    musica: -6
+    musicaslider: 0.5
+    sfx: 9
+    sfxslider: 3
+    voz: 14
+    vozslider: 5
+    ui: 12
+    uislider: 4
   datostrof:
     completaalien1v: 0
     completaalien1m: 0
@@ -3206,15 +3217,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3f6640b066b6f654b97455518a9d0dd6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.029999971
+      value: 4.39
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3f6640b066b6f654b97455518a9d0dd6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.006775379
+      value: 1.47
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3f6640b066b6f654b97455518a9d0dd6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.07900858
+      value: 5.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3f6640b066b6f654b97455518a9d0dd6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3372,6 +3383,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.531
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 3f6640b066b6f654b97455518a9d0dd6, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 3f6640b066b6f654b97455518a9d0dd6, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 21b674d02ac3b854b857ae7c9f180c7a, type: 2}
     - target: {fileID: 6250409095508506177, guid: 3f6640b066b6f654b97455518a9d0dd6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.00009501634
