@@ -215,11 +215,17 @@ public class jugador1_al3: MonoBehaviour
 
         if(suelo == false || volador == false)
         {
+            if(manager.juego == 1 || manager.juego == 2 ||  manager.juego == 3)
+            {
             anim.SetBool("salto",true);
+            }
         }
         if(suelo == true || volador == true)
         {
+            if(manager.juego == 1 || manager.juego == 2 ||  manager.juego == 3)
+            {
             anim.SetBool("salto",false);
+            }
         }
         velf = velocidad * Time.deltaTime;
         if(jumpfcarga == false)
@@ -313,7 +319,7 @@ public class jugador1_al3: MonoBehaviour
             atkact = false;
             tempatk = 0;
         }
-        else
+        else if(manager.juego != 4 && manager.juego != 6)
         {
                 anim.SetBool("atk",false);
         }
@@ -428,8 +434,9 @@ public class jugador1_al3: MonoBehaviour
                 barravuelo -= 7 * Time.deltaTime;
             } 
         }
-        if(barravuelo <= 0)
+        if(barravuelo <= 0 && manager.juego != 4 && manager.juego != 6)
         {
+            
             volador = false;
             anim.SetBool("jetpack1",false);
         }
@@ -1039,7 +1046,7 @@ public class jugador1_al3: MonoBehaviour
             velocidad = 12;
             anim.speed = 2;
         }
-        else if(velact == false)
+        else if(velact == false && manager.juego != 4 && manager.juego != 6)
         {
             velocidad = velocidadaux;
             anim.speed = 1;
@@ -2231,7 +2238,10 @@ public class jugador1_al3: MonoBehaviour
 			juego.SetActive(false);
 			Cursor.visible = true;
         	Cursor.lockState = CursorLockMode.None;
+            if(manager.juego != 4 && manager.juego != 6)
+            {
             anim.SetBool("jetpack1",false);
+            }
 		}
         if(temp9 < 15)
         {temp9 += 1 * Time.deltaTime;}
