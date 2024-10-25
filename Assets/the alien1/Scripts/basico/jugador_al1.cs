@@ -17,6 +17,8 @@ public class jugador_al1 : MonoBehaviour
 	public Vector3 rotationinput;
 	public float speed = 3;
 	public bool suelo;
+
+	public GameObject tut10;
 	public float girovalor;
 	private bool girotder = false;
 	private bool girotizq = false;
@@ -900,52 +902,14 @@ public class jugador_al1 : MonoBehaviour
 		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
 		if (col.gameObject.tag == "ascensor" && manager.juego == 0)
 		{
-			/*if(manager.datosconfig.idioma == "es")
-			{
-				if (!this.dentrotienda)
-				{
-					this.ascensortut.text = "(click derecho) o (b) para subir de planta  (click izquierdo) o (x) para bajar de planta";
-				}
-					if (manager.piso == 5)
-				{
-					this.ascensortut.text = "(click derecho) o (b) para ir a la torre del tiempo (click izquierdo) o (x) para bajar de planta";
-				}
-			}
-			if(manager.datosconfig.idioma == "en")
-			{
-				if (!this.dentrotienda)
-				{
-					this.ascensortut.text = "(right click) or (b) to go up the floor  (left click) or (x) to go downstairs";
-				}
-					if (manager.piso == 5)
-				{
-					this.ascensortut.text = "(right click) or (b) to go to the tower of time (left click) or (x) to go downstairs";
-				}
-			}
-			if(manager.datosconfig.idioma == "cat")
-			{
-				if (!this.dentrotienda)
-				{
-					this.ascensortut.text = "(click dret) o (b) per pujar de planta  (click esquerre) o (x) para baixar de planta";
-				}
-					if (manager.piso == 5)
-				{
-					this.ascensortut.text = "(click dret) o (b) per anar a la torre del temps  (click esquerre) o (x) para baixar de planta";
-				}
-			}*/
+			tut10.SetActive(true);
 			this.ascensor = true;
 			
 			
 		}
 		if (col.gameObject.tag == "ascensor" && manager.juego == 4)
 		{
-			if(manager.datosconfig.idioma == "es")
-			{this.ascensortut.text = "(click derecho) o (b) para subir de planta  ";}
-			if(manager.datosconfig.idioma == "en")
-			{this.ascensortut.text = "(right click) o (b) to go up the floor ";}
-			if(manager.datosconfig.idioma == "cat")
-			{this.ascensortut.text = "(click dret) o (b) per pujar de planta  ";}
-			this.ascensor = true;
+			tut10.SetActive(true);
 		}
 		if (col.gameObject.tag == "suelo")
 		{
@@ -968,7 +932,7 @@ public class jugador_al1 : MonoBehaviour
 		{
 			if (!this.dentrotienda)
 			{
-				this.ascensortut.text = " ";
+				tut10.SetActive(false);
 			}
 			this.ascensor = false;
 			anim.SetBool("salto",true);
@@ -978,7 +942,7 @@ public class jugador_al1 : MonoBehaviour
 		{
 			if (!this.dentrotienda)
 			{
-				this.ascensortut.text = " ";
+				tut10.SetActive(false);
 			}
 			this.ascensor = false;
 			anim.SetBool("salto",true);
