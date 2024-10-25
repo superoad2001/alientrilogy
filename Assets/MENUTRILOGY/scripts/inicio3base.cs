@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Rewired;
 
 public class inicio3base : MonoBehaviour
 {
+    private Controles controles;
 
-    [SerializeField]private int playerID = 0;
-	[SerializeField]private Player player;
     public Text logo1;
     public Text logo2;
     public Text logo3;
@@ -20,6 +18,19 @@ public class inicio3base : MonoBehaviour
     public GameObject logoo4;
     public int juego = 1;
     public float temp;
+    
+    public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
 
     public void izq()
     {
@@ -64,18 +75,18 @@ public class inicio3base : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = ReInput.players.GetPlayer(playerID);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(player.GetAxis("horizontalpad") > 0 && temp > 0.5f)
+        if(controles.al3.horizontalpad.ReadValue<float>() > 0 && temp > 0.5f)
         {
             der();
             temp = 0;
         }
-        if(player.GetAxis("horizontalpad") < 0 && temp > 0.5f)
+        if(controles.al3.horizontalpad.ReadValue<float>() < 0 && temp > 0.5f)
         {
             izq();
             temp = 0;

@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Rewired;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -42,7 +41,7 @@ public class inicio_al1 : MonoBehaviour
 		{
 			if (gemas >= 1)
 			{
-				SceneManager.LoadScene("piso1_c_al1");
+				SceneManager.LoadScene("piso1_al1");
 			}
 			else
 			{

@@ -37,7 +37,7 @@ public class inicio_al2 : MonoBehaviour
 		{
 			if (manager.datosserial.inicio == 1)
 			{
-				SceneManager.LoadScene("inicio_c_al2");
+				SceneManager.LoadScene("inicio_al2");
 			}
 			else
 			{

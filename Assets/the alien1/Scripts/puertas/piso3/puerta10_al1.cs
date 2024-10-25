@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Rewired;
+
 
 // Token: 0x0200006B RID: 107
 public class puerta10_al1 : MonoBehaviour
@@ -22,7 +22,7 @@ public class puerta10_al1 : MonoBehaviour
 		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
 		if (col.gameObject.tag == "Player" )
 		{
-			SceneManager.LoadScene("nivel8_c_al1");
+			SceneManager.LoadScene("nivel8_al1");
 		}
 	}
 }

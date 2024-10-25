@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Rewired;
+
 
 // Token: 0x02000063 RID: 99
 public class puerta1_al1 : MonoBehaviour
@@ -21,7 +21,7 @@ public class puerta1_al1 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			SceneManager.LoadScene("nivel1_c_al1");
+			SceneManager.LoadScene("nivel1_al1");
 		}
 	}
 }

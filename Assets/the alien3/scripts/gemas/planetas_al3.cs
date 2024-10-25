@@ -2,19 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Rewired;
 using UnityEngine.UI;
 
 public class planetas_al3: MonoBehaviour
 {
     public int planeta;
-    [SerializeField]private int playerID = 0;
-	[SerializeField]private Player player;
+    private Controles controles;
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     public Text objetotext;
     // Start is called before the first frame update
     void Start()
     {
-        player = ReInput.players.GetPlayer(playerID);
+        
     }
 
     // Update is called once per frame
@@ -27,7 +37,7 @@ public class planetas_al3: MonoBehaviour
         jugador1_al3 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al3>();
         if (col.gameObject.tag == "Player")
 		{
-            if(player.GetAxis("y") > 0)
+            if(controles.al3.y.ReadValue<float>() > 0)
             {
                 SceneManager.LoadScene("mundo"+planeta+"_al3");
             }

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Rewired;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
@@ -11,8 +10,19 @@ public class pausa_al2 : MonoBehaviour
     public GameObject juego;
     public GameObject pausa1;
     public int plat;
-    [SerializeField]private int playerID = 0;
-	[SerializeField]private Player player;
+    private Controles controles;
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     public float temp;
     public Text boton1;
     public Text boton2;
@@ -25,7 +35,6 @@ public class pausa_al2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = ReInput.players.GetPlayer(playerID);
     }
 
     // Update is called once per frame
@@ -62,7 +71,7 @@ public class pausa_al2 : MonoBehaviour
             boton4.text = "pausa";
             boton5.text = "opcions";
         }
-        if(player.GetAxis("pausa") > 0 && temp > 0.5f)
+        if(controles.al2.pausa.ReadValue<float>() > 0 && temp > 0.5f)
         {
 			if(opciones1.activeSelf)
             {aplicar2();}

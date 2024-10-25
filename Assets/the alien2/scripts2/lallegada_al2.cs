@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rewired;
+
 using UnityEngine.SceneManagement;
 
 public class lallegada_al2 : MonoBehaviour
@@ -21,6 +21,6 @@ public class lallegada_al2 : MonoBehaviour
         
         temp += 1 * Time.deltaTime;
         if(temp >= 25f)
-        {SceneManager.LoadScene("inicio_c_al2");}
+        {SceneManager.LoadScene("inicio_al2");}
     }
 }

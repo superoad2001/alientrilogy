@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Rewired;
+
 
 // Token: 0x02000017 RID: 23
 public class mundo_coche_al1 : MonoBehaviour

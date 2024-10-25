@@ -1,15 +1,26 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Rewired;
+
 using UnityEngine.UI;
 
 // Token: 0x02000007 RID: 7
 public class hiper_al1 : MonoBehaviour
 {
 	public bool botonm = false;
-	[SerializeField]private int playerID = 0;
-	[SerializeField]private Player player;
+	private Controles controles;
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
 	public GameObject objeto;
 	public void boton_m()
     {
@@ -22,7 +33,7 @@ public class hiper_al1 : MonoBehaviour
 	// Token: 0x06000012 RID: 18 RVA: 0x0000243B File Offset: 0x0000063B
 	private void Start()
 	{
-		player = ReInput.players.GetPlayer(playerID);
+		
 	}
 
 	// Token: 0x06000013 RID: 19 RVA: 0x0000243D File Offset: 0x0000063D
@@ -43,7 +54,7 @@ public class hiper_al1 : MonoBehaviour
 			{this.tutfinala.text = "press (right click) or (B) To come back home";}
 			if(manager.datosconfig.idioma == "cat")
 			{this.tutfinala.text = "pren el (click dret) o la (B) per tornar a casa";}
-			if (player.GetAxis("b") > 0f || botonm == true)
+			if (controles.al1.b.ReadValue<float>() > 0f || botonm == true)
 			{
 				SceneManager.LoadScene("lasalida_al1");
 			}

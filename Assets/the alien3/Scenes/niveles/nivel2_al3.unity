@@ -6283,7 +6283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926f40831d5124b4da1688ca1cbb84ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerID: 0
   pasosnave: {fileID: 0}
   pasos1: {fileID: 1802641728}
   pasos2: {fileID: 1310088937}
@@ -7194,7 +7193,7 @@ GameObject:
   - component: {fileID: 1116681070}
   - component: {fileID: 1116681073}
   - component: {fileID: 1116681072}
-  - component: {fileID: 1116681071}
+  - component: {fileID: 1116681074}
   m_Layer: 5
   m_Name: Image (6)
   m_TagString: Untagged
@@ -7221,24 +7220,6 @@ RectTransform:
   m_AnchoredPosition: {x: 132, y: -54.081604}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1116681071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116681069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe5c34b49a5b4524c85b907c56ad4845, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerId: 0
-  actionLookup: 0
-  updateType: 0
-  actionName: b
-  actionId: 0
-  notFoundSprite: {fileID: 0}
 --- !u!114 &1116681072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7277,6 +7258,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116681069}
   m_CullTransparentMesh: 1
+--- !u!114 &1116681074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116681069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Action: al3/b
+  _setNativeSize: 1
 --- !u!1 &1132590103
 GameObject:
   m_ObjectHideFlags: 0
@@ -11620,6 +11615,16 @@ MonoBehaviour:
     aplicarres: 0
     resolh: 1280
     resolv: 720
+    master: -21
+    masterslider: 0.5
+    musica: -6
+    musicaslider: 0.5
+    sfx: 9
+    sfxslider: 3
+    voz: 14
+    vozslider: 5
+    ui: 12
+    uislider: 4
   datostrof:
     completaalien1v: 0
     completaalien1m: 0

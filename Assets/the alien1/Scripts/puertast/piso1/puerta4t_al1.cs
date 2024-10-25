@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Rewired;
+
 
 // Token: 0x02000066 RID: 102
 public class puerta4t_al1 : MonoBehaviour

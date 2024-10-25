@@ -1,26 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rewired;
 
 public class hidemenu_al3 : MonoBehaviour
 {
 
-    [SerializeField]private int playerID = 0;
-	[SerializeField]private Player player;
+    private Controles controles;
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
-        player = ReInput.players.GetPlayer(playerID);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         Animator anim = GetComponent<Animator>();
-        if(player.GetAxis("rb") > 0)
+        if(controles.al3.rb.ReadValue<float>() > 0)
 	    {anim.SetBool("show",true);}
-        else if(player.GetAxis("rb") == 0)
+        else if(controles.al3.rb.ReadValue<float>() == 0)
 	    {anim.SetBool("show",false);}
 
     }

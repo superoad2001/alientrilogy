@@ -50,7 +50,7 @@ public class jefe6_1_al2 : MonoBehaviour
         }
 		if (col.gameObject.tag == "portal")
         {
-			SceneManager.LoadScene("huida_c_al2");
+			SceneManager.LoadScene("huida_al2");
 			
         }
 	}

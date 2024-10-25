@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rewired;
+
 using UnityEngine.SceneManagement;
 
 public class tienda5_2_al2 : MonoBehaviour

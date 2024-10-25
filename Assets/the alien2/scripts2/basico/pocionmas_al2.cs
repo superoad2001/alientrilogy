@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rewired;
+
 
 public class pocionmas_al2 : MonoBehaviour
 {

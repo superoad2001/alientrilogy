@@ -1,14 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rewired;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class jugador1_al2 : MonoBehaviour
 {
-    [SerializeField]private int playerID = 0;
-	[SerializeField]private Player player;
+    private Controles controles;
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     public float pasotiempo;
     public float temppaso = 1;
     public int randompaso;
@@ -88,8 +98,6 @@ public class jugador1_al2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        player = ReInput.players.GetPlayer(playerID);
         manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
         pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
         Debug.Log("start");
@@ -404,17 +412,17 @@ public class jugador1_al2 : MonoBehaviour
             respawn = false;
         }
         
-        lhorizontalc = player.GetAxis("lhorizontal");
-        lverticalc = player.GetAxis("lvertical");
-    
-        rhorizontalc = player.GetAxis("rhorizontal");
-        rverticalc = player.GetAxis("rvertical");
-        jumpc = player.GetAxis("a");
-        mc = player.GetAxis("b");
-        nc = player.GetAxis("x");
-        rbc = player.GetAxis("rb");
-        lbc = player.GetAxis("lb");
-        pausac = player.GetAxis("pausa");
+        lhorizontalc = controles.al2.lhorizontal.ReadValue<float>();
+        lverticalc = controles.al2.lvertical.ReadValue<float>();
+
+        rhorizontalc = controles.al2.rhorizontal.ReadValue<float>();
+        rverticalc = controles.al2.rvertical.ReadValue<float>();
+        
+        jumpc = controles.al2.a.ReadValue<float>();
+        mc = controles.al2.b.ReadValue<float>();
+        nc = controles.al2.x.ReadValue<float>();
+        rbc = controles.al2.rb.ReadValue<float>();
+        lbc = controles.al2.lb.ReadValue<float>();
         if(manager.personaje == 1 || manager.personaje == 0)
         {
 
@@ -696,7 +704,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivelc = 1;
                     manager.datosserial.univel = 1;
                     manager.guardar(); 
-                    SceneManager.LoadScene("nivel1_c_al2");
+                    SceneManager.LoadScene("nivel1_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel1ch1 == 1)
@@ -718,7 +726,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivelc = 2;
                     manager.datosserial.univel = 1;
                     manager.guardar(); 
-                    SceneManager.LoadScene("nivel1_c_al2");
+                    SceneManager.LoadScene("nivel1_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel1ch2 == 1)
@@ -740,7 +748,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivelc = 3;
                     manager.datosserial.univel = 1;
                     manager.guardar(); 
-                    SceneManager.LoadScene("nivel1_c_al2");
+                    SceneManager.LoadScene("nivel1_al2");
 
                 }
             }
@@ -807,7 +815,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel2c = 1;
                     manager.datosserial.univel = 2;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel2_c_al2");
+                    SceneManager.LoadScene("nivel2_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel2ch1 == 1)
@@ -829,7 +837,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel2c = 2;
                     manager.datosserial.univel = 2;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel2_c_al2");
+                    SceneManager.LoadScene("nivel2_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel2ch2 == 1)
@@ -840,7 +848,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel2c = 3;
                     manager.datosserial.univel = 2;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel2_c_al2");
+                    SceneManager.LoadScene("nivel2_al2");
 
                 }
             }
@@ -907,7 +915,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel3c = 1;
                     manager.datosserial.univel = 3;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel3_c_al2");
+                    SceneManager.LoadScene("nivel3_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel3ch1 == 1)
@@ -930,7 +938,7 @@ public class jugador1_al2 : MonoBehaviour
 
                     manager.datosserial.univel = 3;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel3_c_al2");
+                    SceneManager.LoadScene("nivel3_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel3ch2 == 1)
@@ -952,7 +960,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel3c = 3;
                     manager.datosserial.univel = 3;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel3_c_al2");
+                    SceneManager.LoadScene("nivel3_al2");
 
                 }
             }
@@ -1019,7 +1027,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel4c = 1;
                     manager.datosserial.univel = 4;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel4_c_al2");
+                    SceneManager.LoadScene("nivel4_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel4ch1 == 1)
@@ -1041,7 +1049,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel4c = 2;
                     manager.datosserial.univel = 4;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel4_c_al2");
+                    SceneManager.LoadScene("nivel4_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel4ch2 == 1)
@@ -1063,7 +1071,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel4c = 3;
                     manager.datosserial.univel = 4;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel4_c_al2");
+                    SceneManager.LoadScene("nivel4_al2");
 
                 }
             }
@@ -1130,7 +1138,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel5c = 1;
                     manager.datosserial.univel = 5;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel5_c_al2");
+                    SceneManager.LoadScene("nivel5_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel5ch1 == 1)
@@ -1152,7 +1160,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel5c = 2;
                     manager.datosserial.univel = 5;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel5_c_al2");
+                    SceneManager.LoadScene("nivel5_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel5ch2 == 1)
@@ -1174,7 +1182,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel5c = 3;
                     manager.datosserial.univel = 5;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel5_c_al2");
+                    SceneManager.LoadScene("nivel5_al2");
 
                 }
             }
@@ -1241,7 +1249,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel6c = 1;
                     manager.datosserial.univel = 6;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel6_c_al2");
+                    SceneManager.LoadScene("nivel6_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel6ch1 == 1)
@@ -1263,7 +1271,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel6c = 2;
                     manager.datosserial.univel = 6;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel6_c_al2");
+                    SceneManager.LoadScene("nivel6_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel6ch2 == 1)
@@ -1285,7 +1293,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel6c = 3;
                     manager.datosserial.univel = 6;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel6_c_al2");
+                    SceneManager.LoadScene("nivel6_al2");
 
                 }
             }
@@ -1352,7 +1360,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel7c = 1;
                     manager.datosserial.univel = 7;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel7_c_al2");
+                    SceneManager.LoadScene("nivel7_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel7ch1 == 1)
@@ -1374,7 +1382,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel7c = 2;
                     manager.datosserial.univel = 7;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel7_c_al2");
+                    SceneManager.LoadScene("nivel7_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel7ch2 == 1)
@@ -1396,7 +1404,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel7c = 3;
                     manager.datosserial.univel = 7;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel7_c_al2");
+                    SceneManager.LoadScene("nivel7_al2");
 
                 }
             }
@@ -1463,7 +1471,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel8c = 1;
                     manager.datosserial.univel = 8;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel8_c_al2");
+                    SceneManager.LoadScene("nivel8_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel8ch1 == 1)
@@ -1485,7 +1493,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel8c = 2;
                     manager.datosserial.univel = 8;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel8_c_al2");
+                    SceneManager.LoadScene("nivel8_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel8ch2 == 1)
@@ -1507,7 +1515,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel8c = 3;
                     manager.datosserial.univel = 8;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel8_c_al2");
+                    SceneManager.LoadScene("nivel8_al2");
 
                 }
             }
@@ -1574,7 +1582,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel9c = 1;
                     manager.datosserial.univel = 9;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel9_c_al2");
+                    SceneManager.LoadScene("nivel9_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel9ch1 == 1)
@@ -1596,7 +1604,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel9c = 2;
                     manager.datosserial.univel = 9;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel9_c_al2");
+                    SceneManager.LoadScene("nivel9_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel9ch2 == 1)
@@ -1618,7 +1626,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel9c = 3;
                     manager.datosserial.univel = 9;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel9_c_al2");
+                    SceneManager.LoadScene("nivel9_al2");
 
                 }
             }
@@ -1686,7 +1694,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel10c = 1;
                     manager.datosserial.univel = 10;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel10_c_al2");
+                    SceneManager.LoadScene("nivel10_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel10ch1 == 1)
@@ -1708,7 +1716,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel10c = 2;
                     manager.datosserial.univel = 10;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel10_c_al2");
+                    SceneManager.LoadScene("nivel10_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel10ch2 == 1)
@@ -1730,7 +1738,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel10c = 3;
                     manager.datosserial.univel = 10;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel10_c_al2");
+                    SceneManager.LoadScene("nivel10_al2");
 
                 }
             }
@@ -1797,7 +1805,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel1c = 1;
                     manager.datosserial.univel = 11;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel11_c_al2");
+                    SceneManager.LoadScene("nivel11_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel1ch1 == 1)
@@ -1819,7 +1827,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel1c = 2;
                     manager.datosserial.univel = 11;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel11_c_al2");
+                    SceneManager.LoadScene("nivel11_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel1ch2 == 1)
@@ -1841,7 +1849,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel1c = 3;
                     manager.datosserial.univel = 11;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel11_c_al2");
+                    SceneManager.LoadScene("nivel11_al2");
 
                 }
             }
@@ -1908,7 +1916,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel2c = 1;
                     manager.datosserial.univel = 12;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel12_c_al2");
+                    SceneManager.LoadScene("nivel12_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel2ch1 == 1)
@@ -1930,7 +1938,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel2c = 2;
                     manager.datosserial.univel = 12;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel12_c_al2");
+                    SceneManager.LoadScene("nivel12_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel2ch2 == 1)
@@ -1952,7 +1960,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel2c = 3;
                     manager.datosserial.univel = 12;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel12_c_al2");
+                    SceneManager.LoadScene("nivel12_al2");
 
                 }
             }
@@ -2019,7 +2027,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel3c = 1;
                     manager.datosserial.univel = 13;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel13_c_al2");
+                    SceneManager.LoadScene("nivel13_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel3ch1 == 1)
@@ -2041,7 +2049,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel3c = 2;
                     manager.datosserial.univel = 13;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel13_c_al2");
+                    SceneManager.LoadScene("nivel13_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel3ch2 == 1)
@@ -2063,7 +2071,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel3c = 3;
                     manager.datosserial.univel = 13;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel13_c_al2");
+                    SceneManager.LoadScene("nivel13_al2");
 
                 }
             }
@@ -2130,7 +2138,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel4c = 1;
                     manager.datosserial.univel = 14;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel14_c_al2");
+                    SceneManager.LoadScene("nivel14_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel4ch1 == 1)
@@ -2152,7 +2160,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel4c = 2;
                     manager.datosserial.univel = 14;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel14_c_al2");
+                    SceneManager.LoadScene("nivel14_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel4ch2 == 1)
@@ -2174,7 +2182,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel4c = 3;
                     manager.datosserial.univel = 14;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel14_c_al2");
+                    SceneManager.LoadScene("nivel14_al2");
 
                 }
             }
@@ -2241,7 +2249,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel5c = 1;
                     manager.datosserial.univel = 15;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel15_c_al2");
+                    SceneManager.LoadScene("nivel15_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel5ch1 == 1)
@@ -2263,7 +2271,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel5c = 2;
                     manager.datosserial.univel = 15;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel15_c_al2");
+                    SceneManager.LoadScene("nivel15_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel5ch2 == 1)
@@ -2285,7 +2293,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel5c = 3;
                     manager.datosserial.univel = 15;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel15_c_al2");
+                    SceneManager.LoadScene("nivel15_al2");
 
                 }
             }
@@ -2352,7 +2360,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel6c = 1;
                     manager.datosserial.univel = 16;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel16_c_al2");
+                    SceneManager.LoadScene("nivel16_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel6ch1 == 1)
@@ -2374,7 +2382,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel6c = 2;
                     manager.datosserial.univel = 16;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel16_c_al2");
+                    SceneManager.LoadScene("nivel16_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel6ch2 == 1)
@@ -2396,7 +2404,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel6c = 3;
                     manager.datosserial.univel = 16;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel16_c_al2");
+                    SceneManager.LoadScene("nivel16_al2");
 
                 }
             }
@@ -2463,7 +2471,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel7c = 1;
                     manager.datosserial.univel = 17;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel17_c_al2");
+                    SceneManager.LoadScene("nivel17_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel7ch1 == 1)
@@ -2485,7 +2493,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel7c = 2;
                     manager.datosserial.univel = 17;
                     manager.guardar();   
-                    SceneManager.LoadScene("nivel17_c_al2");
+                    SceneManager.LoadScene("nivel17_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel7ch2 == 1)
@@ -2507,7 +2515,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel7c = 3;
                     manager.datosserial.univel = 17;
                     manager.guardar(); 
-                    SceneManager.LoadScene("nivel17_c_al2");
+                    SceneManager.LoadScene("nivel17_al2");
 
                 }
             }
@@ -2574,7 +2582,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel18c = 1;
                     manager.datosserial.univel = 18;
                     manager.guardar(); 
-                    SceneManager.LoadScene("nivel18_c_al2");
+                    SceneManager.LoadScene("nivel18_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel18ch1 == 1)
@@ -2596,7 +2604,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel18c = 2;
                     manager.datosserial.univel = 18;
                     manager.guardar(); 
-                    SceneManager.LoadScene("nivel18_c_al2");
+                    SceneManager.LoadScene("nivel18_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel18ch2 == 1)
@@ -2618,7 +2626,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel18c = 3;
                     manager.datosserial.univel = 18;
                     manager.guardar(); 
-                    SceneManager.LoadScene("nivel18_c_al2");
+                    SceneManager.LoadScene("nivel18_al2");
 
                 }
             }
@@ -2685,7 +2693,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel19c = 1;
                     manager.datosserial.univel = 19;
                     manager.guardar(); 
-                    SceneManager.LoadScene("nivel19_c_al2");
+                    SceneManager.LoadScene("nivel19_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel19ch1 == 1)
@@ -2707,7 +2715,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel19c = 2;
                     manager.datosserial.univel = 19;
                     manager.guardar(); 
-                    SceneManager.LoadScene("nivel19_c_al2");
+                    SceneManager.LoadScene("nivel19_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel19ch2 == 1)
@@ -2729,7 +2737,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel19c = 3;
                     manager.datosserial.univel = 19;
                     manager.guardar(); 
-                    SceneManager.LoadScene("nivel19_c_al2");
+                    SceneManager.LoadScene("nivel19_al2");
 
                 }
             }
@@ -2796,7 +2804,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel20c = 1;
                     manager.datosserial.univel = 20;
                     manager.guardar(); 
-                    SceneManager.LoadScene("nivel20_c_al2");
+                    SceneManager.LoadScene("nivel20_al2");
                 }
             }
             if(objeto == 2 && manager.datosserial.nivel20ch1 == 1)
@@ -2818,7 +2826,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel20c = 2;
                     manager.datosserial.univel = 20;
                     manager.guardar(); 
-                    SceneManager.LoadScene("nivel20_c_al2");
+                    SceneManager.LoadScene("nivel20_al2");
                 }
             }
             if(objeto == 3 && manager.datosserial.nivel20ch2 == 1)
@@ -2840,7 +2848,7 @@ public class jugador1_al2 : MonoBehaviour
                     manager.datosserial.nivel20c = 3;
                     manager.datosserial.univel = 20;
                     manager.guardar(); 
-                    SceneManager.LoadScene("nivel20_c_al2");
+                    SceneManager.LoadScene("nivel20_al2");
 
                 }
             }

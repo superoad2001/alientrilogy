@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rewired;
 using UnityEngine.SceneManagement;
 
 public class tgemas_al3: MonoBehaviour
@@ -18,14 +17,25 @@ public class tgemas_al3: MonoBehaviour
     public AudioSource necesitogemases;
     public AudioSource necesitogemasen;
     public AudioSource necesitogemascat;
-    [SerializeField]private int playerID = 0;
-	[SerializeField]private Player player;
+    private Controles controles;
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     public float temp;
     // Start is called before the first frame update
     void Start()
     {
         manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
-        player = ReInput.players.GetPlayer(playerID);
+        
         if(manager.datosconfig.idioma == "es")
         {
             necesitogemas = necesitogemases;
@@ -56,7 +66,7 @@ public class tgemas_al3: MonoBehaviour
     {
         jugador1_al3 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al3>();
         manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
-        if (col.gameObject.tag == "Player" && player.GetAxis("y") > 0 && jugador.tempboton > 0.5f)
+        if (col.gameObject.tag == "Player" && controles.al3.y.ReadValue<float>() > 0 && jugador.tempboton > 0.5f)
 		{
             if(tp == 1 && zona == 1 && manager.datosserial.gemas >= 5)
             {

@@ -1421,27 +1421,27 @@ public class manager_al2 : MonoBehaviour
 			if(menu == 5)
 			{
 				boton1.text = "FIN";
-				boton2.text = "Apreta (espacio) o (a) para salir al menu principal";
+				boton2.text = "para salir al menu principal";
 			}
 			if(menu == 6)
 			{
 				boton1.text = "FIN?";
-				boton2.text = "Apreta (espacio) o (a) para continuar";
+				boton2.text = "para continuar";
 			}
 			if(menu == 7)
 			{
 				boton1.text = "FIN?";
-				boton2.text = "Apreta (espacio) o (a) para salir al menu principal";
+				boton2.text = "para salir al menu principal";
 			}
 			if(estado == 1)
 			{
 				boton1.text = "TIEMPOS";
-				boton2.text = "(click derecho) o (B)  para salir";
+				boton2.text = "para salir";
 			}
 			if(estado == 2)
 			{
 				boton1.text = "SALA DEL REY";
-				boton2.text = "(click derecho) o (B)  para salir";
+				boton2.text = "para salir";
 			}
 
 
@@ -1861,27 +1861,27 @@ public class manager_al2 : MonoBehaviour
 			if(menu == 5)
 			{
 				boton1.text = "END";
-				boton2.text = "Press (space) or (a) to exit to the main menu";
+				boton2.text = "to exit to the main menu";
 			}
 			if(menu == 6)
 			{
 				boton1.text = "END?";
-				boton2.text = "Press (space) or (a) to continue";
+				boton2.text = "to continue";
 			}
 			if(menu == 7)
 			{
 				boton1.text = "END?";
-				boton2.text = "Press (space) or (a) to exit to the main menu";
+				boton2.text = "to exit to the main menu";
 			}
 			if(estado == 1)
 			{
 				boton1.text = "TIME";
-				boton2.text = "(right click) or (B) to exit";
+				boton2.text = "to exit";
 			}
 			if(estado == 2)
 			{
 				boton1.text = "KING'S ROOM";
-				boton2.text = "(right click) or (B) to exit";
+				boton2.text = "to exit";
 			}
 
 
@@ -2301,27 +2301,27 @@ public class manager_al2 : MonoBehaviour
 			if(menu == 5)
 			{
 				boton1.text = "FI";
-				boton2.text = "pren (espai) o (a) per sortir al menu principal";
+				boton2.text = "per sortir al menu principal";
 			}
 			if(menu == 6)
 			{
 				boton1.text = "FIN?";
-				boton2.text = "pren (espai) o (a) per continuar";
+				boton2.text = "per continuar";
 			}
 			if(menu == 7)
 			{
 				boton1.text = "FI?";
-				boton2.text = "pren (espai) o (a) per sortir al menu principal";
+				boton2.text = "per sortir al menu principal";
 			}
 			if(estado == 1)
 			{
 				boton1.text = "Temps";
-				boton2.text = "(click dret) o (B)  per sortir";
+				boton2.text = "per sortir";
 			}
 			if(estado == 2)
 			{
 				boton1.text = "SALA DEL REY";
-				boton2.text = "(click dret) o (B)  per sortir";
+				boton2.text = "per sortir";
 			}
 
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Rewired;
+
 
 // Token: 0x02000062 RID: 98
 public class subirnave_al1 : MonoBehaviour
@@ -22,7 +22,7 @@ public class subirnave_al1 : MonoBehaviour
 		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
 		if (col.gameObject.tag == "Player" && manager.datosserial.tengonave == 1)
 		{
-			SceneManager.LoadScene("espacio_c_al1");
+			SceneManager.LoadScene("espacio_al1");
 		}
 	}
 }

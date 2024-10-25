@@ -20,7 +20,7 @@ public class subirnave_al2 : MonoBehaviour
 		{
 			manager.datosserial.niveltc = 0;
 			manager.guardar();
-			SceneManager.LoadScene("espacio_c_al2");
+			SceneManager.LoadScene("espacio_al2");
 		}
 	}
 }

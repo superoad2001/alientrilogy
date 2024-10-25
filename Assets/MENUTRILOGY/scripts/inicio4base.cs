@@ -26,14 +26,17 @@ public class inicio4base : MonoBehaviour
 	public int opcres = 0;
 	public Text resolt;
 	public AudioMixer audiomixer;
+	public bool menu;
 	public void Start()
 	{
 		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
-
+		if(menu)
+		{
 		audiomixer.SetFloat ("MusicVolume",manager.datosconfig.musica);
 		audiomixer.SetFloat ("EnvironmentVolume",manager.datosconfig.voz);
 		audiomixer.SetFloat ("SFXVolume",manager.datosconfig.sfx);
 		audiomixer.SetFloat ("UIVolume",manager.datosconfig.ui);
+		}
 
 
 		revresol_();

@@ -1177,8 +1177,8 @@ RectTransform:
   m_GameObject: {fileID: 114439596}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.57, y: 2.57, z: 2.57}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 667990429}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1207,7 +1207,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7f4e5f9eac93c0a4ab5e638adf6b02e1, type: 3}
+  m_Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3331,7 +3331,7 @@ GameObject:
   - component: {fileID: 667990429}
   - component: {fileID: 667990432}
   - component: {fileID: 667990431}
-  - component: {fileID: 667990430}
+  - component: {fileID: 667990433}
   m_Layer: 5
   m_Name: Image (7)
   m_TagString: Untagged
@@ -3359,24 +3359,6 @@ RectTransform:
   m_AnchoredPosition: {x: -151, y: 275}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &667990430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667990428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe5c34b49a5b4524c85b907c56ad4845, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerId: 0
-  actionLookup: 0
-  updateType: 0
-  actionName: lt
-  actionId: 0
-  notFoundSprite: {fileID: 0}
 --- !u!114 &667990431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3415,6 +3397,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667990428}
   m_CullTransparentMesh: 1
+--- !u!114 &667990433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667990428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Action: al3/lt
+  _setNativeSize: 1
 --- !u!1 &690373325
 GameObject:
   m_ObjectHideFlags: 0
@@ -3838,7 +3834,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926f40831d5124b4da1688ca1cbb84ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerID: 0
   pasosnave: {fileID: 232950137}
   pasos1: {fileID: 0}
   pasos2: {fileID: 0}
@@ -5258,8 +5253,8 @@ RectTransform:
   m_GameObject: {fileID: 987730545}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.57, y: 2.57, z: 2.57}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1906057590}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
@@ -5288,7 +5283,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7f4e5f9eac93c0a4ab5e638adf6b02e1, type: 3}
+  m_Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10227,7 +10222,7 @@ GameObject:
   - component: {fileID: 1906057590}
   - component: {fileID: 1906057593}
   - component: {fileID: 1906057592}
-  - component: {fileID: 1906057591}
+  - component: {fileID: 1906057594}
   m_Layer: 5
   m_Name: Image (6)
   m_TagString: Untagged
@@ -10255,24 +10250,6 @@ RectTransform:
   m_AnchoredPosition: {x: -151, y: 395}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1906057591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906057589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe5c34b49a5b4524c85b907c56ad4845, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerId: 0
-  actionLookup: 0
-  updateType: 0
-  actionName: rt
-  actionId: 0
-  notFoundSprite: {fileID: 0}
 --- !u!114 &1906057592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10311,6 +10288,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906057589}
   m_CullTransparentMesh: 1
+--- !u!114 &1906057594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906057589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Action: al3/rt
+  _setNativeSize: 1
 --- !u!1 &1960564013
 GameObject:
   m_ObjectHideFlags: 0

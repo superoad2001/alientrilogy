@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rewired;
+
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
@@ -113,8 +113,19 @@ public class pausa_al3: MonoBehaviour
 
     public GameObject juego;
     public GameObject pausa1;
-    [SerializeField]private int playerID = 0;
-	[SerializeField]private Player player;
+    private Controles controles;
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     public float temp;
 
     public GameObject guia;
@@ -330,7 +341,6 @@ public class pausa_al3: MonoBehaviour
         
 
 
-        player = ReInput.players.GetPlayer(playerID);
 
         if(manager.datosconfig.idioma == "es")
         {
@@ -412,7 +422,7 @@ public class pausa_al3: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.GetAxis("pausa") > 0 && temp > 0.5f)
+        if(controles.al3.pausa.ReadValue<float>() > 0 && temp > 0.5f)
         {
             if(opciones1.activeSelf)
             {aplicar2();}

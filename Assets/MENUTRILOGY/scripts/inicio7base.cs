@@ -3,15 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Rewired;
 
 public class inicio7base : MonoBehaviour
 {
 
 
 public float temp;
-    [SerializeField]private int playerID = 0;
-	[SerializeField]private Player player;
+    private Controles controles;
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     public Text logo1;
     public Text logo2;
     public Text logo3;
@@ -120,7 +130,6 @@ public float temp;
     // Start is called before the first frame update
     void Start()
     {
-        player = ReInput.players.GetPlayer(playerID);
 
 
         logo1t.color = new Color32(255,64,64,255);
@@ -352,12 +361,12 @@ public float temp;
     void Update()
     {
         managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
-        if(player.GetAxis("horizontalpad") > 0 && temp > 0.3f)
+        if(controles.al3.horizontalpad.ReadValue<float>() > 0 && temp > 0.3f)
         {
             der();
             temp = 0;
         }
-        if(player.GetAxis("horizontalpad") < 0 && temp > 0.3f)
+        if(controles.al3.horizontalpad.ReadValue<float>() < 0 && temp > 0.3f)
         {
             izq();
             temp = 0;

@@ -17,7 +17,7 @@ public class puerta_jefe_al2 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			SceneManager.LoadScene("jefe1_c_al2");
+			SceneManager.LoadScene("jefe1_al2");
 		}
 	}
 }

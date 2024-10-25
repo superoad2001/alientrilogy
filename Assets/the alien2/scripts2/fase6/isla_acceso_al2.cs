@@ -17,7 +17,7 @@ public class isla_acceso_al2 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			SceneManager.LoadScene("diarios_c_al2");
+			SceneManager.LoadScene("diarios_al2");
 		}
 	}
 }

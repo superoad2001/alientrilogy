@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Rewired;
+
 using UnityEngine.UI;
 
 public class ascensor_al1 : MonoBehaviour

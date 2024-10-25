@@ -23,7 +23,7 @@ public class jefecincarga_al3: MonoBehaviour
         temp += 1 * Time.deltaTime;
         if(temp >= max)
         {
-            SceneManager.LoadScene("jefe6_c_al3");
+            SceneManager.LoadScene("jefe6_al3");
         }
     }
 }

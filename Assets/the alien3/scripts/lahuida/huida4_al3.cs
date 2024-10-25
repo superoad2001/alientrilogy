@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Rewired;
+
 
 public class huida4_al3: MonoBehaviour
 {

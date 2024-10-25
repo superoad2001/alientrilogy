@@ -22961,7 +22961,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926f40831d5124b4da1688ca1cbb84ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerID: 0
   pasosnave: {fileID: 0}
   pasos1: {fileID: 0}
   pasos2: {fileID: 0}
@@ -27018,7 +27017,7 @@ GameObject:
   - component: {fileID: 717267335}
   - component: {fileID: 717267338}
   - component: {fileID: 717267337}
-  - component: {fileID: 717267336}
+  - component: {fileID: 717267339}
   m_Layer: 5
   m_Name: Image (2)
   m_TagString: Untagged
@@ -27045,24 +27044,6 @@ RectTransform:
   m_AnchoredPosition: {x: -562, y: -82}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &717267336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 717267334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe5c34b49a5b4524c85b907c56ad4845, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerId: 0
-  actionLookup: 0
-  updateType: 0
-  actionName: rt
-  actionId: 0
-  notFoundSprite: {fileID: 0}
 --- !u!114 &717267337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27101,6 +27082,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717267334}
   m_CullTransparentMesh: 1
+--- !u!114 &717267339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717267334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Action: al3/rt
+  _setNativeSize: 1
 --- !u!1 &722157698
 GameObject:
   m_ObjectHideFlags: 0

@@ -642,7 +642,7 @@ public class manager_al3: MonoBehaviour
 			if(cmenu == 5)
 			{
 				bloque1.text = "fin";
-				bloque2.text = "Apreta (manager.datosserial.espacio) o (a) para salir al menu principal";
+				bloque2.text = "para salir al menu principal";
 			}
 			if(cmenu == 6)
 			{

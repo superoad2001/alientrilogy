@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 263514581070197960}
   - component: {fileID: 4890788665449715713}
   - component: {fileID: 3585427916951447605}
-  - component: {fileID: 1358718687151079992}
+  - component: {fileID: 2153398566545030382}
   m_Layer: 5
   m_Name: Jump Image (2)
   m_TagString: Untagged
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1358718687151079992
+--- !u!114 &2153398566545030382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,15 +85,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3039240281262849732}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe5c34b49a5b4524c85b907c56ad4845, type: 3}
+  m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerId: 0
-  actionLookup: 0
-  updateType: 0
-  actionName: rb
-  actionId: 0
-  notFoundSprite: {fileID: 0}
+  m_Action: al3/rb
+  _setNativeSize: 1
 --- !u!1 &3074257642292196766
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +101,7 @@ GameObject:
   - component: {fileID: 7642643690647734120}
   - component: {fileID: 5806526827260691755}
   - component: {fileID: 9197247611728292962}
-  - component: {fileID: 4600400590697099834}
+  - component: {fileID: 8672239801763051016}
   m_Layer: 5
   m_Name: Jump Image (3)
   m_TagString: Untagged
@@ -129,7 +125,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 73, y: -164}
+  m_AnchoredPosition: {x: 122, y: -164}
   m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &5806526827260691755
@@ -170,7 +166,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4600400590697099834
+--- !u!114 &8672239801763051016
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,15 +175,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3074257642292196766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe5c34b49a5b4524c85b907c56ad4845, type: 3}
+  m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerId: 0
-  actionLookup: 0
-  updateType: 0
-  actionName: lb
-  actionId: 0
-  notFoundSprite: {fileID: 21300000, guid: 2aa3942050158cb4593c217904082d4a, type: 3}
+  m_Action: al3/y
+  _setNativeSize: 0
 --- !u!1 &3560937155335423748
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +335,7 @@ GameObject:
   - component: {fileID: 7920562387370150427}
   - component: {fileID: 2015358049414699024}
   - component: {fileID: 6928515388696658500}
-  - component: {fileID: 2319296585241809209}
+  - component: {fileID: 6421343896569121825}
   m_Layer: 5
   m_Name: Jump Image
   m_TagString: Untagged
@@ -408,7 +400,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2319296585241809209
+--- !u!114 &6421343896569121825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -417,15 +409,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6328014029486326403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe5c34b49a5b4524c85b907c56ad4845, type: 3}
+  m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerId: 0
-  actionLookup: 0
-  updateType: 0
-  actionName: y
-  actionId: 0
-  notFoundSprite: {fileID: 0}
+  m_Action: al3/lb
+  _setNativeSize: 0
 --- !u!1 &8454867264687979989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,7 +1446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a72f74e41a1dc47a636cdab639d88c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerID: 0
 --- !u!1 &8888378867956933317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,7 +1686,7 @@ GameObject:
   - component: {fileID: 302658628718178126}
   - component: {fileID: 2214888355508942219}
   - component: {fileID: 8177483670689914156}
-  - component: {fileID: 8947189561523966371}
+  - component: {fileID: 74418914584844376}
   m_Layer: 5
   m_Name: Jump Image (1)
   m_TagString: Untagged
@@ -1764,7 +1751,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8947189561523966371
+--- !u!114 &74418914584844376
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1773,12 +1760,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 9049669625337953489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe5c34b49a5b4524c85b907c56ad4845, type: 3}
+  m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerId: 0
-  actionLookup: 0
-  updateType: 0
-  actionName: rt
-  actionId: 0
-  notFoundSprite: {fileID: 0}
+  m_Action: al3/rt
+  _setNativeSize: 1

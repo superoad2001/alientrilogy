@@ -573,15 +573,15 @@ public class manager_al1 : MonoBehaviour
 		}
 		if(estados == 1)
 		{
-			boton1.text = "pulsa (click derecho) o (b) para subir a nave";
+			boton1.text = "para subir a la nave pulsa";
 		}
 		if(estados == 2)
 		{
-			boton1.text = "pulsa (click derecho) o (b) para subir al ascensor";
+			boton1.text = "para subir al ascensor pulsa";
 		}
 		if(estados == 3)
 		{
-			boton1.text = "(click izquierdo) o (x) para bajar de planta";
+			boton1.text = "para bajar de planta pulsa";
 			boton2.text = "tiempos";
 		}
 		if(estados == 4)
@@ -881,15 +881,15 @@ public class manager_al1 : MonoBehaviour
 		}
 		if(estados == 1)
 		{
-			boton1.text = "press (right click) or (b) to go up to ship";
+			boton1.text = "to go up to ship";
 		}
 		if(estados == 2)
 		{
-			boton1.text = "press (right click) or (b) to get on the elevator";
+			boton1.text = "to get on the elevator";
 		}
 		if(estados == 3)
 		{
-			boton1.text = "(left click) or (x) to go down the floor";
+			boton1.text = "to go down the floor";
 			boton2.text = "time";
 		}
 		if(estados == 4)
@@ -1169,12 +1169,12 @@ public class manager_al1 : MonoBehaviour
 		if(tuto == 9)
 		{
 			boton2.text = "wasd o joystick per moure's, pren (espai) o (a) per acelerar pren (click dret) o (b) per anar atras,agafa els aceleradors per anar mes rapid esquiva els obstacles, queda lloc 1 per guanyar";
-			boton1.text = "pren (espai) o (a) per continuar";
+			boton1.text = "per continuar";
 		}
 		if(tuto == 10)
 		{
 			boton2.text = "pren (espai) a sobre d un saltador per arribar molt alt";
-			boton1.text = "pren (espai) o (a) per continuar";
+			boton1.text = "per continuar";
 		}
 		if(tuto == 11)
 		{
@@ -1184,19 +1184,19 @@ public class manager_al1 : MonoBehaviour
 		if(tuto == 12)
 		{
 			boton2.text = "wasd o joystick para moverse ypulsa (espacio) o (a) para saltar toca la nave enemiga para ganary no te olvides de agarrar las monedas de velocidad para alanzar al la nave de vendedor";
-			boton1.text = "pren (espai) o (a) per continuar";
+			boton1.text = "per continuar";
 		}
 		if(estados == 1)
 		{
-			boton1.text = "pren (click dret) o (b) per putjar a la nau";
+			boton1.text = "per putjar a la nau";
 		}
 		if(estados == 2)
 		{
-			boton1.text = "pren (click dret) o (b) per putjar al ascensor";
+			boton1.text = "per putjar al ascensor";
 		}
 		if(estados == 3)
 		{
-			boton1.text = "(click esquerre) o (x) per baixar de planta";
+			boton1.text = "per baixar de planta";
 			boton2.text = "tiempos";
 		}
 		if(estados == 4)

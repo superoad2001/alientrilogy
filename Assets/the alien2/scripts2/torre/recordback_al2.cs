@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rewired;
 using UnityEngine.SceneManagement;
 
 public class recordback_al2 : MonoBehaviour
@@ -9,12 +8,23 @@ public class recordback_al2 : MonoBehaviour
     // Start is called before the first frame updat
     public GameObject tactil;
     public int Ac = 0;
-	[SerializeField]private int playerID = 0;
-	[SerializeField]private Player player;
+	private Controles controles;
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     void Start()
     {
 
-        player = ReInput.players.GetPlayer(playerID);
+        
         manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
 		if(manager.datosconfig.plat == 1)
         {
@@ -34,7 +44,7 @@ public class recordback_al2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.GetAxis("b") > 0f || Ac == 1)
+        if (controles.al2.b.ReadValue<float>() > 0f || Ac == 1)
         {
             SceneManager.LoadScene("torre_del_tiempo_al2");
 

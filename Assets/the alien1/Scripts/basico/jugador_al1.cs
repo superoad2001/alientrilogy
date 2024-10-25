@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Rewired;
 using UnityEngine.UI;
 
 // Token: 0x0200000A RID: 10
 public class jugador_al1 : MonoBehaviour
 {
-	[SerializeField]private int playerID = 0;
-	[SerializeField]private Player player;
 	public AudioSource audio1;
 	public float temppaso = 1;
 	public float rotspeed = 3;
@@ -33,8 +30,6 @@ public class jugador_al1 : MonoBehaviour
 	public float jumpc;
 	public float mc;
 	public float nc;
-	public Joystick joyl;
-	public Joystick joyr;
 	public GameObject tactil;
 	public Animator anim;
 	public AudioSource pasosnave;
@@ -44,10 +39,23 @@ public class jugador_al1 : MonoBehaviour
 	public float pausac;
 	public float pasotiempo;
 	public float tempgir = 0;
+	
+	private Controles controles;
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
 	// Token: 0x0600001D RID: 29 RVA: 0x000025E8 File Offset: 0x000007E8
 	private void Start()
 	{
-		player = ReInput.players.GetPlayer(playerID);
 		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
 		if(manager.datosconfig.plat == 1)
 		{
@@ -133,15 +141,15 @@ public class jugador_al1 : MonoBehaviour
 	tiempoascensor += Time.deltaTime;
 	manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
 
-	lhorizontalc = player.GetAxis("lhorizontal");
-    lverticalc = player.GetAxis("lvertical");
+	lhorizontalc = controles.al1.lhorizontal.ReadValue<float>();
+    lverticalc = controles.al1.lvertical.ReadValue<float>();
 
-	rhorizontalc = player.GetAxis("rhorizontal");
-	rverticalc = player.GetAxis("rvertical");
-	jumpc = player.GetAxis("a");
-	mc = player.GetAxis("b");
-	nc = player.GetAxis("x");
-	pausac = player.GetAxis("pausa");
+	rhorizontalc = controles.al1.rhorizontal.ReadValue<float>();
+	rverticalc = controles.al1.rvertical.ReadValue<float>();
+	jumpc = controles.al1.a.ReadValue<float>();
+	mc = controles.al1.b.ReadValue<float>();
+	nc = controles.al1.x.ReadValue<float>();
+	pausac = controles.al1.pausa.ReadValue<float>();
 
 
 
@@ -892,7 +900,7 @@ public class jugador_al1 : MonoBehaviour
 		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
 		if (col.gameObject.tag == "ascensor" && manager.juego == 0)
 		{
-			if(manager.datosconfig.idioma == "es")
+			/*if(manager.datosconfig.idioma == "es")
 			{
 				if (!this.dentrotienda)
 				{
@@ -924,7 +932,7 @@ public class jugador_al1 : MonoBehaviour
 				{
 					this.ascensortut.text = "(click dret) o (b) per anar a la torre del temps  (click esquerre) o (x) para baixar de planta";
 				}
-			}
+			}*/
 			this.ascensor = true;
 			
 			

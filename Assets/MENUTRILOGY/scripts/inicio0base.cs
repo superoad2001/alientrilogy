@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Rewired;
 using UnityEngine.Audio;
 
 // Token: 0x02000009 RID: 9

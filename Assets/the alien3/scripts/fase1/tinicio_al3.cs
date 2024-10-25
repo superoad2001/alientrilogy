@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rewired;
 using UnityEngine.SceneManagement;
 
 public class tinicio_al3: MonoBehaviour
@@ -9,11 +8,22 @@ public class tinicio_al3: MonoBehaviour
     // Start is called before the first frame update
     public GameObject tactil;
     public int Ac = 0;
-	[SerializeField]private int playerID = 0;
-	[SerializeField]private Player player;
+	private Controles controles;
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     void Start()
     {
-        player = ReInput.players.GetPlayer(playerID);
+        
         manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
 		if(manager.datosconfig.plat == 1)
         {
@@ -34,7 +44,7 @@ public class tinicio_al3: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.GetAxis("a") > 0f || Ac == 1 )
+        if (controles.al3.a.ReadValue<float>() > 0 || Ac == 1 )
         {
             SceneManager.LoadScene("mundo_abierto_al3");
 

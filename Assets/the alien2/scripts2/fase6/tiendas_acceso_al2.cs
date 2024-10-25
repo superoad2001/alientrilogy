@@ -17,7 +17,7 @@ public class tiendas_acceso_al2 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			SceneManager.LoadScene("tiendas_c_al2");
+			SceneManager.LoadScene("tiendas_al2");
 		}
 	}
 }

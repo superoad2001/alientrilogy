@@ -1,29 +1,29 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Rewired;
 
 // Token: 0x02000005 RID: 5
 public class final_al2 : MonoBehaviour
 {
 	public GameObject tactil;
-	[SerializeField]private int playerID = 0;
-	[SerializeField]private Player player;
+	private Controles controles;
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
 	// Token: 0x0600000C RID: 12 RVA: 0x00002397 File Offset: 0x00000597
 	private void Start()
 	{
-		player = ReInput.players.GetPlayer(playerID);
 		manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
-		if(manager.datosconfig.plat == 1)
-        {
-            tactil.SetActive(false);
 
-        }
-        if(manager.datosconfig.plat == 2)
-        {
-            tactil.SetActive(true);
-
-        }
 	}
 	public float temp;
 	public int Ac = 0;
@@ -36,7 +36,7 @@ public class final_al2 : MonoBehaviour
 	{
 		if (temp < 15)
 		{temp += 1 * Time.deltaTime;}
-		if (player.GetAxis("a") > 0f && temp >= 1 || Ac == 1 && temp >= 1)
+		if (controles.al2.a.ReadValue<float>() > 0f && temp >= 1 || Ac == 1 && temp >= 1)
 		{
 			SceneManager.LoadScene("menu_de_carga_al2");
 		}

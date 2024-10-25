@@ -1,15 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rewired;
+
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class jugador2_al2 : MonoBehaviour
 {
     public bool saltop = true;
-    [SerializeField]private int playerID = 0;
-	[SerializeField]private Player player;
+    private Controles controles;
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
 
 	public AudioSource audio1;
     public AudioSource audio2;
@@ -66,12 +77,9 @@ public class jugador2_al2 : MonoBehaviour
 	public float nc;
     public float rbc;
     public float lbc;
-    public Joystick joyl;
-	public Joystick joyr;
     // Start is called before the first frame update
     void Start()
     {
-        player = ReInput.players.GetPlayer(playerID);
         manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
         if(manager.datosconfig.plat == 1)
         {
@@ -115,15 +123,15 @@ public class jugador2_al2 : MonoBehaviour
     {
         
         manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
-        lhorizontalc = player.GetAxis("lhorizontal");
-        lverticalc = player.GetAxis("lvertical");
-        rhorizontalc = player.GetAxis("rhorizontal");
-        rverticalc = player.GetAxis("rvertical");
-        jumpc = player.GetAxis("a");
-        mc = player.GetAxis("b");
-        nc = player.GetAxis("x");
-        rbc = player.GetAxis("rb");
-        lbc = player.GetAxis("lb");
+        lhorizontalc = controles.al2.lhorizontal.ReadValue<float>();
+        lverticalc = controles.al2.lvertical.ReadValue<float>();
+        rhorizontalc = controles.al2.rhorizontal.ReadValue<float>();
+        rverticalc = controles.al2.rvertical.ReadValue<float>();
+        jumpc = controles.al2.a.ReadValue<float>();
+        mc = controles.al2.b.ReadValue<float>();
+        nc = controles.al2.x.ReadValue<float>();
+        rbc = controles.al2.rb.ReadValue<float>();
+        lbc = controles.al2.lb.ReadValue<float>();
         if(manager.personaje == 2)
         {
         if (jumpc > 0f && saltop == true && tiemposalto > 1.4f)

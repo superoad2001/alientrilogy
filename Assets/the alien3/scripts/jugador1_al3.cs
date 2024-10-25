@@ -1,14 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rewired;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class jugador1_al3: MonoBehaviour
 {
-    [SerializeField]private int playerID = 0;
-	[SerializeField]private Player player;
+    private Controles controles;
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     public AudioSource pasosnave;
 	public AudioSource pasos1;
 	public AudioSource pasos2;
@@ -156,7 +166,6 @@ public class jugador1_al3: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = ReInput.players.GetPlayer(playerID);
         manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
         manager.cargar();
         if(manager.juego == 1 || manager.juego == 2 ||  manager.juego == 3)
@@ -259,25 +268,25 @@ public class jugador1_al3: MonoBehaviour
             selcarga = true;
         }
 
-        lhorizontalc = player.GetAxis("lhorizontal");
-        lverticalc = player.GetAxis("lvertical");
-        rhorizontalc = player.GetAxis("rhorizontal");
-        rverticalc = player.GetAxis("rvertical");
-        jumpc = player.GetAxis("a");
-        mc = player.GetAxis("b");
-        yc = player.GetAxis("y");
-        nc = player.GetAxis("x");
-        rbc = player.GetAxis("rb");
-        lbc = player.GetAxis("lb");
-        ltc = player.GetAxis("lt");
-        rtc = player.GetAxis("rt");
-        pausac = player.GetAxis("pausa");
-        r3 = player.GetAxis("r3");
+        lhorizontalc = controles.al3.lhorizontal.ReadValue<float>();
+        lverticalc = controles.al3.lvertical.ReadValue<float>();
+        rhorizontalc = controles.al3.rhorizontal.ReadValue<float>();
+        rverticalc = controles.al3.rvertical.ReadValue<float>();
+        jumpc = controles.al3.a.ReadValue<float>();
+        mc = controles.al3.b.ReadValue<float>();
+        yc = controles.al3.y.ReadValue<float>();
+        nc = controles.al3.x.ReadValue<float>();
+        rbc = controles.al3.rb.ReadValue<float>();
+        lbc = controles.al3.lb.ReadValue<float>();
+        ltc = controles.al3.lt.ReadValue<float>();
+        rtc = controles.al3.rt.ReadValue<float>();
+        pausac = controles.al3.pausa.ReadValue<float>();
+        r3 = controles.al3.r3.ReadValue<float>();
 
 
-        horizontalpadc = player.GetAxis("horizontalpad");
+        horizontalpadc = controles.al3.horizontalpad.ReadValue<float>();
         
-        verticalpadc = player.GetAxis("verticalpad");
+        verticalpadc = controles.al3.verticalpad.ReadValue<float>();
         
         if(manager.datosconfig.idioma == "es")
         {
