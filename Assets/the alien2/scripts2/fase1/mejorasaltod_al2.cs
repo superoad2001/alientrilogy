@@ -22,7 +22,7 @@ public class mejorasaltod_al2 : MonoBehaviour
 			manager.datosserial.tengosaltod = 1;
 			manager.guardar();
 			audio1.Play();
-			SceneManager.LoadScene("saltodc_al2");
+			SceneManager.LoadScene("mundo_abierto_al2");
 		}
 	}
 }

@@ -2931,35 +2931,35 @@ public class jugador1_al2 : MonoBehaviour
             if (lhorizontalc > 0f )
             {
                 dir = 3;
-                _rb.velocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.velocity.y, lverticalc * velocidad));
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,90,0),5* Time.deltaTime);
             }
             if (lhorizontalc < 0f)
             {
                 dir = 4;
-                _rb.velocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.velocity.y, lverticalc * velocidad));
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,-90,0),5* Time.deltaTime);
             }
             if (lverticalc > 0f)
             {
                 dir = 1;
-                _rb.velocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.velocity.y, lverticalc * velocidad));
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
             }
             if (lverticalc < 0f )
             {
                 dir = 2;
-                _rb.velocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.velocity.y, lverticalc * velocidad));
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,180,0),5* Time.deltaTime);
             }
-                Vector3 movdire = _rb.velocity;
+                Vector3 movdire = _rb.linearVelocity;
                 movdire.y = 0;
                 float distance = movdire.magnitude * Time.fixedDeltaTime;
                 movdire.Normalize();
                 RaycastHit hit;
                 if(lverticalc == 0f && lhorizontalc == 0f || _rb.SweepTest(movdire,out hit,distance,QueryTriggerInteraction.Ignore))
                 {
-                    _rb.velocity = new Vector3 (0, _rb.velocity.y, 0);
+                    _rb.linearVelocity = new Vector3 (0, _rb.linearVelocity.y, 0);
                 }
 
             rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
@@ -2999,35 +2999,35 @@ public class jugador1_al2 : MonoBehaviour
            if (lhorizontalc > 0f )
             {
                 dir = 3;
-                _rb.velocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.velocity.y, lverticalc * velocidad));
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,90,0),5* Time.deltaTime);
             }
             if (lhorizontalc < 0f)
             {
                 dir = 4;
-                _rb.velocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.velocity.y, lverticalc * velocidad));
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,-90,0),5* Time.deltaTime);
             }
             if (lverticalc > 0f)
             {
                 dir = 1;
-                _rb.velocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.velocity.y, lverticalc * velocidad));
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
             }
             if (lverticalc < 0f )
             {
                 dir = 2;
-                _rb.velocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.velocity.y, lverticalc * velocidad));
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,180,0),5* Time.deltaTime);
             }
-            Vector3 movdire = _rb.velocity;
+            Vector3 movdire = _rb.linearVelocity;
             movdire.y = 0;
             float distance = movdire.magnitude * Time.fixedDeltaTime;
             movdire.Normalize();
             RaycastHit hit;
             if(lverticalc == 0f && lhorizontalc == 0f || _rb.SweepTest(movdire,out hit,distance,QueryTriggerInteraction.Ignore))
             {
-                _rb.velocity = new Vector3 (0, _rb.velocity.y, 0);
+                _rb.linearVelocity = new Vector3 (0, _rb.linearVelocity.y, 0);
             }
 
             if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
@@ -3057,23 +3057,23 @@ public class jugador1_al2 : MonoBehaviour
             if (lhorizontalc > 0f )
             {
                 dir = 1;
-                _rb.velocity = transform.TransformDirection(new Vector3 (-1 * velocidad, _rb.velocity.y, 0));
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (-1 * velocidad, _rb.linearVelocity.y, 0));
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,-90,0),5* Time.deltaTime);
             }
             if (lhorizontalc < 0f)
             {
                 dir = 2;
-                _rb.velocity = transform.TransformDirection(new Vector3 (1 * velocidad, _rb.velocity.y, 0));
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (1 * velocidad, _rb.linearVelocity.y, 0));
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,90,0),5* Time.deltaTime);
             }
-            Vector3 movdire = _rb.velocity;
+            Vector3 movdire = _rb.linearVelocity;
             movdire.y = 0;
             float distance = movdire.magnitude * Time.fixedDeltaTime;
             movdire.Normalize();
             RaycastHit hit;
             if(lhorizontalc == 0f || _rb.SweepTest(movdire,out hit,distance,QueryTriggerInteraction.Ignore))
             {
-                _rb.velocity = new Vector3 (0, _rb.velocity.y, 0);
+                _rb.linearVelocity = new Vector3 (0, _rb.linearVelocity.y, 0);
             }
             if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
             {
@@ -3108,23 +3108,23 @@ public class jugador1_al2 : MonoBehaviour
 			if (lhorizontalc > 0f )
             {
                 dir = 1;
-                _rb.velocity = transform.TransformDirection(new Vector3 (-1 * velocidad, _rb.velocity.y,0));
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (-1 * velocidad, _rb.linearVelocity.y,0));
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,-90,0),5* Time.deltaTime);
             }
             if (lhorizontalc < 0f)
             {
                 dir = 2;
-                _rb.velocity = transform.TransformDirection(new Vector3 (1 * velocidad, _rb.velocity.y, 0));
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (1 * velocidad, _rb.linearVelocity.y, 0));
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,90,0),5* Time.deltaTime);
             }
-            Vector3 movdire = _rb.velocity;
+            Vector3 movdire = _rb.linearVelocity;
             movdire.y = 0;
             float distance = movdire.magnitude * Time.fixedDeltaTime;
             movdire.Normalize();
             RaycastHit hit;
             if(lhorizontalc == 0f || _rb.SweepTest(movdire,out hit,distance,QueryTriggerInteraction.Ignore))
             {
-                _rb.velocity = new Vector3 (0, _rb.velocity.y, 0);
+                _rb.linearVelocity = new Vector3 (0, _rb.linearVelocity.y, 0);
             }
             if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
             {
@@ -3203,23 +3203,23 @@ public class jugador1_al2 : MonoBehaviour
         {
             if (lhorizontalc > 0f )
             {
-                _rb.velocity = transform.TransformDirection(new Vector3 (lhorizontalc * 100, lverticalc * 100,1 * velocidad));
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * 100, lverticalc * 100,1 * velocidad));
             }
             if (lhorizontalc < 0f)
             {
-                _rb.velocity = transform.TransformDirection(new Vector3 (lhorizontalc * 100, lverticalc * 100,1 * velocidad));
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * 100, lverticalc * 100,1 * velocidad));
             }
             if (lverticalc > 0f)
             {
-                _rb.velocity = transform.TransformDirection(new Vector3 (lhorizontalc * 100, lverticalc * 100,1 * velocidad));
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * 100, lverticalc * 100,1 * velocidad));
             }
             if (lverticalc < 0f )
             {
-                _rb.velocity = transform.TransformDirection(new Vector3 (lhorizontalc * 100, lverticalc * 100,1 * velocidad));
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * 100, lverticalc * 100,1 * velocidad));
             }
             if(lverticalc == 0f && lhorizontalc == 0f)
             {
-                _rb.velocity = new Vector3 (0, 0, 1 * velocidad);
+                _rb.linearVelocity = new Vector3 (0, 0, 1 * velocidad);
             }
             if (nc > 0f && tiempodisp > 0.7f)
 			{
@@ -3242,16 +3242,16 @@ public class jugador1_al2 : MonoBehaviour
 			if (jumpc > 0f)
 			{
                 pasosnave.UnPause();
-				_rb.velocity = transform.TransformDirection(new Vector3 (0,_rb.velocity.y,1 * velocidad));
+				_rb.linearVelocity = transform.TransformDirection(new Vector3 (0,_rb.linearVelocity.y,1 * velocidad));
 			}
 			else if (mc > 0f )
 			{
                 pasosnave.UnPause();
-				_rb.velocity = transform.TransformDirection(new Vector3 (0,_rb.velocity.y,-1 * velocidad));
+				_rb.linearVelocity = transform.TransformDirection(new Vector3 (0,_rb.linearVelocity.y,-1 * velocidad));
 			}
             else
 			{
-				_rb.velocity = transform.TransformDirection(new Vector3 (0,_rb.velocity.y,0));
+				_rb.linearVelocity = transform.TransformDirection(new Vector3 (0,_rb.linearVelocity.y,0));
                 pasosnave.Pause();
 			}
 
@@ -3287,11 +3287,11 @@ public class jugador1_al2 : MonoBehaviour
 			if (jumpc > 0f)
 			{
                 pasosnave.UnPause();
-				_rb.velocity = transform.TransformDirection(new Vector3 (0,0,1 * velocidad));
+				_rb.linearVelocity = transform.TransformDirection(new Vector3 (0,0,1 * velocidad));
 			}
             else
             {
-            _rb.velocity = transform.TransformDirection(new Vector3 (0,0,0));
+            _rb.linearVelocity = transform.TransformDirection(new Vector3 (0,0,0));
             pasosnave.Pause();
             }
 

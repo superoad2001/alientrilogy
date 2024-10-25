@@ -17,7 +17,7 @@ public class torre_acceso_al2 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			SceneManager.LoadScene("torre_al2");
+			SceneManager.LoadScene("torre_del_tiempo_al2");
 		}
 	}
 }

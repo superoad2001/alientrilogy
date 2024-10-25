@@ -21,6 +21,6 @@ public class lallegada_al2 : MonoBehaviour
         
         temp += 1 * Time.deltaTime;
         if(temp >= 25f)
-        {SceneManager.LoadScene("inicio_al2");}
+        {SceneManager.LoadScene("mundo_abierto_al2");}
     }
 }

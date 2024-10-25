@@ -26,16 +26,7 @@ public class recordback_al2 : MonoBehaviour
 
         
         manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
-		if(manager.datosconfig.plat == 1)
-        {
-            tactil.SetActive(false);
 
-        }
-        if(manager.datosconfig.plat == 2)
-        {
-            tactil.SetActive(true);
-
-        }
     }
     public void A()
 	{

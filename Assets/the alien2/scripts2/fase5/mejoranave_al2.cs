@@ -22,7 +22,7 @@ public class mejoranave_al2 : MonoBehaviour
 			manager.datosserial.tengonave = 1;
 			manager.guardar();
 			audio1.Play();
-			SceneManager.LoadScene("navec_al2");
+			SceneManager.LoadScene("mundo_abierto_al2");
 		}
 	}
 }

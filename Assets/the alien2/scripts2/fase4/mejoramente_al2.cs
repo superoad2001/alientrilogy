@@ -22,7 +22,7 @@ public class mejoramente_al2 : MonoBehaviour
 			manager.datosserial.tengomental = 1;
 			manager.guardar();
 			audio1.Play();
-			SceneManager.LoadScene("controlc_al2");
+			SceneManager.LoadScene("mundo_abierto_al2");
 		}
 	}
 }

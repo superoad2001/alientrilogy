@@ -22,7 +22,7 @@ public class mejoracoche_al2 : MonoBehaviour
 			manager.datosserial.tengocoche = 1;
 			manager.guardar();
 			audio1.Play();
-			SceneManager.LoadScene("cochec_al2");
+			SceneManager.LoadScene("mundo_abierto_al2");
 		}
 	}
 }
