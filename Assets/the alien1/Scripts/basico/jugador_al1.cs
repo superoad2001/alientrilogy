@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class jugador_al1 : MonoBehaviour
 {
 	public AudioSource audio1;
+	public bool controlact = true;
 	public float temppaso = 1;
 	public float rotspeed = 3;
 
@@ -142,7 +143,8 @@ public class jugador_al1 : MonoBehaviour
 	{
 	tiempoascensor += Time.deltaTime;
 	manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
-
+	if(controlact == true)
+	{
 	lhorizontalc = controles.al1.lhorizontal.ReadValue<float>();
     lverticalc = controles.al1.lvertical.ReadValue<float>();
 
@@ -152,6 +154,7 @@ public class jugador_al1 : MonoBehaviour
 	mc = controles.al1.b.ReadValue<float>();
 	nc = controles.al1.x.ReadValue<float>();
 	pausac = controles.al1.pausa.ReadValue<float>();
+	}
 
 
 
