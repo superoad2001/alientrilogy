@@ -19,8 +19,26 @@ public class presentacion_al1 : MonoBehaviour
         temp = 300;
     }
     // Update is called once per frame
+    private Controles controles;
+    public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
+    // Update is called once per frame
     void Update()
     {
+        if(controles.al1.pausa.ReadValue<float>() > 0)
+        {
+            temp = 300;
+        }
         manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         if(manager.datosconfig.idioma == "es")
         {

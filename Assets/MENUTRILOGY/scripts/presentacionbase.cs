@@ -9,19 +9,39 @@ public class presentacionbase : MonoBehaviour
 
     public float temp = 0;
     public Text pres;
+    public managerBASE manager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
     }
     public void act()
     {
         temp = 300;
     }
+
+    private Controles controles;
+    public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     // Update is called once per frame
     void Update()
     {
-        managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+        if(controles.al3.pausa.ReadValue<float>() > 0)
+        {
+            temp = 300;
+        }
+        
+        
         if(manager.datosconfig.idioma == "es")
         {
             pres.text = "presenta";

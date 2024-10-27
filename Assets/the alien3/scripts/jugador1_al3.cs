@@ -162,12 +162,15 @@ public class jugador1_al3: MonoBehaviour
     public GameObject selecionrap;
 
     public Animator seleccionanim;
+    public tienda_al3 tienda;
 
 	
     // Start is called before the first frame update
     void Start()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        
+        tienda = (tienda_al3)FindFirstObjectByType(typeof(tienda_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         manager.cargar();
         if(manager.juego == 1 || manager.juego == 2 ||  manager.juego == 3)
         {seleccionanim = selecionrap.GetComponent<Animator>();}
@@ -218,10 +221,10 @@ public class jugador1_al3: MonoBehaviour
     public GameObject model;
     public GameObject pistola;
     public float velf;
+    public manager_al3 manager;
         // Update is called once per frame
     void FixedUpdate()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 
         if(suelo == false || volador == false)
         {
@@ -741,7 +744,6 @@ public class jugador1_al3: MonoBehaviour
         }
         else if (blanco == 1)
         {
-            inicio_al3 inicio = (inicio_al3)FindFirstObjectByType(typeof(inicio_al3));
             if(manager.datosconfig.idioma == "es")
             {
                 objetotext.text = "subir a la nave";
@@ -1810,6 +1812,8 @@ public class jugador1_al3: MonoBehaviour
                 {
                     transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),90f* Time.deltaTime);
                 }
+                camara.transform.position = new Vector3 (transform.position.x,transform.position.y,transform.position.z);
+                
                 }
                 if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
                 {
@@ -1837,12 +1841,17 @@ public class jugador1_al3: MonoBehaviour
                 {
                     _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                     mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
+                    anim.SetBool("latder",true);
                 }
+                else
+                {anim.SetBool("latder",false);}
                 if (lhorizontalc < 0f)
                 {
                     _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                     mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
+                    anim.SetBool("latizq",true);
                 }
+                else{anim.SetBool("latizq",false);}
                 if (lverticalc > 0f)
                 {
                     _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
@@ -1858,6 +1867,7 @@ public class jugador1_al3: MonoBehaviour
                 float distance = movdire.magnitude * Time.fixedDeltaTime;
                 movdire.Normalize();
                 RaycastHit hit;
+                camara.transform.position = new Vector3 (transform.position.x,transform.position.y,transform.position.z);
                 if(lverticalc == 0f && lhorizontalc == 0f || _rb.SweepTest(movdire,out hit,distance,QueryTriggerInteraction.Ignore))
                 {
                     _rb.linearVelocity = new Vector3 (0, _rb.linearVelocity.y, 0);
@@ -2285,7 +2295,6 @@ public class jugador1_al3: MonoBehaviour
 	}
     private void OnCollisionEnter(Collision col)
 	{
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		if (col.gameObject.tag == "suelo" || col.gameObject.tag == "nave")
 		{
             anim.SetBool("jetpack1",false);
@@ -2355,7 +2364,6 @@ public class jugador1_al3: MonoBehaviour
 	}
     private void OnCollisionExit(Collision col)
 	{
-		manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 
 		if (col.gameObject.tag == "suelo")
         {
@@ -2393,7 +2401,6 @@ public class jugador1_al3: MonoBehaviour
 	}
     private void OnTriggerEnter(Collider col)
 	{
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         if (col.gameObject.tag == "escalar")
 		{
 			escalar = true;
@@ -2540,7 +2547,7 @@ public class jugador1_al3: MonoBehaviour
 		}
         if (col.gameObject.tag == "tiendat")
 		{
-            tienda_al3 tienda = (tienda_al3)FindFirstObjectByType(typeof(tienda_al3));
+            
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
 			tiendat = false;
@@ -2581,7 +2588,6 @@ public class jugador1_al3: MonoBehaviour
 	}
     private void OnTriggerStay(Collider col)
 	{
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 
         if (col.gameObject.tag == "gas")
 		{

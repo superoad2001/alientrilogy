@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class enemigo1_al3: MonoBehaviour
 {
     public bool detectar;
+    public GameObject explosion;
     public int lado = 1;
     public float temptp;
     public int tprandom;
@@ -46,11 +47,15 @@ public class enemigo1_al3: MonoBehaviour
     public enemigodet_al3 enemigodet;
     public GameObject moneda;
     public Transform juego;
+    public manager_al3 manager;
+    public jugador1_al3 jugador;
     // Start is called before the first frame update
     void Start()
     {
         enemigo3 = Random.Range(1,3);
         vidaux = vida;
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
     }
 
     // Update is called once per frame
@@ -74,7 +79,6 @@ public class enemigo1_al3: MonoBehaviour
         }
         if(vida <= 0)
         {
-            manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
             manager.datosserial.enemigos++;
             manager.guardar();
             if(jefe == 1)
@@ -127,6 +131,8 @@ public class enemigo1_al3: MonoBehaviour
             else if(jefe == 0)
             {
                 GameObject Temporal = Instantiate(moneda, transform.position,transform.rotation) as GameObject;
+                GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
+                Destroy(explosiont, 2f);
                 Destroy(gameObject);
             }
 
@@ -155,7 +161,7 @@ public class enemigo1_al3: MonoBehaviour
                 anim.SetBool("atk",false);
                 anim.SetBool("atkg",false);
                 }
-            transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position,vel * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-3),vel * Time.deltaTime);
             Vector3 direction = objetivo1.position - transform.position;
             rotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
@@ -200,7 +206,7 @@ public class enemigo1_al3: MonoBehaviour
                 anim.SetBool("atk",false);
                 anim.SetBool("atkg",false);
                 }
-                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position,vel * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-3),vel * Time.deltaTime);
                 Vector3 direction = objetivo1.position - transform.position;
                 rotation = Quaternion.LookRotation(direction);
                 transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
@@ -255,7 +261,7 @@ public class enemigo1_al3: MonoBehaviour
                 anim.SetBool("atk",false);
                 anim.SetBool("atkg",false);
                 }
-                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position,vel * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-3),vel * Time.deltaTime);
                 Vector3 direction = objetivo1.position - transform.position;
                 rotation = Quaternion.LookRotation(direction);
                 transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
@@ -498,7 +504,7 @@ public class enemigo1_al3: MonoBehaviour
                 anim.SetBool("atk",false);
                 anim.SetBool("atkg",false);
                 }
-                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position,vel * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position+ new Vector3(0,0,-3),vel * Time.deltaTime);
                 Vector3 direction = objetivo1.position - transform.position;
                 rotation = Quaternion.LookRotation(direction);
                 transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
@@ -619,7 +625,7 @@ public class enemigo1_al3: MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        jugador1_al3 jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
+        
         if (col.gameObject.tag == "golpeh" && tempgolpe > 0.3f)
 		{
             vida = vida - 1f * jugador.dano;

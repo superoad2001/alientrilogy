@@ -10,10 +10,11 @@ public class inicio0base : MonoBehaviour
 	public int plat;
 	public float temp;
 	public AudioMixer audiomixer;
+	public managerBASE manager;
 	// Token: 0x0600001A RID: 26 RVA: 0x00002523 File Offset: 0x00000723
 	private void Start()
 	{
-		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+		manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 		audiomixer.SetFloat ("MusicVolume",manager.datosconfig.musica);
 		audiomixer.SetFloat ("EnvironmentVolume",manager.datosconfig.voz);
 		audiomixer.SetFloat ("SFXVolume",manager.datosconfig.sfx);
@@ -25,7 +26,6 @@ public class inicio0base : MonoBehaviour
 	// Token: 0x0600001B RID: 27 RVA: 0x00002528 File Offset: 0x00000728
 	private void Update()
 	{
-		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 		if(temp > 1)
 		{
 		if(manager.datosconfig.idioma != "es" && manager.datosconfig.idioma != "en" && manager.datosconfig.idioma != "cat")
@@ -53,7 +53,6 @@ public class inicio0base : MonoBehaviour
 	}
 	public void reset()
 	{
-		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 		manager.borrar_data();
 		SceneManager.LoadScene("idiomabase");
 	}

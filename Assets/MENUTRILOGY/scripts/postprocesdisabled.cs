@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 public class postprocesdisabled : MonoBehaviour
 {
     public Volume objeto;
+    public managerBASE manager0;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +65,6 @@ public class postprocesdisabled : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        managerBASE manager0 = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
         if(manager0 != null)
         {
             if(manager0.datosconfig.postpro == 1)

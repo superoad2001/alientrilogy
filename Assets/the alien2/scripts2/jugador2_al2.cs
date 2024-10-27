@@ -25,7 +25,7 @@ public class jugador2_al2 : MonoBehaviour
 	public AudioSource audio1;
     private float cameraverticalangle2;
     public AudioSource audio2;
-    public float vida = 2;
+    public float vida = 3;
     public bool muerte;
     public Text vidas;
     public float vidaaux;
@@ -78,10 +78,19 @@ public class jugador2_al2 : MonoBehaviour
 	public float nc;
     public float rbc;
     public float lbc;
+    public manager_al2 manager;
+    public jugador1_al2 jugador1;
     // Start is called before the first frame update
     void Start()
     {
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
+
+
+
+        
+
+
         if(manager.datosconfig.plat == 1)
         {
             Cursor.visible = false;
@@ -123,7 +132,6 @@ public class jugador2_al2 : MonoBehaviour
     void Update()
     {
         
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         lhorizontalc = controles.al2.lhorizontal.ReadValue<float>();
         lverticalc = controles.al2.lvertical.ReadValue<float>();
         rhorizontalc = controles.al2.rhorizontal.ReadValue<float>();
@@ -229,7 +237,6 @@ public class jugador2_al2 : MonoBehaviour
                 }
                 if(nc > 0f && tempboton > 0.5f)
                 {
-                    jugador1_al2 jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
                     jugador1.tempboton = 0;
                     tempboton = 0;
                     manager.personaje = 1;
@@ -252,29 +259,29 @@ public class jugador2_al2 : MonoBehaviour
             anim.SetFloat("velx",lhorizontalc);
             anim.SetFloat("vely",lverticalc);
             if (lhorizontalc > 0f )
-			{
+            {
                 dir = 3;
-				base.transform.Translate (-1 * Time.deltaTime * Vector3.left* velocidad);
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,90,0),5* Time.deltaTime);
-			}
-			if (lhorizontalc < 0f)
-			{
+            }
+            if (lhorizontalc < 0f)
+            {
                 dir = 4;
-				base.transform.Translate (1 * Time.deltaTime * Vector3.left* velocidad);
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,-90,0),5* Time.deltaTime);
-			}
-			if (lverticalc > 0f)
-			{
+            }
+            if (lverticalc > 0f)
+            {
                 dir = 1;
-				base.transform.Translate  (-1 * Time.deltaTime * Vector3.back * velocidad);
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
-			}
-			if (lverticalc < 0f )
-			{
+            }
+            if (lverticalc < 0f )
+            {
                 dir = 2;
-				base.transform.Translate (1  * Time.deltaTime * Vector3.back* velocidad);
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,180,0),5* Time.deltaTime);
-			}
+            }
 
             rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
             rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
@@ -293,6 +300,7 @@ public class jugador2_al2 : MonoBehaviour
 			{
 				transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),90f* Time.deltaTime);
 			}
+            camara.transform.position = new Vector3 (transform.position.x,transform.position.y,transform.position.z);
         }
         if(manager.juego == 2)
         {
@@ -446,11 +454,35 @@ public class jugador2_al2 : MonoBehaviour
         rbc = 0;
         
     }
+    private void OnTriggerEnter(Collider col)
+	{
+
+        if (col.gameObject.tag == "pisar")
+		{
+            Destroy(col.transform.parent.gameObject);
+		}
+        if (col.gameObject.tag == "pisar2")
+		{
+            Destroy(transform.parent.gameObject);
+		}
+        if (col.gameObject.tag == "enemigo")
+		{
+            audio2.Play();
+            Destroy(col.gameObject);
+			vida--;
+        }
+        if (col.gameObject.tag == "dañox2" && tempdano > 3)
+		{
+            tempdano = 0;
+            audio2.Play();
+			vida--;
+        }
+
+	}
 
 
     private void OnCollisionEnter(Collision col)
 	{
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if (col.gameObject.tag == "suelo")
 		{
 			saltop = true;
@@ -465,6 +497,18 @@ public class jugador2_al2 : MonoBehaviour
 		{
 			muerte = true;
 		}
+                if (col.gameObject.tag == "enemigo")
+		{
+            audio2.Play();
+            Destroy(col.gameObject);
+			vida--;
+        }
+        if (col.gameObject.tag == "dañox2")
+		{
+            audio2.Play();
+			vida--;
+            
+        }
 
 	}
     private void OnCollisionStay(Collision col)
@@ -478,7 +522,6 @@ public class jugador2_al2 : MonoBehaviour
 	}
     private void OnCollisionExit(Collision col)
 	{
-		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 
 		if (col.gameObject.tag == "suelo")
         {

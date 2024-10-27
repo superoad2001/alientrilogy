@@ -18,6 +18,7 @@ public class inicio3base : MonoBehaviour
     public GameObject logoo4;
     public int juego = 1;
     public float temp;
+    public managerBASE manager;
     
     public void Awake()
     {
@@ -48,7 +49,6 @@ public class inicio3base : MonoBehaviour
     }
     public void comenzar()
     {
-        managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
         if(juego == 1)
         {
             SceneManager.LoadScene("presentacion_al1");
@@ -75,7 +75,7 @@ public class inicio3base : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
     }
 
     // Update is called once per frame
@@ -91,7 +91,7 @@ public class inicio3base : MonoBehaviour
             izq();
             temp = 0;
         }
-        managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+        
         if(juego == 1) 
         {
             logo1.color = new Color32(255,64,64,255);

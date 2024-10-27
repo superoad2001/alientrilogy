@@ -27,9 +27,10 @@ public class inicio4base : MonoBehaviour
 	public Text resolt;
 	public AudioMixer audiomixer;
 	public bool menu;
+	public managerBASE manager;
 	public void Start()
 	{
-		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+		manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 		if(menu)
 		{
 		audiomixer.SetFloat ("MusicVolume",manager.datosconfig.musica);
@@ -103,7 +104,7 @@ public class inicio4base : MonoBehaviour
 	{
 		if (temp < 15)
 		{temp += 1 * Time.deltaTime;}
-		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+		
 		if(plat == 1)
 		{
 			if(manager.datosconfig.idioma == "es")

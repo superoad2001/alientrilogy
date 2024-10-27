@@ -95,13 +95,18 @@ public class jugador1_al2 : MonoBehaviour
     public float rbc;
     public float lbc;
     public GameObject tactil;
+    public manager_al2 manager;
+    public pushup push;
+    public jugador2_al2 jugador2;
 
 	
     // Start is called before the first frame update
     void Start()
     {
-        manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
-        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+        push = UnityEngine.Object.FindObjectOfType<pushup>();
+        jugador2 = UnityEngine.Object.FindObjectOfType<jugador2_al2>();
+
         Debug.Log("start");
         if(manager.datosconfig.plat == 1)
         {
@@ -385,8 +390,6 @@ public class jugador1_al2 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
-        manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
         if(respawn == true)
         {
             manager.datosserial.alien2muere = 1;
@@ -413,7 +416,8 @@ public class jugador1_al2 : MonoBehaviour
             }
             respawn = false;
         }
-        
+        if(controlact == true)
+        {
         lhorizontalc = controles.al2.lhorizontal.ReadValue<float>();
         lverticalc = controles.al2.lvertical.ReadValue<float>();
 
@@ -425,6 +429,8 @@ public class jugador1_al2 : MonoBehaviour
         nc = controles.al2.x.ReadValue<float>();
         rbc = controles.al2.rb.ReadValue<float>();
         lbc = controles.al2.lb.ReadValue<float>();
+        pausac = controles.al2.pausa.ReadValue<float>();
+        }
         if(manager.personaje == 1 || manager.personaje == 0)
         {
 
@@ -546,7 +552,6 @@ public class jugador1_al2 : MonoBehaviour
                 }
                 if(nc > 0f && manager.datosserial.tengomental == 1 && control == true && tempboton > 0.5f)
                 {
-                    jugador2_al2 jugador2 = UnityEngine.Object.FindObjectOfType<jugador2_al2>();
                     jugador2.tempboton = 0;
                     manager.personaje = 2;
                     tempboton = 0;
@@ -3155,7 +3160,8 @@ public class jugador1_al2 : MonoBehaviour
             else if (lhorizontalc != 0f || lverticalc != 0)
             {
                 transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),90f* Time.deltaTime);
-                }
+            }
+            camara.transform.position = new Vector3 (transform.position.x,transform.position.y,transform.position.z);
             if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
             {
                 if(temppaso > pasotiempo)
@@ -3571,7 +3577,6 @@ public class jugador1_al2 : MonoBehaviour
 	}
     private void OnCollisionEnter(Collision col)
 	{
-        manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
 		if (col.gameObject.tag == "suelo")
 		{
 			saltop = true;
@@ -3720,6 +3725,18 @@ public class jugador1_al2 : MonoBehaviour
 		{
 			muerte = true;
 		}
+        if (col.gameObject.tag == "enemigo")
+		{
+            audio2.Play();
+            Destroy(col.gameObject);
+			vida--;
+        }
+        if (col.gameObject.tag == "dañox2")
+		{
+            audio2.Play();
+			vida--;
+            
+        }
         
 
 	}
@@ -3745,7 +3762,6 @@ public class jugador1_al2 : MonoBehaviour
 	}
     private void OnCollisionExit(Collision col)
 	{
-		manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
 
 		if (col.gameObject.tag == "suelo")
         {
@@ -3875,13 +3891,35 @@ public class jugador1_al2 : MonoBehaviour
         if (col.gameObject.tag == "control")
 		{
 			control = true;
+            objeto = 1;
 		}
+            if (col.gameObject.tag == "pisar")
+		{
+            Destroy(col.transform.parent.gameObject);
+		}
+            if (col.gameObject.tag == "pisar2")
+		{
+            Destroy(transform.parent.gameObject);
+		}
+        if (col.gameObject.tag == "enemigo")
+		{
+            audio2.Play();
+            Destroy(col.gameObject);
+			vida--;
+        }
+        if (col.gameObject.tag == "dañox2" && tempdano > 3)
+		{
+            tempdano = 0;
+            audio2.Play();
+			vida--;
+        }
 
 	}
     private void OnTriggerExit(Collider col)
 	{
         if (col.gameObject.tag == "control")
 		{
+            objeto = 0;
 			control = false;
 		}
 		

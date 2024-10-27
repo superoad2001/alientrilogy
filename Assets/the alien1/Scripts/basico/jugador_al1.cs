@@ -57,10 +57,11 @@ public class jugador_al1 : MonoBehaviour
     {
         controles.Disable();
     }
+	public manager_al1 manager;
 	// Token: 0x0600001D RID: 29 RVA: 0x000025E8 File Offset: 0x000007E8
 	private void Start()
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if(manager.datosconfig.plat == 1)
 		{
 			tactil.SetActive(false);
@@ -143,7 +144,6 @@ public class jugador_al1 : MonoBehaviour
 	private void Update()
 	{
 	tiempoascensor += Time.deltaTime;
-	manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 	if(controlact == true)
 	{
 	lhorizontalc = controles.al1.lhorizontal.ReadValue<float>();
@@ -883,7 +883,6 @@ public class jugador_al1 : MonoBehaviour
 	// Token: 0x06000020 RID: 32 RVA: 0x00003169 File Offset: 0x00001369
 	public void saltoalto()
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (jumpc > 0f ){
 		this._rb.AddForce(this.jumpforce * 0.2f * Vector3.up);}
 		audio1 = manager.GetComponent<AudioSource>();
@@ -891,14 +890,12 @@ public class jugador_al1 : MonoBehaviour
 	}
     public void saltoalto2()
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (jumpc > 0f){
 		this._rb.AddForce(this.jumpforce * 1f * Vector3.up);}
 		audio1.Play();
 	}
 	public void saltoalto3()
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (jumpc > 0f){
 		this._rb.AddForce(this.jumpforce * 3f * Vector3.up);}
 		audio1.Play();
@@ -907,7 +904,6 @@ public class jugador_al1 : MonoBehaviour
 	// Token: 0x06000021 RID: 33 RVA: 0x0000318C File Offset: 0x0000138C
 	public void OnCollisionEnter(Collision col)
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (manager.juego == 6)
 		{
 			tempgir = 3;
@@ -969,7 +965,6 @@ public class jugador_al1 : MonoBehaviour
 	// Token: 0x06000022 RID: 34 RVA: 0x000031C0 File Offset: 0x000013C0
 	private void OnCollisionStay(Collision col)
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "ascensor" && manager.juego == 0)
 		{
 			tut10.SetActive(true);
@@ -997,7 +992,6 @@ public class jugador_al1 : MonoBehaviour
 	// Token: 0x06000023 RID: 35 RVA: 0x00003284 File Offset: 0x00001484
 	private void OnCollisionExit(Collision col)
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "ascensor" && manager.juego == 4)
 		{
 			if (!this.dentrotienda)
