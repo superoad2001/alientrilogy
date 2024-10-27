@@ -9,6 +9,7 @@ public class presentacion_al3: MonoBehaviour
 
     public float temp = 0;
     public Text pres;
+    public manager_al3 manager;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +43,6 @@ public class presentacion_al3: MonoBehaviour
         {
             temp = 300;
         }
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 
         if(manager.datosconfig.idioma == "es")
         {

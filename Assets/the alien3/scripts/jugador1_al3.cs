@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class jugador1_al3: MonoBehaviour
 {
+    public GameObject respawnm;
     private Controles controles;
 	public void Awake()
     {
@@ -2254,7 +2255,8 @@ public class jugador1_al3: MonoBehaviour
 
             manager.datosserial.alien3muere = 1;
             manager.guardar();
-            SceneManager.LoadScene("carga_al3");
+            respawnm.SetActive(false);
+            juego.SetActive(false);
         }
 
         if (pausac > 0 && temp9 > 0.5f && tiendat == false )

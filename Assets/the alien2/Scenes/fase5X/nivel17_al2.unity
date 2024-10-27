@@ -10783,6 +10783,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jugador: {fileID: 0}
+  push: {fileID: 0}
+  manager: {fileID: 0}
 --- !u!114 &541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11148,6 +11151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saltop: 1
+  respawnm: {fileID: 1700214063}
+  juego: {fileID: 860985247}
   audio1: {fileID: 0}
   audio2: {fileID: 0}
   vida: 2
@@ -11189,6 +11194,9 @@ MonoBehaviour:
   nc: 0
   rbc: 0
   lbc: 0
+  manager: {fileID: 0}
+  jugador1: {fileID: 0}
+  jugador: {fileID: 0}
 --- !u!95 &572
 Animator:
   serializedVersion: 7
@@ -14571,6 +14579,68 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1001 &1700214062
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4030131216183775422, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.59591436
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 536.91724
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 449.97543
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528097366300523372, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+      propertyPath: m_Name
+      value: reapa
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+--- !u!1 &1700214063 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6528097366300523372, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+  m_PrefabInstance: {fileID: 1700214062}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1715715319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15412,6 +15482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5019b73ff2a486a4eaa6707c35be65f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnm: {fileID: 0}
   controlact: 1
   pasotiempo: 0
   temppaso: 1
@@ -15470,6 +15541,10 @@ MonoBehaviour:
   rbc: 0
   lbc: 0
   tactil: {fileID: 193038833}
+  manager: {fileID: 0}
+  push: {fileID: 0}
+  jugador2: {fileID: 0}
+  explosion: {fileID: 0}
   temp9: 0
   pausac: 0
   juego: {fileID: 860985247}
@@ -15572,3 +15647,4 @@ SceneRoots:
   - {fileID: 1715715319}
   - {fileID: 1128387840}
   - {fileID: 44238512}
+  - {fileID: 1700214062}

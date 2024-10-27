@@ -19,12 +19,6 @@ public class mundo_coche_al1 : MonoBehaviour
 	// Token: 0x06000054 RID: 84 RVA: 0x00003C1D File Offset: 0x00001E1D
 	private void OnCollisionEnter(Collision col)
 	{
-		if (col.gameObject.tag == "Player")
-		{
-			manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
-			manager.datosserial.alien1muere = true;
-			manager.guardar();
-			SceneManager.LoadScene("mundoc2_al1");
-		}
+
 	}
 }

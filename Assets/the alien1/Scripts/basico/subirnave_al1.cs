@@ -12,6 +12,11 @@ public class subirnave_al1 : MonoBehaviour
 	public Animator anim;
 	private Controles controles;
 	public GameObject objeto;
+	public manager_al1 manager;
+	private void Start()
+	{
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+	}
 	public void Awake()
     {
         controles = new Controles();
@@ -29,7 +34,6 @@ public class subirnave_al1 : MonoBehaviour
 
 	private void OnTriggerStay(Collider col)
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player" && manager.datosserial.tengonave == 1)
 		{
 	    	anim.SetBool("show",true);

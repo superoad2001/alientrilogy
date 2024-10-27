@@ -5,14 +5,16 @@ using UnityEngine;
 public class tiendacoche_al1 : MonoBehaviour
 {
 	// Token: 0x060001DA RID: 474 RVA: 0x00006FD7 File Offset: 0x000051D7
+	public manager_al1 manager;
 	private void Start()
 	{
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 	}
 
 	// Token: 0x060001DB RID: 475 RVA: 0x00006FDC File Offset: 0x000051DC
 	private void Update()
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+
 		if (manager.datosserial.tengocoche == 1)
 		{
 			UnityEngine.Object.Destroy(base.gameObject);
@@ -27,7 +29,6 @@ public class tiendacoche_al1 : MonoBehaviour
 	private void OnTriggerEnter(Collider col)
 	{
 		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player")
 		{
 			manager.datosserial.tengocoche = 1;

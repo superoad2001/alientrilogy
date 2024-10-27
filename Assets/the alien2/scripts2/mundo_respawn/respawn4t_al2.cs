@@ -22,8 +22,6 @@ public class respawn4t_al2 : MonoBehaviour
         manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if (col.gameObject.tag == "Player")
 		{
-            manager.datosserial.alien2muere = 1;
-            manager.guardar();
 			manager.datosserial.respawntipo = 3;
 			manager.datosserial.univel = 0;
 			manager.guardar();

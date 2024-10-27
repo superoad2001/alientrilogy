@@ -5,14 +5,15 @@ using UnityEngine;
 public class tiendavel_al1 : MonoBehaviour
 {
 	// Token: 0x060001E6 RID: 486 RVA: 0x0000722B File Offset: 0x0000542B
+	public manager_al1 manager;
 	private void Start()
 	{
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 	}
 
 	// Token: 0x060001E7 RID: 487 RVA: 0x00007230 File Offset: 0x00005430
 	private void Update()
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (manager.datosserial.tengovel == 1)
 		{
 			UnityEngine.Object.Destroy(base.gameObject);

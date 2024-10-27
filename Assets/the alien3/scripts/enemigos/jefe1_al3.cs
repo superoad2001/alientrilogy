@@ -44,6 +44,7 @@ public class jefe1_al3: MonoBehaviour
 	public float balavel;
 
 	public AudioSource disp;
+	public manager_al3 manager;
 
 	private void OnTriggerEnter(Collider col)
 	{
@@ -64,11 +65,12 @@ public class jefe1_al3: MonoBehaviour
 	private void Start()
 	{
 		this.rb = base.GetComponent<Rigidbody>();
+		manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 	}
 
 	private void Update()
 	{
-		manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+		
 		base.transform.Translate(Vector3.forward * Time.deltaTime * 1 * this.velocidad);
 		if (tiempodisp > balafrec)
 		{

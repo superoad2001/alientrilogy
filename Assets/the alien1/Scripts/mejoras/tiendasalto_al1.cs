@@ -4,15 +4,16 @@ using UnityEngine;
 // Token: 0x0200007B RID: 123
 public class tiendasalto_al1 : MonoBehaviour
 {
-	// Token: 0x060001E2 RID: 482 RVA: 0x0000716E File Offset: 0x0000536E
+	public manager_al1 manager;
 	private void Start()
 	{
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 	}
 
 	// Token: 0x060001E3 RID: 483 RVA: 0x00007170 File Offset: 0x00005370
 	private void Update()
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+
 		if (manager.datosserial.tengosalto == 1)
 		{
 			UnityEngine.Object.Destroy(base.gameObject);
@@ -26,7 +27,6 @@ public class tiendasalto_al1 : MonoBehaviour
 	// Token: 0x060001E4 RID: 484 RVA: 0x000071D4 File Offset: 0x000053D4
 	private void OnTriggerEnter(Collider col)
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player")
 		{
 			pushup push = (pushup)FindFirstObjectByType(typeof(pushup));

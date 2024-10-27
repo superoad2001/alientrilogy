@@ -14,6 +14,7 @@ public class tnivel_al3: MonoBehaviour
     public GameObject platpers;
     public bool platpersact;
     private Controles controles;
+    public jugador1_al3 jugador;
 	public void Awake()
     {
         controles = new Controles();
@@ -30,7 +31,7 @@ public class tnivel_al3: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
     }
 
     // Update is called once per frame
@@ -41,7 +42,6 @@ public class tnivel_al3: MonoBehaviour
     }
     public void OnTriggerStay(Collider col) 
     {
-        jugador1_al3 jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
         if (col.gameObject.tag == "Player" && controles.al3.y.ReadValue<float>() > 0)
 		{
             if(nivel == 1 && tp == false && tpr == false)

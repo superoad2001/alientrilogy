@@ -56,10 +56,11 @@ public class jefe1_al2 : MonoBehaviour
 			
         }
 	}
-
+	public manager_al2 manager;
 	private void Start()
 	{
 		this.rb = base.GetComponent<Rigidbody>();
+		manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 			
 	}
 
@@ -70,7 +71,7 @@ public class jefe1_al2 : MonoBehaviour
 		vidab.fillAmount = vida/vidamax;
 
 		
-		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+		
 
 		if(manager.datosconfig.idioma == "es")
 		{

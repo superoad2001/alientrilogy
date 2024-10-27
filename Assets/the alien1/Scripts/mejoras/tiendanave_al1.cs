@@ -5,14 +5,15 @@ using UnityEngine;
 public class tiendanave_al1 : MonoBehaviour
 {
 	// Token: 0x060001DE RID: 478 RVA: 0x00007097 File Offset: 0x00005297
+	public manager_al1 manager;
 	private void Start()
 	{
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 	}
 
 	// Token: 0x060001DF RID: 479 RVA: 0x0000709C File Offset: 0x0000529C
 	private void Update()
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (manager.datosserial.tengonave == 1)
 		{
 			UnityEngine.Object.Destroy(base.gameObject);

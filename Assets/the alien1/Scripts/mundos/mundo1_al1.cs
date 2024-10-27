@@ -24,8 +24,10 @@ public class mundo1_al1 : MonoBehaviour
         controles.Disable();
     }
 	// Token: 0x0600004A RID: 74 RVA: 0x00003BB5 File Offset: 0x00001DB5
+	public manager_al1 manager;
 	private void Start()
 	{
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 	}
 
 	// Token: 0x0600004B RID: 75 RVA: 0x00003BB7 File Offset: 0x00001DB7
@@ -36,17 +38,10 @@ public class mundo1_al1 : MonoBehaviour
 	// Token: 0x0600004C RID: 76 RVA: 0x00003BB9 File Offset: 0x00001DB9
 	private void OnCollisionEnter(Collision col)
 	{
-		if (col.gameObject.tag == "Player")
-		{
-			manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
-			manager.datosserial.alien1muere = true;
-			manager.guardar();
-			SceneManager.LoadScene("mundo1_al1");
-		}
+
 	}
 	private void OnTriggerStay(Collider col)
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player")
 		{
 	    	anim.SetBool("show",true);

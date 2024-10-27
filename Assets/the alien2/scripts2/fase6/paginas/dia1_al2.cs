@@ -9,16 +9,17 @@ public class dia1_al2 : MonoBehaviour
     public AudioSource audioesp;
 	public AudioSource audioen;
 	public AudioSource audiocat;
+    public manager_al2 manager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
     }
 
     // Update is called once per frame
     void Update()
     {
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        
         if (pagina == 1 && manager.datosserial.trozosnv1 < 3 ||pagina == 2 && manager.datosserial.trozosnv2 < 3 ||pagina == 3 && manager.datosserial.trozosnv3 < 3 ||
             pagina == 4 && manager.datosserial.trozosnv4 < 3 ||pagina == 5 && manager.datosserial.trozosnv5 < 3 || pagina == 6 && manager.datosserial.trozosnv6 < 3 ||
             pagina == 7 && manager.datosserial.trozosnv7 < 3 ||pagina == 8 && manager.datosserial.trozosnv8 < 3 ||pagina == 9 && manager.datosserial.trozosnv9 < 3 ||

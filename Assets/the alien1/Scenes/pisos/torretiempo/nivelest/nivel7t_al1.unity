@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 163}
   m_Layer: 0
   m_Name: respawn
-  m_TagString: Untagged
+  m_TagString: respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2168,6 +2168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 219}
+  manager: {fileID: 0}
+  jugador: {fileID: 0}
   velocidadmaxima: 30
 --- !u!114 &206
 MonoBehaviour:
@@ -2205,6 +2207,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 219}
+  manager: {fileID: 0}
+  jugador: {fileID: 0}
   velocidadmaxima: 26
 --- !u!114 &208
 MonoBehaviour:
@@ -2219,6 +2223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 219}
+  manager: {fileID: 0}
+  jugador: {fileID: 0}
   velocidadmaxima: 30
 --- !u!114 &209
 MonoBehaviour:
@@ -2233,6 +2239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 219}
+  manager: {fileID: 0}
+  jugador: {fileID: 0}
   velocidadmaxima: 30
 --- !u!114 &210
 MonoBehaviour:
@@ -2247,6 +2255,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 219}
+  manager: {fileID: 0}
+  jugador: {fileID: 0}
   velocidadmaxima: 26
 --- !u!114 &211
 MonoBehaviour:
@@ -2261,6 +2271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 219}
+  manager: {fileID: 0}
+  jugador: {fileID: 0}
   velocidadmaxima: 30
 --- !u!114 &212
 MonoBehaviour:
@@ -2291,7 +2303,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trofeoact: 0
+  tempshow: 0
   nivel: 7
+  piso_carga: -3
   otroasteroide: 0
   audio: {fileID: 0}
   dentrotienda: 0
@@ -2568,6 +2582,7 @@ MonoBehaviour:
   tiement: 0
   juego: 3
   tutorial: 0
+  mundo: 0
   espacio: 0
   mision: {fileID: 0}
   mision2: {fileID: 0}
@@ -2588,6 +2603,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 219}
+  manager: {fileID: 0}
+  jugador: {fileID: 0}
   velocidadmaxima: 30
 --- !u!114 &215
 MonoBehaviour:
@@ -2624,10 +2641,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6010a2de17a11514da18980e669b96f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawn: {fileID: 1347456673}
   audio1: {fileID: 0}
   controlact: 1
   temppaso: 1
   rotspeed: 3
+  explosion: {fileID: 0}
   fij: {x: 0, y: 0, z: 0, w: 0}
   camara: {fileID: 0}
   rotationinput: {x: 0, y: 0, z: 0}
@@ -2652,6 +2671,7 @@ MonoBehaviour:
   pausac: 0
   pasotiempo: 0
   tempgir: 0
+  manager: {fileID: 0}
   tiempoascensor: 0
   bajar: 0
   subir: 0
@@ -9767,6 +9787,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2046371105}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1347456672
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4827935618750462704, guid: d2736efdc552cb446a010c009cf30feb, type: 3}
+      propertyPath: m_Name
+      value: reapa
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179136826870903646, guid: d2736efdc552cb446a010c009cf30feb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.59591436
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179136826870903646, guid: d2736efdc552cb446a010c009cf30feb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 536.91724
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179136826870903646, guid: d2736efdc552cb446a010c009cf30feb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 449.97543
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179136826870903646, guid: d2736efdc552cb446a010c009cf30feb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179136826870903646, guid: d2736efdc552cb446a010c009cf30feb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179136826870903646, guid: d2736efdc552cb446a010c009cf30feb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179136826870903646, guid: d2736efdc552cb446a010c009cf30feb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179136826870903646, guid: d2736efdc552cb446a010c009cf30feb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179136826870903646, guid: d2736efdc552cb446a010c009cf30feb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179136826870903646, guid: d2736efdc552cb446a010c009cf30feb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474514300517169646, guid: d2736efdc552cb446a010c009cf30feb, type: 3}
+      propertyPath: m_DragThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d2736efdc552cb446a010c009cf30feb, type: 3}
+--- !u!1 &1347456673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4827935618750462704, guid: d2736efdc552cb446a010c009cf30feb, type: 3}
+  m_PrefabInstance: {fileID: 1347456672}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1357008561
 GameObject:
   m_ObjectHideFlags: 0
@@ -14097,3 +14183,4 @@ SceneRoots:
   - {fileID: 863429779}
   - {fileID: 805857767}
   - {fileID: 902596800}
+  - {fileID: 1347456672}

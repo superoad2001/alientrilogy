@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 // Token: 0x0200000E RID: 14
 public class portalt_al1 : MonoBehaviour
 {
+	public GameObject juego;
+	public GameObject respawn;
 	// Token: 0x06000030 RID: 48 RVA: 0x000039F1 File Offset: 0x00001BF1
 	private void Start()
 	{
@@ -21,7 +23,8 @@ public class portalt_al1 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "jefe")
 		{
-			SceneManager.LoadScene("piso4t_al1");
+			respawn.SetActive(true);
+			juego.SetActive(false);
 		}
 	}
 

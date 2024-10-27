@@ -7,11 +7,12 @@ using UnityEngine.UI;
 // Token: 0x0200000A RID: 10
 public class jugador_al1 : MonoBehaviour
 {
+	public GameObject respawn;
 	public AudioSource audio1;
 	public bool controlact = true;
 	public float temppaso = 1;
 	public float rotspeed = 3;
-
+	public GameObject explosion;
 	public Quaternion fij;
 	public GameObject camara;
 	private float cameraverticalangle;
@@ -919,46 +920,12 @@ public class jugador_al1 : MonoBehaviour
 
 		
 		}
-		if (col.gameObject.tag == "enemigo")
+		if (col.gameObject.tag == "enemigo" || col.gameObject.tag == "respawn")
 		{
 			manager.datosserial.alien1muere = true;
 			manager.guardar();
-            if(manager.nivel == 1 ||  manager.nivel == 2 || manager.nivel == 3)
-			{
-				SceneManager.LoadScene("piso1_al1");
-			}
-			if(manager.nivel == 4 ||  manager.nivel == 5 || manager.nivel == 6 || manager.nivel == 13)
-			{
-				SceneManager.LoadScene("piso2_al1");
-			}
-			if(manager.nivel == 7 ||  manager.nivel == 8 || manager.nivel == 9 || manager.nivel == 14)
-			{
-				SceneManager.LoadScene("piso3_al1");
-			}
-			if(manager.nivel == 10 ||  manager.nivel == 11 || manager.nivel == 12 || manager.nivel == 15)
-			{
-				SceneManager.LoadScene("piso4_al1");
-			}
-			if(manager.nivel == 0 && manager.piso == 10 && manager.mundo == 1)
-			{
-				SceneManager.LoadScene("mundo_al1");
-			}
-			if(manager.nivel == 0 && manager.piso == 10 && manager.mundo == 2)
-			{
-				SceneManager.LoadScene("mundoc2_al1");
-			}
-			if(manager.nivel == 0 && manager.piso == 10 && manager.mundo == 3)
-			{
-				SceneManager.LoadScene("mundo1_al1");
-			}
-			if(manager.nivel == 0 && manager.piso == 10 && manager.mundo == 4)
-			{
-				SceneManager.LoadScene("mundo2_al1");
-			}
-			if(manager.nivel == 0 && manager.piso == 10 && manager.mundo == 5)
-			{
-				SceneManager.LoadScene("mundo3_al1");
-			}
+            respawn.SetActive(true);
+			juego.SetActive(false);
 		}
 	}
 
@@ -1022,6 +989,8 @@ public class jugador_al1 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "pisar")
 		{
+			GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
+            Destroy(explosiont, 1f);
             Destroy(col.transform.parent.gameObject);
 		}
 

@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 public class jugador2_al2 : MonoBehaviour
 {
     public bool saltop = true;
+    public GameObject respawnm;
+    public GameObject juego;
     private Controles controles;
 	public void Awake()
     {
@@ -80,6 +82,7 @@ public class jugador2_al2 : MonoBehaviour
     public float lbc;
     public manager_al2 manager;
     public jugador1_al2 jugador1;
+    public jugador1_al2 jugador;
     // Start is called before the first frame update
     void Start()
     {
@@ -446,7 +449,9 @@ public class jugador2_al2 : MonoBehaviour
         {
             manager.datosserial.alien2muere = 1;
             manager.guardar();
-            SceneManager.LoadScene("mundo_abierto_al2");
+            respawnm.SetActive(true);
+            juego.SetActive(false);
+
         }
         mc = 0;
         nc = 0;
@@ -459,14 +464,20 @@ public class jugador2_al2 : MonoBehaviour
 
         if (col.gameObject.tag == "pisar")
 		{
+            GameObject explosiont = Instantiate(jugador1.explosion, col.transform.position,col.transform.rotation) as GameObject;
+            Destroy(explosiont, 1f);
             Destroy(col.transform.parent.gameObject);
 		}
         if (col.gameObject.tag == "pisar2")
 		{
+            GameObject explosiont = Instantiate(jugador1.explosion, col.transform.position,col.transform.rotation) as GameObject;
+            Destroy(explosiont, 1f);
             Destroy(transform.parent.gameObject);
 		}
         if (col.gameObject.tag == "enemigo")
 		{
+            GameObject explosiont = Instantiate(jugador1.explosion, col.transform.position,col.transform.rotation) as GameObject;
+            Destroy(explosiont, 1f);
             audio2.Play();
             Destroy(col.gameObject);
 			vida--;
@@ -497,8 +508,10 @@ public class jugador2_al2 : MonoBehaviour
 		{
 			muerte = true;
 		}
-                if (col.gameObject.tag == "enemigo")
+        if (col.gameObject.tag == "enemigo")
 		{
+            GameObject explosiont = Instantiate(jugador1.explosion, col.transform.position,col.transform.rotation) as GameObject;
+            Destroy(explosiont, 1f);
             audio2.Play();
             Destroy(col.gameObject);
 			vida--;

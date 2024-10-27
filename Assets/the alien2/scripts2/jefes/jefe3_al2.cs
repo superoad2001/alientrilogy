@@ -56,15 +56,16 @@ public class jefe3_al2 : MonoBehaviour
         }
 	}
 
+	public manager_al2 manager;
 	private void Start()
 	{
 		this.rb = base.GetComponent<Rigidbody>();
+		manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 			
 	}
 
 	private void Update()
 	{
-		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		base.transform.Translate(Vector3.forward * Time.deltaTime * 1 * this.velocidad);
 		if (tiempodisp > 1)
 		{

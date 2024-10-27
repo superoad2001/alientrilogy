@@ -86,6 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3772086492931933655}
   - component: {fileID: 5638470097662205171}
+  - component: {fileID: 2072637240081388904}
   m_Layer: 0
   m_Name: Rewired Event System
   m_TagString: Untagged
@@ -123,6 +124,37 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 2470226583062071294}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!114 &2072637240081388904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351365967713275471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 1
 --- !u!1 &470517605498261225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,6 +1579,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1782419080531085811, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 93ca582b5fc23694db485eeb787ec000, type: 3}
+  m_Resource: {fileID: 8300000, guid: 93ca582b5fc23694db485eeb787ec000, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2122,6 +2155,7 @@ MonoBehaviour:
   voza: {fileID: 2877255588455469929}
   uia: {fileID: 5571134936054893134}
   test: 0
+  opciones: 0
 --- !u!1 &2815195274538422571
 GameObject:
   m_ObjectHideFlags: 0
@@ -3266,6 +3300,8 @@ MonoBehaviour:
   opcres: 0
   resolt: {fileID: 2281846391682316382}
   audiomixer: {fileID: 24100000, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
+  menu: 0
+  manager: {fileID: 0}
   temp: 0
 --- !u!1 &4347711379551027720
 GameObject:
@@ -3389,6 +3425,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: eba68ad7b16369f42a86f3ea4677e300, type: 3}
+  m_Resource: {fileID: 8300000, guid: eba68ad7b16369f42a86f3ea4677e300, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4524,7 +4561,6 @@ MonoBehaviour:
   juego: {fileID: 0}
   pausa1: {fileID: 6040329522441632725}
   plat: 0
-  playerID: 0
   temp: 0
   boton1: {fileID: 4690759391858896233}
   boton2: {fileID: 2142696926364108942}
@@ -6371,6 +6407,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -374572251806119904, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 554c6e89a7e23ff42a0bcae15f116b1b, type: 3}
+  m_Resource: {fileID: 8300000, guid: 554c6e89a7e23ff42a0bcae15f116b1b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6911,7 +6948,7 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
-  m_ScrollDeltaPerTick: 6
+  m_ScrollDeltaPerTick: 1
 --- !u!1 &8377498970530140711
 GameObject:
   m_ObjectHideFlags: 0

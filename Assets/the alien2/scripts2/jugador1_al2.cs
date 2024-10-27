@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class jugador1_al2 : MonoBehaviour
 {
     private Controles controles;
+    public GameObject respawnm;
 	public void Awake()
     {
         controles = new Controles();
@@ -98,6 +99,7 @@ public class jugador1_al2 : MonoBehaviour
     public manager_al2 manager;
     public pushup push;
     public jugador2_al2 jugador2;
+    public GameObject explosion;
 
 	
     // Start is called before the first frame update
@@ -3549,10 +3551,12 @@ public class jugador1_al2 : MonoBehaviour
                     SceneManager.LoadScene("final_malo_al2");
                 }
             }
-            else if(manager.torretiemponivel == true)
-            {SceneManager.LoadScene("torre_del_tiempo_al2");}
             else
-            {SceneManager.LoadScene("mundo_abierto_al2");}
+            {
+                respawnm.SetActive(true);
+                juego.SetActive(false);
+                
+            }
         }
         if (pausac > 0 && temp9 > 0.5f)
 		{
@@ -3719,7 +3723,7 @@ public class jugador1_al2 : MonoBehaviour
 		}
         if (col.gameObject.tag == "respawn" && manager.nivel == 0)
 		{
-			respawn = true;
+			muerte = true;
 		}
         if (col.gameObject.tag == "respawn2" && manager.nivel == 0)
 		{
@@ -3727,6 +3731,8 @@ public class jugador1_al2 : MonoBehaviour
 		}
         if (col.gameObject.tag == "enemigo")
 		{
+            GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
+            Destroy(explosiont, 1f);
             audio2.Play();
             Destroy(col.gameObject);
 			vida--;
@@ -3893,16 +3899,22 @@ public class jugador1_al2 : MonoBehaviour
 			control = true;
             objeto = 1;
 		}
-            if (col.gameObject.tag == "pisar")
+        if (col.gameObject.tag == "pisar")
 		{
+            GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
+            Destroy(explosiont, 1f);
             Destroy(col.transform.parent.gameObject);
 		}
-            if (col.gameObject.tag == "pisar2")
+        if (col.gameObject.tag == "pisar2")
 		{
+            GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
+            Destroy(explosiont, 1f);
             Destroy(transform.parent.gameObject);
 		}
         if (col.gameObject.tag == "enemigo")
 		{
+            GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
+            Destroy(explosiont, 1f);
             audio2.Play();
             Destroy(col.gameObject);
 			vida--;

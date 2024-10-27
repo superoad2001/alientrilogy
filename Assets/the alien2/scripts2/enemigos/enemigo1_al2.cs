@@ -18,10 +18,13 @@ public class enemigo1_al2: MonoBehaviour
     public enemigodet_al2 enemigodet;
     public GameObject dano;
     public GameObject det;
+    public GameObject explosion;
+    public jugador1_al2 jugador1;
     // Start is called before the first frame update
     void Start()
     {
-        
+        jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
+        jugador1.explosion = explosion;
     }
 
     // Update is called once per frame
@@ -49,7 +52,9 @@ public class enemigo1_al2: MonoBehaviour
 	{
         if (col.gameObject.tag == "bala")
 		{
+            GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
             Destroy(transform.parent.gameObject);
+            Destroy(explosiont, 1f);
 			
 		}
 

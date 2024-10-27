@@ -13,6 +13,7 @@ public class manager_al1 : MonoBehaviour
 	public int trofeoact;
 	public float tempshow;
 	public int nivel = 0;
+	public int piso_carga;
 	public bool otroasteroide = false;
 	public AudioSource audio;
 	public bool dentrotienda;

@@ -9,15 +9,16 @@ public class bloqueo2_al2 : MonoBehaviour
 	public AudioSource audioesp;
 	public AudioSource audioen;
 	public AudioSource audiocat;
+	public manager_al2 manager;
 
 	private void Start()
 	{
-		
+		manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 	}
 
 	private void Update()
 	{
-		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+		
 		if(manager.datosserial.block2 == 1)
 		{
 			UnityEngine.Object.Destroy(base.gameObject);

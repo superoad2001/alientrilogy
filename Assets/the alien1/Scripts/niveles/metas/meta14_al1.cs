@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 // Token: 0x0200001E RID: 30
 public class meta14_al1 : MonoBehaviour
 {
+	public GameObject juego;
+	public GameObject respawn;
 	// Token: 0x0600006E RID: 110 RVA: 0x00003F2D File Offset: 0x0000212D
 	private void Start()
 	{
@@ -32,7 +34,8 @@ public class meta14_al1 : MonoBehaviour
 		}
 		if (col.gameObject.tag == "coche2")
 		{
-			SceneManager.LoadScene("piso3_al1");
+			respawn.SetActive(true);
+			juego.SetActive(false);
 		}
 	}
 }

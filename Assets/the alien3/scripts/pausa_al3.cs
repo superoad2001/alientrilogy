@@ -9,6 +9,7 @@ using UnityEngine.Audio;
 
 public class pausa_al3: MonoBehaviour
 {
+    public manager_al3 manager;
     public GameObject opciones1;
     public AudioMixer audiomixer;
     public Text ttcont;
@@ -236,7 +237,6 @@ public class pausa_al3: MonoBehaviour
 
 
     public jugador1_al3 jugador;
-    public manager_al3 manager;
     public GameObject menuc;
     public GameObject armadurasc;
     public GameObject armasc;
@@ -338,6 +338,7 @@ public class pausa_al3: MonoBehaviour
         // Start is called before the first frame update
     void Start()
     {
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         
 
 
@@ -2967,7 +2968,6 @@ public class pausa_al3: MonoBehaviour
         guia2c.SetActive(false);
         armaduras1act = false;
         armaduras2act = false;
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         temp = 0;
         juego.SetActive(true);
         jugador.selcarga = false;
@@ -2980,6 +2980,8 @@ public class pausa_al3: MonoBehaviour
     }
     public void salir(){
         SceneManager.LoadScene("presentacion_al3");
+        manager.datosserial.com = 0;
+        manager.guardar();
     }
     public void armas()
     {
@@ -2993,7 +2995,6 @@ public class pausa_al3: MonoBehaviour
     }
     public void seleccion()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3entraaseleccionrapidaenelpause == 0)
         {

@@ -19,10 +19,12 @@ public class enemigo1_al1: MonoBehaviour
     public GameObject dano;
     public GameObject det;
     public GameObject explosion;
+    public jugador_al1 jugador1;
     // Start is called before the first frame update
     void Start()
     {
-        
+        jugador1 = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+        jugador1.explosion = explosion;
     }
 
     // Update is called once per frame

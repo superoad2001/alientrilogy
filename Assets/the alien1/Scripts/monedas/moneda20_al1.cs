@@ -5,16 +5,18 @@ using UnityEngine;
 public class moneda20_al1 : MonoBehaviour
 {
 	public AudioSource audio1;
+	public manager_al1 manager;
 
 	// Token: 0x060000C6 RID: 198 RVA: 0x00004BE7 File Offset: 0x00002DE7
 	private void Start()
 	{
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 	}
 
 	// Token: 0x060000C7 RID: 199 RVA: 0x00004BEC File Offset: 0x00002DEC
 	private void Update()
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+		
 		base.transform.Rotate(Vector3.left, 200f * Time.deltaTime);
 		if (manager.datosserial.moneda20 == 1)
 		{
@@ -25,7 +27,7 @@ public class moneda20_al1 : MonoBehaviour
 	// Token: 0x060000C8 RID: 200 RVA: 0x00004C2C File Offset: 0x00002E2C
 	private void OnTriggerEnter(Collider col)
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+		
 		manager.datosserial.moneda20 = 1;
 		manager.datosserial.monedas++;
 		manager.guardar();

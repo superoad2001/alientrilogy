@@ -1,0 +1,136 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+
+public class menures_al1 : MonoBehaviour
+{
+    public int plataforma;
+    private Controles controles;
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
+    public Text boton1;
+    public Text boton2;
+    public Text boton3;
+    public Text boton4;
+    public Text boton5;
+    public float temp;
+    public int piso = 1;
+    public GameObject normal;
+    public GameObject salirnivelo;
+    public bool salirnivelb;
+    public bool perder;
+    public AudioMixer audiomixer;
+    public manager_al1 manager;
+    public Scene escena;
+    // Start is called before the first frame update
+    void Start()
+    {
+        manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+        if (manager.nivel != 0)
+        {salirnivelb = true;}
+        escena = SceneManager.GetActiveScene();
+        if(salirnivelb)
+        {
+            salirnivelo.SetActive(true);
+        }
+        else
+        {
+            salirnivelo.SetActive(false);
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+        if(manager.datosconfig.idioma == "es")
+        {
+            boton2.text = "salir del juego";
+            boton1.text = "reaparecer";
+            if(salirnivelo)
+            {boton3.text = "salir del nivel";}
+            if(perder == true)
+            {
+                boton4.text = "perdiste";
+            }
+            else
+            {
+                boton4.text = "has muerto";
+            }
+            
+        }
+        if(manager.datosconfig.idioma == "en")
+        {
+            boton2.text = "exit of the game";
+            boton1.text = "continue";
+            if(salirnivelo)
+            {boton3.text = "exit of the level";}
+            if(perder == true)
+            {
+                boton4.text = "you,r lost";
+            }
+            else
+            {
+                boton4.text = "you,r died";
+            }
+        }
+        if(manager.datosconfig.idioma == "cat")
+        {
+            boton2.text = "sortir del joc";
+            boton1.text = "reintentar";
+            if(salirnivelo)
+            {boton3.text = "sortir del nivell";}
+            if(perder == true)
+            {
+                boton4.text = "has perdut";
+            }
+            else
+            {
+                boton4.text = "has mort";
+            }
+        }
+    }
+    public void continuar()
+    {
+        SceneManager.LoadScene(escena.name);
+
+    }
+
+
+    public void salir()
+    {
+        SceneManager.LoadScene("menu_de_carga_al1");
+    }
+
+    public void salirnivel(){
+        if(manager.piso_carga == 1)
+        {SceneManager.LoadScene("piso1_al1");}
+        if(manager.piso_carga == 2)
+        {SceneManager.LoadScene("piso2_al1");}
+        if(manager.piso_carga == 3)
+        {SceneManager.LoadScene("piso3_al1");}
+        if(manager.piso_carga == 4)
+        {SceneManager.LoadScene("piso4_al1");}
+        if(manager.piso_carga == -1)
+        {SceneManager.LoadScene("piso1t_al1");}
+        if(manager.piso_carga == -2)
+        {SceneManager.LoadScene("piso2t_al1");}
+        if(manager.piso_carga == -3)
+        {SceneManager.LoadScene("piso3t_al1");}
+        if(manager.piso_carga == -4)
+        {SceneManager.LoadScene("piso4t_al1");}
+    }
+}

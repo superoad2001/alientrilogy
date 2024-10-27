@@ -91,6 +91,8 @@ public class enemigo1_al3: MonoBehaviour
                 {
                     manager.jefe1_act2 = true;
                 }
+                GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
+                Destroy(explosiont, 1f);
                 desactivar = true;
                 Destroy(gameObject);
             }
@@ -132,7 +134,7 @@ public class enemigo1_al3: MonoBehaviour
             {
                 GameObject Temporal = Instantiate(moneda, transform.position,transform.rotation) as GameObject;
                 GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
-                Destroy(explosiont, 2f);
+                Destroy(explosiont, 1f);
                 Destroy(gameObject);
             }
 

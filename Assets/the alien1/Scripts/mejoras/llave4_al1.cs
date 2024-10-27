@@ -5,14 +5,15 @@ using UnityEngine;
 public class llave4_al1 : MonoBehaviour
 {
 	// Token: 0x060001D6 RID: 470 RVA: 0x00006F0B File Offset: 0x0000510B
+	public manager_al1 manager;
 	private void Start()
 	{
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 	}
 
 	// Token: 0x060001D7 RID: 471 RVA: 0x00006F10 File Offset: 0x00005110
 	private void Update()
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (manager.datosserial.tengollave4 == 1)
 		{
 			UnityEngine.Object.Destroy(base.gameObject);

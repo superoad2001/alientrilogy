@@ -8,16 +8,17 @@ public class chica_al2 : MonoBehaviour
     public AudioSource audioesp;
 	public AudioSource audioen;
 	public AudioSource audiocat;
+    public manager_al2 manager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
     }
 
     // Update is called once per frame
     void Update()
     {
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        
         if (manager.paginas != 20)
         {
             transform.position = new Vector3 (0,600,0);

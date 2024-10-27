@@ -48,7 +48,7 @@ public class pausa_al2 : MonoBehaviour
         {
             boton1.text = "salir";
             boton2.text = "continuar";
-            if(manager.nivel >= 1 && manager.nivel <= 15 || manager.nivel <= -1 && manager.nivel >= -15)
+            if(manager.nivel >= 1 && manager.nivel <= 20 || manager.nivel <= -1 && manager.nivel >= -20)
             {boton3.text = "salir del nivel";}
             boton4.text = "pausa";
             boton5.text = "opciones";
@@ -57,7 +57,7 @@ public class pausa_al2 : MonoBehaviour
         {
             boton1.text = "exit";
             boton2.text = "continue";
-            if(manager.nivel >= 1 && manager.nivel <= 15)
+            if(manager.nivel >= 1 && manager.nivel <= 20 || manager.nivel <= -1 && manager.nivel >= -20)
             {boton3.text = "exit of the level";}
             boton4.text = "pause";
             boton5.text = "settings";
@@ -66,7 +66,7 @@ public class pausa_al2 : MonoBehaviour
         {
             boton1.text = "sortir";
             boton2.text = "continuar";
-            if(manager.nivel >= 1 && manager.nivel <= 15)
+            if(manager.nivel >= 1 && manager.nivel <= 20 || manager.nivel <= -1 && manager.nivel >= -20)
             {boton3.text = "sortir a la base";}
             boton4.text = "pausa";
             boton5.text = "opcions";
