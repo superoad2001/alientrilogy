@@ -34,7 +34,7 @@ public class tgemas_al3: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         
         if(manager.datosconfig.idioma == "es")
         {
@@ -64,8 +64,8 @@ public class tgemas_al3: MonoBehaviour
     }
     public void OnTriggerStay(Collider col) 
     {
-        jugador1_al3 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al3>();
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        jugador1_al3 jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         if (col.gameObject.tag == "Player" && controles.al3.y.ReadValue<float>() > 0 && jugador.tempboton > 0.5f)
 		{
             if(tp == 1 && zona == 1 && manager.datosserial.gemas >= 5)

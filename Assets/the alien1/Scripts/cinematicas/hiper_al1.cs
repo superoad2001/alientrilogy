@@ -40,20 +40,20 @@ public class hiper_al1 : MonoBehaviour
 	private void Update()
 	{
 	}
-
+	public Animator anim;
 	// Token: 0x06000014 RID: 20 RVA: 0x00002440 File Offset: 0x00000640
 	private void OnTriggerStay(Collider col)
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player" && manager.datosserial.tengomejora == 1)
 		{
-			objeto.SetActive(true);
+	    	anim.SetBool("show",true);
 			if(manager.datosconfig.idioma == "es")
-			{this.tutfinala.text = "pulsa (click derecho) o (B) para volver a casa";}
+			{this.tutfinala.text = "para volver a casa pulsa";}
 			if(manager.datosconfig.idioma == "en")
-			{this.tutfinala.text = "press (right click) or (B) To come back home";}
+			{this.tutfinala.text = "To come back home press";}
 			if(manager.datosconfig.idioma == "cat")
-			{this.tutfinala.text = "pren el (click dret) o la (B) per tornar a casa";}
+			{this.tutfinala.text = "per tornar a casa pren";}
 			if (controles.al1.b.ReadValue<float>() > 0f || botonm == true)
 			{
 				SceneManager.LoadScene("lasalida_al1");
@@ -64,10 +64,9 @@ public class hiper_al1 : MonoBehaviour
 	// Token: 0x06000015 RID: 21 RVA: 0x000024A7 File Offset: 0x000006A7
 	private void OnTriggerExit(Collider col)
 	{
-		objeto.SetActive(false);
 		if (col.gameObject.tag == "Player")
 		{
-			this.tutfinala.text = " ";
+			anim.SetBool("show",false);
 		}
 	}
 

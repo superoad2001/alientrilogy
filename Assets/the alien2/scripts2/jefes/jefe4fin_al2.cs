@@ -26,7 +26,7 @@ public class jefe4fin_al2 : MonoBehaviour
         }
 		if (col.gameObject.tag == "Player")
         {
-            manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+            manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
             if (manager.datosserial.tengomental == 1)
             {
                 SceneManager.LoadScene("mundo_abierto_al2");

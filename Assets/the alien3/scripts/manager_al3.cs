@@ -259,7 +259,7 @@ public class manager_al3: MonoBehaviour
 		guardartro();
 
 		
-		jugador1_al3 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al3>();
+		jugador1_al3 jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
 		
 
 
@@ -269,7 +269,7 @@ public class manager_al3: MonoBehaviour
 		}
 
 
-		jugador1_al3 jugador1 = UnityEngine.Object.FindObjectOfType<jugador1_al3>();
+		jugador1_al3 jugador1 = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
 
 		//fase 1
 		
@@ -277,8 +277,8 @@ public class manager_al3: MonoBehaviour
 
 	private void Update()
 	{
-		manager_al2 manageral2 = UnityEngine.Object.FindObjectOfType<manager_al2>();
-		pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+		manager_al2 manageral2 = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
 
 		if(datosserial.monedas >= 5000 && datostrof.alien3ahorra5000monedas == 0)
 		{
@@ -831,7 +831,7 @@ public class manager_al3: MonoBehaviour
 				bloque3.text = "deixar diners de en pare";
 			}
 		}
-		jugador1_al3 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al3>();
+		jugador1_al3 jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
 		if(datosserial.marma11 < 3 && tempm11 > 25)
 		{
 			datosserial.marma11++;

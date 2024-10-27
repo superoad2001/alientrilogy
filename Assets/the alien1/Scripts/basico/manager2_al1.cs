@@ -34,7 +34,7 @@ public class manager2_al1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+        manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         if (manager.piso == -5)
         {
             nv1.text = "nivel 1 parque de saltos : " + manager.datosserial.recordnv1.ToString("F2") ;
@@ -59,7 +59,7 @@ public class manager2_al1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+        manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         if(rey == false)
         {
         contador += 1 * Time.deltaTime;

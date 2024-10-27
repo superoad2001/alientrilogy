@@ -49,7 +49,7 @@ public class jefe1_al3: MonoBehaviour
 	{
 		if (col.gameObject.tag == "bala")
         {
-			jugador1_al3 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al3>();
+			jugador1_al3 jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
          	vida -= (5987 * jugador.fuerzanave )- 987;
 			UnityEngine.Object.Destroy(col.gameObject);
 			
@@ -68,7 +68,7 @@ public class jefe1_al3: MonoBehaviour
 
 	private void Update()
 	{
-		manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+		manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		base.transform.Translate(Vector3.forward * Time.deltaTime * 1 * this.velocidad);
 		if (tiempodisp > balafrec)
 		{

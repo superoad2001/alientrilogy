@@ -14,15 +14,15 @@ public class jefe6_1g_al2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
-        jefe6_1_al2 jefe6_1 = UnityEngine.Object.FindObjectOfType<jefe6_1_al2>();
+        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        jefe6_1_al2 jefe6_1 = (jefe6_1_al2)FindFirstObjectByType(typeof(jefe6_1_al2));
 
         
     }
     private void OnTriggerEnter(Collider col)
 	{
-        manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
-        jefe6_1_al2 jefe6_1 = UnityEngine.Object.FindObjectOfType<jefe6_1_al2>();
+        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        jefe6_1_al2 jefe6_1 = (jefe6_1_al2)FindFirstObjectByType(typeof(jefe6_1_al2));
 		if (col.gameObject.tag == "bala")
         {
          	jefe6_1.vida -= 20000;

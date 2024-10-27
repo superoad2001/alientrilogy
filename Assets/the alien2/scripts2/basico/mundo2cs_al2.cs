@@ -19,7 +19,7 @@ public class mundo2cs_al2 : MonoBehaviour
     }
     private void OnCollisionEnter(Collision col)
 	{
-        manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if (col.gameObject.tag == "Player")
 		{
             manager.datosserial.respawntipo = 4;

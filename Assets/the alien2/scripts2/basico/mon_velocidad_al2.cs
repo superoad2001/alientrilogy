@@ -21,13 +21,13 @@ public class mon_velocidad_al2 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			jugador1_al2 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al2>();
+			jugador1_al2 jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
 			jugador.velocidad = jugador.velocidadaux;
 			jugador.velozidad();
 			jugador.velocidad = this.velocidadmaxima;
 			audio1.Play();
-			pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
-			manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+			pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
+			manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
             if(manager.datostrof.alien2usaelacelerador== 0)
             {
                 manager.datostrof.alien2usaelacelerador = 1;

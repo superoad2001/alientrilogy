@@ -25,7 +25,7 @@ public class recordback_al2 : MonoBehaviour
     {
 
         
-        manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 
     }
     public void A()

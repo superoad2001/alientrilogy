@@ -25,7 +25,7 @@ public class inicio2_al3: MonoBehaviour
 	{
 		if (temp < 15)
 		{temp += 1 * Time.deltaTime;}
-		manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+		manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		if (this.botonn == true && temp >= 1)
 		{
         	manager.datosconfig.plat = 1;

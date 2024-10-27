@@ -11,7 +11,7 @@ public class inicio5_al2 : MonoBehaviour
 	// Token: 0x0600001A RID: 26 RVA: 0x00002523 File Offset: 0x00000723
 	private void Start()
 	{
-		manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		idioma = manager.datosconfig.idioma;
 		plat = manager.datosconfig.plat;
 	}

@@ -12,7 +12,7 @@ public class tiendacoche_al1 : MonoBehaviour
 	// Token: 0x060001DB RID: 475 RVA: 0x00006FDC File Offset: 0x000051DC
 	private void Update()
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (manager.datosserial.tengocoche == 1)
 		{
 			UnityEngine.Object.Destroy(base.gameObject);
@@ -26,8 +26,8 @@ public class tiendacoche_al1 : MonoBehaviour
 	// Token: 0x060001DC RID: 476 RVA: 0x00007040 File Offset: 0x00005240
 	private void OnTriggerEnter(Collider col)
 	{
-		pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player")
 		{
 			manager.datosserial.tengocoche = 1;

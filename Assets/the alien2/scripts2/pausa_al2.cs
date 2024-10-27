@@ -42,7 +42,7 @@ public class pausa_al2 : MonoBehaviour
     {
 
         
-        manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         manager.datosserial.pause = true;
         if(manager.datosconfig.idioma == "es")
         {
@@ -81,7 +81,7 @@ public class pausa_al2 : MonoBehaviour
         {temp += 1 * Time.deltaTime;}
     }
     public void continuar(){
-        manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         plat = manager.datosconfig.plat;
         temp = 0;
         juego.SetActive(true);
@@ -112,8 +112,8 @@ public class pausa_al2 : MonoBehaviour
     }
     public void aplicar2()
     {
-		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
-		controlmusicabase controlslider = UnityEngine.Object.FindObjectOfType<controlmusicabase>();
+		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+		controlmusicabase controlslider = (controlmusicabase)FindFirstObjectByType(typeof(controlmusicabase));
 
 
 		audiomixer.GetFloat ("MusicVolume",out manager.datosconfig.musica);

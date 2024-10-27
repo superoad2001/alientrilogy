@@ -19,7 +19,7 @@ public class recordnv1_al2 : MonoBehaviour
     }
     private void OnCollisionEnter(Collision col)
 	{
-        manager2_al2 manager = UnityEngine.Object.FindObjectOfType<manager2_al2>();
+        manager2_al2 manager = (manager2_al2)FindFirstObjectByType(typeof(manager2_al2));
 		if (col.gameObject.tag == "Player")
 		{
             if(manager.contador < manager.datosserial.recordnv1)

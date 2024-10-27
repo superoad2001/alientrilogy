@@ -1,31 +1,56 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 // Token: 0x02000012 RID: 18
 public class subircoche_al1 : MonoBehaviour
 {
 	// Token: 0x0600003E RID: 62 RVA: 0x00003AE8 File Offset: 0x00001CE8
-	private void Start()
-	{
-	}
-
-	// Token: 0x0600003F RID: 63 RVA: 0x00003AEA File Offset: 0x00001CEA
-	private void Update()
-	{
-	}
+	public Text tutfinala;
+	public Animator anim;
+	private Controles controles;
+	public GameObject objeto;
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
 
 	// Token: 0x06000040 RID: 64 RVA: 0x00003AEC File Offset: 0x00001CEC
-	private void OnCollisionEnter(Collision col)
+	private void OnTriggerStay(Collider col)
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player" && manager.datosserial.tengocoche == 1)
 		{
-			SceneManager.LoadScene("mundoc_al1");
+	    	anim.SetBool("show",true);
+			if(manager.datosconfig.idioma == "es")
+			{this.tutfinala.text = "para subir al coche pulsa";}
+			if(manager.datosconfig.idioma == "en")
+			{this.tutfinala.text = "To enter to the car press";}
+			if(manager.datosconfig.idioma == "cat")
+			{this.tutfinala.text = "per pujar al cotxe pren";}
+			if (controles.al1.b.ReadValue<float>() > 0f )
+			{
+				SceneManager.LoadScene("mundoc_al1");
+			}
+		}
+	}
+	private void OnTriggerExit(Collider col)
+	{
+		if (col.gameObject.tag == "Player")
+		{
+			anim.SetBool("show",false);
 		}
 	}
 
 	// Token: 0x04000072 RID: 114
-	public GameObject jugador;
 }

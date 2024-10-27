@@ -13,7 +13,7 @@ public class bola1_al1 : MonoBehaviour
 	// Token: 0x06000007 RID: 7 RVA: 0x000020A0 File Offset: 0x000002A0
 	private void Update()
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if(manager.datosconfig.idioma == "es")
 		{
 		this.puestoj.text = "puesto : " + this.puesto;

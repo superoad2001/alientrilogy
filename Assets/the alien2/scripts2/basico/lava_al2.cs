@@ -18,7 +18,7 @@ public class lava_al2 : MonoBehaviour
     }
     private void OnTriggerStay(Collider col)
 	{
-        jugador1_al2 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al2>();
+        jugador1_al2 jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
         if (col.gameObject.tag == "Player" && jugador.tempdano > 3)
 		{
 			jugador.vida--;

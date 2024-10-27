@@ -15,6 +15,7 @@ public class jugador_al1 : MonoBehaviour
 	public Quaternion fij;
 	public GameObject camara;
 	private float cameraverticalangle;
+	private float cameraverticalangle2;
 	public Vector3 rotationinput;
 	public float speed = 3;
 	public bool suelo;
@@ -59,7 +60,7 @@ public class jugador_al1 : MonoBehaviour
 	// Token: 0x0600001D RID: 29 RVA: 0x000025E8 File Offset: 0x000007E8
 	private void Start()
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if(manager.datosconfig.plat == 1)
 		{
 			tactil.SetActive(false);
@@ -142,14 +143,16 @@ public class jugador_al1 : MonoBehaviour
 	private void Update()
 	{
 	tiempoascensor += Time.deltaTime;
-	manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+	manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 	if(controlact == true)
 	{
 	lhorizontalc = controles.al1.lhorizontal.ReadValue<float>();
     lverticalc = controles.al1.lvertical.ReadValue<float>();
 
+
 	rhorizontalc = controles.al1.rhorizontal.ReadValue<float>();
-	rverticalc = controles.al1.rvertical.ReadValue<float>();
+    rverticalc = controles.al1.rvertical.ReadValue<float>();
+
 	jumpc = controles.al1.a.ReadValue<float>();
 	mc = controles.al1.b.ReadValue<float>();
 	nc = controles.al1.x.ReadValue<float>();
@@ -659,6 +662,7 @@ public class jugador_al1 : MonoBehaviour
 			{
 				anim.SetFloat("velx",lhorizontalc);
         		anim.SetFloat("vely",lverticalc);
+
 				if (lhorizontalc > 0f )
 				{
 					_rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
@@ -679,11 +683,13 @@ public class jugador_al1 : MonoBehaviour
 					_rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
 					mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,180,0),5* Time.deltaTime);
 				}
+
 				Vector3 movdire = _rb.linearVelocity;
                 movdire.y = 0;
                 float distance = movdire.magnitude * Time.fixedDeltaTime;
                 movdire.Normalize();
                 RaycastHit hit;
+
                 if(lverticalc == 0f && lhorizontalc == 0f || _rb.SweepTest(movdire,out hit,distance,QueryTriggerInteraction.Ignore))
                 {
                     _rb.linearVelocity = new Vector3 (0, _rb.linearVelocity.y, 0);
@@ -691,22 +697,22 @@ public class jugador_al1 : MonoBehaviour
 
 				if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
 				{
-				if(temppaso > pasotiempo)
-				{
-				randompaso = Random.Range(1,3);
-				if(randompaso == 1)
-				{
-					pasos1.Play();
-				}
-				if(randompaso == 2)
-				{
-					pasos2.Play();
-				}
-				temppaso = 0;
-				pasotiempo = Random.Range(0.4f,0.6f);
-				}
-				if(temppaso < 15)
-				{temppaso += 1 * Time.deltaTime;}
+					if(temppaso > pasotiempo)
+					{
+						randompaso = Random.Range(1,3);
+						if(randompaso == 1)
+						{
+							pasos1.Play();
+						}
+						if(randompaso == 2)
+						{
+							pasos2.Play();
+						}
+						temppaso = 0;
+						pasotiempo = Random.Range(0.4f,0.6f);
+					}
+					if(temppaso < 15)
+					{temppaso += 1 * Time.deltaTime;}
 				}
 
 			}
@@ -714,13 +720,23 @@ public class jugador_al1 : MonoBehaviour
 			rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
             rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
 
-            cameraverticalangle +=  rotationinput.y;
-            cameraverticalangle = Mathf.Clamp(cameraverticalangle, -50 , 20);
-            
-            transform.Rotate(Vector3.up * rotationinput.x);
-            camara.transform.localRotation = Quaternion.Euler(-cameraverticalangle,transform.eulerAngles.y,0);
+            cameraverticalangle +=  rotationinput.y/3;
+            cameraverticalangle = Mathf.Clamp(cameraverticalangle, -20 , 20);
 
-            camara.transform.position = Vector3.MoveTowards(camara.transform.position,transform.position,7 * Time.deltaTime);
+			cameraverticalangle2 +=  rotationinput.x;
+
+            camara.transform.localRotation = Quaternion.Euler(-cameraverticalangle,cameraverticalangle2,0);
+			if (lhorizontalc != 0f && rhorizontalc != 0f|| lverticalc != 0 && rhorizontalc != 0f)
+			{
+				transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),2.5f* Time.deltaTime);
+			}
+			else if (lhorizontalc != 0f || lverticalc != 0)
+			{
+				transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),90f* Time.deltaTime);
+			}
+				
+			camara.transform.position = new Vector3 (transform.position.x,transform.position.y,transform.position.z);
+            
 		}
 		if (manager.juego == 0 && subir == false && bajar == false )
 		{
@@ -776,12 +792,22 @@ public class jugador_al1 : MonoBehaviour
 			rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
             rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
 
-            cameraverticalangle +=  rotationinput.y;
-            cameraverticalangle = Mathf.Clamp(cameraverticalangle, -50 , 20);
-            
-            transform.Rotate(Vector3.up * rotationinput.x);
-            camara.transform.localRotation = Quaternion.Euler(-cameraverticalangle,transform.eulerAngles.y,0);
-            camara.transform.position = Vector3.MoveTowards(camara.transform.position,transform.position,7 * Time.deltaTime);
+            cameraverticalangle +=  rotationinput.y/3;
+            cameraverticalangle = Mathf.Clamp(cameraverticalangle, -20 , 20);
+
+			cameraverticalangle2 +=  rotationinput.x;
+
+            camara.transform.localRotation = Quaternion.Euler(-cameraverticalangle,cameraverticalangle2,0);
+			if (lhorizontalc != 0f && rhorizontalc != 0f|| lverticalc != 0 && rhorizontalc != 0f)
+			{
+				transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),2.5f* Time.deltaTime);
+			}
+			else if (lhorizontalc != 0f || lverticalc != 0)
+			{
+				transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),90f* Time.deltaTime);
+			}
+				
+			camara.transform.position = new Vector3 (transform.position.x,transform.position.y,transform.position.z);
 		}
 		if (manager.juego == 10)
 		{
@@ -857,7 +883,7 @@ public class jugador_al1 : MonoBehaviour
 	// Token: 0x06000020 RID: 32 RVA: 0x00003169 File Offset: 0x00001369
 	public void saltoalto()
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (jumpc > 0f ){
 		this._rb.AddForce(this.jumpforce * 0.2f * Vector3.up);}
 		audio1 = manager.GetComponent<AudioSource>();
@@ -865,14 +891,14 @@ public class jugador_al1 : MonoBehaviour
 	}
     public void saltoalto2()
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (jumpc > 0f){
 		this._rb.AddForce(this.jumpforce * 1f * Vector3.up);}
 		audio1.Play();
 	}
 	public void saltoalto3()
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (jumpc > 0f){
 		this._rb.AddForce(this.jumpforce * 3f * Vector3.up);}
 		audio1.Play();
@@ -881,7 +907,7 @@ public class jugador_al1 : MonoBehaviour
 	// Token: 0x06000021 RID: 33 RVA: 0x0000318C File Offset: 0x0000138C
 	public void OnCollisionEnter(Collision col)
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (manager.juego == 6)
 		{
 			tempgir = 3;
@@ -897,12 +923,53 @@ public class jugador_al1 : MonoBehaviour
 
 		
 		}
+		if (col.gameObject.tag == "enemigo")
+		{
+			manager.datosserial.alien1muere = true;
+			manager.guardar();
+            if(manager.nivel == 1 ||  manager.nivel == 2 || manager.nivel == 3)
+			{
+				SceneManager.LoadScene("piso1_al1");
+			}
+			if(manager.nivel == 4 ||  manager.nivel == 5 || manager.nivel == 6 || manager.nivel == 13)
+			{
+				SceneManager.LoadScene("piso2_al1");
+			}
+			if(manager.nivel == 7 ||  manager.nivel == 8 || manager.nivel == 9 || manager.nivel == 14)
+			{
+				SceneManager.LoadScene("piso3_al1");
+			}
+			if(manager.nivel == 10 ||  manager.nivel == 11 || manager.nivel == 12 || manager.nivel == 15)
+			{
+				SceneManager.LoadScene("piso4_al1");
+			}
+			if(manager.nivel == 0 && manager.piso == 10 && manager.mundo == 1)
+			{
+				SceneManager.LoadScene("mundo_al1");
+			}
+			if(manager.nivel == 0 && manager.piso == 10 && manager.mundo == 2)
+			{
+				SceneManager.LoadScene("mundoc2_al1");
+			}
+			if(manager.nivel == 0 && manager.piso == 10 && manager.mundo == 3)
+			{
+				SceneManager.LoadScene("mundo1_al1");
+			}
+			if(manager.nivel == 0 && manager.piso == 10 && manager.mundo == 4)
+			{
+				SceneManager.LoadScene("mundo2_al1");
+			}
+			if(manager.nivel == 0 && manager.piso == 10 && manager.mundo == 5)
+			{
+				SceneManager.LoadScene("mundo3_al1");
+			}
+		}
 	}
 
 	// Token: 0x06000022 RID: 34 RVA: 0x000031C0 File Offset: 0x000013C0
 	private void OnCollisionStay(Collision col)
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "ascensor" && manager.juego == 0)
 		{
 			tut10.SetActive(true);
@@ -930,7 +997,7 @@ public class jugador_al1 : MonoBehaviour
 	// Token: 0x06000023 RID: 35 RVA: 0x00003284 File Offset: 0x00001484
 	private void OnCollisionExit(Collision col)
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "ascensor" && manager.juego == 4)
 		{
 			if (!this.dentrotienda)
@@ -957,6 +1024,15 @@ public class jugador_al1 : MonoBehaviour
 		}
 	
 	}
+	private void OnTriggerEnter(Collider col)
+	{
+		if (col.gameObject.tag == "pisar")
+		{
+            Destroy(col.transform.parent.gameObject);
+		}
+
+	}
+	
 
 	// Token: 0x0400000C RID: 12
 	public int velocidad = 4;

@@ -280,7 +280,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""id"": ""d2d45dad-6384-4c35-9565-9b08e1876db0"",
                     ""path"": ""<Mouse>/delta/x"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Scale(factor=0.2)"",
                     ""groups"": """",
                     ""action"": ""rhorizontal"",
                     ""isComposite"": false,
@@ -302,7 +302,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""id"": ""bed8779a-0935-4f92-8e4b-f76803906684"",
                     ""path"": ""<Mouse>/delta/y"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Scale(factor=0.2)"",
                     ""groups"": """",
                     ""action"": ""rvertical"",
                     ""isComposite"": false,
@@ -629,7 +629,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""id"": ""9dd00015-0ca6-4b27-9020-31e3b0bbd8fc"",
                     ""path"": ""<Mouse>/delta/x"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Scale(factor=0.2)"",
                     ""groups"": """",
                     ""action"": ""rhorizontal"",
                     ""isComposite"": false,
@@ -651,7 +651,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""id"": ""730b6dea-5b69-4525-8bf8-886dbbc2b0b4"",
                     ""path"": ""<Mouse>/delta/y"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Scale(factor=0.2)"",
                     ""groups"": """",
                     ""action"": ""rvertical"",
                     ""isComposite"": false,
@@ -894,6 +894,15 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""pad"",
+                    ""type"": ""Value"",
+                    ""id"": ""3532d687-f2ea-479e-b5ba-a818e41da5aa"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -1045,7 +1054,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""id"": ""65a9e612-5462-4be7-bbc2-bb71bb2c39c5"",
                     ""path"": ""<Mouse>/delta/x"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Scale(factor=0.2)"",
                     ""groups"": """",
                     ""action"": ""rhorizontal"",
                     ""isComposite"": false,
@@ -1067,7 +1076,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""id"": ""984065de-f316-4c1b-99c8-cf274755e79c"",
                     ""path"": ""<Mouse>/delta/y"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Scale(factor=0.2)"",
                     ""groups"": """",
                     ""action"": ""rvertical"",
                     ""isComposite"": false,
@@ -1292,6 +1301,72 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""action"": ""verticalpad"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""64161fe0-63c6-4132-8d33-6d8c865e87b2"",
+                    ""path"": ""<Gamepad>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""pad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""0a065aed-5345-4bc7-b756-ee93d1dce5f6"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""pad"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""4bca39ed-76b5-4ea8-8dbe-997ec2882b9d"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""pad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""28c9c421-b24b-4ca8-a4ef-c6560def4530"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""pad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""91f720a0-d2a0-4c97-9f13-d6c96e1c102a"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""pad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""da1c86d5-417e-466e-9df5-2d31388e4d81"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""pad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -1388,6 +1463,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         m_al3_r3 = m_al3.FindAction("r3", throwIfNotFound: true);
         m_al3_horizontalpad = m_al3.FindAction("horizontalpad", throwIfNotFound: true);
         m_al3_verticalpad = m_al3.FindAction("verticalpad", throwIfNotFound: true);
+        m_al3_pad = m_al3.FindAction("pad", throwIfNotFound: true);
         // menu
         m_menu = asset.FindActionMap("menu", throwIfNotFound: true);
         m_menu_move = m_menu.FindAction("move", throwIfNotFound: true);
@@ -1713,6 +1789,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     private readonly InputAction m_al3_r3;
     private readonly InputAction m_al3_horizontalpad;
     private readonly InputAction m_al3_verticalpad;
+    private readonly InputAction m_al3_pad;
     public struct Al3Actions
     {
         private @Controles m_Wrapper;
@@ -1733,6 +1810,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         public InputAction @r3 => m_Wrapper.m_al3_r3;
         public InputAction @horizontalpad => m_Wrapper.m_al3_horizontalpad;
         public InputAction @verticalpad => m_Wrapper.m_al3_verticalpad;
+        public InputAction @pad => m_Wrapper.m_al3_pad;
         public InputActionMap Get() { return m_Wrapper.m_al3; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1790,6 +1868,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @verticalpad.started += instance.OnVerticalpad;
             @verticalpad.performed += instance.OnVerticalpad;
             @verticalpad.canceled += instance.OnVerticalpad;
+            @pad.started += instance.OnPad;
+            @pad.performed += instance.OnPad;
+            @pad.canceled += instance.OnPad;
         }
 
         private void UnregisterCallbacks(IAl3Actions instance)
@@ -1842,6 +1923,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @verticalpad.started -= instance.OnVerticalpad;
             @verticalpad.performed -= instance.OnVerticalpad;
             @verticalpad.canceled -= instance.OnVerticalpad;
+            @pad.started -= instance.OnPad;
+            @pad.performed -= instance.OnPad;
+            @pad.canceled -= instance.OnPad;
         }
 
         public void RemoveCallbacks(IAl3Actions instance)
@@ -1957,6 +2041,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         void OnR3(InputAction.CallbackContext context);
         void OnHorizontalpad(InputAction.CallbackContext context);
         void OnVerticalpad(InputAction.CallbackContext context);
+        void OnPad(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

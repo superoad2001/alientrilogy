@@ -8,7 +8,7 @@ public class gemanv13_al1 : MonoBehaviour
 	// Token: 0x060001CA RID: 458 RVA: 0x00006CCD File Offset: 0x00004ECD
 	private void Start()
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         fragmentoN1 = manager.datosserial.fragmentoN1;
 	}
 

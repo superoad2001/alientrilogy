@@ -60,7 +60,7 @@ public class moneda_al3: MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+			manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 			manager.datosserial.monedas += valor;
 			manager.guardar();
 			audio1.Play();

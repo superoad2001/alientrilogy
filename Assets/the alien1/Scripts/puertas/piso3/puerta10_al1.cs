@@ -19,7 +19,7 @@ public class puerta10_al1 : MonoBehaviour
 	// Token: 0x060001A4 RID: 420 RVA: 0x00006968 File Offset: 0x00004B68
 	private void OnCollisionEnter(Collision col)
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player" )
 		{
 			SceneManager.LoadScene("nivel8_al1");

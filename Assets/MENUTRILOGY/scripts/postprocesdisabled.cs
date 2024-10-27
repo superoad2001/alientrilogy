@@ -9,10 +9,10 @@ public class postprocesdisabled : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        managerBASE manager0 = UnityEngine.Object.FindObjectOfType<managerBASE>();
-        manager_al1 manager1 = UnityEngine.Object.FindObjectOfType<manager_al1>();
-        manager_al2 manager2 = UnityEngine.Object.FindObjectOfType<manager_al2>();
-        manager_al3 manager3 = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        managerBASE manager0 = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+        manager_al1 manager1 = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+        manager_al2 manager2 = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager_al3 manager3 = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 
         
         if(manager0 != null)
@@ -64,7 +64,7 @@ public class postprocesdisabled : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        managerBASE manager0 = UnityEngine.Object.FindObjectOfType<managerBASE>();
+        managerBASE manager0 = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
         if(manager0 != null)
         {
             if(manager0.datosconfig.postpro == 1)

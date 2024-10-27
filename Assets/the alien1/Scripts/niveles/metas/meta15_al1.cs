@@ -11,7 +11,7 @@ public class meta15_al1 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+			manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 			if (col.gameObject.tag == "Player")
 			{
 				if (manager.datosserial.gemas >= 13 && manager.datosserial.fragmentoN3 == 0)

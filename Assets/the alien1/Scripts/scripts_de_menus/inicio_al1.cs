@@ -19,7 +19,7 @@ public class inicio_al1 : MonoBehaviour
 
 	public void Start()
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         gemas = manager.datosserial.gemas;
 	}
 
@@ -28,7 +28,7 @@ public class inicio_al1 : MonoBehaviour
 
 	private void Update()
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 
 		if(!audio.isPlaying)
 		{

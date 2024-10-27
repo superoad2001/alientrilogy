@@ -15,7 +15,7 @@ public class inicio1_al2 : MonoBehaviour
 	// Token: 0x0600001B RID: 27 RVA: 0x00002528 File Offset: 0x00000728
 	private void Update()
 	{
-		manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if (temp < 15)
 		{temp += 1 * Time.deltaTime;}
 		if (this.botonm == true && temp >= 1)

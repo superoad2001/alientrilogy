@@ -18,10 +18,10 @@ public class Monedav_al1 : MonoBehaviour
 	// Token: 0x0600002A RID: 42 RVA: 0x00003900 File Offset: 0x00001B00
 	private void OnTriggerStay(Collider col)
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player" && manager.datosserial.tengovel == 1)
 		{
-			jugador_al1 jugador = UnityEngine.Object.FindObjectOfType<jugador_al1>();
+			jugador_al1 jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
 			jugador.tiempovel = 0f;
 			jugador.tiempovelint = 0;
 			jugador.velocidad = jugador.velocidadaux;

@@ -15,7 +15,7 @@ public class movcam_al1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       transform.position = new Vector3(player.transform.position.x,transform.position.y,player.transform.position.z);
+       transform.position = Vector3.MoveTowards(transform.position,player.transform.position,2f * Time.deltaTime);
     }
     private void OnCollisionEnter(Collision col)
 	{

@@ -21,7 +21,7 @@ public class carga_al3: MonoBehaviour
 	public float temp;
 	public void Update()
 	{
-		manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+		manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		if (manager.datosserial.menu == -6)
 		{
 			SceneManager.LoadScene("espacio0_al3");

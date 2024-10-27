@@ -16,10 +16,13 @@ public class controlmusicabase : MonoBehaviour
     public AudioSource voza;
     public AudioSource uia;
     public float test;
+
+    public bool opciones;
     public void Start ()
     {
-
-        managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+        
+        
+        managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
         slidermusica.value =  (manager.datosconfig.musicaslider);
         slidervoz.value =  (manager.datosconfig.vozslider);
         slidersfx.value =  (manager.datosconfig.sfxslider);

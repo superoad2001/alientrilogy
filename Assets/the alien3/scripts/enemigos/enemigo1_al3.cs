@@ -74,7 +74,7 @@ public class enemigo1_al3: MonoBehaviour
         }
         if(vida <= 0)
         {
-            manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+            manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
             manager.datosserial.enemigos++;
             manager.guardar();
             if(jefe == 1)
@@ -619,7 +619,7 @@ public class enemigo1_al3: MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        jugador1_al3 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al3>();
+        jugador1_al3 jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
         if (col.gameObject.tag == "golpeh" && tempgolpe > 0.3f)
 		{
             vida = vida - 1f * jugador.dano;

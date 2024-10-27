@@ -18,14 +18,14 @@ public class saltador_al2 : MonoBehaviour
 	// Token: 0x06000036 RID: 54 RVA: 0x00003A28 File Offset: 0x00001C28
 	private void OnTriggerStay(Collider col)
 	{
-		jugador1_al2 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al2>();
+		jugador1_al2 jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
 		if (col.gameObject.tag == "Player")
 		{
 
 				jugador.tiemposalto = 0.5f;
 				jugador.saltador = true;
-				pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
-				manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+				pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
+				manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 				if(manager.datostrof.alien2usaelsaltador == 0)
 				{
 					manager.datostrof.alien2usaelsaltador = 1;
@@ -37,7 +37,7 @@ public class saltador_al2 : MonoBehaviour
 	}
 	private void OnTriggerExit(Collider col)
 	{
-		jugador1_al2 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al2>();
+		jugador1_al2 jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
 		if (col.gameObject.tag == "Player")
 		{
 				jugador.saltador = false;

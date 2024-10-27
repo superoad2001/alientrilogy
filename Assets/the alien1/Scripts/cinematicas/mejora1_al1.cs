@@ -12,7 +12,7 @@ public class mejora1_al1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+        manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         if(manager.datosconfig.idioma == "es")
         {
             audio = audioesp;

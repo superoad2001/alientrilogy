@@ -23,6 +23,7 @@ public class jugador2_al2 : MonoBehaviour
     }
 
 	public AudioSource audio1;
+    private float cameraverticalangle2;
     public AudioSource audio2;
     public float vida = 2;
     public bool muerte;
@@ -80,7 +81,7 @@ public class jugador2_al2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         if(manager.datosconfig.plat == 1)
         {
             Cursor.visible = false;
@@ -122,7 +123,7 @@ public class jugador2_al2 : MonoBehaviour
     void Update()
     {
         
-        manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         lhorizontalc = controles.al2.lhorizontal.ReadValue<float>();
         lverticalc = controles.al2.lvertical.ReadValue<float>();
         rhorizontalc = controles.al2.rhorizontal.ReadValue<float>();
@@ -228,7 +229,7 @@ public class jugador2_al2 : MonoBehaviour
                 }
                 if(nc > 0f && tempboton > 0.5f)
                 {
-                    jugador1_al2 jugador1 = UnityEngine.Object.FindObjectOfType<jugador1_al2>();
+                    jugador1_al2 jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
                     jugador1.tempboton = 0;
                     tempboton = 0;
                     manager.personaje = 1;
@@ -278,13 +279,20 @@ public class jugador2_al2 : MonoBehaviour
             rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
             rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
 
-            cameraverticalangle +=  rotationinput.y;
-            cameraverticalangle = Mathf.Clamp(cameraverticalangle, -50 , 20);
-            
-            transform.Rotate(Vector3.up * rotationinput.x);
-            camara.transform.localRotation = Quaternion.Euler(-cameraverticalangle,transform.eulerAngles.y,0);
+            cameraverticalangle +=  rotationinput.y/3;
+            cameraverticalangle = Mathf.Clamp(cameraverticalangle, -20 , 20);
 
-            camara.transform.position = Vector3.MoveTowards(camara.transform.position,transform.position,10 * Time.deltaTime);
+			cameraverticalangle2 +=  rotationinput.x;
+
+            camara.transform.localRotation = Quaternion.Euler(-cameraverticalangle,cameraverticalangle2,0);
+			if (lhorizontalc != 0f && rhorizontalc != 0f|| lverticalc != 0 && rhorizontalc != 0f)
+			{
+				transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),2.5f* Time.deltaTime);
+			}
+			else if (lhorizontalc != 0f || lverticalc != 0)
+			{
+				transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),90f* Time.deltaTime);
+			}
         }
         if(manager.juego == 2)
         {
@@ -442,7 +450,7 @@ public class jugador2_al2 : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
 	{
-        manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if (col.gameObject.tag == "suelo")
 		{
 			saltop = true;
@@ -470,7 +478,7 @@ public class jugador2_al2 : MonoBehaviour
 	}
     private void OnCollisionExit(Collision col)
 	{
-		manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 
 		if (col.gameObject.tag == "suelo")
         {

@@ -2967,7 +2967,7 @@ public class pausa_al3: MonoBehaviour
         guia2c.SetActive(false);
         armaduras1act = false;
         armaduras2act = false;
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         temp = 0;
         juego.SetActive(true);
         jugador.selcarga = false;
@@ -2993,8 +2993,8 @@ public class pausa_al3: MonoBehaviour
     }
     public void seleccion()
     {
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
-		pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3entraaseleccionrapidaenelpause == 0)
         {
             manager.datostrof.alien3entraaseleccionrapidaenelpause = 1;
@@ -3046,8 +3046,8 @@ public class pausa_al3: MonoBehaviour
     }
     public void extras()
     {
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
-		pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3entraalmenuextras == 0)
         {
             manager.datostrof.alien3entraalmenuextras = 1;
@@ -3059,8 +3059,8 @@ public class pausa_al3: MonoBehaviour
     }
     public void guia_()
     {
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
-		pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3entraalaguiadelpause == 0)
         {
             manager.datostrof.alien3entraalaguiadelpause = 1;
@@ -4133,7 +4133,7 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
-		pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3escuchaunapagina == 0)
         {
             manager.datostrof.alien3escuchaunapagina = 1;
@@ -4162,7 +4162,7 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
-        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3escuchaunapagina == 0)
         {
             manager.datostrof.alien3escuchaunapagina = 1;
@@ -4191,7 +4191,7 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
-        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3escuchaunapagina == 0)
         {
             manager.datostrof.alien3escuchaunapagina = 1;
@@ -4220,7 +4220,7 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
-        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3escuchaunapagina == 0)
         {
             manager.datostrof.alien3escuchaunapagina = 1;
@@ -4249,7 +4249,7 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
-        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3escuchaunapagina == 0)
         {
             manager.datostrof.alien3escuchaunapagina = 1;
@@ -4278,7 +4278,7 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
-        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3escuchaunapagina == 0)
         {
             manager.datostrof.alien3escuchaunapagina = 1;
@@ -4307,7 +4307,7 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
-        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3escuchaunapagina == 0)
         {
             manager.datostrof.alien3escuchaunapagina = 1;
@@ -4336,7 +4336,7 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
-        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3escuchaunapagina == 0)
         {
             manager.datostrof.alien3escuchaunapagina = 1;
@@ -4365,7 +4365,7 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
-        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3escuchaunapagina == 0)
         {
             manager.datostrof.alien3escuchaunapagina = 1;
@@ -4394,7 +4394,7 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
-        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3escuchaunapagina == 0)
         {
             manager.datostrof.alien3escuchaunapagina = 1;
@@ -4423,7 +4423,7 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
-        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3escuchaunapagina == 0)
         {
             manager.datostrof.alien3escuchaunapagina = 1;
@@ -4452,7 +4452,7 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Stop();
-        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3escuchaunapagina == 0)
         {
             manager.datostrof.alien3escuchaunapagina = 1;
@@ -4481,7 +4481,7 @@ public class pausa_al3: MonoBehaviour
         diario13.Play();
         diario14.Stop();
         diario15.Stop();
-        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3escuchaunapagina == 0)
         {
             manager.datostrof.alien3escuchaunapagina = 1;
@@ -4510,7 +4510,7 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Play();
         diario15.Stop();
-        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3escuchaunapagina == 0)
         {
             manager.datostrof.alien3escuchaunapagina = 1;
@@ -4539,7 +4539,7 @@ public class pausa_al3: MonoBehaviour
         diario13.Stop();
         diario14.Stop();
         diario15.Play();
-        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+        pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3escuchaunapagina == 0)
         {
             manager.datostrof.alien3escuchaunapagina = 1;
@@ -4597,8 +4597,8 @@ public class pausa_al3: MonoBehaviour
     }
     public void aplicar2()
     {
-		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
-		controlmusicabase controlslider = UnityEngine.Object.FindObjectOfType<controlmusicabase>();
+		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+		controlmusicabase controlslider = (controlmusicabase)FindFirstObjectByType(typeof(controlmusicabase));
 
 
 		audiomixer.GetFloat ("MusicVolume",out manager.datosconfig.musica);

@@ -12,7 +12,7 @@ public class llave1_al1 : MonoBehaviour
 	// Token: 0x060001CB RID: 459 RVA: 0x00006CD0 File Offset: 0x00004ED0
 	private void Update()
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (manager.datosserial.tengollave1 == 1)
 		{
 			UnityEngine.Object.Destroy(base.gameObject);
@@ -26,7 +26,7 @@ public class llave1_al1 : MonoBehaviour
 	// Token: 0x060001CC RID: 460 RVA: 0x00006D34 File Offset: 0x00004F34
 	private void OnTriggerEnter(Collider col)
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player")
 		{
 			manager.datosserial.tengollave1 = 1;

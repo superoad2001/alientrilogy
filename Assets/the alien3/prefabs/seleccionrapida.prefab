@@ -1025,7 +1025,7 @@ MonoBehaviour:
   jugador: {fileID: 0}
 --- !u!95 &5912417106528235088
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1039,6 +1039,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -1639,7 +1640,7 @@ GameObject:
   - component: {fileID: 6604653577480518994}
   - component: {fileID: 3604537023410680382}
   - component: {fileID: 2636892614852899248}
-  - component: {fileID: 1626829340676207505}
+  - component: {fileID: 7705428114036485556}
   m_Layer: 5
   m_Name: Image (3)
   m_TagString: Untagged
@@ -1704,7 +1705,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1626829340676207505
+--- !u!114 &7705428114036485556
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1713,15 +1714,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9050022542874931154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe5c34b49a5b4524c85b907c56ad4845, type: 3}
+  m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerId: 0
-  actionLookup: 0
-  updateType: 0
-  actionName: r3
-  actionId: 0
-  notFoundSprite: {fileID: 0}
+  m_Action: al3/r3
+  _setNativeSize: 1
 --- !u!1 &9097037503144065817
 GameObject:
   m_ObjectHideFlags: 0
@@ -1733,6 +1730,7 @@ GameObject:
   - component: {fileID: 414504326057711185}
   - component: {fileID: 1147098810115814557}
   - component: {fileID: 5373819042322931247}
+  - component: {fileID: 7330764521261200238}
   m_Layer: 5
   m_Name: Image (2)
   m_TagString: Untagged
@@ -1797,3 +1795,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7330764521261200238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9097037503144065817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Action: al3/pad
+  _setNativeSize: 1

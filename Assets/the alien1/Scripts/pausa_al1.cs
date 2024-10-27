@@ -42,7 +42,7 @@ public class pausa_al1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+        manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         if(manager.datosconfig.idioma == "es")
         {
             boton2.text = "salir";
@@ -80,7 +80,7 @@ public class pausa_al1 : MonoBehaviour
         {temp += 1 * Time.deltaTime;}
     }
     public void continuar(){
-        manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+        manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         plataforma = manager.datosconfig.plat;
         temp = 0;
         juego.SetActive(true);
@@ -121,8 +121,8 @@ public class pausa_al1 : MonoBehaviour
     }
     public void aplicar2()
     {
-		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
-		controlmusicabase controlslider = UnityEngine.Object.FindObjectOfType<controlmusicabase>();
+		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+		controlmusicabase controlslider = (controlmusicabase)FindFirstObjectByType(typeof(controlmusicabase));
 
 
 		audiomixer.GetFloat ("MusicVolume",out manager.datosconfig.musica);

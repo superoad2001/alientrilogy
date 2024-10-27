@@ -10,7 +10,7 @@ public class gema1_al3: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         tgema = manager.datosserial.tgema[gema];
         if(tgema == 1)
         {
@@ -25,10 +25,10 @@ public class gema1_al3: MonoBehaviour
     }
     private void OnTriggerEnter(Collider col) 
     {
-        jugador1_al3 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al3>();
+        jugador1_al3 jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
         if(tgema == 0 && col.gameObject.tag == "Player")
         {
-            manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+            manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
             audio.Play();
             manager.datosserial.gemas++;
             manager.datosserial.tgema[gema] = 1;

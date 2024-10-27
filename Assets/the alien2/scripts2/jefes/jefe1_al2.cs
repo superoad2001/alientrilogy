@@ -51,7 +51,7 @@ public class jefe1_al2 : MonoBehaviour
         }
 		if (col.gameObject.tag == "portal")
         {
-			jugador1_al2 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al2>();
+			jugador1_al2 jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
          	jugador.muerte = true;
 			
         }
@@ -70,7 +70,7 @@ public class jefe1_al2 : MonoBehaviour
 		vidab.fillAmount = vida/vidamax;
 
 		
-		manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 
 		if(manager.datosconfig.idioma == "es")
 		{

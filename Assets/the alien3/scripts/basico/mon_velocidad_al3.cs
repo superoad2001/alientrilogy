@@ -21,7 +21,7 @@ public class mon_velocidad_al3: MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			jugador1_al3 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al3>();
+			jugador1_al3 jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
 			jugador.velocidad = jugador.velocidadaux;
 			jugador.velact = true;
 			jugador.velozidad();

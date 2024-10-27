@@ -19,7 +19,7 @@ public class anticrono_al1 : MonoBehaviour
     {
         if (col.gameObject.tag == "Player" )
         {
-            manager2_al1 manager2 = UnityEngine.Object.FindObjectOfType<manager2_al1>();
+            manager2_al1 manager2 = (manager2_al1)FindFirstObjectByType(typeof(manager2_al1));
             manager2.contador -= 4;
             UnityEngine.Object.Destroy(base.gameObject);
         }

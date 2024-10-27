@@ -21,7 +21,7 @@ public class presentacionbase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+        managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
         if(manager.datosconfig.idioma == "es")
         {
             pres.text = "presenta";

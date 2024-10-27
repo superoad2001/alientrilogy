@@ -24,7 +24,7 @@ public class subircin1_al1 : MonoBehaviour
 	// Token: 0x06000038 RID: 56 RVA: 0x00003A94 File Offset: 0x00001C94
 	private void Start()
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if(manager.datosconfig.plat == 1)
 		{
 			tactil.SetActive(false);

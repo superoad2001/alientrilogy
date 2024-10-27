@@ -34,7 +34,7 @@ public class planetas_al3: MonoBehaviour
     }
     private void OnTriggerStay(Collider col) 
     {
-        jugador1_al3 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al3>();
+        jugador1_al3 jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
         if (col.gameObject.tag == "Player")
 		{
             if(controles.al3.y.ReadValue<float>() > 0)

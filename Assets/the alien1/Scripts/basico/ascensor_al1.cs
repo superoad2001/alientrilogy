@@ -18,7 +18,7 @@ public class ascensor_al1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        jugador_al1 jugador = UnityEngine.Object.FindObjectOfType<jugador_al1>();
+        jugador_al1 jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         if(jugador.subir == true)
         {
             base.transform.Translate(Vector3.up * 4f * Time.deltaTime);

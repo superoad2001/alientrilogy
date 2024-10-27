@@ -19,6 +19,7 @@ public class jugador1_al2 : MonoBehaviour
     {
         controles.Disable();
     }
+    public bool controlact = true;
     public float pasotiempo;
     public float temppaso = 1;
     public int randompaso;
@@ -55,6 +56,7 @@ public class jugador1_al2 : MonoBehaviour
     private bool salto2;
     public AudioSource saltodo;
     public int blanco;
+    private float cameraverticalangle2;
     public float tiempodisp;
     public GameObject balaprefab;
     public bool control = false;
@@ -2924,6 +2926,181 @@ public class jugador1_al2 : MonoBehaviour
                 }
             }
         }
+        if(blanco == 23)
+        {
+            if(objeto == 0)
+            {
+                if(manager.datosconfig.idioma == "es")
+                {
+                objetotext.text = "subir al coche";
+                }
+                if(manager.datosconfig.idioma == "en")
+                {
+                objetotext.text = "up in to the card";
+                }
+                if(manager.datosconfig.idioma == "cat")
+                {
+                objetotext.text = "pujar al cotxe";
+                }
+                if(nc > 0f)
+                {
+                    SceneManager.LoadScene("mundo_abierto_coche_al2");
+                }
+            }
+        }
+        if(blanco == 24)
+        {
+            if(objeto == 0)
+            {
+                if(manager.datosconfig.idioma == "es")
+                {
+                objetotext.text = "subir a la nave";
+                }
+                if(manager.datosconfig.idioma == "en")
+                {
+                objetotext.text = "go to the ship";
+                }
+                if(manager.datosconfig.idioma == "cat")
+                {
+                objetotext.text = "pujar a la nau";
+                }
+                if(nc > 0f)
+                {
+                    SceneManager.LoadScene("espacio_al2");
+                }
+            }
+        }
+        if(blanco == 25)
+        {
+            if(objeto == 0)
+            {
+                if(manager.datosconfig.idioma == "es")
+                {
+                objetotext.text = "ir a tiendas";
+                }
+                if(manager.datosconfig.idioma == "en")
+                {
+                objetotext.text = "go to the shops";
+                }
+                if(manager.datosconfig.idioma == "cat")
+                {
+                objetotext.text = "anar a tendas";
+                }
+                if(nc > 0f)
+                {
+                    SceneManager.LoadScene("centro_de_tiendas_al2");
+                }
+            }
+        }
+        if(blanco == 26)
+        {
+            if(objeto == 0)
+            {
+                if(manager.datosconfig.idioma == "es")
+                {
+                objetotext.text = "ir a la torre";
+                }
+                if(manager.datosconfig.idioma == "en")
+                {
+                objetotext.text = "enter in the tower";
+                }
+                if(manager.datosconfig.idioma == "cat")
+                {
+                objetotext.text = "anar a la torre";
+                }
+                if(nc > 0f)
+                {
+                    SceneManager.LoadScene("torre_del_tiempo_al2");
+                }
+            }
+        }
+        if(blanco == 27)
+        {
+            if(objeto == 0)
+            {
+                if(manager.datosconfig.idioma == "es")
+                {
+                objetotext.text = "ir a la isla";
+                }
+                if(manager.datosconfig.idioma == "en")
+                {
+                objetotext.text = "enter to the island";
+                }
+                if(manager.datosconfig.idioma == "cat")
+                {
+                objetotext.text = "anar a l illa";
+                }
+                if(nc > 0f)
+                {
+                    SceneManager.LoadScene("isla_al2");
+                }
+            }
+        }
+        if(blanco == 28)
+        {
+            if(objeto == 0)
+            {
+                if(manager.datosconfig.idioma == "es")
+                {
+                objetotext.text = "volver a la ciudad";
+                }
+                if(manager.datosconfig.idioma == "en")
+                {
+                objetotext.text = "return to the city";
+                }
+                if(manager.datosconfig.idioma == "cat")
+                {
+                objetotext.text = "tornar a la ciutat";
+                }
+                if(nc > 0f)
+                {
+                    SceneManager.LoadScene("mundo_abierto_al2");
+                }
+            }
+        }
+        if(blanco == 29)
+        {
+            if(objeto == 0)
+            {
+                if(manager.datosconfig.idioma == "es")
+                {
+                objetotext.text = "ir al enfrentamiento";
+                }
+                if(manager.datosconfig.idioma == "en")
+                {
+                objetotext.text = "go to the battle";
+                }
+                if(manager.datosconfig.idioma == "cat")
+                {
+                objetotext.text = "anar al enforntament";
+                }
+                if(nc > 0f)
+                {
+                    SceneManager.LoadScene("jefe6_1_al2");
+                }
+            }
+        }
+        if(blanco == 30)
+        {
+            if(objeto == 0)
+            {
+                if(manager.datosconfig.idioma == "es")
+                {
+                objetotext.text = "no hay objetos";
+                }
+                if(manager.datosconfig.idioma == "en")
+                {
+                objetotext.text = "haven t items";
+                }
+                if(manager.datosconfig.idioma == "cat")
+                {
+                objetotext.text = "no ja objectes";
+                }
+                if(nc > 0f)
+                {
+                }
+            }
+        }
         if(manager.juego == 1)
         {
             anim.SetFloat("velx",lhorizontalc);
@@ -2965,13 +3142,20 @@ public class jugador1_al2 : MonoBehaviour
             rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
             rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
 
-            cameraverticalangle +=  rotationinput.y;
-            cameraverticalangle = Mathf.Clamp(cameraverticalangle, -50 , 20);
-            
-            transform.Rotate(Vector3.up * rotationinput.x);
-            camara.transform.localRotation = Quaternion.Euler(-cameraverticalangle,transform.eulerAngles.y,0);
+            cameraverticalangle +=  rotationinput.y/3;
+            cameraverticalangle = Mathf.Clamp(cameraverticalangle, -20 , 20);
 
-            camara.transform.position = Vector3.MoveTowards(camara.transform.position,transform.position,30 * Time.deltaTime);
+            cameraverticalangle2 +=  rotationinput.x;
+
+            camara.transform.localRotation = Quaternion.Euler(-cameraverticalangle,cameraverticalangle2,0);
+            if (lhorizontalc != 0f && rhorizontalc != 0f|| lverticalc != 0 && rhorizontalc != 0f)
+            {
+                transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),2.5f* Time.deltaTime);
+            }
+            else if (lhorizontalc != 0f || lverticalc != 0)
+            {
+                transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),90f* Time.deltaTime);
+                }
             if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
             {
                 if(temppaso > pasotiempo)

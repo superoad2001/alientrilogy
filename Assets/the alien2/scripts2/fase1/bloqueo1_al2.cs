@@ -17,7 +17,7 @@ public class bloqueo1_al2 : MonoBehaviour
 
 	private void Update()
 	{
-		manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if(manager.datosserial.block1 == 1)
 		{
 			UnityEngine.Object.Destroy(base.gameObject);
@@ -26,7 +26,7 @@ public class bloqueo1_al2 : MonoBehaviour
 
 	private void OnCollisionEnter(Collision col)
 	{
-		manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if (col.gameObject.tag == "Player")
 		{
 			if(manager.datosserial.llaves == 4 && manager.datosserial.block1 == 0)

@@ -6,6 +6,8 @@ public class hidemenu_al1 : MonoBehaviour
 {
 
     private Controles controles;
+    public Animator anim;
+    public bool act = true;
 	public void Awake()
     {
         controles = new Controles();
@@ -21,16 +23,17 @@ public class hidemenu_al1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Animator anim = GetComponent<Animator>();
-        if(controles.al1.lt.ReadValue<float>() > 0)
-	    {anim.SetBool("show",true);}
-        else if(controles.al1.lt.ReadValue<float>() == 0)
-	    {anim.SetBool("show",false);}
+            anim = GetComponent<Animator>();
+            if(controles.al1.lt.ReadValue<float>() > 0)
+            {anim.SetBool("show",true);}
+            else if(controles.al1.lt.ReadValue<float>() == 0)
+            {anim.SetBool("show",false);}
 
     }
 }

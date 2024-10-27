@@ -48,7 +48,7 @@ public class inicio3base : MonoBehaviour
     }
     public void comenzar()
     {
-        managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+        managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
         if(juego == 1)
         {
             SceneManager.LoadScene("presentacion_al1");
@@ -91,7 +91,7 @@ public class inicio3base : MonoBehaviour
             izq();
             temp = 0;
         }
-        managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+        managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
         if(juego == 1) 
         {
             logo1.color = new Color32(255,64,64,255);

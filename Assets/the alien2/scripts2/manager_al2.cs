@@ -336,7 +336,7 @@ public class manager_al2 : MonoBehaviour
 		}
 
 
-		jugador1_al2 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al2>();
+		jugador1_al2 jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
 		
 
 
@@ -445,7 +445,7 @@ public class manager_al2 : MonoBehaviour
 		
 
 
-		jugador1_al2 jugador1 = UnityEngine.Object.FindObjectOfType<jugador1_al2>();
+		jugador1_al2 jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
 
 		if(torretiempo == true)
 		{
@@ -1255,9 +1255,9 @@ public class manager_al2 : MonoBehaviour
 
 	private void Update()
 	{
-		jugador1_al2 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al2>();
-		jugador2_al2 jugador2 = UnityEngine.Object.FindObjectOfType<jugador2_al2>();
-		pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+		jugador1_al2 jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
+		jugador2_al2 jugador2 = (jugador2_al2)FindFirstObjectByType(typeof(jugador2_al2));
+		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
 
 		if(datostrof.alien2compraentodaslastiendas1vez == 0 && datosserial.tienda1c == 1 && datosserial.tienda2c == 1 && datosserial.tienda3c == 1 && datosserial.tienda4c == 1 && datosserial.tienda5c == 1 && datosserial.tienda6c == 1 && datosserial.tienda7c == 1)
 		{

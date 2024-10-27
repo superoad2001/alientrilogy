@@ -24,7 +24,7 @@ public class tinicio_al3: MonoBehaviour
     void Start()
     {
         
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		if(manager.datosconfig.plat == 1)
         {
             tactil.SetActive(false);

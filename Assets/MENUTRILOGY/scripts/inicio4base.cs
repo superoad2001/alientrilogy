@@ -29,7 +29,7 @@ public class inicio4base : MonoBehaviour
 	public bool menu;
 	public void Start()
 	{
-		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 		if(menu)
 		{
 		audiomixer.SetFloat ("MusicVolume",manager.datosconfig.musica);
@@ -76,7 +76,7 @@ public class inicio4base : MonoBehaviour
 		if(opcres > 0)
 		{
 		opcres--;
-		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 		Resolution resolucion = resoluciones[opcres];
 		Screen.SetResolution(resolucion.width,resolucion.height,Screen.fullScreen);
 		manager.datosconfig.resolh = Screen.currentResolution.width;
@@ -88,7 +88,7 @@ public class inicio4base : MonoBehaviour
 		if(opcres < opcionesr.Count - 1)
 		{
 		opcres++;
-		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 		Resolution resolucion = resoluciones[opcres];
 		Screen.SetResolution(resolucion.width,resolucion.height,Screen.fullScreen);
 		manager.datosconfig.resolh = Screen.currentResolution.width;
@@ -103,7 +103,7 @@ public class inicio4base : MonoBehaviour
 	{
 		if (temp < 15)
 		{temp += 1 * Time.deltaTime;}
-		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 		if(plat == 1)
 		{
 			if(manager.datosconfig.idioma == "es")
@@ -247,8 +247,8 @@ public class inicio4base : MonoBehaviour
     }
 	public void aplicar()
     {
-		managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
-		controlmusicabase controlslider = UnityEngine.Object.FindObjectOfType<controlmusicabase>();
+		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+		controlmusicabase controlslider = (controlmusicabase)FindFirstObjectByType(typeof(controlmusicabase));
 
 
 		audiomixer.GetFloat ("MusicVolume",out manager.datosconfig.musica);

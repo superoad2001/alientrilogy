@@ -17,7 +17,7 @@ public class nivel8_c2_al2 : MonoBehaviour
 	private void OnTriggerEnter(Collider col)
 	{
 		
-		manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if (col.gameObject.tag == "Player" && manager.datosserial.nivel8ch2 == 0)
 		{
 			manager.datosserial.nivel8ch2 = 1;

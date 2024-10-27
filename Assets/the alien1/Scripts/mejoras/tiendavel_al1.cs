@@ -12,7 +12,7 @@ public class tiendavel_al1 : MonoBehaviour
 	// Token: 0x060001E7 RID: 487 RVA: 0x00007230 File Offset: 0x00005430
 	private void Update()
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (manager.datosserial.tengovel == 1)
 		{
 			UnityEngine.Object.Destroy(base.gameObject);
@@ -26,8 +26,8 @@ public class tiendavel_al1 : MonoBehaviour
 	// Token: 0x060001E8 RID: 488 RVA: 0x00007294 File Offset: 0x00005494
 	private void OnTriggerEnter(Collider col)
 	{
-		pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player")
 		{
 			manager.datosserial.tengovel = 1;

@@ -10,7 +10,7 @@ public class armadt_al3: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         
         tengo = manager.datosserial.tarmad[armad];
         if(tengo == 1)
@@ -24,7 +24,7 @@ public class armadt_al3: MonoBehaviour
     }
     void OnTriggerEnter(Collider col)
     {
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         manager.datosserial.armadura = armad;
         manager.datosserial.tarmad[armad] = 1;
         manager.datosserial.armadurastotal++;

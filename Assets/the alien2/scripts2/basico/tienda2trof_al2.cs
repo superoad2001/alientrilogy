@@ -17,8 +17,8 @@ public class tienda2trof_al2 : MonoBehaviour
     }
     public void OnTriggerEnter(Collider col) 
     {
-        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
-        manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+        pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
+        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         if (col.gameObject.tag == "Player")
 		{
             if(manager.datostrof.alien2encuentralatiendaocultadelasegundazona == 0)

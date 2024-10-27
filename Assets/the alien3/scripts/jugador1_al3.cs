@@ -59,6 +59,7 @@ public class jugador1_al3: MonoBehaviour
     public float rotspeed = 180;
 	public GameObject camara;
 	private float cameraverticalangle;
+    private float cameraverticalangle2;
 	public Vector3 rotationinput;
     public float tiempogiro2;
     public float girovalor;
@@ -166,7 +167,7 @@ public class jugador1_al3: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         manager.cargar();
         if(manager.juego == 1 || manager.juego == 2 ||  manager.juego == 3)
         {seleccionanim = selecionrap.GetComponent<Animator>();}
@@ -220,7 +221,7 @@ public class jugador1_al3: MonoBehaviour
         // Update is called once per frame
     void FixedUpdate()
     {
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 
         if(suelo == false || volador == false)
         {
@@ -740,7 +741,7 @@ public class jugador1_al3: MonoBehaviour
         }
         else if (blanco == 1)
         {
-            inicio_al3 inicio = UnityEngine.Object.FindObjectOfType<inicio_al3>();
+            inicio_al3 inicio = (inicio_al3)FindFirstObjectByType(typeof(inicio_al3));
             if(manager.datosconfig.idioma == "es")
             {
                 objetotext.text = "subir a la nave";
@@ -1795,13 +1796,20 @@ public class jugador1_al3: MonoBehaviour
                 rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
                 
 
-                cameraverticalangle +=  rotationinput.y;
-                cameraverticalangle = Mathf.Clamp(cameraverticalangle, -50 , 20);
-                
-                transform.Rotate(Vector3.up * rotationinput.x);
-                camara.transform.localRotation = Quaternion.RotateTowards(camara.transform.localRotation,Quaternion.Euler(-cameraverticalangle,transform.eulerAngles.y,0),180 * Time.deltaTime);
+                cameraverticalangle +=  rotationinput.y/3;
+                cameraverticalangle = Mathf.Clamp(cameraverticalangle, -20 , 20);
 
-                camara.transform.position = Vector3.MoveTowards(camara.transform.position,transform.position,1 * Time.deltaTime);
+                cameraverticalangle2 +=  rotationinput.x;
+
+                camara.transform.localRotation = Quaternion.Euler(-cameraverticalangle,cameraverticalangle2,0);
+                if (lhorizontalc != 0f && rhorizontalc != 0f|| lverticalc != 0 && rhorizontalc != 0f)
+                {
+                    transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),2.5f* Time.deltaTime);
+                }
+                else if (lhorizontalc != 0f || lverticalc != 0)
+                {
+                    transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),90f* Time.deltaTime);
+                }
                 }
                 if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
                 {
@@ -1879,7 +1887,7 @@ public class jugador1_al3: MonoBehaviour
                 rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
 
                 cameraverticalangle +=  rotationinput.y;
-                cameraverticalangle = Mathf.Clamp(cameraverticalangle, -50 , 20);
+                cameraverticalangle = Mathf.Clamp(cameraverticalangle, -20 , 20);
                 
                 transform.Rotate(Vector3.up * rotationinput.x);
                 camara.transform.localRotation = Quaternion.RotateTowards(camara.transform.localRotation,Quaternion.Euler(-cameraverticalangle,transform.eulerAngles.y,0),180 * Time.deltaTime);
@@ -2277,7 +2285,7 @@ public class jugador1_al3: MonoBehaviour
 	}
     private void OnCollisionEnter(Collision col)
 	{
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		if (col.gameObject.tag == "suelo" || col.gameObject.tag == "nave")
 		{
             anim.SetBool("jetpack1",false);
@@ -2347,7 +2355,7 @@ public class jugador1_al3: MonoBehaviour
 	}
     private void OnCollisionExit(Collision col)
 	{
-		manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+		manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 
 		if (col.gameObject.tag == "suelo")
         {
@@ -2385,7 +2393,7 @@ public class jugador1_al3: MonoBehaviour
 	}
     private void OnTriggerEnter(Collider col)
 	{
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         if (col.gameObject.tag == "escalar")
 		{
 			escalar = true;
@@ -2532,7 +2540,7 @@ public class jugador1_al3: MonoBehaviour
 		}
         if (col.gameObject.tag == "tiendat")
 		{
-            tienda_al3 tienda = UnityEngine.Object.FindObjectOfType<tienda_al3>();
+            tienda_al3 tienda = (tienda_al3)FindFirstObjectByType(typeof(tienda_al3));
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
 			tiendat = false;
@@ -2573,7 +2581,7 @@ public class jugador1_al3: MonoBehaviour
 	}
     private void OnTriggerStay(Collider col)
 	{
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 
         if (col.gameObject.tag == "gas")
 		{

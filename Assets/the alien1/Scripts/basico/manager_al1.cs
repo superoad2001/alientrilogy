@@ -11,6 +11,7 @@ public class manager_al1 : MonoBehaviour
 {
 
 	public int trofeoact;
+	public float tempshow;
 	public int nivel = 0;
 	public bool otroasteroide = false;
 	public AudioSource audio;
@@ -233,6 +234,11 @@ public class manager_al1 : MonoBehaviour
 		cargar();
 		cargarconfig();
 		cargartro();
+		if (juego == 6 && datosserial.tengomejora == 1)
+		{
+			hidemenu_al1 hide = (hidemenu_al1)FindFirstObjectByType(typeof(hidemenu_al1));
+			hide.anim.SetBool("show2",true);
+		}
 	}
 	}
 	public void Start()
@@ -241,6 +247,12 @@ public class manager_al1 : MonoBehaviour
 		cargarconfig();
 		cargartro();
 
+		
+		if (juego == 6 && datosserial.tengomejora == 1)
+		{
+			hidemenu_al1 hide = (hidemenu_al1)FindFirstObjectByType(typeof(hidemenu_al1));
+			hide.anim.SetBool("show2",true);
+		}
 
 		if(datosserial.mejora1 == 0 && datosserial.gemas >= 3 && datosserial.monedas >= 10)
 		{
@@ -273,7 +285,7 @@ public class manager_al1 : MonoBehaviour
 			SceneManager.LoadScene("mejora5_al1");
 		}
 
-		jugador_al1 jugador = UnityEngine.Object.FindObjectOfType<jugador_al1>();
+		jugador_al1 jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
 		
 
 		if(datosconfig.idioma == "es")
@@ -393,6 +405,7 @@ public class manager_al1 : MonoBehaviour
 
 	// Token: 0x04000027 RID: 39
 	public bool tutorial;
+	public int mundo;
 
 	// Token: 0x04000028 RID: 40
 	public int espacio = 0;
@@ -427,9 +440,9 @@ public class manager_al1 : MonoBehaviour
 	// Token: 0x06000026 RID: 38 RVA: 0x000037BC File Offset: 0x000019BC
 	private void Update()
 	{
-		jugador_al1 jugador = UnityEngine.Object.FindObjectOfType<jugador_al1>();
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
-		pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
+		jugador_al1 jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
 		if(trofeoact == 1 && datostrof.completaalien1m == 0)
 		{
 			datostrof.completaalien1m = 1;
@@ -511,6 +524,12 @@ public class manager_al1 : MonoBehaviour
 			push.push(17);
 		}
 		guardartro();
+		if(tempshow > 1f && juego == 6 && datosserial.tengomejora == 1)
+		{
+			hidemenu_al1 hide = (hidemenu_al1)FindFirstObjectByType(typeof(hidemenu_al1));
+        	hide.anim.SetBool("show2",false);
+		}
+		tempshow += 1f * Time.deltaTime;
 		
 
 	if(datosconfig.idioma == "es")
@@ -642,7 +661,7 @@ public class manager_al1 : MonoBehaviour
 			this.cuentafrag.text = "fragmentos de gran gema: " + this.datosserial.fragmento + "/3";
 
 		}
-		if (this.juego == 0 && this.piso == 1 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 2 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 3 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 4 && dentrotienda == false && pauseact == false)
+		if (this.juego == 0 && this.piso == 1 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 2 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 3 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 4 && dentrotienda == false && pauseact == false|| mundo != 0)
 		{
 			this.cuentamonedas.text = "monedas:  " + this.datosserial.monedas+"/50";
 			this.cuentagemas.text = "gemas:  " + this.datosserial.gemas+"/15";
@@ -811,13 +830,14 @@ public class manager_al1 : MonoBehaviour
 			this.cuentamonedas.text = "monedas:  " + this.datosserial.monedas+"/50";
 			
 		}
-				if (this.juego == 4 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 1 && this.piso == 10 && this.mundos == true && pauseact == false || this.juego == 4 && this.piso == 1 && this.mundos == true && pauseact == false)
+		if (this.juego == 4 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 1 && this.piso == 10 && this.mundos == true && pauseact == false || this.juego == 4 && this.piso == 1 && this.mundos == true && pauseact == false)
 		{
 			this.cuentagemas.text = "gemas:  " + this.datosserial.gemas+"/15";
 			this.cuentamonedas.text = "monedas:  " + this.datosserial.monedas+"/50";
 		}
 		if (juego == 6 && datosserial.tengomejora == 1)
 		{
+
 			this.mision.text = "MISION fase final: vuela arriba a la plataforma de aterrizaje y sal de esta galaxia";
 		}
 		}
@@ -950,7 +970,7 @@ public class manager_al1 : MonoBehaviour
 			this.cuentafrag.text = "special gem fragments: " + this.datosserial.fragmento + "/3";
 
 		}
-		if (this.juego == 0 && this.piso == 1 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 2 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 3 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 4 && dentrotienda == false && pauseact == false)
+		if (this.juego == 0 && this.piso == 1 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 2 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 3 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 4 && dentrotienda == false && pauseact == false || mundo != 0)
 		{
 			this.cuentamonedas.text = "coins:  " + this.datosserial.monedas+"/50";
 			this.cuentagemas.text = "gems:  " + this.datosserial.gemas+"/15";
@@ -1118,7 +1138,7 @@ public class manager_al1 : MonoBehaviour
 			this.cuentagemas.text = "gems:  " + this.datosserial.gemas+"/15";
 			this.cuentamonedas.text = "coins:  " + this.datosserial.monedas+"/50";
 		}
-				if (this.juego == 4 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 1 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 4 && this.piso == 1 && this.mundos == true && pauseact == false)
+		if (this.juego == 4 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 1 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 4 && this.piso == 1 && this.mundos == true && pauseact == false)
 		{
 			this.cuentagemas.text = "gems:  " + this.datosserial.gemas+"/15";
 			this.cuentamonedas.text = "coins:  " + this.datosserial.monedas+"/50";
@@ -1257,7 +1277,7 @@ public class manager_al1 : MonoBehaviour
 			this.cuentafrag.text = "fragments de gran gemme: " + this.datosserial.fragmento + "/3";
 
 		}
-		if (this.juego == 0 && this.piso == 1 && dentrotienda == false  && pauseact == false || this.juego == 0 && this.piso == 2 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 3 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 4 && dentrotienda == false && pauseact == false)
+		if (this.juego == 0 && this.piso == 1 && dentrotienda == false  && pauseact == false || this.juego == 0 && this.piso == 2 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 3 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 4 && dentrotienda == false && pauseact == false || mundo != 0)
 		{
 			this.cuentamonedas.text = "diners:  " + this.datosserial.monedas+"/50";
 			this.cuentagemas.text = "gemmes:  " + this.datosserial.gemas+"/15";

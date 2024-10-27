@@ -18,7 +18,7 @@ public class romperbala_al3: MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		if (col.gameObject.tag == "suelo")
 		{
 			UnityEngine.Object.Destroy(base.gameObject);
@@ -27,7 +27,7 @@ public class romperbala_al3: MonoBehaviour
 	}
     private void OnCollisionEnter(Collision col)
 	{
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		if (col.gameObject.tag == "suelo")
 		{
 			UnityEngine.Object.Destroy(base.gameObject);

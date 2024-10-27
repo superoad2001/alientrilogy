@@ -146,7 +146,7 @@ public float temp;
             logo4t.text = "";
 
 
-        managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+        managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 
     if(manager.datostrof.completaalien1v == 1)
     {trofeos++;}
@@ -360,7 +360,7 @@ public float temp;
     // Update is called once per frame
     void Update()
     {
-        managerBASE manager = UnityEngine.Object.FindObjectOfType<managerBASE>();
+        managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
         if(controles.al3.horizontalpad.ReadValue<float>() > 0 && temp > 0.3f)
         {
             der();

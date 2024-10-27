@@ -19,8 +19,8 @@ public class acttroobj_al2 : MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        pushup push = UnityEngine.Object.FindObjectOfType<pushup>();
-        manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+        pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
+        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if (col.gameObject.tag == "Player")
 		{
             if(trofeo == 1 && manager.datostrof.alien2huevooculto == 0)

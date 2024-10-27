@@ -17,7 +17,7 @@ public class nvt19_al2 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+			manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 			manager.datosserial.niveltc = 19;
 			manager.guardar();
 			SceneManager.LoadScene("nivel19t_al2");

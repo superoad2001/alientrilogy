@@ -19,7 +19,7 @@ public class meta10_al1 : MonoBehaviour
 	// Token: 0x06000060 RID: 96 RVA: 0x00003CF0 File Offset: 0x00001EF0
 	private void OnCollisionEnter(Collision col)
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player")
 		{
 			if (manager.datosserial.gemaN10 == 0)

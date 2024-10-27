@@ -93,8 +93,8 @@ public class pagina_al3: MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
-			jugador1_al3 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al3>();
+			manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+			jugador1_al3 jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
 
 
 		if(diariop == 1 && tdiario1 == 0)

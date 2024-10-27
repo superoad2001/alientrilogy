@@ -5,7 +5,7 @@ public class trozo3nv17_al2 : MonoBehaviour
 	public AudioSource audio1;
 	private void Start()
 	{
-		manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if (manager.datosserial.trozo3nv17 == 1)
 		{
 			UnityEngine.Object.Destroy(base.gameObject);
@@ -14,7 +14,7 @@ public class trozo3nv17_al2 : MonoBehaviour
 
 	private void Update()
 	{
-		manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if (manager.datosserial.trozo3nv17 == 1)
 		{
 			UnityEngine.Object.Destroy(base.gameObject);
@@ -23,7 +23,7 @@ public class trozo3nv17_al2 : MonoBehaviour
 
 	private void OnCollisionEnter(Collision col)
 	{
-		manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if (col.gameObject.tag == "Player" && manager.datosserial.trozo3nv17 == 0)
 		{
 			manager.datosserial.trozo3nv17 = 1;

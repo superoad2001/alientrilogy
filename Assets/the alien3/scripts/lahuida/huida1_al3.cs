@@ -12,7 +12,7 @@ public class huida1_al3: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+		manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		if (manager.datosconfig.idioma == "es")
 		{
 			audio1 = audio1es;
@@ -34,7 +34,7 @@ public class huida1_al3: MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 
         if (col.gameObject.tag == "golpeh")
 		{
@@ -74,7 +74,7 @@ public class huida1_al3: MonoBehaviour
 	}
     private void OnCollisionEnter(Collision col)
 	{
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		if (col.gameObject.tag == "golpeh")
 		{
             audio1.Play();

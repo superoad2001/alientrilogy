@@ -63,7 +63,7 @@ public class jefe6_2_al2 : MonoBehaviour
 
 	private void Update()
 	{
-		manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		base.transform.Translate(Vector3.forward * Time.deltaTime * 1 * this.velocidad);
 		if (tiempodisp > 0.9)
 		{

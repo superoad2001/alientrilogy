@@ -12,7 +12,7 @@ public class gema1_al1 : MonoBehaviour
 	// Token: 0x06000173 RID: 371 RVA: 0x000064A4 File Offset: 0x000046A4
 	private void Update()
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (manager.datosserial.gema1 == 1)
 		{
 			UnityEngine.Object.Destroy(base.gameObject);
@@ -22,7 +22,7 @@ public class gema1_al1 : MonoBehaviour
 	// Token: 0x06000174 RID: 372 RVA: 0x000064D0 File Offset: 0x000046D0
 	private void OnTriggerEnter(Collider col)
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player")
 		{
 			if (manager.datosserial.gemas >= 12)

@@ -18,7 +18,7 @@ public class mejoracoche_al2 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+			manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 			manager.datosserial.tengocoche = 1;
 			manager.guardar();
 			audio1.Play();

@@ -44,7 +44,7 @@ public class inicio_al3: MonoBehaviour
 
 	public void Start()
 	{
-		manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+		manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		manager.cargar();
 		if (manager.datosconfig.idioma == "es")
 		{
@@ -87,7 +87,7 @@ public class inicio_al3: MonoBehaviour
 	}
 	public void Awake()
 		{
-			manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+			manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 			manager.cargar();
 			manager.datosserial.menu = mundo;
 			if(espacio != 0)
@@ -100,7 +100,7 @@ public class inicio_al3: MonoBehaviour
 	public float temp;
 	public void Update()
 	{
-		manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+		manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 
 		if(manager.datosconfig.idioma == "es")
 		{

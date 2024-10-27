@@ -12,7 +12,7 @@ public class presentacion_al3: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         manager.datosserial.com = 0;
         manager.guardar();
         
@@ -24,7 +24,7 @@ public class presentacion_al3: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 
         if(manager.datosconfig.idioma == "es")
         {

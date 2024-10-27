@@ -13,7 +13,7 @@ public class moneda10_al1 : MonoBehaviour
 	// Token: 0x0600009B RID: 155 RVA: 0x00004508 File Offset: 0x00002708
 	private void Update()
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		base.transform.Rotate(Vector3.left, 200f * Time.deltaTime);
 
 		if (manager.datosserial.moneda10 == 1)
@@ -25,7 +25,7 @@ public class moneda10_al1 : MonoBehaviour
 	// Token: 0x0600009C RID: 156 RVA: 0x00004548 File Offset: 0x00002748
 	private void OnTriggerEnter(Collider col)
 	{
-		manager_al1 manager = UnityEngine.Object.FindObjectOfType<manager_al1>();
+		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		manager.datosserial.moneda10 = 1;
 		manager.datosserial.monedas++;
 		manager.guardar();

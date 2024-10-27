@@ -10,7 +10,7 @@ public class lallegada_al2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager_al2 manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
+        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         manager.datosserial.inicio = 1;
         manager.guardar();
     }

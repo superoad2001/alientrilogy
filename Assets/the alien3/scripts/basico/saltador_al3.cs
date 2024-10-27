@@ -18,7 +18,7 @@ public class saltador_al3: MonoBehaviour
 	// Token: 0x06000036 RID: 54 RVA: 0x00003A28 File Offset: 0x00001C28
 	private void OnTriggerStay(Collider col)
 	{
-		jugador1_al3 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al3>();
+		jugador1_al3 jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
 		if (col.gameObject.tag == "Player")
 		{
 
@@ -29,7 +29,7 @@ public class saltador_al3: MonoBehaviour
 	}
 	private void OnTriggerExit(Collider col)
 	{
-		jugador1_al3 jugador = UnityEngine.Object.FindObjectOfType<jugador1_al3>();
+		jugador1_al3 jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
 		if (col.gameObject.tag == "Player")
 		{
 				jugador.saltador = false;

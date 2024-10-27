@@ -15,7 +15,7 @@ public class inicio5_al3: MonoBehaviour
 	// Token: 0x0600001B RID: 27 RVA: 0x00002528 File Offset: 0x00000728
 	private void Update()
 	{
-		manager_al3 manager = UnityEngine.Object.FindObjectOfType<manager_al3>();
+		manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		if(manager.datosconfig.idioma == "")
 		{
 			SceneManager.LoadScene("idioma_al3");
