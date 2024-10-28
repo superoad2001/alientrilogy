@@ -63,7 +63,15 @@ public class manager_al1 : MonoBehaviour
 	[SerializeField]
 	public datosextra datostrof;
 	public string repathtro;
+
+	public AudioSource moveson;
+
 	// Token: 0x06000025 RID: 37 RVA: 0x0000334C File Offset: 0x0000154C
+
+	public void move()
+	{
+		moveson.Play();
+	}
 
 
 
@@ -625,7 +633,7 @@ public class manager_al1 : MonoBehaviour
 		}
 		if(menu == -2)
 		{
-			boton1.text = "saltar";
+			//boton1.text = "saltar";
 		}
 		if(menu == 2)
 		{

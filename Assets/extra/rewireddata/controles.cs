@@ -96,7 +96,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""id"": ""76f14524-4440-440a-8d61-40ba88c09914"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -1391,6 +1391,15 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""saltar"",
+                    ""type"": ""Button"",
+                    ""id"": ""4889bbe2-ceda-43b9-8fb0-08d06a7d6275"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1413,6 +1422,39 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""aceptar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""71738998-00ac-420f-88d7-8ea513e0ceac"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""saltar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""888ba9c1-c799-476a-8393-bf49b69617f1"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""saltar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7304af7a-e192-41eb-b15c-e3ab34f4abc1"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""saltar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1468,6 +1510,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         m_menu = asset.FindActionMap("menu", throwIfNotFound: true);
         m_menu_move = m_menu.FindAction("move", throwIfNotFound: true);
         m_menu_aceptar = m_menu.FindAction("aceptar", throwIfNotFound: true);
+        m_menu_saltar = m_menu.FindAction("saltar", throwIfNotFound: true);
     }
 
     ~@Controles()
@@ -1949,12 +1992,14 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     private List<IMenuActions> m_MenuActionsCallbackInterfaces = new List<IMenuActions>();
     private readonly InputAction m_menu_move;
     private readonly InputAction m_menu_aceptar;
+    private readonly InputAction m_menu_saltar;
     public struct MenuActions
     {
         private @Controles m_Wrapper;
         public MenuActions(@Controles wrapper) { m_Wrapper = wrapper; }
         public InputAction @move => m_Wrapper.m_menu_move;
         public InputAction @aceptar => m_Wrapper.m_menu_aceptar;
+        public InputAction @saltar => m_Wrapper.m_menu_saltar;
         public InputActionMap Get() { return m_Wrapper.m_menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1970,6 +2015,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @aceptar.started += instance.OnAceptar;
             @aceptar.performed += instance.OnAceptar;
             @aceptar.canceled += instance.OnAceptar;
+            @saltar.started += instance.OnSaltar;
+            @saltar.performed += instance.OnSaltar;
+            @saltar.canceled += instance.OnSaltar;
         }
 
         private void UnregisterCallbacks(IMenuActions instance)
@@ -1980,6 +2028,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @aceptar.started -= instance.OnAceptar;
             @aceptar.performed -= instance.OnAceptar;
             @aceptar.canceled -= instance.OnAceptar;
+            @saltar.started -= instance.OnSaltar;
+            @saltar.performed -= instance.OnSaltar;
+            @saltar.canceled -= instance.OnSaltar;
         }
 
         public void RemoveCallbacks(IMenuActions instance)
@@ -2047,5 +2098,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnAceptar(InputAction.CallbackContext context);
+        void OnSaltar(InputAction.CallbackContext context);
     }
 }

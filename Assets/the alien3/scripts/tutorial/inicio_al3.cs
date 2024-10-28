@@ -41,10 +41,17 @@ public class inicio_al3: MonoBehaviour
 	public Text tg1;
 	public Text tg2;
 	public Text tsalir;
+	public bool tutorial;
 
 	public void Start()
 	{
 		manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+		if(tutorial && manager.datosserial.armastotal > 1)
+		{
+		manager.datosserial.arma = 0;
+    	manager.datosserial.armastotal=0;
+        manager.guardar();
+		}
 		manager.cargar();
 		if (manager.datosconfig.idioma == "es")
 		{

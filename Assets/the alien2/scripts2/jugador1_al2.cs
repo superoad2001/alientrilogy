@@ -100,14 +100,22 @@ public class jugador1_al2 : MonoBehaviour
     public pushup push;
     public jugador2_al2 jugador2;
     public GameObject explosion;
+    public menures_al2 menures;
 
 	
     // Start is called before the first frame update
     void Start()
     {
-        manager = UnityEngine.Object.FindObjectOfType<manager_al2>();
-        push = UnityEngine.Object.FindObjectOfType<pushup>();
-        jugador2 = UnityEngine.Object.FindObjectOfType<jugador2_al2>();
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        push = (pushup)FindFirstObjectByType(typeof(pushup));
+        jugador2 = (jugador2_al2)FindFirstObjectByType(typeof(jugador2_al2));
+        menures = (menures_al2)FindFirstObjectByType(typeof(menures_al2));
+        if(menures != null)
+        {
+            respawnm = menures.respawnp;
+            respawnm.SetActive(false);
+
+        }
 
         Debug.Log("start");
         if(manager.datosconfig.plat == 1)

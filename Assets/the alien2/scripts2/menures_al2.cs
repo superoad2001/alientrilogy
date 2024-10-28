@@ -36,9 +36,13 @@ public class menures_al2 : MonoBehaviour
     public manager_al2 manager;
     public Scene escena;
     public bool torre;
+    public GameObject respawnp;
+    public GameObject interfaz;
     // Start is called before the first frame update
     void Start()
     {
+        interfaz.SetActive(true);
+        respawnp = this.gameObject;
         manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         if (manager.nivel != 0)
         {salirnivelb = true;}

@@ -8,6 +8,7 @@ public class manager_al2 : MonoBehaviour
 {
 
 	public bool torretiempo;
+	public int mundo;
 	public bool torretiemponivel;
 	public int inicio;
 	public int trofeoact;
@@ -1717,7 +1718,7 @@ public class manager_al2 : MonoBehaviour
 				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
 				cuentallaves.text = "PAGINAS: "+paginas+"/20";
 			}
-			if(nivel == 500)
+			if(mundo == 3)
 			{
 				cuentavidas.text = ""+jugador.vida;
 				cuentamonedas.text = "MONEDAS: "+datosserial.monedas;
@@ -2157,7 +2158,7 @@ public class manager_al2 : MonoBehaviour
 				cuentallaves.text = "pages: "+paginas+"/20";
 				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
 			}
-			if(nivel == 500)
+			if(mundo == 3)
 			{
 				cuentavidas.text = ""+jugador.vida;
 				cuentamonedas.text = "coins: "+datosserial.monedas;
@@ -2597,7 +2598,7 @@ public class manager_al2 : MonoBehaviour
 					cuentallaves.text = "PAGINAS: "+paginas+"/20";
 					vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
 				}
-				if(nivel == 500)
+				if(mundo == 3)
 				{
 					cuentavidas.text = ""+jugador.vida;
 					cuentamonedas.text = "MONEDAS: "+datosserial.monedas;

@@ -10,6 +10,9 @@ public class datos1
     public int plat;
 
     public string idioma;
+	public int muertes;
+	public int asesinatos;
+	public bool salasecreta;
 
 	public int gemas;
 

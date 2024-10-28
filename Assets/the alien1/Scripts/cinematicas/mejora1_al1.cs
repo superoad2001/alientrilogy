@@ -5,6 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class mejora1_al1 : MonoBehaviour
 {
+    private Controles controles;
+    public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     public AudioSource audio;
     public AudioSource audioesp;
     public AudioSource audioen;
@@ -31,7 +44,7 @@ public class mejora1_al1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!audio.isPlaying)
+        if(!audio.isPlaying || controles.menu.saltar.ReadValue<float>() > 0)
 		{
 			SceneManager.LoadScene("tienda_al1");
 		}

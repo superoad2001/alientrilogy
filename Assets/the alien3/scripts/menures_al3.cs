@@ -36,9 +36,13 @@ public class menures_al3 : MonoBehaviour
     public manager_al3 manager;
     public Scene escena;
     public bool torre;
+    public GameObject respawnp;
+    public GameObject interfaz;
     // Start is called before the first frame update
     void Start()
     {
+        interfaz.SetActive(true);
+        respawnp = this.gameObject;
         manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         if (manager.nivel != 0)
         {salirnivelb = true;}

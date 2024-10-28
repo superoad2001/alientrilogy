@@ -7,6 +7,19 @@ using UnityEngine.SceneManagement;
 public class lasalidas_al1 : MonoBehaviour
 {
 	public bool botonm = false;
+	private Controles controles;
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
 	// Token: 0x06000038 RID: 56 RVA: 0x00003A94 File Offset: 0x00001C94
 	private void Start()
 	{
@@ -19,7 +32,7 @@ public class lasalidas_al1 : MonoBehaviour
 	}
 	public void OnTriggerEnter(Collider col)
 	{
-		if (col.gameObject.tag == "Player")
+		if (col.gameObject.tag == "Player" || controles.menu.saltar.ReadValue<float>() > 0f)
 		{
 			Debug.Log("Hello: ");
 			SceneManager.LoadScene("final_al1");

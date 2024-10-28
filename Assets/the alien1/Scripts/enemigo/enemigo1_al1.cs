@@ -20,11 +20,13 @@ public class enemigo1_al1: MonoBehaviour
     public GameObject det;
     public GameObject explosion;
     public jugador_al1 jugador1;
+    public AudioSource muertes;
     // Start is called before the first frame update
     void Start()
     {
         jugador1 = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         jugador1.explosion = explosion;
+        muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -58,6 +60,7 @@ public class enemigo1_al1: MonoBehaviour
         if (col.gameObject.tag == "respawn")
 		{
 			Destroy(transform.parent.gameObject);
+            muertes.Play();
 		}
         
     }

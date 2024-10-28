@@ -241,24 +241,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &20
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 45}
-  - component: {fileID: 117}
-  - component: {fileID: 127}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &21
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,21 +567,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 38}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!4 &45
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 20}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -511.71988, y: -192.97678, z: -225.50334}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1331232773}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &46
 Transform:
   m_ObjectHideFlags: 0
@@ -1834,21 +1801,6 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: ab2375984b0f99f4cbede37ebe38a53b, type: 2}
---- !u!114 &117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 20}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
 --- !u!114 &118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1885,26 +1837,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ca80e731d974c45924430f22ba255c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 20}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1917,9 +1849,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6010a2de17a11514da18980e669b96f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawn: {fileID: 0}
   audio1: {fileID: 0}
+  controlact: 1
   temppaso: 1
   rotspeed: 180
+  explosion: {fileID: 0}
   fij: {x: 0, y: 0, z: 0, w: 0}
   camara: {fileID: 1732601439}
   rotationinput: {x: 0, y: 0, z: 0}
@@ -1944,6 +1879,7 @@ MonoBehaviour:
   pausac: 0
   pasotiempo: 0
   tempgir: 0
+  manager: {fileID: 0}
   tiempoascensor: 0
   bajar: 0
   subir: 0
@@ -1984,7 +1920,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trofeoact: 0
+  tempshow: 0
   nivel: 0
+  piso_carga: 0
   otroasteroide: 0
   audio: {fileID: 0}
   dentrotienda: 0
@@ -2261,6 +2199,7 @@ MonoBehaviour:
   tiement: 0
   juego: 0
   tutorial: 0
+  mundo: 0
   espacio: 0
   mision: {fileID: 0}
   mision2: {fileID: 0}
@@ -5037,6 +4976,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 496191789ac809e48b32124ad544e403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutfinala: {fileID: 0}
+  anim: {fileID: 0}
+  objeto: {fileID: 0}
+  manager: {fileID: 0}
 --- !u!65 &1274927431
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5311,7 +5254,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 45}
   - {fileID: 50}
   - {fileID: 1621484646}
   - {fileID: 379224317}
@@ -5876,6 +5818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38485fb6bea28184caa2132ee4a13a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jugador: {fileID: 0}
 --- !u!1 &1576340038
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,6 +25,8 @@ public class lallegadavoz_al1 : MonoBehaviour
             audio = audiocat;
         }
         audio.Play();
+        manager.datosserial.salasecreta = true;
+		manager.guardar();
     }
 
     // Update is called once per frame

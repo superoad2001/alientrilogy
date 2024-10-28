@@ -164,14 +164,21 @@ public class jugador1_al3: MonoBehaviour
 
     public Animator seleccionanim;
     public tienda_al3 tienda;
+    public menures_al3 menures;
 
 	
     // Start is called before the first frame update
     void Start()
     {
-        
+        menures = (menures_al3)FindFirstObjectByType(typeof(menures_al3));
         tienda = (tienda_al3)FindFirstObjectByType(typeof(tienda_al3));
         manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        if(menures != null)
+        {
+            respawnm = menures.respawnp;
+            respawnm.SetActive(false);
+
+        }
         manager.cargar();
         if(manager.juego == 1 || manager.juego == 2 ||  manager.juego == 3)
         {seleccionanim = selecionrap.GetComponent<Animator>();}
@@ -2255,7 +2262,7 @@ public class jugador1_al3: MonoBehaviour
 
             manager.datosserial.alien3muere = 1;
             manager.guardar();
-            respawnm.SetActive(false);
+            respawnm.SetActive(true);
             juego.SetActive(false);
         }
 

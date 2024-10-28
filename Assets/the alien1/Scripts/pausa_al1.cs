@@ -11,6 +11,7 @@ public class pausa_al1 : MonoBehaviour
     public GameObject pausa1;
     public int plataforma;
     private Controles controles;
+    
 	public void Awake()
     {
         controles = new Controles();
@@ -34,10 +35,20 @@ public class pausa_al1 : MonoBehaviour
     public GameObject opciones1;
     public AudioMixer audiomixer;
     public manager_al1 manager;
+    public jugador_al1 jugador;
     // Start is called before the first frame update
+    public AudioSource moveson;
+
+	// Token: 0x06000025 RID: 37 RVA: 0x0000334C File Offset: 0x0000154C
+
+	public void move()
+	{
+		moveson.Play();
+	}
     void Start()
     {
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+        jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
     }
 
     // Update is called once per frame
@@ -71,7 +82,7 @@ public class pausa_al1 : MonoBehaviour
             boton4.text = "pausa";
             boton5.text = "opcions";
         }
-        if(controles.al1.pausa.ReadValue<float>() > 0 && temp > 0.7f)
+        if(controles.al1.pausa.ReadValue<float>() > 0)
         {
             if(opciones1.activeSelf)
             {aplicar2();}
@@ -81,15 +92,21 @@ public class pausa_al1 : MonoBehaviour
         {temp += 1 * Time.deltaTime;}
     }
     public void continuar(){
+        Time.timeScale = 1;
         manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         plataforma = manager.datosconfig.plat;
         temp = 0;
-        juego.SetActive(true);
+        jugador.controlact = true;
+        jugador.tiemposalto = 0.9f;;
         pausa1.SetActive(false);
         if(plataforma == 1)
 		{
 			Cursor.visible = false;
         	Cursor.lockState = CursorLockMode.Locked;
+		}
+        if(plataforma == 2)
+		{
+			jugador.tactil.SetActive(true);
 		}
         manager.pauseact = false;    
         }

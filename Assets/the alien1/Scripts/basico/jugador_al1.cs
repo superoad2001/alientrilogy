@@ -44,6 +44,7 @@ public class jugador_al1 : MonoBehaviour
 	public float pausac;
 	public float pasotiempo;
 	public float tempgir = 0;
+	public AudioSource muertes;
 	
 	private Controles controles;
 	public void Awake()
@@ -62,6 +63,8 @@ public class jugador_al1 : MonoBehaviour
 	// Token: 0x0600001D RID: 29 RVA: 0x000025E8 File Offset: 0x000007E8
 	private void Start()
 	{
+		if(!GameObject.Find("muerteaudio") == null)
+		{muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();}
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if(manager.datosconfig.plat == 1)
 		{
@@ -415,8 +418,13 @@ public class jugador_al1 : MonoBehaviour
 			manager.pauseact = true;
 			pausa1.SetActive(true);
 			pausac = 0;
+			controlact = false;
 			temp9 = 0;
-			juego.SetActive(false);
+			Time.timeScale = 0;
+			if(manager.datosconfig.plat == 2)
+			{
+				tactil.SetActive(false);
+			}
 			Cursor.visible = true;
         	Cursor.lockState = CursorLockMode.None;
 		}
@@ -923,7 +931,12 @@ public class jugador_al1 : MonoBehaviour
 		if (col.gameObject.tag == "enemigo" || col.gameObject.tag == "respawn")
 		{
 			manager.datosserial.alien1muere = true;
+			manager.datosserial.muertes++;
 			manager.guardar();
+			if(manager.datosconfig.plat == 2)
+			{
+				tactil.SetActive(false);
+			}
             respawn.SetActive(true);
 			juego.SetActive(false);
 		}
@@ -990,6 +1003,9 @@ public class jugador_al1 : MonoBehaviour
 		if (col.gameObject.tag == "pisar")
 		{
 			GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
+			manager.datosserial.asesinatos++;
+			muertes.Play();
+			manager.guardar();
             Destroy(explosiont, 1f);
             Destroy(col.transform.parent.gameObject);
 		}
