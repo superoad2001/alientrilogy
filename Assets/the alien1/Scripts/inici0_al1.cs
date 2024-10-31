@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class inici0_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
     
 	public bool botonm = false;
 	public bool botonn = false;

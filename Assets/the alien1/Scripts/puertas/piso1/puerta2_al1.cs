@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 // Token: 0x02000064 RID: 100
 public class puerta2_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
 	// Token: 0x06000186 RID: 390 RVA: 0x00006735 File Offset: 0x00004935
 	private void Start()
 	{
@@ -19,7 +20,7 @@ public class puerta2_al1 : MonoBehaviour
 	// Token: 0x06000188 RID: 392 RVA: 0x0000673C File Offset: 0x0000493C
 	private void OnCollisionEnter(Collision col)
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player")
 		{
 			SceneManager.LoadScene("nivel2_al1");

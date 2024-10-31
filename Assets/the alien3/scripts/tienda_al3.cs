@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class tienda_al3: MonoBehaviour
 {
+    public AudioSource moves;
+    public void move()
+	{
+		moves.Play();
+	}
+	public manager_al3 manager;
 
     public int ntienda = 1;
     public Text tmun;
@@ -16,7 +22,6 @@ public class tienda_al3: MonoBehaviour
     public Text ttarma2;
     public Text tarmas;
     public Text ttienda;
-
 
     public Text valor;
     public Text cantidad;
@@ -47,6 +52,7 @@ public class tienda_al3: MonoBehaviour
     public bool arma15 = false;
 
     public bool municion;
+    
 
 
 
@@ -54,7 +60,7 @@ public class tienda_al3: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         if (manager.datosconfig.idioma == "es")
 		{
 			tutp3 = tutp3es;
@@ -84,7 +90,7 @@ public class tienda_al3: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 
 
         if(manager.datosconfig.idioma == "es")
@@ -342,7 +348,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void pocionvida_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = true;
         pocionres = false;
         pocionfuerza = false;
@@ -380,7 +386,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void pocionresistencia_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = false;
         pocionres = true;
         pocionfuerza = false;
@@ -418,7 +424,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void pocionfuerza_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = false;
         pocionres = false;
         pocionfuerza = true;
@@ -456,7 +462,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void municion_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = false;
         pocionres = false;
         pocionfuerza = false;
@@ -494,7 +500,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void arma1_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = false;
         pocionres = false;
         pocionfuerza = false;
@@ -532,7 +538,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void arma2_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = false;
         pocionres = false;
         pocionfuerza = false;
@@ -570,7 +576,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void arma3_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = false;
         pocionres = false;
         pocionfuerza = false;
@@ -608,7 +614,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void arma4_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = false;
         pocionres = false;
         pocionfuerza = false;
@@ -646,7 +652,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void arma5_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = false;
         pocionres = false;
         pocionfuerza = false;
@@ -684,7 +690,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void arma6_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = false;
         pocionres = false;
         pocionfuerza = false;
@@ -722,7 +728,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void arma7_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = false;
         pocionres = false;
         pocionfuerza = false;
@@ -760,7 +766,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void arma8_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = false;
         pocionres = false;
         pocionfuerza = false;
@@ -798,7 +804,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void arma9_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = false;
         pocionres = false;
         pocionfuerza = false;
@@ -836,7 +842,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void arma10_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = false;
         pocionres = false;
         pocionfuerza = false;
@@ -874,7 +880,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void arma11_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = false;
         pocionres = false;
         pocionfuerza = false;
@@ -912,7 +918,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void arma12_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = false;
         pocionres = false;
         pocionfuerza = false;
@@ -950,7 +956,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void arma13_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = false;
         pocionres = false;
         pocionfuerza = false;
@@ -988,7 +994,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void arma14_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = false;
         pocionres = false;
         pocionfuerza = false;
@@ -1026,7 +1032,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void arma15_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pocionvida = false;
         pocionres = false;
         pocionfuerza = false;
@@ -1064,7 +1070,7 @@ public class tienda_al3: MonoBehaviour
     }
     public void comprar_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		jugador1_al3 jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
         if(pocionvida == true)
         {

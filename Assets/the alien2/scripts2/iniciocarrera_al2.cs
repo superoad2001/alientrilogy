@@ -8,6 +8,7 @@ using System;
 
 public class iniciocarrera_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
     public GameObject interfaz;
     public GameObject imagen;
     public jugador1_al2 jugador;

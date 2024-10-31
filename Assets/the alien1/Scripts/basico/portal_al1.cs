@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 // Token: 0x0200000E RID: 14
 public class portal_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
 	public GameObject juego;
 	public GameObject respawn;
 	// Token: 0x06000030 RID: 48 RVA: 0x000039F1 File Offset: 0x00001BF1

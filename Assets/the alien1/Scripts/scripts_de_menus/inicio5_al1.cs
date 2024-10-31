@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 // Token: 0x02000009 RID: 9
 public class inicio5_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
 	public string idioma;
 	public int plataforma;
 	// Token: 0x0600001A RID: 26 RVA: 0x00002523 File Offset: 0x00000723
 	private void Start()
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         plataforma = manager.datosconfig.plat;
 		idioma = manager.datosconfig.idioma;
 	}

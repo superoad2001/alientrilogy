@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class portalsecreto_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
     public bool activar;
     public GameObject portal;
     // Start is called before the first frame update

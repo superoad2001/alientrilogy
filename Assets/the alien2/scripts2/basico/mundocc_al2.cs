@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class mundocc_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class mundocc_al2 : MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         jugador1_al2 jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
 		if (col.gameObject.tag == "Player" && manager.datosserial.tengocoche == 1)
 		{
@@ -29,7 +30,7 @@ public class mundocc_al2 : MonoBehaviour
 	}
     private void OnTriggerExit(Collider col)
 	{
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         jugador1_al2 jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
 		if (col.gameObject.tag == "Player" && manager.datosserial.tengocoche == 1)
 		{

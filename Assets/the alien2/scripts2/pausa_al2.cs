@@ -7,6 +7,7 @@ using UnityEngine.Audio;
 
 public class pausa_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
     public GameObject juego;
     public GameObject pausa1;
     public int plat;
@@ -42,7 +43,7 @@ public class pausa_al2 : MonoBehaviour
     {
 
         
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         manager.datosserial.pause = true;
         if(manager.datosconfig.idioma == "es")
         {
@@ -81,7 +82,7 @@ public class pausa_al2 : MonoBehaviour
         {temp += 1 * Time.deltaTime;}
     }
     public void continuar(){
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         plat = manager.datosconfig.plat;
         temp = 0;
         juego.SetActive(true);

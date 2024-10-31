@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class transferir_al3 : MonoBehaviour
 {
+	public manager_al3 manager;
     public int ver;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class transferir_al3 : MonoBehaviour
     }
     public void rec()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         manager_al2 manager2 = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         manager.datosserial.monedas += manager2.datosserial.monedas;
         manager.datosserial.herencia = 1;

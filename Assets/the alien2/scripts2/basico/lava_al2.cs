@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class lava_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
     // Start is called before the first frame update
     void Start()
     {

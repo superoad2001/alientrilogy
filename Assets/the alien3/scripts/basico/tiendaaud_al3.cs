@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class tiendaaud_al3: MonoBehaviour
 {
+	public manager_al3 manager;
     public AudioSource aud;
     public AudioSource audes;
     public AudioSource auden;
@@ -21,7 +22,7 @@ public class tiendaaud_al3: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         if(manager.datosconfig.idioma == "es")
         {
             aud = audes;

@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class nvt7_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
 
 	private void Start()
 	{
@@ -17,7 +18,7 @@ public class nvt7_al2 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+			manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 			manager.datosserial.niveltc = 7;
 			manager.guardar();
 			SceneManager.LoadScene("nivel7t_al2");

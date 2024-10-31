@@ -53,15 +53,18 @@ public float temp;
     public GameObject logoo2t;
     public GameObject logoo3t;
     public GameObject logoo4t;
+    public managerBASE manager;
     public void izq()
     {
         if(trofeo > iniciojuego)
-        {trofeo -= 1;}
+        {trofeo -= 1;
+        manager.moveson.Play();}
     }
     public void der()
     {
         if(trofeo < finjuego)
-        {trofeo += 1;}
+        {trofeo += 1;
+        manager.moveson.Play();}
     }
     public void salir()
     {
@@ -146,7 +149,7 @@ public float temp;
             logo4t.text = "";
 
 
-        managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+        manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 
     if(manager.datostrof.completaalien1v == 1)
     {trofeos++;}

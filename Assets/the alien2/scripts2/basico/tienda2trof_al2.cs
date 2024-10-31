@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class tienda2trof_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,7 @@ public class tienda2trof_al2 : MonoBehaviour
     public void OnTriggerEnter(Collider col) 
     {
         pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         if (col.gameObject.tag == "Player")
 		{
             if(manager.datostrof.alien2encuentralatiendaocultadelasegundazona == 0)

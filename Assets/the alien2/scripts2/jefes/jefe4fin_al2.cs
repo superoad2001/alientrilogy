@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class jefe4fin_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,7 @@ public class jefe4fin_al2 : MonoBehaviour
         }
 		if (col.gameObject.tag == "Player")
         {
-            manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+            manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
             if (manager.datosserial.tengomental == 1)
             {
                 SceneManager.LoadScene("mundo_abierto_al2");

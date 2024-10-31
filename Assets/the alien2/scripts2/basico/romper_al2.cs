@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class romper_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
     public AudioSource audio1;
     public bool paredtienda;
     // Start is called before the first frame update
@@ -21,7 +22,7 @@ public class romper_al2 : MonoBehaviour
     private void OnTriggerEnter(Collider col)
 	{
         pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if (col.gameObject.tag == "bala")
 		{
             audio1.Play();

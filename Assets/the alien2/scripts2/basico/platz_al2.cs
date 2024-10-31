@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class platz_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
 	public int lado;
 
 

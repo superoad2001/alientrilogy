@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class recordnv6_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
     // Start is called before the first frame update
     void Start()
     {

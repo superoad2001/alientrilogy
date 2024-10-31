@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class lasalida_al3: MonoBehaviour
 {
+	public manager_al3 manager;
     public float temp;
     // Start is called before the first frame update
     void Start()

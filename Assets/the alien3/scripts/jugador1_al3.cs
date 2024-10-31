@@ -8,6 +8,9 @@ public class jugador1_al3: MonoBehaviour
 {
     public GameObject respawnm;
     private Controles controles;
+    public GameObject tactil;
+
+    public GameObject gasimg;
 	public void Awake()
     {
         controles = new Controles();
@@ -21,6 +24,7 @@ public class jugador1_al3: MonoBehaviour
         controles.Disable();
     }
     public AudioSource pasosnave;
+    public bool camnomov;
 	public AudioSource pasos1;
 	public AudioSource pasos2;
     public AudioSource claxon;
@@ -157,6 +161,7 @@ public class jugador1_al3: MonoBehaviour
     public float lbc;
     public bool velact = false;
     public bool gas = false;
+    public bool gas2 = false;
     public bool antigas = false;
     public int mundosalto = 2;
     public bool selcarga;
@@ -173,12 +178,6 @@ public class jugador1_al3: MonoBehaviour
         menures = (menures_al3)FindFirstObjectByType(typeof(menures_al3));
         tienda = (tienda_al3)FindFirstObjectByType(typeof(tienda_al3));
         manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
-        if(menures != null)
-        {
-            respawnm = menures.respawnp;
-            respawnm.SetActive(false);
-
-        }
         manager.cargar();
         if(manager.juego == 1 || manager.juego == 2 ||  manager.juego == 3)
         {seleccionanim = selecionrap.GetComponent<Animator>();}
@@ -344,10 +343,6 @@ public class jugador1_al3: MonoBehaviour
         {
                 anim.SetBool("atk",false);
         }
-        if(manager.datosserial.armadura == 1)
-        {
-            gas = false;
-        }
         if(manager.datosserial.armadura == 2)
         {
             lavaaux = false;
@@ -496,18 +491,44 @@ public class jugador1_al3: MonoBehaviour
             vida = vida - 10 / proteccion;
             tempdano = 0;
         }
-        if(gas == true && antigas == false && tiempogas > 5)
+
+        
+        if(manager.datosserial.armadura == 1 && gas == true && antigas == false)
+        {
+            gas2 = false;
+            gasimg.SetActive(true);
+        }
+        else if(manager.datosserial.armadura == 1 && gas == true)
+        {
+            gas2 = false;
+        }
+        else if(gas == true)
+        {
+            gas2 = true;
+        }
+        else if (gas == false)
+        {
+            gas2 = false;
+            gasimg.SetActive(false);
+        }
+        else
+        {gasimg.SetActive(false);}
+
+
+        if(gas2 == true && antigas == false && tiempogas > 5)
         {
             vida = vida - 10 / proteccion;
             tiempogas = 0;
         }
-        else if(tiempogas < 15f && gas == true && antigas == false)
+        else if(tiempogas < 15f && gas2 == true && antigas == false)
         {tiempogas += 1 * Time.deltaTime;}
 
-        if(gas == true && antigas == false)
+        if(gas2 == true && antigas == false)
         {
             auxb.color = new Color32(106,202,107,255);
             auxb.fillAmount = tiempogas/5;
+            gasimg.SetActive(true);
+
         }
         if(lavaaux == true)
         {
@@ -520,7 +541,7 @@ public class jugador1_al3: MonoBehaviour
             auxb.color = new Color32(219,69,185,255);
         
         }
-        else if(manager.juego != 6 && manager.juego != 4 && manager.juego != 5 && gas == false && lavaaux == false )
+        else if(manager.juego != 6 && manager.juego != 4 && manager.juego != 5 && gas2 == false && lavaaux == false )
         {
             auxb.color = new Color32(255,255,255,255);
             auxb.fillAmount = 100/100;
@@ -532,6 +553,7 @@ public class jugador1_al3: MonoBehaviour
             auxb.color = new Color32(255,255,255,255);
             auxb.fillAmount = 100/100;
             tiempogas = 0;
+            gasimg.SetActive(false);
         }
 
 
@@ -1764,6 +1786,9 @@ public class jugador1_al3: MonoBehaviour
         {
             if(ltc == 0)
             {
+                anim.SetBool("latizq",false);
+                anim.SetBool("latder",false);
+                anim.SetBool("saltoatras",false);
                 anim.SetFloat("velx",lhorizontalc);
                 anim.SetFloat("vely",lverticalc);
 
@@ -1820,7 +1845,17 @@ public class jugador1_al3: MonoBehaviour
                 {
                     transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),90f* Time.deltaTime);
                 }
-                camara.transform.position = new Vector3 (transform.position.x,transform.position.y,transform.position.z);
+
+
+                if(camnomov == true)
+                {
+                    camara.transform.position = new Vector3 (transform.position.x,transform.position.y,transform.position.z);
+                }
+                else
+                {
+                    camara.transform.position = Vector3.MoveTowards(camara.transform.position,transform.position,1 * Time.deltaTime);
+                    camnomov = true;
+                }
                 
                 }
                 if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
@@ -1849,17 +1884,12 @@ public class jugador1_al3: MonoBehaviour
                 {
                     _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                     mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
-                    anim.SetBool("latder",true);
                 }
-                else
-                {anim.SetBool("latder",false);}
                 if (lhorizontalc < 0f)
                 {
                     _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                     mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
-                    anim.SetBool("latizq",true);
                 }
-                else{anim.SetBool("latizq",false);}
                 if (lverticalc > 0f)
                 {
                     _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
@@ -1869,6 +1899,39 @@ public class jugador1_al3: MonoBehaviour
                 {
                     _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                     mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
+                }
+
+
+                if (lhorizontalc >= 0.70f)
+                {
+                    anim.SetBool("latder",true);
+                    anim.SetBool("latizq",false);
+                    anim.SetBool("saltoatras",false);
+                }
+                else if (lhorizontalc <= -0.70f)
+                {
+                    anim.SetBool("latizq",true);
+                    anim.SetBool("latder",false);
+                    anim.SetBool("saltoatras",false);
+                }
+                else if (lverticalc <= -0.70f)
+                {
+                    anim.SetBool("saltoatras",true);
+                    anim.SetBool("latder",false);
+                    anim.SetBool("latizq",false);
+                }
+                else if (lverticalc >= 0.70f)
+                {
+                    anim.SetBool("saltoatras",false);
+                    anim.SetBool("latder",false);
+                    anim.SetBool("latizq",false);
+                }
+                else
+                {
+                    anim.SetBool("saltoatras",false);
+                    anim.SetBool("latder",false);
+                    anim.SetBool("latizq",false);
+                
                 }
                 Vector3 movdire = _rb.linearVelocity;
                 movdire.y = 0;
@@ -1910,7 +1973,9 @@ public class jugador1_al3: MonoBehaviour
                 transform.Rotate(Vector3.up * rotationinput.x);
                 camara.transform.localRotation = Quaternion.RotateTowards(camara.transform.localRotation,Quaternion.Euler(-cameraverticalangle,transform.eulerAngles.y,0),180 * Time.deltaTime);
 
-                camara.transform.position = Vector3.MoveTowards(camara.transform.position,transform.position,1 * Time.deltaTime);
+                camara.transform.position = new Vector3 (transform.position.x,transform.position.y,transform.position.z);
+
+                
             }
         }
         if(manager.juego == 2 && saltomuerte == false)
@@ -1920,21 +1985,38 @@ public class jugador1_al3: MonoBehaviour
             if (lhorizontalc > 0f )
             {
                 _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,90,0),5* Time.deltaTime);
+
             }
             if (lhorizontalc < 0f)
             {
                 _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,-90,0),5* Time.deltaTime);
             }
             if (lverticalc > 0f)
             {
                 _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
             }
             if (lverticalc < 0f )
             {
                 _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
+            }
+
+
+
+
+            if (rhorizontalc > 0f )
+            {
+                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,90,0),5* Time.deltaTime);
+            }
+            if (rhorizontalc < 0f)
+            {
+                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,-90,0),5* Time.deltaTime);
+            }
+            if (rverticalc > 0f)
+            {
+                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
+            }
+            if (rverticalc < 0f )
+            {
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,180,0),5* Time.deltaTime);
             }
             Vector3 movdire = _rb.linearVelocity;
@@ -2231,7 +2313,16 @@ public class jugador1_al3: MonoBehaviour
 
                 
             }
-            camara.transform.localPosition = Vector3.MoveTowards(camara.transform.localPosition,new Vector3(0f,1.07000005f,-1.69700003f),1 * Time.deltaTime);
+            if(camnomov == true)
+            {
+                camara.transform.localPosition = new Vector3(0f,1.07000005f,-1.69700003f) ;
+            }
+            else
+            {
+                camara.transform.localPosition = Vector3.MoveTowards(camara.transform.localPosition,new Vector3(0f,1.07000005f,-1.69700003f),1 * Time.deltaTime);
+                camnomov = true;
+            }
+            
         }
         if (this.tiempovel >= 2)
 		{
@@ -2240,9 +2331,11 @@ public class jugador1_al3: MonoBehaviour
 		}
         if(this.tiempovel >= 2 && suelo == true)
         {velocidad = velocidadmaxima;}
-        if(vida <= 0)
+        if(vida <= 0 && muerte == false)
         {
             muerte = true;
+            manager.datosserial.enemigos_muertos++;
+            manager.guardar();
             vida = 0;
         }
         if(tempboton < 15)
@@ -2263,7 +2356,6 @@ public class jugador1_al3: MonoBehaviour
             manager.datosserial.alien3muere = 1;
             manager.guardar();
             respawnm.SetActive(true);
-            juego.SetActive(false);
         }
 
         if (pausac > 0 && temp9 > 0.5f && tiendat == false )
@@ -2274,6 +2366,7 @@ public class jugador1_al3: MonoBehaviour
 			juego.SetActive(false);
 			Cursor.visible = true;
         	Cursor.lockState = CursorLockMode.None;
+            tactil.SetActive(false);
             if(manager.juego != 4 && manager.juego != 6)
             {
             anim.SetBool("jetpack1",false);
@@ -2316,6 +2409,8 @@ public class jugador1_al3: MonoBehaviour
 		}
         if (col.gameObject.tag == "respawn")
 		{
+            manager.datosserial.enemigos_muertos++;
+            manager.guardar();
 			muerte = true;
 		}
         if (col.gameObject.tag == "lava")
@@ -2427,6 +2522,7 @@ public class jugador1_al3: MonoBehaviour
         if (col.gameObject.tag == "gas")
 		{
 			gas = true;
+            tiempogas = 0;
 		}
         if (col.gameObject.tag == "antigas")
 		{
@@ -2553,6 +2649,7 @@ public class jugador1_al3: MonoBehaviour
         if (col.gameObject.tag == "antigas")
 		{
 			antigas = false;
+            tiempogas = 0;
 		}
         if (col.gameObject.tag == "tiendat")
 		{

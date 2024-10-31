@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class tgemas_al3: MonoBehaviour
 {
-    public int zona = 1;
+	public int zona = 1;
     public int tp = 1;
     public bool destructora;
     public AudioSource no;

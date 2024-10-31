@@ -93,7 +93,7 @@ public class pausa_al1 : MonoBehaviour
     }
     public void continuar(){
         Time.timeScale = 1;
-        manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+        manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         plataforma = manager.datosconfig.plat;
         temp = 0;
         jugador.controlact = true;

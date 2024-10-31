@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 // Token: 0x02000017 RID: 23
 public class mundo_coche_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
 	// Token: 0x06000052 RID: 82 RVA: 0x00003C19 File Offset: 0x00001E19
 	private void Start()
 	{

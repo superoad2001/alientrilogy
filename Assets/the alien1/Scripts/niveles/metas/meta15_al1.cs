@@ -11,7 +11,7 @@ public class meta15_al1 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+			manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 			if (col.gameObject.tag == "Player")
 			{
 				if (manager.datosserial.gemas >= 13 && manager.datosserial.fragmentoN3 == 0)
@@ -26,8 +26,11 @@ public class meta15_al1 : MonoBehaviour
 	}
 
 	// Token: 0x06000073 RID: 115 RVA: 0x00004064 File Offset: 0x00002264
+	public manager_al1 manager;
+	// Token: 0x06000012 RID: 18 RVA: 0x0000243B File Offset: 0x0000063B
 	private void Start()
 	{
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 	}
 
 	// Token: 0x06000074 RID: 116 RVA: 0x00004066 File Offset: 0x00002266

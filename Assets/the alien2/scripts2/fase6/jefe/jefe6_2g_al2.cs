@@ -23,7 +23,7 @@ public class jefe6_2g_al2 : MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         jefe6_2_al2 jefe6_2 = (jefe6_2_al2)FindFirstObjectByType(typeof(jefe6_2_al2));
 		if (col.gameObject.tag == "bala")
         {

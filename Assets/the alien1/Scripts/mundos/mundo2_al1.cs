@@ -7,6 +7,7 @@ using UnityEngine.UI;
 // Token: 0x02000016 RID: 22
 public class mundo2_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
 	public Text tutfinala;
 	public Animator anim;
 	private Controles controles;
@@ -24,7 +25,6 @@ public class mundo2_al1 : MonoBehaviour
         controles.Disable();
     }
 	// Token: 0x0600004E RID: 78 RVA: 0x00003BE7 File Offset: 0x00001DE7
-	public manager_al1 manager;
 	private void Start()
 	{
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));

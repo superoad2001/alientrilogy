@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class mundo2cs_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class mundo2cs_al2 : MonoBehaviour
     }
     private void OnCollisionEnter(Collision col)
 	{
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if (col.gameObject.tag == "Player")
 		{
             manager.datosserial.respawntipo = 4;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class hidemenu_al3 : MonoBehaviour
 {
+	public manager_al3 manager;
 
     private Controles controles;
 	public void Awake()

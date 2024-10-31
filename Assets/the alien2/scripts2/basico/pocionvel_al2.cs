@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class pocionvel_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
     public AudioSource audio1;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class pocionvel_al2 : MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if (col.gameObject.tag == "Player")
 		{
 			manager.datosserial.pocionvel++;

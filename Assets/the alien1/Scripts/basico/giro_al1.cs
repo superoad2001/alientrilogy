@@ -4,6 +4,7 @@ using UnityEngine;
 // Token: 0x02000006 RID: 6
 public class giro_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
 	// Token: 0x0600000F RID: 15 RVA: 0x000023CC File Offset: 0x000005CC
 	private void Start()
 	{

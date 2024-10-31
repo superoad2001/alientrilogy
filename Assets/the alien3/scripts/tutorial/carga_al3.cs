@@ -7,6 +7,7 @@ using System.Collections.Generic;
 // Token: 0x02000008 RID: 8
 public class carga_al3: MonoBehaviour
 {
+	public manager_al3 manager;
 	// Token: 0x06000017 RID: 23 RVA: 0x000024DB File Offset: 0x000006DB
 	public void Start()
 	{
@@ -21,7 +22,7 @@ public class carga_al3: MonoBehaviour
 	public float temp;
 	public void Update()
 	{
-		manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+		manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		if (manager.datosserial.menu == -6)
 		{
 			SceneManager.LoadScene("espacio0_al3");

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class tutviaje_al3: MonoBehaviour
 {
+	public manager_al3 manager;
     public AudioSource tutesp;
 	public AudioSource tutespes;
 	public AudioSource tutespen;
@@ -12,7 +13,7 @@ public class tutviaje_al3: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+		manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		if(espacio1 == true)
 		{
 			if(manager.datosconfig.idioma == "es")

@@ -1640,6 +1640,11 @@ MonoBehaviour:
   _aspectRatioX: 0.03
   _aspectRatioY: 1
   _offset: 0
+--- !u!1 &276163480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 754992043762485109, guid: 6f4a8df0d850ac9468a088bd95db8b05, type: 3}
+  m_PrefabInstance: {fileID: 1669665033}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &317855956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3710,7 +3715,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926f40831d5124b4da1688ca1cbb84ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnm: {fileID: 1235314852}
+  tactil: {fileID: 464397304}
+  gasimg: {fileID: 276163480}
   pasosnave: {fileID: 1723106661}
+  camnomov: 0
   pasos1: {fileID: 0}
   pasos2: {fileID: 0}
   claxon: {fileID: 624846798}
@@ -3811,12 +3820,14 @@ MonoBehaviour:
   lbc: 0
   velact: 0
   gas: 0
+  gas2: 0
   antigas: 0
   mundosalto: 2
   selcarga: 0
   selecionrap: {fileID: 0}
   seleccionanim: {fileID: 0}
   tienda: {fileID: 0}
+  menures: {fileID: 0}
   jumpfcarga: 0
   temp9: 0
   pausac: 0
@@ -6543,6 +6554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917b465516839374ba08c92e1110147b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   trofeoact: 0
   jefen: 0
   cmenu: 0
@@ -6779,6 +6791,7 @@ MonoBehaviour:
     alien3planeta16nave: 0
     alien3planeta17nave: 0
   repathtro: 
+  moevson: {fileID: 0}
 --- !u!1 &1179079772
 GameObject:
   m_ObjectHideFlags: 0
@@ -6808,6 +6821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a386e78454d5bab4695cbdd4b9e5595d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   rotspeed: 180
   rotationinput: {x: 0, y: 0, z: 0}
   player: {fileID: 57}
@@ -6988,6 +7002,68 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 292ec33d015883648b537cb70aed72fc, type: 3}
+--- !u!1001 &1235314851
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.59591436
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 536.91724
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 449.97543
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528097366300523372, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_Name
+      value: reapa
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+--- !u!1 &1235314852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6528097366300523372, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+  m_PrefabInstance: {fileID: 1235314851}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1245610106
 GameObject:
   m_ObjectHideFlags: 0
@@ -11251,3 +11327,4 @@ SceneRoots:
   - {fileID: 317855956}
   - {fileID: 1887724232}
   - {fileID: 624846799}
+  - {fileID: 1235314851}

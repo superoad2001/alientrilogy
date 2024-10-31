@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class mon_velocidad_al3: MonoBehaviour
 {
+	public manager_al3 manager;
     public AudioSource audio;
 	// Token: 0x06000028 RID: 40 RVA: 0x000038FA File Offset: 0x00001AFA
 	private void Start()

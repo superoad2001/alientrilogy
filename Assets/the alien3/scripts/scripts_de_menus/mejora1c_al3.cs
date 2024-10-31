@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class mejora1c_al3: MonoBehaviour
 {
+	public manager_al3 manager;
     public AudioSource audio1;
     // Start is called before the first frame update
     void Start()

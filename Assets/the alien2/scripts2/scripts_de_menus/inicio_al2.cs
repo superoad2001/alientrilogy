@@ -7,6 +7,7 @@ using System.Collections.Generic;
 // Token: 0x02000008 RID: 8
 public class inicio_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
 	// Token: 0x06000017 RID: 23 RVA: 0x000024DB File Offset: 0x000006DB
 
 	public bool botonm = false;
@@ -31,7 +32,7 @@ public class inicio_al2 : MonoBehaviour
 		}
 		if (temp < 15)
 		{temp += 1 * Time.deltaTime;}
-		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+		manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 
 		if (this.botonm == true && temp >= 1)
 		{

@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 // Token: 0x0200001C RID: 28
 public class meta12t_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
 	// Token: 0x06000066 RID: 102 RVA: 0x00003DFC File Offset: 0x00001FFC
 	private void OnCollisionEnter(Collision col)
 	{
 		if (col.gameObject.tag == "Player")
 		{
 			manager2_al1 manager2 = (manager2_al1)FindFirstObjectByType(typeof(manager2_al1));
-			manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+			manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 			if (col.gameObject.tag == "Player")
 			{
 				if (manager2.datosserial.recordnv12 > manager2.contador)

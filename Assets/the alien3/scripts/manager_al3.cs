@@ -6,6 +6,7 @@ using System;
 
 public class manager_al3: MonoBehaviour
 {
+	public manager_al3 manager;
 	public int trofeoact;
 	public int jefen = 0;
 	public int cmenu = 0;
@@ -90,6 +91,11 @@ public class manager_al3: MonoBehaviour
 	public datosextra datostrof;
 
 	public string repathtro;
+	public AudioSource moevson;
+	public void move()
+	{
+		moevson.Play();
+	}
 	
 
 	public void GetFilePath()

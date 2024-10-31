@@ -23,9 +23,11 @@ public class mejora1_al1 : MonoBehaviour
     public AudioSource audioen;
     public AudioSource audiocat;
     // Start is called before the first frame update
-    void Start()
-    {
-        manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+    public manager_al1 manager;
+	// Token: 0x06000012 RID: 18 RVA: 0x0000243B File Offset: 0x0000063B
+	private void Start()
+	{
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         if(manager.datosconfig.idioma == "es")
         {
             audio = audioesp;

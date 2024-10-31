@@ -99,15 +99,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.27295187, z: 0, w: 0.96202767}
-  m_LocalPosition: {x: 46.3, y: -8.2, z: 27.6}
+  m_LocalRotation: {x: -0, y: -0.8864865, z: 0, w: -0.46275458}
+  m_LocalPosition: {x: 46.3, y: -9.3, z: 27.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2114}
   - {fileID: 1106181024}
   m_Father: {fileID: 185119395}
-  m_LocalEulerAnglesHint: {x: 0, y: 31.68, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -235.13, z: 0}
 --- !u!4 &1477
 Transform:
   m_ObjectHideFlags: 0
@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ddbca64ed7650449efb3194578f253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!81 &6114
 AudioListener:
   m_ObjectHideFlags: 0
@@ -661,6 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917b465516839374ba08c92e1110147b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   trofeoact: 0
   jefen: 0
   cmenu: 0
@@ -897,6 +899,7 @@ MonoBehaviour:
     alien3planeta16nave: 0
     alien3planeta17nave: 0
   repathtro: 
+  moevson: {fileID: 0}
 --- !u!114 &6654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,7 +912,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926f40831d5124b4da1688ca1cbb84ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnm: {fileID: 1731742882}
+  tactil: {fileID: 801567260}
   pasosnave: {fileID: 0}
+  camnomov: 0
   pasos1: {fileID: 1358292873}
   pasos2: {fileID: 1921590590}
   claxon: {fileID: 0}
@@ -1016,6 +1022,7 @@ MonoBehaviour:
   selecionrap: {fileID: 103348539}
   seleccionanim: {fileID: 0}
   tienda: {fileID: 0}
+  menures: {fileID: 0}
   jumpfcarga: 0
   temp9: 0
   pausac: 0
@@ -1621,6 +1628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0315f7caa6cd4a40ab14aa78e6aa1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2055558759}
 --- !u!1001 &53162489
 PrefabInstance:
@@ -3089,6 +3097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0315f7caa6cd4a40ab14aa78e6aa1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2055558759}
 --- !u!1 &185119394
 GameObject:
@@ -3451,6 +3460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0315f7caa6cd4a40ab14aa78e6aa1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2055558759}
 --- !u!1001 &201087319
 PrefabInstance:
@@ -5641,6 +5651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a386e78454d5bab4695cbdd4b9e5595d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   rotspeed: 180
   rotationinput: {x: 0, y: 0, z: 0}
   player: {fileID: 13}
@@ -5652,14 +5663,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348217735}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.041043643, y: 0.9215418, z: 0.101535596, w: -0.372514}
-  m_LocalPosition: {x: 45.3, y: -6.6, z: 32.3}
+  m_LocalRotation: {x: 0.30576536, y: 0.51538396, z: 0.2035349, w: -0.77424836}
+  m_LocalPosition: {x: 49.7, y: -6.6, z: 28.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1636683772}
   m_Father: {fileID: 185119395}
-  m_LocalEulerAnglesHint: {x: -12.575, y: 224.02, z: 0}
+  m_LocalEulerAnglesHint: {x: -43.1, y: 292.7, z: 0}
 --- !u!1001 &350396287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6334,6 +6345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0315f7caa6cd4a40ab14aa78e6aa1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2055558759}
 --- !u!1001 &418193689
 PrefabInstance:
@@ -9553,6 +9565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0315f7caa6cd4a40ab14aa78e6aa1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2055558759}
 --- !u!1001 &673691613
 PrefabInstance:
@@ -12984,6 +12997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0315f7caa6cd4a40ab14aa78e6aa1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2055558759}
 --- !u!1001 &1042778200
 PrefabInstance:
@@ -15528,6 +15542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0315f7caa6cd4a40ab14aa78e6aa1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2055558759}
 --- !u!1001 &1242800664
 PrefabInstance:
@@ -18869,6 +18884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0315f7caa6cd4a40ab14aa78e6aa1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2055558759}
 --- !u!1 &1534655873
 GameObject:
@@ -22129,6 +22145,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+--- !u!1 &1731742882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6528097366300523372, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+  m_PrefabInstance: {fileID: 1731742881}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1735958195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22301,6 +22322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0315f7caa6cd4a40ab14aa78e6aa1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2055558759}
 --- !u!1001 &1749288232
 PrefabInstance:
@@ -23893,6 +23915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0315f7caa6cd4a40ab14aa78e6aa1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2055558759}
 --- !u!1001 &1902073829
 PrefabInstance:
@@ -25398,6 +25421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0315f7caa6cd4a40ab14aa78e6aa1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2055558759}
 --- !u!1001 &2004651702
 PrefabInstance:
@@ -26628,6 +26652,10 @@ PrefabInstance:
       propertyPath: juego
       value: 
       objectReference: {fileID: 185119394}
+    - target: {fileID: 1996275027986734480, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
+      propertyPath: tactil
+      value: 
+      objectReference: {fileID: 801567260}
     - target: {fileID: 1996275027986734480, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
       propertyPath: jugador
       value: 

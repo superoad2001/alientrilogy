@@ -32,9 +32,11 @@ public class manager2_al1 : MonoBehaviour
 
     public datos1 datosserial;
     // Start is called before the first frame update
-    void Start()
-    {
-        manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+    public manager_al1 manager;
+	// Token: 0x06000012 RID: 18 RVA: 0x0000243B File Offset: 0x0000063B
+	private void Start()
+	{
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         if (manager.piso == -5)
         {
             nv1.text = "nivel 1 parque de saltos : " + manager.datosserial.recordnv1.ToString("F2") ;
@@ -59,7 +61,6 @@ public class manager2_al1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         if(rey == false)
         {
         contador += 1 * Time.deltaTime;

@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class puerta_jefe4_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
 
 	private void Start()
 	{

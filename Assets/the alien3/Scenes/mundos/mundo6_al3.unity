@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ddbca64ed7650449efb3194578f253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!81 &6114
 AudioListener:
   m_ObjectHideFlags: 0
@@ -661,6 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917b465516839374ba08c92e1110147b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   trofeoact: 0
   jefen: 0
   cmenu: 0
@@ -897,6 +899,7 @@ MonoBehaviour:
     alien3planeta16nave: 0
     alien3planeta17nave: 0
   repathtro: 
+  moevson: {fileID: 0}
 --- !u!114 &6654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,7 +912,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926f40831d5124b4da1688ca1cbb84ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnm: {fileID: 1739061419}
+  tactil: {fileID: 2097418668}
+  gasimg: {fileID: 1615985748}
   pasosnave: {fileID: 0}
+  camnomov: 0
   pasos1: {fileID: 449186147}
   pasos2: {fileID: 1671708005}
   claxon: {fileID: 0}
@@ -1010,12 +1017,14 @@ MonoBehaviour:
   lbc: 0
   velact: 0
   gas: 0
+  gas2: 0
   antigas: 0
   mundosalto: 2
   selcarga: 0
   selecionrap: {fileID: 103348539}
   seleccionanim: {fileID: 0}
   tienda: {fileID: 0}
+  menures: {fileID: 0}
   jumpfcarga: 0
   temp9: 0
   pausac: 0
@@ -3221,6 +3230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a386e78454d5bab4695cbdd4b9e5595d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   rotspeed: 180
   rotationinput: {x: 0, y: 0, z: 0}
   player: {fileID: 13}
@@ -3232,14 +3242,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348217735}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.041043643, y: 0.9215418, z: 0.101535596, w: -0.372514}
+  m_LocalRotation: {x: 0.07634484, y: 0.7126588, z: 0.07852083, w: -0.6929094}
   m_LocalPosition: {x: 45.3, y: -6.6, z: 32.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1636683772}
   m_Father: {fileID: 185119395}
-  m_LocalEulerAnglesHint: {x: -12.575, y: 224.02, z: 0}
+  m_LocalEulerAnglesHint: {x: -12.575, y: 268.39, z: 0}
 --- !u!1001 &353622232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11080,6 +11090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0315f7caa6cd4a40ab14aa78e6aa1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2055558759}
 --- !u!1001 &1401999463
 PrefabInstance:
@@ -12807,6 +12818,11 @@ Transform:
   - {fileID: 1671708004}
   m_Father: {fileID: 41736883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1615985748 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 754992043762485109, guid: 6f4a8df0d850ac9468a088bd95db8b05, type: 3}
+  m_PrefabInstance: {fileID: 1066430480}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1632752474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14551,6 +14567,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+--- !u!1 &1739061419 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6528097366300523372, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+  m_PrefabInstance: {fileID: 1739061418}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1745066902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16349,6 +16370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0315f7caa6cd4a40ab14aa78e6aa1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2055558759}
 --- !u!1 &2055558757
 GameObject:
@@ -16919,6 +16941,10 @@ PrefabInstance:
       propertyPath: juego
       value: 
       objectReference: {fileID: 185119394}
+    - target: {fileID: 1996275027986734480, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
+      propertyPath: tactil
+      value: 
+      objectReference: {fileID: 2097418668}
     - target: {fileID: 1996275027986734480, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
       propertyPath: jugador
       value: 
@@ -17648,6 +17674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9141fee4e21195749aca203fb7cfde8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: 1
   aux: 0
   tiempo: 5

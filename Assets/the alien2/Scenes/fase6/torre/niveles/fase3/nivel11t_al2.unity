@@ -10346,7 +10346,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db0249d37956f347a8dcba8609aa72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   torretiempo: 0
+  nomundo: 1
+  espaciom: 0
+  mundo: 0
   torretiemponivel: 1
   inicio: 0
   trofeoact: 0
@@ -10371,6 +10375,7 @@ MonoBehaviour:
   audio5: {fileID: 0}
   audio6: {fileID: 0}
   audio7: {fileID: 0}
+  moves: {fileID: 0}
   jugadorpos: {fileID: 8}
   boxcampos: {fileID: 0}
   p1c: {fileID: 0}
@@ -10436,6 +10441,10 @@ MonoBehaviour:
   datosserial:
     plat: 0
     inicio: 0
+    enemigos_muertos: 0
+    muertes: 0
+    sala_secreta: 0
+    final_alt: 0
     tuto: 0
     estado: 0
     menu: 0
@@ -10974,6 +10983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &511
@@ -10988,6 +10998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &512
@@ -11073,6 +11084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &519
@@ -11110,9 +11122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11148,6 +11160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &525
@@ -11162,6 +11175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &526
@@ -11176,6 +11190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &527
@@ -11238,6 +11253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &531
@@ -11275,6 +11291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &533
@@ -11289,6 +11306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &534
@@ -11316,6 +11334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41645a2ae9713924f8470c5d14a4eefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lava: {fileID: 17}
 --- !u!114 &536
 MonoBehaviour:
@@ -11329,6 +11348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &537
@@ -11392,6 +11412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &541
@@ -11429,6 +11450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &543
@@ -11466,6 +11488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &550
@@ -11480,6 +11503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &551
@@ -11540,6 +11564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &560
@@ -11577,6 +11602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &562
@@ -11591,6 +11617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &563
@@ -11605,6 +11632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &564
@@ -11619,6 +11647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &565
@@ -11633,6 +11662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &566
@@ -11647,6 +11677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &567
@@ -11709,6 +11740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41645a2ae9713924f8470c5d14a4eefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lava: {fileID: 17}
 --- !u!114 &571
 MonoBehaviour:
@@ -11722,6 +11754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31a4a0edc19c0d4bbd4eae1eda21c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11734,6 +11767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &573
@@ -11748,6 +11782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &574
@@ -11833,6 +11868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &585
@@ -11870,6 +11906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &588
@@ -11884,6 +11921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &589
@@ -11921,6 +11959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &591
@@ -11935,6 +11974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &592
@@ -12036,6 +12076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &604
@@ -12073,6 +12114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &606
@@ -12110,6 +12152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 398734806}
   velocidadmaxima: 20
 --- !u!114 &608
@@ -12147,6 +12190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41645a2ae9713924f8470c5d14a4eefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lava: {fileID: 17}
 --- !u!114 &30279181
 MonoBehaviour:
@@ -13092,6 +13136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41645a2ae9713924f8470c5d14a4eefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lava: {fileID: 17}
 --- !u!114 &606216273
 MonoBehaviour:
@@ -13306,6 +13351,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+--- !u!1 &673465987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6528097366300523372, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+  m_PrefabInstance: {fileID: 673465986}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &724163120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13364,6 +13414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41645a2ae9713924f8470c5d14a4eefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lava: {fileID: 28}
 --- !u!1001 &800996619
 PrefabInstance:
@@ -13990,6 +14041,10 @@ MonoBehaviour:
   datosserial:
     plat: 0
     inicio: 0
+    enemigos_muertos: 0
+    muertes: 0
+    sala_secreta: 0
+    final_alt: 0
     tuto: 0
     estado: 0
     menu: 0
@@ -14282,7 +14337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5019b73ff2a486a4eaa6707c35be65f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnm: {fileID: 0}
+  respawnm: {fileID: 673465987}
   controlact: 1
   pasotiempo: 0
   temppaso: 1
@@ -14345,6 +14400,7 @@ MonoBehaviour:
   push: {fileID: 0}
   jugador2: {fileID: 0}
   explosion: {fileID: 0}
+  menures: {fileID: 0}
   temp9: 0
   pausac: 0
   juego: {fileID: 281868334}
@@ -14579,6 +14635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41645a2ae9713924f8470c5d14a4eefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lava: {fileID: 28}
 --- !u!1001 &1292148060
 PrefabInstance:
@@ -14670,6 +14727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41645a2ae9713924f8470c5d14a4eefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lava: {fileID: 28}
 --- !u!1 &1364990355
 GameObject:
@@ -15109,6 +15167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41645a2ae9713924f8470c5d14a4eefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lava: {fileID: 17}
 --- !u!114 &1882839376
 MonoBehaviour:
@@ -15122,6 +15181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41645a2ae9713924f8470c5d14a4eefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lava: {fileID: 17}
 --- !u!114 &1886371259
 MonoBehaviour:
@@ -15135,6 +15195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41645a2ae9713924f8470c5d14a4eefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lava: {fileID: 81}
 --- !u!114 &1890761922
 MonoBehaviour:
@@ -15148,6 +15209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41645a2ae9713924f8470c5d14a4eefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lava: {fileID: 28}
 --- !u!1 &1899562661
 GameObject:

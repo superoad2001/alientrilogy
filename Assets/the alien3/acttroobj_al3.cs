@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class acttroobj_al3 : MonoBehaviour
 {
+	public manager_al3 manager;
     public int trofeo;
     public AudioSource aviso;
     // Start is called before the first frame update
@@ -19,7 +20,7 @@ public class acttroobj_al3 : MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
 		if (col.gameObject.tag == "Player")
 		{

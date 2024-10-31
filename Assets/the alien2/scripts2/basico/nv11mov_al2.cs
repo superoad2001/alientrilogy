@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class nv11mov_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
     public GameObject lava;
     // Start is called before the first frame update
     void Start()

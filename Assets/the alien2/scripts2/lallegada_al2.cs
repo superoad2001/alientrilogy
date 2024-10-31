@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class lallegada_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
     public float temp;
     // Start is called before the first frame update
     void Start()
     {
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         manager.datosserial.inicio = 1;
         manager.guardar();
     }

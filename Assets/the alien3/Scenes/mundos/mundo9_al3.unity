@@ -100,7 +100,7 @@ Transform:
   m_GameObject: {fileID: 13}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.77879083, z: 0, w: 0.6272837}
-  m_LocalPosition: {x: 50.2, y: -8.2, z: 27.7}
+  m_LocalPosition: {x: 50.2, y: -9.9, z: 27.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ddbca64ed7650449efb3194578f253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!81 &6114
 AudioListener:
   m_ObjectHideFlags: 0
@@ -661,6 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917b465516839374ba08c92e1110147b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   trofeoact: 0
   jefen: 0
   cmenu: 0
@@ -897,6 +899,7 @@ MonoBehaviour:
     alien3planeta16nave: 0
     alien3planeta17nave: 0
   repathtro: 
+  moevson: {fileID: 0}
 --- !u!114 &6654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,7 +912,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926f40831d5124b4da1688ca1cbb84ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnm: {fileID: 1890720931}
+  tactil: {fileID: 382013478}
+  gasimg: {fileID: 1633130340}
   pasosnave: {fileID: 0}
+  camnomov: 0
   pasos1: {fileID: 769053773}
   pasos2: {fileID: 1958870223}
   claxon: {fileID: 0}
@@ -1010,12 +1017,14 @@ MonoBehaviour:
   lbc: 0
   velact: 0
   gas: 0
+  gas2: 0
   antigas: 0
   mundosalto: 1
   selcarga: 0
   selecionrap: {fileID: 103348539}
   seleccionanim: {fileID: 0}
   tienda: {fileID: 0}
+  menures: {fileID: 0}
   jumpfcarga: 0
   temp9: 0
   pausac: 0
@@ -4685,6 +4694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a386e78454d5bab4695cbdd4b9e5595d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   rotspeed: 180
   rotationinput: {x: 0, y: 0, z: 0}
   player: {fileID: 13}
@@ -4696,14 +4706,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348217735}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.049293607, y: 0.8876076, z: 0.097796716, w: 0.4473911}
-  m_LocalPosition: {x: 45.3, y: -6.6, z: 32.3}
+  m_LocalRotation: {x: -0.045589972, y: 0.903767, z: 0.09957716, w: 0.41377676}
+  m_LocalPosition: {x: 43.3, y: -6.6, z: 26.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1636683772}
   m_Father: {fileID: 185119395}
-  m_LocalEulerAnglesHint: {x: -12.575, y: 126.5, z: 0}
+  m_LocalEulerAnglesHint: {x: -12.575, y: 130.8, z: 0}
 --- !u!1001 &359437970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14709,6 +14719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ddbca64ed7650449efb3194578f253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &1365369525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14721,6 +14732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa2ea744f77ada247b74e94c457c0ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   vel: 9
 --- !u!65 &1365369526
 BoxCollider:
@@ -17576,6 +17588,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1633056119}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1633130340 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 754992043762485109, guid: 6f4a8df0d850ac9468a088bd95db8b05, type: 3}
+  m_PrefabInstance: {fileID: 1764501319}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1634623192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20261,6 +20278,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+--- !u!1 &1890720931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6528097366300523372, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+  m_PrefabInstance: {fileID: 1890720930}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1905719332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22239,6 +22261,10 @@ PrefabInstance:
       propertyPath: juego
       value: 
       objectReference: {fileID: 185119394}
+    - target: {fileID: 1996275027986734480, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
+      propertyPath: tactil
+      value: 
+      objectReference: {fileID: 382013478}
     - target: {fileID: 1996275027986734480, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
       propertyPath: jugador
       value: 

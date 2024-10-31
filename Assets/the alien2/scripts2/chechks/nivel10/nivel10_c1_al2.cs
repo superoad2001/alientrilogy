@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class nivel10_c1_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
 	public AudioSource audio1;
 
 	private void Start()
@@ -17,7 +18,8 @@ public class nivel10_c1_al2 : MonoBehaviour
 	private void OnTriggerEnter(Collider col)
 	{
 		
-		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+		manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+		manager.datosserial.nivel10c = 2;
 		if (col.gameObject.tag == "Player" && manager.datosserial.nivel10ch1 == 0)
 		{
 			manager.datosserial.nivel10ch1 = 1;

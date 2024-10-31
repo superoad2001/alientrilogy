@@ -4,6 +4,7 @@ using UnityEngine;
 // Token: 0x02000013 RID: 19
 public class teleportmundo_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
 	// Token: 0x06000042 RID: 66 RVA: 0x00003B37 File Offset: 0x00001D37
 	private void Start()
 	{

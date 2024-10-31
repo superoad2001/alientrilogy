@@ -27,7 +27,7 @@ public class llave4_al1 : MonoBehaviour
 	// Token: 0x060001D8 RID: 472 RVA: 0x00006F80 File Offset: 0x00005180
 	private void OnTriggerEnter(Collider col)
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player")
 		{
 			manager.datosserial.tengollave4 = 1;

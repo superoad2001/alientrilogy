@@ -15308,7 +15308,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db0249d37956f347a8dcba8609aa72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   torretiempo: 0
+  nomundo: 1
+  espaciom: 0
+  mundo: 0
   torretiemponivel: 1
   inicio: 0
   trofeoact: 0
@@ -15333,6 +15337,7 @@ MonoBehaviour:
   audio5: {fileID: 0}
   audio6: {fileID: 0}
   audio7: {fileID: 0}
+  moves: {fileID: 0}
   jugadorpos: {fileID: 8}
   boxcampos: {fileID: 870056604}
   p1c: {fileID: 0}
@@ -15398,6 +15403,10 @@ MonoBehaviour:
   datosserial:
     plat: 0
     inicio: 0
+    enemigos_muertos: 0
+    muertes: 0
+    sala_secreta: 0
+    final_alt: 0
     tuto: 0
     estado: 0
     menu: 0
@@ -15801,7 +15810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5019b73ff2a486a4eaa6707c35be65f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnm: {fileID: 0}
+  respawnm: {fileID: 1745159669}
   controlact: 1
   pasotiempo: 0
   temppaso: 1
@@ -15864,6 +15873,7 @@ MonoBehaviour:
   push: {fileID: 0}
   jugador2: {fileID: 0}
   explosion: {fileID: 0}
+  menures: {fileID: 0}
   temp9: 0
   pausac: 0
   juego: {fileID: 269434342}
@@ -15946,6 +15956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1191
 MonoBehaviour:
@@ -15971,6 +15982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1194
@@ -15997,6 +16009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1196
@@ -16011,6 +16024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1197
 MonoBehaviour:
@@ -16036,6 +16050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1201
@@ -16062,6 +16077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1203
@@ -16076,6 +16092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1205
 MonoBehaviour:
@@ -16089,6 +16106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1206
 MonoBehaviour:
@@ -16114,6 +16132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1212
@@ -16140,6 +16159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1214
@@ -16166,6 +16186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1220
@@ -16192,6 +16213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1222
@@ -16218,6 +16240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1224
@@ -16256,6 +16279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1230
@@ -16270,6 +16294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1231
 MonoBehaviour:
@@ -16295,6 +16320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1236
@@ -16321,6 +16347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1239
@@ -16347,6 +16374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1242
@@ -16361,6 +16389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1244
 MonoBehaviour:
@@ -16386,6 +16415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1250
@@ -16412,6 +16442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1252
@@ -16438,6 +16469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1254
@@ -16464,6 +16496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1256
@@ -16490,6 +16523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1258
@@ -16516,6 +16550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1260
@@ -16530,6 +16565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1262
 MonoBehaviour:
@@ -16543,6 +16579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1263
 MonoBehaviour:
@@ -16568,6 +16605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1266
@@ -16594,6 +16632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1269
@@ -16608,6 +16647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1270
 MonoBehaviour:
@@ -16621,6 +16661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1271
 MonoBehaviour:
@@ -16634,6 +16675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1272
@@ -16660,6 +16702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1275
@@ -16686,6 +16729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1278
@@ -16712,6 +16756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1283
@@ -16738,6 +16783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1285
@@ -16764,6 +16810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1288
@@ -16778,6 +16825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1290
 MonoBehaviour:
@@ -16791,6 +16839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1293
 MonoBehaviour:
@@ -16816,6 +16865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1295
@@ -16842,6 +16892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1301
@@ -16868,6 +16919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1303
@@ -16894,6 +16946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1306
@@ -16908,6 +16961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1310
@@ -16946,6 +17000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1315
@@ -17008,6 +17063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1335
@@ -17034,6 +17090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1341
@@ -17060,6 +17117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1344
@@ -17074,6 +17132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1346
 MonoBehaviour:
@@ -17087,6 +17146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1347
 MonoBehaviour:
@@ -17112,6 +17172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1349
@@ -17138,6 +17199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1353
@@ -17152,6 +17214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1354
 MonoBehaviour:
@@ -17177,6 +17240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1361
@@ -17203,6 +17267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1367
@@ -17229,6 +17294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1370
@@ -17243,6 +17309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1372
 MonoBehaviour:
@@ -17268,6 +17335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1374
@@ -17294,6 +17362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1382
@@ -17308,6 +17377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1383
 MonoBehaviour:
@@ -17321,6 +17391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1388
 MonoBehaviour:
@@ -17334,6 +17405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1390
@@ -17348,6 +17420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1401
@@ -17374,6 +17447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1403
@@ -17400,6 +17474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1405
@@ -17426,6 +17501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1407
@@ -17452,6 +17528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1411
@@ -17478,6 +17555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1416
@@ -17504,6 +17582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1418
@@ -17530,6 +17609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1429
@@ -17544,6 +17624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1430
 MonoBehaviour:
@@ -17569,6 +17650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1432
@@ -17607,6 +17689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1435
@@ -17633,6 +17716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1437
@@ -17659,6 +17743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1441
@@ -17685,6 +17770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1443
@@ -17711,6 +17797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!114 &1445
@@ -17725,6 +17812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bb173475dd5634f9e61a79950c1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 566382654}
 --- !u!114 &1446
 MonoBehaviour:
@@ -17750,6 +17838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed52512bc9ebce448d63515e9078db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2132797158}
   paredtienda: 0
 --- !u!1001 &12077424
@@ -19397,6 +19486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7783e5eb46a4fd45bef4cf5c7061d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!1 &836863298
 GameObject:
   m_ObjectHideFlags: 0
@@ -19563,6 +19653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f04d27b44e08f4b96d4ac16f8b3339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: 1
   aux: 0
   tiempo: 5
@@ -19741,6 +19832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6107c0e0cacb2a744b3a4a2b7077e67a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   rotspeed: 180
   rotationinput: {x: 0, y: 0, z: 0}
   player: {fileID: 8}
@@ -20330,6 +20422,10 @@ MonoBehaviour:
   datosserial:
     plat: 0
     inicio: 0
+    enemigos_muertos: 0
+    muertes: 0
+    sala_secreta: 0
+    final_alt: 0
     tuto: 0
     estado: 0
     menu: 0
@@ -21093,6 +21189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f04d27b44e08f4b96d4ac16f8b3339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: 1
   aux: 0
   tiempo: 5
@@ -21933,6 +22030,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+--- !u!1 &1745159669 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6528097366300523372, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+  m_PrefabInstance: {fileID: 1745159668}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1769555273
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class llave2_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
 	private void Start()
 	{
 	}
@@ -13,7 +14,7 @@ public class llave2_al2 : MonoBehaviour
 
 	private void OnCollisionEnter(Collision col)
 	{
-		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+		manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if (col.gameObject.tag == "Player" && manager.datosserial.llaveN2 == 0)
 		{
 			manager.datosserial.llaveN2 = 1;

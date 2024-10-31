@@ -28,7 +28,7 @@ public class chica_al2 : MonoBehaviour
     public void OnTriggerEnter(Collider col)
     {
         pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         if (col.gameObject.tag == "Player")
 		{
 			if(manager.datosconfig.idioma == "es")

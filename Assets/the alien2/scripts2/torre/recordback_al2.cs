@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class recordback_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
     // Start is called before the first frame updat
     public GameObject tactil;
     public int Ac = 0;
@@ -25,7 +26,7 @@ public class recordback_al2 : MonoBehaviour
     {
 
         
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 
     }
     public void A()

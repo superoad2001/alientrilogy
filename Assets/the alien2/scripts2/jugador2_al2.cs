@@ -83,12 +83,16 @@ public class jugador2_al2 : MonoBehaviour
     public manager_al2 manager;
     public jugador1_al2 jugador1;
     public jugador1_al2 jugador;
+    public GameObject muertesaudio;
+    public AudioSource muertes;
     // Start is called before the first frame update
     void Start()
     {
         manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
-
+        muertesaudio = GameObject.Find("muerteaudio");
+        if(muertesaudio != null)
+        {muertes = muertesaudio.GetComponent<AudioSource>();}
 
 
         
@@ -430,10 +434,12 @@ public class jugador2_al2 : MonoBehaviour
 			this.tiempogiro2 += Time.deltaTime;
     
         }
-        if(vida <= 0)
+        if(vida <= 0 && muerte == false)
         {
             muerte = true;
             vida = 0;
+            manager.datosserial.muertes++;
+            manager.guardar();
         }
         if(tempboton < 15)
         {tempboton += 1 * Time.deltaTime;}
@@ -467,12 +473,18 @@ public class jugador2_al2 : MonoBehaviour
             GameObject explosiont = Instantiate(jugador1.explosion, col.transform.position,col.transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
             Destroy(col.transform.parent.gameObject);
+            manager.datosserial.enemigos_muertos++;
+            manager.guardar();
+            muertes.Play();
 		}
         if (col.gameObject.tag == "pisar2")
 		{
             GameObject explosiont = Instantiate(jugador1.explosion, col.transform.position,col.transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
             Destroy(transform.parent.gameObject);
+            manager.datosserial.enemigos_muertos++;
+            manager.guardar();
+            muertes.Play();
 		}
         if (col.gameObject.tag == "enemigo")
 		{
@@ -481,6 +493,7 @@ public class jugador2_al2 : MonoBehaviour
             audio2.Play();
             Destroy(col.gameObject);
 			vida--;
+            muertes.Play();
         }
         if (col.gameObject.tag == "dañox2" && tempdano > 3)
 		{

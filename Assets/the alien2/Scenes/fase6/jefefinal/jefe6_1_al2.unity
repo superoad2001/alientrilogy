@@ -487,28 +487,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &37
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 366}
-  - component: {fileID: 647}
-  - component: {fileID: 1509}
-  - component: {fileID: 1511}
-  - component: {fileID: 1516}
-  - component: {fileID: 314446907}
-  - component: {fileID: 314446908}
-  m_Layer: 0
-  m_Name: normal
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &38
 GameObject:
   m_ObjectHideFlags: 0
@@ -4942,7 +4920,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 520}
-  - {fileID: 366}
+  - {fileID: 1408419439}
   m_Father: {fileID: 159007873}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
 --- !u!4 &336
@@ -5291,21 +5269,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 341}
   m_LocalEulerAnglesHint: {x: 90, y: -0, z: 0}
---- !u!4 &366
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.23344536, y: -0, z: -0, w: 0.97236997}
-  m_LocalPosition: {x: 0.000020499187, y: 10.446807, z: -6.4132214}
-  m_LocalScale: {x: 1.6876899, y: 1.6876899, z: 3.3753803}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 335}
-  m_LocalEulerAnglesHint: {x: 26.999998, y: -0, z: 0}
 --- !u!4 &367
 Transform:
   m_ObjectHideFlags: 0
@@ -8345,7 +8308,7 @@ Transform:
   m_GameObject: {fileID: 280}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.1, z: -0.877}
+  m_LocalPosition: {x: 0, y: 3.458, z: -0.877}
   m_LocalScale: {x: 0.32344475, y: 0.39710048, z: 0.25686184}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8877,57 +8840,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 542}
   m_LocalEulerAnglesHint: {x: 90, y: -0, z: 121.88}
---- !u!20 &647
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.1921569, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_Iso: 200
-  m_ShutterSpeed: 0.005
-  m_Aperture: 16
-  m_FocusDistance: 10
-  m_FocalLength: 50
-  m_BladeCount: 5
-  m_Curvature: {x: 2, y: 11}
-  m_BarrelClipping: 0.25
-  m_Anamorphism: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 6916.7
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 1
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
 --- !u!23 &650
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25188,103 +25100,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6}
   m_Enabled: 1
---- !u!82 &1509
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0.761
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &1510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25360,70 +25175,11 @@ MonoBehaviour:
   push: {fileID: 0}
   jugador2: {fileID: 0}
   explosion: {fileID: 0}
+  menures: {fileID: 0}
   temp9: 0
   pausac: 0
   juego: {fileID: 159007872}
   pausa1: {fileID: 1989037474}
---- !u!114 &1511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 366}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 0
-  antialiasingMode: 0
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 0
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
 --- !u!82 &1512
 AudioSource:
   m_ObjectHideFlags: 0
@@ -25536,7 +25292,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0, g: 1, b: 0.055066347, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 1
-  m_SubtractiveShadowColor: {r: 0, g: 0.90622044, b: 1, a: 1}
+  m_SubtractiveShadowColor: {r: 0.41960785, g: 0.47843137, b: 0.627451, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 35ae9ebcb5398ca4a8c381598aea86cd, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -25615,19 +25371,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &1516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ea72bf7785bee244b4a1b16ea49e12f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 0}
 --- !u!108 &1517
 Light:
   m_ObjectHideFlags: 0
@@ -25684,7 +25427,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.04e-43, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 2.717329e-20, y: 3.949031e-39, z: 1.2495e-41, w: 2.3950697e-37}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -25749,7 +25492,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 2.7119724e-20, y: 3.122512e-39, z: 6.593e-42, w: 1.8360561e+25}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -25814,7 +25557,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.04e-43, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.1032e-41, y: 0, z: 0, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -25879,7 +25622,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.04e-43, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 7.3e-43, y: 1.3133615e-37, z: 7.3e-43, w: 3.74e-43}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -25944,7 +25687,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.04e-43, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 2.7106738e-20, y: 4.59188e-39, z: 7.26e-42, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -26009,7 +25752,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.07e-43, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.226e-41, y: 2.524355e-29, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -26074,7 +25817,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.04e-43, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 2.7854e-41, y: 2.524355e-29, z: 0, w: -8.8476326e+11}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -26139,7 +25882,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.04e-43, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 2.302e-42, y: 2.524355e-29, z: 0, w: 4.5918e-41}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -26204,7 +25947,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.04e-43, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 8.761e-42, y: 2.524355e-29, z: 0, w: 4.5068755e+27}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -26269,7 +26012,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.04e-43, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 2.8572e-41, y: 2.524355e-29, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -26334,7 +26077,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.04e-43, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 2.8501e-41, y: 2.524355e-29, z: 0, w: 4.5918e-41}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -26399,7 +26142,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.04e-43, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1, y: 8e-45, z: 1.3115336e-22, w: 1.37e-43}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -26464,7 +26207,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: NaN, z: 0, w: 1.2e-43}
+  m_BoundingSphereOverride: {x: 1.2731e-41, y: NaN, z: 0, w: 6.741939e+22}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -26529,7 +26272,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.7e-44, y: -50.1716, z: 8.04e-43, w: -50.171387}
+  m_BoundingSphereOverride: {x: 3.097268e+27, y: NaN, z: 7.4916746e+31, w: 7.734495e-39}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -26594,7 +26337,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.04e-43, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.3563128e-19, y: NaN, z: 1.0947093e+27, w: 1.578803e-19}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -26659,7 +26402,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.04e-43, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0.003607599, y: 0.0037297248, z: 2.1604842e+20, w: 6.741991e+22}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -26716,7 +26459,7 @@ SphereCollider:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 13
-  m_BakeOnSceneLoad: 1
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -26767,7 +26510,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 25a78f0efc5588d4e8e9ddb91acccc47, type: 2}
-  m_LightingSettings: {fileID: 850595691, guid: a31588ed71be0b3408a28580b23b949a, type: 2}
+  m_LightingSettings: {fileID: 0}
 --- !u!196 &1536
 NavMeshSettings:
   serializedVersion: 2
@@ -26831,6 +26574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 100
 --- !u!114 &1570
@@ -26845,6 +26589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 100
 --- !u!114 &1571
@@ -26859,6 +26604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 100
 --- !u!114 &1572
@@ -26893,6 +26639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 100
 --- !u!114 &1574
@@ -26907,6 +26654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 100
 --- !u!114 &1575
@@ -26921,6 +26669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 100
 --- !u!114 &1576
@@ -26935,6 +26684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 100
 --- !u!114 &1577
@@ -26949,6 +26699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 100
 --- !u!114 &1578
@@ -26963,6 +26714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 100
 --- !u!114 &1579
@@ -26977,7 +26729,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db0249d37956f347a8dcba8609aa72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   torretiempo: 0
+  mundo: 0
   torretiemponivel: 0
   inicio: 0
   trofeoact: 0
@@ -27002,6 +26756,7 @@ MonoBehaviour:
   audio5: {fileID: 0}
   audio6: {fileID: 0}
   audio7: {fileID: 0}
+  moves: {fileID: 0}
   jugadorpos: {fileID: 0}
   boxcampos: {fileID: 0}
   p1c: {fileID: 0}
@@ -27067,6 +26822,10 @@ MonoBehaviour:
   datosserial:
     plat: 0
     inicio: 0
+    enemigos_muertos: 0
+    muertes: 0
+    sala_secreta: 0
+    final_alt: 0
     tuto: 0
     estado: 0
     menu: 0
@@ -27470,6 +27229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 100
 --- !u!114 &1581
@@ -27484,6 +27244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 100
 --- !u!114 &1582
@@ -27498,6 +27259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 100
 --- !u!114 &1583
@@ -27512,6 +27274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 100
 --- !u!114 &1584
@@ -27526,6 +27289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 100
 --- !u!114 &1585
@@ -27540,6 +27304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 100
 --- !u!114 &1586
@@ -27554,6 +27319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1587
@@ -27637,6 +27403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1591
@@ -27651,6 +27418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1592
@@ -27665,6 +27433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1593
@@ -27679,6 +27448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1594
@@ -27693,6 +27463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1595
@@ -27707,6 +27478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1596
@@ -27721,6 +27493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1597
@@ -27735,6 +27508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1598
@@ -27749,6 +27523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1600
@@ -27763,6 +27538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1602
@@ -27777,6 +27553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1603
@@ -27791,6 +27568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1604
@@ -27805,6 +27583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1605
@@ -27819,6 +27598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1606
@@ -27833,6 +27613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1607
@@ -27847,6 +27628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1608
@@ -27861,6 +27643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1609
@@ -27887,6 +27670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1612
@@ -27901,6 +27685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1619
@@ -27915,6 +27700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1620
@@ -27929,6 +27715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1621
@@ -27943,6 +27730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1622
@@ -27957,6 +27745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1624
@@ -27971,6 +27760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1625
@@ -27985,6 +27775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1626
@@ -27999,6 +27790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1627
@@ -28013,6 +27805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1628
@@ -28027,6 +27820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1629
@@ -28041,6 +27835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1630
@@ -28055,6 +27850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1631
@@ -28069,6 +27865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1632
@@ -28083,6 +27880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1633
@@ -28097,6 +27895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1634
@@ -28111,6 +27910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1635
@@ -28125,6 +27925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1636
@@ -28139,6 +27940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1637
@@ -28153,6 +27955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1640
@@ -28167,6 +27970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1641
@@ -28181,6 +27985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1642
@@ -28195,6 +28000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1643
@@ -28209,6 +28015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1644
@@ -28223,6 +28030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1646
@@ -28237,6 +28045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1647
@@ -28251,6 +28060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1648
@@ -28265,6 +28075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1649
@@ -28279,6 +28090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1650
@@ -28293,6 +28105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1653
@@ -28307,6 +28120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1654
@@ -28333,6 +28147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1656
@@ -28359,6 +28174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1658
@@ -28373,6 +28189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1659
@@ -28387,6 +28204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1661
@@ -28401,6 +28219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1662
@@ -28415,6 +28234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1663
@@ -28429,6 +28249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1664
@@ -28443,6 +28264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1667
@@ -28457,6 +28279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1668
@@ -28471,6 +28294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1669
@@ -28485,6 +28309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1670
@@ -28499,6 +28324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1671
@@ -28513,6 +28339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1672
@@ -28527,6 +28354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1676
@@ -28541,6 +28369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1678
@@ -28555,6 +28384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1679
@@ -28569,6 +28399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1680
@@ -28583,6 +28414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1681
@@ -28597,6 +28429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1682
@@ -28611,6 +28444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1683
@@ -28625,6 +28459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1684
@@ -28639,6 +28474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1685
@@ -28653,6 +28489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1686
@@ -28667,6 +28504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1687
@@ -28681,6 +28519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1688
@@ -28695,6 +28534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1689
@@ -28709,6 +28549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1690
@@ -28723,6 +28564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1692
@@ -28737,6 +28579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1693
@@ -28751,6 +28594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1694
@@ -28765,6 +28609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1695
@@ -28779,6 +28624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1696
@@ -28793,6 +28639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1697
@@ -28819,6 +28666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1700
@@ -28833,6 +28681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1701
@@ -28847,6 +28696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1703
@@ -28861,6 +28711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1704
@@ -28875,6 +28726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1705
@@ -28889,6 +28741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1706
@@ -28903,6 +28756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1707
@@ -28917,6 +28771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1708
@@ -28931,6 +28786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1710
@@ -28957,6 +28813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1712
@@ -28971,6 +28828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1713
@@ -28985,6 +28843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1714
@@ -28999,6 +28858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1715
@@ -29013,6 +28873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1716
@@ -29027,6 +28888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1717
@@ -29041,6 +28903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1719
@@ -29055,6 +28918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1722
@@ -29069,6 +28933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1723
@@ -29083,6 +28948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1724
@@ -29097,6 +28963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1725
@@ -29111,6 +28978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1727
@@ -29125,6 +28993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1728
@@ -29139,6 +29008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1729
@@ -29153,6 +29023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1730
@@ -29167,6 +29038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1731
@@ -29181,6 +29053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1732
@@ -29195,6 +29068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1733
@@ -29209,6 +29083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1734
@@ -29223,6 +29098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1735
@@ -29237,6 +29113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1736
@@ -29251,6 +29128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1737
@@ -29265,6 +29143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1738
@@ -29279,6 +29158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1739
@@ -29293,6 +29173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1742
@@ -29307,6 +29188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1743
@@ -29321,6 +29203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1744
@@ -29335,6 +29218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1745
@@ -29349,6 +29233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1746
@@ -29363,6 +29248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1750
@@ -29377,6 +29263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1754
@@ -29391,6 +29278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1756
@@ -29405,6 +29293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1758
@@ -29419,6 +29308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1759
@@ -29433,6 +29323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1760
@@ -29447,6 +29338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1761
@@ -29461,6 +29353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1762
@@ -29475,6 +29368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1763
@@ -29489,6 +29383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1764
@@ -29503,6 +29398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1765
@@ -29517,6 +29413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1766
@@ -29531,6 +29428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1769
@@ -29557,6 +29455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1772
@@ -29571,6 +29470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1773
@@ -29585,6 +29485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1774
@@ -29599,6 +29500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1775
@@ -29613,6 +29515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1776
@@ -29627,6 +29530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1778
@@ -29641,6 +29545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1780
@@ -29655,6 +29560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1781
@@ -29669,6 +29575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1783
@@ -29683,6 +29590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1785
@@ -29709,6 +29617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1787
@@ -29723,6 +29632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1788
@@ -29737,6 +29647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1789
@@ -29751,6 +29662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1791
@@ -29777,6 +29689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1793
@@ -29791,6 +29704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1794
@@ -29805,6 +29719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1795
@@ -29819,6 +29734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1797
@@ -29833,6 +29749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1798
@@ -29847,6 +29764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1799
@@ -29861,6 +29779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1800
@@ -29875,6 +29794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1804
@@ -29889,6 +29809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1805
@@ -29903,6 +29824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1806
@@ -29917,6 +29839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1807
@@ -29931,6 +29854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1809
@@ -29945,6 +29869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1810
@@ -29959,6 +29884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1811
@@ -29973,6 +29899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1813
@@ -29999,6 +29926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1815
@@ -30013,6 +29941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1816
@@ -30027,6 +29956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1817
@@ -30053,6 +29983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1820
@@ -30067,6 +29998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1821
@@ -30095,6 +30027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1825
@@ -30109,6 +30042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1826
@@ -30123,6 +30057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1827
@@ -30137,6 +30072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1828
@@ -30151,6 +30087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1829
@@ -30165,6 +30102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1830
@@ -30179,6 +30117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1831
@@ -30193,6 +30132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1832
@@ -30243,6 +30183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1837
@@ -30257,6 +30198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1838
@@ -30271,6 +30213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1839
@@ -30285,6 +30228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1840
@@ -30299,6 +30243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1841
@@ -30313,6 +30258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1845
@@ -30327,6 +30273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1850
@@ -30341,6 +30288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1854
@@ -30355,6 +30303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1855
@@ -30369,6 +30318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1856
@@ -30383,6 +30333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1858
@@ -30397,6 +30348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1859
@@ -30411,6 +30363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1860
@@ -30425,6 +30378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1861
@@ -30439,6 +30393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
 --- !u!114 &1862
@@ -30465,65 +30420,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1677449758}
   velocidadmaxima: 20
---- !u!1001 &4807351
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 268.56335
-      objectReference: {fileID: 0}
-    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 229.96292
-      objectReference: {fileID: 0}
-    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7228353146032331622, guid: b9270750d00908a4280ea29f669cd069, type: 3}
-      propertyPath: m_Name
-      value: postpro
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b9270750d00908a4280ea29f669cd069, type: 3}
 --- !u!1001 &115301602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30775,6 +30674,10 @@ Transform:
   - {fileID: 709611570}
   - {fileID: 351441337}
   - {fileID: 1564085661}
+  - {fileID: 400101368}
+  - {fileID: 340672753}
+  - {fileID: 355050827}
+  - {fileID: 230139187}
   - {fileID: 1338306664}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -30801,6 +30704,147 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1001 &230139186
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 159007873}
+    m_Modifications:
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 53892fe9fd491f04ba486dc52235a6a2, type: 2}
+    - target: {fileID: 737444085737583155, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_Name
+      value: agua (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -418.11542
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1005
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1139.2936
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 737444085737583155, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 230139190}
+    - targetCorrespondingSourceObject: {fileID: 737444085737583155, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 230139189}
+  m_SourcePrefab: {fileID: 100100000, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+--- !u!4 &230139187 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+  m_PrefabInstance: {fileID: 230139186}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &230139188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 737444085737583155, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+  m_PrefabInstance: {fileID: 230139186}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &230139189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230139188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72a5b5580a6ad24fa56911e396a7277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  azul: {fileID: 2019463979}
+  retorno: 0
+  sel: 1
+--- !u!65 &230139190
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230139188}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.000001, y: 2.220446e-16, z: 10.000001}
+  m_Center: {x: -0.0000000066356733, y: 0, z: 0}
 --- !u!114 &246375023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30824,72 +30868,147 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!95 &314446907
-Animator:
-  serializedVersion: 7
+--- !u!1001 &340672752
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 159007873}
+    m_Modifications:
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 53892fe9fd491f04ba486dc52235a6a2, type: 2}
+    - target: {fileID: 737444085737583155, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_Name
+      value: agua (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -418.11542
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 931.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1139.2936
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 737444085737583155, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 340672756}
+    - targetCorrespondingSourceObject: {fileID: 737444085737583155, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 340672755}
+  m_SourcePrefab: {fileID: 100100000, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+--- !u!4 &340672753 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+  m_PrefabInstance: {fileID: 340672752}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 40286aea524edf44da730f27d1d78cb0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &314446908
+--- !u!1 &340672754 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 737444085737583155, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+  m_PrefabInstance: {fileID: 340672752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &340672755
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37}
+  m_GameObject: {fileID: 340672754}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Script: {fileID: 11500000, guid: d72a5b5580a6ad24fa56911e396a7277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
+  azul: {fileID: 2019463979}
+  retorno: 1
+  sel: 1
+--- !u!65 &340672756
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340672754}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_AllowHDROutput: 1
-  m_UseScreenCoordOverride: 0
-  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
-  m_TaaSettings:
-    m_Quality: 3
-    m_FrameInfluence: 0.1
-    m_JitterScale: 1
-    m_MipBias: 0
-    m_VarianceClampScale: 0.9
-    m_ContrastAdaptiveSharpening: 0
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.000001, y: 2.220446e-16, z: 10.000001}
+  m_Center: {x: -0.0000000066356733, y: 0, z: 0}
 --- !u!1001 &351441336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30928,7 +31047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1008.1028
+      value: 978.4009
       objectReference: {fileID: 0}
     - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
       propertyPath: m_LocalPosition.z
@@ -30972,6 +31091,147 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
   m_PrefabInstance: {fileID: 351441336}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &355050826
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 159007873}
+    m_Modifications:
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 53892fe9fd491f04ba486dc52235a6a2, type: 2}
+    - target: {fileID: 737444085737583155, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_Name
+      value: agua (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -418.11542
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 979.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1139.2936
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 737444085737583155, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 355050830}
+    - targetCorrespondingSourceObject: {fileID: 737444085737583155, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 355050829}
+  m_SourcePrefab: {fileID: 100100000, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+--- !u!4 &355050827 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+  m_PrefabInstance: {fileID: 355050826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &355050828 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 737444085737583155, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+  m_PrefabInstance: {fileID: 355050826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &355050829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355050828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72a5b5580a6ad24fa56911e396a7277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  azul: {fileID: 2019463979}
+  retorno: 0
+  sel: 1
+--- !u!65 &355050830
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355050828}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.000001, y: 2.220446e-16, z: 10.000001}
+  m_Center: {x: -0.0000000066356733, y: 0, z: 0}
 --- !u!114 &358126491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31253,6 +31513,147 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &400101367
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 159007873}
+    m_Modifications:
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 53892fe9fd491f04ba486dc52235a6a2, type: 2}
+    - target: {fileID: 737444085737583155, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_Name
+      value: agua (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -418.11542
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 956.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1139.2936
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 737444085737583155, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 400101371}
+    - targetCorrespondingSourceObject: {fileID: 737444085737583155, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 400101370}
+  m_SourcePrefab: {fileID: 100100000, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+--- !u!4 &400101368 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+  m_PrefabInstance: {fileID: 400101367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &400101369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 737444085737583155, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+  m_PrefabInstance: {fileID: 400101367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &400101370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400101369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72a5b5580a6ad24fa56911e396a7277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  azul: {fileID: 2019463979}
+  retorno: 1
+  sel: 1
+--- !u!65 &400101371
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400101369}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.000001, y: 2.220446e-16, z: 10.000001}
+  m_Center: {x: -0.0000000066356733, y: 0, z: 0}
 --- !u!1001 &441871556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31837,6 +32238,79 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &779096504
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 268.56335
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 229.96292
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831564396393852658, guid: b9270750d00908a4280ea29f669cd069, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228353146032331622, guid: b9270750d00908a4280ea29f669cd069, type: 3}
+      propertyPath: m_Name
+      value: postpro
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228353146032331622, guid: b9270750d00908a4280ea29f669cd069, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7756641059996457107, guid: b9270750d00908a4280ea29f669cd069, type: 3}
+      propertyPath: priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7756641059996457107, guid: b9270750d00908a4280ea29f669cd069, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7756641059996457107, guid: b9270750d00908a4280ea29f669cd069, type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 29158292c1ab1b345a13185b037c162d, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b9270750d00908a4280ea29f669cd069, type: 3}
 --- !u!114 &901398657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32158,6 +32632,330 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1408419438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1408419439}
+  - component: {fileID: 1408419445}
+  - component: {fileID: 1408419444}
+  - component: {fileID: 1408419443}
+  - component: {fileID: 1408419442}
+  - component: {fileID: 1408419441}
+  - component: {fileID: 1408419440}
+  m_Layer: 0
+  m_Name: normal
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1408419439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408419438}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.23344536, y: -0, z: -0, w: 0.97236997}
+  m_LocalPosition: {x: 0.000020499187, y: 10.446807, z: -6.4132214}
+  m_LocalScale: {x: 1.6876899, y: 1.6876901, z: 3.375381}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 335}
+  m_LocalEulerAnglesHint: {x: 26.999998, y: -0, z: 0}
+--- !u!114 &1408419440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408419438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+--- !u!95 &1408419441
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408419438}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40286aea524edf44da730f27d1d78cb0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1408419442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408419438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea72bf7785bee244b4a1b16ea49e12f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+--- !u!114 &1408419443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408419438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 1408419439}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
+--- !u!82 &1408419444
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408419438}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.761
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!20 &1408419445
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408419438}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.1921569, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 6916.7
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 1
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!114 &1464205368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32308,18 +33106,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5655144802859703004, guid: ceb2d44db2268d0448701c8f6c0ccedd, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5655144802859703004, guid: ceb2d44db2268d0448701c8f6c0ccedd, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5655144802859703004, guid: ceb2d44db2268d0448701c8f6c0ccedd, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5655144802859703004, guid: ceb2d44db2268d0448701c8f6c0ccedd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -32371,10 +33157,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: interfaznaves
       objectReference: {fileID: 0}
-    - target: {fileID: 8213499093317149297, guid: ceb2d44db2268d0448701c8f6c0ccedd, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33248,12 +34030,69 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8684830505546258778, guid: 567e4b1920fd696419dc67158cd30401, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1989037476}
   m_SourcePrefab: {fileID: 100100000, guid: 567e4b1920fd696419dc67158cd30401, type: 3}
 --- !u!1 &1989037474 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6040329522441632725, guid: 567e4b1920fd696419dc67158cd30401, type: 3}
   m_PrefabInstance: {fileID: 1989037473}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1989037475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8684830505546258778, guid: 567e4b1920fd696419dc67158cd30401, type: 3}
+  m_PrefabInstance: {fileID: 1989037473}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1989037476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989037475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+--- !u!1 &2019463979 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8251642633998807040, guid: ceb2d44db2268d0448701c8f6c0ccedd, type: 3}
+  m_PrefabInstance: {fileID: 1675258212}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2063491870 stripped
 MonoBehaviour:
@@ -33338,7 +34177,7 @@ SceneRoots:
   - {fileID: 352}
   - {fileID: 516}
   - {fileID: 159007873}
-  - {fileID: 4807351}
+  - {fileID: 779096504}
   - {fileID: 1790876169}
   - {fileID: 1989037473}
   - {fileID: 441871556}

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class caja1_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
 	public GameObject balainicio;
 
 	public GameObject balaprefab;

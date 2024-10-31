@@ -10,8 +10,11 @@ public class presentacion_al1 : MonoBehaviour
     public float temp = 0;
     public Text pres;
     // Start is called before the first frame update
-    void Start()
-    {
+    public manager_al1 manager;
+	// Token: 0x06000012 RID: 18 RVA: 0x0000243B File Offset: 0x0000063B
+	private void Start()
+	{
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         
     }
     public void act()
@@ -39,7 +42,6 @@ public class presentacion_al1 : MonoBehaviour
         {
             temp = 300;
         }
-        manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         if(manager.datosconfig.idioma == "es")
         {
             pres.text = "presenta";

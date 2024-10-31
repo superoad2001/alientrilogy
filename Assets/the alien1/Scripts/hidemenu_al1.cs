@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class hidemenu_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
 
     private Controles controles;
     public Animator anim;

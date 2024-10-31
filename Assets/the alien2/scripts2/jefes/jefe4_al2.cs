@@ -5,6 +5,7 @@ using UnityEngine.UI;
 // Token: 0x02000003 RID: 3
 public class jefe4_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
 	// Token: 0x06000006 RID: 6 RVA: 0x0000209C File Offset: 0x0000029C
 	private void Start()
 	{

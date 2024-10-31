@@ -19,6 +19,7 @@ public class inicio3base : MonoBehaviour
     public int juego = 1;
     public float temp;
     public managerBASE manager;
+    public Animator anim;
     
     public void Awake()
     {
@@ -36,12 +37,18 @@ public class inicio3base : MonoBehaviour
     public void izq()
     {
         if(juego > 1)
-        {juego -= 1;}
+        {
+            juego -= 1;
+            manager.move();
+        }
     }
     public void der()
     {
         if(juego < 5)
-        {juego += 1;}
+        {
+            juego += 1;
+            manager.move();
+        }
     }
     public void salir()
     {
@@ -90,6 +97,7 @@ public class inicio3base : MonoBehaviour
         {
             izq();
             temp = 0;
+            
         }
         
         if(juego == 1) 
@@ -98,14 +106,15 @@ public class inicio3base : MonoBehaviour
             logo2.color = new Color32(229,213,74,255);
             logo3.color = new Color32(255,64,64,255);
             logo4.color = new Color32(229,213,74,255);
-            logoo1.transform.localPosition = new Vector3(247.499939f,-30.0000076f,0f);
+            /*logoo1.transform.localPosition = new Vector3(247.499939f,-30.0000076f,0f);
             logoo2.transform.localPosition = new Vector3(211.349915f,30.9999924f,0f);
             logoo3.transform.localPosition = new Vector3(214.5f,-112f,0f);
-            logoo4.transform.localPosition = new Vector3(196.5f,-183f,0f);
+            logoo4.transform.localPosition = new Vector3(196.5f,-183f,0f);*/
             logo3.fontSize = 100;
             logo4.fontSize = 82;
             logo3.text = "ADVENTURE";
             logo4.text = "";
+            anim.SetInteger("juego",1);
         }
         if(juego == 2) 
         {
@@ -113,14 +122,15 @@ public class inicio3base : MonoBehaviour
             logo2.color = new Color32(229,213,74,255);
             logo3.color = new Color32(255,64,64,255);
             logo4.color = new Color32(229,213,74,255);
-            logoo1.transform.localPosition = new Vector3(247.499939f,-30.0000076f,0f);
+            /*logoo1.transform.localPosition = new Vector3(247.499939f,-30.0000076f,0f);
             logoo2.transform.localPosition = new Vector3(211.349915f,30.9999924f,0f);
             logoo3.transform.localPosition = new Vector3(214.5f,-112f,0f);
-            logoo4.transform.localPosition = new Vector3(196.5f,-229f,0f);
+            logoo4.transform.localPosition = new Vector3(196.5f,-229f,0f);*/
             logo3.fontSize = 100;
             logo4.fontSize = 82;
             logo3.text = "ADVENTURE";
             logo4.text = "2";
+            anim.SetInteger("juego",2);
         }
         if(juego == 3) 
         {
@@ -128,14 +138,13 @@ public class inicio3base : MonoBehaviour
             logo2.color = new Color32(229,213,74,255);
             logo3.color = new Color32(66,255,68,255);
             logo4.color = new Color32(255,255,255,255);
-            logoo1.transform.localPosition = new Vector3(247.499939f,-83f,0f);
+            /*logoo1.transform.localPosition = new Vector3(247.499939f,-83f,0f);
             logoo2.transform.localPosition = new Vector3(211.349915f,82f,0f);
             logoo3.transform.localPosition = new Vector3(211.5f,-143f,0f);
-            logoo4.transform.localPosition = new Vector3(453.5f,-23f,0f);
-            logo3.fontSize = 73;
-            logo4.fontSize = 289;
+            logoo4.transform.localPosition = new Vector3(453.5f,-23f,0f);*/
             logo3.text = "ADVENTURE";
             logo4.text = "3";
+            anim.SetInteger("juego",3);
         }
         if(juego == 4) 
         {
@@ -143,12 +152,10 @@ public class inicio3base : MonoBehaviour
             logo2.color = new Color32(229,213,74,255);
             logo3.color = new Color32(0,229,255,255);
             logo4.color = new Color32(255,255,255,255);
-            logoo1.transform.localPosition = new Vector3(247.499939f,-83f,0f);
+            /*logoo1.transform.localPosition = new Vector3(247.499939f,-83f,0f);
             logoo2.transform.localPosition = new Vector3(211.349915f,82f,0f);
             logoo3.transform.localPosition = new Vector3(211.5f,-143f,0f);
-            logoo4.transform.localPosition = new Vector3(453.5f,-23f,0f);
-            logo3.fontSize = 73;
-            logo4.fontSize = 289;
+            logoo4.transform.localPosition = new Vector3(453.5f,-23f,0f);*/
             if(manager.datosconfig.idioma == "es")
             {
             logo3.text = "trofeos";
@@ -162,6 +169,7 @@ public class inicio3base : MonoBehaviour
             logo3.text = "trofeus";
             }
             logo4.text = "";
+            anim.SetInteger("juego",4);
         }
         if(juego == 5) 
         {
@@ -169,12 +177,10 @@ public class inicio3base : MonoBehaviour
             logo2.color = new Color32(229,213,74,255);
             logo3.color = new Color32(236,150,6,255);
             logo4.color = new Color32(255,255,255,255);
-            logoo1.transform.localPosition = new Vector3(247.499939f,-83f,0f);
+            /*logoo1.transform.localPosition = new Vector3(247.499939f,-83f,0f);
             logoo2.transform.localPosition = new Vector3(211.349915f,82f,0f);
             logoo3.transform.localPosition = new Vector3(211.5f,-143f,0f);
-            logoo4.transform.localPosition = new Vector3(453.5f,-23f,0f);
-            logo3.fontSize = 73;
-            logo4.fontSize = 289;
+            logoo4.transform.localPosition = new Vector3(453.5f,-23f,0f);*/
             if(manager.datosconfig.idioma == "es")
             {
             logo3.text = "opciones";
@@ -188,6 +194,7 @@ public class inicio3base : MonoBehaviour
             logo3.text = "opcions";
             }
             logo4.text = "";
+            anim.SetInteger("juego",5);
         }
         if(temp < 15)
         {temp += 1 * Time.deltaTime;}

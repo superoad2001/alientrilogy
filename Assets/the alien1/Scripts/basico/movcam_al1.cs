@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class movcam_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
     public float rotspeed = 3;
     public Vector3 rotationinput;
     public GameObject player;

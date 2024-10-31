@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class cargapiso1c_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
     // Start is called before the first frame update
     void Start()
     {

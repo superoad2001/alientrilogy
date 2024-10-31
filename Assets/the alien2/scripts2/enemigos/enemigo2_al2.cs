@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class enemigo2_al2: MonoBehaviour
 {
+	public manager_al2 manager;
     public bool detectar;
     public GameObject objetivo;
     public GameObject objetivob;
@@ -22,11 +23,15 @@ public class enemigo2_al2: MonoBehaviour
     public Animator anim;
     public GameObject explosion;
     public jugador1_al2 jugador1;
+    public AudioSource muertes;
+    public GameObject muertesaudio;
     // Start is called before the first frame update
     void Start()
     {
         jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
         jugador1.explosion = explosion;
+        muertesaudio = GameObject.Find("muerteaudio");
+        muertes = muertesaudio.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -64,6 +69,8 @@ public class enemigo2_al2: MonoBehaviour
 		{
             GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
+            manager.datosserial.enemigos_muertos++;
+            manager.guardar();
             Destroy(gameObject);
 			
 		}
@@ -72,6 +79,7 @@ public class enemigo2_al2: MonoBehaviour
     {
         if (col.gameObject.tag == "respawn")
 		{
+            muertes.Play();
 			Destroy(gameObject);
 		}
         

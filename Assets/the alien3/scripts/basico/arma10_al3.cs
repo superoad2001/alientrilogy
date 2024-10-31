@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class arma10_al3: MonoBehaviour
 {
+	public manager_al3 manager;
     public GameObject objet;
     // Start is called before the first frame update
     void Start()

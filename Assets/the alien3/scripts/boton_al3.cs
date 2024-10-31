@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class boton_al3: MonoBehaviour
 {
+	public manager_al3 manager;
     public platx_al3 platx;
     public platz_al3 platz;
     public platy_al3 platy;

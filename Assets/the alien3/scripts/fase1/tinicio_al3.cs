@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class tinicio_al3: MonoBehaviour
 {
+	public manager_al3 manager;
     // Start is called before the first frame update
     public GameObject tactil;
     public int Ac = 0;
@@ -24,7 +25,7 @@ public class tinicio_al3: MonoBehaviour
     void Start()
     {
         
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		if(manager.datosconfig.plat == 1)
         {
             tactil.SetActive(false);

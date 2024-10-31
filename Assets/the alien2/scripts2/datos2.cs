@@ -14,6 +14,11 @@ public class datos2
     public int plat = 0;
 	public int inicio;
 
+	public int enemigos_muertos;
+	public int muertes;
+	public bool sala_secreta;
+	public bool final_alt;
+
 	public int tuto = 0;
 	public int estado = 0;
 	public int menu = 0;

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class mon_velocidad_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
     public AudioSource audio1;
 	// Token: 0x06000028 RID: 40 RVA: 0x000038FA File Offset: 0x00001AFA
 	private void Start()
@@ -27,7 +28,7 @@ public class mon_velocidad_al2 : MonoBehaviour
 			jugador.velocidad = this.velocidadmaxima;
 			audio1.Play();
 			pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
-			manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+			manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
             if(manager.datostrof.alien2usaelacelerador== 0)
             {
                 manager.datostrof.alien2usaelacelerador = 1;

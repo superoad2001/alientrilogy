@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class huida3_al3: MonoBehaviour
 {
+	public manager_al3 manager;
     public AudioSource audio1;
     public AudioSource audio1es;
 	public AudioSource audio1en;
@@ -14,7 +15,7 @@ public class huida3_al3: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+		manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         if (manager.datosconfig.idioma == "es")
 		{
 			audio1 = audio1es;
@@ -36,7 +37,7 @@ public class huida3_al3: MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 
         if (col.gameObject.tag == "Player")
 		{

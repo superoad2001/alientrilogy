@@ -9,6 +9,7 @@ using System;
 // Token: 0x0200000B RID: 11
 public class manager_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
 
 	public int trofeoact;
 	public float tempshow;
@@ -450,7 +451,7 @@ public class manager_al1 : MonoBehaviour
 	private void Update()
 	{
 		jugador_al1 jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
 		if(trofeoact == 1 && datostrof.completaalien1m == 0)
 		{

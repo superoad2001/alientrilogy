@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class enemigodet2_al2: MonoBehaviour
 {
+	public manager_al2 manager;
     // Start is called before the first frame update
     void Start()
     {

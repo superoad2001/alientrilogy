@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 // Token: 0x02000005 RID: 5
 public class final1_al3: MonoBehaviour
 {
+	public manager_al3 manager;
 	public GameObject tactil;
 
 	private Controles controles;
@@ -24,7 +25,7 @@ public class final1_al3: MonoBehaviour
 	// Token: 0x0600000C RID: 12 RVA: 0x00002397 File Offset: 0x00000597
 	private void Start()
 	{
-		manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+		manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		if(manager.datosconfig.plat == 1)
         {
             tactil.SetActive(false);

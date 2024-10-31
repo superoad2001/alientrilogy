@@ -7,6 +7,11 @@ using UnityEngine.Audio;
 
 public class menures_al3 : MonoBehaviour
 {
+    public AudioSource moves;
+    public void move()
+	{
+		moves.Play();
+	}
     public int plataforma;
     private Controles controles;
 	public void Awake()
@@ -38,12 +43,17 @@ public class menures_al3 : MonoBehaviour
     public bool torre;
     public GameObject respawnp;
     public GameObject interfaz;
+    public jugador1_al3 jugador;
     // Start is called before the first frame update
     void Start()
     {
-        interfaz.SetActive(true);
-        respawnp = this.gameObject;
         manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        jugador.tactil.SetActive(false);
+        jugador.juego.SetActive(false);
+        
         if (manager.nivel != 0)
         {salirnivelb = true;}
         escena = SceneManager.GetActiveScene();
@@ -54,6 +64,8 @@ public class menures_al3 : MonoBehaviour
         else
         {
             salirnivelo.SetActive(false);
+
+            //NIVEL DE NAVES NUEVOI
         }
     }
 

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class enemigo1_al1: MonoBehaviour
 {
+	public manager_al1 manager;
     public bool detectar;
     public GameObject objetivo;
     public GameObject objetivob;

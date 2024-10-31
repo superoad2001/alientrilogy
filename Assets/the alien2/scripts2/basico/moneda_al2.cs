@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class moneda_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
 	public AudioSource audio1;
 
 	private void Start()
@@ -16,7 +17,7 @@ public class moneda_al2 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+			manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 			manager.datosserial.monedas++;
 			manager.guardar();
 			audio1.Play();

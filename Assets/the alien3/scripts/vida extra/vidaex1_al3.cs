@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class vidaex1_al3: MonoBehaviour
 {
+	public manager_al3 manager;
     public AudioSource audio;
     public int mejorav;
     public int mejoravidan;
@@ -11,7 +12,7 @@ public class vidaex1_al3: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         mejorav = manager.datosserial.tmejoravidan[mejoravidan];
         if(mejorav == 1)
         {
@@ -27,7 +28,7 @@ public class vidaex1_al3: MonoBehaviour
     private void OnTriggerEnter(Collider col)
 	{
         jugador1_al3 jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         if (col.gameObject.tag == "Player" && mejorav == 0)
 		{
             audio.Play();

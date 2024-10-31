@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class jefecincarga_al3: MonoBehaviour
 {
+	public manager_al3 manager;
 
     public float temp = 0;
     public float max = 94;

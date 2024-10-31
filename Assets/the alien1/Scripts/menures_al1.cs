@@ -36,6 +36,7 @@ public class menures_al1 : MonoBehaviour
     public manager_al1 manager;
     public Scene escena;
     public AudioSource moveson;
+    public jugador_al1 jugador; 
 
 	// Token: 0x06000025 RID: 37 RVA: 0x0000334C File Offset: 0x0000154C
 
@@ -46,6 +47,10 @@ public class menures_al1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        jugador.tactil.SetActive(false);
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         if (manager.nivel != 0)
         {salirnivelb = true;}

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 // Token: 0x02000008 RID: 8
 public class inicio_al3: MonoBehaviour
 {
+	public manager_al3 manager;
 	// Token: 0x06000017 RID: 23 RVA: 0x000024DB File Offset: 0x000006DB
 
 	public bool botonm = false;
@@ -42,10 +43,14 @@ public class inicio_al3: MonoBehaviour
 	public Text tg2;
 	public Text tsalir;
 	public bool tutorial;
-
+	public AudioSource moevson;
+	public void move()
+	{
+		moevson.Play();
+	}
 	public void Start()
 	{
-		manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+		manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		if(tutorial && manager.datosserial.armastotal > 1)
 		{
 		manager.datosserial.arma = 0;
@@ -94,7 +99,7 @@ public class inicio_al3: MonoBehaviour
 	}
 	public void Awake()
 		{
-			manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+			manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 			manager.cargar();
 			manager.datosserial.menu = mundo;
 			if(espacio != 0)
@@ -107,7 +112,7 @@ public class inicio_al3: MonoBehaviour
 	public float temp;
 	public void Update()
 	{
-		manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+		manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 
 		if(manager.datosconfig.idioma == "es")
 		{

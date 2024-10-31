@@ -4,8 +4,8 @@ using UnityEngine;
 // Token: 0x02000077 RID: 119
 public class llave3_al1 : MonoBehaviour
 {
-	// Token: 0x060001D2 RID: 466 RVA: 0x00006E4B File Offset: 0x0000504B
 	public manager_al1 manager;
+	// Token: 0x060001D2 RID: 466 RVA: 0x00006E4B File Offset: 0x0000504B
 	private void Start()
 	{
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
@@ -27,7 +27,7 @@ public class llave3_al1 : MonoBehaviour
 	// Token: 0x060001D4 RID: 468 RVA: 0x00006EB4 File Offset: 0x000050B4
 	private void OnTriggerEnter(Collider col)
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player")
 		{
 			manager.datosserial.tengollave3 = 1;

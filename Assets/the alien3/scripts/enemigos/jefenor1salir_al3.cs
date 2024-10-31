@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class jefenor1salir_al3: MonoBehaviour
 {
+	public manager_al3 manager;
 
     public enemigo1_al3 enemigo1;
     public enemigo1_al3 enemigo2;

@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 // Token: 0x02000005 RID: 5
 public class finalmalo_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
 	// Token: 0x0600000C RID: 12 RVA: 0x00002397 File Offset: 0x00000597
 	private void Start()
 	{
-		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+		manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		manager.datosserial.finalmalo = 1;
 		manager.guardar();
 	}

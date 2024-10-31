@@ -117,6 +117,12 @@ public class jefe1_al3: MonoBehaviour
 				manager.guardar();
 				SceneManager.LoadScene("escena12_al3");
 			}
+			if (jefe == 6)
+			{
+				manager.datosserial.final1 = 1;
+				manager.guardar();
+				SceneManager.LoadScene("espacio6_al3");
+			}
 		}
 	}
 	public void disparo()

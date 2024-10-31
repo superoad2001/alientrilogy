@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class anticrono_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
     // Start is called before the first frame update
     void Start()
     {

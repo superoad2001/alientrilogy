@@ -30,10 +30,11 @@ public class hiper_al1 : MonoBehaviour
     {
         botonm = false;
     }
+	public manager_al1 manager;
 	// Token: 0x06000012 RID: 18 RVA: 0x0000243B File Offset: 0x0000063B
 	private void Start()
 	{
-		
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 	}
 
 	// Token: 0x06000013 RID: 19 RVA: 0x0000243D File Offset: 0x0000063D
@@ -44,7 +45,7 @@ public class hiper_al1 : MonoBehaviour
 	// Token: 0x06000014 RID: 20 RVA: 0x00002440 File Offset: 0x00000640
 	private void OnTriggerStay(Collider col)
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+		
 		if (col.gameObject.tag == "Player" && manager.datosserial.tengomejora == 1)
 		{
 	    	anim.SetBool("show",true);

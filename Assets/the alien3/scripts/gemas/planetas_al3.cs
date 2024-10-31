@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class planetas_al3: MonoBehaviour
 {
+	public manager_al3 manager;
     public int planeta;
     private Controles controles;
 	public void Awake()

@@ -10,6 +10,7 @@ using UnityEngine.Audio;
 public class pausa_al3: MonoBehaviour
 {
     public manager_al3 manager;
+    public GameObject tactil;
     public GameObject opciones1;
     public AudioMixer audiomixer;
     public Text ttcont;
@@ -338,7 +339,7 @@ public class pausa_al3: MonoBehaviour
         // Start is called before the first frame update
     void Start()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         
 
 
@@ -2977,6 +2978,12 @@ public class pausa_al3: MonoBehaviour
 			Cursor.visible = false;
         	Cursor.lockState = CursorLockMode.Locked;
 		}
+        if(manager.datosconfig.plat == 2)
+		{
+			Cursor.visible = false;
+        	Cursor.lockState = CursorLockMode.Locked;
+            tactil.SetActive(true);
+		}
     }
     public void salir(){
         SceneManager.LoadScene("presentacion_al3");
@@ -3047,7 +3054,7 @@ public class pausa_al3: MonoBehaviour
     }
     public void extras()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3entraalmenuextras == 0)
         {
@@ -3060,7 +3067,7 @@ public class pausa_al3: MonoBehaviour
     }
     public void guia_()
     {
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3entraalaguiadelpause == 0)
         {

@@ -6,8 +6,11 @@ using System;
 
 public class manager_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
 
 	public bool torretiempo;
+	public bool nomundo = true;
+	public bool espaciom;
 	public int mundo;
 	public bool torretiemponivel;
 	public int inicio;
@@ -40,6 +43,7 @@ public class manager_al2 : MonoBehaviour
 	public AudioSource audio6;
 
 	public AudioSource audio7;
+	public AudioSource moves;
 
 	public GameObject jugadorpos;
 
@@ -134,6 +138,10 @@ public class manager_al2 : MonoBehaviour
 	public string repath;
 	public string repathconfig;
 	public string repathtro;
+	public void move()
+	{
+		moves.Play();
+	}
 
 
 	public void GetFilePath()
@@ -912,7 +920,7 @@ public class manager_al2 : MonoBehaviour
 			boxcampos.transform.eulerAngles = new Vector3 (0,90,0);
 
 		}
-		if (nivel == 0)
+		if (nivel == 0 && nomundo == true)
 		{
 			if(datosserial.llaveN1 == 1)
 			{
@@ -1800,7 +1808,7 @@ public class manager_al2 : MonoBehaviour
 			{
 				mision.text = "mision: vence al jefe";
 			}
-			if(nivel == 0 && datosserial.llaves == 0 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 1 && datosserial.tengocoche == 1 && datosserial.tengomental == 1 && datosserial.tengonave == 1 && datosserial.block1 == 1 && datosserial.block2 == 1 && datosserial.block3 == 1 && datosserial.block4 == 1 && datosserial.block5 == 1 )
+			if(nivel == 0 && datosserial.llaves == 0 && datosserial.tengosaltod == 1 && datosserial.tengodisparo == 1 && datosserial.tengocoche == 1 && datosserial.tengomental == 1 && datosserial.tengonave == 1 && datosserial.block1 == 1 && datosserial.block2 == 1 && datosserial.block3 == 1 && datosserial.block4 == 1 && datosserial.block5 == 1)
 			{
 				mision.text = "mision: sube a la nave y ve a por el rey pirata";
 			}

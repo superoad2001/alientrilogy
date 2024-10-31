@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 // Token: 0x02000002 RID: 2
 public class bajarcoche_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
 	// Token: 0x06000002 RID: 2 RVA: 0x00002058 File Offset: 0x00000258
 	private void Start()
 	{

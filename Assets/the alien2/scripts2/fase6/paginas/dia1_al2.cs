@@ -34,7 +34,7 @@ public class dia1_al2 : MonoBehaviour
 
     public void OnTriggerEnter(Collider col)
     {
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if (col.gameObject.tag == "Player")
 		{

@@ -5,25 +5,49 @@ using UnityEngine.SceneManagement;
 
 public class escenascarga_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
 
-    public float temp = 0;
-    public float max = 94;
-    // Start is called before the first frame update
-    void Start()
+    private Controles controles;
+    public AudioSource audio1;
+    public AudioSource audioesp;
+    public AudioSource audioen;
+    public AudioSource audiocat;
+    public void Awake()
     {
-        
+        controles = new Controles();
     }
-    public void act()
+    private void OnEnable() 
     {
-        temp = 300;
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
     }
     // Update is called once per frame
     void Update()
     {
-        temp += 1 * Time.deltaTime;
-        if(temp >= max)
+        if(audio1.isPlaying == false || controles.menu.saltar.ReadValue<float>() > 0)
         {
-            SceneManager.LoadScene("mundo_abierto_al2");
+			SceneManager.LoadScene("mundo_abierto_al2");
+		}
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        if(manager.datosconfig.idioma == "es")
+        {
+            audio1 = audioesp;
         }
+        if(manager.datosconfig.idioma == "en")
+        {
+            audio1 = audioen;
+        }
+        if(manager.datosconfig.idioma == "cat")
+        {
+            audio1 = audiocat;
+        }
+        audio1.Play();
     }
 }

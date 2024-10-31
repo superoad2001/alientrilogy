@@ -4,12 +4,13 @@ using UnityEngine;
 // Token: 0x02000075 RID: 117
 public class gemanv1_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
 
 	private int gemaN1 = 0;
 	// Token: 0x060001CA RID: 458 RVA: 0x00006CCD File Offset: 0x00004ECD
 	private void Start()
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         gemaN1 = manager.datosserial.gemaN1;
 	}
 

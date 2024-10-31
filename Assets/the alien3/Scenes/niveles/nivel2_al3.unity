@@ -682,6 +682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a6db06ca2e7a64a94442230f7bf21b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: 1
   aux: 0
   tiempo: 5
@@ -6102,6 +6103,68 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021651350}
   m_Mesh: {fileID: -2432090755550338912, guid: 9897b661317a1b1499ea26b1ed258159, type: 3}
+--- !u!1001 &1033322743
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.59591436
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 536.91724
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 449.97543
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030131216183775422, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528097366300523372, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+      propertyPath: m_Name
+      value: reapa
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+--- !u!1 &1033322744 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6528097366300523372, guid: 9335843d7525afb4e82d93e3c3c6f9a8, type: 3}
+  m_PrefabInstance: {fileID: 1033322743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1034994822
 GameObject:
   m_ObjectHideFlags: 0
@@ -6336,7 +6399,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926f40831d5124b4da1688ca1cbb84ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnm: {fileID: 1033322744}
+  tactil: {fileID: 883371101}
   pasosnave: {fileID: 0}
+  camnomov: 0
   pasos1: {fileID: 1802641728}
   pasos2: {fileID: 1310088937}
   claxon: {fileID: 0}
@@ -6443,6 +6509,7 @@ MonoBehaviour:
   selecionrap: {fileID: 447793838}
   seleccionanim: {fileID: 0}
   tienda: {fileID: 0}
+  menures: {fileID: 0}
   jumpfcarga: 0
   temp9: 0
   pausac: 0
@@ -11577,6 +11644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917b465516839374ba08c92e1110147b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   trofeoact: 0
   jefen: 0
   cmenu: 0
@@ -11813,6 +11881,7 @@ MonoBehaviour:
     alien3planeta16nave: 0
     alien3planeta17nave: 0
   repathtro: 
+  moevson: {fileID: 0}
 --- !u!1001 &1724789488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14154,3 +14223,4 @@ SceneRoots:
   - {fileID: 1800065535}
   - {fileID: 237211416}
   - {fileID: 1055983720}
+  - {fileID: 1033322743}

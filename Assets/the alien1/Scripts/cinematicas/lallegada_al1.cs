@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 // Token: 0x02000010 RID: 16
 public class lallegada_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
 	public bool botonm = false;
 	private Controles controles;
 	public void Awake()

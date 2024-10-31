@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class jefe1_al2 : MonoBehaviour
 {
+
 	public float vida;
 	public float vidamax;
 	public Image vidab;

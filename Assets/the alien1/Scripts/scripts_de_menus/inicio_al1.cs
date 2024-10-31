@@ -7,6 +7,7 @@ using System.Collections.Generic;
 // Token: 0x02000008 RID: 8
 public class inicio_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
 	// Token: 0x06000017 RID: 23 RVA: 0x000024DB File Offset: 0x000006DB
 
 	public bool botonm = false;
@@ -19,7 +20,7 @@ public class inicio_al1 : MonoBehaviour
 
 	public void Start()
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         gemas = manager.datosserial.gemas;
 	}
 
@@ -28,7 +29,7 @@ public class inicio_al1 : MonoBehaviour
 
 	private void Update()
 	{
-		manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 
 		if(!audio.isPlaying)
 		{

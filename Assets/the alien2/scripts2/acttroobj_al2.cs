@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class acttroobj_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
     public int trofeo;
     public AudioSource aviso;
     // Start is called before the first frame update
@@ -20,7 +21,7 @@ public class acttroobj_al2 : MonoBehaviour
     private void OnTriggerEnter(Collider col)
 	{
         pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if (col.gameObject.tag == "Player")
 		{
             if(trofeo == 1 && manager.datostrof.alien2huevooculto == 0)

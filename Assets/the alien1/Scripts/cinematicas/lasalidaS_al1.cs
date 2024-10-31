@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 // Token: 0x02000010 RID: 16
 public class lasalidaS_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
 	public bool botonm = false;
 	// Token: 0x06000038 RID: 56 RVA: 0x00003A94 File Offset: 0x00001C94
 	private void Start()

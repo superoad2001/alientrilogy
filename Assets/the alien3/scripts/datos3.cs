@@ -7,6 +7,18 @@ using System;
 [Serializable]
 public class datos3
 {
+
+
+	public int enemigos_muertos;
+	public int muertes;
+
+	public bool tfinal1;
+	public bool tfinal2;
+
+
+
+
+
 	public string idioma = "";
 	public int plat = 0;
 	public int inicio;

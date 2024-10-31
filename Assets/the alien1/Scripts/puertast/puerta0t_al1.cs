@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 // Token: 0x02000074 RID: 116
 public class puerta0t_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
 	// Token: 0x060001C6 RID: 454 RVA: 0x00006C9B File Offset: 0x00004E9B
 	private void Start()
 	{

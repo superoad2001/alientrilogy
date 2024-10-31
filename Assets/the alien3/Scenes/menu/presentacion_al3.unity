@@ -170,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   temp: 0
   pres: {fileID: 1811002663}
+  manager: {fileID: 2093409332}
 --- !u!20 &16
 Camera:
   m_ObjectHideFlags: 0
@@ -504,7 +505,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a79da144721a9e2488c12a2ec2b58f45, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: a79da144721a9e2488c12a2ec2b58f45, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1714,31 +1715,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10efa70eea88e69459c632aac286892d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  rewiredInputManager: {fileID: 0}
-  useAllRewiredGamePlayers: 0
-  useRewiredSystemPlayer: 0
-  rewiredPlayerIds: 00000000
-  usePlayingPlayersOnly: 0
-  playerMice: []
-  moveOneElementPerAxisPress: 0
-  setActionsById: 0
-  horizontalActionId: -1
-  verticalActionId: -1
-  submitActionId: -1
-  cancelActionId: -1
-  m_HorizontalAxis: horizontalpad
-  m_VerticalAxis: verticalpad
-  m_SubmitButton: a
-  m_CancelButton: 
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0
-  m_allowMouseInput: 1
-  m_allowMouseInputIfTouchSupported: 1
-  m_allowTouchInput: 1
-  m_deselectIfBackgroundClicked: 1
-  m_deselectBeforeSelecting: 1
-  m_ForceModuleActive: 0
 --- !u!114 &1563994893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1751,10 +1727,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b991181f58043ec814f0900013f8cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
-  _alwaysUpdate: 0
 --- !u!4 &1563994894
 Transform:
   m_ObjectHideFlags: 0
@@ -1960,31 +1932,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c318a5774f7b7e14a8ca2cd68490daf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  rewiredInputManager: {fileID: 0}
-  useAllRewiredGamePlayers: 0
-  useRewiredSystemPlayer: 0
-  rewiredPlayerIds: 00000000
-  usePlayingPlayersOnly: 0
-  playerMice: []
-  moveOneElementPerAxisPress: 0
-  setActionsById: 0
-  horizontalActionId: -1
-  verticalActionId: -1
-  submitActionId: -1
-  cancelActionId: -1
-  m_HorizontalAxis: lhorizontal
-  m_VerticalAxis: lvertical
-  m_SubmitButton: a
-  m_CancelButton: 
-  m_InputActionsPerSecond: 1
-  m_RepeatDelay: 0
-  m_allowMouseInput: 1
-  m_allowMouseInputIfTouchSupported: 1
-  m_allowTouchInput: 1
-  m_deselectIfBackgroundClicked: 1
-  m_deselectBeforeSelecting: 1
-  m_ForceModuleActive: 0
 --- !u!114 &1741385509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2349,6 +2296,7 @@ MonoBehaviour:
     alien3planeta16nave: 0
     alien3planeta17nave: 0
   repathtro: 
+  moevson: {fileID: 0}
 --- !u!4 &2093409333
 Transform:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class enemigo1_al3: MonoBehaviour
 {
     public bool detectar;
+    public AudioSource muertes;
     public GameObject explosion;
     public int lado = 1;
     public float temptp;
@@ -49,6 +50,7 @@ public class enemigo1_al3: MonoBehaviour
     public Transform juego;
     public manager_al3 manager;
     public jugador1_al3 jugador;
+    public GameObject muertesaudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +58,8 @@ public class enemigo1_al3: MonoBehaviour
         vidaux = vida;
         manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
+        muertesaudio = GameObject.Find("muerteaudio");
+        muertes = muertesaudio.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -94,7 +98,11 @@ public class enemigo1_al3: MonoBehaviour
                 GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
                 desactivar = true;
+                manager.datosserial.enemigos_muertos++;
+                manager.guardar();
                 Destroy(gameObject);
+                muertes.Play();
+                
             }
             else if(jefe == 2)
             {
@@ -102,6 +110,8 @@ public class enemigo1_al3: MonoBehaviour
                 {manager.datosserial.espacio3act = 1;
                 manager.guardar();}
                 desactivar = true;
+                manager.datosserial.enemigos_muertos++;
+                manager.guardar();
                 SceneManager.LoadScene("escena5_al3");
             }
             else if(jefe == 3)
@@ -110,6 +120,8 @@ public class enemigo1_al3: MonoBehaviour
                 {manager.datosserial.espacio4act = 1;
                 manager.guardar();}
                 desactivar = true;
+                manager.datosserial.enemigos_muertos++;
+                manager.guardar();
                 SceneManager.LoadScene("escena7_al3");
             }
             else if(jefe  == 4)
@@ -118,16 +130,22 @@ public class enemigo1_al3: MonoBehaviour
                 {manager.datosserial.espacio5act = 1;
                 manager.guardar();}
                 desactivar = true;
+                manager.datosserial.enemigos_muertos++;
+                manager.guardar();
                 SceneManager.LoadScene("escena9_al3");
             }
             else if(jefe  == 5)
             {
                 desactivar = true;
+                manager.datosserial.enemigos_muertos++;
+                manager.guardar();
                 SceneManager.LoadScene("escena11_al3");
             }
             else if(jefe  == 6)
             {
                 desactivar = true;
+                manager.datosserial.enemigos_muertos++;
+                manager.guardar();
                 SceneManager.LoadScene("escena14_al3");
             }
             else if(jefe == 0)
@@ -136,6 +154,9 @@ public class enemigo1_al3: MonoBehaviour
                 GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
                 Destroy(gameObject);
+                manager.datosserial.enemigos_muertos++;
+                manager.guardar();
+                muertes.Play();
             }
 
             if(manager.jefe1_act1 == true && manager.jefe1_act2 == true)
@@ -669,7 +690,8 @@ public class enemigo1_al3: MonoBehaviour
     {
         if (col.gameObject.tag == "respawn")
 		{
-			Destroy(gameObject);
+			vida = 0;
+            muertes.Play();
 		}
         
     }

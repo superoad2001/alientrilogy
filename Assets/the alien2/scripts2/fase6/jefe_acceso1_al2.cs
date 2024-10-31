@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class jefe_acceso1_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
 
 	private void Start()
 	{
@@ -22,7 +23,7 @@ public class jefe_acceso1_al2 : MonoBehaviour
 	}
 	private void OnTriggerEnter(Collider col)
 	{
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         jugador1_al2 jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
 		if (col.gameObject.tag == "Player")
 		{
@@ -32,7 +33,7 @@ public class jefe_acceso1_al2 : MonoBehaviour
 	}
     private void OnTriggerExit(Collider col)
 	{
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         jugador1_al2 jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
 		if (col.gameObject.tag == "Player" )
 		{

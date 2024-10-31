@@ -7,8 +7,8 @@ using UnityEngine.UI;
 // Token: 0x02000005 RID: 5
 public class final_al1 : MonoBehaviour
 {
-	public bool botonm = false;
 	public manager_al1 manager;
+	public bool botonm = false;
 	public Text score;
 	public string res;
 

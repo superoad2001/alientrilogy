@@ -24,10 +24,11 @@ public class introcarga_al1 : MonoBehaviour
     }
 
     public float temp = 0;
+    public manager_al1 manager;
     // Start is called before the first frame update
     void Start()
     {
-        manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+        manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         if(manager.datosconfig.idioma == "es")
         {
             audio = audioesp;

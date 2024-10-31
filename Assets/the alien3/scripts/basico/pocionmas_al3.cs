@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class pocionmas_al3: MonoBehaviour
 {
+	public manager_al3 manager;
     public AudioSource audio1;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class pocionmas_al3: MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		if (col.gameObject.tag == "Player")
 		{
 			manager.datosserial.pociones++;

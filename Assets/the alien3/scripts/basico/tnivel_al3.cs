@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class tnivel_al3: MonoBehaviour
 {
+	public manager_al3 manager;
     public int nivel = 1;
     public int jefe = 0;
     public bool tpr;

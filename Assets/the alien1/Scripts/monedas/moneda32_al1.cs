@@ -4,8 +4,8 @@ using UnityEngine;
 // Token: 0x02000041 RID: 65
 public class moneda32_al1 : MonoBehaviour
 {
-	public AudioSource audio1;
 	public manager_al1 manager;
+	public AudioSource audio1;
 	// Token: 0x060000FA RID: 250 RVA: 0x00005407 File Offset: 0x00003607
 	private void Start()
 	{

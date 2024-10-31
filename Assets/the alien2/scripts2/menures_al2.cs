@@ -7,6 +7,11 @@ using UnityEngine.Audio;
 
 public class menures_al2 : MonoBehaviour
 {
+    public AudioSource moves;
+    public void move()
+	{
+		moves.Play();
+	}
     public int plataforma;
     private Controles controles;
 	public void Awake()
@@ -38,11 +43,14 @@ public class menures_al2 : MonoBehaviour
     public bool torre;
     public GameObject respawnp;
     public GameObject interfaz;
+    public jugador1_al2 jugador; 
     // Start is called before the first frame update
     void Start()
     {
-        interfaz.SetActive(true);
-        respawnp = this.gameObject;
+        jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        jugador.tactil.SetActive(false);
         manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         if (manager.nivel != 0)
         {salirnivelb = true;}

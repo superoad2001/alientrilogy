@@ -4,6 +4,7 @@ using UnityEngine;
 // Token: 0x0200000D RID: 13
 public class obstaculos_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
 	// Token: 0x0600002C RID: 44 RVA: 0x0000396C File Offset: 0x00001B6C
 	private void OnCollisionEnter(Collision col)
 	{

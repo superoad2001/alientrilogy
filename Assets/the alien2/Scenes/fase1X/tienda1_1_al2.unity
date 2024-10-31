@@ -2418,6 +2418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5019b73ff2a486a4eaa6707c35be65f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnm: {fileID: 0}
   controlact: 1
   pasotiempo: 0
   temppaso: 1
@@ -2480,6 +2481,7 @@ MonoBehaviour:
   push: {fileID: 0}
   jugador2: {fileID: 0}
   explosion: {fileID: 0}
+  menures: {fileID: 0}
   temp9: 0
   pausac: 0
   juego: {fileID: 988643052}
@@ -2647,6 +2649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f81ab2daf364c4e9d36a085b0a1e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2988,6 +2991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d47fdf9962516b459c812d96accab9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1443556003}
 --- !u!1 &331781133
 GameObject:
@@ -3130,7 +3134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db0249d37956f347a8dcba8609aa72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   torretiempo: 0
+  nomundo: 0
+  mundo: 0
   torretiemponivel: 0
   inicio: 0
   trofeoact: 5
@@ -3155,6 +3162,7 @@ MonoBehaviour:
   audio5: {fileID: 0}
   audio6: {fileID: 0}
   audio7: {fileID: 0}
+  moves: {fileID: 0}
   jugadorpos: {fileID: 0}
   boxcampos: {fileID: 0}
   p1c: {fileID: 0}
@@ -3220,6 +3228,10 @@ MonoBehaviour:
   datosserial:
     plat: 0
     inicio: 0
+    enemigos_muertos: 0
+    muertes: 0
+    sala_secreta: 0
+    final_alt: 0
     tuto: 0
     estado: 0
     menu: 0
@@ -3623,6 +3635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d47fdf9962516b459c812d96accab9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1443556003}
 --- !u!1 &480464010
 GameObject:
@@ -3869,6 +3882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6107c0e0cacb2a744b3a4a2b7077e67a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   rotspeed: 180
   rotationinput: {x: 0, y: 0, z: 0}
   player: {fileID: 6}
@@ -4202,6 +4216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d47fdf9962516b459c812d96accab9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1443556003}
 --- !u!1001 &817445531
 PrefabInstance:
@@ -4312,6 +4327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d47fdf9962516b459c812d96accab9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1443556003}
 --- !u!1 &891655574
 GameObject:
@@ -4583,6 +4599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d47fdf9962516b459c812d96accab9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1443556003}
 --- !u!1 &988643052
 GameObject:
@@ -5250,6 +5267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d47fdf9962516b459c812d96accab9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1443556003}
 --- !u!1 &1363730735
 GameObject:
@@ -5650,6 +5668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d47fdf9962516b459c812d96accab9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1443556003}
 --- !u!114 &1612711584
 MonoBehaviour:
@@ -5663,6 +5682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d47fdf9962516b459c812d96accab9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1443556003}
 --- !u!1001 &1650207899
 PrefabInstance:
@@ -5770,6 +5790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d47fdf9962516b459c812d96accab9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1443556003}
 --- !u!1 &1722319874
 GameObject:
@@ -6525,6 +6546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d47fdf9962516b459c812d96accab9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 1443556003}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

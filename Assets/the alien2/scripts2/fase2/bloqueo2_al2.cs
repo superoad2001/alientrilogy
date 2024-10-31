@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class bloqueo2_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
 	public AudioSource audio1;
 
 	public AudioSource audio2;
@@ -9,7 +10,7 @@ public class bloqueo2_al2 : MonoBehaviour
 	public AudioSource audioesp;
 	public AudioSource audioen;
 	public AudioSource audiocat;
-	public manager_al2 manager;
+
 
 	private void Start()
 	{
@@ -27,7 +28,7 @@ public class bloqueo2_al2 : MonoBehaviour
 
 	private void OnCollisionEnter(Collision col)
 	{
-		manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+		manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if (col.gameObject.tag == "Player")
 		{
 			if(manager.datosserial.llaves == 4 && manager.datosserial.block2 == 0)

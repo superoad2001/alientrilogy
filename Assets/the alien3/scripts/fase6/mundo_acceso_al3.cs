@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class mundo_acceso_al3: MonoBehaviour
 {
+	public manager_al3 manager;
 
 	private void Start()
 	{

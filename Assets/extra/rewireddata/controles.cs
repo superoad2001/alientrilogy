@@ -1394,12 +1394,12 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""saltar"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""4889bbe2-ceda-43b9-8fb0-08d06a7d6275"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [

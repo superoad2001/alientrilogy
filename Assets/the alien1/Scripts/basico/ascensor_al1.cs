@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class ascensor_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
     public jugador_al1 jugador;
     // Start is called before the first frame update
     void Start()

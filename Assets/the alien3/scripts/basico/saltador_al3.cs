@@ -4,6 +4,7 @@ using UnityEngine;
 // Token: 0x0200000F RID: 15
 public class saltador_al3: MonoBehaviour
 {
+	public manager_al3 manager;
 	// Token: 0x06000034 RID: 52 RVA: 0x00003A23 File Offset: 0x00001C23
 	private void Start()
 	{

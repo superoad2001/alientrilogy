@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class lallegadavoz_al1 : MonoBehaviour
 {
+	public manager_al1 manager;
     public AudioSource audio;
     public AudioSource audioesp;
     public AudioSource audioen;
     public AudioSource audiocat;
     // Start is called before the first frame update
-    void Start()
-    {
-        manager_al1 manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+	// Token: 0x06000012 RID: 18 RVA: 0x0000243B File Offset: 0x0000063B
+	private void Start()
+	{
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         if(manager.datosconfig.idioma == "es")
         {
             audio = audioesp;

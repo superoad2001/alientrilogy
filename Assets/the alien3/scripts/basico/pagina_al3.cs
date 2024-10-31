@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class pagina_al3: MonoBehaviour
 {
+	public manager_al3 manager;
 	public AudioSource audio1;
 	public int diariop;
 
@@ -93,7 +94,7 @@ public class pagina_al3: MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			manager_al3 manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+			manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 			jugador1_al3 jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
 
 

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class presentacion_al2 : MonoBehaviour
 {
+	public manager_al2 manager;
 
     public float temp = 0;
     public Text pres;
@@ -39,7 +40,7 @@ public class presentacion_al2 : MonoBehaviour
         {
             temp = 300;
         }
-        manager_al2 manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         if(manager.datosconfig.idioma == "es")
         {
             pres.text = "presenta";

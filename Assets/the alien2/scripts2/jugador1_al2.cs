@@ -101,22 +101,20 @@ public class jugador1_al2 : MonoBehaviour
     public jugador2_al2 jugador2;
     public GameObject explosion;
     public menures_al2 menures;
+    public GameObject muertesaudio;
+    public AudioSource muertes;
 
 	
     // Start is called before the first frame update
     void Start()
     {
+        anim = this.GetComponent<Animator>();
+        muertesaudio = GameObject.Find("muerteaudio");
+        if(muertesaudio != null)
+        {muertes = muertesaudio.GetComponent<AudioSource>();}
         manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         push = (pushup)FindFirstObjectByType(typeof(pushup));
         jugador2 = (jugador2_al2)FindFirstObjectByType(typeof(jugador2_al2));
-        menures = (menures_al2)FindFirstObjectByType(typeof(menures_al2));
-        if(menures != null)
-        {
-            respawnm = menures.respawnp;
-            respawnm.SetActive(false);
-
-        }
-
         Debug.Log("start");
         if(manager.datosconfig.plat == 1)
         {
@@ -134,7 +132,7 @@ public class jugador1_al2 : MonoBehaviour
 		this.velocidadaux = this.velocidad;
         vida = manager.datosserial.vidamaxima;
         vidaaux = vida;
-        if(manager.datosserial.univel == 1 && manager.nivel == 0)
+        if(manager.datosserial.univel == 1 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-379.399994f,495.459991f,470.480011f);
             transform.eulerAngles = new Vector3 (0,90,0);
@@ -143,7 +141,7 @@ public class jugador1_al2 : MonoBehaviour
             camara.transform.eulerAngles = new Vector3 (0,90,0);
 
         }
-        if(manager.datosserial.univel == 2 && manager.nivel == 0)
+        if(manager.datosserial.univel == 2 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-355.329987f,496.25f,287.970001f);
             transform.eulerAngles = new Vector3 (0,180,0);
@@ -152,7 +150,7 @@ public class jugador1_al2 : MonoBehaviour
             camara.transform.eulerAngles = new Vector3 (0,180,0);
 
         }
-        if(manager.datosserial.univel == 3 && manager.nivel == 0)
+        if(manager.datosserial.univel == 3 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-447.850006f,493.73999f,370.480011f);
             transform.eulerAngles = new Vector3 (0,270,0);
@@ -161,7 +159,7 @@ public class jugador1_al2 : MonoBehaviour
             camara.transform.eulerAngles = new Vector3 (0,270,0);
 
         }
-        if(manager.datosserial.univel == 4 && manager.nivel == 0)
+        if(manager.datosserial.univel == 4 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-590.080017f,503.089996f,502.839996f);
             transform.eulerAngles = new Vector3 (0,270,0);
@@ -174,7 +172,7 @@ public class jugador1_al2 : MonoBehaviour
 
 
 
-        if(manager.datosserial.univel == 5 && manager.nivel == 0)
+        if(manager.datosserial.univel == 5 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-880.460022f,501.980011f,464f);
             transform.eulerAngles = new Vector3 (0,180,0);
@@ -183,7 +181,7 @@ public class jugador1_al2 : MonoBehaviour
             camara.transform.eulerAngles = new Vector3 (0,180,0);
 
         }
-        if(manager.datosserial.univel == 6 && manager.nivel == 0)
+        if(manager.datosserial.univel == 6 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-945.01001f,501.619995f,605.030029f);
             transform.eulerAngles = new Vector3 (0,270,0);
@@ -192,7 +190,7 @@ public class jugador1_al2 : MonoBehaviour
             camara.transform.eulerAngles = new Vector3 (0,270,0);
 
         }
-        if(manager.datosserial.univel == 7 && manager.nivel == 0)
+        if(manager.datosserial.univel == 7 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-928.030029f,501.619995f,669.880005f);
             transform.eulerAngles = new Vector3 (0,270,0);
@@ -201,7 +199,7 @@ public class jugador1_al2 : MonoBehaviour
             camara.transform.eulerAngles = new Vector3 (0,270,0);
 
         }
-        if(manager.datosserial.univel == 8 && manager.nivel == 0)
+        if(manager.datosserial.univel == 8 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-739.789978f,504.910004f,645.02002f);
             transform.eulerAngles = new Vector3 (0,75,0);
@@ -217,7 +215,7 @@ public class jugador1_al2 : MonoBehaviour
 
 
 
-        if(manager.datosserial.univel == 9 && manager.nivel == 0)
+        if(manager.datosserial.univel == 9 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-713.804688f,518f,299.919678f);
             transform.eulerAngles = new Vector3 (0,270,0);
@@ -226,7 +224,7 @@ public class jugador1_al2 : MonoBehaviour
             camara.transform.eulerAngles = new Vector3 (0,270,0);
 
         }
-        if(manager.datosserial.univel == 10 && manager.nivel == 0)
+        if(manager.datosserial.univel == 10 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-635.790283f,518f,300.428986f);
             transform.eulerAngles = new Vector3 (0,90,0);
@@ -235,7 +233,7 @@ public class jugador1_al2 : MonoBehaviour
             camara.transform.eulerAngles = new Vector3 (0,90,0);
 
         }
-        if(manager.datosserial.univel == 11 && manager.nivel == 0)
+        if(manager.datosserial.univel == 11 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-582.103943f,571.099976f,447.768036f);
             transform.eulerAngles = new Vector3 (0,270,0);
@@ -244,7 +242,7 @@ public class jugador1_al2 : MonoBehaviour
             camara.transform.eulerAngles = new Vector3 (0,270,0);
 
         }
-        if(manager.datosserial.univel == 12 && manager.nivel == 0)
+        if(manager.datosserial.univel == 12 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-280.254211f,573.345032f,583.172668f);
             transform.eulerAngles = new Vector3 (0,0,0);
@@ -259,7 +257,7 @@ public class jugador1_al2 : MonoBehaviour
 
 
 
-        if(manager.datosserial.univel == 13 && manager.nivel == 0)
+        if(manager.datosserial.univel == 13 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(106.098915f,549.845032f,506.726868f);
             transform.eulerAngles = new Vector3 (0,90,0);
@@ -268,7 +266,7 @@ public class jugador1_al2 : MonoBehaviour
             camara.transform.eulerAngles = new Vector3 (0,90,0);
 
         }
-        if(manager.datosserial.univel == 14 && manager.nivel == 0)
+        if(manager.datosserial.univel == 14 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(147.318573f,549.845032f,695.388428f);
             transform.eulerAngles = new Vector3 (0,0,0);
@@ -277,7 +275,7 @@ public class jugador1_al2 : MonoBehaviour
             camara.transform.eulerAngles = new Vector3 (0,0,0);
 
         }
-        if(manager.datosserial.univel == 15 && manager.nivel == 0)
+        if(manager.datosserial.univel == 15 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-92.9425735f,553.345032f,697.5224f);
             transform.eulerAngles = new Vector3 (0,270,0);
@@ -286,7 +284,7 @@ public class jugador1_al2 : MonoBehaviour
             camara.transform.eulerAngles = new Vector3 (0,270,0);
 
         }
-        if(manager.datosserial.univel == 16 && manager.nivel == 0)
+        if(manager.datosserial.univel == 16 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-8.14641953f,513.14502f,796.844849f);
             transform.eulerAngles = new Vector3 (0,0,0);
@@ -301,7 +299,7 @@ public class jugador1_al2 : MonoBehaviour
 
 
 
-        if(manager.datosserial.univel == 17 && manager.nivel == 0)
+        if(manager.datosserial.univel == 17 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-629.144287f,501f,947.810486f);
             transform.eulerAngles = new Vector3 (0,0,0);
@@ -311,7 +309,7 @@ public class jugador1_al2 : MonoBehaviour
 
         }   
 
-        if(manager.datosserial.univel == 18 && manager.nivel == 0)
+        if(manager.datosserial.univel == 18 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-438.866516f,501f,944.480408f);
             transform.eulerAngles = new Vector3 (0,0,0);
@@ -321,7 +319,7 @@ public class jugador1_al2 : MonoBehaviour
 
         }   
 
-        if(manager.datosserial.univel == 19 && manager.nivel == 0)
+        if(manager.datosserial.univel == 19 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-438.279633f,501f,838.99646f);
             transform.eulerAngles = new Vector3 (0,0,0);
@@ -331,7 +329,7 @@ public class jugador1_al2 : MonoBehaviour
 
         }   
 
-        if(manager.datosserial.univel == 20 && manager.nivel == 0)
+        if(manager.datosserial.univel == 20 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-628.883118f,501f,838.310181f);
             transform.eulerAngles = new Vector3 (0,0,0);
@@ -340,23 +338,23 @@ public class jugador1_al2 : MonoBehaviour
             camara.transform.eulerAngles = new Vector3 (0,0,0);
 
         }  
-        if(manager.datosserial.respawntipo == 1 && manager.nivel == 0 && manager.datosserial.univel == 0)
+        if(manager.datosserial.respawntipo == 1 && manager.nivel == 0 && manager.datosserial.univel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-467.200012f,505.200012f,455f);
         }
-        else if(manager.datosserial.respawntipo == 2 && manager.nivel == 0 && manager.datosserial.univel == 0)
+        else if(manager.datosserial.respawntipo == 2 && manager.nivel == 0 && manager.datosserial.univel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-766.900024f,503.899994f,488.369995f);
         }
-        else if(manager.datosserial.respawntipo == 3 && manager.nivel == 0 && manager.datosserial.univel == 0)
+        else if(manager.datosserial.respawntipo == 3 && manager.nivel == 0 && manager.datosserial.univel == 0&& manager.nomundo == true)
         {
             transform.position = new Vector3(-496.940002f,575.530029f,512.599976f);
         }
-        else if(manager.datosserial.respawntipo == 4 && manager.nivel == 0 && manager.datosserial.univel == 0)
+        else if(manager.datosserial.respawntipo == 4 && manager.nivel == 0 && manager.datosserial.univel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(66.6999969f,551.5f,512.599976f);
         }
-        else if(manager.datosserial.respawntipo == 5 && manager.nivel == 0 && manager.datosserial.univel == 0)
+        else if(manager.datosserial.respawntipo == 5 && manager.nivel == 0 && manager.datosserial.univel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-586.400024f,503.899994f,891.73999f);
         } 
@@ -3527,10 +3525,12 @@ public class jugador1_al2 : MonoBehaviour
         if(this.tiempovel >= 2 && suelo == true)
         {velocidad = velocidadmaxima;}
         }
-        if(vida <= 0)
+        if(vida <= 0 && muerte == false)
         {
             muerte = true;
             vida = 0;
+            manager.datosserial.muertes++;
+            manager.guardar();
         }
         if(tempboton < 15)
         {tempboton += 1 * Time.deltaTime;}
@@ -3728,14 +3728,20 @@ public class jugador1_al2 : MonoBehaviour
         if (col.gameObject.tag == "respawn" && manager.nivel != 0)
 		{
 			muerte = true;
+            manager.datosserial.muertes++;
+            manager.guardar();
 		}
         if (col.gameObject.tag == "respawn" && manager.nivel == 0)
 		{
 			muerte = true;
+            manager.datosserial.muertes++;
+            manager.guardar();
 		}
         if (col.gameObject.tag == "respawn2" && manager.nivel == 0)
 		{
 			muerte = true;
+            manager.datosserial.muertes++;
+            manager.guardar();
 		}
         if (col.gameObject.tag == "enemigo")
 		{
@@ -3912,17 +3918,24 @@ public class jugador1_al2 : MonoBehaviour
             GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
             Destroy(col.transform.parent.gameObject);
+            manager.datosserial.enemigos_muertos++;
+            manager.guardar();
+            muertes.Play();
 		}
         if (col.gameObject.tag == "pisar2")
 		{
             GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
             Destroy(transform.parent.gameObject);
+            manager.datosserial.enemigos_muertos++;
+            manager.guardar();
+            muertes.Play();
 		}
         if (col.gameObject.tag == "enemigo")
 		{
             GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
+            muertes.Play();
             audio2.Play();
             Destroy(col.gameObject);
 			vida--;
