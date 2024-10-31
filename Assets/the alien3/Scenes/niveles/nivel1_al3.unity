@@ -1810,6 +1810,10 @@ MonoBehaviour:
   repath: 
   repathconfig: 
   datosserial:
+    enemigos_muertos: 0
+    muertes: 0
+    tfinal1: 0
+    tfinal2: 0
     idioma: 
     plat: 0
     inicio: 0
@@ -11615,6 +11619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnm: {fileID: 2104987610}
   tactil: {fileID: 426305272}
+  gasimg: {fileID: 0}
   pasosnave: {fileID: 0}
   camnomov: 0
   pasos1: {fileID: 666427957}
@@ -11717,6 +11722,7 @@ MonoBehaviour:
   lbc: 0
   velact: 0
   gas: 0
+  gas2: 0
   antigas: 0
   mundosalto: 1
   selcarga: 0
@@ -14217,6 +14223,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3989357631110114640, guid: 239857962f62663448e0a5cf6b2dc0ca, type: 3}
   m_PrefabInstance: {fileID: 1836000825}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1838411202
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2194248300790268255, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_Name
+      value: muerteaudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 966
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 606
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 504.6328
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
 --- !u!1001 &1860994772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15832,3 +15895,4 @@ SceneRoots:
   - {fileID: 1312555101}
   - {fileID: 1229930031}
   - {fileID: 2104987609}
+  - {fileID: 1838411202}

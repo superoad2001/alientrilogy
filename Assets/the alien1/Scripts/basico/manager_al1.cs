@@ -943,7 +943,7 @@ public class manager_al1 : MonoBehaviour
 		}
 		if(menu == -2)
 		{
-			boton1.text = "skip";
+			//boton1.text = "skip";
 		}
 		if(menu == 2)
 		{
@@ -1250,7 +1250,7 @@ public class manager_al1 : MonoBehaviour
 		}
 		if(menu == -2)
 		{
-			boton1.text = "saltar";
+			//boton1.text = "saltar";
 		}
 		if(menu == 2)
 		{

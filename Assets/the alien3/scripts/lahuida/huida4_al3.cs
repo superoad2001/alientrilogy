@@ -12,6 +12,19 @@ public class huida4_al3: MonoBehaviour
 	public AudioSource audio1en;
 	public AudioSource audio1cat;
     public float temp;
+    private Controles controles;
+    public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +47,7 @@ public class huida4_al3: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(temp > 40)
+        if(temp > 40 || controles.menu.saltar.ReadValue<float>() > 0)
         {
             SceneManager.LoadScene("presentacionhuida_al3");
         }

@@ -23616,7 +23616,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnm: {fileID: 1688293371}
+  tactil: {fileID: 0}
+  gasimg: {fileID: 0}
   pasosnave: {fileID: 0}
+  camnomov: 0
   pasos1: {fileID: 0}
   pasos2: {fileID: 0}
   claxon: {fileID: 0}
@@ -23717,6 +23720,7 @@ MonoBehaviour:
   lbc: 0
   velact: 0
   gas: 0
+  gas2: 0
   antigas: 0
   mundosalto: 2
   selcarga: 0
@@ -25325,6 +25329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72b842b39c6fbe4a8411f3f192cff6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio: {fileID: 1657556961}
   velocidadmaxima: 100
 --- !u!114 &1580
@@ -25904,6 +25909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72b842b39c6fbe4a8411f3f192cff6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio: {fileID: 1657556961}
   velocidadmaxima: 100
 --- !u!114 &119597460
@@ -26039,6 +26045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72b842b39c6fbe4a8411f3f192cff6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio: {fileID: 1657556961}
   velocidadmaxima: 100
 --- !u!114 &173797825
@@ -26289,6 +26296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72b842b39c6fbe4a8411f3f192cff6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio: {fileID: 1657556961}
   velocidadmaxima: 100
 --- !u!114 &247180335
@@ -26660,6 +26668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72b842b39c6fbe4a8411f3f192cff6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio: {fileID: 1657556961}
   velocidadmaxima: 100
 --- !u!114 &366347015
@@ -27040,6 +27049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72b842b39c6fbe4a8411f3f192cff6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio: {fileID: 1657556961}
   velocidadmaxima: 100
 --- !u!114 &552360106
@@ -28697,6 +28707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72b842b39c6fbe4a8411f3f192cff6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio: {fileID: 1657556961}
   velocidadmaxima: 100
 --- !u!114 &999320420
@@ -29198,6 +29209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917b465516839374ba08c92e1110147b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   trofeoact: 0
   jefen: 10
   cmenu: 0
@@ -29239,6 +29251,10 @@ MonoBehaviour:
   repath: 
   repathconfig: 
   datosserial:
+    enemigos_muertos: 0
+    muertes: 0
+    tfinal1: 0
+    tfinal2: 0
     idioma: 
     plat: 0
     inicio: 0
@@ -29560,6 +29576,63 @@ MonoBehaviour:
   m_Script: {fileID: 291735648, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1200266293
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2194248300790268255, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_Name
+      value: muerteaudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 966
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 606
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 504.6328
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 95fc3c4efa3561741b6a1c323b760f00, type: 3}
 --- !u!1 &1203572241
 GameObject:
   m_ObjectHideFlags: 0
@@ -30817,6 +30890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72b842b39c6fbe4a8411f3f192cff6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio: {fileID: 1657556961}
   velocidadmaxima: 100
 --- !u!114 &1497295582
@@ -30854,6 +30928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72b842b39c6fbe4a8411f3f192cff6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio: {fileID: 1657556961}
   velocidadmaxima: 100
 --- !u!114 &1498606617
@@ -31211,6 +31286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72b842b39c6fbe4a8411f3f192cff6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio: {fileID: 1657556961}
   velocidadmaxima: 100
 --- !u!114 &1539588967
@@ -32416,6 +32492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72b842b39c6fbe4a8411f3f192cff6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio: {fileID: 1657556961}
   velocidadmaxima: 100
 --- !u!114 &1808312507
@@ -32528,6 +32605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72b842b39c6fbe4a8411f3f192cff6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio: {fileID: 1657556961}
   velocidadmaxima: 100
 --- !u!114 &1824524441
@@ -33104,6 +33182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72b842b39c6fbe4a8411f3f192cff6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio: {fileID: 1657556961}
   velocidadmaxima: 100
 --- !u!114 &1978429990
@@ -33290,6 +33369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72b842b39c6fbe4a8411f3f192cff6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio: {fileID: 1657556961}
   velocidadmaxima: 100
 --- !u!114 &2006778349
@@ -33455,6 +33535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72b842b39c6fbe4a8411f3f192cff6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio: {fileID: 1657556961}
   velocidadmaxima: 100
 --- !u!114 &2091820943
@@ -33581,3 +33662,4 @@ SceneRoots:
   - {fileID: 350991479}
   - {fileID: 1676134378}
   - {fileID: 1688293370}
+  - {fileID: 1200266293}

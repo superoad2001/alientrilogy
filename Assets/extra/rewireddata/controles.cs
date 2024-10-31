@@ -1446,17 +1446,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""action"": ""saltar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7304af7a-e192-41eb-b15c-e3ab34f4abc1"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""saltar"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }

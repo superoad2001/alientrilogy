@@ -28,6 +28,15 @@ public class seleccionrap_al3: MonoBehaviour
     public int armas4 = 0;
     public bool armas4act = false;
     public jugador1_al3 jugador;
+
+
+
+    public Image ar1;
+    public Image ar2;
+    public Image ar3;
+    public Image ar4;
+    public Image ar5;
+    public Image ar6;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +59,59 @@ public class seleccionrap_al3: MonoBehaviour
     void Update()
     {
         manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+
+        if(manager.datosserial.armass1 == manager.datosserial.arma)
+        {
+            ar1.color = new Color32(43,0,139,255);
+        }
+        else
+        {
+            ar1.color = new Color32(43,0,139,166);
+        }
+        if(manager.datosserial.armass2 == manager.datosserial.arma)
+        {
+            ar2.color = new Color32(43,0,139,255);
+        }
+        else
+        {
+            ar2.color = new Color32(43,0,139,166);
+        }
+        if(manager.datosserial.armass3 == manager.datosserial.arma)
+        {
+            ar3.color = new Color32(43,0,139,255);
+        }
+        else
+        {
+            ar3.color = new Color32(43,0,139,166);
+        }
+        if(manager.datosserial.armass4 == manager.datosserial.arma)
+        {
+            ar4.color = new Color32(43,0,139,255);
+        }
+        else
+        {
+            ar4.color = new Color32(43,0,139,166);
+        }
+
+        if(manager.datosserial.armadurass1 == manager.datosserial.armadura)
+        {
+            ar5.color = new Color32(43,0,139,255);
+        }
+        else
+        {
+            ar5.color = new Color32(43,0,139,166);
+        }
+        if(manager.datosserial.armadurass2 == manager.datosserial.armadura)
+        {
+            ar6.color = new Color32(43,0,139,255);
+        }
+        else
+        {
+            ar6.color = new Color32(43,0,139,166);
+        }
+
+
+
         if(manager.datosconfig.idioma == "es")
         {
         

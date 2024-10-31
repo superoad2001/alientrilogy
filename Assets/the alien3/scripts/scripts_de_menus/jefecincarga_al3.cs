@@ -9,6 +9,20 @@ public class jefecincarga_al3: MonoBehaviour
 
     public float temp = 0;
     public float max = 94;
+
+    private Controles controles;
+    public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +36,7 @@ public class jefecincarga_al3: MonoBehaviour
     void Update()
     {
         temp += 1 * Time.deltaTime;
-        if(temp >= max)
+        if(temp >= max || controles.menu.saltar.ReadValue<float>() > 0)
         {
             SceneManager.LoadScene("jefe6_al3");
         }

@@ -14,6 +14,19 @@ public class escenacarga_al3: MonoBehaviour
     public AudioSource audioes;
     public AudioSource audioen;
     public AudioSource audiocat;
+    private Controles controles;
+    public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +51,7 @@ public class escenacarga_al3: MonoBehaviour
     {
         manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
        temp += 1 * Time.deltaTime;
-       if(temp > tiempo)
+       if(temp > tiempo  || controles.menu.saltar.ReadValue<float>() > 0)
        {
             if(escena == 2)
             {

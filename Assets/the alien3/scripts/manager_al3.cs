@@ -652,7 +652,7 @@ public class manager_al3: MonoBehaviour
 			}
 			if(cmenu == 6)
 			{
-				bloque1.text = "saltar";
+				//bloque1.text = "saltar";
 			}
 			if(cmenu == 7)
 			{
@@ -740,7 +740,7 @@ public class manager_al3: MonoBehaviour
 			}
 			if(cmenu == 6)
 			{
-				bloque1.text = "skip";
+				//bloque1.text = "skip";
 			}
 			if(cmenu == 7)
 			{
@@ -828,7 +828,7 @@ public class manager_al3: MonoBehaviour
 			}
 			if(cmenu == 6)
 			{
-				bloque1.text = "saltar";
+				//bloque1.text = "saltar";
 			}
 			if(cmenu == 7)
 			{
