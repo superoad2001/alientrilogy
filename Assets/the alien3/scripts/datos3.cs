@@ -87,6 +87,7 @@ public class datos3
 	public int marma14 = 2;
 	public int marma15 = 40;
 
+	public int espacio0act;
 	public int espacio2act;
     public int espacio3act;
     public int espacio4act;

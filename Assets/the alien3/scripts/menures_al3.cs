@@ -51,8 +51,6 @@ public class menures_al3 : MonoBehaviour
         jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        jugador.tactil.SetActive(false);
-        jugador.juego.SetActive(false);
         
         if (manager.nivel != 0)
         {salirnivelb = true;}

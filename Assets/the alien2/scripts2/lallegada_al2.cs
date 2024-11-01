@@ -8,6 +8,19 @@ public class lallegada_al2 : MonoBehaviour
 {
 	public manager_al2 manager;
     public float temp;
+    private Controles controles;
+    public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +34,7 @@ public class lallegada_al2 : MonoBehaviour
     {
         
         temp += 1 * Time.deltaTime;
-        if(temp >= 25f)
+        if(temp >= 25f || controles.menu.saltar.ReadValue<float>() > 0)
         {SceneManager.LoadScene("mundo_abierto_al2");}
     }
 }

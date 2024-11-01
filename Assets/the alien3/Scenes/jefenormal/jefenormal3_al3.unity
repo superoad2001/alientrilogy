@@ -758,6 +758,7 @@ MonoBehaviour:
     marma13: 2
     marma14: 2
     marma15: 40
+    espacio0act: 0
     espacio2act: 0
     espacio3act: 0
     espacio4act: 0
@@ -959,6 +960,8 @@ MonoBehaviour:
   dimensiion: 0
   rotspeed: 180
   camara: {fileID: 348217735}
+  cameraverticalangle: 0
+  cameraverticalangle2: 0
   rotationinput: {x: 0, y: 0, z: 0}
   tiempogiro2: 0
   girovalor: 0
@@ -2493,8 +2496,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b57fe8ae1232bee44ab95c8f1c18ee59, type: 3}
-  m_Type: 3
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
@@ -3686,8 +3689,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b57fe8ae1232bee44ab95c8f1c18ee59, type: 3}
-  m_Type: 3
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
@@ -9037,8 +9040,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b57fe8ae1232bee44ab95c8f1c18ee59, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -9063,33 +9066,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 185119395}
     m_Modifications:
-    - target: {fileID: 5855422849522415076, guid: 6f4a8df0d850ac9468a088bd95db8b05, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 319
-      objectReference: {fileID: 0}
-    - target: {fileID: 6421343896569121825, guid: 6f4a8df0d850ac9468a088bd95db8b05, type: 3}
-      propertyPath: _setNativeSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642643690647734120, guid: 6f4a8df0d850ac9468a088bd95db8b05, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 103.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642643690647734120, guid: 6f4a8df0d850ac9468a088bd95db8b05, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -140.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8672239801763051016, guid: 6f4a8df0d850ac9468a088bd95db8b05, type: 3}
-      propertyPath: _setNativeSize
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8888378867673391931, guid: 6f4a8df0d850ac9468a088bd95db8b05, type: 3}
       propertyPath: m_Name
       value: Canvas (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8888378867673391931, guid: 6f4a8df0d850ac9468a088bd95db8b05, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8888378867673397999, guid: 6f4a8df0d850ac9468a088bd95db8b05, type: 3}
       propertyPath: m_Pivot.x
@@ -9097,10 +9076,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8888378867673397999, guid: 6f4a8df0d850ac9468a088bd95db8b05, type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8888378867673397999, guid: 6f4a8df0d850ac9468a088bd95db8b05, type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8888378867673397999, guid: 6f4a8df0d850ac9468a088bd95db8b05, type: 3}
@@ -9884,8 +9859,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b57fe8ae1232bee44ab95c8f1c18ee59, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -10462,6 +10437,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 6650}
+    - target: {fileID: 1996275027986734480, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
+      propertyPath: salirnivel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1996275027986734481, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
       propertyPath: m_Pivot.x
       value: 0

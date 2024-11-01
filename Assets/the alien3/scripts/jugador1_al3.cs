@@ -63,8 +63,8 @@ public class jugador1_al3: MonoBehaviour
     public bool dimensiion;
     public float rotspeed = 180;
 	public GameObject camara;
-	private float cameraverticalangle;
-    private float cameraverticalangle2;
+	public float cameraverticalangle;
+    public float cameraverticalangle2;
 	public Vector3 rotationinput;
     public float tiempogiro2;
     public float girovalor;
@@ -496,7 +496,8 @@ public class jugador1_al3: MonoBehaviour
         if(manager.datosserial.armadura == 1 && gas == true && antigas == false)
         {
             gas2 = false;
-            gasimg.SetActive(true);
+            if(gasimg != null)
+            {gasimg.SetActive(true);}
         }
         else if(manager.datosserial.armadura == 1 && gas == true)
         {
@@ -509,10 +510,14 @@ public class jugador1_al3: MonoBehaviour
         else if (gas == false)
         {
             gas2 = false;
-            gasimg.SetActive(false);
+            if(gasimg != null)
+            {gasimg.SetActive(false);}
         }
         else
-        {gasimg.SetActive(false);}
+        {
+            if(gasimg != null)
+            {gasimg.SetActive(false);}
+        }
 
 
         if(gas2 == true && antigas == false && tiempogas > 5)
@@ -527,7 +532,8 @@ public class jugador1_al3: MonoBehaviour
         {
             auxb.color = new Color32(106,202,107,255);
             auxb.fillAmount = tiempogas/5;
-            gasimg.SetActive(true);
+            if(gasimg != null)
+            {gasimg.SetActive(true);}
 
         }
         if(lavaaux == true)
@@ -553,7 +559,8 @@ public class jugador1_al3: MonoBehaviour
             auxb.color = new Color32(255,255,255,255);
             auxb.fillAmount = 100/100;
             tiempogas = 0;
-            gasimg.SetActive(false);
+            if(gasimg != null)
+            {gasimg.SetActive(false);}
         }
 
 
@@ -569,46 +576,6 @@ public class jugador1_al3: MonoBehaviour
         }
 
 
-
-
-        if(verticalpadc > 0 && horizontalpadc <= 0.5f && horizontalpadc >= -0.5f && tiendat == false)
-        {
-            manager.datosserial.arma = manager.datosserial.armass2;
-            manager.guardar();
-        }
-        else if(r3 > 0 && suelo == true && tiendat == false && armaduramode == 2 && temp9 > 0.5f)
-        {
-            anim.SetBool("jetpack1",false);
-            manager.datosserial.armadura = manager.datosserial.armadurass2;
-            manager.guardar();
-            jumpfcarga = false;
-            armaduramode = 1;
-            temp9 = 0;
-        }
-        else if(r3 > 0 && suelo == true && tiendat == false && armaduramode == 1 && temp9 > 0.5f)
-        {
-            anim.SetBool("jetpack1",false);
-            manager.datosserial.armadura = manager.datosserial.armadurass1;
-            manager.guardar();
-            jumpfcarga = false;
-            armaduramode = 2;
-            temp9 = 0;
-        }
-        else if(verticalpadc == 0 && horizontalpadc > 0 && tiendat == false)
-        {
-            manager.datosserial.arma = manager.datosserial.armass3;
-            manager.guardar();
-        }
-        else if(verticalpadc >= -0.5f && verticalpadc <= 0.5f && horizontalpadc < 0&& tiendat == false)
-        {
-            manager.datosserial.arma = manager.datosserial.armass1;
-            manager.guardar();
-        }
-        else if(verticalpadc < 0 && horizontalpadc <= 0.5f && horizontalpadc >= -0.5f&& tiendat == false)
-        {
-            manager.datosserial.arma = manager.datosserial.armass4;
-            manager.guardar();
-        }
         if(ltc> 0f && manager.juego != 6 && manager.juego != 4&& manager.juego != 5 && actsel1 == false)
         {
             actsel1 = true;
@@ -627,6 +594,50 @@ public class jugador1_al3: MonoBehaviour
             {}
             if(tempselec < 15)
             {tempselec += 1 * Time.deltaTime;}
+
+
+
+
+            if(r3 > 0 && suelo == true && tiendat == false && armaduramode == 2 && temp9 > 0.5f)
+            {
+                anim.SetBool("jetpack1",false);
+                manager.datosserial.armadura = manager.datosserial.armadurass2;
+                manager.guardar();
+                jumpfcarga = false;
+                armaduramode = 1;
+                temp9 = 0;
+            }
+            else if(r3 > 0 && suelo == true && tiendat == false && armaduramode == 1 && temp9 > 0.5f)
+            {
+                anim.SetBool("jetpack1",false);
+                manager.datosserial.armadura = manager.datosserial.armadurass1;
+                manager.guardar();
+                jumpfcarga = false;
+                armaduramode = 2;
+                temp9 = 0;
+            }
+
+
+            if(verticalpadc >= 0.5f && tiendat == false)
+            {
+                manager.datosserial.arma = manager.datosserial.armass2;
+                manager.guardar();
+            }
+            else if(horizontalpadc <= -0.5f && tiendat == false)
+            {
+                manager.datosserial.arma = manager.datosserial.armass1;
+                manager.guardar();
+            }
+            else if(horizontalpadc >= 0.5f && tiendat == false)
+            {
+                manager.datosserial.arma = manager.datosserial.armass3;
+                manager.guardar();
+            }
+            else if(verticalpadc <= -0.5f && tiendat == false)
+            {
+                manager.datosserial.arma = manager.datosserial.armass4;
+                manager.guardar();
+            }
             
         }
         if(ltc == 0f && manager.juego != 6 && manager.juego != 4 && manager.juego != 5)
@@ -1017,22 +1028,44 @@ public class jugador1_al3: MonoBehaviour
             }
             if(objeto == 5)
             {
+                if(manager.datosserial.espacio0act == 0)
+                {
+                    if(manager.datosconfig.idioma == "es")
+                    {
+                        objetotext.text = "iniciar travesia al fin";
+                    }
+                    if(manager.datosconfig.idioma == "en")
+                    {
+                        objetotext.text = "start journey to the end";
+                    }
+                    if(manager.datosconfig.idioma == "cat")
+                    {
+                        objetotext.text = "iniciar viatge al fi";
+                    }
+                    if(yc> 0f && tempboton > 0.5f)
+                    {
+                        SceneManager.LoadScene("jefe6_al3");
+                    }
+                }
+                else if(manager.datosserial.espacio0act == 1)
+                {
+                    if(manager.datosconfig.idioma == "es")
+                    {
+                        objetotext.text = "final del universo";
+                    }
+                    if(manager.datosconfig.idioma == "en")
+                    {
+                        objetotext.text = "end of the universe";
+                    }
+                    if(manager.datosconfig.idioma == "cat")
+                    {
+                        objetotext.text = "final del univers";
+                    }
 
-                if(manager.datosconfig.idioma == "es")
-                {
-                    objetotext.text = "final del universo";
-                }
-                if(manager.datosconfig.idioma == "en")
-                {
-                    objetotext.text = "end of the universe";
-                }
-                if(manager.datosconfig.idioma == "cat")
-                {
-                    objetotext.text = "final del univers";
-                }
-                if(yc> 0f && tempboton > 0.5f)
-                {
-                    SceneManager.LoadScene("espacio0_al3");
+                    if(yc> 0f && tempboton > 0.5f)
+                    {
+                        SceneManager.LoadScene("espacio0_al3");
+                    }
                 }
                 
             }
@@ -1831,19 +1864,24 @@ public class jugador1_al3: MonoBehaviour
                 rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
                 
 
-                cameraverticalangle +=  rotationinput.y/3;
+                cameraverticalangle =  rotationinput.y/3;
                 cameraverticalangle = Mathf.Clamp(cameraverticalangle, -20 , 20);
 
-                cameraverticalangle2 +=  rotationinput.x;
+                camara.transform.Rotate(Vector3.up * rotationinput.x);
 
-                camara.transform.localRotation = Quaternion.Euler(-cameraverticalangle,cameraverticalangle2,0);
+                camara.transform.localRotation = Quaternion.RotateTowards(camara.transform.localRotation,Quaternion.Euler(cameraverticalangle,camara.transform.eulerAngles.y,0),180 * Time.deltaTime);
+                //camara.transform.localRotation = Quaternion.Lerp(camara.transform.localRotation,Quaternion.Euler(-cameraverticalangle,,0),2.5f* Time.deltaTime);
+                //camara.transform.localRotation = Quaternion.RotateTowards(camara.transform.localRotation,Quaternion.Euler(-cameraverticalangle,cameraverticalangle2,0),180 * Time.deltaTime);
+
+
+
                 if (lhorizontalc != 0f && rhorizontalc != 0f|| lverticalc != 0 && rhorizontalc != 0f)
                 {
                     transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),2.5f* Time.deltaTime);
                 }
                 else if (lhorizontalc != 0f || lverticalc != 0)
                 {
-                    transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),90f* Time.deltaTime);
+                    transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),2.5f* Time.deltaTime);
                 }
 
 
@@ -1854,7 +1892,11 @@ public class jugador1_al3: MonoBehaviour
                 else
                 {
                     camara.transform.position = Vector3.MoveTowards(camara.transform.position,transform.position,1 * Time.deltaTime);
-                    camnomov = true;
+                    if(camara.transform.position == transform.position)
+                    {
+                        camnomov = true;
+                    }
+                    
                 }
                 
                 }
@@ -1880,6 +1922,7 @@ public class jugador1_al3: MonoBehaviour
             }
             else if(ltc > 0)
             {
+                camnomov = false;
                 if (lhorizontalc > 0f )
                 {
                     _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
@@ -1900,6 +1943,10 @@ public class jugador1_al3: MonoBehaviour
                     _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                     mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
                 }
+
+
+                transform.localRotation = Quaternion.Lerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),30f* Time.deltaTime);
+                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
 
 
                 if (lhorizontalc >= 0.70f)
@@ -1967,12 +2014,18 @@ public class jugador1_al3: MonoBehaviour
                 rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
                 rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
 
-                cameraverticalangle +=  rotationinput.y;
+                cameraverticalangle =  rotationinput.y;
                 cameraverticalangle = Mathf.Clamp(cameraverticalangle, -20 , 20);
                 
-                transform.Rotate(Vector3.up * rotationinput.x);
-                camara.transform.localRotation = Quaternion.RotateTowards(camara.transform.localRotation,Quaternion.Euler(-cameraverticalangle,transform.eulerAngles.y,0),180 * Time.deltaTime);
+                camara.transform.Rotate(Vector3.up * rotationinput.x);
+                //camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(-cameraverticalangle,camara.transform.eulerAngles.y,0),2.5f* Time.deltaTime);
 
+                camara.transform.localRotation = Quaternion.RotateTowards(camara.transform.localRotation,Quaternion.Euler(cameraverticalangle,camara.transform.eulerAngles.y,0),180 * Time.deltaTime);
+                //transform.localRotation = Quaternion.RotateTowards(transform.localRotation,Quaternion.Euler(transform.eulerAngles.x,camara.transform.eulerAngles.y,0),180 * Time.deltaTime);
+                //transform.localRotation = camara.transform.localRotation;
+                cameraverticalangle2 =  0;
+
+                
                 camara.transform.position = new Vector3 (transform.position.x,transform.position.y,transform.position.z);
 
                 
@@ -2319,8 +2372,12 @@ public class jugador1_al3: MonoBehaviour
             }
             else
             {
-                camara.transform.localPosition = Vector3.MoveTowards(camara.transform.localPosition,new Vector3(0f,1.07000005f,-1.69700003f),1 * Time.deltaTime);
-                camnomov = true;
+                camara.transform.position = Vector3.MoveTowards(camara.transform.position,transform.position,1 * Time.deltaTime);
+                if(camara.transform.position == transform.position)
+                {
+                    camnomov = true;
+                }
+                
             }
             
         }
@@ -2334,7 +2391,7 @@ public class jugador1_al3: MonoBehaviour
         if(vida <= 0 && muerte == false)
         {
             muerte = true;
-            manager.datosserial.enemigos_muertos++;
+            manager.datosserial.muertes++;
             manager.guardar();
             vida = 0;
         }
@@ -2356,6 +2413,7 @@ public class jugador1_al3: MonoBehaviour
             manager.datosserial.alien3muere = 1;
             manager.guardar();
             respawnm.SetActive(true);
+            juego.SetActive(false);
         }
 
         if (pausac > 0 && temp9 > 0.5f && tiendat == false )
@@ -2409,7 +2467,7 @@ public class jugador1_al3: MonoBehaviour
 		}
         if (col.gameObject.tag == "respawn")
 		{
-            manager.datosserial.enemigos_muertos++;
+            manager.datosserial.muertes++;
             manager.guardar();
 			muerte = true;
 		}
@@ -2530,6 +2588,7 @@ public class jugador1_al3: MonoBehaviour
 		}
         if (col.gameObject.tag == "tiendat")
 		{
+            tienda = (tienda_al3)FindFirstObjectByType(typeof(tienda_al3));
 			tiendat = true;
             tiendag.SetActive(true);
             Cursor.visible = true;
@@ -2653,7 +2712,7 @@ public class jugador1_al3: MonoBehaviour
 		}
         if (col.gameObject.tag == "tiendat")
 		{
-            
+            tienda = (tienda_al3)FindFirstObjectByType(typeof(tienda_al3));
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
 			tiendat = false;

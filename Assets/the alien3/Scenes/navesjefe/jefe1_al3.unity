@@ -23656,6 +23656,8 @@ MonoBehaviour:
   dimensiion: 0
   rotspeed: 3
   camara: {fileID: 0}
+  cameraverticalangle: 0
+  cameraverticalangle2: 0
   rotationinput: {x: 0, y: 0, z: 0}
   tiempogiro2: 0
   girovalor: 0
@@ -25807,7 +25809,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b57fe8ae1232bee44ab95c8f1c18ee59, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cc20898e833cf9468807ce0e61323c0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -27118,7 +27120,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b57fe8ae1232bee44ab95c8f1c18ee59, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cc20898e833cf9468807ce0e61323c0, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -29143,13 +29145,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 130093604}
-  - {fileID: 1168644330}
   - {fileID: 501507101}
   - {fileID: 950649370}
   - {fileID: 1307052741}
   - {fileID: 1473948375}
   - {fileID: 1620996291}
   - {fileID: 64504283}
+  - {fileID: 1168644330}
   m_Father: {fileID: 2008588895}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
   m_AnchorMin: {x: 0, y: 0}
@@ -29265,6 +29267,7 @@ MonoBehaviour:
     marma13: 2
     marma14: 2
     marma15: 40
+    espacio0act: 0
     espacio2act: 0
     espacio3act: 0
     espacio4act: 0
@@ -29447,7 +29450,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -562, y: -82}
+  m_AnchoredPosition: {x: -639, y: -82}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1168644331
@@ -29470,7 +29473,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1977815425, guid: 6f0300b0215a3074caa2df2f572f6955, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -29735,6 +29738,8 @@ MonoBehaviour:
   balavel: 40
   disp: {fileID: 747434383}
   manager: {fileID: 0}
+  respawnm: {fileID: 621799654}
+  juego: {fileID: 2008588894}
 --- !u!1 &1278594563
 GameObject:
   m_ObjectHideFlags: 0
@@ -29978,7 +29983,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b57fe8ae1232bee44ab95c8f1c18ee59, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cc20898e833cf9468807ce0e61323c0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -30824,14 +30829,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6981132, g: 0.121840514, b: 0.12748301, a: 1}
+  m_Color: {r: 1, g: 0.0047169924, b: 0.01825841, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b57fe8ae1232bee44ab95c8f1c18ee59, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cc20898e833cf9468807ce0e61323c0, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -31065,6 +31070,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 1145751233}
+    - target: {fileID: 1996275027986734480, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
+      propertyPath: salirnivel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1996275027986734481, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
       propertyPath: m_Pivot.x
       value: 0

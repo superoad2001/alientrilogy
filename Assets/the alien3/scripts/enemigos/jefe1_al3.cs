@@ -45,6 +45,8 @@ public class jefe1_al3: MonoBehaviour
 
 	public AudioSource disp;
 	public manager_al3 manager;
+	public GameObject respawnm;
+	public GameObject juego;
 
 	private void OnTriggerEnter(Collider col)
 	{
@@ -57,7 +59,9 @@ public class jefe1_al3: MonoBehaviour
         }
 		if (col.gameObject.tag == "portal")
         {
-			SceneManager.LoadScene("espacio_al3");
+			respawnm.SetActive(true);
+            juego.SetActive(false);
+
 			
         }
 	}
@@ -119,9 +123,10 @@ public class jefe1_al3: MonoBehaviour
 			}
 			if (jefe == 6)
 			{
-				manager.datosserial.final1 = 1;
+				if(manager.datosserial.espacio0act == 0)
+				{manager.datosserial.espacio0act =  1;}
 				manager.guardar();
-				SceneManager.LoadScene("espacio6_al3");
+				SceneManager.LoadScene("espacio0_al3");
 			}
 		}
 	}

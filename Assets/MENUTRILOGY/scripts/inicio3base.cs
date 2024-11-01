@@ -110,8 +110,6 @@ public class inicio3base : MonoBehaviour
             logoo2.transform.localPosition = new Vector3(211.349915f,30.9999924f,0f);
             logoo3.transform.localPosition = new Vector3(214.5f,-112f,0f);
             logoo4.transform.localPosition = new Vector3(196.5f,-183f,0f);*/
-            logo3.fontSize = 100;
-            logo4.fontSize = 82;
             logo3.text = "ADVENTURE";
             logo4.text = "";
             anim.SetInteger("juego",1);
@@ -126,8 +124,6 @@ public class inicio3base : MonoBehaviour
             logoo2.transform.localPosition = new Vector3(211.349915f,30.9999924f,0f);
             logoo3.transform.localPosition = new Vector3(214.5f,-112f,0f);
             logoo4.transform.localPosition = new Vector3(196.5f,-229f,0f);*/
-            logo3.fontSize = 100;
-            logo4.fontSize = 82;
             logo3.text = "ADVENTURE";
             logo4.text = "2";
             anim.SetInteger("juego",2);

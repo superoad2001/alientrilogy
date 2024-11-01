@@ -60,7 +60,7 @@ public class seleccionrap_al3: MonoBehaviour
     {
         manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 
-        if(manager.datosserial.armass1 == manager.datosserial.arma)
+        if(manager.datosserial.armass1 == manager.datosserial.arma &&  manager.datosserial.arma != 0)
         {
             ar1.color = new Color32(43,0,139,255);
         }
@@ -68,7 +68,7 @@ public class seleccionrap_al3: MonoBehaviour
         {
             ar1.color = new Color32(43,0,139,166);
         }
-        if(manager.datosserial.armass2 == manager.datosserial.arma)
+        if(manager.datosserial.armass2 == manager.datosserial.arma &&  manager.datosserial.arma != 0)
         {
             ar2.color = new Color32(43,0,139,255);
         }
@@ -76,7 +76,7 @@ public class seleccionrap_al3: MonoBehaviour
         {
             ar2.color = new Color32(43,0,139,166);
         }
-        if(manager.datosserial.armass3 == manager.datosserial.arma)
+        if(manager.datosserial.armass3 == manager.datosserial.arma &&  manager.datosserial.arma != 0)
         {
             ar3.color = new Color32(43,0,139,255);
         }
@@ -84,7 +84,7 @@ public class seleccionrap_al3: MonoBehaviour
         {
             ar3.color = new Color32(43,0,139,166);
         }
-        if(manager.datosserial.armass4 == manager.datosserial.arma)
+        if(manager.datosserial.armass4 == manager.datosserial.arma &&  manager.datosserial.arma != 0)
         {
             ar4.color = new Color32(43,0,139,255);
         }
@@ -93,7 +93,7 @@ public class seleccionrap_al3: MonoBehaviour
             ar4.color = new Color32(43,0,139,166);
         }
 
-        if(manager.datosserial.armadurass1 == manager.datosserial.armadura)
+        if(manager.datosserial.armadurass1 == manager.datosserial.armadura &&  manager.datosserial.armadura != 0)
         {
             ar5.color = new Color32(43,0,139,255);
         }
@@ -101,7 +101,7 @@ public class seleccionrap_al3: MonoBehaviour
         {
             ar5.color = new Color32(43,0,139,166);
         }
-        if(manager.datosserial.armadurass2 == manager.datosserial.armadura)
+        if(manager.datosserial.armadurass2 == manager.datosserial.armadura  &&  manager.datosserial.armadura != 0)
         {
             ar6.color = new Color32(43,0,139,255);
         }

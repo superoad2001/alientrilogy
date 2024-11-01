@@ -12,13 +12,25 @@ public class lasalida_al2 : MonoBehaviour
     void Start()
     {
     }
-
+    private Controles controles;
+    public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     // Update is called once per frame
     void Update()
     {
         
         temp += 1 * Time.deltaTime;
-        if(temp >= 8f)
+        if(temp >= 8f || controles.menu.saltar.ReadValue<float>() > 0)
         {SceneManager.LoadScene("lallegada_al2");}
     }
 }

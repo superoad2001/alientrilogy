@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class jefe4fin_al2 : MonoBehaviour
 {
 	public manager_al2 manager;
+    public GameObject respawnm;
+    public GameObject juego;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,8 @@ public class jefe4fin_al2 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "jefe")
         {
-            SceneManager.LoadScene("mundo_abierto_al2");
+            respawnm.SetActive(true);
+            juego.SetActive(false);
 			
         }
 		if (col.gameObject.tag == "Player")

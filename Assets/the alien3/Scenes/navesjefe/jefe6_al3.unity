@@ -23626,6 +23626,8 @@ MonoBehaviour:
   dimensiion: 0
   rotspeed: 3
   camara: {fileID: 0}
+  cameraverticalangle: 0
+  cameraverticalangle2: 0
   rotationinput: {x: 0, y: 0, z: 0}
   tiempogiro2: 0
   girovalor: 0
@@ -23652,7 +23654,7 @@ MonoBehaviour:
   mod: {fileID: 0}
   objet: {fileID: 0}
   actsel1: 0
-  fuerzanave: 1000000000
+  fuerzanave: 2000000000
   platx: {fileID: 0}
   platz: {fileID: 0}
   platy: {fileID: 0}
@@ -23824,7 +23826,7 @@ RenderSettings:
   m_AmbientIntensity: 3.6
   m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 41228fcad119d1140bef8c9b4d31b7de, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 2b6512f8ca6ccb8459250555670b06ae, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -25676,7 +25678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7959003, g: 0.8301887, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.06132078, b: 0.794236, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -25696,7 +25698,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: hombre encorbado
+  m_Text: engendro
 --- !u!222 &64504285
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25800,7 +25802,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b57fe8ae1232bee44ab95c8f1c18ee59, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cc20898e833cf9468807ce0e61323c0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -27161,7 +27163,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b57fe8ae1232bee44ab95c8f1c18ee59, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cc20898e833cf9468807ce0e61323c0, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -27733,7 +27735,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -562, y: -82}
+  m_AnchoredPosition: {x: -636.2, y: -82}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &717267337
@@ -27756,7 +27758,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -191208344, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28270,11 +28272,13 @@ MonoBehaviour:
   caja11: {fileID: 232}
   caja12: {fileID: 297}
   balafrec: 1
-  balaprefab: {fileID: 1788202252595399, guid: 0f6e16eca1221f345b0276235651d184, type: 3}
-  balaprefab2: {fileID: 1788202252595399, guid: 485f25af677c9554a9517eef1b71e001, type: 3}
+  balaprefab: {fileID: 1788202252595399, guid: e3f732926247f3042b3343380968c603, type: 3}
+  balaprefab2: {fileID: 1788202252595399, guid: df5572323072ebf47959aab68b043a53, type: 3}
   balavel: 80
   disp: {fileID: 747434383}
   manager: {fileID: 0}
+  respawnm: {fileID: 1530367837}
+  juego: {fileID: 2008588894}
 --- !u!1 &862626493
 GameObject:
   m_ObjectHideFlags: 0
@@ -29035,13 +29039,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 130093604}
-  - {fileID: 717267335}
   - {fileID: 501507101}
   - {fileID: 950649370}
   - {fileID: 1307052741}
   - {fileID: 1473948375}
   - {fileID: 1620996291}
   - {fileID: 64504283}
+  - {fileID: 717267335}
   m_Father: {fileID: 2008588895}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
   m_AnchorMin: {x: 0, y: 0}
@@ -29408,6 +29412,7 @@ MonoBehaviour:
     marma13: 2
     marma14: 2
     marma15: 40
+    espacio0act: 0
     espacio2act: 0
     espacio3act: 0
     espacio4act: 0
@@ -30023,7 +30028,7 @@ GameObject:
   - component: {fileID: 1303799410}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: "da\xF1ox30"
+  m_TagString: "da\xF1ox100"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30190,7 +30195,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b57fe8ae1232bee44ab95c8f1c18ee59, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cc20898e833cf9468807ce0e61323c0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -30911,14 +30916,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.964025, g: 0.990566, b: 0.21026169, a: 1}
+  m_Color: {r: 0.07062123, g: 0.45453644, b: 0.6509434, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b57fe8ae1232bee44ab95c8f1c18ee59, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cc20898e833cf9468807ce0e61323c0, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -31036,6 +31041,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 1145751233}
+    - target: {fileID: 1996275027986734480, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
+      propertyPath: salirnivel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1996275027986734481, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
       propertyPath: m_Pivot.x
       value: 0

@@ -29,6 +29,14 @@ public class armadt_al3: MonoBehaviour
         manager.datosserial.armadura = armad;
         manager.datosserial.tarmad[armad] = 1;
         manager.datosserial.armadurastotal++;
+        if(manager.datosserial.armadurass1 == 0)
+        {
+            manager.datosserial.armadurass1 = manager.datosserial.armadura;
+        }
+        else if(manager.datosserial.armadurass2 == 0)
+        {
+            manager.datosserial.armadurass2 = manager.datosserial.armadura;
+        }
         
         manager.guardar();
         audio0.Play();

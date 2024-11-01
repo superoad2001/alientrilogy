@@ -9,6 +9,11 @@ using UnityEngine.Audio;
 
 public class pausa_al3: MonoBehaviour
 {
+    public AudioSource audiosel;
+    public void mover()
+    {
+        audiosel.Play();
+    }
     public manager_al3 manager;
     public GameObject tactil;
     public GameObject opciones1;
@@ -23,6 +28,8 @@ public class pausa_al3: MonoBehaviour
     public Text ttguia;
     public Text ttopciones;
     public Text ttsalir;
+
+    public GameObject salirjuego;
 
 
     public Text ttdiario1;
@@ -249,6 +256,7 @@ public class pausa_al3: MonoBehaviour
     public GameObject guia2c;
 
 
+
     public int armaduras1 = 0;
     public bool armaduras1act = false;
     public int armaduras2 = 0;
@@ -336,12 +344,14 @@ public class pausa_al3: MonoBehaviour
     public Text armad10sel;
 
     public bool dev = false;
+    public bool salirnivel;
         // Start is called before the first frame update
     void Start()
     {
         manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
-        
-
+        if(salirnivel)
+        {salirjuego.SetActive(true);}
+        else{salirjuego.SetActive(false);}
 
 
         if(manager.datosconfig.idioma == "es")
@@ -450,7 +460,7 @@ public class pausa_al3: MonoBehaviour
             ttselecion.text = "seleccion rapida";
             ttdiarios.text = "diarios";
             ttinventario.text = "inventario";
-            ttextras.text = "extras";
+            ttextras.text = "salir del nivel";
             ttguia.text = "guia de controles";
             ttopciones.text = "opciones";
             ttsalir.text = "salir";
@@ -478,7 +488,7 @@ public class pausa_al3: MonoBehaviour
             tttselecion.text = "seleccion rapida";
             tttdiarios.text = "diarios de papa";
             tttinventario.text = "inventario";
-            tttextras.text = "extras";
+            tttextras.text = "salir del nivel";
             tttguia.text = "guia de controles";
             tttguia2.text = "guia de controles";
 
@@ -1289,7 +1299,7 @@ public class pausa_al3: MonoBehaviour
             ttselecion.text = "quick selection";
             ttdiarios.text = "diaries";
             ttinventario.text = "inventory";
-            ttextras.text = "extras";
+            ttextras.text = "exit level";
             ttguia.text = "guide of controls";
             ttopciones.text = "settings";
             ttsalir.text = "exit";
@@ -1317,7 +1327,7 @@ public class pausa_al3: MonoBehaviour
             tttselecion.text = "quick selection";
             tttdiarios.text = "dad diaries";
             tttinventario.text = "inventory";
-            tttextras.text = "extras";
+            tttextras.text = "exit level";
             tttguia.text = "guide of controls";
             tttguia2.text = "guide of controls";
 
@@ -2123,7 +2133,7 @@ public class pausa_al3: MonoBehaviour
             ttselecion.text = "seleccio rapida";
             ttdiarios.text = "diari";
             ttinventario.text = "inventari";
-            ttextras.text = "extras";
+            ttextras.text = "sortir del nivell";
             ttguia.text = "guia de controls";
             ttopciones.text = "opcions";
             ttsalir.text = "sortir";
@@ -2151,7 +2161,7 @@ public class pausa_al3: MonoBehaviour
             tttselecion.text = "seleccio rapida";
             tttdiarios.text = "diari d en pare";
             tttinventario.text = "inventari";
-            tttextras.text = "extras";
+            tttextras.text = "sortir del nivell";
             tttguia.text = "guia de controls";
             tttguia2.text = "guia de controls";
 
@@ -2989,6 +2999,9 @@ public class pausa_al3: MonoBehaviour
         SceneManager.LoadScene("presentacion_al3");
         manager.datosserial.com = 0;
         manager.guardar();
+    }
+    public void salirn(){
+        SceneManager.LoadScene("carga_al3");
     }
     public void armas()
     {

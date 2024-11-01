@@ -1146,6 +1146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnm: {fileID: 0}
   tactil: {fileID: 1066494554}
+  gasimg: {fileID: 0}
   pasosnave: {fileID: 1206191859}
   camnomov: 0
   pasos1: {fileID: 0}
@@ -1186,6 +1187,8 @@ MonoBehaviour:
   dimensiion: 0
   rotspeed: 180
   camara: {fileID: 8}
+  cameraverticalangle: 0
+  cameraverticalangle2: 0
   rotationinput: {x: 0, y: 0, z: 0}
   tiempogiro2: 0
   girovalor: 0
@@ -1248,6 +1251,7 @@ MonoBehaviour:
   lbc: 0
   velact: 0
   gas: 0
+  gas2: 0
   antigas: 0
   mundosalto: 2
   selcarga: 0
@@ -1295,6 +1299,96 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &9593075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9593076}
+  - component: {fileID: 9593079}
+  - component: {fileID: 9593078}
+  - component: {fileID: 9593077}
+  m_Layer: 5
+  m_Name: Jump Image (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &9593076
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9593075}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1167688331}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 56.255554, y: 422.37775}
+  m_SizeDelta: {x: 64, y: 64}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &9593077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9593075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Action: al3/y
+  _setNativeSize: 0
+--- !u!114 &9593078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9593075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 25240219, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &9593079
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9593075}
+  m_CullTransparentMesh: 0
 --- !u!114 &39187435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1349,6 +1443,10 @@ MonoBehaviour:
   repath: 
   repathconfig: 
   datosserial:
+    enemigos_muertos: 0
+    muertes: 0
+    tfinal1: 0
+    tfinal2: 0
     idioma: 
     plat: 0
     inicio: 0
@@ -1399,6 +1497,7 @@ MonoBehaviour:
     marma13: 2
     marma14: 2
     marma15: 40
+    espacio0act: 0
     espacio2act: 0
     espacio3act: 0
     espacio4act: 0
@@ -1730,30 +1829,6 @@ MonoBehaviour:
   m_Script: {fileID: 868670995, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.8901961}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.3137255}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 99808694}
-  _syncFadeDurationWithTransitionEvent: 1
-  _syncColorTintWithTransitionEvent: 1
 --- !u!114 &99808694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1924,7 +1999,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b57fe8ae1232bee44ab95c8f1c18ee59, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cc20898e833cf9468807ce0e61323c0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2068,145 +2143,6 @@ MonoBehaviour:
   m_Script: {fileID: 291735648, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactable: 1
-  _visible: 1
-  _hideWhenIdle: 0
-  _allowedMouseButtons: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.23529412}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.8901961}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.3137255}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 1480105877}
-  _onInteractionStateTransition:
-    m_PersistentCalls:
-      m_Calls: []
-  _onVisibilityChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToNormal:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToHighlighted:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToDisabled:
-    m_PersistentCalls:
-      m_Calls: []
-  _targetCustomControllerElement:
-    _splitValue: 0
-    _target:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: 8
-      _valueRange: 0
-      _valueContribution: 0
-      _invert: 0
-    _positiveTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-    _negativeTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 2
-      _valueContribution: 0
-      _invert: 0
-  _buttonType: 0
-  _activateOnSwipeIn: 0
-  _stayActiveOnSwipeOut: 1
-  _useDigitalAxisSimulation: 0
-  _digitalAxisGravity: 3
-  _digitalAxisSensitivity: 3
-  _axis:
-    _buttonActivationThreshold: 0.5
-    _calibration:
-      _enabled: 1
-      _deadZone: 0
-      _calibratedZero: 0
-      _calibratedMin: -1
-      _calibratedMax: 1
-      _invert: 0
-      _sensitivityType: 0
-      _sensitivity: 1
-      _sensitivityCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      _applyRangeCalibration: 1
-  _touchRegion: {fileID: 0}
-  _useTouchRegionOnly: 1
-  _moveToTouchPosition: 0
-  _returnOnRelease: 1
-  _followTouchPosition: 0
-  _animateOnMoveToTouch: 1
-  _moveToTouchSpeed: 2
-  _animateOnReturn: 1
-  _returnSpeed: 2
-  _manageRaycasting: 1
-  _onAxisValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonDown:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonUp:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &182357535
 GameObject:
   m_ObjectHideFlags: 0
@@ -2257,30 +2193,6 @@ MonoBehaviour:
   m_Script: {fileID: 868670995, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _transitionType: 0
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.5}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 182357538}
-  _syncFadeDurationWithTransitionEvent: 1
-  _syncColorTintWithTransitionEvent: 0
 --- !u!114 &182357538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2448,30 +2360,6 @@ MonoBehaviour:
   m_Script: {fileID: 868670995, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.23529412}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.8901961}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.3137255}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 237098611}
-  _syncFadeDurationWithTransitionEvent: 1
-  _syncColorTintWithTransitionEvent: 1
 --- !u!114 &237098611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2849,30 +2737,6 @@ MonoBehaviour:
   m_Script: {fileID: 868670995, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _transitionType: 0
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.5}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 338132926}
-  _syncFadeDurationWithTransitionEvent: 1
-  _syncColorTintWithTransitionEvent: 0
 --- !u!114 &338132926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3233,7 +3097,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b57fe8ae1232bee44ab95c8f1c18ee59, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cc20898e833cf9468807ce0e61323c0, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3453,145 +3317,6 @@ MonoBehaviour:
   m_Script: {fileID: 291735648, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactable: 1
-  _visible: 1
-  _hideWhenIdle: 0
-  _allowedMouseButtons: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.8901961}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.3137255}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 317811341}
-  _onInteractionStateTransition:
-    m_PersistentCalls:
-      m_Calls: []
-  _onVisibilityChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToNormal:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToHighlighted:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToDisabled:
-    m_PersistentCalls:
-      m_Calls: []
-  _targetCustomControllerElement:
-    _splitValue: 0
-    _target:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: 7
-      _valueRange: 0
-      _valueContribution: 0
-      _invert: 0
-    _positiveTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-    _negativeTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 2
-      _valueContribution: 0
-      _invert: 0
-  _buttonType: 0
-  _activateOnSwipeIn: 0
-  _stayActiveOnSwipeOut: 1
-  _useDigitalAxisSimulation: 0
-  _digitalAxisGravity: 3
-  _digitalAxisSensitivity: 3
-  _axis:
-    _buttonActivationThreshold: 0.5
-    _calibration:
-      _enabled: 1
-      _deadZone: 0
-      _calibratedZero: 0
-      _calibratedMin: -1
-      _calibratedMax: 1
-      _invert: 0
-      _sensitivityType: 0
-      _sensitivity: 1
-      _sensitivityCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      _applyRangeCalibration: 1
-  _touchRegion: {fileID: 0}
-  _useTouchRegionOnly: 1
-  _moveToTouchPosition: 0
-  _returnOnRelease: 1
-  _followTouchPosition: 0
-  _animateOnMoveToTouch: 1
-  _moveToTouchSpeed: 2
-  _animateOnReturn: 1
-  _returnSpeed: 2
-  _manageRaycasting: 1
-  _onAxisValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonDown:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonUp:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &509453686
 GameObject:
   m_ObjectHideFlags: 0
@@ -3642,30 +3367,6 @@ MonoBehaviour:
   m_Script: {fileID: 868670995, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.8901961}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.3137255}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 509453689}
-  _syncFadeDurationWithTransitionEvent: 1
-  _syncColorTintWithTransitionEvent: 1
 --- !u!114 &509453689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3735,50 +3436,6 @@ MonoBehaviour:
   m_Script: {fileID: 836999113, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactable: 1
-  _visible: 1
-  _hideWhenIdle: 0
-  _allowedMouseButtons: 1
-  _transitionType: 0
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.5}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 527347785}
-  _onInteractionStateTransition:
-    m_PersistentCalls:
-      m_Calls: []
-  _onVisibilityChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToNormal:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToHighlighted:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToDisabled:
-    m_PersistentCalls:
-      m_Calls: []
-  _hideAtRuntime: 1
 --- !u!114 &527347785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3970,14 +3627,6 @@ MonoBehaviour:
   m_Script: {fileID: -1787386437, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _targetAngleFromRotation: 1
-  _targetAngle: 0
-  _fadeWithValue: 1
-  _fadeWithAngle: 1
-  _fadeRange: 45
-  _activeColor: {r: 1, g: 1, b: 1, a: 1}
-  _normalColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &582026730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4066,30 +3715,6 @@ MonoBehaviour:
   m_Script: {fileID: 868670995, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.8901961}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.3137255}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 582190043}
-  _syncFadeDurationWithTransitionEvent: 1
-  _syncColorTintWithTransitionEvent: 1
 --- !u!114 &582190043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4178,30 +3803,6 @@ MonoBehaviour:
   m_Script: {fileID: 868670995, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.8901961}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.3137255}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 582981249}
-  _syncFadeDurationWithTransitionEvent: 1
-  _syncColorTintWithTransitionEvent: 1
 --- !u!114 &582981249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4291,289 +3892,6 @@ MonoBehaviour:
   m_Script: {fileID: 434493598, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactable: 1
-  _visible: 1
-  _hideWhenIdle: 0
-  _allowedMouseButtons: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.25882354}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.5372549}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.25882354}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.5}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 1321195565}
-  _onInteractionStateTransition:
-    m_PersistentCalls:
-      m_Calls: []
-  _onVisibilityChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToNormal:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1678467624}
-        m_TargetAssemblyTypeName: Rewired.ComponentControls.Effects.RotateAroundAxis,
-          Rewired_Core
-        m_MethodName: SetSpeed
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _onInteractionStateChangedToHighlighted:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1678467624}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: SetSpeed
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _onInteractionStateChangedToPressed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1678467624}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: SetSpeed
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _onInteractionStateChangedToDisabled:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1678467624}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: SetSpeed
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _horizontalAxisCustomControllerElement:
-    _splitValue: 0
-    _target:
-      _element:
-        _elementType: 0
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: 13
-      _valueRange: 0
-      _valueContribution: 0
-      _invert: 0
-    _positiveTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-    _negativeTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 2
-      _valueContribution: 0
-      _invert: 0
-  _verticalAxisCustomControllerElement:
-    _splitValue: 0
-    _target:
-      _element:
-        _elementType: 0
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: 14
-      _valueRange: 0
-      _valueContribution: 0
-      _invert: 0
-    _positiveTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-    _negativeTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 2
-      _valueContribution: 0
-      _invert: 0
-  _tapCustomControllerElement:
-    _target:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-  _stickTransform: {fileID: 1321195564}
-  _joystickMode: 0
-  _digitalModeDeadZone: 0.3
-  _stickRange: 46
-  _scaleStickRange: 0
-  _stickBounds: 0
-  _axesToUse: 0
-  _snapDirections: 0
-  _snapStickToTouch: 0
-  _centerStickOnRelease: 1
-  _axis2D:
-    _calibration:
-      _deadZoneType: 1
-      _sensitivityType: 0
-    _xAxis:
-      _buttonActivationThreshold: 0.5
-      _calibration:
-        _enabled: 1
-        _deadZone: 0
-        _calibratedZero: 0
-        _calibratedMin: -1
-        _calibratedMax: 1
-        _invert: 0
-        _sensitivityType: 0
-        _sensitivity: 1
-        _sensitivityCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        _applyRangeCalibration: 1
-    _yAxis:
-      _buttonActivationThreshold: 0.5
-      _calibration:
-        _enabled: 1
-        _deadZone: 0
-        _calibratedZero: 0
-        _calibratedMin: -1
-        _calibratedMax: 1
-        _invert: 0
-        _sensitivityType: 0
-        _sensitivity: 1
-        _sensitivityCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        _applyRangeCalibration: 1
-  _activateOnSwipeIn: 0
-  _stayActiveOnSwipeOut: 1
-  _allowTap: 0
-  _tapTimeout: 0.25
-  _tapDistanceLimit: 10
-  _touchRegion: {fileID: 0}
-  _useTouchRegionOnly: 1
-  _moveToTouchPosition: 0
-  _returnOnRelease: 1
-  _followTouchPosition: 0
-  _animateOnMoveToTouch: 1
-  _moveToTouchSpeed: 2
-  _animateOnReturn: 1
-  _returnSpeed: 2
-  _manageRaycasting: 1
-  _onValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onStickPositionChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onTouchStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  _onTouchEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  _onTap:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &624636460
 GameObject:
   m_ObjectHideFlags: 0
@@ -4624,30 +3942,6 @@ MonoBehaviour:
   m_Script: {fileID: 868670995, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _transitionType: 0
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.5}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 624636463}
-  _syncFadeDurationWithTransitionEvent: 1
-  _syncColorTintWithTransitionEvent: 0
 --- !u!114 &624636463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4736,240 +4030,6 @@ MonoBehaviour:
   m_Script: {fileID: 434493598, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactable: 1
-  _visible: 1
-  _hideWhenIdle: 0
-  _allowedMouseButtons: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.39215687}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.5}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 962848406}
-  _onInteractionStateTransition:
-    m_PersistentCalls:
-      m_Calls: []
-  _onVisibilityChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToNormal:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToHighlighted:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToDisabled:
-    m_PersistentCalls:
-      m_Calls: []
-  _horizontalAxisCustomControllerElement:
-    _splitValue: 0
-    _target:
-      _element:
-        _elementType: 0
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: 0
-      _valueRange: 0
-      _valueContribution: 0
-      _invert: 0
-    _positiveTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-    _negativeTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 2
-      _valueContribution: 0
-      _invert: 0
-  _verticalAxisCustomControllerElement:
-    _splitValue: 0
-    _target:
-      _element:
-        _elementType: 0
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: 1
-      _valueRange: 0
-      _valueContribution: 0
-      _invert: 0
-    _positiveTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-    _negativeTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 2
-      _valueContribution: 0
-      _invert: 0
-  _tapCustomControllerElement:
-    _target:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-  _stickTransform: {fileID: 962848405}
-  _joystickMode: 0
-  _digitalModeDeadZone: 0.3
-  _stickRange: 60
-  _scaleStickRange: 1
-  _stickBounds: 0
-  _axesToUse: 0
-  _snapDirections: 0
-  _snapStickToTouch: 0
-  _centerStickOnRelease: 1
-  _axis2D:
-    _calibration:
-      _deadZoneType: 1
-      _sensitivityType: 0
-    _xAxis:
-      _buttonActivationThreshold: 0.5
-      _calibration:
-        _enabled: 1
-        _deadZone: 0
-        _calibratedZero: 0
-        _calibratedMin: -1
-        _calibratedMax: 1
-        _invert: 0
-        _sensitivityType: 0
-        _sensitivity: 1
-        _sensitivityCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        _applyRangeCalibration: 1
-    _yAxis:
-      _buttonActivationThreshold: 0.5
-      _calibration:
-        _enabled: 1
-        _deadZone: 0
-        _calibratedZero: 0
-        _calibratedMin: -1
-        _calibratedMax: 1
-        _invert: 0
-        _sensitivityType: 0
-        _sensitivity: 1
-        _sensitivityCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        _applyRangeCalibration: 1
-  _activateOnSwipeIn: 1
-  _stayActiveOnSwipeOut: 1
-  _allowTap: 0
-  _tapTimeout: 0.25
-  _tapDistanceLimit: 10
-  _touchRegion: {fileID: 527347784}
-  _useTouchRegionOnly: 1
-  _moveToTouchPosition: 0
-  _returnOnRelease: 1
-  _followTouchPosition: 0
-  _animateOnMoveToTouch: 1
-  _moveToTouchSpeed: 2
-  _animateOnReturn: 1
-  _returnSpeed: 2
-  _manageRaycasting: 1
-  _onValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onStickPositionChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onTouchStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  _onTouchEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  _onTap:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &632022966
 GameObject:
   m_ObjectHideFlags: 0
@@ -5021,145 +4081,6 @@ MonoBehaviour:
   m_Script: {fileID: 291735648, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactable: 1
-  _visible: 1
-  _hideWhenIdle: 0
-  _allowedMouseButtons: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.23529412}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.8901961}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.3137255}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 1370917980}
-  _onInteractionStateTransition:
-    m_PersistentCalls:
-      m_Calls: []
-  _onVisibilityChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToNormal:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToHighlighted:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToDisabled:
-    m_PersistentCalls:
-      m_Calls: []
-  _targetCustomControllerElement:
-    _splitValue: 0
-    _target:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: 9
-      _valueRange: 0
-      _valueContribution: 0
-      _invert: 0
-    _positiveTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-    _negativeTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 2
-      _valueContribution: 0
-      _invert: 0
-  _buttonType: 1
-  _activateOnSwipeIn: 0
-  _stayActiveOnSwipeOut: 1
-  _useDigitalAxisSimulation: 0
-  _digitalAxisGravity: 3
-  _digitalAxisSensitivity: 3
-  _axis:
-    _buttonActivationThreshold: 0.5
-    _calibration:
-      _enabled: 1
-      _deadZone: 0
-      _calibratedZero: 0
-      _calibratedMin: -1
-      _calibratedMax: 1
-      _invert: 0
-      _sensitivityType: 0
-      _sensitivity: 1
-      _sensitivityCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      _applyRangeCalibration: 1
-  _touchRegion: {fileID: 0}
-  _useTouchRegionOnly: 1
-  _moveToTouchPosition: 0
-  _returnOnRelease: 1
-  _followTouchPosition: 0
-  _animateOnMoveToTouch: 1
-  _moveToTouchSpeed: 2
-  _animateOnReturn: 1
-  _returnSpeed: 2
-  _manageRaycasting: 1
-  _onAxisValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonDown:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonUp:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &663631605
 GameObject:
   m_ObjectHideFlags: 0
@@ -5202,7 +4123,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663631605}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 968d61eb3c451604cb4e7db3da6fd8a9, type: 3}
   m_Name: 
@@ -5264,145 +4185,6 @@ MonoBehaviour:
   m_Script: {fileID: 291735648, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactable: 1
-  _visible: 1
-  _hideWhenIdle: 0
-  _allowedMouseButtons: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.23529412}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.8901961}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.3137255}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 1869547332}
-  _onInteractionStateTransition:
-    m_PersistentCalls:
-      m_Calls: []
-  _onVisibilityChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToNormal:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToHighlighted:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToDisabled:
-    m_PersistentCalls:
-      m_Calls: []
-  _targetCustomControllerElement:
-    _splitValue: 0
-    _target:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: 11
-      _valueRange: 0
-      _valueContribution: 0
-      _invert: 0
-    _positiveTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-    _negativeTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 2
-      _valueContribution: 0
-      _invert: 0
-  _buttonType: 0
-  _activateOnSwipeIn: 0
-  _stayActiveOnSwipeOut: 1
-  _useDigitalAxisSimulation: 0
-  _digitalAxisGravity: 3
-  _digitalAxisSensitivity: 3
-  _axis:
-    _buttonActivationThreshold: 0.5
-    _calibration:
-      _enabled: 1
-      _deadZone: 0
-      _calibratedZero: 0
-      _calibratedMin: -1
-      _calibratedMax: 1
-      _invert: 0
-      _sensitivityType: 0
-      _sensitivity: 1
-      _sensitivityCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      _applyRangeCalibration: 1
-  _touchRegion: {fileID: 0}
-  _useTouchRegionOnly: 1
-  _moveToTouchPosition: 0
-  _returnOnRelease: 1
-  _followTouchPosition: 0
-  _animateOnMoveToTouch: 1
-  _moveToTouchSpeed: 2
-  _animateOnReturn: 1
-  _returnSpeed: 2
-  _manageRaycasting: 1
-  _onAxisValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonDown:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonUp:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &682313406
 GameObject:
   m_ObjectHideFlags: 0
@@ -5453,14 +4235,6 @@ MonoBehaviour:
   m_Script: {fileID: -1787386437, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _targetAngleFromRotation: 1
-  _targetAngle: 0
-  _fadeWithValue: 1
-  _fadeWithAngle: 1
-  _fadeRange: 45
-  _activeColor: {r: 1, g: 1, b: 1, a: 1}
-  _normalColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &682313409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5548,145 +4322,6 @@ MonoBehaviour:
   m_Script: {fileID: 291735648, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactable: 1
-  _visible: 1
-  _hideWhenIdle: 0
-  _allowedMouseButtons: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.8901961}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.3137255}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 0}
-  _onInteractionStateTransition:
-    m_PersistentCalls:
-      m_Calls: []
-  _onVisibilityChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToNormal:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToHighlighted:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToDisabled:
-    m_PersistentCalls:
-      m_Calls: []
-  _targetCustomControllerElement:
-    _splitValue: 0
-    _target:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: 12
-      _valueRange: 0
-      _valueContribution: 0
-      _invert: 0
-    _positiveTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-    _negativeTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 2
-      _valueContribution: 0
-      _invert: 0
-  _buttonType: 0
-  _activateOnSwipeIn: 0
-  _stayActiveOnSwipeOut: 1
-  _useDigitalAxisSimulation: 0
-  _digitalAxisGravity: 3
-  _digitalAxisSensitivity: 3
-  _axis:
-    _buttonActivationThreshold: 0.5
-    _calibration:
-      _enabled: 1
-      _deadZone: 0
-      _calibratedZero: 0
-      _calibratedMin: -1
-      _calibratedMax: 1
-      _invert: 0
-      _sensitivityType: 0
-      _sensitivity: 1
-      _sensitivityCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      _applyRangeCalibration: 1
-  _touchRegion: {fileID: 0}
-  _useTouchRegionOnly: 1
-  _moveToTouchPosition: 0
-  _returnOnRelease: 1
-  _followTouchPosition: 0
-  _animateOnMoveToTouch: 1
-  _moveToTouchSpeed: 2
-  _animateOnReturn: 1
-  _returnSpeed: 2
-  _manageRaycasting: 1
-  _onAxisValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonDown:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonUp:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &733139202
 GameObject:
   m_ObjectHideFlags: 0
@@ -5737,30 +4372,6 @@ MonoBehaviour:
   m_Script: {fileID: 868670995, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.23529412}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.8901961}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.3137255}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 733139205}
-  _syncFadeDurationWithTransitionEvent: 1
-  _syncColorTintWithTransitionEvent: 1
 --- !u!114 &733139205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5849,30 +4460,6 @@ MonoBehaviour:
   m_Script: {fileID: 868670995, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _transitionType: 0
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.5}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 748939969}
-  _syncFadeDurationWithTransitionEvent: 1
-  _syncColorTintWithTransitionEvent: 0
 --- !u!114 &748939969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5960,31 +4547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c318a5774f7b7e14a8ca2cd68490daf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  rewiredInputManager: {fileID: 0}
-  useAllRewiredGamePlayers: 1
-  useRewiredSystemPlayer: 1
-  rewiredPlayerIds: 00000000
-  usePlayingPlayersOnly: 0
-  playerMice: []
-  moveOneElementPerAxisPress: 0
-  setActionsById: 0
-  horizontalActionId: -1
-  verticalActionId: -1
-  submitActionId: -1
-  cancelActionId: -1
-  m_HorizontalAxis: UIHorizontal
-  m_VerticalAxis: UIVertical
-  m_SubmitButton: UISubmit
-  m_CancelButton: UICancel
-  m_InputActionsPerSecond: 4.5
-  m_RepeatDelay: 0
-  m_allowMouseInput: 1
-  m_allowMouseInputIfTouchSupported: 1
-  m_allowTouchInput: 1
-  m_deselectIfBackgroundClicked: 1
-  m_deselectBeforeSelecting: 1
-  m_ForceModuleActive: 0
 --- !u!114 &799011774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5997,10 +4559,96 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79abd4d35abc8e42b199bcc98a17297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 5
-  _alwaysUpdate: 0
+--- !u!1 &799331556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 799331557}
+  - component: {fileID: 799331560}
+  - component: {fileID: 799331559}
+  - component: {fileID: 799331558}
+  m_Layer: 5
+  m_Name: Jump Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &799331557
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799331556}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1167688331}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 306.54666, y: 461.5722}
+  m_SizeDelta: {x: 64, y: 64}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &799331558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799331556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Action: al3/lb
+  _setNativeSize: 0
+--- !u!114 &799331559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799331556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -290631767, guid: 6f0300b0215a3074caa2df2f572f6955, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &799331560
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799331556}
+  m_CullTransparentMesh: 0
 --- !u!1 &813610320
 GameObject:
   m_ObjectHideFlags: 0
@@ -6051,145 +4699,6 @@ MonoBehaviour:
   m_Script: {fileID: 291735648, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactable: 1
-  _visible: 1
-  _hideWhenIdle: 0
-  _allowedMouseButtons: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.8901961}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.3137255}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 1218643683}
-  _onInteractionStateTransition:
-    m_PersistentCalls:
-      m_Calls: []
-  _onVisibilityChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToNormal:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToHighlighted:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToDisabled:
-    m_PersistentCalls:
-      m_Calls: []
-  _targetCustomControllerElement:
-    _splitValue: 0
-    _target:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: 4
-      _valueRange: 0
-      _valueContribution: 0
-      _invert: 0
-    _positiveTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-    _negativeTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 2
-      _valueContribution: 0
-      _invert: 0
-  _buttonType: 0
-  _activateOnSwipeIn: 0
-  _stayActiveOnSwipeOut: 1
-  _useDigitalAxisSimulation: 0
-  _digitalAxisGravity: 3
-  _digitalAxisSensitivity: 3
-  _axis:
-    _buttonActivationThreshold: 0.5
-    _calibration:
-      _enabled: 1
-      _deadZone: 0
-      _calibratedZero: 0
-      _calibratedMin: -1
-      _calibratedMax: 1
-      _invert: 0
-      _sensitivityType: 0
-      _sensitivity: 1
-      _sensitivityCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      _applyRangeCalibration: 1
-  _touchRegion: {fileID: 0}
-  _useTouchRegionOnly: 1
-  _moveToTouchPosition: 0
-  _returnOnRelease: 1
-  _followTouchPosition: 0
-  _animateOnMoveToTouch: 1
-  _moveToTouchSpeed: 2
-  _animateOnReturn: 1
-  _returnSpeed: 2
-  _manageRaycasting: 1
-  _onAxisValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonDown:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonUp:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &821327273
 GameObject:
   m_ObjectHideFlags: 0
@@ -6369,14 +4878,6 @@ MonoBehaviour:
   m_Script: {fileID: -1787386437, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _targetAngleFromRotation: 1
-  _targetAngle: 0
-  _fadeWithValue: 1
-  _fadeWithAngle: 1
-  _fadeRange: 45
-  _activeColor: {r: 1, g: 1, b: 1, a: 1}
-  _normalColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &828701718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6976,237 +5477,6 @@ MonoBehaviour:
   m_Script: {fileID: 289712654, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactable: 1
-  _visible: 1
-  _hideWhenIdle: 0
-  _allowedMouseButtons: 1
-  _transitionType: 0
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.5}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 966767227}
-  _onInteractionStateTransition:
-    m_PersistentCalls:
-      m_Calls: []
-  _onVisibilityChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToNormal:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToHighlighted:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToDisabled:
-    m_PersistentCalls:
-      m_Calls: []
-  _horizontalAxisCustomControllerElement:
-    _splitValue: 0
-    _target:
-      _element:
-        _elementType: 0
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: 2
-      _valueRange: 0
-      _valueContribution: 0
-      _invert: 0
-    _positiveTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-    _negativeTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 2
-      _valueContribution: 0
-      _invert: 0
-  _verticalAxisCustomControllerElement:
-    _splitValue: 0
-    _target:
-      _element:
-        _elementType: 0
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: 3
-      _valueRange: 0
-      _valueContribution: 0
-      _invert: 0
-    _positiveTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-    _negativeTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 2
-      _valueContribution: 0
-      _invert: 0
-  _tapCustomControllerElement:
-    _target:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-  _pressCustomControllerElement:
-    _target:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-  _axesToUse: 0
-  _touchPadMode: 0
-  _valueFormat: 0
-  _useInertia: 1
-  _inertiaFriction: 3
-  _activateOnSwipeIn: 0
-  _stayActiveOnSwipeOut: 1
-  _allowTap: 1
-  _tapTimeout: 0.25
-  _tapDistanceLimit: 10
-  _allowPress: 0
-  _pressStartDelay: 0.1
-  _pressDistanceLimit: 10
-  _hideAtRuntime: 1
-  _axis2D:
-    _calibration:
-      _deadZoneType: 1
-      _sensitivityType: 0
-    _xAxis:
-      _buttonActivationThreshold: 0.5
-      _calibration:
-        _enabled: 1
-        _deadZone: 0
-        _calibratedZero: 0
-        _calibratedMin: -1
-        _calibratedMax: 1
-        _invert: 0
-        _sensitivityType: 0
-        _sensitivity: 1
-        _sensitivityCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        _applyRangeCalibration: 0
-    _yAxis:
-      _buttonActivationThreshold: 0.5
-      _calibration:
-        _enabled: 1
-        _deadZone: 0
-        _calibratedZero: 0
-        _calibratedMin: -1
-        _calibratedMax: 1
-        _invert: 0
-        _sensitivityType: 0
-        _sensitivity: 1
-        _sensitivityCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        _applyRangeCalibration: 0
-  _onValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onTap:
-    m_PersistentCalls:
-      m_Calls: []
-  _onPressDown:
-    m_PersistentCalls:
-      m_Calls: []
-  _onPressUp:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &966767227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7654,145 +5924,6 @@ MonoBehaviour:
   m_Script: {fileID: 291735648, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactable: 1
-  _visible: 1
-  _hideWhenIdle: 0
-  _allowedMouseButtons: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.8901961}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.3137255}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 123810341}
-  _onInteractionStateTransition:
-    m_PersistentCalls:
-      m_Calls: []
-  _onVisibilityChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToNormal:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToHighlighted:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToDisabled:
-    m_PersistentCalls:
-      m_Calls: []
-  _targetCustomControllerElement:
-    _splitValue: 0
-    _target:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: 5
-      _valueRange: 0
-      _valueContribution: 0
-      _invert: 0
-    _positiveTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-    _negativeTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 2
-      _valueContribution: 0
-      _invert: 0
-  _buttonType: 0
-  _activateOnSwipeIn: 0
-  _stayActiveOnSwipeOut: 1
-  _useDigitalAxisSimulation: 0
-  _digitalAxisGravity: 3
-  _digitalAxisSensitivity: 3
-  _axis:
-    _buttonActivationThreshold: 0.5
-    _calibration:
-      _enabled: 1
-      _deadZone: 0
-      _calibratedZero: 0
-      _calibratedMin: -1
-      _calibratedMax: 1
-      _invert: 0
-      _sensitivityType: 0
-      _sensitivity: 1
-      _sensitivityCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      _applyRangeCalibration: 1
-  _touchRegion: {fileID: 0}
-  _useTouchRegionOnly: 1
-  _moveToTouchPosition: 0
-  _returnOnRelease: 1
-  _followTouchPosition: 0
-  _animateOnMoveToTouch: 1
-  _moveToTouchSpeed: 2
-  _animateOnReturn: 1
-  _returnSpeed: 2
-  _manageRaycasting: 1
-  _onAxisValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonDown:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonUp:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1100394278
 GameObject:
   m_ObjectHideFlags: 0
@@ -7918,14 +6049,6 @@ MonoBehaviour:
   m_Script: {fileID: -1787386437, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _targetAngleFromRotation: 1
-  _targetAngle: 0
-  _fadeWithValue: 1
-  _fadeWithAngle: 1
-  _fadeRange: 45
-  _activeColor: {r: 1, g: 1, b: 1, a: 1}
-  _normalColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &1133038701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8138,6 +6261,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 890128543}
+  - {fileID: 799331557}
+  - {fileID: 9593076}
   - {fileID: 174840471}
   - {fileID: 1635125450}
   - {fileID: 169257357}
@@ -8214,21 +6339,6 @@ MonoBehaviour:
   m_Script: {fileID: -6045369, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rewiredInputManager: {fileID: 0}
-  _customControllerSelector:
-    _findUsingSourceId: 1
-    _sourceId: 0
-    _findUsingTag: 0
-    _tag: 
-    _findInPlayer: 0
-    _playerId: 0
-  _createCustomControllerSettings:
-    _createCustomController: 1
-    _customControllerSourceId: 0
-    _assignToPlayerId: 0
-    _destroyCustomController: 1
-  _disableMouseInputWhenEnabled: 1
-  _useCustomController: 1
 --- !u!1 &1206191857
 GameObject:
   m_ObjectHideFlags: 0
@@ -8955,30 +7065,6 @@ MonoBehaviour:
   m_Script: {fileID: 868670995, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.23529412}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.8901961}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.3137255}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 1390997871}
-  _syncFadeDurationWithTransitionEvent: 1
-  _syncColorTintWithTransitionEvent: 1
 --- !u!114 &1390997871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9067,30 +7153,6 @@ MonoBehaviour:
   m_Script: {fileID: 868670995, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.23529412}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.8901961}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.3137255}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 1415595500}
-  _syncFadeDurationWithTransitionEvent: 1
-  _syncColorTintWithTransitionEvent: 1
 --- !u!114 &1415595500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9179,30 +7241,6 @@ MonoBehaviour:
   m_Script: {fileID: 868670995, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _transitionType: 0
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.5}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 1456797612}
-  _syncFadeDurationWithTransitionEvent: 1
-  _syncColorTintWithTransitionEvent: 0
 --- !u!114 &1456797612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9376,12 +7414,6 @@ MonoBehaviour:
   m_Script: {fileID: 1605796304, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scale: 1
-  _preserveSpriteAspectRatio: 1
-  _scaleRatio: 0.06
-  _aspectRatioX: 0.03
-  _aspectRatioY: 1
-  _offset: 0
 --- !u!1 &1513137644
 GameObject:
   m_ObjectHideFlags: 0
@@ -9677,145 +7709,6 @@ MonoBehaviour:
   m_Script: {fileID: 291735648, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactable: 1
-  _visible: 1
-  _hideWhenIdle: 0
-  _allowedMouseButtons: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.23529412}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.8901961}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.3137255}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 1100394280}
-  _onInteractionStateTransition:
-    m_PersistentCalls:
-      m_Calls: []
-  _onVisibilityChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToNormal:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToHighlighted:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToDisabled:
-    m_PersistentCalls:
-      m_Calls: []
-  _targetCustomControllerElement:
-    _splitValue: 0
-    _target:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: 10
-      _valueRange: 0
-      _valueContribution: 0
-      _invert: 0
-    _positiveTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-    _negativeTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 2
-      _valueContribution: 0
-      _invert: 0
-  _buttonType: 1
-  _activateOnSwipeIn: 0
-  _stayActiveOnSwipeOut: 1
-  _useDigitalAxisSimulation: 0
-  _digitalAxisGravity: 3
-  _digitalAxisSensitivity: 3
-  _axis:
-    _buttonActivationThreshold: 0.5
-    _calibration:
-      _enabled: 1
-      _deadZone: 0
-      _calibratedZero: 0
-      _calibratedMin: -1
-      _calibratedMax: 1
-      _invert: 0
-      _sensitivityType: 0
-      _sensitivity: 1
-      _sensitivityCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      _applyRangeCalibration: 1
-  _touchRegion: {fileID: 0}
-  _useTouchRegionOnly: 1
-  _moveToTouchPosition: 0
-  _returnOnRelease: 1
-  _followTouchPosition: 0
-  _animateOnMoveToTouch: 1
-  _moveToTouchSpeed: 2
-  _animateOnReturn: 1
-  _returnSpeed: 2
-  _manageRaycasting: 1
-  _onAxisValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonDown:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonUp:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1573084935
 GameObject:
   m_ObjectHideFlags: 0
@@ -9866,14 +7759,6 @@ MonoBehaviour:
   m_Script: {fileID: -1787386437, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _targetAngleFromRotation: 1
-  _targetAngle: 0
-  _fadeWithValue: 1
-  _fadeWithAngle: 1
-  _fadeRange: 45
-  _activeColor: {r: 1, g: 1, b: 1, a: 1}
-  _normalColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &1573084938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10091,14 +7976,6 @@ MonoBehaviour:
   m_Script: {fileID: -1787386437, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _targetAngleFromRotation: 1
-  _targetAngle: 0
-  _fadeWithValue: 1
-  _fadeWithAngle: 1
-  _fadeRange: 45
-  _activeColor: {r: 1, g: 1, b: 1, a: 1}
-  _normalColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &1590272500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10345,12 +8222,6 @@ MonoBehaviour:
   m_Script: {fileID: 1395413934, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
-  _slowRotationSpeed: 5
-  _fastRotationSpeed: -20
-  _rotateAroundAxis: 2
-  _relativeTo: 1
-  _reverse: 0
 --- !u!114 &1678467625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10363,30 +8234,6 @@ MonoBehaviour:
   m_Script: {fileID: 868670995, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.1254902}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.1254902}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.827451}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.1254902}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.5}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 1678467626}
-  _syncFadeDurationWithTransitionEvent: 0
-  _syncColorTintWithTransitionEvent: 0
 --- !u!114 &1678467626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10475,14 +8322,6 @@ MonoBehaviour:
   m_Script: {fileID: -1787386437, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _targetAngleFromRotation: 1
-  _targetAngle: 0
-  _fadeWithValue: 1
-  _fadeWithAngle: 1
-  _fadeRange: 45
-  _activeColor: {r: 1, g: 1, b: 1, a: 1}
-  _normalColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &1750264824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10963,14 +8802,6 @@ MonoBehaviour:
   m_Script: {fileID: -1787386437, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _targetAngleFromRotation: 1
-  _targetAngle: 0
-  _fadeWithValue: 1
-  _fadeWithAngle: 1
-  _fadeRange: 45
-  _activeColor: {r: 1, g: 1, b: 1, a: 1}
-  _normalColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &1915435873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11176,145 +9007,6 @@ MonoBehaviour:
   m_Script: {fileID: 291735648, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactable: 1
-  _visible: 1
-  _hideWhenIdle: 0
-  _allowedMouseButtons: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.8901961}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.3137255}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 185347805}
-  _onInteractionStateTransition:
-    m_PersistentCalls:
-      m_Calls: []
-  _onVisibilityChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToNormal:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToHighlighted:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractionStateChangedToDisabled:
-    m_PersistentCalls:
-      m_Calls: []
-  _targetCustomControllerElement:
-    _splitValue: 0
-    _target:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: 6
-      _valueRange: 0
-      _valueContribution: 0
-      _invert: 0
-    _positiveTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 1
-      _valueContribution: 0
-      _invert: 0
-    _negativeTarget:
-      _element:
-        _elementType: 1
-        _selectorType: 2
-        _elementName: 
-        _elementIndex: 0
-        _elementId: -1
-      _valueRange: 2
-      _valueContribution: 0
-      _invert: 0
-  _buttonType: 0
-  _activateOnSwipeIn: 0
-  _stayActiveOnSwipeOut: 1
-  _useDigitalAxisSimulation: 0
-  _digitalAxisGravity: 3
-  _digitalAxisSensitivity: 3
-  _axis:
-    _buttonActivationThreshold: 0.5
-    _calibration:
-      _enabled: 1
-      _deadZone: 0
-      _calibratedZero: 0
-      _calibratedMin: -1
-      _calibratedMax: 1
-      _invert: 0
-      _sensitivityType: 0
-      _sensitivity: 1
-      _sensitivityCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      _applyRangeCalibration: 1
-  _touchRegion: {fileID: 0}
-  _useTouchRegionOnly: 1
-  _moveToTouchPosition: 0
-  _returnOnRelease: 1
-  _followTouchPosition: 0
-  _animateOnMoveToTouch: 1
-  _moveToTouchSpeed: 2
-  _animateOnReturn: 1
-  _returnSpeed: 2
-  _manageRaycasting: 1
-  _onAxisValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonDown:
-    m_PersistentCalls:
-      m_Calls: []
-  _onButtonUp:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &2049130217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11619,30 +9311,6 @@ MonoBehaviour:
   m_Script: {fileID: 868670995, guid: ef08f366294950248bc53c75ad8f59b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visible: 1
-  _transitionType: 1
-  _transitionColorTint:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.8901961}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-    m_DisabledColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.3137255}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  _transitionSpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  _transitionAnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  _targetGraphic: {fileID: 2062549466}
-  _syncFadeDurationWithTransitionEvent: 1
-  _syncColorTintWithTransitionEvent: 1
 --- !u!114 &2062549466
 MonoBehaviour:
   m_ObjectHideFlags: 0

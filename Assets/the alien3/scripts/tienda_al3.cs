@@ -1197,6 +1197,22 @@ public class tienda_al3: MonoBehaviour
             tutp3.Play();
             manager.datosserial.arma = 1;
             manager.datosserial.armastotal++;
+            if(manager.datosserial.armass1 == 0)
+            {
+                manager.datosserial.armass1 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass2 == 0)
+            {
+                manager.datosserial.armass2 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass3 == 0)
+            {
+                manager.datosserial.armass3 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass4 == 0)
+            {
+                manager.datosserial.armass4 = manager.datosserial.arma;
+            }
             manager.guardar();
             }
             else
@@ -1232,6 +1248,22 @@ public class tienda_al3: MonoBehaviour
             municion = false;
             manager.datosserial.armastotal++;
             manager.datosserial.arma = 2;
+            if(manager.datosserial.armass1 == 0)
+            {
+                manager.datosserial.armass1 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass2 == 0)
+            {
+                manager.datosserial.armass2 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass3 == 0)
+            {
+                manager.datosserial.armass3 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass4 == 0)
+            {
+                manager.datosserial.armass4 = manager.datosserial.arma;
+            }
             manager.guardar();
             }
             else
@@ -1267,6 +1299,22 @@ public class tienda_al3: MonoBehaviour
             municion = false;
             manager.datosserial.arma = 3;
             manager.datosserial.armastotal++;
+            if(manager.datosserial.armass1 == 0)
+            {
+                manager.datosserial.armass1 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass2 == 0)
+            {
+                manager.datosserial.armass2 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass3 == 0)
+            {
+                manager.datosserial.armass3 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass4 == 0)
+            {
+                manager.datosserial.armass4 = manager.datosserial.arma;
+            }
             manager.guardar();
             }
             else
@@ -1302,6 +1350,22 @@ public class tienda_al3: MonoBehaviour
             municion = false;
             manager.datosserial.arma = 4;
             manager.datosserial.armastotal++;
+            if(manager.datosserial.armass1 == 0)
+            {
+                manager.datosserial.armass1 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass2 == 0)
+            {
+                manager.datosserial.armass2 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass3 == 0)
+            {
+                manager.datosserial.armass3 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass4 == 0)
+            {
+                manager.datosserial.armass4 = manager.datosserial.arma;
+            }
             manager.guardar();
             }
             else
@@ -1372,6 +1436,22 @@ public class tienda_al3: MonoBehaviour
             municion = false;
             manager.datosserial.arma = 6;
             manager.datosserial.armastotal++;
+            if(manager.datosserial.armass1 == 0)
+            {
+                manager.datosserial.armass1 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass2 == 0)
+            {
+                manager.datosserial.armass2 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass3 == 0)
+            {
+                manager.datosserial.armass3 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass4 == 0)
+            {
+                manager.datosserial.armass4 = manager.datosserial.arma;
+            }
             manager.guardar();
             }
             else
@@ -1407,6 +1487,22 @@ public class tienda_al3: MonoBehaviour
             municion = false;
             manager.datosserial.arma = 7;
             manager.datosserial.armastotal++;
+            if(manager.datosserial.armass1 == 0)
+            {
+                manager.datosserial.armass1 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass2 == 0)
+            {
+                manager.datosserial.armass2 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass3 == 0)
+            {
+                manager.datosserial.armass3 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass4 == 0)
+            {
+                manager.datosserial.armass4 = manager.datosserial.arma;
+            }
             manager.guardar();
             }
             else
@@ -1442,6 +1538,22 @@ public class tienda_al3: MonoBehaviour
             municion = false;
             manager.datosserial.arma = 8;
             manager.datosserial.armastotal++;
+            if(manager.datosserial.armass1 == 0)
+            {
+                manager.datosserial.armass1 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass2 == 0)
+            {
+                manager.datosserial.armass2 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass3 == 0)
+            {
+                manager.datosserial.armass3 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass4 == 0)
+            {
+                manager.datosserial.armass4 = manager.datosserial.arma;
+            }
             manager.guardar();
             }
             else
@@ -1477,6 +1589,22 @@ public class tienda_al3: MonoBehaviour
             municion = false;
             manager.datosserial.arma = 9;
             manager.datosserial.armastotal++;
+            if(manager.datosserial.armass1 == 0)
+            {
+                manager.datosserial.armass1 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass2 == 0)
+            {
+                manager.datosserial.armass2 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass3 == 0)
+            {
+                manager.datosserial.armass3 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass4 == 0)
+            {
+                manager.datosserial.armass4 = manager.datosserial.arma;
+            }
             manager.guardar();
             }
             else
@@ -1512,6 +1640,22 @@ public class tienda_al3: MonoBehaviour
             municion = false;
             manager.datosserial.arma = 10;
             manager.datosserial.armastotal++;
+            if(manager.datosserial.armass1 == 0)
+            {
+                manager.datosserial.armass1 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass2 == 0)
+            {
+                manager.datosserial.armass2 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass3 == 0)
+            {
+                manager.datosserial.armass3 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass4 == 0)
+            {
+                manager.datosserial.armass4 = manager.datosserial.arma;
+            }
             manager.guardar();
             }
             else
@@ -1547,6 +1691,22 @@ public class tienda_al3: MonoBehaviour
             municion = false;
             manager.datosserial.arma = 11;
             manager.datosserial.armastotal++;
+            if(manager.datosserial.armass1 == 0)
+            {
+                manager.datosserial.armass1 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass2 == 0)
+            {
+                manager.datosserial.armass2 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass3 == 0)
+            {
+                manager.datosserial.armass3 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass4 == 0)
+            {
+                manager.datosserial.armass4 = manager.datosserial.arma;
+            }
             manager.guardar();
             }
             else
@@ -1582,6 +1742,22 @@ public class tienda_al3: MonoBehaviour
             municion = false;
             manager.datosserial.arma = 12;
             manager.datosserial.armastotal++;
+            if(manager.datosserial.armass1 == 0)
+            {
+                manager.datosserial.armass1 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass2 == 0)
+            {
+                manager.datosserial.armass2 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass3 == 0)
+            {
+                manager.datosserial.armass3 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass4 == 0)
+            {
+                manager.datosserial.armass4 = manager.datosserial.arma;
+            }
             manager.guardar();
             }
             else
@@ -1617,6 +1793,22 @@ public class tienda_al3: MonoBehaviour
             municion = false;
             manager.datosserial.arma = 13;
             manager.datosserial.armastotal++;
+            if(manager.datosserial.armass1 == 0)
+            {
+                manager.datosserial.armass1 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass2 == 0)
+            {
+                manager.datosserial.armass2 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass3 == 0)
+            {
+                manager.datosserial.armass3 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass4 == 0)
+            {
+                manager.datosserial.armass4 = manager.datosserial.arma;
+            }
             manager.guardar();
             }
             else
@@ -1652,6 +1844,22 @@ public class tienda_al3: MonoBehaviour
             municion = false;
             manager.datosserial.arma = 14;
             manager.datosserial.armastotal++;
+            if(manager.datosserial.armass1 == 0)
+            {
+                manager.datosserial.armass1 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass2 == 0)
+            {
+                manager.datosserial.armass2 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass3 == 0)
+            {
+                manager.datosserial.armass3 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass4 == 0)
+            {
+                manager.datosserial.armass4 = manager.datosserial.arma;
+            }
             manager.guardar();
             }
             else
@@ -1686,6 +1894,22 @@ public class tienda_al3: MonoBehaviour
             municion = false;
             manager.datosserial.arma = 15;
             manager.datosserial.armastotal++;
+            if(manager.datosserial.armass1 == 0)
+            {
+                manager.datosserial.armass1 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass2 == 0)
+            {
+                manager.datosserial.armass2 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass3 == 0)
+            {
+                manager.datosserial.armass3 = manager.datosserial.arma;
+            }
+            else if(manager.datosserial.armass4 == 0)
+            {
+                manager.datosserial.armass4 = manager.datosserial.arma;
+            }
             manager.guardar();
             pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
 
@@ -1763,7 +1987,7 @@ public class tienda_al3: MonoBehaviour
         arma13 = false;
         arma14 = false;
         arma15 = false;
-            municion = false;
+        municion = false;
         tiendag.SetActive(false);
         valor.text = "valor : ???";
         

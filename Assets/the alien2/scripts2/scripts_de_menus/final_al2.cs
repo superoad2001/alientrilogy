@@ -31,39 +31,114 @@ public class final_al2 : MonoBehaviour
 	private void Start()
 	{
 		manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
-		if(manager.datosserial.sala_secreta == true)
-		{
-			ss = "si";
+		if(manager.datosconfig.idioma == "es")
+        {
+			if(manager.datosserial.sala_secreta == true)
+			{
+				ss = "si";
+			}
+			else
+			{
+				ss = "no";
+			}
+			if(manager.datosserial.finalbueno == 1)
+			{
+				fb = "si";
+			}
+			else
+			{
+				fb = "no";
+			}
+			if(manager.datosserial.finalmalo == 1)
+			{
+				fm = "si";
+			}
+			else
+			{
+				fm = "no";
+			}
+			if(manager.datosserial.final_alt == true)
+			{
+				fa = "si";
+			}
+			else
+			{
+				fa = "no";
+			}
+			final.text = "enemgios asesinados : "+manager.datosserial.enemigos_muertos+"                              muertes sufridas : "+manager.datosserial.muertes+"                        final malo : "+fm+"                                   final bueno : "+fb+"                     final alternativo : "+fa+"                     vida maxima : "+manager.datosserial.vidamaxima+"/6";
 		}
-		else
-		{
-			ss = "no";
+		if(manager.datosconfig.idioma == "en")
+        {
+			if(manager.datosserial.sala_secreta == true)
+			{
+				ss = "yes";
+			}
+			else
+			{
+				ss = "no";
+			}
+			if(manager.datosserial.finalbueno == 1)
+			{
+				fb = "yes";
+			}
+			else
+			{
+				fb = "no";
+			}
+			if(manager.datosserial.finalmalo == 1)
+			{
+				fm = "yes";
+			}
+			else
+			{
+				fm = "no";
+			}
+			if(manager.datosserial.final_alt == true)
+			{
+				fa = "yes";
+			}
+			else
+			{
+				fa = "no";
+			}
+			final.text = "enemies defeated : "+manager.datosserial.enemigos_muertos+"                              deaths suffered : "+manager.datosserial.muertes+"                        bad ending : "+fm+"                                   good ending : "+fb+"                     alternate end : "+fa+"                     max life : "+manager.datosserial.vidamaxima+"/6";
 		}
-		if(manager.datosserial.finalbueno == 1)
-		{
-			fb = "si";
+		if(manager.datosconfig.idioma == "cat")
+        {
+			if(manager.datosserial.sala_secreta == true)
+			{
+				ss = "si";
+			}
+			else
+			{
+				ss = "no";
+			}
+			if(manager.datosserial.finalbueno == 1)
+			{
+				fb = "si";
+			}
+			else
+			{
+				fb = "no";
+			}
+			if(manager.datosserial.finalmalo == 1)
+			{
+				fm = "si";
+			}
+			else
+			{
+				fm = "no";
+			}
+			if(manager.datosserial.final_alt == true)
+			{
+				fa = "si";
+			}
+			else
+			{
+				fa = "no";
+			}
+			final.text = "enemics morts : "+manager.datosserial.enemigos_muertos+"                                                         morts : "+manager.datosserial.muertes+"                                              final dolent : "+fm+"                                                       final bo : "+fb+"                                         final alternatiu : "+fa+"                     vida maxima : "+manager.datosserial.vidamaxima+"/6";
 		}
-		else
-		{
-			fb = "no";
-		}
-		if(manager.datosserial.finalmalo == 1)
-		{
-			fm = "si";
-		}
-		else
-		{
-			fm = "no";
-		}
-		if(manager.datosserial.final_alt == true)
-		{
-			fa = "si";
-		}
-		else
-		{
-			fa = "no";
-		}
-		final.text = "enemgios asesinados : "+manager.datosserial.enemigos_muertos+"                              muertes sufridas : "+manager.datosserial.muertes+"                        final malo : "+fm+"                                   final bueno : "+fb+"                     final alternativo : "+fa+"                     vida maxima : "+manager.datosserial.vidamaxima+"/6";
 
 	}
 	public float temp;

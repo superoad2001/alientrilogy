@@ -649,7 +649,7 @@ public class enemigo1_al3: MonoBehaviour
     private void OnTriggerEnter(Collider col)
 	{
         
-        if (col.gameObject.tag == "golpeh" && tempgolpe > 0.3f)
+        if (col.gameObject.tag == "golpeh" && tempgolpe > 0.8f)
 		{
             vida = vida - 1f * jugador.dano;
             tempgolpe = 0;

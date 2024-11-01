@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 // Token: 0x02000005 RID: 5
@@ -9,6 +10,9 @@ public class final_al3: MonoBehaviour
 	public manager_al3 manager;
 	public GameObject tactil;
 	private Controles controles;
+	public Text final;
+	public string f1;
+	public string f2;
 	public void Awake()
     {
         controles = new Controles();
@@ -25,7 +29,69 @@ public class final_al3: MonoBehaviour
 	private void Start()
 	{
 		manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+		manager.datosserial.tfinal1 = true;
+		manager.guardar();
 
+		if(manager.datosconfig.idioma == "es")
+        {
+			if(manager.datosserial.tfinal1 == true)
+			{
+				f1 = "si";
+			}
+			else
+			{
+				f1 = "no";
+			}
+			if(manager.datosserial.tfinal2 == true)
+			{
+				f2 = "si";
+			}
+			else
+			{
+				f2 = "no";
+			}
+			final.text = "enemigos derrotados : "+manager.datosserial.enemigos_muertos+ "                          muertes sufridas : "+manager.datosserial.muertes+ "                                             final 1 : "+f1+"                                                 final 2 : "+f2+"                                  armas : "+manager.datosserial.armastotal+"/15                          armaduras "+manager.datosserial.armadurastotal+"/10                                    gemas : "+manager.datosserial.gemas+"/100                             paginas : "+manager.datosserial.diariostotal+"/15                                                              vida maxima "+manager.datosserial.vidamaxima+"/100";
+		}
+		if(manager.datosconfig.idioma == "en")
+        {
+			if(manager.datosserial.tfinal1 == true)
+			{
+				f1 = "yes";
+			}
+			else
+			{
+				f1 = "no";
+			}
+			if(manager.datosserial.tfinal2 == true)
+			{
+				f2 = "yes";
+			}
+			else
+			{
+				f2 = "no";
+			}
+			final.text = "enemies enemies defeated: "+manager.datosserial.enemigos_muertos+ "                          deaths suffered : "+manager.datosserial.muertes+ "                                             end 1 : "+f1+"                                                 end 2 : "+f2+"                                  weapons : "+manager.datosserial.armastotal+"/15                          armors "+manager.datosserial.armadurastotal+"/10                                    gems : "+manager.datosserial.gemas+"/100                             pages : "+manager.datosserial.diariostotal+"/15                                                              max life "+manager.datosserial.vidamaxima+"/100";
+		}
+		if(manager.datosconfig.idioma == "cat")
+        {
+			if(manager.datosserial.tfinal1 == true)
+			{
+				f1 = "si";
+			}
+			else
+			{
+				f1 = "no";
+			}
+			if(manager.datosserial.tfinal2 == true)
+			{
+				f2 = "si";
+			}
+			else
+			{
+				f2 = "no";
+			} 
+			final.text = "enemics morts : "+manager.datosserial.enemigos_muertos+ "                                                                  morts : "+manager.datosserial.muertes+ "                                             final 1 : "+f1+"                                                 final 2 : "+f2+"                                           armas : "+manager.datosserial.armastotal+"/15                          armadures "+manager.datosserial.armadurastotal+"/10                                    gemas : "+manager.datosserial.gemas+"/100                             paginas : "+manager.datosserial.diariostotal+"/15                                                              vida maxima "+manager.datosserial.vidamaxima+"/100";
+		}
 	}
 	public float temp;
 	public int Ac = 0;

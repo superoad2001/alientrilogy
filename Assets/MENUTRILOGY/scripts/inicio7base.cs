@@ -54,6 +54,7 @@ public float temp;
     public GameObject logoo3t;
     public GameObject logoo4t;
     public managerBASE manager;
+    public Animator anim;
     public void izq()
     {
         if(trofeo > iniciojuego)
@@ -72,6 +73,7 @@ public float temp;
     }
     public void alt()
     {
+        manager.moveson.Play();
         if(alter == 3)
         {
             alter = 1;
@@ -82,14 +84,9 @@ public float temp;
             logo2t.color = new Color32(229,213,74,255);
             logo3t.color = new Color32(255,64,64,255);
             logo4t.color = new Color32(229,213,74,255);
-            logoo1t.transform.localPosition = new Vector3(347.5f,154f,0f);
-            logoo2t.transform.localPosition = new Vector3(311.349976f,214.999985f,0f);
-            logoo3t.transform.localPosition = new Vector3(314.500122f,72f,0f);
-            logoo4t.transform.localPosition = new Vector3(296.500122f,0.999998093f,0f);
-            logo3t.fontSize = 100;
-            logo4t.fontSize = 82;
             logo3t.text = "ADVENTURE";
             logo4t.text = "";
+            anim.SetInteger("juego",1);
         }
         else if(alter == 1)
         {
@@ -101,14 +98,9 @@ public float temp;
             logo2t.color = new Color32(229,213,74,255);
             logo3t.color = new Color32(255,64,64,255);
             logo4t.color = new Color32(229,213,74,255);
-            logoo1t.transform.localPosition = new Vector3(328.5f,155f,0f);
-            logoo2t.transform.localPosition = new Vector3(292.350037f,215.999985f,0f);
-            logoo3t.transform.localPosition = new Vector3(295.500122f,73f,0f);
-            logoo4t.transform.localPosition = new Vector3(277.500122f,-43.9999962f,0f);
-            logo3t.fontSize = 100;
-            logo4t.fontSize = 82;
             logo3t.text = "ADVENTURE";
             logo4t.text = "2";
+            anim.SetInteger("juego",2);
         }
         else if(alter == 2)
         {
@@ -120,14 +112,9 @@ public float temp;
             logo2t.color = new Color32(229,213,74,255);
             logo3t.color = new Color32(66,255,68,255);
             logo4t.color = new Color32(255,255,255,255);
-            logoo1t.transform.localPosition = new Vector3(247.499939f,113f,0f);
-            logoo2t.transform.localPosition = new Vector3(211.349915f,278f,0f);
-            logoo3t.transform.localPosition = new Vector3(211.5f,53f,0f);
-            logoo4t.transform.localPosition = new Vector3(453.5f,173f,0f);
-            logo3t.fontSize = 73;
-            logo4t.fontSize = 289;
             logo3t.text = "ADVENTURE";
             logo4t.text = "3";
+            anim.SetInteger("juego",3);
         }
     }
     // Start is called before the first frame update
@@ -135,7 +122,7 @@ public float temp;
     {
 
 
-        logo1t.color = new Color32(255,64,64,255);
+            /*logo1t.color = new Color32(255,64,64,255);
             logo2t.color = new Color32(229,213,74,255);
             logo3t.color = new Color32(255,64,64,255);
             logo4t.color = new Color32(229,213,74,255);
@@ -146,7 +133,7 @@ public float temp;
             logo3t.fontSize = 100;
             logo4t.fontSize = 82;
             logo3t.text = "ADVENTURE";
-            logo4t.text = "";
+            logo4t.text = "";*/
 
 
         manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));

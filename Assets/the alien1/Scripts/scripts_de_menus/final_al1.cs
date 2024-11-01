@@ -16,16 +16,43 @@ public class final_al1 : MonoBehaviour
 	private void Start()
 	{
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
-		if(manager.datosserial.salasecreta)
-		{
-			res = "si";
-		}
-		if(!manager.datosserial.salasecreta)
-		{
-			res = "no";
-		}
-		score.text = "enemigos muertos: "+manager.datosserial.asesinatos+"                    muertes sufridas: "+manager.datosserial.muertes+ "           sala secreta: "+ res;
 
+		if(manager.datosconfig.idioma == "es")
+        {
+			if(manager.datosserial.salasecreta)
+			{
+				res = "si";
+			}
+			if(!manager.datosserial.salasecreta)
+			{
+				res = "no";
+			}
+			score.text = "enemigos muertos : "+manager.datosserial.asesinatos+"                                muertes sufridas : "+manager.datosserial.muertes+ "                              sala secreta : "+ res;
+		}
+		if(manager.datosconfig.idioma == "en")
+        {
+			if(manager.datosserial.salasecreta)
+			{
+				res = "yes";
+			}
+			if(!manager.datosserial.salasecreta)
+			{
+				res = "no";
+			}
+			score.text = "enemies defeated : "+manager.datosserial.asesinatos+"                                deaths suffered : "+manager.datosserial.muertes+ "                            secret room : "+ res;
+		}
+		if(manager.datosconfig.idioma == "cat")
+        {
+			if(manager.datosserial.salasecreta)
+			{
+				res = "si";
+			}
+			if(!manager.datosserial.salasecreta)
+			{
+				res = "no";
+			}
+			score.text = "enemics morts : "+manager.datosserial.asesinatos+"                                                  morts: "+manager.datosserial.muertes+ "                                sala secreta : "+ res;
+		}
 	}
 
 	// Token: 0x0600000D RID: 13 RVA: 0x00002399 File Offset: 0x00000599

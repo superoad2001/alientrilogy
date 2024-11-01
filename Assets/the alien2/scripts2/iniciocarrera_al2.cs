@@ -16,20 +16,21 @@ public class iniciocarrera_al2 : MonoBehaviour
     public Text cont;
     public float temp;
     public int intentos;
+    public AudioSource pip;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         temp = 0;
         cont.text = "3";
+        pip.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (temp >= 1 && intentos < 3)
+        if (temp == 0 && intentos < 3)
         {
-            temp = 0;
-            intentos++;
+            pip.Play();
         }
         if (temp >= 0.1f && intentos == 3)
         {
@@ -46,11 +47,10 @@ public class iniciocarrera_al2 : MonoBehaviour
         }
         if(intentos == 3)
         {
-
+            imagen.SetActive(false);
             cont.text = "start";
             jugador.controlact = true;
             enemigo.enabled = true;
-            imagen.SetActive(false);
         }
         if(intentos == 4)
         {
@@ -59,6 +59,12 @@ public class iniciocarrera_al2 : MonoBehaviour
             interfaz.SetActive(false);
         }
         temp += 1 * Time.deltaTime;
+        if (temp >= 1 && intentos < 3)
+        {
+            temp = 0;
+            intentos++;
+            pip.Play();
+        }
         
     }
 }

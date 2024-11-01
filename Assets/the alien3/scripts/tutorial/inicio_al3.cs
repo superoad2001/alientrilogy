@@ -51,9 +51,16 @@ public class inicio_al3: MonoBehaviour
 	public void Start()
 	{
 		manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
-		if(tutorial && manager.datosserial.armastotal > 1)
+		if(tutorial)
 		{
 		manager.datosserial.arma = 0;
+		manager.datosserial.tarma[0] = 0;
+		manager.datosserial.armass1 = 0;
+		manager.datosserial.armass2 = 0;
+		manager.datosserial.armass3 = 0;
+		manager.datosserial.armass4 = 0;
+		manager.datosserial.armadurass1 = 0;
+		manager.datosserial.armadurass2 = 0;
     	manager.datosserial.armastotal=0;
         manager.guardar();
 		}
