@@ -35,6 +35,7 @@ public class pausa_al1 : MonoBehaviour
     public GameObject opciones1;
     public AudioMixer audiomixer;
     public manager_al1 manager;
+    public managerBASE manager2;
     public jugador_al1 jugador;
     // Start is called before the first frame update
     public AudioSource moveson;
@@ -139,24 +140,24 @@ public class pausa_al1 : MonoBehaviour
     }
     public void aplicar2()
     {
-		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+		manager2 = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 		controlmusicabase controlslider = (controlmusicabase)FindFirstObjectByType(typeof(controlmusicabase));
 
 
 		audiomixer.GetFloat ("MusicVolume",out manager.datosconfig.musica);
-		manager.datosconfig.musicaslider = controlslider.slidermusica.value;
+		manager2.datosconfig.musicaslider = controlslider.slidermusica.value;
 
 		audiomixer.GetFloat ("EnvironmentVolume",out manager.datosconfig.voz);
-		manager.datosconfig.vozslider = controlslider.slidervoz.value;
+		manager2.datosconfig.vozslider = controlslider.slidervoz.value;
 
 		audiomixer.GetFloat ("SFXVolume",out manager.datosconfig.sfx);
-		manager.datosconfig.sfxslider = controlslider.slidersfx.value;
+		manager2.datosconfig.sfxslider = controlslider.slidersfx.value;
 
 		audiomixer.GetFloat ("UIVolume",out manager.datosconfig.ui);
-		manager.datosconfig.uislider = controlslider.sliderui.value;
+		manager2.datosconfig.uislider = controlslider.sliderui.value;
 
-		manager.datosconfig.aplicarres = true;
-		manager.guardar();
+		manager2.datosconfig.aplicarres = true;
+		manager2.guardar();
 
         normal.SetActive(true);
         opciones1.SetActive(false);

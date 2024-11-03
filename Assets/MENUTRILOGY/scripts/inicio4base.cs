@@ -77,7 +77,7 @@ public class inicio4base : MonoBehaviour
 		if(opcres > 0)
 		{
 		opcres--;
-		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+		manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 		Resolution resolucion = resoluciones[opcres];
 		Screen.SetResolution(resolucion.width,resolucion.height,Screen.fullScreen);
 		manager.datosconfig.resolh = Screen.currentResolution.width;
@@ -89,7 +89,7 @@ public class inicio4base : MonoBehaviour
 		if(opcres < opcionesr.Count - 1)
 		{
 		opcres++;
-		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+		manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 		Resolution resolucion = resoluciones[opcres];
 		Screen.SetResolution(resolucion.width,resolucion.height,Screen.fullScreen);
 		manager.datosconfig.resolh = Screen.currentResolution.width;
@@ -248,7 +248,7 @@ public class inicio4base : MonoBehaviour
     }
 	public void aplicar()
     {
-		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+		manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 		controlmusicabase controlslider = (controlmusicabase)FindFirstObjectByType(typeof(controlmusicabase));
 
 

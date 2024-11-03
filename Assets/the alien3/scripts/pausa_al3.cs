@@ -10,6 +10,7 @@ using UnityEngine.Audio;
 public class pausa_al3: MonoBehaviour
 {
     public AudioSource audiosel;
+    public managerBASE manager2;
     public void mover()
     {
         audiosel.Play();
@@ -348,6 +349,7 @@ public class pausa_al3: MonoBehaviour
         // Start is called before the first frame update
     void Start()
     {
+        manager2 = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
         manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         if(salirnivel)
         {salirjuego.SetActive(true);}
@@ -3067,7 +3069,6 @@ public class pausa_al3: MonoBehaviour
     }
     public void extras()
     {
-        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3entraalmenuextras == 0)
         {
@@ -3080,7 +3081,6 @@ public class pausa_al3: MonoBehaviour
     }
     public void guia_()
     {
-        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
 		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
         if(manager.datostrof.alien3entraalaguiadelpause == 0)
         {
@@ -4618,7 +4618,6 @@ public class pausa_al3: MonoBehaviour
     }
     public void aplicar2()
     {
-		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 		controlmusicabase controlslider = (controlmusicabase)FindFirstObjectByType(typeof(controlmusicabase));
 
 

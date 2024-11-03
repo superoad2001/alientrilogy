@@ -350,7 +350,7 @@ public float temp;
     // Update is called once per frame
     void Update()
     {
-        managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+        manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
         if(controles.al3.horizontalpad.ReadValue<float>() > 0 && temp > 0.3f)
         {
             der();

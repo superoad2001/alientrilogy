@@ -8,6 +8,7 @@ using UnityEngine.Audio;
 public class pausa_al2 : MonoBehaviour
 {
 	public manager_al2 manager;
+    public managerBASE manager2;
     public GameObject juego;
     public GameObject pausa1;
     public int plat;
@@ -36,6 +37,7 @@ public class pausa_al2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
     }
 
     // Update is called once per frame
@@ -43,7 +45,6 @@ public class pausa_al2 : MonoBehaviour
     {
 
         
-        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         manager.datosserial.pause = true;
         if(manager.datosconfig.idioma == "es")
         {
@@ -113,24 +114,24 @@ public class pausa_al2 : MonoBehaviour
     }
     public void aplicar2()
     {
-		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+		manager2 = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 		controlmusicabase controlslider = (controlmusicabase)FindFirstObjectByType(typeof(controlmusicabase));
 
 
 		audiomixer.GetFloat ("MusicVolume",out manager.datosconfig.musica);
-		manager.datosconfig.musicaslider = controlslider.slidermusica.value;
+		manager2.datosconfig.musicaslider = controlslider.slidermusica.value;
 
 		audiomixer.GetFloat ("EnvironmentVolume",out manager.datosconfig.voz);
-		manager.datosconfig.vozslider = controlslider.slidervoz.value;
+		manager2.datosconfig.vozslider = controlslider.slidervoz.value;
 
 		audiomixer.GetFloat ("SFXVolume",out manager.datosconfig.sfx);
-		manager.datosconfig.sfxslider = controlslider.slidersfx.value;
+		manager2.datosconfig.sfxslider = controlslider.slidersfx.value;
 
 		audiomixer.GetFloat ("UIVolume",out manager.datosconfig.ui);
-		manager.datosconfig.uislider = controlslider.sliderui.value;
+		manager2.datosconfig.uislider = controlslider.sliderui.value;
 
 		manager.datosconfig.aplicarres = true;
-		manager.guardar();
+		manager2.guardar();
 
         normal.SetActive(true);
         opciones1.SetActive(false);

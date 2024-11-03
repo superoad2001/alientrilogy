@@ -15,7 +15,7 @@ public class inicio6base : MonoBehaviour
 	// Token: 0x0600001A RID: 26 RVA: 0x00002523 File Offset: 0x00000723
 	private void Start()
 	{
-		managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+		manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 	}
 
 	// Token: 0x0600001B RID: 27 RVA: 0x00002528 File Offset: 0x00000728

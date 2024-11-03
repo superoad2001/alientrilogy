@@ -18,11 +18,12 @@ public class controlmusicabase : MonoBehaviour
     public float test;
 
     public bool opciones;
+    public managerBASE manager;
     public void Start ()
     {
         
         
-        managerBASE manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+        manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
         slidermusica.value =  (manager.datosconfig.musicaslider);
         slidervoz.value =  (manager.datosconfig.vozslider);
         slidersfx.value =  (manager.datosconfig.sfxslider);
