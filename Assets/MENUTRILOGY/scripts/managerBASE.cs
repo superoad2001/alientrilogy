@@ -137,7 +137,6 @@ public class managerBASE : MonoBehaviour
         {
             string datosconfig1 = JsonUtility.ToJson("");
             File.WriteAllText(path,datosconfig1);
-            Screen.SetResolution(datosconfig.resolh,datosconfig.resolv,Screen.fullScreen);
         }
         cargar();
         
@@ -153,10 +152,6 @@ public class managerBASE : MonoBehaviour
 
 		cargar();
         cargartro();
-        if(datosconfig.aplicarres == true)
-        {
-		    Screen.SetResolution(datosconfig.resolh,datosconfig.resolv,Screen.fullScreen);
-        }
 
 
         if(datosconfig.idioma == "es")

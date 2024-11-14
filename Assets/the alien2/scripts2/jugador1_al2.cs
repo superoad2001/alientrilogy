@@ -3561,6 +3561,7 @@ public class jugador1_al2 : MonoBehaviour
             }
             else
             {
+                manager.pause = true;
                 respawnm.SetActive(true);
                 juego.SetActive(false);
                 

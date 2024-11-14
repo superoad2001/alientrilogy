@@ -13,10 +13,6 @@ public class menures_al1 : MonoBehaviour
     {
         controles = new Controles();
     }
-    private void OnEnable() 
-    {
-        controles.Enable();
-    }
     private void OnDisable() 
     {
         controles.Disable();
@@ -50,7 +46,6 @@ public class menures_al1 : MonoBehaviour
         jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        jugador.tactil.SetActive(false);
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         if (manager.nivel != 0)
         {salirnivelb = true;}

@@ -39,8 +39,6 @@ public class inicio4base : MonoBehaviour
 		audiomixer.SetFloat ("UIVolume",manager.datosconfig.ui);
 		}
 
-
-		revresol_();
 		plat = manager.datosconfig.plat;
 		idioma = manager.datosconfig.idioma;
 		postpro = manager.datosconfig.postpro;
@@ -54,47 +52,6 @@ public class inicio4base : MonoBehaviour
 		{distancia = 4;}
 		if(manager.datosconfig.distancia == 3000)
 		{distancia = 5;}
-	}
-	public void revresol_()
-	{
-		resoluciones = Screen.resolutions;
-		
-		int resolactual = 0;
-		for (int i = 0; i < resoluciones.Length; i++)
-		{
-			string opcion = resoluciones[i].width + " x " + resoluciones[i].height;
-			opcionesr.Add(opcion);
-			if(Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width &&	resoluciones[i].height == Screen.currentResolution.height)
-			{
-				resolactual = i;
-			}	
-		}
-		opcres = resolactual;
-
-	}
-	public void Resizq()
-	{
-		if(opcres > 0)
-		{
-		opcres--;
-		manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
-		Resolution resolucion = resoluciones[opcres];
-		Screen.SetResolution(resolucion.width,resolucion.height,Screen.fullScreen);
-		manager.datosconfig.resolh = Screen.currentResolution.width;
-		manager.datosconfig.resolv = Screen.currentResolution.height;
-		}
-	}
-	public void Resder()
-	{
-		if(opcres < opcionesr.Count - 1)
-		{
-		opcres++;
-		manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
-		Resolution resolucion = resoluciones[opcres];
-		Screen.SetResolution(resolucion.width,resolucion.height,Screen.fullScreen);
-		manager.datosconfig.resolh = Screen.currentResolution.width;
-		manager.datosconfig.resolv = Screen.currentResolution.height;
-		}
 	}
 
 
@@ -264,7 +221,6 @@ public class inicio4base : MonoBehaviour
 		audiomixer.GetFloat ("UIVolume",out manager.datosconfig.ui);
 		manager.datosconfig.uislider = controlslider.sliderui.value;
 
-		manager.datosconfig.aplicarres = true;
 		manager.guardar();
 		if(manager.datosconfig.lastgame == 1)
 		{SceneManager.LoadScene("menutrilogy");}

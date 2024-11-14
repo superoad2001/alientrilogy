@@ -14,11 +14,6 @@ public class datosconfig
     public int resoluciones;
     public int lastgame = 1;
 
-    public bool aplicarres = false;
-
-    public int resolh = 1280;
-    public int resolv = 720;
-
     public float master = -21;
     public float masterslider = 0.5f;
 

@@ -455,6 +455,7 @@ public class jugador2_al2 : MonoBehaviour
         {
             manager.datosserial.alien2muere = 1;
             manager.guardar();
+            manager.pause = true;
             respawnm.SetActive(true);
             juego.SetActive(false);
 

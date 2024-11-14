@@ -130,7 +130,6 @@ public class pausa_al2 : MonoBehaviour
 		audiomixer.GetFloat ("UIVolume",out manager.datosconfig.ui);
 		manager2.datosconfig.uislider = controlslider.sliderui.value;
 
-		manager.datosconfig.aplicarres = true;
 		manager2.guardar();
 
         normal.SetActive(true);
