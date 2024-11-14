@@ -482,14 +482,8 @@ public class jugador1_al2 : MonoBehaviour
 
                         Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
 
-                        if (dir == 1)
-                        {rb.AddForce(transform.forward * 110 * balavel);}
-                        if (dir == 2)
-                        {rb.AddForce(transform.forward * -110 * balavel);}
-                        if (dir == 3)
-                        {rb.AddForce(transform.right * 110 * balavel);}
-                        if (dir == 4)
-                        {rb.AddForce(transform.right * -110 * balavel);}
+                        rb.AddForce(mod.transform.forward * 110 * balavel);
+
 
                         Destroy(BalaTemporal, 1f);
 
@@ -507,14 +501,7 @@ public class jugador1_al2 : MonoBehaviour
 
                         Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
                         
-                        if (dir == 1)
-                        {rb.AddForce(transform.forward * 110 * balavel);}
-                        if (dir == 2)
-                        {rb.AddForce(transform.forward * -110 * balavel);}
-                        if (dir == 3)
-                        {rb.AddForce(transform.right * 110 * balavel);}
-                        if (dir == 4)
-                        {rb.AddForce(transform.right * -110 * balavel);}
+                        rb.AddForce(mod.transform.forward * 110 * balavel);
 
                         Destroy(BalaTemporal, 1f);
 
@@ -528,10 +515,7 @@ public class jugador1_al2 : MonoBehaviour
 
                         Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
                         
-                        if (dir == 1)
-                        {rb.AddForce(transform.right * -110 * balavel);}
-                        if (dir == 2)
-                        {rb.AddForce(transform.right * 110 * balavel);}
+                        rb.AddForce(mod.transform.forward * 110 * balavel);
 
                         Destroy(BalaTemporal, 0.5f);
 
@@ -3198,24 +3182,37 @@ public class jugador1_al2 : MonoBehaviour
             {
                 dir = 3;
                 _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,90,0),5* Time.deltaTime);
             }
             if (lhorizontalc < 0f)
             {
                 dir = 4;
                 _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,-90,0),5* Time.deltaTime);
             }
             if (lverticalc > 0f)
             {
                 dir = 1;
                 _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
             }
             if (lverticalc < 0f )
             {
                 dir = 2;
                 _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
+            }
+
+            if (rhorizontalc > 0f )
+            {
+                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,90,0),5* Time.deltaTime);
+            }
+            if (rhorizontalc < 0f)
+            {
+                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,-90,0),5* Time.deltaTime);
+            }
+            if (rverticalc > 0f)
+            {
+                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
+            }
+            if (rverticalc < 0f )
+            {
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,180,0),5* Time.deltaTime);
             }
             Vector3 movdire = _rb.linearVelocity;
