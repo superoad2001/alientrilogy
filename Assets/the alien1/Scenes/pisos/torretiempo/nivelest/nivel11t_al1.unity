@@ -771,6 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a49ebd632f8934409519f6122c88290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   saltoc: 1
 --- !u!1 &36
 GameObject:
@@ -6657,6 +6658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawn: {fileID: 1372954273}
   audio1: {fileID: 51}
+  velcorr: 12
   controlact: 0
   temppaso: 1
   rotspeed: 3
@@ -6666,6 +6668,7 @@ MonoBehaviour:
   rotationinput: {x: 0, y: 0, z: 0}
   speed: 3
   suelo: 0
+  velact: 0
   tut10: {fileID: 0}
   girovalor: 0
   mod: {fileID: 0}
@@ -6685,6 +6688,8 @@ MonoBehaviour:
   pausac: 0
   pasotiempo: 0
   tempgir: 0
+  muertes: {fileID: 0}
+  muertesjug: {fileID: 0}
   manager: {fileID: 0}
   tiempoascensor: 0
   bajar: 0
@@ -6748,8 +6753,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &263
@@ -6787,8 +6792,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &265
@@ -6803,8 +6808,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &266
@@ -6819,8 +6824,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &267
@@ -6835,8 +6840,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &268
@@ -6851,8 +6856,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &269
@@ -6867,8 +6872,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &270
@@ -6883,8 +6888,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &271
@@ -6899,8 +6904,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &272
@@ -6938,8 +6943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &274
@@ -6954,6 +6959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b6c2f10d2c3a3c479f1724d0d6f194f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 5}
   velocidad: 17
   puesto: 1
@@ -6970,8 +6976,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &276
@@ -6986,6 +6992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9908c2c53e299b64f896323680045101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 5}
   posicion: {x: 0, y: 7, z: -10}
   posiciond: {x: 0, y: 0, z: 0}
@@ -7002,8 +7009,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &278
@@ -7018,8 +7025,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &279
@@ -7094,8 +7101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &281
@@ -7110,8 +7117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &282
@@ -7126,6 +7133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a80d181ba660844af54399509bd4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   trofeoact: 0
   tempshow: 0
   nivel: 11
@@ -7284,9 +7292,6 @@ MonoBehaviour:
     postpro: 0
     resoluciones: 0
     lastgame: 0
-    aplicarres: 0
-    resolh: 1280
-    resolv: 720
     master: -21
     masterslider: 0.5
     musica: -6
@@ -7402,6 +7407,7 @@ MonoBehaviour:
     alien3planeta16nave: 0
     alien3planeta17nave: 0
   repathtro: 
+  moveson: {fileID: 0}
   mundos: 0
   jugador1: {fileID: 5}
   jefe1: {fileID: 0}
@@ -7429,8 +7435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &284
@@ -7445,8 +7451,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &285
@@ -7461,8 +7467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &286
@@ -7477,8 +7483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &287
@@ -7493,8 +7499,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8}
   manager: {fileID: 0}
+  audio: {fileID: 8}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!114 &289
@@ -7613,6 +7619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &4074691
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7736,6 +7743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &57638608
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8101,6 +8109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &147304261
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8294,6 +8303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &182862421
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8432,6 +8442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &201174207
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8555,6 +8566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &201639934
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8862,6 +8874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &234598071
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8985,6 +8998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &334791893
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9131,6 +9145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &406932264
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9254,6 +9269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &502491480
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9392,6 +9408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &517088720
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9500,6 +9517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &522107854
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9746,6 +9764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &560761130
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9822,6 +9841,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560761127}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &615253051
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2194248300790268255, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_Name
+      value: muerteaudiojug
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 966
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 606
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 504.6328
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
 --- !u!114 &678348183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10062,6 +10138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &706126557
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10185,6 +10262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &774847151
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10531,6 +10609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &882847366
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10771,6 +10850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &956993452
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10909,6 +10989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &959701116
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11254,6 +11335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &1144263227
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11536,6 +11618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &1242035616
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11644,6 +11727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &1256629405
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11890,6 +11974,7 @@ MonoBehaviour:
     recordnv13: 888
     recordnv14: 888
     recordnv15: 888
+  manager: {fileID: 0}
 --- !u!4 &1304438462
 Transform:
   m_ObjectHideFlags: 0
@@ -11952,6 +12037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &1315835630
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12358,6 +12444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &1379423235
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12481,6 +12568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &1379785529
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12619,6 +12707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &1388754942
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12742,6 +12831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &1403515596
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12888,6 +12978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &1432403396
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13294,6 +13385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807ad4be47bfb544e94465d2d46b4984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   juego: {fileID: 936202420}
   respawn: {fileID: 1372954273}
 --- !u!114 &1689627019
@@ -13448,6 +13540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &1733403679
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13586,6 +13679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &1826863031
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13694,6 +13788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &1848062070
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13886,6 +13981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &1955003790
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14009,6 +14105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &1977351658
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14132,6 +14229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &2008471397
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14255,6 +14353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &2026816088
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14522,6 +14621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &2101133980
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14758,6 +14858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75401900d1efc4b4a82b55a4599599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!136 &2129767874
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14862,3 +14963,4 @@ SceneRoots:
   - {fileID: 1700355565}
   - {fileID: 700692834}
   - {fileID: 1372954272}
+  - {fileID: 615253051}

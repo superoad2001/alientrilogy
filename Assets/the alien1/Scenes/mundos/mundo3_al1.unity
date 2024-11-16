@@ -1726,6 +1726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a80d181ba660844af54399509bd4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   trofeoact: 7
   tempshow: 0
   nivel: 0
@@ -1884,9 +1885,6 @@ MonoBehaviour:
     postpro: 0
     resoluciones: 0
     lastgame: 0
-    aplicarres: 0
-    resolh: 1280
-    resolv: 720
     master: -21
     masterslider: 0.5
     musica: -6
@@ -2002,6 +2000,7 @@ MonoBehaviour:
     alien3planeta16nave: 0
     alien3planeta17nave: 0
   repathtro: 
+  moveson: {fileID: 0}
   mundos: 1
   jugador1: {fileID: 20}
   jefe1: {fileID: 0}
@@ -2148,8 +2147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946ea9f022ce1e349bc04fbc3af030e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio1: {fileID: 112}
   manager: {fileID: 0}
+  audio1: {fileID: 112}
 --- !u!114 &116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2174,6 +2173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d402cc32c5778f746a7eae10797e2253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2200,8 +2200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed20c93f3e2a52c4e8bb4613c670bec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio1: {fileID: 112}
   manager: {fileID: 0}
+  audio1: {fileID: 112}
 --- !u!95 &120
 Animator:
   serializedVersion: 7
@@ -2284,6 +2284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawn: {fileID: 766078816}
   audio1: {fileID: 0}
+  velcorr: 12
   controlact: 1
   temppaso: 1
   rotspeed: 180
@@ -2293,6 +2294,7 @@ MonoBehaviour:
   rotationinput: {x: 0, y: 0, z: 0}
   speed: 4
   suelo: 0
+  velact: 0
   tut10: {fileID: 0}
   girovalor: 0
   mod: {fileID: 637708141}
@@ -2312,6 +2314,8 @@ MonoBehaviour:
   pausac: 0
   pasotiempo: 0
   tempgir: 0
+  muertes: {fileID: 0}
+  muertesjug: {fileID: 0}
   manager: {fileID: 0}
   tiempoascensor: 0
   bajar: 0
@@ -2352,8 +2356,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4368739dd85e3904996d4fdf7c61a1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio1: {fileID: 112}
   manager: {fileID: 0}
+  audio1: {fileID: 112}
 --- !u!114 &125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4891,6 +4895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8be213a82cc044418f429eaa90d06f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   rotspeed: 180
   rotationinput: {x: 0, y: 0, z: 0}
   player: {fileID: 20}
@@ -5645,6 +5650,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2e1e3d6b87e15547b6df04bf59aa092, type: 3}
+--- !u!1001 &1995099091
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2194248300790268255, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_Name
+      value: muerteaudiojug
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 966
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 606
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 504.6328
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
 --- !u!1 &2091549895
 GameObject:
   m_ObjectHideFlags: 0
@@ -5905,3 +5967,4 @@ SceneRoots:
   - {fileID: 2091549898}
   - {fileID: 766078815}
   - {fileID: 1984185263}
+  - {fileID: 1995099091}

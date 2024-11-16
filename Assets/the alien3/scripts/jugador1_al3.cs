@@ -175,6 +175,7 @@ public class jugador1_al3: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cameraverticalangle2 = camara.transform.eulerAngles.y;
         menures = (menures_al3)FindFirstObjectByType(typeof(menures_al3));
         tienda = (tienda_al3)FindFirstObjectByType(typeof(tienda_al3));
         manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
@@ -1119,12 +1120,10 @@ public class jugador1_al3: MonoBehaviour
         if(rbc > 0 && velact == false)
         {
             velocidad = 12;
-            anim.speed = 2;
         }
         else if(velact == false && manager.juego != 4 && manager.juego != 6)
         {
             velocidad = velocidadaux;
-            anim.speed = 1;
         }
         if(manager.juego != 6 && manager.juego != 4 && manager.juego != 5)
         {

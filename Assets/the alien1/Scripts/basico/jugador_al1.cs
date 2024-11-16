@@ -9,6 +9,7 @@ public class jugador_al1 : MonoBehaviour
 {
 	public GameObject respawn;
 	public AudioSource audio1;
+	public float velcorr = 12;
 	public bool controlact = true;
 	public float temppaso = 1;
 	public float rotspeed = 3;
@@ -20,6 +21,7 @@ public class jugador_al1 : MonoBehaviour
 	public Vector3 rotationinput;
 	public float speed = 3;
 	public bool suelo;
+	public bool velact;
 
 	public GameObject tut10;
 	public float girovalor;
@@ -45,6 +47,7 @@ public class jugador_al1 : MonoBehaviour
 	public float pasotiempo;
 	public float tempgir = 0;
 	public AudioSource muertes;
+	public AudioSource muertesjug;
 	
 	private Controles controles;
 	public void Awake()
@@ -63,8 +66,10 @@ public class jugador_al1 : MonoBehaviour
 	// Token: 0x0600001D RID: 29 RVA: 0x000025E8 File Offset: 0x000007E8
 	private void Start()
 	{
-		if(!GameObject.Find("muerteaudio") == null)
+		if(GameObject.Find("muerteaudio") == true)
 		{muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();}
+		if(GameObject.Find("muerteaudiojug") == true)
+		{muertesjug = GameObject.Find("muerteaudiojug").GetComponent<AudioSource>();}
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if(manager.datosconfig.plat == 1)
 		{
@@ -161,6 +166,22 @@ public class jugador_al1 : MonoBehaviour
 	mc = controles.al1.b.ReadValue<float>();
 	nc = controles.al1.x.ReadValue<float>();
 	pausac = controles.al1.pausa.ReadValue<float>();
+
+		if (pausac > 0 && temp9 > 0.7f)
+		{
+			manager.pauseact = true;
+			pausa1.SetActive(true);
+			pausac = 0;
+			controlact = false;
+			temp9 = 0;
+			Time.timeScale = 0;
+			if(manager.datosconfig.plat == 2)
+			{
+				tactil.SetActive(false);
+			}
+			Cursor.visible = true;
+        	Cursor.lockState = CursorLockMode.None;
+		}
 	}
 
 
@@ -375,16 +396,24 @@ public class jugador_al1 : MonoBehaviour
 		{
 			base.transform.rotation = this.rotacion1;
 		}
-		if (this.tiempovelint > 1 && suelo == false)
+		if (this.tiempovelint > 1 && suelo == false && velact == true)
 		{
 			velocidad = velocidadaux;
+			tiempovelint = 0;
+			velact = false;
 		}
-		if (this.tiempovelint > 2 && suelo == true)
+		else if (this.tiempovelint > 2 && suelo == true && velact == true)
 		{
-			velocidad = 7;
+			velocidad = velocidadaux;
+			tiempovelint = 0;
+			velact = false;
 		}
-		this.tiempovel += Time.deltaTime;
-		this.tiempovelint = (int)this.tiempovel;
+		else if(velact == true)
+		{
+			this.tiempovel += Time.deltaTime;
+			this.tiempovelint = (int)this.tiempovel;
+		}
+		
 			if(subir1 == true && tiempoascensor > 3){SceneManager.LoadScene("piso2_al1");}
 			if(bajar1esp == true && tiempoascensor > 3)
 			{
@@ -413,21 +442,6 @@ public class jugador_al1 : MonoBehaviour
 		if(bajart5 == true && tiempoascensor > 3){SceneManager.LoadScene("piso4t_al1");}
 
 
-		if (pausac > 0 && temp9 > 0.7f)
-		{
-			manager.pauseact = true;
-			pausa1.SetActive(true);
-			pausac = 0;
-			controlact = false;
-			temp9 = 0;
-			Time.timeScale = 0;
-			if(manager.datosconfig.plat == 2)
-			{
-				tactil.SetActive(false);
-			}
-			Cursor.visible = true;
-        	Cursor.lockState = CursorLockMode.None;
-		}
 
 
 
@@ -930,6 +944,7 @@ public class jugador_al1 : MonoBehaviour
 		}
 		if (col.gameObject.tag == "enemigo" || col.gameObject.tag == "respawn")
 		{
+			muertesjug.Play();
 			manager.datosserial.alien1muere = true;
 			manager.datosserial.muertes++;
 			manager.guardar();
@@ -939,6 +954,14 @@ public class jugador_al1 : MonoBehaviour
 			}
             respawn.SetActive(true);
 			juego.SetActive(false);
+		}
+		if (col.gameObject.tag == "enemigo")
+		{
+			muertes.Play();
+		}
+		if (col.gameObject.tag == "suelo"  )
+		{
+			
 		}
 	}
 
@@ -963,9 +986,18 @@ public class jugador_al1 : MonoBehaviour
 		
 		}
 		if (col.gameObject.tag == "suelo" || col.gameObject.tag == "ascensor")
+		{
+			anim.SetBool("salto",false);
+			if(manager.juego == 0|| manager.juego == 3 || manager.juego == 4)
 			{
-				anim.SetBool("salto",false);
+				if(controles.al1.rt.ReadValue<float>() > 0 && velact != true)
+				{
+					velocidad = 12;
+				}
+				else if (velact != true){velocidad = velocidadaux;}
 			}
+		}
+
 	}
 
 
@@ -995,6 +1027,10 @@ public class jugador_al1 : MonoBehaviour
 		{
 			suelo = false;
 			anim.SetBool("salto",true);
+		}
+		if (col.gameObject.tag == "suelo"  && velact != true || col.gameObject.tag == "ascensor" && velact != true)
+		{
+			velocidad = velocidadaux;
 		}
 	
 	}

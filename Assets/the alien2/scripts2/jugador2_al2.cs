@@ -88,11 +88,11 @@ public class jugador2_al2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cameraverticalangle2 = camara.transform.eulerAngles.y;
         manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
-        muertesaudio = GameObject.Find("muerteaudio");
-        if(muertesaudio != null)
-        {muertes = muertesaudio.GetComponent<AudioSource>();}
+        if(GameObject.Find("muerteaudio") == true)
+		{muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();}
 
 
         

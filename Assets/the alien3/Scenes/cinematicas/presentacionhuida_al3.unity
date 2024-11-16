@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1042de3db36d8bf4794d9530b914c87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   temp: 0
   pres: {fileID: 1811002663}
 --- !u!20 &16
@@ -1343,6 +1344,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 737444085737583154, guid: b15884efdbb6e53459368f8b886e1bec, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 28cb47c63488c574ca470bdb092163d1, type: 3}
     - target: {fileID: 737444085737583155, guid: b15884efdbb6e53459368f8b886e1bec, type: 3}
       propertyPath: m_Name
       value: agua
@@ -1834,6 +1839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917b465516839374ba08c92e1110147b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   trofeoact: 3
   jefen: 0
   cmenu: 0
@@ -1875,6 +1881,10 @@ MonoBehaviour:
   repath: 
   repathconfig: 
   datosserial:
+    enemigos_muertos: 0
+    muertes: 0
+    tfinal1: 0
+    tfinal2: 0
     idioma: 
     plat: 0
     inicio: 0
@@ -1925,6 +1935,7 @@ MonoBehaviour:
     marma13: 2
     marma14: 2
     marma15: 40
+    espacio0act: 0
     espacio2act: 0
     espacio3act: 0
     espacio4act: 0
@@ -1952,9 +1963,6 @@ MonoBehaviour:
     postpro: 0
     resoluciones: 0
     lastgame: 0
-    aplicarres: 0
-    resolh: 1280
-    resolv: 720
     master: -21
     masterslider: 0.5
     musica: -6
@@ -2070,6 +2078,7 @@ MonoBehaviour:
     alien3planeta16nave: 0
     alien3planeta17nave: 0
   repathtro: 
+  moevson: {fileID: 0}
 --- !u!4 &1510124919
 Transform:
   m_ObjectHideFlags: 0

@@ -159,7 +159,7 @@ public class tnivel_al3: MonoBehaviour
             }
             if(tp15 == true)
             {
-                SceneManager.LoadScene("mundo15");
+                SceneManager.LoadScene("mundo15_al3");
             }
 
             

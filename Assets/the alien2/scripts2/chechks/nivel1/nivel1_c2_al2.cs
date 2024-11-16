@@ -24,7 +24,7 @@ public class nivel1_c2_al2 : MonoBehaviour
 	{
 		
 		manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
-		manager.datosserial.nivelc = 3;
+		manager.datosserial.nivel1c = 3;
 		if (col.gameObject.tag == "Player" && manager.datosserial.nivel1ch2 == 0)
 		{
 			manager.datosserial.nivel1ch2 = 1;

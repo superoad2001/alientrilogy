@@ -2496,9 +2496,6 @@ MonoBehaviour:
     postpro: 0
     resoluciones: 0
     lastgame: 0
-    aplicarres: 0
-    resolh: 1280
-    resolv: 720
     master: -21
     masterslider: 0.5
     musica: -6
@@ -2644,6 +2641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawn: {fileID: 0}
   audio1: {fileID: 0}
+  velcorr: 12
   controlact: 1
   temppaso: 1
   rotspeed: 90
@@ -2653,6 +2651,7 @@ MonoBehaviour:
   rotationinput: {x: 0, y: 0, z: 0}
   speed: 3
   suelo: 0
+  velact: 0
   tut10: {fileID: 0}
   girovalor: 0
   mod: {fileID: 0}
@@ -2673,6 +2672,7 @@ MonoBehaviour:
   pasotiempo: 0
   tempgir: 0
   muertes: {fileID: 0}
+  muertesjug: {fileID: 0}
   manager: {fileID: 0}
   tiempoascensor: 0
   bajar: 0
@@ -16982,7 +16982,8 @@ PrefabInstance:
       value: interfazmundo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4556596583876415381, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3376875541846101897, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
       insertIndex: -1

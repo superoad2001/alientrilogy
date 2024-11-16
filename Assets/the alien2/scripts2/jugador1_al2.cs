@@ -8,6 +8,7 @@ public class jugador1_al2 : MonoBehaviour
 {
     private Controles controles;
     public GameObject respawnm;
+    public bool velact;
 	public void Awake()
     {
         controles = new Controles();
@@ -106,12 +107,14 @@ public class jugador1_al2 : MonoBehaviour
 
 	
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        anim = this.GetComponent<Animator>();
-        muertesaudio = GameObject.Find("muerteaudio");
-        if(muertesaudio != null)
-        {muertes = muertesaudio.GetComponent<AudioSource>();}
+        if(camara != null)
+        {cameraverticalangle2 = camara.transform.eulerAngles.y;} 
+        if(this.GetComponent<Animator>() != null)
+        {anim = this.GetComponent<Animator>();}
+        if(GameObject.Find("muerteaudio") == true)
+		{muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();}
         manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         push = (pushup)FindFirstObjectByType(typeof(pushup));
         jugador2 = (jugador2_al2)FindFirstObjectByType(typeof(jugador2_al2));
@@ -132,6 +135,7 @@ public class jugador1_al2 : MonoBehaviour
 		this.velocidadaux = this.velocidad;
         vida = manager.datosserial.vidamaxima;
         vidaaux = vida;
+        
         if(manager.datosserial.univel == 1 && manager.nivel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-379.399994f,495.459991f,470.480011f);
@@ -338,6 +342,7 @@ public class jugador1_al2 : MonoBehaviour
             camara.transform.eulerAngles = new Vector3 (0,0,0);
 
         }  
+        
         if(manager.datosserial.respawntipo == 1 && manager.nivel == 0 && manager.datosserial.univel == 0 && manager.nomundo == true)
         {
             transform.position = new Vector3(-467.200012f,505.200012f,455f);
@@ -700,7 +705,7 @@ public class jugador1_al2 : MonoBehaviour
                 }
                 if(nc > 0f)
                 {
-                    manager.datosserial.nivelc = 1;
+                    manager.datosserial.nivel1c = 1;
                     manager.datosserial.univel = 1;
                     manager.guardar(); 
                     SceneManager.LoadScene("nivel1_al2");
@@ -722,7 +727,7 @@ public class jugador1_al2 : MonoBehaviour
                 }
                 if(nc > 0f)
                 {
-                    manager.datosserial.nivelc = 2;
+                    manager.datosserial.nivel1c = 2;
                     manager.datosserial.univel = 1;
                     manager.guardar(); 
                     SceneManager.LoadScene("nivel1_al2");
@@ -744,7 +749,7 @@ public class jugador1_al2 : MonoBehaviour
                 }
                 if(nc > 0f)
                 {
-                    manager.datosserial.nivelc = 3;
+                    manager.datosserial.nivel1c = 3;
                     manager.datosserial.univel = 1;
                     manager.guardar(); 
                     SceneManager.LoadScene("nivel1_al2");
@@ -3173,6 +3178,7 @@ public class jugador1_al2 : MonoBehaviour
                 if(temppaso < 15)
 				{temppaso += 1 * Time.deltaTime;}
             }
+            
         }
         if(manager.juego == 2)
         {
@@ -3515,12 +3521,18 @@ public class jugador1_al2 : MonoBehaviour
                 anim.SetBool("salto",true);
 
         }
-        if (this.tiempovel >= 2)
+        if (this.tiempovel >= 2 && velact == true)
 		{
 		    this.velocidad = this.velocidadaux;
+            tiempovel = 0;
+            velact = false;
 		}
-        if(this.tiempovel >= 2 && suelo == true)
-        {velocidad = velocidadmaxima;}
+        if(this.tiempovel >= 2 && suelo == true && velact == true)
+        {
+            velocidad = velocidadmaxima;
+            tiempovel = 0;
+            velact = false;
+        }
         }
         if(vida <= 0 && muerte == false)
         {
@@ -3537,7 +3549,7 @@ public class jugador1_al2 : MonoBehaviour
         {tempdano += 1 * Time.deltaTime;}
         if(tiempodisp < 15)
         {tiempodisp += 1 * Time.deltaTime;}
-        if(tiempovel < 15)
+        if(tiempovel < 15 && velact == true)
         {tiempovel += 1 * Time.deltaTime;}
         if(invulc >= -1)
         {invulc -= 1 * Time.deltaTime;}
@@ -3777,6 +3789,19 @@ public class jugador1_al2 : MonoBehaviour
 			anim.SetBool("salto",false);
             suelo = true;
 		}
+        if (col.gameObject.tag == "suelo" || col.gameObject.tag == "lava" || col.gameObject.tag == "control" || col.gameObject.tag == "nivel1" || col.gameObject.tag == "nivel2" || col.gameObject.tag == "nivel3" || col.gameObject.tag == "nivel4" || col.gameObject.tag == "nivel5" || col.gameObject.tag == "nivel6" || col.gameObject.tag == "nivel7" || col.gameObject.tag == "nivel8" || col.gameObject.tag == "nivel9" || col.gameObject.tag == "nivel10"
+        || col.gameObject.tag == "nivel11" || col.gameObject.tag == "nivel12" || col.gameObject.tag == "nivel13" || col.gameObject.tag == "nivel14" || col.gameObject.tag == "nivel15" || col.gameObject.tag == "nivel16" || col.gameObject.tag == "nivel17" || col.gameObject.tag == "nivel18" || col.gameObject.tag == "nivel19" || col.gameObject.tag == "nivel20")
+		{
+			if(manager.juego == 1|| manager.juego == 2 || manager.juego == 3)
+            {
+                if(controles.al1.rt.ReadValue<float>() > 0 && velact != true)
+                {
+                    velocidad = 12;
+                }
+                else if (velact != true){velocidad = velocidadaux;}
+            }
+		}
+
 	}
     private void OnCollisionExit(Collision col)
 	{
@@ -3894,6 +3919,11 @@ public class jugador1_al2 : MonoBehaviour
 		{
 			suelo = false;
 			anim.SetBool("salto",true);
+		}
+        if (col.gameObject.tag == "suelo" && velact != true|| col.gameObject.tag == "control" && velact != true|| col.gameObject.tag == "nivel1" && velact != true && velact != true || col.gameObject.tag == "nivel2" && velact != true && velact != true|| col.gameObject.tag == "nivel3" && velact != true|| col.gameObject.tag == "nivel4" && velact != true|| col.gameObject.tag == "nivel5" && velact != true|| col.gameObject.tag == "nivel6" && velact != true || col.gameObject.tag == "nivel7" && velact != true|| col.gameObject.tag == "nivel8" && velact != true|| col.gameObject.tag == "nivel9" && velact != true|| col.gameObject.tag == "nivel10" && velact != true
+        || col.gameObject.tag == "nivel11" && velact != true|| col.gameObject.tag == "nivel12" && velact != true|| col.gameObject.tag == "nivel13" && velact != true|| col.gameObject.tag == "nivel14" && velact != true|| col.gameObject.tag == "nivel15" && velact != true|| col.gameObject.tag == "nivel16" && velact != true|| col.gameObject.tag == "nivel17" && velact != true|| col.gameObject.tag == "nivel18" && velact != true|| col.gameObject.tag == "nivel19" && velact != true|| col.gameObject.tag == "nivel20"&& velact != true)
+		{
+			velocidad = velocidadaux;
 		}
         
 

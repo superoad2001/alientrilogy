@@ -31,6 +31,7 @@ public class Monedav_al1 : MonoBehaviour
 			jugador.velocidad = jugador.velocidadaux;
 			jugador.velozidad();
 			jugador.velocidad = this.velocidadmaxima;
+			jugador.velact = true;
 			audio.Play();
 		}
 	}

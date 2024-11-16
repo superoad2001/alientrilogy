@@ -27,9 +27,10 @@ public class enemigo1_al2: MonoBehaviour
     void Start()
     {
         jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         jugador1.explosion = explosion;
-        muertesaudio = GameObject.Find("muerteaudio");
-        muertes = muertesaudio.GetComponent<AudioSource>();
+        if(GameObject.Find("muerteaudio") == true)
+		{muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();}
     }
 
     // Update is called once per frame

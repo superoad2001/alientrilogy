@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ddbca64ed7650449efb3194578f253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!82 &6119
 AudioSource:
   m_ObjectHideFlags: 0
@@ -382,6 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917b465516839374ba08c92e1110147b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   trofeoact: 0
   jefen: 0
   cmenu: 0
@@ -423,6 +425,10 @@ MonoBehaviour:
   repath: 
   repathconfig: 
   datosserial:
+    enemigos_muertos: 0
+    muertes: 0
+    tfinal1: 0
+    tfinal2: 0
     idioma: 
     plat: 0
     inicio: 0
@@ -473,6 +479,7 @@ MonoBehaviour:
     marma13: 2
     marma14: 2
     marma15: 40
+    espacio0act: 0
     espacio2act: 0
     espacio3act: 0
     espacio4act: 0
@@ -500,9 +507,6 @@ MonoBehaviour:
     postpro: 0
     resoluciones: 0
     lastgame: 0
-    aplicarres: 0
-    resolh: 1280
-    resolv: 720
     master: -21
     masterslider: 0.5
     musica: -6
@@ -618,6 +622,7 @@ MonoBehaviour:
     alien3planeta16nave: 0
     alien3planeta17nave: 0
   repathtro: 
+  moevson: {fileID: 0}
 --- !u!1 &34037172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,6 +1865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf64bab77dd62c4ca370ae37e5bd356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   temp: 0
   tiempo: 20
   escena: 11
@@ -2278,6 +2284,91 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &599772273
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583154, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 53892fe9fd491f04ba486dc52235a6a2, type: 2}
+    - target: {fileID: 737444085737583155, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_Name
+      value: agua (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 15000
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 15000
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -418.11542
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -256.929
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1139.2936
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737444085737583164, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3b2260353f32fb447a95a96dc8460160, type: 3}
 --- !u!1 &608482262
 GameObject:
   m_ObjectHideFlags: 0
@@ -5695,6 +5786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917b465516839374ba08c92e1110147b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   trofeoact: 0
   jefen: 0
   cmenu: 0
@@ -5736,6 +5828,10 @@ MonoBehaviour:
   repath: 
   repathconfig: 
   datosserial:
+    enemigos_muertos: 0
+    muertes: 0
+    tfinal1: 0
+    tfinal2: 0
     idioma: 
     plat: 0
     inicio: 0
@@ -5786,6 +5882,7 @@ MonoBehaviour:
     marma13: 2
     marma14: 2
     marma15: 40
+    espacio0act: 0
     espacio2act: 0
     espacio3act: 0
     espacio4act: 0
@@ -5813,9 +5910,6 @@ MonoBehaviour:
     postpro: 0
     resoluciones: 0
     lastgame: 0
-    aplicarres: 0
-    resolh: 1280
-    resolv: 720
     master: -21
     masterslider: 0.5
     musica: -6
@@ -5931,6 +6025,7 @@ MonoBehaviour:
     alien3planeta16nave: 0
     alien3planeta17nave: 0
   repathtro: 
+  moevson: {fileID: 0}
 --- !u!4 &2088669676
 Transform:
   m_ObjectHideFlags: 0
@@ -6225,3 +6320,4 @@ SceneRoots:
   - {fileID: 1894786580}
   - {fileID: 299425047}
   - {fileID: 299357767}
+  - {fileID: 599772273}

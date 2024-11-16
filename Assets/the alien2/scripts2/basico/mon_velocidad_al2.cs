@@ -27,6 +27,7 @@ public class mon_velocidad_al2 : MonoBehaviour
 			jugador.velozidad();
 			jugador.velocidad = this.velocidadmaxima;
 			audio1.Play();
+			jugador.velact = true;
 			pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
 			manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
             if(manager.datostrof.alien2usaelacelerador== 0)

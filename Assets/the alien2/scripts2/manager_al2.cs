@@ -565,11 +565,15 @@ public class manager_al2 : MonoBehaviour
 		{
 			jugadorpos.transform.position = new Vector3(-0.449999988f,501.609985f,450.049988f);
 			boxcampos.transform.position = new Vector3(-0.449999988f,501.609985f,450.049988f);
+			jugadorpos.transform.eulerAngles = new Vector3 (0,180,0);
+			boxcampos.transform.eulerAngles = new Vector3 (0,180,0);
 		}
 		if(nivel == 1 && datosserial.nivel1c == 2)
 		{
 			jugadorpos.transform.position = new Vector3(0.289999992f,500.970001f,324.980011f);
 			boxcampos.transform.position = new Vector3(0.289999992f,500.970001f,324.980011f);
+			jugadorpos.transform.eulerAngles = new Vector3 (0,180,0);
+			boxcampos.transform.eulerAngles = new Vector3 (0,180,0);
 		}
 		if(nivel == 1 && datosserial.nivel1c == 3)
 		{

@@ -29,11 +29,15 @@ public class lasalidas_al1 : MonoBehaviour
 	// Token: 0x06000039 RID: 57 RVA: 0x00003A96 File Offset: 0x00001C96
 	private void Update()
 	{
+		if (controles.menu.saltar.ReadValue<float>() > 0f)
+		{
+			SceneManager.LoadScene("final_al1");
+		}
 		
 	}
 	public void OnTriggerEnter(Collider col)
 	{
-		if (col.gameObject.tag == "Player" || controles.menu.saltar.ReadValue<float>() > 0f)
+		if (col.gameObject.tag == "Player" )
 		{
 			Debug.Log("Hello: ");
 			SceneManager.LoadScene("final_al1");

@@ -20,6 +20,7 @@ public class pausa_al1 : MonoBehaviour
     {
         controles.Enable();
     }
+    
     private void OnDisable() 
     {
         controles.Disable();
@@ -53,7 +54,7 @@ public class pausa_al1 : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         
         if(manager.datosconfig.idioma == "es")
@@ -83,14 +84,15 @@ public class pausa_al1 : MonoBehaviour
             boton4.text = "pausa";
             boton5.text = "opcions";
         }
-        if(controles.al1.pausa.ReadValue<float>() > 0)
+        if(controles.al1.pausa.ReadValue<float>() > 0 && temp > 0.7f)
         {
+            
             if(opciones1.activeSelf)
             {aplicar2();}
             continuar();
         }
         if(temp < 15)
-        {temp += 1 * Time.deltaTime;}
+        {temp += 1 * Time.unscaledDeltaTime;}
     }
     public void continuar(){
         Time.timeScale = 1;
@@ -112,10 +114,12 @@ public class pausa_al1 : MonoBehaviour
         manager.pauseact = false;    
         }
     public void salir(){
+        Time.timeScale = 1;
         SceneManager.LoadScene("menu_de_carga_al1");
     }
 
     public void salirnivel(){
+        Time.timeScale = 1;
         if(piso == 1)
         {SceneManager.LoadScene("piso1_al1");}
         if(piso == 2)
