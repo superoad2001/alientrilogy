@@ -19496,6 +19496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnm: {fileID: 475313381}
+  velact: 0
   controlact: 1
   pasotiempo: 0
   temppaso: 1
@@ -19558,6 +19559,9 @@ MonoBehaviour:
   push: {fileID: 0}
   jugador2: {fileID: 0}
   explosion: {fileID: 0}
+  menures: {fileID: 0}
+  muertesaudio: {fileID: 0}
+  muertes: {fileID: 0}
   temp9: 0
   pausac: 0
   juego: {fileID: 673609003}
@@ -19606,7 +19610,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db0249d37956f347a8dcba8609aa72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   torretiempo: 0
+  nomundo: 1
+  espaciom: 0
+  mundo: 0
   torretiemponivel: 1
   inicio: 0
   trofeoact: 0
@@ -19631,6 +19639,7 @@ MonoBehaviour:
   audio5: {fileID: 0}
   audio6: {fileID: 0}
   audio7: {fileID: 0}
+  moves: {fileID: 0}
   jugadorpos: {fileID: 8}
   boxcampos: {fileID: 0}
   p1c: {fileID: 0}
@@ -19696,6 +19705,10 @@ MonoBehaviour:
   datosserial:
     plat: 0
     inicio: 0
+    enemigos_muertos: 0
+    muertes: 0
+    sala_secreta: 0
+    final_alt: 0
     tuto: 0
     estado: 0
     menu: 0
@@ -19967,9 +19980,6 @@ MonoBehaviour:
     postpro: 0
     resoluciones: 0
     lastgame: 0
-    aplicarres: 0
-    resolh: 1280
-    resolv: 720
     master: -21
     masterslider: 0.5
     musica: -6
@@ -20154,9 +20164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20266,9 +20276,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20372,9 +20382,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20387,9 +20397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20448,9 +20458,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20463,6 +20473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 898547931}
   velocidadmaxima: 20
 --- !u!114 &1274
@@ -20501,9 +20512,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20563,9 +20574,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20649,6 +20660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 898547931}
   velocidadmaxima: 20
 --- !u!114 &1301
@@ -20663,9 +20675,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20713,6 +20725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 898547931}
   velocidadmaxima: 20
 --- !u!114 &1307
@@ -20727,9 +20740,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20765,6 +20778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: -1
   aux: 0
   tiempo: 5
@@ -20781,9 +20795,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20819,9 +20833,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20857,9 +20871,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20895,9 +20909,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20910,9 +20924,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20995,9 +21009,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21033,9 +21047,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21095,9 +21109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21133,6 +21147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 898547931}
   velocidadmaxima: 20
 --- !u!114 &1356
@@ -21170,6 +21185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 898547931}
   velocidadmaxima: 20
 --- !u!114 &1360
@@ -21207,6 +21223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 898547931}
   velocidadmaxima: 20
 --- !u!114 &1365
@@ -21221,9 +21238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21236,6 +21253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 898547931}
   velocidadmaxima: 20
 --- !u!114 &1367
@@ -21274,9 +21292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21312,6 +21330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 898547931}
   velocidadmaxima: 20
 --- !u!114 &1373
@@ -21326,9 +21345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21341,9 +21360,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21356,9 +21375,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21440,9 +21459,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21502,9 +21521,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21540,9 +21559,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21555,9 +21574,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21640,9 +21659,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21655,6 +21674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 898547931}
   velocidadmaxima: 20
 --- !u!114 &1412
@@ -21715,9 +21735,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21730,9 +21750,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21792,9 +21812,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21830,9 +21850,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22942,6 +22962,10 @@ PrefabInstance:
       propertyPath: torre
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 825892520474343622, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+      propertyPath: musica
+      value: 
+      objectReference: {fileID: 1064}
     - target: {fileID: 4030131216183775422, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.59591436
@@ -24033,6 +24057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dad8ba9f4fec946b994e3d208850ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!1 &1388502963
 GameObject:
   m_ObjectHideFlags: 0
@@ -24087,6 +24112,10 @@ MonoBehaviour:
   datosserial:
     plat: 0
     inicio: 0
+    enemigos_muertos: 0
+    muertes: 0
+    sala_secreta: 0
+    final_alt: 0
     tuto: 0
     estado: 0
     menu: 0

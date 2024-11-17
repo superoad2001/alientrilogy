@@ -15665,7 +15665,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db0249d37956f347a8dcba8609aa72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   torretiempo: 0
+  nomundo: 1
+  espaciom: 0
+  mundo: 0
   torretiemponivel: 1
   inicio: 0
   trofeoact: 0
@@ -15690,6 +15694,7 @@ MonoBehaviour:
   audio5: {fileID: 0}
   audio6: {fileID: 0}
   audio7: {fileID: 0}
+  moves: {fileID: 0}
   jugadorpos: {fileID: 10}
   boxcampos: {fileID: 0}
   p1c: {fileID: 0}
@@ -15755,6 +15760,10 @@ MonoBehaviour:
   datosserial:
     plat: 0
     inicio: 0
+    enemigos_muertos: 0
+    muertes: 0
+    sala_secreta: 0
+    final_alt: 0
     tuto: 0
     estado: 0
     menu: 0
@@ -16026,9 +16035,6 @@ MonoBehaviour:
     postpro: 0
     resoluciones: 0
     lastgame: 0
-    aplicarres: 0
-    resolh: 1280
-    resolv: 720
     master: -21
     masterslider: 0.5
     musica: -6
@@ -16158,9 +16164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16186,6 +16192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnm: {fileID: 1937295466}
+  velact: 0
   controlact: 1
   pasotiempo: 0
   temppaso: 1
@@ -16248,6 +16255,9 @@ MonoBehaviour:
   push: {fileID: 0}
   jugador2: {fileID: 0}
   explosion: {fileID: 0}
+  menures: {fileID: 0}
+  muertesaudio: {fileID: 0}
+  muertes: {fileID: 0}
   temp9: 0
   pausac: 0
   juego: {fileID: 1178729935}
@@ -16483,9 +16493,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16641,9 +16651,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16823,9 +16833,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16957,9 +16967,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17043,9 +17053,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17129,6 +17139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0113bbb0308de2b40854103fe587ad50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &1290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17141,9 +17152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17203,9 +17214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17277,9 +17288,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19097,6 +19108,10 @@ MonoBehaviour:
   datosserial:
     plat: 0
     inicio: 0
+    enemigos_muertos: 0
+    muertes: 0
+    sala_secreta: 0
+    final_alt: 0
     tuto: 0
     estado: 0
     menu: 0
@@ -19875,6 +19890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2007730260}
   velocidadmaxima: 20
 --- !u!114 &1907070561
@@ -19912,6 +19928,10 @@ PrefabInstance:
       propertyPath: torre
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 825892520474343622, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+      propertyPath: musica
+      value: 
+      objectReference: {fileID: 1014}
     - target: {fileID: 4030131216183775422, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.59591436
@@ -20293,6 +20313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335219d128381946ab84d5161da32b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio1: {fileID: 2007730260}
   velocidadmaxima: 20
 --- !u!114 &2129113032

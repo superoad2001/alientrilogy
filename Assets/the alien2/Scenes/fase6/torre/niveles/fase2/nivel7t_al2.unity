@@ -24226,6 +24226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnm: {fileID: 840633024}
+  velact: 0
   controlact: 1
   pasotiempo: 0
   temppaso: 1
@@ -24288,6 +24289,9 @@ MonoBehaviour:
   push: {fileID: 0}
   jugador2: {fileID: 0}
   explosion: {fileID: 0}
+  menures: {fileID: 0}
+  muertesaudio: {fileID: 0}
+  muertes: {fileID: 0}
   temp9: 0
   pausac: 0
   juego: {fileID: 690163355}
@@ -24316,7 +24320,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db0249d37956f347a8dcba8609aa72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   torretiempo: 0
+  nomundo: 1
+  espaciom: 0
+  mundo: 0
   torretiemponivel: 1
   inicio: 0
   trofeoact: 0
@@ -24341,6 +24349,7 @@ MonoBehaviour:
   audio5: {fileID: 0}
   audio6: {fileID: 0}
   audio7: {fileID: 0}
+  moves: {fileID: 0}
   jugadorpos: {fileID: 10}
   boxcampos: {fileID: 0}
   p1c: {fileID: 0}
@@ -24406,6 +24415,10 @@ MonoBehaviour:
   datosserial:
     plat: 0
     inicio: 0
+    enemigos_muertos: 0
+    muertes: 0
+    sala_secreta: 0
+    final_alt: 0
     tuto: 0
     estado: 0
     menu: 0
@@ -24677,9 +24690,6 @@ MonoBehaviour:
     postpro: 0
     resoluciones: 0
     lastgame: 0
-    aplicarres: 0
-    resolh: 1280
-    resolv: 720
     master: -21
     masterslider: 0.5
     musica: -6
@@ -24864,6 +24874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: 1
   aux: 0
   tiempo: 5
@@ -24963,6 +24974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: 1
   aux: 0
   tiempo: 5
@@ -25027,9 +25039,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25101,6 +25113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc38ba8c96a5ab8418015792360aef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &1234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25113,6 +25126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: -1
   aux: 0
   tiempo: 5
@@ -25189,6 +25203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc38ba8c96a5ab8418015792360aef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &1242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25225,9 +25240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25347,6 +25362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc38ba8c96a5ab8418015792360aef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &1255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25359,6 +25375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc38ba8c96a5ab8418015792360aef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &1257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25407,6 +25424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: 1
   aux: 0
   tiempo: 5
@@ -25459,6 +25477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc38ba8c96a5ab8418015792360aef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &1265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25519,6 +25538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc38ba8c96a5ab8418015792360aef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &1270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25531,6 +25551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: -1
   aux: 0
   tiempo: 5
@@ -25583,9 +25604,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25681,6 +25702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc38ba8c96a5ab8418015792360aef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &1284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25741,6 +25763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: -1
   aux: 0
   tiempo: 5
@@ -25757,6 +25780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: -1
   aux: 0
   tiempo: 5
@@ -25893,6 +25917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: 1
   aux: 0
   tiempo: 5
@@ -25909,6 +25934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc38ba8c96a5ab8418015792360aef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &1304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26088,6 +26114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: -1
   aux: 0
   tiempo: 5
@@ -26104,6 +26131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc38ba8c96a5ab8418015792360aef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &1330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26116,6 +26144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: -1
   aux: 0
   tiempo: 5
@@ -26132,6 +26161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: 1
   aux: 0
   tiempo: 5
@@ -26184,6 +26214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc38ba8c96a5ab8418015792360aef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &1338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26196,6 +26227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: 1
   aux: 0
   tiempo: 5
@@ -26236,9 +26268,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860b64c191bb3143af151a75fc24fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
   push: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &1350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26251,6 +26283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: -1
   aux: 0
   tiempo: 5
@@ -26326,6 +26359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: -1
   aux: 0
   tiempo: 5
@@ -26500,6 +26534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc38ba8c96a5ab8418015792360aef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!1001 &34122814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26619,6 +26654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc38ba8c96a5ab8418015792360aef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!1 &89641671
 GameObject:
   m_ObjectHideFlags: 0
@@ -26760,6 +26796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc38ba8c96a5ab8418015792360aef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!1 &260163100
 GameObject:
   m_ObjectHideFlags: 0
@@ -26847,6 +26884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc38ba8c96a5ab8418015792360aef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!1 &373359218
 GameObject:
   m_ObjectHideFlags: 0
@@ -26988,6 +27026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: 1
   aux: 0
   tiempo: 5
@@ -27762,6 +27801,10 @@ PrefabInstance:
       propertyPath: torre
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 825892520474343622, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+      propertyPath: musica
+      value: 
+      objectReference: {fileID: 1134}
     - target: {fileID: 4030131216183775422, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.59591436
@@ -28261,6 +28304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc38ba8c96a5ab8418015792360aef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &1308412500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28273,6 +28317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: 1
   aux: 0
   tiempo: 5
@@ -28331,6 +28376,10 @@ MonoBehaviour:
   datosserial:
     plat: 0
     inicio: 0
+    enemigos_muertos: 0
+    muertes: 0
+    sala_secreta: 0
+    final_alt: 0
     tuto: 0
     estado: 0
     menu: 0
@@ -28623,6 +28672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc38ba8c96a5ab8418015792360aef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &1336423324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28635,6 +28685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: -1
   aux: 0
   tiempo: 5
@@ -28651,6 +28702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: 1
   aux: 0
   tiempo: 5
@@ -28667,6 +28719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: 1
   aux: 0
   tiempo: 5
@@ -28683,6 +28736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: 1
   aux: 0
   tiempo: 5
@@ -28699,6 +28753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a41117f1b44a774dbeba00847cf0202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!1 &1449209653
 GameObject:
   m_ObjectHideFlags: 0
@@ -28873,6 +28928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc38ba8c96a5ab8418015792360aef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!1 &1682838942
 GameObject:
   m_ObjectHideFlags: 0
@@ -28925,6 +28981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc38ba8c96a5ab8418015792360aef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &1722780401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28937,6 +28994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: 1
   aux: 0
   tiempo: 5
@@ -29082,6 +29140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: 1
   aux: 0
   tiempo: 5
@@ -29565,6 +29624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed127f0103d7f045bbb0c774c176fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   lado: 1
   aux: 0
   tiempo: 5

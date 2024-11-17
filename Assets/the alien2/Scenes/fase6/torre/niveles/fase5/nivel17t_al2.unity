@@ -6690,9 +6690,6 @@ MonoBehaviour:
     postpro: 0
     resoluciones: 0
     lastgame: 0
-    aplicarres: 0
-    resolh: 1280
-    resolv: 720
     master: -21
     masterslider: 0.5
     musica: -6
@@ -7277,6 +7274,8 @@ MonoBehaviour:
   manager: {fileID: 0}
   jugador1: {fileID: 0}
   jugador: {fileID: 0}
+  muertesaudio: {fileID: 0}
+  muertes: {fileID: 0}
 --- !u!95 &572
 Animator:
   serializedVersion: 7
@@ -10437,6 +10436,10 @@ PrefabInstance:
       propertyPath: torre
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 825892520474343622, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+      propertyPath: musica
+      value: 
+      objectReference: {fileID: 406}
     - target: {fileID: 4030131216183775422, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.59591436
@@ -11094,6 +11097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnm: {fileID: 1811675612}
+  velact: 0
   controlact: 1
   pasotiempo: 0
   temppaso: 1
@@ -11157,6 +11161,8 @@ MonoBehaviour:
   jugador2: {fileID: 0}
   explosion: {fileID: 0}
   menures: {fileID: 0}
+  muertesaudio: {fileID: 0}
+  muertes: {fileID: 0}
   temp9: 0
   pausac: 0
   juego: {fileID: 2106318966}

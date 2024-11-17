@@ -44,6 +44,9 @@ public class menures_al3 : MonoBehaviour
     public GameObject respawnp;
     public GameObject interfaz;
     public jugador1_al3 jugador;
+    public AudioSource musica_muerte; 
+    public AudioSource ambiente_muerte; 
+    public AudioSource musica;
     // Start is called before the first frame update
     void Start()
     {

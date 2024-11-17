@@ -20781,6 +20781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnm: {fileID: 1580178250}
+  velact: 0
   controlact: 1
   pasotiempo: 0
   temppaso: 1
@@ -20844,6 +20845,8 @@ MonoBehaviour:
   jugador2: {fileID: 0}
   explosion: {fileID: 0}
   menures: {fileID: 0}
+  muertesaudio: {fileID: 0}
+  muertes: {fileID: 0}
   temp9: 0
   pausac: 0
   juego: {fileID: 1267811903}
@@ -21815,6 +21818,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: interfazcrono
       objectReference: {fileID: 0}
+    - target: {fileID: 1939071887427394406, guid: 39f55b3317553e04180a75b90d76c324, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 186.19995
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939071887427394406, guid: 39f55b3317553e04180a75b90d76c324, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 29.099976
+      objectReference: {fileID: 0}
     - target: {fileID: 8358300746479552505, guid: 39f55b3317553e04180a75b90d76c324, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -21908,7 +21919,8 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2615306602508843418, guid: 39f55b3317553e04180a75b90d76c324, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8358300746479552505, guid: 39f55b3317553e04180a75b90d76c324, type: 3}
       insertIndex: 5
@@ -23212,9 +23224,6 @@ MonoBehaviour:
     postpro: 0
     resoluciones: 0
     lastgame: 0
-    aplicarres: 0
-    resolh: 1280
-    resolv: 720
     master: -21
     masterslider: 0.5
     musica: -6
@@ -23603,6 +23612,10 @@ PrefabInstance:
       propertyPath: torre
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 825892520474343622, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
+      propertyPath: musica
+      value: 
+      objectReference: {fileID: 691}
     - target: {fileID: 4030131216183775422, guid: 3d4c23fb28ef42e428b479a422f55e15, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.59591436

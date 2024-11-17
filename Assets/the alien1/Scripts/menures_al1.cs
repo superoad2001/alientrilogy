@@ -32,7 +32,10 @@ public class menures_al1 : MonoBehaviour
     public manager_al1 manager;
     public Scene escena;
     public AudioSource moveson;
-    public jugador_al1 jugador; 
+    public jugador_al1 jugador;
+    public AudioSource musica_muerte; 
+    public AudioSource ambiente_muerte; 
+    public AudioSource musica;
 
 	// Token: 0x06000025 RID: 37 RVA: 0x0000334C File Offset: 0x0000154C
 
@@ -40,6 +43,9 @@ public class menures_al1 : MonoBehaviour
 	{
 		moveson.Play();
 	}
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +64,9 @@ public class menures_al1 : MonoBehaviour
         {
             salirnivelo.SetActive(false);
         }
+        musica.Stop();
+        musica_muerte.Play();
+        ambiente_muerte.Play();
     }
 
     // Update is called once per frame
