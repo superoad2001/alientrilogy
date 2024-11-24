@@ -123,6 +123,13 @@ public class jefe1_al3: MonoBehaviour
 			}
 			if (jefe == 6)
 			{
+				pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
+				if(manager.datostrof.alien3deidad2 == 0)
+				{
+					manager.datostrof.alien3deidad2 = 1;
+					manager.guardartro();
+					push.push(78);
+				}
 				if(manager.datosserial.espacio0act == 0)
 				{manager.datosserial.espacio0act =  1;}
 				manager.guardar();

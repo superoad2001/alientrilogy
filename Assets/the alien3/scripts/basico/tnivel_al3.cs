@@ -33,6 +33,8 @@ public class tnivel_al3: MonoBehaviour
     void Start()
     {
         jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        
     }
 
     // Update is called once per frame

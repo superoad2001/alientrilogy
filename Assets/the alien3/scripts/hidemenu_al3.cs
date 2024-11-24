@@ -29,9 +29,9 @@ public class hidemenu_al3 : MonoBehaviour
     void Update()
     {
         Animator anim = GetComponent<Animator>();
-        if(controles.al3.rb.ReadValue<float>() > 0)
+        if(controles.al3.l3.ReadValue<float>() > 0)
 	    {anim.SetBool("show",true);}
-        else if(controles.al3.rb.ReadValue<float>() == 0)
+        else if(controles.al3.l3.ReadValue<float>() == 0)
 	    {anim.SetBool("show",false);}
 
     }

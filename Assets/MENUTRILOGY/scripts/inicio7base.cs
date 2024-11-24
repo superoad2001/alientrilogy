@@ -288,7 +288,7 @@ public float temp;
     {trofeos++;}
     if(manager.datostrof.alien3primeraarmadura == 1)
     {trofeos++;}
-    if(manager.datostrof.alien3entraalmenuextras == 1)
+    if(manager.datostrof.alien3deidad2== 1)
     {trofeos++;}
     if(manager.datostrof.alien3entraalaguiadelpause == 1)
     {trofeos++;}
@@ -1622,9 +1622,9 @@ public float temp;
             if(trofeo == 78) 
             {
                 
-                logo1.text = "por curiosidad";
-                logo2.text = "entra al menu de extras";
-                if(manager.datostrof.alien3entraalmenuextras == 1)
+                logo1.text = "al limite";
+                logo2.text = "derrota a la deidad secreta";
+                if(manager.datostrof.alien3deidad2 == 1)
                 {
                     logo3.color = new Color32(24,255,0,255);
                     logo3.text = "conseguido";
@@ -3316,9 +3316,9 @@ public float temp;
             if(trofeo == 78)
             {
 
-            logo1.text = "out of curiosity";
-            logo2.text = "enter the extras menu";
-            if(manager.datostrof.alien3entraalmenuextras == 1)
+            logo1.text = "ship alive";
+            logo2.text = "destroy the definitive god in space";
+            if(manager.datostrof.alien3deidad2 == 1)
             {
             logo3.color = new Color32(24,255,0,255);
             logo3.text = "achieved";
@@ -5008,9 +5008,9 @@ public float temp;
             if (trofeo == 78) 
             {
                 
-                logo1.text = "per curiositat";
-                logo2.text = "entra al menú extres";
-                if (manager.datostrof.alien3entraalmenuextras == 1)
+                logo1.text = "al limit";
+                logo2.text = "guanya al deu definitui amb la nau al espai";
+                if (manager.datostrof.alien3deidad2 == 1)
                 {
                     logo3.color = new Color32 (24,255,0,255);
                     logo3.text = "aconseguit";

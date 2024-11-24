@@ -16,7 +16,6 @@ public class pausa_al3: MonoBehaviour
         audiosel.Play();
     }
     public manager_al3 manager;
-    public GameObject tactil;
     public GameObject opciones1;
     public AudioMixer audiomixer;
     public Text ttcont;
@@ -2994,7 +2993,6 @@ public class pausa_al3: MonoBehaviour
 		{
 			Cursor.visible = false;
         	Cursor.lockState = CursorLockMode.Locked;
-            tactil.SetActive(true);
 		}
     }
     public void salir(){
@@ -3069,13 +3067,7 @@ public class pausa_al3: MonoBehaviour
     }
     public void extras()
     {
-		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
-        if(manager.datostrof.alien3entraalmenuextras == 0)
-        {
-            manager.datostrof.alien3entraalmenuextras = 1;
-            manager.guardartro();
-            push.push(78);
-        }
+		
         menuc.SetActive(false);
         extrasc.SetActive(true);
     }

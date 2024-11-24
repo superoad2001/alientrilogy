@@ -1117,7 +1117,7 @@ public class jugador1_al3: MonoBehaviour
                 claxon.Play();
             }
         }
-        if(rbc > 0 && velact == false)
+        if(rbc > 0 && velact == false && manager.juego !=  4 && manager.juego != 5 && manager.juego != 6)
         {
             velocidad = 12;
         }
@@ -1861,14 +1861,24 @@ public class jugador1_al3: MonoBehaviour
                 {
                 rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
                 rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
-                
-
-                cameraverticalangle =  rotationinput.y/3;
-                cameraverticalangle = Mathf.Clamp(cameraverticalangle, -20 , 20);
+            
 
                 camara.transform.Rotate(Vector3.up * rotationinput.x);
 
-                camara.transform.localRotation = Quaternion.RotateTowards(camara.transform.localRotation,Quaternion.Euler(cameraverticalangle,camara.transform.eulerAngles.y,0),180 * Time.deltaTime);
+                if(camara.transform.eulerAngles.x <= 30 || camara.transform.eulerAngles.x >= 340)
+                {
+                    camara.transform.Rotate(Vector3.right * -rotationinput.y);
+                }
+                if(camara.transform.eulerAngles.x > 30 && camara.transform.eulerAngles.x < 100)
+                {
+                    camara.transform.eulerAngles = new Vector3(30,camara.transform.eulerAngles.y,camara.transform.eulerAngles.z);
+                }
+                if(camara.transform.eulerAngles.x < 340 && camara.transform.eulerAngles.x > 100)
+                {
+                    camara.transform.eulerAngles = new Vector3(340,camara.transform.eulerAngles.y,camara.transform.eulerAngles.z);
+                }
+
+                camara.transform.localRotation = Quaternion.RotateTowards(camara.transform.localRotation,Quaternion.Euler(camara.transform.eulerAngles.x,camara.transform.eulerAngles.y,0),180 * Time.deltaTime);
                 //camara.transform.localRotation = Quaternion.Lerp(camara.transform.localRotation,Quaternion.Euler(-cameraverticalangle,,0),2.5f* Time.deltaTime);
                 //camara.transform.localRotation = Quaternion.RotateTowards(camara.transform.localRotation,Quaternion.Euler(-cameraverticalangle,cameraverticalangle2,0),180 * Time.deltaTime);
 
@@ -2589,7 +2599,15 @@ public class jugador1_al3: MonoBehaviour
 		{
             tienda = (tienda_al3)FindFirstObjectByType(typeof(tienda_al3));
 			tiendat = true;
+            if(manager.datosconfig.plat == 2)
+            {
+                tactil.SetActive(false);
+            }
             tiendag.SetActive(true);
+            if(manager.datosconfig.plat == 2)
+            {
+                tactil.SetActive(true);
+            }
             Cursor.visible = true;
         	Cursor.lockState = CursorLockMode.None;
 		}

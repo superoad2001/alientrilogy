@@ -19,9 +19,27 @@ public class presentacion2_al3: MonoBehaviour
     {
         temp = 300;
     }
+    private Controles controles;
+    public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     // Update is called once per frame
     void Update()
     {
+
+        if(controles.al3.pausa.ReadValue<float>() > 0)
+        {
+            temp = 300;
+        }
         manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         if(manager.datosconfig.idioma == "es")
         {

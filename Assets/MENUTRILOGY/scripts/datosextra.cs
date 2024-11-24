@@ -92,7 +92,7 @@ public class datosextra
     public int alien3primeramejoradevida;
     public int alien3primeraarma;
     public int alien3primeraarmadura;
-    public int alien3entraalmenuextras;
+    public int alien3deidad2;
     public int alien3entraalaguiadelpause;
     public int alien3entraaseleccionrapidaenelpause;
     public int alien3consiguetodaslaspaginas;

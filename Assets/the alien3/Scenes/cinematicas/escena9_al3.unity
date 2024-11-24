@@ -95,6 +95,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -161,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ddbca64ed7650449efb3194578f253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!82 &6119
 AudioSource:
   m_ObjectHideFlags: 0
@@ -172,6 +176,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: fdced5334812fbc48bdebf313bb236cb, type: 3}
+  m_Resource: {fileID: 8300000, guid: fdced5334812fbc48bdebf313bb236cb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -260,7 +265,7 @@ AudioSource:
 --- !u!104 &6137
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -289,8 +294,8 @@ RenderSettings:
 --- !u!157 &6593
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -313,9 +318,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 0
@@ -381,6 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917b465516839374ba08c92e1110147b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   trofeoact: 0
   jefen: 0
   cmenu: 0
@@ -422,6 +425,10 @@ MonoBehaviour:
   repath: 
   repathconfig: 
   datosserial:
+    enemigos_muertos: 0
+    muertes: 0
+    tfinal1: 0
+    tfinal2: 0
     idioma: 
     plat: 0
     inicio: 0
@@ -472,6 +479,7 @@ MonoBehaviour:
     marma13: 2
     marma14: 2
     marma15: 40
+    espacio0act: 0
     espacio2act: 0
     espacio3act: 0
     espacio4act: 0
@@ -499,9 +507,6 @@ MonoBehaviour:
     postpro: 0
     resoluciones: 0
     lastgame: 0
-    aplicarres: 0
-    resolh: 1280
-    resolv: 720
     master: -21
     masterslider: 0.5
     musica: -6
@@ -617,6 +622,7 @@ MonoBehaviour:
     alien3planeta16nave: 0
     alien3planeta17nave: 0
   repathtro: 
+  moevson: {fileID: 0}
 --- !u!1 &931457
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf64bab77dd62c4ca370ae37e5bd356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   temp: 0
   tiempo: 31
   escena: 9
@@ -709,9 +716,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 25258829}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 6.55
   m_Range: 96.51
@@ -761,8 +767,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &25258832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,6 +868,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -934,6 +947,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 80ddf494fc4d8b64db6e667463ece070, type: 3}
+  m_Resource: {fileID: 8300000, guid: 80ddf494fc4d8b64db6e667463ece070, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.476
   m_Pitch: 1
@@ -1106,6 +1120,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: fdced5334812fbc48bdebf313bb236cb, type: 3}
+  m_Resource: {fileID: 8300000, guid: fdced5334812fbc48bdebf313bb236cb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1291,6 +1306,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1782419080531085811, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7b24c5004ac3a104894bf914657d6ad9, type: 3}
+  m_Resource: {fileID: 8300000, guid: 7b24c5004ac3a104894bf914657d6ad9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1376,6 +1392,96 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &170319813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 170319814}
+  - component: {fileID: 170319817}
+  - component: {fileID: 170319816}
+  - component: {fileID: 170319815}
+  m_Layer: 5
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &170319814
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170319813}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1347214170}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -36, y: 0}
+  m_SizeDelta: {x: 30, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &170319815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170319813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Action: menu/saltar
+  _setNativeSize: 0
+--- !u!114 &170319816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170319813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 319705072, guid: 6f0300b0215a3074caa2df2f572f6955, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &170319817
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170319813}
+  m_CullTransparentMesh: 1
 --- !u!1 &185119394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1423,13 +1529,14 @@ Animation:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185119394}
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Animation: {fileID: 7400000, guid: 5409185318e2782448aabc3a1fc13a03, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 5409185318e2782448aabc3a1fc13a03, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
+  m_UpdateMode: 0
   m_CullingType: 0
 --- !u!1 &191889319
 GameObject:
@@ -1480,9 +1587,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191889319}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 1
-  m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.24
   m_Range: 10
@@ -1532,8 +1638,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!4 &191889322
 Transform:
   m_ObjectHideFlags: 0
@@ -1592,6 +1702,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 95aa01b98be35d04282eee508272e201, type: 3}
+  m_Resource: {fileID: 8300000, guid: 95aa01b98be35d04282eee508272e201, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.49
   m_Pitch: 1
@@ -1720,6 +1831,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8a69256112e2d4049a40b65c4d9f12fd, type: 3}
+  m_Resource: {fileID: 8300000, guid: 8a69256112e2d4049a40b65c4d9f12fd, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.199
   m_Pitch: 1
@@ -1805,6 +1917,85 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &293158832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 293158833}
+  - component: {fileID: 293158835}
+  - component: {fileID: 293158834}
+  m_Layer: 5
+  m_Name: Text (Legacy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &293158833
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293158832}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1347214170}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -29, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &293158834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293158832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 6402d2da4cb8f3f48b5ca8cf71969491, type: 3}
+    m_FontSize: 23
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: skip
+--- !u!222 &293158835
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293158832}
+  m_CullTransparentMesh: 1
 --- !u!1001 &303728306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1975,6 +2166,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1782419080531085811, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 393c0766af70f5f42a9c3c1bb53aa8ac, type: 3}
+  m_Resource: {fileID: 8300000, guid: 393c0766af70f5f42a9c3c1bb53aa8ac, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2089,6 +2281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917b465516839374ba08c92e1110147b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   trofeoact: 0
   jefen: 0
   cmenu: 0
@@ -2130,6 +2323,10 @@ MonoBehaviour:
   repath: 
   repathconfig: 
   datosserial:
+    enemigos_muertos: 0
+    muertes: 0
+    tfinal1: 0
+    tfinal2: 0
     idioma: 
     plat: 0
     inicio: 0
@@ -2180,6 +2377,7 @@ MonoBehaviour:
     marma13: 2
     marma14: 2
     marma15: 40
+    espacio0act: 0
     espacio2act: 0
     espacio3act: 0
     espacio4act: 0
@@ -2207,9 +2405,6 @@ MonoBehaviour:
     postpro: 0
     resoluciones: 0
     lastgame: 0
-    aplicarres: 0
-    resolh: 1280
-    resolv: 720
     master: -21
     masterslider: 0.5
     musica: -6
@@ -2325,6 +2520,7 @@ MonoBehaviour:
     alien3planeta16nave: 0
     alien3planeta17nave: 0
   repathtro: 
+  moevson: {fileID: 0}
 --- !u!4 &386569636
 Transform:
   m_ObjectHideFlags: 0
@@ -2383,6 +2579,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 685ce486d06e8894dbda5b8f9c7cbfba, type: 3}
+  m_Resource: {fileID: 8300000, guid: 685ce486d06e8894dbda5b8f9c7cbfba, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.61
   m_Pitch: 1
@@ -2468,6 +2665,108 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &508219622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 508219626}
+  - component: {fileID: 508219625}
+  - component: {fileID: 508219624}
+  - component: {fileID: 508219623}
+  m_Layer: 0
+  m_Name: Canvas (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &508219623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508219622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &508219624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508219622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &508219625
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508219622}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &508219626
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508219622}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1347214170}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &628499726
 GameObject:
   m_ObjectHideFlags: 0
@@ -2511,6 +2810,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1782419080531085811, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: e14f505430af41e4c943ce8d19a23fe8, type: 3}
+  m_Resource: {fileID: 8300000, guid: e14f505430af41e4c943ce8d19a23fe8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2668,6 +2968,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2775,6 +3078,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2882,6 +3188,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2987,6 +3296,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3061,9 +3373,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812042884}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 6.55
   m_Range: 96.51
@@ -3113,8 +3424,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &812042887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3175,6 +3490,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4124961095145688302, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7a4543c4397271440ba6364f6c89e5c7, type: 3}
+  m_Resource: {fileID: 8300000, guid: 7a4543c4397271440ba6364f6c89e5c7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.224
   m_Pitch: 1
@@ -3349,6 +3665,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3425,6 +3744,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5948a56a7fe9d8e4390c1ff8ce965817, type: 3}
+  m_Resource: {fileID: 8300000, guid: 5948a56a7fe9d8e4390c1ff8ce965817, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3589,9 +3909,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997611073}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 6.55
   m_Range: 96.51
@@ -3641,8 +3960,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &997611076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3709,6 +4032,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0c9223c03ec27ca459f54e3b0f5aafbf, type: 3}
+  m_Resource: {fileID: 8300000, guid: 0c9223c03ec27ca459f54e3b0f5aafbf, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.65
   m_Pitch: 1
@@ -3837,6 +4161,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 80baf055bb6bf604d8aa55cc07b8f23e, type: 3}
+  m_Resource: {fileID: 8300000, guid: 80baf055bb6bf604d8aa55cc07b8f23e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3973,6 +4298,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4123,7 +4451,7 @@ PrefabInstance:
       value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: -7823293702887809713, guid: 8eff89511b57a17489dde83d884ab34a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a9b99423a09a63f448b7b512fa5893bb, type: 2}
     - target: {fileID: -6063354155749413847, guid: 8eff89511b57a17489dde83d884ab34a, type: 3}
@@ -4247,11 +4575,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4396642182433536433, guid: 8eff89511b57a17489dde83d884ab34a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b83240e61eea8ce4798284b2ebc0dd1f, type: 2}
     - target: {fileID: -4008983296860226003, guid: 8eff89511b57a17489dde83d884ab34a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 232c57defc80dd84d8a67ba4bce580c7, type: 2}
     - target: {fileID: -3302972225415322985, guid: 8eff89511b57a17489dde83d884ab34a, type: 3}
@@ -4339,11 +4667,11 @@ PrefabInstance:
       value: Model
       objectReference: {fileID: 0}
     - target: {fileID: 1630794972795428178, guid: 8eff89511b57a17489dde83d884ab34a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 52aac8e7693ff8a4994b19085f6483d3, type: 2}
     - target: {fileID: 2321523695958950486, guid: 8eff89511b57a17489dde83d884ab34a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a9b99423a09a63f448b7b512fa5893bb, type: 2}
     - target: {fileID: 2838391200542782613, guid: 8eff89511b57a17489dde83d884ab34a, type: 3}
@@ -4538,6 +4866,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: e7244f1cc6cee0e49b0950ba46561087, type: 3}
+  m_Resource: {fileID: 8300000, guid: e7244f1cc6cee0e49b0950ba46561087, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4623,6 +4952,97 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1347214169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1347214170}
+  - component: {fileID: 1347214173}
+  - component: {fileID: 1347214172}
+  - component: {fileID: 1347214171}
+  m_Layer: 5
+  m_Name: Button (Legacy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1347214170
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347214169}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.25, y: 2.25, z: 2.25}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 170319814}
+  - {fileID: 293158833}
+  m_Father: {fileID: 508219626}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 977.5349, y: -456.30002}
+  m_SizeDelta: {x: 160, y: 51.2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1347214171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347214169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ControlPath: <Gamepad>/start
+--- !u!114 &1347214172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347214169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.015686275}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1347214173
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347214169}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1363035425
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4770,6 +5190,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4853,6 +5276,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4929,6 +5355,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 902e9904baf16c144aafc16d36211e60, type: 3}
+  m_Resource: {fileID: 8300000, guid: 902e9904baf16c144aafc16d36211e60, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.199
   m_Pitch: 1
@@ -5065,6 +5492,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5141,6 +5571,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5b0696ca275a1be449d21d11fb339eaf, type: 3}
+  m_Resource: {fileID: 8300000, guid: 5b0696ca275a1be449d21d11fb339eaf, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.612
   m_Pitch: 1
@@ -5298,6 +5729,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5577,6 +6011,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8e460dc69df36bb49b9d9e1e1f041ec3, type: 3}
+  m_Resource: {fileID: 8300000, guid: 8e460dc69df36bb49b9d9e1e1f041ec3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.204
   m_Pitch: 1
@@ -5736,6 +6171,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5812,6 +6250,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5abe8fecc24e07e4abf41a916eb95778, type: 3}
+  m_Resource: {fileID: 8300000, guid: 5abe8fecc24e07e4abf41a916eb95778, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -5906,7 +6345,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 185119395}
     m_Modifications:
     - target: {fileID: 8771024531137464166, guid: 76378fbbd811b184fb6419be3183a16f, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 978e13242c7258e46baf20917a2e7bb2, type: 2}
     - target: {fileID: 8771024531137466720, guid: 76378fbbd811b184fb6419be3183a16f, type: 3}
@@ -6121,9 +6560,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036914308}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 6.55
   m_Range: 96.51
@@ -6173,8 +6611,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &2036914311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6241,6 +6683,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 2a9f36c47556d62468ed9352cb7c7150, type: 3}
+  m_Resource: {fileID: 8300000, guid: 2a9f36c47556d62468ed9352cb7c7150, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.516
   m_Pitch: 1
@@ -6613,6 +7056,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6742,6 +7188,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6836,6 +7285,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -7271,6 +7723,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -7396,6 +7851,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -7490,6 +7948,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -7633,7 +8094,7 @@ GameObject:
   m_IsActive: 1
 --- !u!95 &5866666020809098766
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7647,6 +8108,7 @@ Animator:
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -7998,7 +8460,7 @@ CapsuleCollider:
   m_Center: {x: 0, y: 0.9954071, z: 0.21722412}
 --- !u!95 &7571553822760708401
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8012,6 +8474,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -8141,7 +8604,7 @@ GameObject:
   m_IsActive: 1
 --- !u!95 &7571553822819264123
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8155,6 +8618,7 @@ Animator:
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -8235,6 +8699,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -8613,6 +9080,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -8692,6 +9162,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9026,6 +9499,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9154,6 +9630,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9249,6 +9728,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9390,6 +9872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f9d4232b1e32d4ea0400d6d7464020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   enemigo: {fileID: 0}
 --- !u!23 &7571553824482864636
 MeshRenderer:
@@ -9408,6 +9891,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9510,6 +9996,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9624,6 +10113,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -10051,6 +10543,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 685ce486d06e8894dbda5b8f9c7cbfba, type: 3}
+  m_Resource: {fileID: 8300000, guid: 685ce486d06e8894dbda5b8f9c7cbfba, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.61
   m_Pitch: 1
@@ -10372,3 +10865,4 @@ SceneRoots:
   - {fileID: 1363035425}
   - {fileID: 1150881567}
   - {fileID: 191889322}
+  - {fileID: 508219626}
