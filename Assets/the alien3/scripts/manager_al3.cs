@@ -21,6 +21,8 @@ public class manager_al3: MonoBehaviour
 	public Text bloque5;
 	public Text bloque6;
 	public Text bloque7;
+	public Text mision;
+	public bool misionact;
 
 	public AudioSource audio;
 
@@ -281,7 +283,7 @@ public class manager_al3: MonoBehaviour
 		
 	}
 
-	private void Update()
+	public void Update()
 	{
 		manager_al2 manageral2 = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
@@ -659,6 +661,52 @@ public class manager_al3: MonoBehaviour
 				bloque1.text = "tu padre te a dejado "+manageral2.datosserial.monedas+" monedas";
 				bloque2.text = "recojer dinero de papa";
 				bloque3.text = "dejar dinero de papa";
+			}
+
+
+
+			if(misionact == true)
+			{
+				 if(menu == 0)
+				 {
+					mision.text = "mision: rompe la pared roja con tu arma mele";
+				 }
+				 if(menu == 0 && datosserial.tarma[0] == 1)
+				 {
+					mision.text = "mision: sube la rampa y dispara a la pared roja para que caiga el puente y sigue hasta llegar a la nave";
+				 }
+
+
+
+
+				 if(datosserial.gemas < 5)
+				 {
+					mision.text = "consigue 5 gemas para desbloquear el portal en el cometa 2274";
+				 }
+				 if(datosserial.gemas >= 5)
+				 {
+					mision.text = "ve al portal del cometa 2274 para buscar pistas sobre tu padre";
+				 }
+				 if(datosserial.espacio2act == 1)
+				 {
+					mision.text = "ve al espacio y inicia el transito a la galaxia 24039";
+				 }
+
+
+
+
+				 if(datosserial.espacio2act == 2 && datosserial.gemas < 12)
+				 {
+					mision.text = "consigue 12 gemas para desbloquear el portal en orotopia";
+				 }
+				 if(datosserial.espacio2act == 2 && datosserial.gemas >= 12)
+				 {
+					mision.text = "ve al portal en orotopia para seguir el rastro del encorbado";
+				 }
+				 if(datosserial.espacio3act == 1 && datosserial.gemas >= 12)
+				 {
+					mision.text = "ve al espacio y inicia el transito a la galaxia 30099";
+				 }
 			}
 		}
 		if(datosconfig.idioma == "en")
