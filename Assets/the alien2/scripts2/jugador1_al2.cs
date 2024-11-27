@@ -3479,11 +3479,11 @@ public class jugador1_al2 : MonoBehaviour
 			}
 			if (lverticalc > 0f )
 			{
-				base.transform.Rotate(Vector3.right, Time.deltaTime * 50f);
+				base.transform.Rotate(Vector3.right, Time.deltaTime * -50f);
 			}
 			if (lverticalc < 0f )
 			{
-				base.transform.Rotate(Vector3.left, Time.deltaTime * 50f);
+				base.transform.Rotate(Vector3.left, Time.deltaTime * -50f);
 			}
 			if (jumpc > 0f)
 			{

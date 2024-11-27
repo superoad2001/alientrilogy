@@ -482,11 +482,11 @@ public class jugador_al1 : MonoBehaviour
 			}
 			if (lverticalc > 0f )
 			{
-				base.transform.Rotate(Vector3.right, Time.deltaTime * 50f);
+				base.transform.Rotate(Vector3.right, Time.deltaTime * -50f);
 			}
 			if (lverticalc < 0f )
 			{
-				base.transform.Rotate(Vector3.left, Time.deltaTime * 50f);
+				base.transform.Rotate(Vector3.left, Time.deltaTime * -50f);
 			}
 			if (jumpc > 0f )
 			{
@@ -933,7 +933,7 @@ public class jugador_al1 : MonoBehaviour
 			fij = Quaternion.Euler(transform.rotation.eulerAngles.x,transform.rotation.eulerAngles.y + 180f,transform.rotation.eulerAngles.z);
 			
 		}
-		if (col.gameObject.tag == "suelo" || col.gameObject.tag == "ascensor")
+		if (col.gameObject.tag == "suelo"  && manager.juego != 1 || col.gameObject.tag == "ascensor" && manager.juego != 1)
 		{
 			jumpforce = jumpforcebase;
 			if(tiempovelint > 2)
@@ -959,9 +959,9 @@ public class jugador_al1 : MonoBehaviour
 		{
 			muertes.Play();
 		}
-		if (col.gameObject.tag == "suelo"  )
+		if (col.gameObject.tag == "gas"  && manager.juego == 1)
 		{
-			
+			SceneManager.LoadScene("mundoc2_al1");
 		}
 	}
 
@@ -978,6 +978,7 @@ public class jugador_al1 : MonoBehaviour
 		if (col.gameObject.tag == "ascensor" && manager.juego == 4)
 		{
 			tut10.SetActive(true);
+			this.ascensor = true;
 		}
 		if (col.gameObject.tag == "suelo")
 		{
@@ -985,7 +986,7 @@ public class jugador_al1 : MonoBehaviour
 			{suelo = true;}
 		
 		}
-		if (col.gameObject.tag == "suelo" || col.gameObject.tag == "ascensor")
+		if (col.gameObject.tag == "suelo"  && manager.juego != 1 || col.gameObject.tag == "ascensor"  && manager.juego != 1)
 		{
 			anim.SetBool("salto",false);
 			if(manager.juego == 0|| manager.juego == 3 || manager.juego == 4)
@@ -1023,7 +1024,7 @@ public class jugador_al1 : MonoBehaviour
 			this.ascensor = false;
 			anim.SetBool("salto",true);
 		}
-		if (col.gameObject.tag == "suelo")
+		if (col.gameObject.tag == "suelo"  && manager.juego != 1)
 		{
 			suelo = false;
 			anim.SetBool("salto",true);

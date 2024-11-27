@@ -14,12 +14,12 @@ public class datosconfig
     public int resoluciones;
     public int lastgame = 1;
 
-    public float master = -21;
+    public float master = -7;
     public float masterslider = 0.5f;
 
-    public float musica = -6;
+    public float musica = 14;
     public float musicaslider = 0.5f;
-    public float sfx = 9;
+    public float sfx = 10;
     public float sfxslider = 3f;
 
     public float voz = 14;

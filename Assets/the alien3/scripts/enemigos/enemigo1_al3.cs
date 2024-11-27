@@ -186,6 +186,18 @@ public class enemigo1_al3: MonoBehaviour
                 }
             transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-3),vel * Time.deltaTime);
             Vector3 direction = objetivo1.position - transform.position;
+            if (anim.GetCurrentAnimatorStateInfo(1).IsName("atk"))
+            {
+                
+            }
+            else if(transform.position.z != objetivo.transform.position.z+ -3)
+            {
+                anim.SetFloat("vely",1);
+            }
+            else
+            {
+                anim.SetFloat("vely",0);
+            }
             rotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
             temp += 1 * Time.deltaTime;
@@ -208,6 +220,18 @@ public class enemigo1_al3: MonoBehaviour
                         temp = 0;
             }
             transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-15),vel * Time.deltaTime);
+            if (anim.GetCurrentAnimatorStateInfo(1).IsName("atk"))
+            {
+                
+            }
+            else if(transform.position.z != objetivo.transform.position.z+ -15)
+            {
+                anim.SetFloat("vely",1);
+            }
+            else
+            {
+                anim.SetFloat("vely",0);
+            }
             Vector3 direction = objetivo1.position - transform.position;
             rotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
@@ -217,7 +241,7 @@ public class enemigo1_al3: MonoBehaviour
         {
             if(enemigo3 == 1)
             {
-                if(temp > 3f)
+            if(temp > 3f)
             {
                 if(gigante == false)
                 {anim.SetBool("atk",true);}
@@ -230,6 +254,18 @@ public class enemigo1_al3: MonoBehaviour
                 anim.SetBool("atkg",false);
                 }
                 transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-3),vel * Time.deltaTime);
+                if (anim.GetCurrentAnimatorStateInfo(1).IsName("atk"))
+            {
+                
+            }
+            else if(transform.position.z != objetivo.transform.position.z+ -3)
+                {
+                    anim.SetFloat("vely",1);
+                }
+                else
+                {
+                    anim.SetFloat("vely",0);
+                }
                 Vector3 direction = objetivo1.position - transform.position;
                 rotation = Quaternion.LookRotation(direction);
                 transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
@@ -254,6 +290,18 @@ public class enemigo1_al3: MonoBehaviour
                 }
                 transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-15),vel * Time.deltaTime);
                 Vector3 direction = objetivo1.position - transform.position;
+                if (anim.GetCurrentAnimatorStateInfo(1).IsName("atk"))
+            {
+                
+            }
+            else if(transform.position.z != objetivo.transform.position.z+ -15)
+                {
+                    anim.SetFloat("vely",1);
+                }
+                else
+                {
+                    anim.SetFloat("vely",0);
+                }
                 rotation = Quaternion.LookRotation(direction);
                 transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
                 temp += 1 * Time.deltaTime;
@@ -286,6 +334,18 @@ public class enemigo1_al3: MonoBehaviour
                 }
                 transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-3),vel * Time.deltaTime);
                 Vector3 direction = objetivo1.position - transform.position;
+                if (anim.GetCurrentAnimatorStateInfo(1).IsName("atk"))
+            {
+                
+            }
+            else if(transform.position.z != objetivo.transform.position.z+ -3)
+                {
+                    anim.SetFloat("vely",1);
+                }
+                else
+                {
+                    anim.SetFloat("vely",0);
+                }
                 rotation = Quaternion.LookRotation(direction);
                 transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
                 temp += 1 * Time.deltaTime;
@@ -309,8 +369,20 @@ public class enemigo1_al3: MonoBehaviour
                 anim.SetBool("arma4",false);
                 anim.SetBool("atkg",false);
                 }
-                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position,vel * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-3),vel * Time.deltaTime);
                 Vector3 direction = objetivo1.position - transform.position;
+            if (anim.GetCurrentAnimatorStateInfo(1).IsName("atk"))
+            {
+                
+            }
+            else if(transform.position.z != objetivo.transform.position.z+ -3)
+            {
+                anim.SetFloat("vely",1);
+            }
+            else
+            {
+                anim.SetFloat("vely",0);
+            }
                 rotation = Quaternion.LookRotation(direction);
                 transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
                 temp += 1 * Time.deltaTime;
@@ -449,6 +521,18 @@ public class enemigo1_al3: MonoBehaviour
                 }
                 transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivo.transform.position.x,transform.position.y,objetivo.transform.position.z) + new Vector3(0,0,-5),vel * Time.deltaTime);
                 Vector3 direction = objetivo1.position - transform.position;
+                if (anim.GetCurrentAnimatorStateInfo(1).IsName("atk"))
+                {
+                    
+                }
+                else if(transform.position.z != objetivo.transform.position.z + -5)
+                {
+                    anim.SetFloat("vely",1);
+                }
+                else
+                {
+                    anim.SetFloat("vely",0);
+                }
                 rotation = Quaternion.LookRotation(direction);
                 transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
                 temp += 1 * Time.deltaTime;
@@ -529,6 +613,18 @@ public class enemigo1_al3: MonoBehaviour
                 }
                 transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position+ new Vector3(0,0,-3),vel * Time.deltaTime);
                 Vector3 direction = objetivo1.position - transform.position;
+                if (anim.GetCurrentAnimatorStateInfo(1).IsName("atk"))
+                {
+                    
+                }
+                else if(transform.position.z != objetivo.transform.position.z + -3)
+                {
+                    anim.SetFloat("vely",1);
+                }
+                else
+                {
+                    anim.SetFloat("vely",0);
+                }
                 rotation = Quaternion.LookRotation(direction);
                 transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
                 temp += 1 * Time.deltaTime;
@@ -552,8 +648,20 @@ public class enemigo1_al3: MonoBehaviour
                 anim.SetBool("arma4",false);
                 anim.SetBool("atkg",false);
                 }
-                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position,vel * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position+ new Vector3(0,0,0),vel * Time.deltaTime);
                 Vector3 direction = objetivo1.position - transform.position;
+                if (anim.GetCurrentAnimatorStateInfo(1).IsName("atk"))
+                {
+                    
+                }
+                else if(transform.position.z != objetivo.transform.position.z)
+                {
+                    anim.SetFloat("vely",1);
+                }
+                else
+                {
+                    anim.SetFloat("vely",0);
+                }
                 rotation = Quaternion.LookRotation(direction);
                 transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
                 temp += 1 * Time.deltaTime;
@@ -575,8 +683,20 @@ public class enemigo1_al3: MonoBehaviour
             else{
                 anim.SetBool("encatk1",false);
                 }
-                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position,vel * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position+ new Vector3(0,0,0),vel * Time.deltaTime);
                 Vector3 direction = objetivo1.position - transform.position;
+                if (anim.GetCurrentAnimatorStateInfo(1).IsName("atk"))
+                {
+                    
+                }
+                else if(transform.position.z != objetivo.transform.position.z)
+                {
+                    anim.SetFloat("vely",1);
+                }
+                else
+                {
+                    anim.SetFloat("vely",0);
+                }
                 rotation = Quaternion.LookRotation(direction);
                 transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
                 temp += 1 * Time.deltaTime;
@@ -602,7 +722,7 @@ public class enemigo1_al3: MonoBehaviour
                     Destroy(enemigotemp3, 45f);
                     temp = 0;
                 }
-                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position,vel * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position+ new Vector3(0,0,0),vel * Time.deltaTime);
                 Vector3 direction = objetivo1.position - transform.position;
                 rotation = Quaternion.LookRotation(direction);
                 transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
@@ -632,6 +752,18 @@ public class enemigo1_al3: MonoBehaviour
                 }
                 transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivo.transform.position.x,transform.position.y,objetivo.transform.position.z) + new Vector3(0,0,-5),vel * Time.deltaTime);
                 Vector3 direction = objetivo1.position - transform.position;
+                if (anim.GetCurrentAnimatorStateInfo(1).IsName("atk"))
+                {
+                    
+                }
+                else if(transform.position.z != objetivo.transform.position.z)
+                {
+                    anim.SetFloat("vely",1);
+                }
+                else
+                {
+                    anim.SetFloat("vely",0);
+                }
                 rotation = Quaternion.LookRotation(direction);
                 transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
                 temp += 1 * Time.deltaTime;

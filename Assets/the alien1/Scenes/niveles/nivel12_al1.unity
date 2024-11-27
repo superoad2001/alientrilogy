@@ -1145,23 +1145,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &62
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 161}
-  - component: {fileID: 527}
-  m_Layer: 0
-  m_Name: giro
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &63
 GameObject:
   m_ObjectHideFlags: 0
@@ -2877,21 +2860,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &161
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 112.4, z: -1464.3}
-  m_LocalScale: {x: 0, y: 45, z: 90}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 194}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &162
 Transform:
   m_ObjectHideFlags: 0
@@ -3388,7 +3356,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 171}
-  - {fileID: 161}
   m_Father: {fileID: 136}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &196
@@ -12818,7 +12785,7 @@ MonoBehaviour:
   velocidadaux: 0
   rotacion1: {x: 0, y: 0, z: 0, w: 1}
   punto: {x: 0, y: 0, z: 0}
-  giro: {fileID: 62}
+  giro: {fileID: 0}
   dimensiion: 0
   tiempogiro: 0
   tiempogiro2: 0
@@ -13578,7 +13545,7 @@ MonoBehaviour:
     alien3primeramejoradevida: 0
     alien3primeraarma: 0
     alien3primeraarmadura: 0
-    alien3entraalmenuextras: 0
+    alien3deidad2: 0
     alien3entraalaguiadelpause: 0
     alien3entraaseleccionrapidaenelpause: 0
     alien3consiguetodaslaspaginas: 0
@@ -13623,21 +13590,6 @@ MonoBehaviour:
   cuentamonedas: {fileID: 0}
   cuentafrag: {fileID: 0}
   piso: 0
---- !u!114 &527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19aaf0e2bd4260949a07e367a553a3e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  velocidadr: 300
-  distancia: {x: 0, y: 0, z: 0}
 --- !u!114 &528
 MonoBehaviour:
   m_ObjectHideFlags: 0

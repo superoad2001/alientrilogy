@@ -2287,6 +2287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawn: {fileID: 0}
   audio1: {fileID: 0}
+  velcorr: 12
   controlact: 1
   temppaso: 1
   rotspeed: 180
@@ -2296,6 +2297,7 @@ MonoBehaviour:
   rotationinput: {x: 0, y: 0, z: 0}
   speed: 3
   suelo: 0
+  velact: 0
   tut10: {fileID: 0}
   girovalor: 0
   mod: {fileID: 301989093}
@@ -2315,6 +2317,8 @@ MonoBehaviour:
   pausac: 0
   pasotiempo: 0
   tempgir: 0
+  muertes: {fileID: 0}
+  muertesjug: {fileID: 0}
   manager: {fileID: 0}
   tiempoascensor: 0
   bajar: 0
@@ -2355,6 +2359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bbff1bd4c5c56448f4ab8f67e2e36b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2529,6 +2534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a80d181ba660844af54399509bd4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   trofeoact: 0
   tempshow: 0
   nivel: 0
@@ -2575,6 +2581,9 @@ MonoBehaviour:
   datosserial:
     plat: 0
     idioma: 
+    muertes: 0
+    asesinatos: 0
+    salasecreta: 0
     gemas: 0
     gemaN1: 0
     gemaN2: 0
@@ -2684,9 +2693,6 @@ MonoBehaviour:
     postpro: 0
     resoluciones: 0
     lastgame: 0
-    aplicarres: 0
-    resolh: 1280
-    resolv: 720
     master: -21
     masterslider: 0.5
     musica: -6
@@ -2773,7 +2779,7 @@ MonoBehaviour:
     alien3primeramejoradevida: 0
     alien3primeraarma: 0
     alien3primeraarmadura: 0
-    alien3entraalmenuextras: 0
+    alien3deidad2: 0
     alien3entraalaguiadelpause: 0
     alien3entraaseleccionrapidaenelpause: 0
     alien3consiguetodaslaspaginas: 0
@@ -2802,6 +2808,7 @@ MonoBehaviour:
     alien3planeta16nave: 0
     alien3planeta17nave: 0
   repathtro: 
+  moveson: {fileID: 0}
   mundos: 0
   jugador1: {fileID: 29}
   jefe1: {fileID: 0}
@@ -4373,6 +4380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b82ff17fa1a7b2418c20abc43fbc396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   audio: {fileID: 0}
   audioesp: {fileID: 1990365020}
   audioen: {fileID: 971369670}
@@ -5197,10 +5205,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 153}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 388, y: 211.77008}
-  m_SizeDelta: {x: 515.2, y: 121.4}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -61, y: -27}
+  m_SizeDelta: {x: 515.2, y: 121.399994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1117532336
 MonoBehaviour:
@@ -5705,6 +5713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8be213a82cc044418f429eaa90d06f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   rotspeed: 180
   rotationinput: {x: 0, y: 0, z: 0}
   player: {fileID: 29}
@@ -6692,7 +6701,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 3b83e2fca98816b4fb4ceeef01f0316d, type: 3}
   m_Resource: {fileID: 8300000, guid: 3b83e2fca98816b4fb4ceeef01f0316d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.176
   m_Pitch: 1
   Loop: 0
   Mute: 0

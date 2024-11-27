@@ -209,6 +209,8 @@ public class jugador1_al3: MonoBehaviour
         }
         if(manager.juego != 4)
         {vida = manager.datosserial.vidamaxima;}
+        _rb.constraints = RigidbodyConstraints.None;
+        _rb.constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
          
         
     }
@@ -2336,11 +2338,11 @@ public class jugador1_al3: MonoBehaviour
 			}
 			if (lverticalc > 0f )
 			{
-				base.transform.Rotate(Vector3.right, Time.deltaTime * 50f);
+				base.transform.Rotate(Vector3.right, Time.deltaTime * -50f);
 			}
 			if (lverticalc < 0f )
 			{
-				base.transform.Rotate(Vector3.left, Time.deltaTime * 50f);
+				base.transform.Rotate(Vector3.left, Time.deltaTime * -50f);
 			}
 			if (jumpc > 0f)
 			{

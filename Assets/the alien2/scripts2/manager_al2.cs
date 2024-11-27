@@ -1414,6 +1414,7 @@ public class manager_al2 : MonoBehaviour
 			if(menu == 1)
 			{
 				boton1.text = "presenta";
+				boton2.text = "saltar";
 			}
 			if(menu == 2)
 			{
@@ -1423,7 +1424,7 @@ public class manager_al2 : MonoBehaviour
 			}
 			if(menu == 3)
 			{
-				//boton1.text = "saltar";
+				boton1.text = "saltar";
 			}
 			if(menu == 4)
 			{
@@ -1854,6 +1855,7 @@ public class manager_al2 : MonoBehaviour
 			if(menu == 1)
 			{
 				boton1.text = "presents";
+				boton2.text = "skip";
 			}
 			if(menu == 2)
 			{
@@ -1863,7 +1865,7 @@ public class manager_al2 : MonoBehaviour
 			}
 			if(menu == 3)
 			{
-				//boton1.text = "skip";
+				boton1.text = "skip";
 			}
 			if(menu == 4)
 			{
@@ -2294,6 +2296,7 @@ public class manager_al2 : MonoBehaviour
 			if(menu == 1)
 			{
 				boton1.text = "presenta";
+				boton2.text = "salta";
 			}
 			if(menu == 2)
 			{
@@ -2303,7 +2306,7 @@ public class manager_al2 : MonoBehaviour
 			}
 			if(menu == 3)
 			{
-				//boton1.text = "salta";
+				boton1.text = "salta";
 			}
 			if(menu == 4)
 			{

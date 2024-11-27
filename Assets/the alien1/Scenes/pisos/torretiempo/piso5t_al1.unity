@@ -1766,6 +1766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawn: {fileID: 0}
   audio1: {fileID: 0}
+  velcorr: 12
   controlact: 1
   temppaso: 1
   rotspeed: 3
@@ -1775,6 +1776,7 @@ MonoBehaviour:
   rotationinput: {x: 0, y: 0, z: 0}
   speed: 3
   suelo: 0
+  velact: 0
   tut10: {fileID: 0}
   girovalor: 0
   mod: {fileID: 0}
@@ -1794,6 +1796,8 @@ MonoBehaviour:
   pausac: 0
   pasotiempo: 0
   tempgir: 0
+  muertes: {fileID: 0}
+  muertesjug: {fileID: 0}
   manager: {fileID: 0}
   tiempoascensor: 0
   bajar: 0
@@ -1834,6 +1838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a80d181ba660844af54399509bd4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   trofeoact: 0
   tempshow: 0
   nivel: 0
@@ -1880,6 +1885,9 @@ MonoBehaviour:
   datosserial:
     plat: 0
     idioma: 
+    muertes: 0
+    asesinatos: 0
+    salasecreta: 0
     gemas: 0
     gemaN1: 0
     gemaN2: 0
@@ -1989,9 +1997,6 @@ MonoBehaviour:
     postpro: 0
     resoluciones: 0
     lastgame: 0
-    aplicarres: 0
-    resolh: 1280
-    resolv: 720
     master: -21
     masterslider: 0.5
     musica: -6
@@ -2078,7 +2083,7 @@ MonoBehaviour:
     alien3primeramejoradevida: 0
     alien3primeraarma: 0
     alien3primeraarmadura: 0
-    alien3entraalmenuextras: 0
+    alien3deidad2: 0
     alien3entraalaguiadelpause: 0
     alien3entraaseleccionrapidaenelpause: 0
     alien3consiguetodaslaspaginas: 0
@@ -2107,6 +2112,7 @@ MonoBehaviour:
     alien3planeta16nave: 0
     alien3planeta17nave: 0
   repathtro: 
+  moveson: {fileID: 0}
   mundos: 0
   jugador1: {fileID: 23}
   jefe1: {fileID: 0}
@@ -2373,6 +2379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4b30208ed0e434fb1a7db0361bb52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &20358554
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2448,6 +2455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386a476e6cee7054f8a3ceec564f6375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &32853655
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2657,9 +2665,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 379224317}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -317, y: -225}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 114, y: 17}
   m_SizeDelta: {x: 515.2, y: 121.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &81766888
@@ -2843,9 +2851,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 379224317}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -561, y: 41}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 301, y: 41}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &89231141
@@ -3035,6 +3043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8fb10081513db6468282ac59402e183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &205019543
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3716,10 +3725,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 379224317}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 823, y: -50}
-  m_SizeDelta: {x: 457.4, y: 79.79999}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -39, y: -50}
+  m_SizeDelta: {x: 457.40002, y: 79.79999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &358632605
 MonoBehaviour:
@@ -3810,6 +3819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52997426004d7b04c9d598b66e72208f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &359726247
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4177,6 +4187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399a713f1bab15340803b3fc6b802d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &412106611
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4775,6 +4786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e860389f24274e1409024bfbf793f565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &516347274
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4850,6 +4862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ca80e731d974c45924430f22ba255c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &530459058
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4925,6 +4938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42cc40abfc0ac7f4ca97c12680c5b1ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &547569469
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5036,6 +5050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386a476e6cee7054f8a3ceec564f6375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &568262424
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5343,6 +5358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f291c889e71454091e4607bc5b29f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &649456196
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5710,10 +5726,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 379224317}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 371, y: 221}
-  m_SizeDelta: {x: 515.2, y: 121.4}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -60, y: -21}
+  m_SizeDelta: {x: 515.2, y: 121.399994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &756906810
 MonoBehaviour:
@@ -5974,9 +5990,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 379224317}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -260, y: 19}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 171, y: 19}
   m_SizeDelta: {x: 289.89, y: 53.449997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &859265416
@@ -6146,6 +6162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52997426004d7b04c9d598b66e72208f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &952082505
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6996,6 +7013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cacee260268f2940b3f98ba5666cf0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &1232002832
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7476,6 +7494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4b30208ed0e434fb1a7db0361bb52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &1334618335
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7615,6 +7634,9 @@ MonoBehaviour:
   datosserial:
     plat: 0
     idioma: 
+    muertes: 0
+    asesinatos: 0
+    salasecreta: 0
     gemas: 0
     gemaN1: 0
     gemaN2: 0
@@ -7717,6 +7739,7 @@ MonoBehaviour:
     recordnv13: 888
     recordnv14: 888
     recordnv15: 888
+  manager: {fileID: 0}
 --- !u!1 &1430196541
 GameObject:
   m_ObjectHideFlags: 0
@@ -8189,6 +8212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38485fb6bea28184caa2132ee4a13a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
 --- !u!1001 &1597227736
 PrefabInstance:
@@ -8892,6 +8916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8fb10081513db6468282ac59402e183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &1688653402
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9322,6 +9347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98293e0bc95bab44c9c83d422c86226f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &1769767957
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9900,8 +9926,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eace10083ded624787fb4b0ce1551e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 0}
   manager: {fileID: 0}
+  audio: {fileID: 0}
   jugador: {fileID: 0}
   velocidadmaxima: 20
 --- !u!136 &1913123524
@@ -10766,6 +10792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16cd3ac9033f0f4a8c22712e6899051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &2103736421
 BoxCollider:
   m_ObjectHideFlags: 0

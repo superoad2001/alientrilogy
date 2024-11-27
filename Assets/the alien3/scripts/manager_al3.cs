@@ -591,7 +591,7 @@ public class manager_al3: MonoBehaviour
 			}
 			if(jefen == 4)
 			{
-				jefetitulo.text = "la oscuridad";
+				jefetitulo.text = "la deidad";
 			}
 			if(jefen == 5)
 			{
@@ -599,7 +599,7 @@ public class manager_al3: MonoBehaviour
 			}
 			if(jefen == 6)
 			{
-				jefetitulo.text = "la oscuridad";
+				jefetitulo.text = "reminiscencia de la deidad";
 			}
 			if(jefen == 7)
 			{
@@ -620,6 +620,10 @@ public class manager_al3: MonoBehaviour
 			if(jefen == 11)
 			{
 				jefetitulo.text = "el encorbado supremo";
+			}
+			if(jefen == 12)
+			{
+				jefetitulo.text = "engendro";
 			}
 			if(cmenu == 1)
 			{
@@ -654,7 +658,7 @@ public class manager_al3: MonoBehaviour
 			}
 			if(cmenu == 6)
 			{
-				//bloque1.text = "saltar";
+				bloque1.text = "saltar";
 			}
 			if(cmenu == 7)
 			{
@@ -662,51 +666,110 @@ public class manager_al3: MonoBehaviour
 				bloque2.text = "recojer dinero de papa";
 				bloque3.text = "dejar dinero de papa";
 			}
+			if(cmenu == 8)
+			{
+				bloque1.text = "presenta";
+				bloque2.text = "saltar";
+			}
 
 
 
 			if(misionact == true)
 			{
-				 if(menu == 0)
+				 if(menu == 0 && nivel == 0)
 				 {
 					mision.text = "mision: rompe la pared roja con tu arma mele";
 				 }
-				 if(menu == 0 && datosserial.tarma[0] == 1)
+				 if(menu == 0 && datosserial.tarma[0] == 1 && nivel == 0)
 				 {
 					mision.text = "mision: sube la rampa y dispara a la pared roja para que caiga el puente y sigue hasta llegar a la nave";
 				 }
 
 
-
+				//zona1
 
 				 if(datosserial.gemas < 5)
 				 {
-					mision.text = "consigue 5 gemas para desbloquear el portal en el cometa 2274";
+					mision.text = "mision: consigue 5 gemas para desbloquear el portal en el cometa 2274";
 				 }
 				 if(datosserial.gemas >= 5)
 				 {
-					mision.text = "ve al portal del cometa 2274 para buscar pistas sobre tu padre";
+					mision.text = "mision: ve al portal del cometa 2274 para buscar pistas sobre tu padre";
 				 }
 				 if(datosserial.espacio2act == 1)
 				 {
-					mision.text = "ve al espacio y inicia el transito a la galaxia 24039";
+					mision.text = "mision: ve al espacio y inicia el transito a la galaxia 24039";
 				 }
 
 
 
-
+				//zona2
 				 if(datosserial.espacio2act == 2 && datosserial.gemas < 12)
 				 {
-					mision.text = "consigue 12 gemas para desbloquear el portal en orotopia";
+					mision.text = "mision: consigue 12 gemas para desbloquear el portal en orotopia";
 				 }
 				 if(datosserial.espacio2act == 2 && datosserial.gemas >= 12)
 				 {
-					mision.text = "ve al portal en orotopia para seguir el rastro del encorbado";
+					mision.text = "mision: ve al portal en orotopia para seguir el rastro del encorbado";
 				 }
 				 if(datosserial.espacio3act == 1 && datosserial.gemas >= 12)
 				 {
-					mision.text = "ve al espacio y inicia el transito a la galaxia 30099";
+					mision.text = "mision: ve al espacio y inicia el transito a la galaxia 30099";
 				 }
+				 //zona3
+				 if(datosserial.espacio3act == 2 && datosserial.gemas < 21)
+				 {
+					mision.text = "mision: consigue 21 gemas para desbloquear el portal en asteroide 7248";
+				 }
+				 if(datosserial.espacio3act == 2 && datosserial.gemas >= 21)
+				 {
+					mision.text = "mision: ve al portal en asteroide 7248 el encorbado te esta esperando";
+				 }
+				 if(datosserial.espacio4act == 1 && datosserial.gemas >= 21)
+				 {
+					mision.text = "mision: ve al espacio y inicia el transito a la galaxia 45638";
+				 }
+				//zona4
+				 if(datosserial.espacio4act == 2 && datosserial.gemas < 39)
+				 {
+					mision.text = "mision: consigue 39 gemas para desbloquear el portal en planeta x";
+				 }
+				 if(datosserial.espacio4act == 2 && datosserial.gemas >= 39)
+				 {
+					mision.text = "mision: ve al portal en planeta x y destruie a la deidad para detener al encorbado";
+				 }
+				 if(datosserial.espacio5act == 1 && datosserial.gemas >= 39)
+				 {
+					mision.text = "mision: ve al espacio y inicia el transito a la galaxia X??59";
+				 }
+				 //zona5
+				 if(datosserial.espacio5act == 2 && datosserial.gemas < 70)
+				 {
+					mision.text = "mision: consigue 70 gemas para desbloquear el portal en viejo hogar";
+				 }
+				 if(datosserial.espacio5act == 2 && datosserial.gemas >= 70)
+				 {
+					mision.text = "mision: ve al portal en viejo hogar y destruye al encorbado";
+				 }
+				 if(datosserial.espacio0act == 0 && datosserial.gemas >= 70 && datosserial.tfinal1 == true)
+				 {
+					mision.text = "mision: ve al espacio y inicia el transito al final del universo";
+				 }
+					
+				 //zona6
+				 if(datosserial.espacio0act == 1 && datosserial.gemas < 100 && datosserial.tfinal1 == true)
+				 {
+					mision.text = "mision: consigue 100 gemas para desbloquear el portal en mundo final";
+				 }
+				 if(datosserial.espacio0act == 1 && datosserial.gemas >= 100 && datosserial.tfinal1 == true)
+				 {
+					mision.text = "mision: ve al portal en mundo final y destruie al remanente de la deidad";
+				 }
+				 if(datosserial.espacio0act == 1 && datosserial.gemas >= 100 && datosserial.tfinal1 == true && datosserial.tfinal2 == true)
+				 {
+					mision.text = "mision: si te a quedado alguna cosa puedes buscarla";
+				 }
+					
 			}
 		}
 		if(datosconfig.idioma == "en")
@@ -725,15 +788,15 @@ public class manager_al3: MonoBehaviour
 			}
 			if(jefen == 4)
 			{
-				jefetitulo.text = "la oscuridad";
+				jefetitulo.text = "the entity";
 			}
 			if(jefen == 5)
 			{
-				jefetitulo.text = "the darkness";
+				jefetitulo.text = "the stooped";
 			}
 			if(jefen == 6)
 			{
-				jefetitulo.text = "the darkness";
+				jefetitulo.text = "remiscence of the entity";
 			}
 			if(jefen == 7)
 			{
@@ -753,7 +816,11 @@ public class manager_al3: MonoBehaviour
 			}
 			if(jefen == 11)
 			{
-				jefetitulo.text = "the supremo stooped";
+				jefetitulo.text = "the suprem stooped";
+			}
+			if(jefen == 12)
+			{
+				jefetitulo.text = "dark mirror";
 			}
 			if(cmenu == 1)
 			{
@@ -788,13 +855,115 @@ public class manager_al3: MonoBehaviour
 			}
 			if(cmenu == 6)
 			{
-				//bloque1.text = "skip";
+				bloque1.text = "skip";
 			}
 			if(cmenu == 7)
 			{
 				bloque1.text = "your father has left you "+manageral2.datosserial.monedas+ " coins";
 				bloque2.text = "take daddy's money";
 				bloque3.text = "don't take daddy's money";
+			}
+			if(cmenu == 8)
+			{
+				bloque1.text = "present";
+				bloque2.text = "skip";
+			}
+			if(misionact == true)
+			{
+				 if(menu == 0 && nivel == 0)
+				 {
+					mision.text = "Mission: Break the red wall with your melee weapon";
+				 }
+				 if(menu == 0 && datosserial.tarma[0] == 1 && nivel == 0)
+				 {
+					mision.text = "Mission: Go up the ramp and shoot the red wall to make the bridge fall and continue until you reach the ship";
+				 }
+
+
+				//zona1
+
+				 if(datosserial.gemas < 5)
+				 {
+					mision.text = "Mission: Get 5 gems to unlock the portal on cometa 2274";
+				 }
+				 if(datosserial.gemas >= 5)
+				 {
+					mision.text = "Mission: Go to the portal of cometa 2274 to search for clues about your father";
+				 }
+				 if(datosserial.espacio2act == 1)
+				 {
+					mision.text = "Mission: Go to space and begin transit to galaxy 24039";
+				 }
+
+
+
+				//zona2
+				 if(datosserial.espacio2act == 2 && datosserial.gemas < 12)
+				 {
+					mision.text = "Mission: Get 12 gems to unlock the portal in Orotopia";
+				 }
+				 if(datosserial.espacio2act == 2 && datosserial.gemas >= 12)
+				 {
+					mision.text = "Mission: Go to the portal in Orotopia to follow the trail of the hunchback";
+				 }
+				 if(datosserial.espacio3act == 1 && datosserial.gemas >= 12)
+				 {
+					mision.text = "Mission: Go to space and begin transit to galaxy 30099";
+				 }
+				 //zona3
+				 if(datosserial.espacio3act == 2 && datosserial.gemas < 21)
+				 {
+					mision.text = "Mission: Get 21 gems to unlock the portal on asteroide 7248";
+				 }
+				 if(datosserial.espacio3act == 2 && datosserial.gemas >= 21)
+				 {
+					mision.text = "Mission: Go to the portal in asteroide 7248, the hunchback is waiting for you";
+				 }
+				 if(datosserial.espacio4act == 1 && datosserial.gemas >= 21)
+				 {
+					mision.text = "Mission: Go to space and begin transit to galaxy 45638";
+				 }
+				//zona4
+				 if(datosserial.espacio4act == 2 && datosserial.gemas < 39)
+				 {
+					mision.text = "Mission: Get 39 gems to unlock the portal on planeta X";
+				 }
+				 if(datosserial.espacio4act == 2 && datosserial.gemas >= 39)
+				 {
+					mision.text = "Mission: Go to the portal on planeta X and destroy the deity to stop the hunchback";
+				 }
+				 if(datosserial.espacio5act == 1 && datosserial.gemas >= 39)
+				 {
+					mision.text = "Mission: Go to space and begin transit to galaxy X??59";
+				 }
+				 //zona5
+				 if(datosserial.espacio5act == 2 && datosserial.gemas < 70)
+				 {
+					mision.text = "Mission: Get 70 gems to unlock the portal in viejo hogar";
+				 }
+				 if(datosserial.espacio5act == 2 && datosserial.gemas >= 70)
+				 {
+					mision.text = "Mission: Go to the portal in the viejo hogar and destroy the hunchback";
+				 }
+				 if(datosserial.espacio0act == 0 && datosserial.gemas >= 70 && datosserial.tfinal1 == true)
+				 {
+					mision.text = "Mission: Go to space and begin the transit to the end of the universe";
+				 }
+					
+				 //zona6
+				 if(datosserial.espacio0act == 1 && datosserial.gemas < 100 && datosserial.tfinal1 == true)
+				 {
+					mision.text = "Mission: Get 100 gems to unlock the portal in the final world";
+				 }
+				 if(datosserial.espacio0act == 1 && datosserial.gemas >= 100 && datosserial.tfinal1 == true)
+				 {
+					mision.text = "Mission: Go to the portal in the final world and destroy the remnant of the deity";
+				 }
+				 if(datosserial.espacio0act == 1 && datosserial.gemas >= 100 && datosserial.tfinal1 == true && datosserial.tfinal2 == true)
+				 {
+					mision.text = "Mission: If you have something left, you can look for it.";
+				 }
+					
 			}
 		}
 		if(datosconfig.idioma == "cat")
@@ -809,11 +978,11 @@ public class manager_al3: MonoBehaviour
 			}
 			if(jefen == 3)
 			{
-				jefetitulo.text = "l encorbat";
+				jefetitulo.text = "el encorbat";
 			}
 			if(jefen == 4)
 			{
-				jefetitulo.text = "la oscuritat";
+				jefetitulo.text = "la deitat";
 			}
 			if(jefen == 5)
 			{
@@ -821,7 +990,7 @@ public class manager_al3: MonoBehaviour
 			}
 			if(jefen == 6)
 			{
-				jefetitulo.text = "la oscuritat";
+				jefetitulo.text = "reflexe de la deitat";
 			}
 			if(jefen == 7)
 			{
@@ -842,6 +1011,10 @@ public class manager_al3: MonoBehaviour
 			if(jefen == 11)
 			{
 				jefetitulo.text = "el encorbat suprem";
+			}
+			if(jefen == 12)
+			{
+				jefetitulo.text = "engendre";
 			}
 			if(cmenu == 1)
 			{
@@ -876,13 +1049,115 @@ public class manager_al3: MonoBehaviour
 			}
 			if(cmenu == 6)
 			{
-				//bloque1.text = "saltar";
+				bloque1.text = "salta";
 			}
 			if(cmenu == 7)
 			{
 				bloque1.text = "el teu pare te a deixat "+manageral2.datosserial.monedas+" monedas";
 				bloque2.text = "recollir diners de en pare";
 				bloque3.text = "deixar diners de en pare";
+			}
+			if(cmenu == 8)
+			{
+				bloque1.text = "presenta";
+				bloque2.text = "salta";
+			}
+			if(misionact == true)
+			{
+				 if(menu == 0 && nivel == 0)
+				 {
+					mision.text = "misio: trenca la pared vermella amb el teu arma mele";
+				 }
+				 if(menu == 0 && datosserial.tarma[0] == 1 && nivel == 0)
+				 {
+					mision.text = "misio: puja la rampa y dispara a la pared vermella para que caigui el pont i ves endevant fins a la nave";
+				 }
+
+
+				//zona1
+
+				 if(datosserial.gemas < 5)
+				 {
+					mision.text = "misio: agafa 5 gemas per desbloquejar el portal en el cometa 2274";
+				 }
+				 if(datosserial.gemas >= 5)
+				 {
+					mision.text = "misio: ves cap al portal del cometa 2274 per buscar pistes sobre el teu pare";
+				 }
+				 if(datosserial.espacio2act == 1)
+				 {
+					mision.text = "misio: ve al espai y inicia el transit a la galaxia 24039";
+				 }
+
+
+
+				//zona2
+				 if(datosserial.espacio2act == 2 && datosserial.gemas < 12)
+				 {
+					mision.text = "misio: agafa 12 gemas per desbloquejar el portal en orotopia";
+				 }
+				 if(datosserial.espacio2act == 2 && datosserial.gemas >= 12)
+				 {
+					mision.text = "misio: ves cap al portal de orotopia para seguir el rastre del encorbat";
+				 }
+				 if(datosserial.espacio3act == 1 && datosserial.gemas >= 12)
+				 {
+					mision.text = "misio: ve al espacio y inicia el transito a la galaxia 30099";
+				 }
+				 //zona3
+				 if(datosserial.espacio3act == 2 && datosserial.gemas < 21)
+				 {
+					mision.text = "misio: agafa 21 gemas per desbloquejar el portal en asteroide 7248";
+				 }
+				 if(datosserial.espacio3act == 2 && datosserial.gemas >= 21)
+				 {
+					mision.text = "misio: ves cap al portal del asteroide 7248 el encorbat esta esperan";
+				 }
+				 if(datosserial.espacio4act == 1 && datosserial.gemas >= 21)
+				 {
+					mision.text = "misio: ve al espacio y inicia el transito a la galaxia 45638";
+				 }
+				//zona4
+				 if(datosserial.espacio4act == 2 && datosserial.gemas < 39)
+				 {
+					mision.text = "misio: agafa 39 gemas per desbloquejar el portal en planeta x";
+				 }
+				 if(datosserial.espacio4act == 2 && datosserial.gemas >= 39)
+				 {
+					mision.text = "misio: ves cap al portal del planeta x y mata a la deitat per detenir al encorbat";
+				 }
+				 if(datosserial.espacio5act == 1 && datosserial.gemas >= 39)
+				 {
+					mision.text = "misio: ve al espacio y inicia el transito a la galaxia X??59";
+				 }
+				 //zona5
+				 if(datosserial.espacio5act == 2 && datosserial.gemas < 70)
+				 {
+					mision.text = "misio: agafa 70 gemas per desbloquejar el portal en viejo hogar";
+				 }
+				 if(datosserial.espacio5act == 2 && datosserial.gemas >= 70)
+				 {
+					mision.text = "misio: ves cap al portal del viejo hogar y mata al encorbat";
+				 }
+				 if(datosserial.espacio0act == 0 && datosserial.gemas >= 70 && datosserial.tfinal1 == true)
+				 {
+					mision.text = "misio: ve al espacio y inicia el transito al final del universo";
+				 }
+					
+				 //zona6
+				 if(datosserial.espacio0act == 1 && datosserial.gemas < 100 && datosserial.tfinal1 == true)
+				 {
+					mision.text = "misio: agafa 100 gemas per desbloquejar el portal en mundo final";
+				 }
+				 if(datosserial.espacio0act == 1 && datosserial.gemas >= 100 && datosserial.tfinal1 == true)
+				 {
+					mision.text = "misio: ves cap al portal del mundo final y mata al remanent de la deitat";
+				 }
+				 if(datosserial.espacio0act == 1 && datosserial.gemas >= 100 && datosserial.tfinal1 == true && datosserial.tfinal2 == true)
+				 {
+					mision.text = "misio: si te a quedat alguna cosa pots buscarla";
+				 }
+					
 			}
 		}
 		jugador1_al3 jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));

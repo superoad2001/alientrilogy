@@ -29,7 +29,7 @@ public class final2_al3: MonoBehaviour
 	{
 		
 		manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
-		manager.datosserial.tfinal1 = true;
+		manager.datosserial.tfinal2 = true;
 		manager.guardar();
 
 		if(manager.datosconfig.idioma == "es")

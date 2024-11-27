@@ -9,6 +9,7 @@ public class presentacionbase : MonoBehaviour
 
     public float temp = 0;
     public Text pres;
+    public Text pres2;
     public managerBASE manager;
     // Start is called before the first frame update
     void Start()
@@ -45,14 +46,17 @@ public class presentacionbase : MonoBehaviour
         if(manager.datosconfig.idioma == "es")
         {
             pres.text = "presenta";
+            pres2.text = "saltar";
         }
         if(manager.datosconfig.idioma == "en")
         {
             pres.text = "presents";
+            pres2.text = "skip";
         }
         if(manager.datosconfig.idioma == "cat")
         {
             pres.text = "presenta";
+            pres2.text = "salta";
         }
         temp += 1 * Time.deltaTime;
         if(temp >= 14)
