@@ -40,6 +40,7 @@ public class pausa_al1 : MonoBehaviour
     public jugador_al1 jugador;
     // Start is called before the first frame update
     public AudioSource moveson;
+    public Transform hip;
 
 	// Token: 0x06000025 RID: 37 RVA: 0x0000334C File Offset: 0x0000154C
 
@@ -51,6 +52,11 @@ public class pausa_al1 : MonoBehaviour
     {
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+        if(jugador.mod != null)
+        {
+            hip = jugador.mod.transform.GetChild(0).transform.GetChild(0).transform;
+        }
+
     }
 
     // Update is called once per frame

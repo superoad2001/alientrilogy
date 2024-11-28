@@ -135,6 +135,11 @@ public class jugador1_al2 : MonoBehaviour
 		this.velocidadaux = this.velocidad;
         vida = manager.datosserial.vidamaxima;
         vidaaux = vida;
+
+        if(anim != null)
+		{
+			anim.updateMode = AnimatorUpdateMode.Fixed;
+		}
         
         if(manager.datosserial.univel == 1 && manager.nivel == 0 && manager.nomundo == true)
         {
@@ -3141,7 +3146,10 @@ public class jugador1_al2 : MonoBehaviour
                     _rb.linearVelocity = new Vector3 (0, _rb.linearVelocity.y, 0);
                 }
 
-            rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
+            if(rhorizontalc != 0)
+            {rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;}
+            else{rotationinput.x = 0;}
+            
             rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
 
             cameraverticalangle +=  rotationinput.y/3;
@@ -3455,8 +3463,11 @@ public class jugador1_al2 : MonoBehaviour
 				_rb.linearVelocity = transform.TransformDirection(new Vector3 (0,_rb.linearVelocity.y,0));
                 pasosnave.Pause();
 			}
-
-            rotationinput.x = lhorizontalc * rotspeed * Time.deltaTime / 2;
+            if(lhorizontalc != 0)
+            {rotationinput.x = lhorizontalc * rotspeed * Time.deltaTime / 2;}
+            else if(rhorizontalc != 0)
+            {rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime / 2;}
+            else{rotationinput.x = 0;}
             rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
 
             cameraverticalangle +=  rotationinput.y;
@@ -3496,8 +3507,13 @@ public class jugador1_al2 : MonoBehaviour
             pasosnave.Pause();
             }
 
-			rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
-            rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
+            if(rhorizontalc != 0)
+            {rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;}
+            else{rotationinput.x = 0;}
+
+			if(rverticalc != 0)
+            {rotationinput.y = rverticalc * rotspeed * Time.deltaTime;}
+            else{rotationinput.y = 0;}
             
             transform.Rotate(Vector3.up * rotationinput.x);
 			transform.Rotate(Vector3.left * rotationinput.y);
@@ -3579,10 +3595,12 @@ public class jugador1_al2 : MonoBehaviour
         if (pausac > 0 && temp9 > 0.5f)
 		{
 			pausa1.SetActive(true);
+            anim.Play("tpose");
+            if(jugador2 != null)
+            {jugador2.anim.Play("tpose");}
 			pausac = 0;
 			temp9 = 0;
             manager.pause = true;
-			juego.SetActive(false);
 			Cursor.visible = true;
         	Cursor.lockState = CursorLockMode.None;
 		}

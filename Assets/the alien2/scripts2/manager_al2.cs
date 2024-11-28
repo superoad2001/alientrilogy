@@ -138,6 +138,8 @@ public class manager_al2 : MonoBehaviour
 	public string repath;
 	public string repathconfig;
 	public string repathtro;
+	public jugador1_al2 jugador1;
+	public jugador2_al2 jugador2;
 	public void move()
 	{
 		moves.Play();
@@ -307,6 +309,9 @@ public class manager_al2 : MonoBehaviour
 		cargarconfig();
 		cargartro();
 
+		jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
+		jugador2 = (jugador2_al2)FindFirstObjectByType(typeof(jugador2_al2));
+
 		if(datosserial.mejora1c == 0 && datosserial.llaves == 4 && datosserial.tengosaltod == 0)
 		{
 			datosserial.mejora1c = 1;
@@ -345,7 +350,6 @@ public class manager_al2 : MonoBehaviour
 		}
 
 
-		jugador1_al2 jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
 		
 
 
@@ -453,8 +457,6 @@ public class manager_al2 : MonoBehaviour
 		}
 		
 
-
-		jugador1_al2 jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
 
 		if(torretiempo == true)
 		{
@@ -1268,8 +1270,6 @@ public class manager_al2 : MonoBehaviour
 
 	private void Update()
 	{
-		jugador1_al2 jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
-		jugador2_al2 jugador2 = (jugador2_al2)FindFirstObjectByType(typeof(jugador2_al2));
 		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
 
 		if(datostrof.alien2compraentodaslastiendas1vez == 0 && datosserial.tienda1c == 1 && datosserial.tienda2c == 1 && datosserial.tienda3c == 1 && datosserial.tienda4c == 1 && datosserial.tienda5c == 1 && datosserial.tienda6c == 1 && datosserial.tienda7c == 1)
@@ -1604,13 +1604,13 @@ public class manager_al2 : MonoBehaviour
 			{
 			if(nivel  <= -1 && nivel >= -20)
 			{
-				cuentavidas.text = ""+jugador.vida;
-				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+				cuentavidas.text = ""+jugador1.vida;
+				vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 			}
 			if(nivel >= 1 && nivel <= 20 && personaje == 1 || nivel >= 1 && nivel <= 20 && personaje == 0 )
 			{
-				cuentavidas.text = ""+jugador.vida;
-				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+				cuentavidas.text = ""+jugador1.vida;
+				vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 				cuentamonedas.text = "MONEDAS: "+datosserial.monedas;
 			}
 			if(nivel == 1 )
@@ -1700,48 +1700,48 @@ public class manager_al2 : MonoBehaviour
 			if(nivel >= 1 && nivel <= 20 && personaje == 2)
 			{
 				cuentavidas.text = ""+jugador2.vida;
-				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+				vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 				cuentamonedas.text = "MONEDAS: "+datosserial.monedas;
 			}
 			if(nivel == 0 && personaje == 1 && datosserial.tengonave == 0)
 			{
-				cuentavidas.text = ""+jugador.vida;
+				cuentavidas.text = ""+jugador1.vida;
 				cuentamonedas.text = "MONEDAS: "+datosserial.monedas;
-				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+				vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 				cuentallaves.text = "LLAVES: "+datosserial.llaves+"/4";
 			}
 			if(nivel == 0 && personaje == 2 && datosserial.tengonave == 0)
 			{
 				cuentavidas.text = ""+jugador2.vida;
 				cuentamonedas.text = "MONEDAS: "+datosserial.monedas;
-				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+				vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 				cuentallaves.text = "LLAVES: "+datosserial.llaves+"/4";
 			}
 			if(nivel == 0 && personaje == 1 && datosserial.tengonave == 1)
 			{
-				cuentavidas.text = ""+jugador.vida;
+				cuentavidas.text = ""+jugador1.vida;
 				cuentamonedas.text = "MONEDAS: "+datosserial.monedas;
-				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+				vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 				cuentallaves.text = "PAGINAS: "+paginas+"/20";
 			}
 			if(nivel == 0 && personaje == 2 && datosserial.tengonave == 1)
 			{
 				cuentavidas.text = ""+jugador2.vida;
 				cuentamonedas.text = "MONEDAS: "+datosserial.monedas;
-				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+				vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 				cuentallaves.text = "PAGINAS: "+paginas+"/20";
 			}
 			if(mundo == 3)
 			{
-				cuentavidas.text = ""+jugador.vida;
+				cuentavidas.text = ""+jugador1.vida;
 				cuentamonedas.text = "MONEDAS: "+datosserial.monedas;
-				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+				vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 				cuentallaves.text = "PAGINAS: "+paginas+"/20";
 			}
 			if(nivel == 21 || nivel == 22 || nivel == 23 || nivel == 25 || nivel == 26 )
 			{
-				cuentavidas.text = ""+jugador.vida;
-				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+				cuentavidas.text = ""+jugador1.vida;
+				vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 			}
 			if(personaje == 1 )
 			{
@@ -2045,14 +2045,14 @@ public class manager_al2 : MonoBehaviour
 			{
 			if(nivel  <= -1 && nivel >= -20)
 			{
-				cuentavidas.text = ""+jugador.vida;
-				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+				cuentavidas.text = ""+jugador1.vida;
+				vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 			}
 			if(nivel >= 1 && nivel <= 20 && personaje == 1 || nivel >= 1 && nivel <= 20 && personaje == 0 )
 			{
-				cuentavidas.text = ""+jugador.vida;
+				cuentavidas.text = ""+jugador1.vida;
 				cuentamonedas.text = "coins: "+datosserial.monedas;
-				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+				vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 			}
 			if(nivel == 1 )
 			{
@@ -2142,47 +2142,47 @@ public class manager_al2 : MonoBehaviour
 			{
 				cuentavidas.text = ""+jugador2.vida;
 				cuentamonedas.text = "coins: "+datosserial.monedas;
-				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+				vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 			}
 			if(nivel == 0 && personaje == 1 && datosserial.tengonave == 0)
 			{
-				cuentavidas.text = ""+jugador.vida;
+				cuentavidas.text = ""+jugador1.vida;
 				cuentamonedas.text = "coins: "+datosserial.monedas;
 				cuentallaves.text = "keys: "+datosserial.llaves+"/4";
-				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+				vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 			}
 			if(nivel == 0 && personaje == 2 && datosserial.tengonave == 0)
 			{
 				cuentavidas.text = ""+jugador2.vida;
 				cuentamonedas.text = "coins: "+datosserial.monedas;
 				cuentallaves.text = "keys: "+datosserial.llaves+"/4";
-				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+				vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 			}
 			if(nivel == 0 && personaje == 1 && datosserial.tengonave == 1)
 			{
-				cuentavidas.text = ""+jugador.vida;
+				cuentavidas.text = ""+jugador1.vida;
 				cuentamonedas.text = "coins: "+datosserial.monedas;
 				cuentallaves.text = "pages: "+paginas+"/20";
-				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+				vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 			}
 			if(nivel == 0 && personaje == 2 && datosserial.tengonave == 1)
 			{
 				cuentavidas.text = ""+jugador2.vida;
 				cuentamonedas.text = "coins: "+datosserial.monedas;
 				cuentallaves.text = "pages: "+paginas+"/20";
-				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+				vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 			}
 			if(mundo == 3)
 			{
-				cuentavidas.text = ""+jugador.vida;
+				cuentavidas.text = ""+jugador1.vida;
 				cuentamonedas.text = "coins: "+datosserial.monedas;
 				cuentallaves.text = "pages: "+paginas+"/20";
-				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+				vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 			}
 			if(nivel == 21 || nivel == 22 || nivel == 23 || nivel == 25 || nivel == 26 )
 			{
-				cuentavidas.text = ""+jugador.vida;
-				vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+				cuentavidas.text = ""+jugador1.vida;
+				vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 			}
 			if(personaje == 1 )
 			{
@@ -2486,13 +2486,13 @@ public class manager_al2 : MonoBehaviour
 			{
 				if(nivel  <= -1 && nivel >= -20)
 				{
-					cuentavidas.text = ""+jugador.vida;
-					vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+					cuentavidas.text = ""+jugador1.vida;
+					vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 				}
 				if(nivel >= 1 && nivel <= 20 && personaje == 1 || nivel >= 1 && nivel <= 20 && personaje == 0 )
 				{
-					cuentavidas.text = ""+jugador.vida;
-					vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+					cuentavidas.text = ""+jugador1.vida;
+					vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 					cuentamonedas.text = "MONEDAS: "+datosserial.monedas;
 				}
 				if(nivel == 1 )
@@ -2583,27 +2583,27 @@ public class manager_al2 : MonoBehaviour
 				{
 					cuentavidas.text = ""+jugador2.vida;
 					cuentamonedas.text = "MONEDAS: "+datosserial.monedas;
-					vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+					vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 				}
 				if(nivel == 0 && personaje == 1 && datosserial.tengonave == 0)
 				{
-					cuentavidas.text = ""+jugador.vida;
+					cuentavidas.text = ""+jugador1.vida;
 					cuentamonedas.text = "MONEDAS: "+datosserial.monedas;
 					cuentallaves.text = "LLAVES: "+datosserial.llaves+"/4";
-					vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+					vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 				}
 				if(nivel == 0 && personaje == 2 && datosserial.tengonave == 0)
 				{
 					cuentavidas.text = ""+jugador2.vida;
 					cuentamonedas.text = "MONEDAS: "+datosserial.monedas;
 					cuentallaves.text = "LLAVES: "+datosserial.llaves+"/4";
-					vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+					vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 				}
 				if(nivel == 0 && personaje == 1 && datosserial.tengonave == 1)
 				{
-					cuentavidas.text = ""+jugador.vida;
+					cuentavidas.text = ""+jugador1.vida;
 					cuentamonedas.text = "MONEDAS: "+datosserial.monedas;
-					vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+					vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 					cuentallaves.text = "PAGINAS: "+paginas+"/20";
 				}
 				if(nivel == 0 && personaje == 2 && datosserial.tengonave == 1)
@@ -2611,19 +2611,19 @@ public class manager_al2 : MonoBehaviour
 					cuentavidas.text = ""+jugador2.vida;
 					cuentamonedas.text = "MONEDAS: "+datosserial.monedas;
 					cuentallaves.text = "PAGINAS: "+paginas+"/20";
-					vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+					vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 				}
 				if(mundo == 3)
 				{
-					cuentavidas.text = ""+jugador.vida;
+					cuentavidas.text = ""+jugador1.vida;
 					cuentamonedas.text = "MONEDAS: "+datosserial.monedas;
 					cuentallaves.text = "PAGINAS: "+paginas+"/20";
-					vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+					vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 				}
 				if(nivel == 21 || nivel == 22 || nivel == 23 || nivel == 25 || nivel == 26 )
 				{
-					cuentavidas.text = ""+jugador.vida;
-					vidaui.fillAmount = jugador.vida/datosserial.vidamaxima;
+					cuentavidas.text = ""+jugador1.vida;
+					vidaui.fillAmount = jugador1.vida/datosserial.vidamaxima;
 				}
 				if(personaje == 1 )
 				{

@@ -34,17 +34,23 @@ public class pausa_al2 : MonoBehaviour
     public GameObject normal;
     public GameObject opciones1;
     public AudioMixer audiomixer;
+    public jugador1_al2 jugador1;
+    public jugador2_al2 jugador2;
+    public Transform hip1;
+    public Transform hip2;
     // Start is called before the first frame update
     void Start()
     {
         manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
+        jugador2 = (jugador2_al2)FindFirstObjectByType(typeof(jugador2_al2));
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        
+        juego.SetActive(false);
         manager.datosserial.pause = true;
         if(manager.datosconfig.idioma == "es")
         {
@@ -73,26 +79,26 @@ public class pausa_al2 : MonoBehaviour
             boton4.text = "pausa";
             boton5.text = "opcions";
         }
-        if(controles.al2.pausa.ReadValue<float>() > 0 && temp > 0.5f)
+        if(controles.al2.pausa.ReadValue<float>() > 0 && temp > 0.7f)
         {
 			if(opciones1.activeSelf)
             {aplicar2();}
             continuar();
         }
-        if(temp < 15)
+        else if(temp < 15)
         {temp += 1 * Time.deltaTime;}
     }
     public void continuar(){
         manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         plat = manager.datosconfig.plat;
         temp = 0;
-        juego.SetActive(true);
-        pausa1.SetActive(false);
         if(plat == 1)
 		{
 			Cursor.visible = false;
         	Cursor.lockState = CursorLockMode.Locked;
 		}
+        juego.SetActive(true);
+        pausa1.SetActive(false);
     }
     public void salir(){
         SceneManager.LoadScene("menu_de_carga_al2");

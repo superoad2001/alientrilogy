@@ -211,6 +211,10 @@ public class jugador1_al3: MonoBehaviour
         {vida = manager.datosserial.vidamaxima;}
         _rb.constraints = RigidbodyConstraints.None;
         _rb.constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+        if(anim != null)
+		{
+			anim.updateMode = AnimatorUpdateMode.Fixed;
+		}
          
         
     }
@@ -1861,8 +1865,13 @@ public class jugador1_al3: MonoBehaviour
                 
                 if(tiendat == false)
                 {
-                rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
-                rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
+                if(rhorizontalc != 0)
+                {rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;}
+                else{rotationinput.x = 0;}
+
+                if(rverticalc != 0)
+                {rotationinput.y = rverticalc * rotspeed * Time.deltaTime;}
+                else{rotationinput.y = 0;}
             
 
                 camara.transform.Rotate(Vector3.up * rotationinput.x);
@@ -2022,8 +2031,13 @@ public class jugador1_al3: MonoBehaviour
                 }
                 anim.SetFloat("vely",lverticalc);
 
-                rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
-                rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
+                if(rhorizontalc != 0)
+                {rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;}
+                else{rotationinput.x = 0;}
+
+                if(rverticalc != 0)
+                {rotationinput.y = rverticalc * rotspeed * Time.deltaTime;}
+                else{rotationinput.y = 0;}
 
                 cameraverticalangle =  rotationinput.y;
                 cameraverticalangle = Mathf.Clamp(cameraverticalangle, -20 , 20);
@@ -2315,7 +2329,12 @@ public class jugador1_al3: MonoBehaviour
                 pasosnave.Pause();
 			}
 
-            rotationinput.x = lhorizontalc * rotspeed * Time.deltaTime / 2;
+            if(lhorizontalc != 0)
+            {rotationinput.x = lhorizontalc * rotspeed * Time.deltaTime / 2;}
+            else if(rhorizontalc != 0)
+            {rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime / 2;}
+            else{rotationinput.x = 0;}
+
             rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
 
             cameraverticalangle +=  rotationinput.y;
@@ -2355,8 +2374,13 @@ public class jugador1_al3: MonoBehaviour
             pasosnave.Pause();
             }
 
-			rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
-            rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
+			if(rhorizontalc != 0)
+            {rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;}
+            else{rotationinput.x = 0;}
+
+			if(rverticalc != 0)
+            {rotationinput.y = rverticalc * rotspeed * Time.deltaTime;}
+            else{rotationinput.y = 0;}
             
             transform.Rotate(Vector3.up * rotationinput.x);
 			transform.Rotate(Vector3.left * rotationinput.y);
@@ -2432,10 +2456,9 @@ public class jugador1_al3: MonoBehaviour
 			pausa1.SetActive(true);
 			pausac = 0;
 			temp9 = 0;
-			juego.SetActive(false);
+            anim.Play("tpose");
 			Cursor.visible = true;
         	Cursor.lockState = CursorLockMode.None;
-            tactil.SetActive(false);
             if(manager.juego != 4 && manager.juego != 6)
             {
             anim.SetBool("jetpack1",false);

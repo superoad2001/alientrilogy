@@ -5,10 +5,43 @@ using UnityEngine;
 public class enemigodet_al3: MonoBehaviour
 {
 	public manager_al3 manager;
+      public AudioSource visto1;
+      public AudioSource visto1es;
+      public AudioSource visto1en;
+      public AudioSource visto1cat;
+
+      public AudioSource visto2;
+      public AudioSource visto2es;
+      public AudioSource visto2en;
+      public AudioSource visto2cat;
+
+      public AudioSource visto3;
+      public AudioSource visto3es;
+      public AudioSource visto3en;
+      public AudioSource visto3cat;
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
+        enemigo = transform.parent.GetComponent<enemigo1_al3>();
+        if(manager.datosconfig.idioma == "es")
+        {
+            visto1 = visto1es;
+            visto2 = visto2es;
+            visto3 = visto3es;
+        }
+        if(manager.datosconfig.idioma == "en")
+        {
+            visto1 = visto1en;
+            visto2 = visto2en;
+            visto3 = visto3en;
+        }
+        if(manager.datosconfig.idioma == "cat")
+        {
+            visto1 = visto1cat;
+            visto2 = visto2cat;
+            visto3 = visto3cat;
+        }
     }
     public enemigo1_al3 enemigo;
     // Update is called once per frame
@@ -18,28 +51,62 @@ public class enemigodet_al3: MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        if (col.gameObject.tag == "senuelo")
+            int dec = Random.Range(1,4);
+            if (col.gameObject.tag == "senuelo")
 		{
             enemigo.detectar = true;
             enemigo.objetivo = col.gameObject;
             enemigo.objetivo1 = col.gameObject.transform;
+            if(enemigo.jefe == 0)
+            {
+                  if(dec == 1)
+                  {
+                        visto1.Play();
+                  }
+                  else if(dec == 2)
+                  {
+                        visto2.Play();
+                  }
+                  else if(dec == 3)
+                  {
+                        visto3.Play();
+                  }
+            }
 		}
 		else if (col.gameObject.tag == "Player")
 		{
             enemigo.detectar = true;
             enemigo.objetivo = col.gameObject;
             enemigo.objetivo1 = col.gameObject.transform;
-            if(enemigo.jefe == 0 && enemigo.plat == false)
+
+
+            if(enemigo.jefe == 0)
             {
-                  enemigo.gameObject.AddComponent<Rigidbody>();
-                  enemigo.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                  if(dec == 1)
+                  {
+                        visto1.Play();
+                  }
+                  else if(dec == 2)
+                  {
+                        visto2.Play();
+                  }
+                  else if(dec == 3)
+                  {
+                        visto3.Play();
+                  }
             }
-            if(enemigo.jefe == 0 && enemigo.plat == true)
-            {
-                  enemigo.gameObject.AddComponent<Rigidbody>();
-                  enemigo.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-                  enemigo.GetComponent<Rigidbody>().useGravity = false;
-            }
+
+                  if(enemigo.jefe == 0 && enemigo.plat == false)
+                  {
+                        enemigo.gameObject.AddComponent<Rigidbody>();
+                        enemigo.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                  }
+                  if(enemigo.jefe == 0 && enemigo.plat == true)
+                  {
+                        enemigo.gameObject.AddComponent<Rigidbody>();
+                        enemigo.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                        enemigo.GetComponent<Rigidbody>().useGravity = false;
+                  }
 		}
 
 	}

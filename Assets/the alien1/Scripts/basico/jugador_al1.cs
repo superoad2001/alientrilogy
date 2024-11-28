@@ -8,9 +8,12 @@ using UnityEngine.UI;
 public class jugador_al1 : MonoBehaviour
 {
 	public GameObject respawn;
+	public GameObject balaprefab;
+	public float balavel = 20;
 	public AudioSource audio1;
 	public float velcorr = 12;
 	public bool controlact = true;
+	public AudioSource disp;
 	public float temppaso = 1;
 	public float rotspeed = 3;
 	public GameObject explosion;
@@ -22,7 +25,7 @@ public class jugador_al1 : MonoBehaviour
 	public float speed = 3;
 	public bool suelo;
 	public bool velact;
-
+	public float tiempodisp;
 	public GameObject tut10;
 	public float girovalor;
 	private bool girotder = false;
@@ -66,6 +69,7 @@ public class jugador_al1 : MonoBehaviour
 	// Token: 0x0600001D RID: 29 RVA: 0x000025E8 File Offset: 0x000007E8
 	private void Start()
 	{
+		tiempovelint = 3;
 		if(GameObject.Find("muerteaudio") == true)
 		{muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();}
 		if(GameObject.Find("muerteaudiojug") == true)
@@ -85,6 +89,10 @@ public class jugador_al1 : MonoBehaviour
 		this.velocidadaux = this.velocidad;
 		girovalor = base.transform.eulerAngles.y;
 		jumpforcebase = jumpforce;
+		if(anim != null)
+		{
+			anim.updateMode = AnimatorUpdateMode.Fixed;
+		}
 		
 		
 	}
@@ -175,6 +183,7 @@ public class jugador_al1 : MonoBehaviour
 			controlact = false;
 			temp9 = 0;
 			Time.timeScale = 0;
+			anim.Play("tpose");
 			if(manager.datosconfig.plat == 2)
 			{
 				tactil.SetActive(false);
@@ -449,25 +458,38 @@ public class jugador_al1 : MonoBehaviour
 
 		if (manager.juego == 2)
 		{
-			if (lhorizontalc > 0f )
+			if (lverticalc != 0f && lhorizontalc != 0f)
             {
-                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidadjet, lverticalc * velocidadjet,1 * velocidad));
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidadjet, lverticalc * velocidadjet,velocidad));
             }
-            if (lhorizontalc < 0f)
+			else if(lverticalc == 0f && lhorizontalc == 0f)
             {
-                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidadjet, lverticalc * velocidadjet,1 * velocidad));
+                _rb.linearVelocity = new Vector3 (0, 0, velocidad);
             }
-            if (lverticalc > 0f)
+			if(jumpc > 0 && tiempodisp > 0.5f)
             {
-                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidadjet, lverticalc * velocidadjet,1 * velocidad));
+				GameObject BalaTemporal = Instantiate(balaprefab, transform.position,transform.rotation) as GameObject;
+
+				Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
+
+				rb.AddForce(transform.forward * 110 * balavel);
+
+				Destroy(BalaTemporal, 1.0f);
+
+				disp.Play();
+
+				tiempodisp = 0;
             }
-            if (lverticalc < 0f )
+		}
+		if (manager.juego == 11)
+		{
+			if (lverticalc != 0f && lhorizontalc != 0f)
             {
-                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidadjet, lverticalc * velocidadjet,1 * velocidad));
+                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidadjet, lverticalc * velocidadjet,velocidad));
             }
-			if(lverticalc == 0f && lhorizontalc == 0f)
+			else if(lverticalc == 0f && lhorizontalc == 0f)
             {
-                _rb.linearVelocity = new Vector3 (0, 0, 1 * velocidad);
+                _rb.linearVelocity = new Vector3 (0, 0, velocidad);
             }
 		}
 		if (manager.juego == 6)
@@ -498,9 +520,13 @@ public class jugador_al1 : MonoBehaviour
 				pasosnave.Pause();
 				_rb.linearVelocity = transform.TransformDirection(new Vector3 (0,0,0));
 			}
+			if(rhorizontalc != 0)
+            {rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;}
+            else{rotationinput.x = 0;}
 
-			rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
-            rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
+			if(rverticalc != 0)
+            {rotationinput.y = rverticalc * rotspeed * Time.deltaTime;}
+            else{rotationinput.y = 0;}
             
             transform.Rotate(Vector3.up * rotationinput.x);
 			transform.Rotate(Vector3.left * rotationinput.y);
@@ -740,8 +766,13 @@ public class jugador_al1 : MonoBehaviour
 
 			}
 
-			rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
-            rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
+			if(rhorizontalc != 0)
+            {rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;}
+            else{rotationinput.x = 0;}
+
+			if(rverticalc != 0)
+            {rotationinput.y = rverticalc * rotspeed * Time.deltaTime;}
+            else{rotationinput.y = 0;}
 
             cameraverticalangle +=  rotationinput.y/3;
             cameraverticalangle = Mathf.Clamp(cameraverticalangle, -20 , 20);
@@ -888,6 +919,8 @@ public class jugador_al1 : MonoBehaviour
         {temp9 += 1 * Time.deltaTime;}
 		if(tempgir > 0)
         {tempgir -= 1 * Time.deltaTime;}
+		if(tiempodisp < 15)
+        {tiempodisp += 1 * Time.deltaTime;}
 		if(tempgir > 0 && manager.juego == 6)
 		{
 			this.transform.rotation = Quaternion.RotateTowards(transform.rotation, fij,  90 * Time.deltaTime);

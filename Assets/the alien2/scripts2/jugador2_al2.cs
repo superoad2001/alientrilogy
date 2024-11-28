@@ -290,7 +290,9 @@ public class jugador2_al2 : MonoBehaviour
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,180,0),5* Time.deltaTime);
             }
 
-            rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
+            if(rhorizontalc != 0)
+            {rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;}
+            else{rotationinput.x = 0;}
             rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
 
             cameraverticalangle +=  rotationinput.y/3;

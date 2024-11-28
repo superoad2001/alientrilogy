@@ -5,6 +5,7 @@ using UnityEngine;
 public class enemigodet_al2: MonoBehaviour
 {
 	public manager_al2 manager;
+      public AudioSource visto;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class enemigodet_al2: MonoBehaviour
             enemigo.objetivo1 = col.gameObject.transform;
             enemigo.gameObject.AddComponent<Rigidbody>();
             enemigo.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            visto.Play();
 		}
 	}
     public void OnTriggerStay(Collider col)

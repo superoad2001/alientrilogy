@@ -345,6 +345,8 @@ public class pausa_al3: MonoBehaviour
 
     public bool dev = false;
     public bool salirnivel;
+    public GameObject model;
+    public Transform hip;
         // Start is called before the first frame update
     void Start()
     {
@@ -353,6 +355,7 @@ public class pausa_al3: MonoBehaviour
         if(salirnivel)
         {salirjuego.SetActive(true);}
         else{salirjuego.SetActive(false);}
+        
 
 
         if(manager.datosconfig.idioma == "es")
@@ -430,11 +433,19 @@ public class pausa_al3: MonoBehaviour
             diario14 = diario14cat;
             diario15 = diario15cat;
         }
+
+        if(jugador.model != null)
+        {
+            hip = jugador.mod.transform.GetChild(0).transform.GetChild(0).transform;
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        juego.SetActive(false);
+        
         if(controles.al3.pausa.ReadValue<float>() > 0 && temp > 0.5f)
         {
             if(opciones1.activeSelf)

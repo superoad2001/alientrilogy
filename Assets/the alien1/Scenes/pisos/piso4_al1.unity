@@ -1170,6 +1170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386a476e6cee7054f8a3ceec564f6375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1182,6 +1183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a80d181ba660844af54399509bd4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   trofeoact: 5
   tempshow: 0
   nivel: 0
@@ -1228,6 +1230,9 @@ MonoBehaviour:
   datosserial:
     plat: 0
     idioma: 
+    muertes: 0
+    asesinatos: 0
+    salasecreta: 0
     gemas: 0
     gemaN1: 0
     gemaN2: 0
@@ -1337,9 +1342,6 @@ MonoBehaviour:
     postpro: 0
     resoluciones: 0
     lastgame: 0
-    aplicarres: 0
-    resolh: 1280
-    resolv: 720
     master: -21
     masterslider: 0.5
     musica: -6
@@ -1426,7 +1428,7 @@ MonoBehaviour:
     alien3primeramejoradevida: 0
     alien3primeraarma: 0
     alien3primeraarmadura: 0
-    alien3entraalmenuextras: 0
+    alien3deidad2: 0
     alien3entraalaguiadelpause: 0
     alien3entraaseleccionrapidaenelpause: 0
     alien3consiguetodaslaspaginas: 0
@@ -1455,6 +1457,7 @@ MonoBehaviour:
     alien3planeta16nave: 0
     alien3planeta17nave: 0
   repathtro: 
+  moveson: {fileID: 0}
   mundos: 0
   jugador1: {fileID: 27}
   jefe1: {fileID: 0}
@@ -1482,6 +1485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8fb10081513db6468282ac59402e183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1494,6 +1498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4b30208ed0e434fb1a7db0361bb52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1507,8 +1512,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawn: {fileID: 0}
+  balaprefab: {fileID: 0}
+  balavel: 20
   audio1: {fileID: 0}
+  velcorr: 12
   controlact: 1
+  disp: {fileID: 0}
   temppaso: 1
   rotspeed: 180
   explosion: {fileID: 0}
@@ -1517,6 +1526,8 @@ MonoBehaviour:
   rotationinput: {x: 0, y: 0, z: 0}
   speed: 3
   suelo: 0
+  velact: 0
+  tiempodisp: 0
   tut10: {fileID: 2013278320}
   girovalor: 0
   mod: {fileID: 1368693501}
@@ -1536,6 +1547,8 @@ MonoBehaviour:
   pausac: 0
   pasotiempo: 0
   tempgir: 0
+  muertes: {fileID: 0}
+  muertesjug: {fileID: 0}
   manager: {fileID: 0}
   tiempoascensor: 0
   bajar: 0
@@ -1576,6 +1589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52997426004d7b04c9d598b66e72208f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!95 &133
 Animator:
   serializedVersion: 7
@@ -1668,6 +1682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8fb10081513db6468282ac59402e183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &12305095
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2221,6 +2236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386a476e6cee7054f8a3ceec564f6375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &316200006
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2845,6 +2861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38485fb6bea28184caa2132ee4a13a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   jugador: {fileID: 0}
 --- !u!1 &682582198
 GameObject:
@@ -3250,6 +3267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ff8980f23fbef47a070325e9224ba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &782376956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3320,6 +3338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 308159e556b002d41a6ae19b54f8797a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &808720766
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3441,6 +3460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52997426004d7b04c9d598b66e72208f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &869817418
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3809,7 +3829,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: bada3febca3e03c4c935923d631c8ed2, type: 3}
   m_Resource: {fileID: 8300000, guid: bada3febca3e03c4c935923d631c8ed2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.259
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3938,7 +3958,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 65a7f6301fb9f2c4aa37e9ddba235e1c, type: 3}
   m_Resource: {fileID: 8300000, guid: 65a7f6301fb9f2c4aa37e9ddba235e1c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.259
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4188,6 +4208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ecf0bf342f40ad449c5aa81147c94e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &944340353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4756,6 +4777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff89ae7a65e4d7458fdbee1beffe502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &1085823042
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4941,6 +4963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9cf73624572d841898700e06056cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &1134119169
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5772,6 +5795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac31898c9167867419246361e8e4adcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &1491211080
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6228,6 +6252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028379a379b75fa499e0870f0f88179b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &1617875367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6514,6 +6539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4b30208ed0e434fb1a7db0361bb52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!65 &1676155596
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7413,6 +7439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d86221d46fd424ca28e2db20e30871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &1983516160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8097,6 +8124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8be213a82cc044418f429eaa90d06f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   rotspeed: 180
   rotationinput: {x: 0, y: 0, z: 0}
   player: {fileID: 27}
