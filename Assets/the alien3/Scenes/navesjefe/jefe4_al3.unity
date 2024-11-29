@@ -25333,6 +25333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   audio: {fileID: 1657556961}
+  jugador: {fileID: 0}
   velocidadmaxima: 100
 --- !u!114 &1580
 MonoBehaviour:
@@ -25913,6 +25914,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   audio: {fileID: 1657556961}
+  jugador: {fileID: 0}
   velocidadmaxima: 100
 --- !u!114 &119597460
 MonoBehaviour:
@@ -26049,6 +26051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   audio: {fileID: 1657556961}
+  jugador: {fileID: 0}
   velocidadmaxima: 100
 --- !u!114 &173797825
 MonoBehaviour:
@@ -26300,6 +26303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   audio: {fileID: 1657556961}
+  jugador: {fileID: 0}
   velocidadmaxima: 100
 --- !u!114 &247180335
 MonoBehaviour:
@@ -26672,6 +26676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   audio: {fileID: 1657556961}
+  jugador: {fileID: 0}
   velocidadmaxima: 100
 --- !u!114 &366347015
 MonoBehaviour:
@@ -27053,6 +27058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   audio: {fileID: 1657556961}
+  jugador: {fileID: 0}
   velocidadmaxima: 100
 --- !u!114 &552360106
 MonoBehaviour:
@@ -28713,6 +28719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   audio: {fileID: 1657556961}
+  jugador: {fileID: 0}
   velocidadmaxima: 100
 --- !u!114 &999320420
 MonoBehaviour:
@@ -29227,6 +29234,8 @@ MonoBehaviour:
   bloque5: {fileID: 0}
   bloque6: {fileID: 0}
   bloque7: {fileID: 0}
+  mision: {fileID: 0}
+  misionact: 0
   audio: {fileID: 0}
   audio1: {fileID: 0}
   audio2: {fileID: 0}
@@ -29423,7 +29432,7 @@ MonoBehaviour:
     alien3primeramejoradevida: 0
     alien3primeraarma: 0
     alien3primeraarmadura: 0
-    alien3entraalmenuextras: 0
+    alien3deidad2: 0
     alien3entraalaguiadelpause: 0
     alien3entraaseleccionrapidaenelpause: 0
     alien3consiguetodaslaspaginas: 0
@@ -30894,6 +30903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   audio: {fileID: 1657556961}
+  jugador: {fileID: 0}
   velocidadmaxima: 100
 --- !u!114 &1497295582
 MonoBehaviour:
@@ -30932,6 +30942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   audio: {fileID: 1657556961}
+  jugador: {fileID: 0}
   velocidadmaxima: 100
 --- !u!114 &1498606617
 MonoBehaviour:
@@ -30970,7 +30981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1886426375615902892, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -402
+      value: -312.00003
       objectReference: {fileID: 0}
     - target: {fileID: 1996275027684547270, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -30994,7 +31005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1996275027882483927, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -484
+      value: -394.00003
       objectReference: {fileID: 0}
     - target: {fileID: 1996275027986734480, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
       propertyPath: juego
@@ -31152,13 +31163,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -152.99997
       objectReference: {fileID: 0}
+    - target: {fileID: 2423982438367966038, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2423982438367966038, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -475
+      objectReference: {fileID: 0}
     - target: {fileID: 4508444912787926128, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 5.000061
       objectReference: {fileID: 0}
     - target: {fileID: 4508444912787926128, guid: 32eccd0ad17f1544390cd691fb882d99, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -322.99994
+      value: -233
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -31294,6 +31313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   audio: {fileID: 1657556961}
+  jugador: {fileID: 0}
   velocidadmaxima: 100
 --- !u!114 &1539588967
 MonoBehaviour:
@@ -32504,6 +32524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   audio: {fileID: 1657556961}
+  jugador: {fileID: 0}
   velocidadmaxima: 100
 --- !u!114 &1808312507
 MonoBehaviour:
@@ -32617,6 +32638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   audio: {fileID: 1657556961}
+  jugador: {fileID: 0}
   velocidadmaxima: 100
 --- !u!114 &1824524441
 MonoBehaviour:
@@ -33194,6 +33216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   audio: {fileID: 1657556961}
+  jugador: {fileID: 0}
   velocidadmaxima: 100
 --- !u!114 &1978429990
 MonoBehaviour:
@@ -33381,6 +33404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   audio: {fileID: 1657556961}
+  jugador: {fileID: 0}
   velocidadmaxima: 100
 --- !u!114 &2006778349
 MonoBehaviour:
@@ -33547,6 +33571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   audio: {fileID: 1657556961}
+  jugador: {fileID: 0}
   velocidadmaxima: 100
 --- !u!114 &2091820943
 MonoBehaviour:

@@ -22,7 +22,7 @@ public class enemigodet_al3: MonoBehaviour
 
       public float temp;
     //  is called before the first frame update
-    void ()
+    public void Start()
     {
         manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         enemigo = transform.parent.GetComponent<enemigo1_al3>();

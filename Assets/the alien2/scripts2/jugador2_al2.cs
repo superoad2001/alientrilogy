@@ -88,7 +88,8 @@ public class jugador2_al2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cameraverticalangle2 = camara.transform.eulerAngles.y;
+        if(camara != null)
+        {cameraverticalangle2 = camara.transform.eulerAngles.y;}
         manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
         if(GameObject.Find("muerteaudio") == true)
@@ -293,6 +294,7 @@ public class jugador2_al2 : MonoBehaviour
             if(rhorizontalc != 0)
             {rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;}
             else{rotationinput.x = 0;}
+            
             rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
 
             cameraverticalangle +=  rotationinput.y/3;

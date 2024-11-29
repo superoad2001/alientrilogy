@@ -916,12 +916,12 @@ GameObject:
   - component: {fileID: 521}
   - component: {fileID: 785269791}
   - component: {fileID: 377}
-  - component: {fileID: 924}
   - component: {fileID: 729}
   - component: {fileID: 620}
   - component: {fileID: 687}
   - component: {fileID: 785269792}
   - component: {fileID: 785269793}
+  - component: {fileID: 785269794}
   m_Layer: 0
   m_Name: jugador
   m_TagString: Player
@@ -7236,7 +7236,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -19176,18 +19176,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   audio1: {fileID: 1054545611}
---- !u!114 &924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b514b3f8714e04447b4d46126dbee419, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22116,6 +22104,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &785269794
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.4958487, y: 2.1652832, z: 4.6947975}
+  m_Center: {x: 0.21316147, y: -0.5826416, z: -0.14210701}
 --- !u!114 &818576917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23747,6 +23756,8 @@ MonoBehaviour:
   repath: 
   repathconfig: 
   repathtro: 
+  jugador1: {fileID: 0}
+  jugador2: {fileID: 0}
 --- !u!114 &1393375501
 MonoBehaviour:
   m_ObjectHideFlags: 0

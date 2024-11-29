@@ -70,6 +70,8 @@ public class jugador_al1 : MonoBehaviour
 	private void Start()
 	{
 		tiempovelint = 3;
+		if(camara != null)
+        {cameraverticalangle2 = camara.transform.eulerAngles.y;}
 		if(GameObject.Find("muerteaudio") == true)
 		{muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();}
 		if(GameObject.Find("muerteaudiojug") == true)
