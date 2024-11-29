@@ -38,7 +38,7 @@ public class inicio_al2 : MonoBehaviour
 		{
 			if (manager.datosserial.inicio == 1)
 			{
-				SceneManager.LoadScene("inicio_al2");
+				SceneManager.LoadScene("mundo_abierto_al2");
 			}
 			else
 			{
