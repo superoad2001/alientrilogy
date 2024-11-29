@@ -19,6 +19,7 @@ public class enemigodet2_al2: MonoBehaviour
       public AudioSource visto3es;
       public AudioSource visto3en;
       public AudioSource visto3cat;
+      public float temp;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +48,10 @@ public class enemigodet2_al2: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(temp < 15)
+        {
+            temp += 1 * Time.deltaTime;
+        }
     }
     private void OnTriggerEnter(Collider col)
 	{
@@ -59,18 +63,21 @@ public class enemigodet2_al2: MonoBehaviour
             enemigo.objetivo1 = col.gameObject.transform;
             enemigo.gameObject.AddComponent<Rigidbody>();
             enemigo.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-            if(dec == 1)
-            {
-                  visto1.Play();
-            }
-            else if(dec == 2)
-            {
-                  visto2.Play();
-            }
-            else if(dec == 3)
-            {
-                  visto3.Play();
-            }
+                  if(temp > 8)
+                  {
+                        if(dec == 1)
+                        {
+                              visto1.Play();
+                        }
+                        else if(dec == 2)
+                        {
+                              visto2.Play();
+                        }
+                        else if(dec == 3)
+                        {
+                              visto3.Play();
+                        }
+                  }
 
 
 		}

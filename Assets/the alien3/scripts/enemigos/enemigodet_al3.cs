@@ -19,8 +19,10 @@ public class enemigodet_al3: MonoBehaviour
       public AudioSource visto3es;
       public AudioSource visto3en;
       public AudioSource visto3cat;
-    // Start is called before the first frame update
-    void Start()
+
+      public float temp;
+    //  is called before the first frame update
+    void ()
     {
         manager = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         enemigo = transform.parent.GetComponent<enemigo1_al3>();
@@ -47,7 +49,10 @@ public class enemigodet_al3: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(temp < 15)
+        {
+            temp += 1 * Time.deltaTime;
+        }
     }
     private void OnTriggerEnter(Collider col)
 	{
@@ -57,21 +62,22 @@ public class enemigodet_al3: MonoBehaviour
             enemigo.detectar = true;
             enemigo.objetivo = col.gameObject;
             enemigo.objetivo1 = col.gameObject.transform;
-            if(enemigo.jefe == 0)
-            {
-                  if(dec == 1)
+                  if(enemigo.jefe == 0 && temp > 8)
                   {
-                        visto1.Play();
+                        if(dec == 1)
+                        {
+                              visto1.Play();
+                        }
+                        else if(dec == 2)
+                        {
+                              visto2.Play();
+                        }
+                        else if(dec == 3)
+                        {
+                              visto3.Play();
+                        }
+                        temp = 0;
                   }
-                  else if(dec == 2)
-                  {
-                        visto2.Play();
-                  }
-                  else if(dec == 3)
-                  {
-                        visto3.Play();
-                  }
-            }
 		}
 		else if (col.gameObject.tag == "Player")
 		{
@@ -80,21 +86,22 @@ public class enemigodet_al3: MonoBehaviour
             enemigo.objetivo1 = col.gameObject.transform;
 
 
-            if(enemigo.jefe == 0)
-            {
-                  if(dec == 1)
+                  if(enemigo.jefe == 0 && temp > 8)
                   {
-                        visto1.Play();
+                        if(dec == 1)
+                        {
+                              visto1.Play();
+                        }
+                        else if(dec == 2)
+                        {
+                              visto2.Play();
+                        }
+                        else if(dec == 3)
+                        {
+                              visto3.Play();
+                        }
+                        temp = 0;
                   }
-                  else if(dec == 2)
-                  {
-                        visto2.Play();
-                  }
-                  else if(dec == 3)
-                  {
-                        visto3.Play();
-                  }
-            }
 
                   if(enemigo.jefe == 0 && enemigo.plat == false)
                   {
