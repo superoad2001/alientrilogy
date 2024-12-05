@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using MeetAndTalk.GlobalValue;
+using MeetAndTalk.Localization;
+using MeetAndTalk;
 
 // Token: 0x0200000A RID: 10
 public class jugador_al1 : MonoBehaviour
@@ -10,6 +13,7 @@ public class jugador_al1 : MonoBehaviour
 	public GameObject respawn;
 	public GameObject balaprefab;
 	public float balavel = 20;
+	public Text textnpc;
 	public AudioSource audio1;
 	public float velcorr = 12;
 	public bool controlact = true;
@@ -51,8 +55,9 @@ public class jugador_al1 : MonoBehaviour
 	public float tempgir = 0;
 	public AudioSource muertes;
 	public AudioSource muertesjug;
-	
+	public Animator menushow;
 	private Controles controles;
+	public DialogueManager menuoff;
 	public void Awake()
     {
         controles = new Controles();
@@ -77,6 +82,8 @@ public class jugador_al1 : MonoBehaviour
 		if(GameObject.Find("muerteaudiojug") == true)
 		{muertesjug = GameObject.Find("muerteaudiojug").GetComponent<AudioSource>();}
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+		if((DialogueManager)FindFirstObjectByType(typeof(DialogueManager)) != null)
+		{menuoff = (DialogueManager)FindFirstObjectByType(typeof(DialogueManager));}
 		if(manager.datosconfig.plat == 1)
 		{
 			tactil.SetActive(false);
@@ -1081,7 +1088,47 @@ public class jugador_al1 : MonoBehaviour
             Destroy(explosiont, 1f);
             Destroy(col.transform.parent.gameObject);
 		}
+		if (col.gameObject.tag == "npc")
+		{
+			var npcbase = col.GetComponent<npc_tienda1_al1>();
+	    	menushow.SetBool("show",true);
+			if(manager.datosconfig.idioma == "es")
+			{
+				this.textnpc.text = npcbase.es_frase;
+				LocalizationManager.Instance.selectedLang =  SystemLanguage.Spanish;
+			}
+			if(manager.datosconfig.idioma == "en")
+			{
+				this.textnpc.text = npcbase.en_frase;
+				LocalizationManager.Instance.selectedLang =  SystemLanguage.English;
+			}
+			if(manager.datosconfig.idioma == "cat")
+			{
+				this.textnpc.text = npcbase.cat_frase;
+				LocalizationManager.Instance.selectedLang =  SystemLanguage.Catalan;
+			}
+		}
 
+	}
+	private void OnTriggerExit(Collider col)
+	{
+		if (col.gameObject.tag == "npc")
+		{
+			menushow.SetBool("show",false);
+			menuoff.MainUI.gameObject.SetActive(false);
+		}
+	}
+	private void OnTriggerStay(Collider col)
+	{
+		if (col.gameObject.tag == "npc")
+		{
+			var npcbase = col.GetComponent<npc_tienda1_al1>();
+			if (controles.al1.x.ReadValue<float>() > 0f)
+			{
+				OnInteraction.Invoke();
+				
+			}
+		}
 	}
 	
 

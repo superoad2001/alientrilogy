@@ -55,7 +55,7 @@ public class hiper_al1 : MonoBehaviour
 			{this.tutfinala.text = "To come back home press";}
 			if(manager.datosconfig.idioma == "cat")
 			{this.tutfinala.text = "per tornar a casa pren";}
-			if (controles.al1.b.ReadValue<float>() > 0f || botonm == true)
+			if (controles.al1.x.ReadValue<float>() > 0f || botonm == true)
 			{
 				SceneManager.LoadScene("lasalida_al1");
 			}
