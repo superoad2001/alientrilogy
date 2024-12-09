@@ -37,12 +37,39 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""y"",
+                    ""type"": ""Button"",
+                    ""id"": ""bbaff926-bbdd-4961-98d2-6c0ad2890b4d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""l3"",
+                    ""type"": ""Button"",
+                    ""id"": ""ce6b7cb8-0976-495e-a30a-83ee723f677a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""rb"",
+                    ""type"": ""Button"",
+                    ""id"": ""0c6f68cc-ab29-4ee9-aeb1-dd685bcfafdb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""b"",
                     ""type"": ""Button"",
                     ""id"": ""2823b002-c9bd-49cb-8805-d99612bab7e9"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -143,6 +170,72 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""ccb312a4-861d-4685-ab67-e414203c54c7"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""y"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""09ee9f8f-2f3b-4e0e-a9e9-c18787590087"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""y"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d923401-685a-41d8-942f-55682a080e10"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""l3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5fc9e87a-ee3b-415e-8486-43de0f284314"",
+                    ""path"": ""<Keyboard>/leftAlt"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""l3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6ff5e463-b508-4224-a771-3636940509ba"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""rb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""53824c23-9513-416a-9d30-6a85344cee0f"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""rb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""535b940e-dbcd-422e-8b77-0b8f71f9acb1"",
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
@@ -155,7 +248,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""feb4cbf3-9f17-47f1-9f78-591e22bd6f48"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""path"": ""<Keyboard>/ctrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -177,7 +270,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""2c4a667d-98ce-4918-b264-31902fb00f18"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Mouse>/middleButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -375,7 +468,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""47503d63-6ea8-40aa-a502-6376e97ab2e5"",
-                    ""path"": ""<Keyboard>/alt"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -397,7 +490,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f693c407-8cbf-4e67-b3a4-377da63ded1a"",
-                    ""path"": ""<Keyboard>/shift"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -415,6 +508,15 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""name"": ""a"",
                     ""type"": ""Button"",
                     ""id"": ""ccedbf3a-b2f7-423f-87df-1b09d505faee"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""y"",
+                    ""type"": ""Button"",
+                    ""id"": ""324fde65-bad1-4393-8421-dfe9fc0a76bc"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -513,7 +615,16 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""rt"",
                     ""type"": ""Button"",
-                    ""id"": ""b0557773-e3af-4491-8b51-75093fd4cb5e"",
+                    ""id"": ""3209dd70-6dff-482a-852a-0330b141c216"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""l3"",
+                    ""type"": ""Button"",
+                    ""id"": ""ccec0bbe-f554-48cd-9e74-eb65480a67ed"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -545,6 +656,28 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""f6087fc9-7234-4a9d-8e8c-044719df896f"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""y"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""06a6cb8a-50dd-483a-a18c-8e0ca705f325"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""y"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""67c702df-1f37-4333-8075-85025986911e"",
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
@@ -557,7 +690,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d971569b-9134-4613-9737-5f9b3c0c0059"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""path"": ""<Keyboard>/ctrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -579,7 +712,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6bb2ec3c-52b0-462d-b666-048cf0e92fbb"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Mouse>/middleButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -755,7 +888,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""79776525-eb1c-40bf-9831-23dfcf02fa03"",
-                    ""path"": ""<Keyboard>/alt"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -799,7 +932,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ac48f6b7-b85b-40ad-a9b3-64b1436c5149"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -809,7 +942,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c37e974f-80be-487a-bcb4-d145f5c8498b"",
+                    ""id"": ""748cc7b6-3c6c-4d81-b9ec-f642fecb562a"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -820,12 +953,34 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2bdcc23a-fc38-414a-98c6-7420db775002"",
-                    ""path"": ""<Keyboard>/shift"",
+                    ""id"": ""c0b6d9bc-6435-421e-8e66-88b425e72e6b"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""rt"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9acfc1f3-b8fe-48a1-9ebe-f3e51731d890"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""l3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bfa9abb1-94b8-40c4-90b8-5722d4a7d851"",
+                    ""path"": ""<Keyboard>/leftAlt"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""l3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1035,7 +1190,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""22694a55-3682-4d6b-a757-8920f1a955d1"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1475,7 +1630,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a0bfb9b6-7c39-4fe3-acc6-00c4c9b7a03f"",
-                    ""path"": ""<Keyboard>/alt"",
+                    ""path"": ""<Keyboard>/leftAlt"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1910,6 +2065,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         // al1
         m_al1 = asset.FindActionMap("al1", throwIfNotFound: true);
         m_al1_a = m_al1.FindAction("a", throwIfNotFound: true);
+        m_al1_y = m_al1.FindAction("y", throwIfNotFound: true);
+        m_al1_l3 = m_al1.FindAction("l3", throwIfNotFound: true);
+        m_al1_rb = m_al1.FindAction("rb", throwIfNotFound: true);
         m_al1_b = m_al1.FindAction("b", throwIfNotFound: true);
         m_al1_x = m_al1.FindAction("x", throwIfNotFound: true);
         m_al1_lhorizontal = m_al1.FindAction("lhorizontal", throwIfNotFound: true);
@@ -1922,6 +2080,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         // al2
         m_al2 = asset.FindActionMap("al2", throwIfNotFound: true);
         m_al2_a = m_al2.FindAction("a", throwIfNotFound: true);
+        m_al2_y = m_al2.FindAction("y", throwIfNotFound: true);
         m_al2_b = m_al2.FindAction("b", throwIfNotFound: true);
         m_al2_x = m_al2.FindAction("x", throwIfNotFound: true);
         m_al2_lhorizontal = m_al2.FindAction("lhorizontal", throwIfNotFound: true);
@@ -1933,6 +2092,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         m_al2_lb = m_al2.FindAction("lb", throwIfNotFound: true);
         m_al2_rb = m_al2.FindAction("rb", throwIfNotFound: true);
         m_al2_rt = m_al2.FindAction("rt", throwIfNotFound: true);
+        m_al2_l3 = m_al2.FindAction("l3", throwIfNotFound: true);
         // al3
         m_al3 = asset.FindActionMap("al3", throwIfNotFound: true);
         m_al3_a = m_al3.FindAction("a", throwIfNotFound: true);
@@ -2041,6 +2201,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_al1;
     private List<IAl1Actions> m_Al1ActionsCallbackInterfaces = new List<IAl1Actions>();
     private readonly InputAction m_al1_a;
+    private readonly InputAction m_al1_y;
+    private readonly InputAction m_al1_l3;
+    private readonly InputAction m_al1_rb;
     private readonly InputAction m_al1_b;
     private readonly InputAction m_al1_x;
     private readonly InputAction m_al1_lhorizontal;
@@ -2055,6 +2218,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         private @Controles m_Wrapper;
         public Al1Actions(@Controles wrapper) { m_Wrapper = wrapper; }
         public InputAction @a => m_Wrapper.m_al1_a;
+        public InputAction @y => m_Wrapper.m_al1_y;
+        public InputAction @l3 => m_Wrapper.m_al1_l3;
+        public InputAction @rb => m_Wrapper.m_al1_rb;
         public InputAction @b => m_Wrapper.m_al1_b;
         public InputAction @x => m_Wrapper.m_al1_x;
         public InputAction @lhorizontal => m_Wrapper.m_al1_lhorizontal;
@@ -2076,6 +2242,15 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @a.started += instance.OnA;
             @a.performed += instance.OnA;
             @a.canceled += instance.OnA;
+            @y.started += instance.OnY;
+            @y.performed += instance.OnY;
+            @y.canceled += instance.OnY;
+            @l3.started += instance.OnL3;
+            @l3.performed += instance.OnL3;
+            @l3.canceled += instance.OnL3;
+            @rb.started += instance.OnRb;
+            @rb.performed += instance.OnRb;
+            @rb.canceled += instance.OnRb;
             @b.started += instance.OnB;
             @b.performed += instance.OnB;
             @b.canceled += instance.OnB;
@@ -2110,6 +2285,15 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @a.started -= instance.OnA;
             @a.performed -= instance.OnA;
             @a.canceled -= instance.OnA;
+            @y.started -= instance.OnY;
+            @y.performed -= instance.OnY;
+            @y.canceled -= instance.OnY;
+            @l3.started -= instance.OnL3;
+            @l3.performed -= instance.OnL3;
+            @l3.canceled -= instance.OnL3;
+            @rb.started -= instance.OnRb;
+            @rb.performed -= instance.OnRb;
+            @rb.canceled -= instance.OnRb;
             @b.started -= instance.OnB;
             @b.performed -= instance.OnB;
             @b.canceled -= instance.OnB;
@@ -2159,6 +2343,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_al2;
     private List<IAl2Actions> m_Al2ActionsCallbackInterfaces = new List<IAl2Actions>();
     private readonly InputAction m_al2_a;
+    private readonly InputAction m_al2_y;
     private readonly InputAction m_al2_b;
     private readonly InputAction m_al2_x;
     private readonly InputAction m_al2_lhorizontal;
@@ -2170,11 +2355,13 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     private readonly InputAction m_al2_lb;
     private readonly InputAction m_al2_rb;
     private readonly InputAction m_al2_rt;
+    private readonly InputAction m_al2_l3;
     public struct Al2Actions
     {
         private @Controles m_Wrapper;
         public Al2Actions(@Controles wrapper) { m_Wrapper = wrapper; }
         public InputAction @a => m_Wrapper.m_al2_a;
+        public InputAction @y => m_Wrapper.m_al2_y;
         public InputAction @b => m_Wrapper.m_al2_b;
         public InputAction @x => m_Wrapper.m_al2_x;
         public InputAction @lhorizontal => m_Wrapper.m_al2_lhorizontal;
@@ -2186,6 +2373,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         public InputAction @lb => m_Wrapper.m_al2_lb;
         public InputAction @rb => m_Wrapper.m_al2_rb;
         public InputAction @rt => m_Wrapper.m_al2_rt;
+        public InputAction @l3 => m_Wrapper.m_al2_l3;
         public InputActionMap Get() { return m_Wrapper.m_al2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -2198,6 +2386,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @a.started += instance.OnA;
             @a.performed += instance.OnA;
             @a.canceled += instance.OnA;
+            @y.started += instance.OnY;
+            @y.performed += instance.OnY;
+            @y.canceled += instance.OnY;
             @b.started += instance.OnB;
             @b.performed += instance.OnB;
             @b.canceled += instance.OnB;
@@ -2231,6 +2422,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @rt.started += instance.OnRt;
             @rt.performed += instance.OnRt;
             @rt.canceled += instance.OnRt;
+            @l3.started += instance.OnL3;
+            @l3.performed += instance.OnL3;
+            @l3.canceled += instance.OnL3;
         }
 
         private void UnregisterCallbacks(IAl2Actions instance)
@@ -2238,6 +2432,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @a.started -= instance.OnA;
             @a.performed -= instance.OnA;
             @a.canceled -= instance.OnA;
+            @y.started -= instance.OnY;
+            @y.performed -= instance.OnY;
+            @y.canceled -= instance.OnY;
             @b.started -= instance.OnB;
             @b.performed -= instance.OnB;
             @b.canceled -= instance.OnB;
@@ -2271,6 +2468,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @rt.started -= instance.OnRt;
             @rt.performed -= instance.OnRt;
             @rt.canceled -= instance.OnRt;
+            @l3.started -= instance.OnL3;
+            @l3.performed -= instance.OnL3;
+            @l3.canceled -= instance.OnL3;
         }
 
         public void RemoveCallbacks(IAl2Actions instance)
@@ -2653,6 +2853,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     public interface IAl1Actions
     {
         void OnA(InputAction.CallbackContext context);
+        void OnY(InputAction.CallbackContext context);
+        void OnL3(InputAction.CallbackContext context);
+        void OnRb(InputAction.CallbackContext context);
         void OnB(InputAction.CallbackContext context);
         void OnX(InputAction.CallbackContext context);
         void OnLhorizontal(InputAction.CallbackContext context);
@@ -2666,6 +2869,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     public interface IAl2Actions
     {
         void OnA(InputAction.CallbackContext context);
+        void OnY(InputAction.CallbackContext context);
         void OnB(InputAction.CallbackContext context);
         void OnX(InputAction.CallbackContext context);
         void OnLhorizontal(InputAction.CallbackContext context);
@@ -2677,6 +2881,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         void OnLb(InputAction.CallbackContext context);
         void OnRb(InputAction.CallbackContext context);
         void OnRt(InputAction.CallbackContext context);
+        void OnL3(InputAction.CallbackContext context);
     }
     public interface IAl3Actions
     {

@@ -1832,7 +1832,7 @@ public class jugador1_al3: MonoBehaviour
                 anim.SetFloat("vely",lverticalc);
 
 
-                if (lhorizontalc > 0f )
+                if (lhorizontalc > 0f)
                 {
                     _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                     mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,90,0),5* Time.deltaTime);
@@ -1847,7 +1847,7 @@ public class jugador1_al3: MonoBehaviour
                     _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                     mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
                 }
-                if (lverticalc < 0f )
+                if (lverticalc < 0f)
                 {
                     _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
                     mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,180,0),5* Time.deltaTime);

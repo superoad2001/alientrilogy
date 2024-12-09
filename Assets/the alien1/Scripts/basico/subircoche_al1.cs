@@ -42,7 +42,7 @@ public class subircoche_al1 : MonoBehaviour
 			{this.tutfinala.text = "To enter to the car press";}
 			if(manager.datosconfig.idioma == "cat")
 			{this.tutfinala.text = "per pujar al cotxe pren";}
-			if (controles.al1.x.ReadValue<float>() > 0f )
+			if (controles.al1.y.ReadValue<float>() > 0f )
 			{
 				SceneManager.LoadScene("mundoc_al1");
 			}

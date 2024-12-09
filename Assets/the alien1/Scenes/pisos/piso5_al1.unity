@@ -6216,9 +6216,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6010a2de17a11514da18980e669b96f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camnomov: 0
+  npcbase: {fileID: 0}
+  tiempodialogue: 0
   respawn: {fileID: 0}
   balaprefab: {fileID: 0}
+  dialogueact: 0
   balavel: 20
+  textnpc: {fileID: 0}
   audio1: {fileID: 0}
   velcorr: 12
   controlact: 1
@@ -6240,9 +6245,14 @@ MonoBehaviour:
   lverticalc: 0
   rhorizontalc: 0
   rverticalc: 0
-  jumpc: 0
-  mc: 0
-  nc: 0
+  a: 0
+  b: 0
+  x: 0
+  y: 0
+  rb: 0
+  rt: 0
+  lt: 0
+  l3: 0
   tactil: {fileID: 1439781420}
   anim: {fileID: 923}
   pasosnave: {fileID: 0}
@@ -6254,6 +6264,8 @@ MonoBehaviour:
   tempgir: 0
   muertes: {fileID: 0}
   muertesjug: {fileID: 0}
+  menushow: {fileID: 0}
+  menuoff: {fileID: 0}
   manager: {fileID: 0}
   tiempoascensor: 0
   bajar: 0
@@ -6261,6 +6273,7 @@ MonoBehaviour:
   juego: {fileID: 2071326979}
   pausa1: {fileID: 2101612730}
   temp9: 0
+  dashaeract: 0
   velocidad: 4
   velocidadjet: 2
   velocidadr: 20
@@ -20411,9 +20424,9 @@ RectTransform:
   - {fileID: 1300807344}
   m_Father: {fileID: 859}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 739.3541, y: -330.58527}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -60.645874, y: 89}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2012408160
@@ -20428,7 +20441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Action: al1/b
+  m_Action: al1/rt
   _setNativeSize: 1
 --- !u!114 &2012408161
 MonoBehaviour:
@@ -20450,7 +20463,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1977815425, guid: 6f0300b0215a3074caa2df2f572f6955, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21742,7 +21755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Action: al1/x
+  m_Action: al1/lt
   _setNativeSize: 1
 --- !u!114 &2131189210
 MonoBehaviour:
@@ -21764,7 +21777,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -2010178438, guid: 6f0300b0215a3074caa2df2f572f6955, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -31,9 +31,9 @@ public class hidemenu_al1 : MonoBehaviour
     void Update()
     {
             anim = GetComponent<Animator>();
-            if(controles.al1.lt.ReadValue<float>() > 0)
+            if(controles.al1.l3.ReadValue<float>() > 0)
             {anim.SetBool("show",true);}
-            else if(controles.al1.lt.ReadValue<float>() == 0)
+            else if(controles.al1.l3.ReadValue<float>() == 0)
             {anim.SetBool("show",false);}
 
     }

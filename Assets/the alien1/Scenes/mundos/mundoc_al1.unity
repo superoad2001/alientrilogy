@@ -10555,10 +10555,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6010a2de17a11514da18980e669b96f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camnomov: 0
+  npcbase: {fileID: 0}
+  tiempodialogue: 0
   respawn: {fileID: 1181752171}
+  balaprefab: {fileID: 0}
+  dialogueact: 0
+  balavel: 20
+  textnpc: {fileID: 0}
   audio1: {fileID: 0}
   velcorr: 12
   controlact: 1
+  disp: {fileID: 0}
   temppaso: 1
   rotspeed: 3
   explosion: {fileID: 0}
@@ -10568,6 +10576,7 @@ MonoBehaviour:
   speed: 3
   suelo: 0
   velact: 0
+  tiempodisp: 0
   tut10: {fileID: 0}
   girovalor: 0
   mod: {fileID: 0}
@@ -10575,9 +10584,14 @@ MonoBehaviour:
   lverticalc: 0
   rhorizontalc: 0
   rverticalc: 0
-  jumpc: 0
-  mc: 0
-  nc: 0
+  a: 0
+  b: 0
+  x: 0
+  y: 0
+  rb: 0
+  rt: 0
+  lt: 0
+  l3: 0
   tactil: {fileID: 1161321817}
   anim: {fileID: 0}
   pasosnave: {fileID: 298195016}
@@ -10589,6 +10603,8 @@ MonoBehaviour:
   tempgir: 0
   muertes: {fileID: 0}
   muertesjug: {fileID: 0}
+  menushow: {fileID: 0}
+  menuoff: {fileID: 0}
   manager: {fileID: 0}
   tiempoascensor: 0
   bajar: 0
@@ -10613,7 +10629,7 @@ MonoBehaviour:
   dimensiion: 0
   tiempogiro: 0
   tiempogiro2: 0
-  ascensor: 1
+  ascensor: 0
   ascensortut: {fileID: 0}
   ascensortut2: {fileID: 0}
   dentrotienda: 0
@@ -15504,7 +15520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Action: al1/b
+  m_Action: al1/lt
   _setNativeSize: 1
 --- !u!114 &1022815787
 MonoBehaviour:
@@ -15526,7 +15542,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -2010178438, guid: 6f0300b0215a3074caa2df2f572f6955, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20138,7 +20154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Action: al1/a
+  m_Action: al1/rt
   _setNativeSize: 1
 --- !u!114 &1938329651
 MonoBehaviour:
@@ -20160,7 +20176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -191208344, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
