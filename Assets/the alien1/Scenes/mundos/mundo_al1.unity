@@ -1383,6 +1383,7 @@ GameObject:
   - component: {fileID: 680}
   - component: {fileID: 2147054722}
   - component: {fileID: 2147054723}
+  - component: {fileID: 2147054724}
   m_Layer: 0
   m_Name: Cube
   m_TagString: ascensor
@@ -2654,13 +2655,13 @@ Transform:
   m_GameObject: {fileID: 127}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2138.183, y: -98.2, z: 1002.5}
-  m_LocalScale: {x: 2.2268043, y: 2.2268043, z: 2.2268043}
+  m_LocalPosition: {x: 0.000019934041, y: 0.16168062, z: 0.026686698}
+  m_LocalScale: {x: 0.18181817, y: 2, z: 0.18181817}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 326064835}
   - {fileID: 1178928964}
-  m_Father: {fileID: 505372244}
+  m_Father: {fileID: 256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &177
 Transform:
@@ -3588,11 +3589,12 @@ Transform:
   m_GameObject: {fileID: 94}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2138.1833, y: -99.33, z: 1002.1732}
-  m_LocalScale: {x: 12.247423, y: 1.1134021, z: 12.247423}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 505372244}
+  m_Children:
+  - {fileID: 174}
+  m_Father: {fileID: 1585909979}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &258
 Transform:
@@ -15812,6 +15814,7 @@ MonoBehaviour:
   repath: 
   repathconfig: 
   datosserial:
+    asc: 0
     plat: 0
     idioma: 
     muertes: 0
@@ -16480,6 +16483,7 @@ MonoBehaviour:
   menushow: {fileID: 0}
   menuoff: {fileID: 0}
   manager: {fileID: 0}
+  ascensors: {fileID: 2147054724}
   tiempoascensor: 0
   bajar: 0
   subir: 0
@@ -16487,6 +16491,7 @@ MonoBehaviour:
   pausa1: {fileID: 1537456308}
   temp9: 0
   dashaeract: 0
+  ascact: 0
   velocidad: 7
   velocidadjet: 2
   velocidadr: 20
@@ -17101,8 +17106,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.99999994, y: 2.243744, z: 0.99999994}
-  m_Center: {x: 0.000000029802322, y: 0.6917267, z: 0}
+  m_Size: {x: 1, y: 4.122162, z: 1}
+  m_Center: {x: 0.000000029802326, y: 2.155136, z: 0}
 --- !u!114 &921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23378,6 +23383,7 @@ RectTransform:
   m_LocalScale: {x: 0.44907406, y: 0.44907406, z: 0.44907406}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1585909979}
   - {fileID: 1425815299}
   - {fileID: 173}
   - {fileID: 184}
@@ -23393,7 +23399,6 @@ RectTransform:
   - {fileID: 237}
   - {fileID: 242}
   - {fileID: 254}
-  - {fileID: 256}
   - {fileID: 260}
   - {fileID: 275}
   - {fileID: 276}
@@ -23421,7 +23426,6 @@ RectTransform:
   - {fileID: 828267299}
   - {fileID: 186502968}
   - {fileID: 571850637}
-  - {fileID: 174}
   - {fileID: 265501486}
   - {fileID: 694255644}
   - {fileID: 1906429057}
@@ -36600,6 +36604,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5306436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1585909978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1585909979}
+  - component: {fileID: 1585909980}
+  m_Layer: 0
+  m_Name: game
+  m_TagString: ascensor
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1585909979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585909978}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2138.1833, y: -99.330025, z: 1002.1732}
+  m_LocalScale: {x: 12.247423, y: 1.1134021, z: 12.247423}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 256}
+  m_Father: {fileID: 505372244}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1585909980
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585909978}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &1590268341
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -43210,6 +43255,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &2147054724
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 577db117707a4064aa69ff66e88f3612, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

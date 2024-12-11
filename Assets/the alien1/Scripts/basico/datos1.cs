@@ -7,6 +7,8 @@ using System;
 [Serializable]
 public class datos1
 {
+
+	public float asc;
     public int plat;
 
     public string idioma;
