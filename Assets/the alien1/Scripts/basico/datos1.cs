@@ -16,6 +16,13 @@ public class datos1
 	public int asesinatos;
 	public bool salasecreta;
 
+	public bool jefe1;
+	public bool jefe2;
+	public bool jefe3;
+	public bool jefe4;
+
+	public string carganivel;
+
 	public int gemas;
 
 	public int gemaN1;

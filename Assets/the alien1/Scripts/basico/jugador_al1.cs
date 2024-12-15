@@ -230,7 +230,7 @@ public class jugador_al1 : MonoBehaviour
 
 		if (this.ascensor && manager.juego == 0 && manager.piso == 1)
 		{
-			if (rt > 0f && manager.datosserial.tengovel == 1 && bajar1 == false && bajar1esp == false )
+			if (rt > 0f && manager.datosserial.tengovel == 1 && bajar1 == false && bajar1esp == false && tiempoascensor > 2f)
 			{
 				subir1 = true;
 				subir = true;
@@ -240,7 +240,7 @@ public class jugador_al1 : MonoBehaviour
 				
 				
 			}
-			if (lt > 0f && manager.datosserial.tengonave == 1 && manager.datosserial.cinematicaf == 1 && subir1 == false)
+			if (lt > 0f && manager.datosserial.tengonave == 1 && manager.datosserial.cinematicaf == 1 && subir1 == false && tiempoascensor > 2f)
 			{
 				bajar1esp = true;
 				bajar = true;
@@ -248,7 +248,7 @@ public class jugador_al1 : MonoBehaviour
 				manager.datosserial.asc = -1;
 				manager.guardar();
 			}
-			else if (lt> 0f && manager.datosserial.gemas >= 1 && subir1 == false )
+			else if (lt> 0f && manager.datosserial.gemas >= 1 && subir1 == false && tiempoascensor > 2f)
 			{
 				bajar1 = true;
 				bajar = true;
@@ -264,7 +264,7 @@ public class jugador_al1 : MonoBehaviour
 			
 			
 		}
-		if (this.ascensor && manager.juego == 4 && manager.piso == 10 && rt > 0f)
+		if (this.ascensor && manager.juego == 4 && manager.piso == 10 && rt > 0f && tiempoascensor > 2f)
 		{
 			subir0 = true;
 			subir = true;
@@ -274,7 +274,7 @@ public class jugador_al1 : MonoBehaviour
 		}
 		
 		if (subir0 == true){ascensors.SetFloat("asc2",1);}
-		if (this.ascensor && manager.juego == 0 && manager.piso == 2)
+		if (this.ascensor && manager.juego == 0 && manager.piso == 2 && tiempoascensor > 2f)
 		{
 			if (rt > 0f && manager.datosserial.tengocoche == 1 && bajar2 == false)
 			{
@@ -298,7 +298,7 @@ public class jugador_al1 : MonoBehaviour
 			if (subir2 == true){ascensors.SetFloat("asc2",1);}
 			
 		}
-		if (this.ascensor && manager.juego == 0 && manager.piso == 3)
+		if (this.ascensor && manager.juego == 0 && manager.piso == 3 && tiempoascensor > 2f)
 		{
 			if (rt > 0f && manager.datosserial.tengosalto == 1 && bajar3 == false )
 			{
@@ -320,7 +320,7 @@ public class jugador_al1 : MonoBehaviour
 			if (subir3 == true){ascensors.SetFloat("asc2",1);}
 			
 		}
-		if (this.ascensor && manager.juego == 0 && manager.piso == 5 && lt > 0f && subir5 == false)
+		if (this.ascensor && manager.juego == 0 && manager.piso == 5 && lt > 0f && subir5 == false && tiempoascensor > 2f)
 		{
 				bajar5 = true;
 				bajar = true;
@@ -328,7 +328,7 @@ public class jugador_al1 : MonoBehaviour
 				manager.datosserial.asc = -1;
 				manager.guardar();
 		}
-				if (this.ascensor && manager.juego == 0 && manager.piso == 5 && rt > 0f && bajar5 == false)
+				if (this.ascensor && manager.juego == 0 && manager.piso == 5 && rt > 0f && bajar5 == false && tiempoascensor > 2f)
 		{
 				subir5 = true;
 				subir = true;
@@ -340,7 +340,7 @@ public class jugador_al1 : MonoBehaviour
 		if (bajar5 == true){ascensors.SetFloat("asc2",-1);}
 
 		if (subir5 == true){ascensors.SetFloat("asc2",1);}
-		if (this.ascensor && manager.juego == 0 && manager.piso == 4)
+		if (this.ascensor && manager.juego == 0 && manager.piso == 4 && tiempoascensor > 2f)
 		{
 			if (rt > 0f && manager.datosserial.fragmento == 3 && manager.datosserial.tengollave4 == 1 && bajar4 == false)
 			{
@@ -364,7 +364,7 @@ public class jugador_al1 : MonoBehaviour
 			if (subir4 == true){ascensors.SetFloat("asc2",1);}
 			
 		}
-			if (this.ascensor && manager.juego == 0 && manager.piso == -1)
+			if (this.ascensor && manager.juego == 0 && manager.piso == -1 && tiempoascensor > 2f)
 		{
 			if (rt > 0f && bajart1 == false )
 			{
@@ -388,7 +388,7 @@ public class jugador_al1 : MonoBehaviour
 			if (subirt1 == true){ascensors.SetFloat("asc2",1);}
 			
 		}
-			if (this.ascensor && manager.juego == 0 && manager.piso == -2)
+			if (this.ascensor && manager.juego == 0 && manager.piso == -2 && tiempoascensor > 2f)
 		{
 			if (rt > 0f && bajart2 == false)
 			{
@@ -412,7 +412,7 @@ public class jugador_al1 : MonoBehaviour
 			if (subirt2 == true){ascensors.SetFloat("asc2",1);}
 
 		}
-			if (this.ascensor && manager.juego == 0 && manager.piso == -3)
+			if (this.ascensor && manager.juego == 0 && manager.piso == -3 && tiempoascensor > 2f)
 		{
 			if (rt > 0f && bajart3 == false)
 			{
@@ -436,7 +436,7 @@ public class jugador_al1 : MonoBehaviour
 			if (subirt3 == true){ascensors.SetFloat("asc2",1);}
 
 		}
-		if (this.ascensor && manager.juego == 0 && manager.piso == -4)
+		if (this.ascensor && manager.juego == 0 && manager.piso == -4 && tiempoascensor > 2f)
 		{
 			anim.SetFloat("velx",lhorizontalc);
         anim.SetFloat("vely",lverticalc);
@@ -462,7 +462,7 @@ public class jugador_al1 : MonoBehaviour
 			if (subirt4 == true){ascensors.SetFloat("asc2",1);}
 
 		}
-			if (this.ascensor && manager.juego == -1 && manager.piso == -5)
+			if (this.ascensor && manager.juego == -1 && manager.piso == -5 && tiempoascensor > 2f)
 		{
 			if (lt > 0f ) 
 			{
@@ -497,32 +497,50 @@ public class jugador_al1 : MonoBehaviour
 			this.tiempovelint = (int)this.tiempovel;
 		}
 		
-			if(subir1 == true && tiempoascensor > 3){SceneManager.LoadScene("piso2_al1");}
-			if(bajar1esp == true && tiempoascensor > 3)
+			if(bajar1esp == true && tiempoascensor > 0.9f)
 			{
 				manager.datosserial.cinematicaf = 0;
 				manager.guardar();
 				SceneManager.LoadScene("cinematicafinal_al1");
 			}
-		if(bajar1 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("mundo_al1");}
-		if(subir0 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("piso1_al1");}
-		if(subir2 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("piso3_al1");}
-		if(bajar2 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("piso1_al1");}
-		if(subir3 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("piso4_al1");}
-		if(bajar3 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("piso2_al1");}
-		if(bajar5 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("piso4_al1");}
-		if(subir5 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("piso1t_al1");}
-		if(subir4 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("piso5_al1");}
-		if(bajar4 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("piso3_al1");}
-		if(subirt1 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("piso2t_al1");}
-		if(bajart1 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("piso5_al1");}
-		if(subirt2 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("piso3t_al1");}
-		if(bajart2 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("piso1t_al1");}
-		if(subirt3 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("piso4t_al1");}
-		if(bajart3 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("piso2t_al1");}
-		if(subirt4 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("piso5t_al1");}
-		if(bajart4 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("piso3t_al1");}
-		if(bajart5 == true && tiempoascensor > 0.7f){SceneManager.LoadScene("piso4t_al1");}
+		if(subir0 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso1_al1");}
+		if(bajar5 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso4_al1");}
+		if(subir5 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso1t_al1");}
+		if(subirt1 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso2t_al1");}
+		if(bajart1 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso5_al1");}
+		if(subirt2 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso3t_al1");}
+		if(bajart2 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso1t_al1");}
+		if(subirt3 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso4t_al1");}
+		if(bajart3 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso2t_al1");}
+		if(subirt4 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso5t_al1");}
+		if(bajart4 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso3t_al1");}
+		if(bajart5 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso4t_al1");}
+
+
+		if(subir1 == true && tiempoascensor > 0f && manager.datosserial.jefe1 == false && manager.datosserial.tengovel == 1){SceneManager.LoadScene("jefe1_al1");}
+		else if(subir1 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso2_al1");}
+
+
+		if(subir2 == true && tiempoascensor > 0f && manager.datosserial.jefe2 == false && manager.datosserial.tengocoche == 1){SceneManager.LoadScene("jefe2_al1");}
+		else if(subir2 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso3_al1");}
+
+		if(subir3 == true && tiempoascensor > 0f && manager.datosserial.jefe3 == false && manager.datosserial.tengosalto == 1){SceneManager.LoadScene("jefe3_al1");}
+		else if(subir3 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso4_al1");}
+
+		if(subir4 == true && tiempoascensor > 0f && manager.datosserial.jefe4 == false && manager.datosserial.tengollave4 == 1){SceneManager.LoadScene("jefe4_al1");}
+		else if(subir4 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso5_al1");}
+
+		if(bajar1 == true && tiempoascensor > 0f && manager.datosserial.jefe1 == false && manager.datosserial.tengovel == 1){SceneManager.LoadScene("jefe1_al1");}
+		else if(bajar1 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("mundo_al1");}
+
+		if(bajar2 == true && tiempoascensor > 0f && manager.datosserial.jefe2 == false && manager.datosserial.tengocoche == 1){SceneManager.LoadScene("jefe2_al1");}
+		else if(bajar2 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso1_al1");}
+
+		if(bajar3 == true && tiempoascensor > 0f && manager.datosserial.jefe3 == false && manager.datosserial.tengosalto == 1){SceneManager.LoadScene("jefe3_al1");}
+		else if(bajar3 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso2_al1");}
+
+		if(bajar4 == true && tiempoascensor > 0f && manager.datosserial.jefe4 == false && manager.datosserial.tengollave4 == 1){SceneManager.LoadScene("jefe4_al1");}
+		else if(bajar4 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso3_al1");}
 
 
 
@@ -1000,7 +1018,7 @@ public class jugador_al1 : MonoBehaviour
 		{
 			anim.SetFloat("velx",lhorizontalc);
         	anim.SetFloat("vely",lverticalc);
-			if(tiempoascensor > 1f)
+			if(tiempoascensor > 1.7f)
 			{
 				
 				if (lhorizontalc > 0f )
@@ -1051,7 +1069,7 @@ public class jugador_al1 : MonoBehaviour
 		}
 		if (manager.juego == 0 )
 		{
-			if(tiempoascensor > 1f)
+			if(tiempoascensor > 1.7f)
 			{
 			rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
             rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
@@ -1423,7 +1441,10 @@ public class jugador_al1 : MonoBehaviour
 		if (col.gameObject.tag == "npc")
 		{
 			menushow.SetBool("show",false);
+			if(menuoff != null)
+			{
 			menuoff.MainUI.gameObject.SetActive(false);
+			}
 			dialogueact = false;
 		}
 	}

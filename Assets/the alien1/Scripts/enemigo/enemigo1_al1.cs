@@ -28,6 +28,7 @@ public class enemigo1_al1: MonoBehaviour
         jugador1 = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         jugador1.explosion = explosion;
         muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();
+        manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
     }
 
     // Update is called once per frame
@@ -53,15 +54,26 @@ public class enemigo1_al1: MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-
+        if (col.gameObject.tag == "golpeh")
+		{
+            GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
+			manager.datosserial.asesinatos++;
+			muertes.Play();
+			manager.guardar();
+            Destroy(explosiont, 1f);
+            Destroy(transform.parent.gameObject);
+            
+		}
 
 	}
     private void OnCollisionEnter(Collision col) 
     {
         if (col.gameObject.tag == "respawn")
 		{
-			Destroy(transform.parent.gameObject);
+
             muertes.Play();
+			Destroy(transform.parent.gameObject);
+            
 		}
         
     }

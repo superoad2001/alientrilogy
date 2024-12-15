@@ -13,6 +13,8 @@ public class manager_al1 : MonoBehaviour
 
 	public int trofeoact;
 	public float tempshow;
+
+	public GameObject portalg;
 	public int nivel = 0;
 	public int piso_carga;
 	public bool otroasteroide = false;
@@ -393,6 +395,22 @@ public class manager_al1 : MonoBehaviour
 			{
 				audio6cat.Play();
 			}
+		}
+		if(juego == 0 && piso == 1  && datosserial.jefe1 == false && datosserial.tengovel == 1)
+		{
+			portalg.SetActive(true);
+		}
+		if(juego == 0 && piso == 2  && datosserial.jefe2 == false && datosserial.tengocoche == 1)
+		{
+			portalg.SetActive(true);
+		}
+		if(juego == 0 && piso == 3  && datosserial.jefe3 == false  && datosserial.tengosalto == 1)
+		{
+			portalg.SetActive(true);
+		}
+		if(juego == 0 && piso == 4  && datosserial.jefe4 == false && datosserial.tengollave4 == 1)
+		{
+			portalg.SetActive(true);
 		}
 	}
 	public bool mundos = false;

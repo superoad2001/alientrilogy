@@ -490,7 +490,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f693c407-8cbf-4e67-b3a4-377da63ded1a"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
