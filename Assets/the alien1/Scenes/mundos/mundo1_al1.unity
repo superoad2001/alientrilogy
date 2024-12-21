@@ -1011,6 +1011,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   trofeoact: 7
   tempshow: 0
+  portalg: {fileID: 0}
   nivel: 0
   piso_carga: 0
   otroasteroide: 1
@@ -1059,6 +1060,12 @@ MonoBehaviour:
     muertes: 0
     asesinatos: 0
     salasecreta: 0
+    jefe1: 0
+    jefe2: 0
+    jefe3: 0
+    jefe4: 0
+    vidamax: 5
+    carganivel: 
     gemas: 0
     gemaN1: 0
     gemaN2: 0
@@ -1398,6 +1405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camnomov: 0
+  vida: 5
   npcbase: {fileID: 0}
   tiempodialogue: 0
   respawn: {fileID: 6653362806382605399}
@@ -1447,8 +1455,10 @@ MonoBehaviour:
   muertesjug: {fileID: 0}
   menushow: {fileID: 0}
   menuoff: {fileID: 0}
+  vidamax: 0
   manager: {fileID: 0}
   ascensors: {fileID: 0}
+  vidat: {fileID: 203869270}
   tiempoascensor: 0
   bajar: 0
   subir: 0
@@ -1457,6 +1467,7 @@ MonoBehaviour:
   temp9: 0
   dashaeract: 0
   ascact: 0
+  vidab: {fileID: 203869269}
   velocidad: 7
   velocidadjet: 2
   velocidadr: 20
@@ -1897,6 +1908,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4635049911649899224, guid: d3308eae64e10674d9fb911db792ca6a, type: 3}
   m_PrefabInstance: {fileID: 176119390}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &203869269 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3872708091346278323, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+  m_PrefabInstance: {fileID: 3976241158672281683}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &203869270 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7557924158183033685, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+  m_PrefabInstance: {fileID: 3976241158672281683}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &288643894
 GameObject:
   m_ObjectHideFlags: 0
@@ -5555,6 +5588,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3376875541846101897, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552775230877451359, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8864457545308561707, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}

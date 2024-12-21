@@ -10800,6 +10800,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   trofeoact: 7
   tempshow: 0
+  portalg: {fileID: 0}
   nivel: 0
   piso_carga: 0
   otroasteroide: 0
@@ -10848,6 +10849,12 @@ MonoBehaviour:
     muertes: 0
     asesinatos: 0
     salasecreta: 0
+    jefe1: 0
+    jefe2: 0
+    jefe3: 0
+    jefe4: 0
+    vidamax: 5
+    carganivel: 
     gemas: 0
     gemaN1: 0
     gemaN2: 0
@@ -11101,6 +11108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camnomov: 0
+  vida: 5
   npcbase: {fileID: 0}
   tiempodialogue: 0
   respawn: {fileID: 1842295022}
@@ -11150,8 +11158,10 @@ MonoBehaviour:
   muertesjug: {fileID: 0}
   menushow: {fileID: 0}
   menuoff: {fileID: 0}
+  vidamax: 0
   manager: {fileID: 0}
   ascensors: {fileID: 0}
+  vidat: {fileID: 479497041}
   tiempoascensor: 0
   bajar: 0
   subir: 0
@@ -11160,6 +11170,7 @@ MonoBehaviour:
   temp9: 0
   dashaeract: 0
   ascact: 0
+  vidab: {fileID: 824665397}
   velocidad: 7
   velocidadjet: 2
   velocidadr: 20
@@ -14623,6 +14634,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474653400}
   m_Mesh: {fileID: 4300000, guid: 0b7e04496e1704097823924870e74e6d, type: 3}
+--- !u!114 &479497041 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7557924158183033685, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+  m_PrefabInstance: {fileID: 1343156710}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &501668168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16540,6 +16562,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798115525}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &824665397 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3872708091346278323, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+  m_PrefabInstance: {fileID: 1343156710}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &845591966
 GameObject:
   m_ObjectHideFlags: 0

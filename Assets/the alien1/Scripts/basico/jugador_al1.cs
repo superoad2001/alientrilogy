@@ -13,6 +13,7 @@ public class jugador_al1 : MonoBehaviour
 {
 
 	public bool camnomov;
+	public float vida = 5;
 	public npc_tienda1_al1 npcbase;
 	public float tiempodialogue;
 	public GameObject respawn;
@@ -72,6 +73,8 @@ public class jugador_al1 : MonoBehaviour
 	private Controles controles;
 	public DialogueManager menuoff;
 	private float velocidadalien = 10;
+
+	public float vidamax;
 	public void Awake()
     {
         controles = new Controles();
@@ -86,6 +89,7 @@ public class jugador_al1 : MonoBehaviour
     }
 	public manager_al1 manager;
 	public Animator ascensors;
+	public Text vidat;
 	// Token: 0x0600001D RID: 29 RVA: 0x000025E8 File Offset: 0x000007E8
 	private void Start()
 	{
@@ -127,6 +131,8 @@ public class jugador_al1 : MonoBehaviour
 		{
 			mod = this.gameObject.transform.GetChild(0).gameObject;
 		}
+		vidamax = manager.datosserial.vidamax;
+		vida = vidamax;
 		
 		
 	}
@@ -163,10 +169,15 @@ public class jugador_al1 : MonoBehaviour
 	private float dash = 0.3f;
 	private float dash2 = 0.3f;
 	public bool ascact;
+	public Image vidab;
+	public bool cronoact;
 	// Token: 0x0600001E RID: 30 RVA: 0x00002604 File Offset: 0x00000804
 	
 	private void Update()
 	{
+	if(manager.juego != 6 && cronoact == false || manager.juego != 0 && cronoact == false || manager.juego != 1  && cronoact == false|| manager.juego != 2 && cronoact == false)
+	{vidab.fillAmount = vida/vidamax;
+	vidat.text = vida+"/"+vidamax;}
 	if(ascensors != null && ascact == true)
 	{
 		ascensors.SetFloat("asc",0);

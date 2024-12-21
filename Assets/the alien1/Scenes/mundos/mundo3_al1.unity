@@ -1729,6 +1729,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   trofeoact: 7
   tempshow: 0
+  portalg: {fileID: 0}
   nivel: 0
   piso_carga: 0
   otroasteroide: 1
@@ -1777,6 +1778,12 @@ MonoBehaviour:
     muertes: 0
     asesinatos: 0
     salasecreta: 0
+    jefe1: 0
+    jefe2: 0
+    jefe3: 0
+    jefe4: 0
+    vidamax: 5
+    carganivel: 
     gemas: 0
     gemaN1: 0
     gemaN2: 0
@@ -2284,6 +2291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camnomov: 0
+  vida: 5
   npcbase: {fileID: 0}
   tiempodialogue: 0
   respawn: {fileID: 766078816}
@@ -2333,8 +2341,10 @@ MonoBehaviour:
   muertesjug: {fileID: 0}
   menushow: {fileID: 0}
   menuoff: {fileID: 0}
+  vidamax: 0
   manager: {fileID: 0}
   ascensors: {fileID: 0}
+  vidat: {fileID: 1942981947}
   tiempoascensor: 0
   bajar: 0
   subir: 0
@@ -2343,6 +2353,7 @@ MonoBehaviour:
   temp9: 0
   dashaeract: 0
   ascact: 0
+  vidab: {fileID: 1942981946}
   velocidad: 7
   velocidadjet: 2
   velocidadr: 20
@@ -6387,6 +6398,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2373954659342451930, guid: a1be23fe5d42aee429f7ab2884c7f23d, type: 3}
   m_PrefabInstance: {fileID: 1936252971}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1942981946 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3872708091346278323, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+  m_PrefabInstance: {fileID: 1101097913}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1942981947 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7557924158183033685, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+  m_PrefabInstance: {fileID: 1101097913}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1973172017
 PrefabInstance:
   m_ObjectHideFlags: 0

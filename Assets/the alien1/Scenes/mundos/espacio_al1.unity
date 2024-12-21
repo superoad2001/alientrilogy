@@ -2342,6 +2342,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   trofeoact: 6
   tempshow: 0
+  portalg: {fileID: 0}
   nivel: 0
   piso_carga: 0
   otroasteroide: 0
@@ -2384,11 +2385,18 @@ MonoBehaviour:
   repath: 
   repathconfig: 
   datosserial:
+    asc: 0
     plat: 0
     idioma: 
     muertes: 0
     asesinatos: 0
     salasecreta: 0
+    jefe1: 0
+    jefe2: 0
+    jefe3: 0
+    jefe4: 0
+    vidamax: 5
+    carganivel: 
     gemas: 0
     gemaN1: 0
     gemaN2: 0
@@ -2642,6 +2650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camnomov: 0
+  vida: 5
   npcbase: {fileID: 0}
   tiempodialogue: 0
   respawn: {fileID: 0}
@@ -2691,13 +2700,19 @@ MonoBehaviour:
   muertesjug: {fileID: 0}
   menushow: {fileID: 0}
   menuoff: {fileID: 0}
+  vidamax: 0
   manager: {fileID: 0}
+  ascensors: {fileID: 0}
+  vidat: {fileID: 0}
   tiempoascensor: 0
   bajar: 0
   subir: 0
   juego: {fileID: 1540635102}
   pausa1: {fileID: 1259053329}
   temp9: 0
+  dashaeract: 0
+  ascact: 0
+  vidab: {fileID: 0}
   velocidad: 70
   velocidadjet: 70
   velocidadr: 70
@@ -17323,6 +17338,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -142
       objectReference: {fileID: 0}
+    - target: {fileID: 2191192457092037671, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2420295427883384249, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -17479,6 +17498,10 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 89929302}
+    - target: {fileID: 8561379572508056656, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8864457545308561707, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
       propertyPath: m_Name
       value: interfazmundo
@@ -18143,7 +18166,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -135.02747, y: 90.96649}
+  m_AnchoredPosition: {x: -59.200012, y: 53.199997}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1570457530
@@ -18424,7 +18447,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -180, y: 90.96649}
+  m_AnchoredPosition: {x: -104.17261, y: 53.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1658900658

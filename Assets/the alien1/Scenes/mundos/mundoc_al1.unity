@@ -9981,6 +9981,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   trofeoact: 8
   tempshow: 0
+  portalg: {fileID: 0}
   nivel: 0
   piso_carga: 0
   otroasteroide: 0
@@ -10023,11 +10024,18 @@ MonoBehaviour:
   repath: 
   repathconfig: 
   datosserial:
+    asc: 0
     plat: 0
     idioma: 
     muertes: 0
     asesinatos: 0
     salasecreta: 0
+    jefe1: 0
+    jefe2: 0
+    jefe3: 0
+    jefe4: 0
+    vidamax: 5
+    carganivel: 
     gemas: 0
     gemaN1: 0
     gemaN2: 0
@@ -10556,6 +10564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camnomov: 0
+  vida: 5
   npcbase: {fileID: 0}
   tiempodialogue: 0
   respawn: {fileID: 1181752171}
@@ -10605,13 +10614,19 @@ MonoBehaviour:
   muertesjug: {fileID: 0}
   menushow: {fileID: 0}
   menuoff: {fileID: 0}
+  vidamax: 0
   manager: {fileID: 0}
+  ascensors: {fileID: 0}
+  vidat: {fileID: 0}
   tiempoascensor: 0
   bajar: 0
   subir: 0
   juego: {fileID: 927602905}
   pausa1: {fileID: 349837499}
   temp9: 0
+  dashaeract: 0
+  ascact: 0
+  vidab: {fileID: 0}
   velocidad: 10
   velocidadjet: 2
   velocidadr: 20
@@ -11572,7 +11587,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -118.80945, y: 104.340836}
+  m_AnchoredPosition: {x: -113, y: 119.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &158742506
@@ -15505,7 +15520,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -59.099854, y: 47.16778}
+  m_AnchoredPosition: {x: -53.290344, y: 62.226944}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1022815786
@@ -16740,6 +16755,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3376875541846101897, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552775230877451359, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561379572508056656, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8864457545308561707, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
@@ -19659,7 +19682,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -118.80945, y: 48.692425}
+  m_AnchoredPosition: {x: -112.99994, y: 63.751587}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1826058772
@@ -20139,7 +20162,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -59.099854, y: 104.340836}
+  m_AnchoredPosition: {x: -53.290344, y: 119.399994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1938329650

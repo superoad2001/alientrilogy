@@ -671,6 +671,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   trofeoact: 0
   tempshow: 0
+  portalg: {fileID: 0}
   nivel: 1
   piso_carga: 1
   otroasteroide: 0
@@ -713,11 +714,18 @@ MonoBehaviour:
   repath: 
   repathconfig: 
   datosserial:
+    asc: 0
     plat: 0
     idioma: 
     muertes: 0
     asesinatos: 0
     salasecreta: 0
+    jefe1: 0
+    jefe2: 0
+    jefe3: 0
+    jefe4: 0
+    vidamax: 5
+    carganivel: 
     gemas: 0
     gemaN1: 0
     gemaN2: 0
@@ -971,6 +979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camnomov: 0
+  vida: 5
   npcbase: {fileID: 0}
   tiempodialogue: 0
   respawn: {fileID: 310533973}
@@ -1020,7 +1029,10 @@ MonoBehaviour:
   muertesjug: {fileID: 0}
   menushow: {fileID: 0}
   menuoff: {fileID: 0}
+  vidamax: 0
   manager: {fileID: 0}
+  ascensors: {fileID: 0}
+  vidat: {fileID: 1004103923}
   tiempoascensor: 0
   bajar: 0
   subir: 0
@@ -1028,6 +1040,8 @@ MonoBehaviour:
   pausa1: {fileID: 55715964}
   temp9: 0
   dashaeract: 0
+  ascact: 0
+  vidab: {fileID: 1004103922}
   velocidad: 7
   velocidadjet: 2
   velocidadr: 20
@@ -3056,6 +3070,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4672239495003725032, guid: 004dae76720e04a43b580fc6e0b2f822, type: 3}
   m_PrefabInstance: {fileID: 1004103920}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1004103922 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1308148699270197150, guid: 004dae76720e04a43b580fc6e0b2f822, type: 3}
+  m_PrefabInstance: {fileID: 1004103920}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1004103923 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8865436123148299849, guid: 004dae76720e04a43b580fc6e0b2f822, type: 3}
+  m_PrefabInstance: {fileID: 1004103920}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1037427464
 MonoBehaviour:
   m_ObjectHideFlags: 0

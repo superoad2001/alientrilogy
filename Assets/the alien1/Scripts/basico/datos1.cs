@@ -21,6 +21,8 @@ public class datos1
 	public bool jefe3;
 	public bool jefe4;
 
+	public float vidamax = 5;
+
 	public string carganivel;
 
 	public int gemas;
