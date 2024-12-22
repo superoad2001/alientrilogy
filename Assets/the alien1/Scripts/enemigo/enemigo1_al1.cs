@@ -17,6 +17,8 @@ public class enemigo1_al1: MonoBehaviour
     public float vel = 2;
     public bool desactivar;
     public enemigodet_al1 enemigodet;
+
+    public float danoj;
     public GameObject dano;
     public GameObject det;
     public GameObject explosion;
@@ -56,7 +58,7 @@ public class enemigo1_al1: MonoBehaviour
 	{
         if (col.gameObject.tag == "golpeh")
 		{
-            GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
+            GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
 			manager.datosserial.asesinatos++;
 			muertes.Play();
 			manager.guardar();

@@ -170,14 +170,34 @@ public class jugador_al1 : MonoBehaviour
 	private float dash2 = 0.3f;
 	public bool ascact;
 	public Image vidab;
+	public bool muerte;
 	public bool cronoact;
 	// Token: 0x0600001E RID: 30 RVA: 0x00002604 File Offset: 0x00000804
 	
 	private void Update()
 	{
-	if(manager.juego != 6 && cronoact == false || manager.juego != 0 && cronoact == false || manager.juego != 1  && cronoact == false|| manager.juego != 2 && cronoact == false)
-	{vidab.fillAmount = vida/vidamax;
-	vidat.text = vida+"/"+vidamax;}
+	if(vida <= 0)
+	{
+		muerte = true;
+	}
+	if(muerte == true)
+	{
+		muertesjug.Play();
+		manager.datosserial.alien1muere = true;
+		manager.datosserial.muertes++;
+		manager.guardar();
+		if(manager.datosconfig.plat == 2)
+		{
+			tactil.SetActive(false);
+		}
+		respawn.SetActive(true);
+		juego.SetActive(false);
+	}
+	if(manager.juego != 6 && manager.juego != 0 && manager.juego != 1  && manager.juego != 2 && cronoact == false )
+	{
+		vidab.fillAmount = vida/vidamax; 
+		vidat.text = vida+"/"+vidamax;
+	}
 	if(ascensors != null && ascact == true)
 	{
 		ascensors.SetFloat("asc",0);
@@ -1157,7 +1177,7 @@ public class jugador_al1 : MonoBehaviour
 		}
 		if(manager.juego == 3 || manager.juego == 4)
 		{
-			if(rt > 0)
+			if(rt > 0 && ascensor == true)
 			{
 				anim.SetBool("arma3",true);
 			}
@@ -1327,20 +1347,27 @@ public class jugador_al1 : MonoBehaviour
 
 		
 		}
-		if (col.gameObject.tag == "enemigo" || col.gameObject.tag == "respawn")
+		if (col.gameObject.tag == "enemigo" && cronoact == true|| col.gameObject.tag == "respawn")
+		{
+			muerte = true;
+		}
+		if (col.gameObject.tag == "enemigo" && cronoact == false)
 		{
 			muertesjug.Play();
-			manager.datosserial.alien1muere = true;
-			manager.datosserial.muertes++;
-			manager.guardar();
-			if(manager.datosconfig.plat == 2)
+			
+			if(col.gameObject.GetComponent<enemigo1_al1>() != null)
 			{
-				tactil.SetActive(false);
+				enemigo1_al1 enec = col.gameObject.GetComponent<enemigo1_al1>();
+				vida -= enec.danoj;
+				GameObject explosiont = Instantiate(enec.explosion,enec.transform.position,enec.transform.rotation) as GameObject;
+				enec.muertes.Play();
+				Destroy(explosiont, 1f);
+				Destroy(enec.transform.parent.gameObject);
 			}
-            respawn.SetActive(true);
-			juego.SetActive(false);
+
+			
 		}
-		if (col.gameObject.tag == "enemigo")
+		if (col.gameObject.tag == "enemigo" && cronoact == true)
 		{
 			muertes.Play();
 		}
