@@ -21,6 +21,10 @@ public class datos1
 	public bool jefe3;
 	public bool jefe4;
 
+	public bool begin;
+
+	public string nivelu;
+
 	public float vidamax = 5;
 
 	public string carganivel;

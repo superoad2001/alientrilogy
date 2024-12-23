@@ -40,9 +40,17 @@ public class inicio_al1 : MonoBehaviour
 
 		if (this.botonm == true && temp >= 1)
 		{
-			if (gemas >= 1)
+			if (manager.datosserial.begin == true)
 			{
-				SceneManager.LoadScene("piso1_al1");
+				if(manager.datosserial.nivelu != "")
+				{
+					SceneManager.LoadScene(manager.datosserial.nivelu);
+				}
+				else
+				{
+					SceneManager.LoadScene("piso1_al1");
+				}
+				
 			}
 			else
 			{

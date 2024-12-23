@@ -13,6 +13,8 @@ public class manager_al1 : MonoBehaviour
 
 	public int trofeoact;
 	public float tempshow;
+	public bool actguardarub;
+	public string nivelu;
 
 	public GameObject portalg;
 	public int nivel = 0;
@@ -258,6 +260,11 @@ public class manager_al1 : MonoBehaviour
 		cargar();
 		cargarconfig();
 		cargartro();
+
+		if(actguardarub == true)
+		{
+			datosserial.nivelu = nivelu;
+		}
 
 		
 		if (juego == 6 && datosserial.tengomejora == 1)

@@ -42,6 +42,8 @@ public class subircin1_al1 : MonoBehaviour
 	{
 		if (controles.al1.y.ReadValue<float>() > 0f)
 		{
+			manager.datosserial.begin = true;
+			manager.guardar();
 			SceneManager.LoadScene("piso1_al1");
 		}
 	}

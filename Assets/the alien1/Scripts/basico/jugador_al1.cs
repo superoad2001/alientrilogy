@@ -232,10 +232,64 @@ public class jugador_al1 : MonoBehaviour
 	x = controles.al1.x.ReadValue<float>();
 	y = controles.al1.y.ReadValue<float>();
 
-	rb = controles.al1.rb.ReadValue<float>();
+	
 	rt = controles.al1.rt.ReadValue<float>();
-	lt = controles.al1.lt.ReadValue<float>();
+	
 	l3 = controles.al1.l3.ReadValue<float>();
+
+
+	if(manager.datosconfig.plat == 2)
+	{
+		if(manager.juego == 4)
+		{
+			if(controles.al1.lt.ReadValue<float>() > 0 && lt == 1 && temp9 > 0.5f)
+			{
+				lt = 0;
+				temp9 = 0;
+			}
+			else if(controles.al1.lt.ReadValue<float>() > 0 && lt == 0  && temp9 > 0.5f)
+			{
+				lt = 1;
+				temp9 = 0;
+			}
+
+			if(controles.al1.rb.ReadValue<float>() > 0 && rb == 1 && temp9 > 0.5f)
+			{
+				lt = 0;
+				temp9 = 0;
+			}
+			else if(controles.al1.rb.ReadValue<float>() > 0 && rb == 0  && temp9 > 0.5f)
+			{
+				lt = 1;
+				temp9 = 0;
+			}
+		}
+		if(manager.juego == 3)
+		{
+
+			if(controles.al1.rb.ReadValue<float>() > 0 && rb == 1 && temp9 > 0.5f)
+			{
+				lt = 0;
+				temp9 = 0;
+			}
+			else if(controles.al1.rb.ReadValue<float>() > 0 && rb == 0  && temp9 > 0.5f)
+			{
+				lt = 1;
+				temp9 = 0;
+			}
+		}
+		else
+		{		
+			lt = controles.al1.lt.ReadValue<float>();
+			rb = controles.al1.rb.ReadValue<float>();		
+		}
+		
+	}
+	else
+	{
+	rb = controles.al1.rb.ReadValue<float>();
+	lt = controles.al1.lt.ReadValue<float>();
+	}
 
 	pausac = controles.al1.pausa.ReadValue<float>();
 
@@ -275,6 +329,7 @@ public class jugador_al1 : MonoBehaviour
 			{
 				bajar1esp = true;
 				bajar = true;
+				manager.portalg.SetActive(false);
 				tiempoascensor = 0;
 				manager.datosserial.asc = -1;
 				manager.guardar();
@@ -283,6 +338,7 @@ public class jugador_al1 : MonoBehaviour
 			{
 				bajar1 = true;
 				bajar = true;
+				manager.portalg.SetActive(false);
 				tiempoascensor = 0;
 				manager.datosserial.asc = -1;
 				manager.guardar();
@@ -320,6 +376,7 @@ public class jugador_al1 : MonoBehaviour
 			{
 				bajar2 = true;
 				bajar = true;
+				manager.portalg.SetActive(false);
 				tiempoascensor = 0;
 				manager.datosserial.asc = -1;
 				manager.guardar();
@@ -344,6 +401,7 @@ public class jugador_al1 : MonoBehaviour
 				bajar3 = true;
 				bajar = true;
 				tiempoascensor = 0;
+				manager.portalg.SetActive(false);
 				manager.datosserial.asc = -1;
 				manager.guardar();
 			}
@@ -833,6 +891,8 @@ public class jugador_al1 : MonoBehaviour
 		}
 		if (manager.juego == 4)
 		{
+
+			
 
 
 			if(lt == 0 || ascensor == true)
