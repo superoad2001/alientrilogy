@@ -13,6 +13,7 @@ public class jugador_al1 : MonoBehaviour
 {
 
 	public bool camnomov;
+	public GameObject palo;
 	public float vida = 5;
 	public npc_tienda1_al1 npcbase;
 	public float tiempodialogue;
@@ -56,6 +57,8 @@ public class jugador_al1 : MonoBehaviour
 	public float rt;
 	public float lt;
 	public float l3;
+	public float horizontalpad;
+	public float verticalpad;
 	public GameObject tactil;
 	public Animator anim;
 	public AudioSource pasosnave;
@@ -133,6 +136,14 @@ public class jugador_al1 : MonoBehaviour
 		}
 		vidamax = manager.datosserial.vidamax;
 		vida = vidamax;
+		if(manager.datosserial.tengopalo == false)
+		{
+
+			if(manager.juego == 4 || manager.juego == 3 || manager.juego == 0)
+			{
+			palo.SetActive(false);
+			}
+		}
 		
 		
 	}
@@ -227,6 +238,9 @@ public class jugador_al1 : MonoBehaviour
 	rhorizontalc = controles.al1.rhorizontal.ReadValue<float>();
     rverticalc = controles.al1.rvertical.ReadValue<float>();
 
+	horizontalpad = controles.al1.horizontalpad.ReadValue<float>();
+    verticalpad = controles.al1.verticalpad.ReadValue<float>();
+
 	a = controles.al1.a.ReadValue<float>();
 	b = controles.al1.b.ReadValue<float>();
 	x = controles.al1.x.ReadValue<float>();
@@ -310,11 +324,27 @@ public class jugador_al1 : MonoBehaviour
         	Cursor.lockState = CursorLockMode.None;
 		}
 	}
-
+	if(manager.datosserial.jefe1 == false && manager.datosserial.tengovel == 1 && manager.piso == 1 && tiempoascensor > 2f && manager.juego == 0 && manager.dentrotienda == false)
+	{
+		manager.portalg.SetActive(true);
+	}
+	if(manager.datosserial.jefe2 == false && manager.datosserial.tengocoche == 1 && manager.piso == 2 && tiempoascensor > 2f && manager.juego == 0)
+	{
+		manager.portalg.SetActive(true);
+	}
+	if(manager.datosserial.jefe3 == false && manager.datosserial.tengosalto == 1 && manager.piso == 3 && tiempoascensor > 2f && manager.juego == 0)
+	{
+		manager.portalg.SetActive(true);
+	}
+	if(manager.datosserial.jefe4 == false && manager.datosserial.tengollave4 == 1 && manager.piso == 4 && tiempoascensor > 2f && manager.juego == 0)
+	{
+		manager.portalg.SetActive(true);
+	}
 
 
 		if (this.ascensor && manager.juego == 0 && manager.piso == 1)
 		{
+			
 			if (rt > 0f && manager.datosserial.tengovel == 1 && bajar1 == false && bajar1esp == false && tiempoascensor > 2f)
 			{
 				subir1 = true;
@@ -605,6 +635,7 @@ public class jugador_al1 : MonoBehaviour
 		if(bajart4 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso3t_al1");}
 		if(bajart5 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso4t_al1");}
 
+		
 
 		if(subir1 == true && tiempoascensor > 0f && manager.datosserial.jefe1 == false && manager.datosserial.tengovel == 1){SceneManager.LoadScene("jefe1_al1");}
 		else if(subir1 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso2_al1");}
@@ -618,18 +649,15 @@ public class jugador_al1 : MonoBehaviour
 
 		if(subir4 == true && tiempoascensor > 0f && manager.datosserial.jefe4 == false && manager.datosserial.tengollave4 == 1){SceneManager.LoadScene("jefe4_al1");}
 		else if(subir4 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso5_al1");}
+		
 
-		if(bajar1 == true && tiempoascensor > 0f && manager.datosserial.jefe1 == false && manager.datosserial.tengovel == 1){SceneManager.LoadScene("jefe1_al1");}
-		else if(bajar1 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("mundo_al1");}
+		if(bajar1 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("mundo_al1");}
 
-		if(bajar2 == true && tiempoascensor > 0f && manager.datosserial.jefe2 == false && manager.datosserial.tengocoche == 1){SceneManager.LoadScene("jefe2_al1");}
-		else if(bajar2 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso1_al1");}
+		if(bajar2 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso1_al1");}
 
-		if(bajar3 == true && tiempoascensor > 0f && manager.datosserial.jefe3 == false && manager.datosserial.tengosalto == 1){SceneManager.LoadScene("jefe3_al1");}
-		else if(bajar3 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso2_al1");}
+		if(bajar3 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso2_al1");}
 
-		if(bajar4 == true && tiempoascensor > 0f && manager.datosserial.jefe4 == false && manager.datosserial.tengollave4 == 1){SceneManager.LoadScene("jefe4_al1");}
-		else if(bajar4 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso3_al1");}
+		if(bajar4 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso3_al1");}
 
 
 
@@ -796,13 +824,13 @@ public class jugador_al1 : MonoBehaviour
 			anim.SetFloat("velx",lhorizontalc);
         anim.SetFloat("vely",lverticalc);
 			
-			if (lhorizontalc > 0f )
+			if (horizontalpad > 0f )
             {
                 var movdirect = transform.TransformDirection(new Vector3 (-lhorizontalc,0, 0));
 				_rb.MovePosition(transform.position + movdirect * velocidad * Time.deltaTime);
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,-90,0),5* Time.deltaTime);
             }
-            if (lhorizontalc < 0f)
+            if (horizontalpad < 0f)
             {
                 var movdirect = transform.TransformDirection(new Vector3 (-lhorizontalc,0, 0));
 				_rb.MovePosition(transform.position + movdirect * velocidad * Time.deltaTime);
@@ -847,13 +875,13 @@ public class jugador_al1 : MonoBehaviour
 		{
 			anim.SetFloat("velx",lhorizontalc);
         	anim.SetFloat("vely",lverticalc);
-			if (lhorizontalc > 0f )
+			if (horizontalpad > 0f )
             {
 				var movdirect = transform.TransformDirection(new Vector3 (-lhorizontalc,0, 0));
 				_rb.MovePosition(transform.position + movdirect * velocidad * Time.deltaTime);
                 mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,-90,0),5* Time.deltaTime);
             }
-            if (lhorizontalc < 0f)
+            if (horizontalpad < 0f)
             {
                 var movdirect = transform.TransformDirection(new Vector3 (-lhorizontalc,0, 0));
 				_rb.MovePosition(transform.position + movdirect * velocidad * Time.deltaTime);
@@ -1237,36 +1265,40 @@ public class jugador_al1 : MonoBehaviour
 		}
 		if(manager.juego == 3 || manager.juego == 4)
 		{
-			if(rt > 0 && ascensor == true)
+			if(manager.datosserial.tengopalo == true || manager.datosserial.tengolanzar == true)
 			{
-				anim.SetBool("arma3",true);
+				if(rt > 0 && ascensor == true)
+				{
+					anim.SetBool("arma3",true);
+				}
+				else
+				{
+					anim.SetBool("arma3",false);
+				}
 			}
-			else
+			if(manager.datosserial.tengopalo == true)
 			{
-				anim.SetBool("arma3",false);
-			}
-
-			if(x > 0 && suelo == true)
-			{
-				anim.SetBool("atk",true);
-			}
-			else
-			{
-				anim.SetBool("atk",false);
-			}
-
-			if(x > 0 && suelo == false)
-			{
-				anim.SetBool("atks",true);
-				this._rb.AddForce(this.jumpforce * 5f * -Vector3.up);
-			}
-			else
-			{
-				anim.SetBool("atks",false);
+				if(x > 0 && suelo == true)
+				{
+					anim.SetBool("atk",true);
+				}
+				else
+				{
+					anim.SetBool("atk",false);
+				}
+				if(x > 0 && suelo == false)
+				{
+					anim.SetBool("atks",true);
+					this._rb.AddForce(this.jumpforce * 5f * -Vector3.up);
+				}
+				else
+				{
+					anim.SetBool("atks",false);
+				}
 			}
 			if(manager.juego == 4)
 			{
-				if(b > 0 && tempdash > dash && suelo == false && dashaeract == false)
+				if(b > 0 && tempdash > dash && suelo == false && dashaeract == false && manager.datosserial.tengodash == true)
 				{
 					anim.SetBool("saltoatras",false);
 					anim.SetBool("latder",false);
@@ -1295,7 +1327,7 @@ public class jugador_al1 : MonoBehaviour
 			}
 			if(manager.juego == 3)
 			{
-				if(b > 0 && tempdash > dash && suelo == false && dashaeract == false)
+				if(b > 0 && tempdash > dash && suelo == false && dashaeract == false && manager.datosserial.tengodash == true) 
 				{
 					anim.SetBool("saltoatras",false);
 					anim.SetBool("latder",false);

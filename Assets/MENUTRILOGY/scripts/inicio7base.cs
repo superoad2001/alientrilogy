@@ -73,7 +73,7 @@ public float temp;
     }
     public void alt()
     {
-        manager.moveson.Play();
+        /*manager.moveson.Play();
         if(alter == 3)
         {
             alter = 1;
@@ -115,7 +115,7 @@ public float temp;
             logo3t.text = "ADVENTURE";
             logo4t.text = "3";
             anim.SetInteger("juego",3);
-        }
+        }*/
     }
     // Start is called before the first frame update
     void Start()

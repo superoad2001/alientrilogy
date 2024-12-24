@@ -36,7 +36,12 @@ public class inicio3base : MonoBehaviour
 
     public void izq()
     {
-        if(juego > 1)
+        if(juego == 4)
+        {
+            juego = 1;
+            manager.move();
+        }
+        else if(juego > 1)
         {
             juego -= 1;
             manager.move();
@@ -44,7 +49,12 @@ public class inicio3base : MonoBehaviour
     }
     public void der()
     {
-        if(juego < 5)
+        if(juego == 1)
+        {
+            juego = 4;
+            manager.move();
+        }
+        else if(juego < 5)
         {
             juego += 1;
             manager.move();

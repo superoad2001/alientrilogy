@@ -21,6 +21,12 @@ public class datos1
 	public bool jefe3;
 	public bool jefe4;
 
+	public bool tengopalo;
+
+	public bool tengolanzar;
+
+	public bool tengodash;
+
 	public bool begin;
 
 	public string nivelu;

@@ -37,6 +37,24 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""verticalpad"",
+                    ""type"": ""Value"",
+                    ""id"": ""3ad1789e-5570-45c1-8203-f52ef8554639"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""horizontalpad"",
+                    ""type"": ""Value"",
+                    ""id"": ""daa4624d-593e-493f-8283-2ea0806ae705"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""y"",
                     ""type"": ""Button"",
                     ""id"": ""bbaff926-bbdd-4961-98d2-6c0ad2890b4d"",
@@ -170,6 +188,72 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""3dbbd4b4-64e8-49db-8738-972443380611"",
+                    ""path"": ""<Gamepad>/dpad/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""verticalpad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c818f4e2-4eed-417d-8019-bad389b0b157"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""verticalpad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8b8065cd-b37c-4e82-8262-217c9f902eb6"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert"",
+                    ""groups"": """",
+                    ""action"": ""verticalpad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce9cd3dc-9e08-467f-b6d6-720ec2bfff20"",
+                    ""path"": ""<Gamepad>/dpad/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""horizontalpad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6dd8c939-5002-406a-a6c2-c8a622926c09"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert"",
+                    ""groups"": """",
+                    ""action"": ""horizontalpad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""28b43cbe-b958-4430-b9ec-8b0921cd650c"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""horizontalpad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""ccb312a4-861d-4685-ab67-e414203c54c7"",
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
@@ -204,7 +288,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""5fc9e87a-ee3b-415e-8486-43de0f284314"",
-                    ""path"": ""<Keyboard>/leftAlt"",
+                    ""path"": ""<Keyboard>/alt"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -270,7 +354,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""2c4a667d-98ce-4918-b264-31902fb00f18"",
-                    ""path"": ""<Mouse>/middleButton"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -313,17 +397,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""54fd745e-8db6-4a94-b82a-a5cb8790d3f7"",
-                    ""path"": ""<Gamepad>/dpad/x"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""lhorizontal"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""8b5395c6-e994-49b9-bfc5-c2fdd25c8d03"",
                     ""path"": ""<Gamepad>/leftStick/y"",
                     ""interactions"": """",
@@ -350,17 +423,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": ""Invert"",
-                    ""groups"": """",
-                    ""action"": ""lvertical"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""26e4091a-2f2d-4987-b807-427cf22df984"",
-                    ""path"": ""<Gamepad>/dpad/y"",
-                    ""interactions"": """",
-                    ""processors"": """",
                     ""groups"": """",
                     ""action"": ""lvertical"",
                     ""isComposite"": false,
@@ -1212,7 +1274,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4446f7e1-6160-4f9b-87c4-e958892deabf"",
-                    ""path"": ""<Mouse>/middleButton"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1476,7 +1538,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e5d83859-0eb3-4770-aa35-ed04d95c8a85"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -2065,6 +2127,8 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         // al1
         m_al1 = asset.FindActionMap("al1", throwIfNotFound: true);
         m_al1_a = m_al1.FindAction("a", throwIfNotFound: true);
+        m_al1_verticalpad = m_al1.FindAction("verticalpad", throwIfNotFound: true);
+        m_al1_horizontalpad = m_al1.FindAction("horizontalpad", throwIfNotFound: true);
         m_al1_y = m_al1.FindAction("y", throwIfNotFound: true);
         m_al1_l3 = m_al1.FindAction("l3", throwIfNotFound: true);
         m_al1_rb = m_al1.FindAction("rb", throwIfNotFound: true);
@@ -2201,6 +2265,8 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_al1;
     private List<IAl1Actions> m_Al1ActionsCallbackInterfaces = new List<IAl1Actions>();
     private readonly InputAction m_al1_a;
+    private readonly InputAction m_al1_verticalpad;
+    private readonly InputAction m_al1_horizontalpad;
     private readonly InputAction m_al1_y;
     private readonly InputAction m_al1_l3;
     private readonly InputAction m_al1_rb;
@@ -2218,6 +2284,8 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         private @Controles m_Wrapper;
         public Al1Actions(@Controles wrapper) { m_Wrapper = wrapper; }
         public InputAction @a => m_Wrapper.m_al1_a;
+        public InputAction @verticalpad => m_Wrapper.m_al1_verticalpad;
+        public InputAction @horizontalpad => m_Wrapper.m_al1_horizontalpad;
         public InputAction @y => m_Wrapper.m_al1_y;
         public InputAction @l3 => m_Wrapper.m_al1_l3;
         public InputAction @rb => m_Wrapper.m_al1_rb;
@@ -2242,6 +2310,12 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @a.started += instance.OnA;
             @a.performed += instance.OnA;
             @a.canceled += instance.OnA;
+            @verticalpad.started += instance.OnVerticalpad;
+            @verticalpad.performed += instance.OnVerticalpad;
+            @verticalpad.canceled += instance.OnVerticalpad;
+            @horizontalpad.started += instance.OnHorizontalpad;
+            @horizontalpad.performed += instance.OnHorizontalpad;
+            @horizontalpad.canceled += instance.OnHorizontalpad;
             @y.started += instance.OnY;
             @y.performed += instance.OnY;
             @y.canceled += instance.OnY;
@@ -2285,6 +2359,12 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @a.started -= instance.OnA;
             @a.performed -= instance.OnA;
             @a.canceled -= instance.OnA;
+            @verticalpad.started -= instance.OnVerticalpad;
+            @verticalpad.performed -= instance.OnVerticalpad;
+            @verticalpad.canceled -= instance.OnVerticalpad;
+            @horizontalpad.started -= instance.OnHorizontalpad;
+            @horizontalpad.performed -= instance.OnHorizontalpad;
+            @horizontalpad.canceled -= instance.OnHorizontalpad;
             @y.started -= instance.OnY;
             @y.performed -= instance.OnY;
             @y.canceled -= instance.OnY;
@@ -2853,6 +2933,8 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     public interface IAl1Actions
     {
         void OnA(InputAction.CallbackContext context);
+        void OnVerticalpad(InputAction.CallbackContext context);
+        void OnHorizontalpad(InputAction.CallbackContext context);
         void OnY(InputAction.CallbackContext context);
         void OnL3(InputAction.CallbackContext context);
         void OnRb(InputAction.CallbackContext context);
