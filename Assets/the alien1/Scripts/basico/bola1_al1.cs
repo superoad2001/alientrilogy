@@ -39,7 +39,7 @@ public class bola1_al1 : MonoBehaviour
 		}
 		if (this.jugador.transform.position.z - base.gameObject.transform.position.z > 5f)
 		{
-			base.gameObject.transform.position = new Vector3(this.jugador.transform.position.x, base.gameObject.transform.position.y, base.gameObject.transform.position.z);
+			transform.position = Vector3.MoveTowards(transform.position,new Vector3(jugador.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z),5f * Time.deltaTime);
 		}
 	}
 

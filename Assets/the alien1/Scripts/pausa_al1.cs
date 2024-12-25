@@ -52,17 +52,12 @@ public class pausa_al1 : MonoBehaviour
     {
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
-        if(jugador.mod != null)
-        {
-            hip = jugador.mod.transform.GetChild(0).transform.GetChild(0).transform;
-        }
 
     }
 
     // Update is called once per frame
     public void Update()
     {
-        
         if(manager.datosconfig.idioma == "es")
         {
             boton2.text = "salir";
@@ -98,34 +93,40 @@ public class pausa_al1 : MonoBehaviour
             continuar();
         }
         if(temp < 15)
-        {temp += 1 * Time.unscaledDeltaTime;}
+        {temp += 1 * Time.deltaTime;}
     }
     public void continuar(){
-        Time.timeScale = 1;
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         plataforma = manager.datosconfig.plat;
         temp = 0;
-        jugador.controlact = true;
-        jugador.tiemposalto = 0.9f;;
-        pausa1.SetActive(false);
         if(plataforma == 1)
 		{
 			Cursor.visible = false;
         	Cursor.lockState = CursorLockMode.Locked;
 		}
+        juego.SetActive(true);
+        jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         if(plataforma == 2)
 		{
 			jugador.tactil.SetActive(true);
 		}
         manager.pauseact = false;    
+        if(manager.juego == 1)
+        {
+            jugador.anim.SetBool("act2",true);
+        }
+        if(manager.juego == 2)
+        {
+            jugador.anim.SetBool("act",true);
+        }
+        pausa1.SetActive(false);
         }
     public void salir(){
-        Time.timeScale = 1;
+
         SceneManager.LoadScene("menu_de_carga_al1");
     }
 
     public void salirnivel(){
-        Time.timeScale = 1;
         if(piso == 1)
         {SceneManager.LoadScene("piso1_al1");}
         if(piso == 2)

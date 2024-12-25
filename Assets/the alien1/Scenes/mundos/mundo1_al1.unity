@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 25}
   - component: {fileID: 45}
   - component: {fileID: 36}
+  - component: {fileID: 1190616188}
   - component: {fileID: 66}
   - component: {fileID: 78}
   - component: {fileID: 1190616187}
@@ -120,9 +121,9 @@ GameObject:
   - component: {fileID: 28}
   - component: {fileID: 47}
   - component: {fileID: 38}
+  - component: {fileID: 83}
   - component: {fileID: 63}
   - component: {fileID: 59}
-  - component: {fileID: 81}
   - component: {fileID: 82}
   m_Layer: 0
   m_Name: meta 1
@@ -142,6 +143,7 @@ GameObject:
   - component: {fileID: 29}
   - component: {fileID: 48}
   - component: {fileID: 39}
+  - component: {fileID: 1704064772}
   - component: {fileID: 67}
   - component: {fileID: 84}
   - component: {fileID: 85}
@@ -188,6 +190,7 @@ GameObject:
   - component: {fileID: 32}
   - component: {fileID: 51}
   - component: {fileID: 42}
+  - component: {fileID: 91}
   - component: {fileID: 68}
   - component: {fileID: 87}
   - component: {fileID: 88}
@@ -1067,6 +1070,8 @@ MonoBehaviour:
     jefe3: 0
     jefe4: 0
     tengopalo: 0
+    tengolanzar: 0
+    tengodash: 0
     begin: 0
     nivelu: 
     vidamax: 5
@@ -1084,6 +1089,9 @@ MonoBehaviour:
     gemaN10: 0
     gemaN11: 0
     gemaN12: 0
+    gemaN13: 0
+    gemaN14: 0
+    gemaN15: 0
     fragmentoN1: 0
     fragmentoN2: 0
     fragmentoN3: 0
@@ -1105,9 +1113,6 @@ MonoBehaviour:
     mejora3: 0
     mejora4: 0
     mejora5: 0
-    gema1: 0
-    gema2: 0
-    gema3: 0
     moneda1: 0
     moneda2: 0
     moneda3: 0
@@ -1323,21 +1328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213c8ec4d338ff1458be3bc59411bdbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio1: {fileID: 1013214974}
-  manager: {fileID: 0}
---- !u!114 &81
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 12}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3c2786629ac934469950784b89dbbb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
 --- !u!114 &82
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1361,6 +1351,32 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &83
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87abb643d6070d409b75484f367f888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 77}
+  gema: 13
+  gran: 0
+  fake: 0
+  fakes: {fileID: 0}
+  cam: {fileID: 738435067}
+  Temp: 0
+  fin: 0
+  conseguido: {fileID: 49058093}
+  aparece: {fileID: 49058094}
+  jugador: {fileID: 86}
+  conseguidoa: {fileID: 49058095}
+  fanfarria: {fileID: 0}
+  rotoe: {fileID: 0}
 --- !u!114 &84
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1373,8 +1389,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f02391e153ea5468771f2bc7f5d9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio1: {fileID: 1013214974}
-  manager: {fileID: 0}
 --- !u!95 &85
 Animator:
   serializedVersion: 7
@@ -1448,6 +1462,8 @@ MonoBehaviour:
   rt: 0
   lt: 0
   l3: 0
+  horizontalpad: 0
+  verticalpad: 0
   tactil: {fileID: 176119391}
   anim: {fileID: 92}
   pasosnave: {fileID: 0}
@@ -1461,6 +1477,7 @@ MonoBehaviour:
   muertesjug: {fileID: 0}
   menushow: {fileID: 0}
   menuoff: {fileID: 0}
+  eneboss1: {fileID: 0}
   vidamax: 0
   manager: {fileID: 0}
   ascensors: {fileID: 0}
@@ -1471,12 +1488,13 @@ MonoBehaviour:
   juego: {fileID: 966690957}
   pausa1: {fileID: 1172126167}
   temp9: 0
+  temp10: 0
   dashaeract: 0
   ascact: 0
   vidab: {fileID: 203869269}
   muerte: 0
   cronoact: 0
-  velocidad: 7
+  velocidad: 8
   velocidadjet: 2
   velocidadr: 20
   jumpforce: 500
@@ -1485,7 +1503,6 @@ MonoBehaviour:
   tiemposalto: 0
   tiempovel: 0
   tiempovelint: 0
-  velocidadmaxima: 20
   velocidadaux: 0
   rotacion1: {x: 0, y: 0, z: 0, w: 1}
   punto: {x: 0, y: 0, z: 0}
@@ -1509,8 +1526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7f1e945600dd645bdb87ac3051a63d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio1: {fileID: 1013214974}
-  manager: {fileID: 0}
 --- !u!95 &88
 Animator:
   serializedVersion: 7
@@ -1727,6 +1742,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &91
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f18c8955ce3934681bcf411b8f61ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 77}
+  audio1: {fileID: 1013214974}
+  monr: {fileID: 6823302871133167919, guid: 576b48e978c0fb74da86d7a066d84896, type: 3}
+  moneda: 43
 --- !u!95 &92
 Animator:
   serializedVersion: 7
@@ -1793,6 +1824,27 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &49058093 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4867696571058890669, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+  m_PrefabInstance: {fileID: 3976241158672281683}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &49058094 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4036566964206371756, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+  m_PrefabInstance: {fileID: 3976241158672281683}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &49058095 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7960428553581681270, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+  m_PrefabInstance: {fileID: 3976241158672281683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &176119390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3027,6 +3079,7 @@ GameObject:
   m_Component:
   - component: {fileID: 738435066}
   - component: {fileID: 738435065}
+  - component: {fileID: 738435067}
   m_Layer: 0
   m_Name: boxcam
   m_TagString: Untagged
@@ -3066,6 +3119,28 @@ Transform:
   - {fileID: 501834550}
   m_Father: {fileID: 966690958}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &738435067
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738435064}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 04ee6d05b0e7c7045b62a3fc9a63a2d3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &763972853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3429,10 +3504,10 @@ Transform:
   - {fileID: 1171952965}
   - {fileID: 23}
   - {fileID: 25}
-  - {fileID: 28}
   - {fileID: 29}
-  - {fileID: 1582341035}
   - {fileID: 32}
+  - {fileID: 28}
+  - {fileID: 1582341035}
   - {fileID: 19}
   - {fileID: 738435066}
   - {fileID: 73}
@@ -3442,7 +3517,6 @@ Transform:
   - {fileID: 1293388248}
   - {fileID: 1231356746}
   - {fileID: 713954207}
-  - {fileID: 1134880238}
   - {fileID: 1184386504}
   - {fileID: 1637893404}
   - {fileID: 975863083}
@@ -3693,68 +3767,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113855126}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &1134880237
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 966690958}
-    m_Modifications:
-    - target: {fileID: 2373954659342451930, guid: a1be23fe5d42aee429f7ab2884c7f23d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -29.80186
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373954659342451930, guid: a1be23fe5d42aee429f7ab2884c7f23d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -28.544617
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373954659342451930, guid: a1be23fe5d42aee429f7ab2884c7f23d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.0439148
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373954659342451930, guid: a1be23fe5d42aee429f7ab2884c7f23d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373954659342451930, guid: a1be23fe5d42aee429f7ab2884c7f23d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373954659342451930, guid: a1be23fe5d42aee429f7ab2884c7f23d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373954659342451930, guid: a1be23fe5d42aee429f7ab2884c7f23d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373954659342451930, guid: a1be23fe5d42aee429f7ab2884c7f23d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373954659342451930, guid: a1be23fe5d42aee429f7ab2884c7f23d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373954659342451930, guid: a1be23fe5d42aee429f7ab2884c7f23d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5629088792480179973, guid: a1be23fe5d42aee429f7ab2884c7f23d, type: 3}
-      propertyPath: m_Name
-      value: enemigo (4)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a1be23fe5d42aee429f7ab2884c7f23d, type: 3}
---- !u!4 &1134880238 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2373954659342451930, guid: a1be23fe5d42aee429f7ab2884c7f23d, type: 3}
-  m_PrefabInstance: {fileID: 1134880237}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1171952962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4135,6 +4147,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1190616188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f18c8955ce3934681bcf411b8f61ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 77}
+  audio1: {fileID: 1013214974}
+  monr: {fileID: 6823302871133167919, guid: 576b48e978c0fb74da86d7a066d84896, type: 3}
+  moneda: 41
 --- !u!1 &1222780272
 GameObject:
   m_ObjectHideFlags: 0
@@ -4771,6 +4799,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2373954659342451930, guid: a1be23fe5d42aee429f7ab2884c7f23d, type: 3}
   m_PrefabInstance: {fileID: 1637893403}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1704064772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f18c8955ce3934681bcf411b8f61ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 77}
+  audio1: {fileID: 1013214974}
+  monr: {fileID: 6823302871133167919, guid: 576b48e978c0fb74da86d7a066d84896, type: 3}
+  moneda: 42
 --- !u!1 &1834300600
 GameObject:
   m_ObjectHideFlags: 0

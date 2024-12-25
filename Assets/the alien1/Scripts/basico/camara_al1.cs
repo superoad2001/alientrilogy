@@ -18,7 +18,11 @@ public class camara_al1 : MonoBehaviour
 		jugador_al1 jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
 		
 
-		if (manager.juego == 1 || manager.juego == 2)
+		if (manager.juego == 1 )
+		{
+			transform.position = new Vector3 (transform.position.x,transform.position.y,jugador.transform.position.z);
+		}
+		if (manager.juego == 2)
 		{
 			base.transform.position = this.jugador.transform.position + this.posicion;
 		}
@@ -30,6 +34,7 @@ public class camara_al1 : MonoBehaviour
 
 	// Token: 0x04000005 RID: 5
 	public GameObject jugador;
+	public Vector3 posicionc = new Vector3(0f, 0f, -10f);
 
 	// Token: 0x04000006 RID: 6
 	public Vector3 posicion = new Vector3(0f, 0f, 0f);

@@ -60,6 +60,9 @@ public class datos1
 	public int gemaN11;
 
 	public int gemaN12;
+	public int gemaN13;
+	public int gemaN14;
+	public int gemaN15;
 
 	public int fragmentoN1;
 
@@ -99,11 +102,6 @@ public class datos1
 	public int mejora4;
 	public int mejora5;
 
-	public int gema1;
-
-	public int gema2;
-
-	public int gema3;
 
 	public int moneda1;
 

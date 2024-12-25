@@ -157,7 +157,7 @@ public class inicio4base : MonoBehaviour
 			manager.datosconfig.distancia = 3000;
 		}
 
-		resolt.text = opcionesr[opcres];
+		//resolt.text = opcionesr[opcres];
 	
 
 	}

@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class enemigo1boss_al1: MonoBehaviour
 {
-	public manager_al1 manager;
+    public float vida;
+    public float vidamax;
+    public manager_al1 manager;
     public bool detectar;
     public GameObject objetivo;
     public GameObject objetivob;
@@ -23,9 +25,21 @@ public class enemigo1boss_al1: MonoBehaviour
     public GameObject explosion;
     public jugador_al1 jugador1;
     public AudioSource muertes;
+    public float temp;
+
+    public GameObject balaprefab;
+
+    public Transform juego;
+
+    public float balafrec;
+
+    public AudioSource disp;
+    public Text vidat;
+    public Image vidab;
     // Start is called before the first frame update
     void Start()
     {
+        vida = vidamax;
         jugador1 = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         jugador1.explosion = explosion;
         muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();
@@ -35,6 +49,9 @@ public class enemigo1boss_al1: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        vidab.fillAmount = vida/vidamax; 
+		vidat.text = vida+"/"+vidamax;
+
         det.transform.position = this.transform.position;
         dano.transform.position = this.transform.position;
         if(objetivo == null)
@@ -50,32 +67,44 @@ public class enemigo1boss_al1: MonoBehaviour
             rotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
         }
-        
-        
-    }
-    private void OnTriggerEnter(Collider col)
-	{
-        if (col.gameObject.tag == "golpeh")
-		{
-            GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
-			manager.datosserial.asesinatos++;
-			muertes.Play();
-			manager.guardar();
-            Destroy(explosiont, 1f);
-            Destroy(transform.parent.gameObject);
-            
-		}
 
-	}
-    private void OnCollisionEnter(Collision col) 
-    {
-        if (col.gameObject.tag == "respawn")
-		{
 
-            muertes.Play();
-			Destroy(transform.parent.gameObject);
-            
-		}
+            if(temp > balafrec)
+            {
+                            GameObject BalaTemporal = Instantiate(balaprefab,transform.position,transform.rotation) as GameObject;
+
+                            Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
+                            BalaTemporal.transform.SetParent(juego);
+
+                            BalaTemporal.GetComponent<bala_tele_al1>().objetivo = objetivo;
+
+                            Destroy(BalaTemporal, 20f);
+
+                            disp.Play();
+
+                            temp = 0;
+            }
+            temp += 1 * Time.deltaTime;   
+            if (vida <= 0)
+            {
+
+            }
+            else if(vida <= 1)
+            {
+                balafrec = 2;
+            }   
+            else if(vida <= 2)
+            {
+                balafrec = 4;
+            } 
+            else if(vida <= 3)
+            {
+                balafrec = 7;
+            }  
+            else
+            {
+                temp = 0;
+            }    
         
     }
 }

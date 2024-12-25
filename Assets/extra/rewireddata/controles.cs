@@ -496,28 +496,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a7fbcb46-e51e-4497-b712-ad0ee4c01778"",
-                    ""path"": ""<DualShockGamepad>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""pausa"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8d24d9df-19f3-48d1-be92-5a828295b284"",
-                    ""path"": ""<DualSenseGamepadHID>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""pausa"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""6a20fafe-65ed-4cd0-a8d0-22d3bd31ff32"",
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",

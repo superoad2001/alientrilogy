@@ -65,6 +65,7 @@ GameObject:
   - component: {fileID: 27}
   - component: {fileID: 62}
   - component: {fileID: 47}
+  - component: {fileID: 115}
   - component: {fileID: 98}
   - component: {fileID: 110}
   - component: {fileID: 113}
@@ -217,6 +218,7 @@ GameObject:
   - component: {fileID: 31}
   - component: {fileID: 64}
   - component: {fileID: 49}
+  - component: {fileID: 99506779}
   - component: {fileID: 99}
   - component: {fileID: 114}
   - component: {fileID: 99506778}
@@ -258,9 +260,8 @@ GameObject:
   - component: {fileID: 50}
   - component: {fileID: 96}
   - component: {fileID: 86}
-  - component: {fileID: 116}
-  - component: {fileID: 117}
   - component: {fileID: 122}
+  - component: {fileID: 1542192368}
   m_Layer: 0
   m_Name: meta 1
   m_TagString: Untagged
@@ -301,6 +302,7 @@ GameObject:
   - component: {fileID: 36}
   - component: {fileID: 68}
   - component: {fileID: 53}
+  - component: {fileID: 366157660}
   - component: {fileID: 100}
   - component: {fileID: 119}
   - component: {fileID: 120}
@@ -347,6 +349,7 @@ GameObject:
   - component: {fileID: 42}
   - component: {fileID: 73}
   - component: {fileID: 58}
+  - component: {fileID: 131}
   - component: {fileID: 101}
   - component: {fileID: 124}
   - component: {fileID: 126}
@@ -1785,6 +1788,8 @@ MonoBehaviour:
     jefe3: 0
     jefe4: 0
     tengopalo: 0
+    tengolanzar: 0
+    tengodash: 0
     begin: 0
     nivelu: 
     vidamax: 5
@@ -1802,6 +1807,9 @@ MonoBehaviour:
     gemaN10: 0
     gemaN11: 0
     gemaN12: 0
+    gemaN13: 0
+    gemaN14: 0
+    gemaN15: 0
     fragmentoN1: 0
     fragmentoN2: 0
     fragmentoN3: 0
@@ -1823,9 +1831,6 @@ MonoBehaviour:
     mejora3: 0
     mejora4: 0
     mejora5: 0
-    gema1: 0
-    gema2: 0
-    gema3: 0
     moneda1: 0
     moneda2: 0
     moneda3: 0
@@ -2162,31 +2167,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   audio1: {fileID: 112}
---- !u!114 &116
+--- !u!114 &115
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11}
+  m_GameObject: {fileID: 4}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e408524cd495d5f4da85d3b2e1a6a3b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 98f18c8955ce3934681bcf411b8f61ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d402cc32c5778f746a7eae10797e2253, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
+  manager: {fileID: 111}
+  audio1: {fileID: 112}
+  monr: {fileID: 6823302871133167919, guid: 576b48e978c0fb74da86d7a066d84896, type: 3}
+  moneda: 47
 --- !u!114 &118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2334,6 +2330,8 @@ MonoBehaviour:
   rt: 0
   lt: 0
   l3: 0
+  horizontalpad: 0
+  verticalpad: 0
   tactil: {fileID: 141921280}
   anim: {fileID: 127}
   pasosnave: {fileID: 0}
@@ -2347,6 +2345,7 @@ MonoBehaviour:
   muertesjug: {fileID: 0}
   menushow: {fileID: 0}
   menuoff: {fileID: 0}
+  eneboss1: {fileID: 0}
   vidamax: 0
   manager: {fileID: 0}
   ascensors: {fileID: 0}
@@ -2357,6 +2356,7 @@ MonoBehaviour:
   juego: {fileID: 147360681}
   pausa1: {fileID: 1818091845}
   temp9: 0
+  temp10: 0
   dashaeract: 0
   ascact: 0
   vidab: {fileID: 1942981946}
@@ -2371,7 +2371,6 @@ MonoBehaviour:
   tiemposalto: 0
   tiempovel: 0
   tiempovelint: 0
-  velocidadmaxima: 20
   velocidadaux: 0
   rotacion1: {x: 0, y: 0, z: 0, w: 1}
   punto: {x: 0, y: 0, z: 0}
@@ -2522,6 +2521,22 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f18c8955ce3934681bcf411b8f61ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 111}
+  audio1: {fileID: 112}
+  monr: {fileID: 6823302871133167919, guid: 576b48e978c0fb74da86d7a066d84896, type: 3}
+  moneda: 50
 --- !u!1001 &33330359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2606,6 +2621,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &99506779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f18c8955ce3934681bcf411b8f61ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 111}
+  audio1: {fileID: 112}
+  monr: {fileID: 6823302871133167919, guid: 576b48e978c0fb74da86d7a066d84896, type: 3}
+  moneda: 48
 --- !u!1001 &131126484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2919,16 +2950,16 @@ Transform:
   m_Children:
   - {fileID: 26}
   - {fileID: 27}
+  - {fileID: 31}
+  - {fileID: 36}
+  - {fileID: 42}
   - {fileID: 141921281}
   - {fileID: 1204405283}
   - {fileID: 30}
   - {fileID: 1101097914}
-  - {fileID: 31}
   - {fileID: 32}
   - {fileID: 33}
   - {fileID: 35}
-  - {fileID: 36}
-  - {fileID: 42}
   - {fileID: 43}
   - {fileID: 808781010}
   - {fileID: 1531010898}
@@ -2955,6 +2986,22 @@ Transform:
   - {fileID: 1506108542}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &366157660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f18c8955ce3934681bcf411b8f61ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 111}
+  audio1: {fileID: 112}
+  monr: {fileID: 6823302871133167919, guid: 576b48e978c0fb74da86d7a066d84896, type: 3}
+  moneda: 49
 --- !u!1001 &380393246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5751,6 +5798,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1531010898}
   - component: {fileID: 1531010897}
+  - component: {fileID: 1531010899}
   m_Layer: 0
   m_Name: boxcam
   m_TagString: Untagged
@@ -5790,6 +5838,54 @@ Transform:
   - {fileID: 1563781111}
   m_Father: {fileID: 147360682}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!95 &1531010899
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531010896}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 04ee6d05b0e7c7045b62a3fc9a63a2d3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1542192368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87abb643d6070d409b75484f367f888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 111}
+  gema: 15
+  gran: 0
+  fake: 0
+  fakes: {fileID: 0}
+  cam: {fileID: 1531010899}
+  Temp: 0
+  fin: 0
+  conseguido: {fileID: 1846689588}
+  aparece: {fileID: 1846689587}
+  jugador: {fileID: 123}
+  conseguidoa: {fileID: 1846689586}
+  fanfarria: {fileID: 0}
+  rotoe: {fileID: 0}
 --- !u!1001 &1549737065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6282,6 +6378,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9050139888200191221, guid: 8fc6212bab72af046a83769c98390d72, type: 3}
   m_PrefabInstance: {fileID: 1818091844}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1846689586 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7960428553581681270, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+  m_PrefabInstance: {fileID: 1101097913}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1846689587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4036566964206371756, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+  m_PrefabInstance: {fileID: 1101097913}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1846689588 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4867696571058890669, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+  m_PrefabInstance: {fileID: 1101097913}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1873345636
 PrefabInstance:
   m_ObjectHideFlags: 0

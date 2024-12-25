@@ -14,13 +14,13 @@ public class iniciocarrera_al1 : MonoBehaviour
     public jugador_al1 jugador;
     public bola1_al1 enemigo;
     public Text cont;
-    public float temp;
+    public float temp = -2;
     public int intentos;
     public AudioSource pip;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        temp = 0;
+        temp = -6;
         cont.text = "3";
     }
 

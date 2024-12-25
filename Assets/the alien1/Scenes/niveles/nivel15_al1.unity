@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 429}
   - component: {fileID: 356}
   - component: {fileID: 348}
-  - component: {fileID: 494}
+  - component: {fileID: 1532685266}
   - component: {fileID: 1532685264}
   - component: {fileID: 1532685265}
   m_Layer: 0
@@ -11766,29 +11766,6 @@ MonoBehaviour:
   audio: {fileID: 37}
   jugador: {fileID: 0}
   velocidadmaxima: 200
---- !u!114 &494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8314eb06b3be8764a8f0d34de9d89e48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vidab: {fileID: 202011381}
-  vidat: {fileID: 1868235317}
-  vida: 45
-  vidamax: 45
-  esname: ladron
-  enname: thief
-  catname: lladre
-  _rb2: {fileID: 599364005}
-  manager: {fileID: 0}
-  jugador: {fileID: 27}
-  velocidad: 200
 --- !u!114 &495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11936,8 +11913,10 @@ MonoBehaviour:
   rt: 0
   lt: 0
   l3: 0
+  horizontalpad: 0
+  verticalpad: 0
   tactil: {fileID: 1337515554}
-  anim: {fileID: 0}
+  anim: {fileID: 558}
   pasosnave: {fileID: 0}
   pasos1: {fileID: 0}
   pasos2: {fileID: 0}
@@ -11949,6 +11928,7 @@ MonoBehaviour:
   muertesjug: {fileID: 0}
   menushow: {fileID: 0}
   menuoff: {fileID: 0}
+  eneboss1: {fileID: 0}
   vidamax: 0
   manager: {fileID: 0}
   ascensors: {fileID: 0}
@@ -11959,6 +11939,7 @@ MonoBehaviour:
   juego: {fileID: 128848626}
   pausa1: {fileID: 920415823}
   temp9: 0
+  temp10: 0
   dashaeract: 0
   ascact: 0
   vidab: {fileID: 0}
@@ -11973,7 +11954,6 @@ MonoBehaviour:
   tiemposalto: 0
   tiempovel: 0
   tiempovelint: 0
-  velocidadmaxima: 200
   velocidadaux: 0
   rotacion1: {x: 0, y: 0, z: 0, w: 1}
   punto: {x: 0, y: 0, z: 0}
@@ -12139,6 +12119,9 @@ MonoBehaviour:
     gemaN10: 0
     gemaN11: 0
     gemaN12: 0
+    gemaN13: 0
+    gemaN14: 0
+    gemaN15: 0
     fragmentoN1: 0
     fragmentoN2: 0
     fragmentoN3: 0
@@ -12160,9 +12143,6 @@ MonoBehaviour:
     mejora3: 0
     mejora4: 0
     mejora5: 0
-    gema1: 0
-    gema2: 0
-    gema3: 0
     moneda1: 0
     moneda2: 0
     moneda3: 0
@@ -13638,6 +13618,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bed9d1be3f2d369449d454dafe050e04, type: 3}
   m_PrefabInstance: {fileID: 139232331}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &139232333 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bed9d1be3f2d369449d454dafe050e04, type: 3}
+  m_PrefabInstance: {fileID: 139232331}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &153360216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13695,6 +13680,135 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &209903186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 209903188}
+  - component: {fileID: 209903187}
+  m_Layer: 0
+  m_Name: roto
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &209903187
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209903186}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -1782419080531085811, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 2a9f36c47556d62468ed9352cb7c7150, type: 3}
+  m_Resource: {fileID: 8300000, guid: 2a9f36c47556d62468ed9352cb7c7150, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &209903188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209903186}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &224906466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14566,6 +14680,10 @@ PrefabInstance:
       propertyPath: juego
       value: 
       objectReference: {fileID: 128848626}
+    - target: {fileID: 7547412616084030961, guid: 1efdcb6fb2831904986f8b89d6289fac, type: 3}
+      propertyPath: jugador
+      value: 
+      objectReference: {fileID: 501}
     - target: {fileID: 8437011086532779198, guid: 1efdcb6fb2831904986f8b89d6289fac, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.59591436
@@ -15654,6 +15772,41 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1532685266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e503f0cc1fa8dae4990e98c985fc20e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidab: {fileID: 202011381}
+  vidat: {fileID: 1868235317}
+  vida: 45
+  vidamax: 45
+  esname: ladron
+  enname: thief
+  catname: lladre
+  _rb2: {fileID: 599364005}
+  nave: {fileID: 1532685265}
+  Temp: 0
+  fin: 0
+  conseguido: {fileID: 4402918429376726150}
+  conseguidoa: {fileID: 4402918429376726152}
+  aparece: {fileID: 4402918429376726151}
+  gema: 3
+  gran: 1
+  navem: {fileID: 139232333}
+  rotoe: {fileID: 358637981425055526, guid: fb2e19e5403afb04bb925b1c962eeaa9, type: 3}
+  fakes: {fileID: 209903187}
+  jugador: {fileID: 501}
+  manager: {fileID: 506}
+  jugador1: {fileID: 27}
+  velocidad: 200
 --- !u!114 &1534591503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16153,6 +16306,27 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a4c3e316948dd04492f176c1cea5587, type: 3}
+--- !u!114 &4402918429376726150 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 439350431046903049, guid: 6a4c3e316948dd04492f176c1cea5587, type: 3}
+  m_PrefabInstance: {fileID: 4402918429376726149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &4402918429376726151 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2565845229869049007, guid: 6a4c3e316948dd04492f176c1cea5587, type: 3}
+  m_PrefabInstance: {fileID: 4402918429376726149}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4402918429376726152 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7806735651309772234, guid: 6a4c3e316948dd04492f176c1cea5587, type: 3}
+  m_PrefabInstance: {fileID: 4402918429376726149}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -16166,3 +16340,4 @@ SceneRoots:
   - {fileID: 1398499025}
   - {fileID: 1294569849}
   - {fileID: 80467955}
+  - {fileID: 209903188}
