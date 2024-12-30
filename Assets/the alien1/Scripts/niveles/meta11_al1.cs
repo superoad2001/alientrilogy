@@ -18,10 +18,14 @@ public class meta11_al1 : MonoBehaviour
 	// Token: 0x06000062 RID: 98 RVA: 0x00003D5A File Offset: 0x00001F5A
 	public manager_al1 manager;
 	public Animator cam;
+	public jugador_al1 jugador;
+	public AudioSource fanfarria;
+	public AudioSource musica;
 	// Token: 0x06000012 RID: 18 RVA: 0x0000243B File Offset: 0x0000063B
 	private void Start()
 	{
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+		jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
 	}
 
 	// Token: 0x06000063 RID: 99 RVA: 0x00003D5C File Offset: 0x00001F5C
@@ -103,6 +107,9 @@ public class meta11_al1 : MonoBehaviour
 				manager.guardar();
 				fin = true;
 			}
+			musica.Stop();
+			jugador.controlact = false;
+			fanfarria.Play();
 			cam.SetBool("act",true);
 			fin = true;
 		}

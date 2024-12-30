@@ -25,6 +25,8 @@ public class meta1_al1 : MonoBehaviour
 	public Animator conseguidoa;
 	public AudioSource fanfarria;
 	public GameObject rotoe;
+
+	public AudioSource musica;
 	// Token: 0x06000012 RID: 18 RVA: 0x0000243B File Offset: 0x0000063B
 	private void Start()
 	{
@@ -105,6 +107,7 @@ public class meta1_al1 : MonoBehaviour
 		}
 		if(Temp > 10 )
 		{
+			musica.Play();
 			fanfarria.Stop();
 			aparece.SetActive(false);
 			conseguido.text = "";
@@ -112,6 +115,8 @@ public class meta1_al1 : MonoBehaviour
 			cam.SetBool("act",false);
 			jugador.controlact = true;
 			Destroy(this.gameObject);
+			fin = false;
+			Temp = 0;
 		}
 		if(fin == true)
 		{
@@ -207,6 +212,7 @@ public class meta1_al1 : MonoBehaviour
 			else if(fake == true)
 			{
 			}
+			musica.Stop();
 			fanfarria.Play();
 			fin = true;
 			cam.SetBool("act",true);

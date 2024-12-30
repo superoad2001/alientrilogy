@@ -28,6 +28,8 @@ public class meta12_al1 : MonoBehaviour
 	public GameObject rotoe;
 	public AudioSource fakes;
 	public jugador_al1 jugador;
+	public AudioSource fanfarria;
+	public AudioSource musica;
 	// Token: 0x06000066 RID: 102 RVA: 0x00003DFC File Offset: 0x00001FFC
 		private void OnTriggerEnter(Collider col)
 		{
@@ -116,6 +118,8 @@ public class meta12_al1 : MonoBehaviour
 					manager.guardar();
 					fin = true;
 				}
+				musica.Stop();
+				fanfarria.Play();
 				jugador.controlact = false;
 				jugador.velocidad = 0;
 				navem.SetActive(false);

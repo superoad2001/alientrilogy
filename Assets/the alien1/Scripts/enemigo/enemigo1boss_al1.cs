@@ -35,7 +35,19 @@ public class enemigo1boss_al1: MonoBehaviour
 
     public AudioSource disp;
     public Text vidat;
+
+    public Text conseguido;
+	public GameObject aparece;
     public Image vidab;
+
+    public bool fin;
+    public Animator cam;
+
+	public float Temp;
+
+    public Animator conseguidoa;
+	public AudioSource fanfarria;
+    public AudioSource musica;
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +99,42 @@ public class enemigo1boss_al1: MonoBehaviour
             temp += 1 * Time.deltaTime;   
             if (vida <= 0)
             {
+                if(fin == false)
+                {
+                musica.Stop();
+                fanfarria.Play();
+                fin = true;
+                cam.SetBool("act",true);
+                jugador1.controlact = false;
+                }
+                if(Temp >= 10 )
+                {
+                    manager.datosserial.jefe1 = true;
+                    manager.guardar();
+                    SceneManager.LoadScene("piso2_al1");
+
+                }
+                if(Temp > 5 )
+                {	
+                    conseguidoa.SetBool("act",true);
+                    aparece.SetActive(true);
+                    if(manager.datosconfig.idioma == "es")
+                    {
+                        conseguido.text = "lo conseguiste";
+                    }
+                    if(manager.datosconfig.idioma == "en")
+                    {
+                        conseguido.text = "you catch it";
+                    }
+                    if(manager.datosconfig.idioma == "cat")
+                    {
+                        conseguido.text = "o has aconseguit";
+                    }
+                }
+                if(fin == true)
+                {
+                    Temp += 1 * Time.deltaTime;
+                }
 
             }
             else if(vida <= 1)
