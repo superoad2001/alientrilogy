@@ -134,6 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 733130360239767913}
   - component: {fileID: 7685679433440124874}
+  - component: {fileID: 6460345537610242255}
   - component: {fileID: 7985797471134599863}
   m_Layer: 0
   m_Name: "da\xF1o"
@@ -178,6 +179,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.274198, y: 0.25240442, z: 0.299046}
   m_Center: {x: -0.0049713156, y: 0.22274493, z: -0.002475479}
+--- !u!114 &6460345537610242255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2647217500827300861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cf37f7371b80141bc1c081a415c518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &7985797471134599863
 AudioSource:
   m_ObjectHideFlags: 0
@@ -285,7 +298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2373954659342451930}
   m_Layer: 0
-  m_Name: enemigo
+  m_Name: E_kamikaze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -465,12 +478,17 @@ MonoBehaviour:
   vel: 2
   desactivar: 0
   enemigodet: {fileID: 4767784039180464496}
+  vida: 0
+  vidamax: 3
+  vidab: {fileID: 0}
   danoj: 3
   dano: {fileID: 2647217500827300861}
   det: {fileID: 1310616600457692199}
   explosion: {fileID: 358637981425055526, guid: 2b6ef2ab1da759e41baf6157dfc37ebe, type: 3}
   jugador1: {fileID: 0}
   muertes: {fileID: 0}
+  danoene: {fileID: 0}
+  vidamenu: {fileID: 0}
 --- !u!4 &1054094787981548876 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 16783b141ca6b3849a44f686f137cb9d, type: 3}

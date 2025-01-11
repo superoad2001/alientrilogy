@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 148313071}
   - component: {fileID: 148313072}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: ascensoranim
   m_TagString: ascensor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2276,6 +2276,8 @@ MonoBehaviour:
   rt: 0
   lt: 0
   l3: 0
+  horizontalpad: 0
+  verticalpad: 0
   tactil: {fileID: 218634322}
   anim: {fileID: 136}
   pasosnave: {fileID: 0}
@@ -2289,21 +2291,29 @@ MonoBehaviour:
   muertesjug: {fileID: 0}
   menushow: {fileID: 0}
   menuoff: {fileID: 0}
+  eneboss1: {fileID: 0}
   vidamax: 0
   manager: {fileID: 0}
   ascensors: {fileID: 148313072}
   vidat: {fileID: 0}
+  vidaenebarra: {fileID: 0}
   tiempoascensor: 0
   bajar: 0
   subir: 0
   juego: {fileID: 917264690}
   pausa1: {fileID: 1611796878}
   temp9: 0
+  temp10: 0
   dashaeract: 0
   ascact: 0
   vidab: {fileID: 0}
   muerte: 0
   cronoact: 0
+  danoarma: 0
+  vidaeneui: 0
+  vidaeneuimax: 0
+  vidaeneimg: {fileID: 0}
+  vidaeneact: 0
   velocidad: 4
   velocidadjet: 2
   velocidadr: 20
@@ -2313,7 +2323,6 @@ MonoBehaviour:
   tiemposalto: 0
   tiempovel: 0
   tiempovelint: 0
-  velocidadmaxima: 20
   velocidadaux: 0
   rotacion1: {x: 0, y: 0, z: 0, w: 1}
   punto: {x: 0, y: 0, z: 0}
@@ -2325,6 +2334,12 @@ MonoBehaviour:
   ascensortut: {fileID: 0}
   ascensortut2: {fileID: 0}
   dentrotienda: 0
+  dashefect: 0
+  disdash: 10
+  veldash: 30
+  movdire: {x: 0, y: 0, z: 0}
+  movdirect: {x: 0, y: 0, z: 0}
+  movdirectaux: {x: 0, y: 0, z: 0}
 --- !u!95 &136
 Animator:
   serializedVersion: 7
@@ -2418,6 +2433,8 @@ MonoBehaviour:
     jefe3: 0
     jefe4: 0
     tengopalo: 0
+    tengolanzar: 0
+    tengodash: 0
     begin: 0
     nivelu: 
     vidamax: 5
@@ -2435,6 +2452,9 @@ MonoBehaviour:
     gemaN10: 0
     gemaN11: 0
     gemaN12: 0
+    gemaN13: 0
+    gemaN14: 0
+    gemaN15: 0
     fragmentoN1: 0
     fragmentoN2: 0
     fragmentoN3: 0
@@ -2456,9 +2476,6 @@ MonoBehaviour:
     mejora3: 0
     mejora4: 0
     mejora5: 0
-    gema1: 0
-    gema2: 0
-    gema3: 0
     moneda1: 0
     moneda2: 0
     moneda3: 0

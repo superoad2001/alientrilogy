@@ -18,24 +18,46 @@ public class enemigo1_al1: MonoBehaviour
     public bool desactivar;
     public enemigodet_al1 enemigodet;
 
+    public float vida;
+    public float vidamax;
+    public Image vidab;
+
     public float danoj;
     public GameObject dano;
     public GameObject det;
     public GameObject explosion;
     public jugador_al1 jugador1;
     public AudioSource muertes;
+    public AudioSource danoene;
+
+    public GameObject vidamenu;
     // Start is called before the first frame update
     void Start()
     {
+        vida = vidamax;
         jugador1 = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         jugador1.explosion = explosion;
         muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();
+        danoene = GameObject.Find("danoenemigosonido").GetComponent<AudioSource>();
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+        vidamenu = GameObject.Find("barravidaenemigobase");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (vida <= 0)
+        {
+            GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
+			manager.datosserial.asesinatos++;
+			muertes.Play();
+			manager.guardar();
+            Destroy(explosiont, 1f);
+            jugador1.vidaenebarra.SetActive(false);
+            jugador1.vidaeneact = false;
+            Destroy(transform.parent.gameObject);
+
+        }
         det.transform.position = this.transform.position;
         dano.transform.position = this.transform.position;
         if(objetivo == null)
@@ -56,27 +78,58 @@ public class enemigo1_al1: MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        if (col.gameObject.tag == "golpeh")
+        if (col.gameObject.tag != "Player" && col.gameObject.tag == "golpeh")
 		{
+            jugador1.muertesjug.Stop();
+            vida -= jugador1.danoarma;
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+            danoene.Play();
+		}
+        if (col.gameObject.tag == "Player" && col.gameObject.tag != "golpeh")
+		{
+
+            jugador1.muertesjug.Play();
+            jugador1.vida -= danoj;
             GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
-			manager.datosserial.asesinatos++;
-			muertes.Play();
-			manager.guardar();
+            muertes.Play();
             Destroy(explosiont, 1f);
             Destroy(transform.parent.gameObject);
-            
-		}
+        }
+
+	}
+    private void OnTriggerStay(Collider col)
+	{
+        if (col.gameObject.tag == "golpeh")
+		{
+
+            jugador1.muertesjug.Stop();
+        }
 
 	}
     private void OnCollisionEnter(Collision col) 
     {
         if (col.gameObject.tag == "respawn")
 		{
-
+    
             muertes.Play();
+            jugador1.vidaenebarra.SetActive(false);
+            jugador1.vidaeneact = false;
 			Destroy(transform.parent.gameObject);
             
 		}
+        if (col.gameObject.tag == "Player" && col.gameObject.tag != "golpeh")
+		{
+
+            jugador1.muertesjug.Play();
+            jugador1.vida -= danoj;
+            GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
+            muertes.Play();
+            Destroy(explosiont, 1f);
+            Destroy(transform.parent.gameObject);
+        }
         
     }
 }

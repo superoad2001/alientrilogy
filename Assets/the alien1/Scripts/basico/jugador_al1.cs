@@ -95,9 +95,12 @@ public class jugador_al1 : MonoBehaviour
 	public manager_al1 manager;
 	public Animator ascensors;
 	public Text vidat;
+
+	public GameObject vidaenebarra;
 	// Token: 0x0600001D RID: 29 RVA: 0x000025E8 File Offset: 0x000007E8
 	private void Start()
 	{
+		
 		tiempovelint = 3;
 		if(camara != null)
         {cameraverticalangle2 = camara.transform.eulerAngles.y;}
@@ -153,6 +156,12 @@ public class jugador_al1 : MonoBehaviour
 			palo.SetActive(false);
 			}
 		}
+		if(manager.juego == 4 || manager.juego == 3)
+		{
+			vidaenebarra = GameObject.Find("barravidaenemigobase");
+			vidaeneimg = vidaenebarra.transform.GetChild(0).gameObject.GetComponent<Image>();
+			vidaenebarra.SetActive(false);
+		}
 		
 		
 	}
@@ -193,10 +202,20 @@ public class jugador_al1 : MonoBehaviour
 	public Image vidab;
 	public bool muerte;
 	public bool cronoact;
+	public float danoarma;
+
+	public float vidaeneui;
+	public float vidaeneuimax;
+	public Image vidaeneimg;
+	public bool vidaeneact;
 	// Token: 0x0600001E RID: 30 RVA: 0x00002604 File Offset: 0x00000804
 	
 	private void Update()
 	{
+
+	if(vidaeneact)
+	{vidaeneimg.fillAmount = vidaeneui/vidaeneuimax;}
+
 	if(manager.juego == 1)
 	{
 		anim.SetBool("act2",true);
@@ -1329,6 +1348,7 @@ public class jugador_al1 : MonoBehaviour
 			{
 				if(rt > 0 && ascensor == false)
 				{
+					danoarma = 1;
 					anim.SetBool("arma3",true);
 				}
 				else
@@ -1340,6 +1360,7 @@ public class jugador_al1 : MonoBehaviour
 			{
 				if(x > 0 && suelo == true)
 				{
+					danoarma = 2;
 					anim.SetBool("atk",true);
 				}
 				else
@@ -1349,6 +1370,7 @@ public class jugador_al1 : MonoBehaviour
 			}
 				if(x > 0 && suelo == false)
 				{
+					danoarma = 3;
 					anim.SetBool("atks",true);
 					this._rb.AddForce(this.jumpforce * 5f * -Vector3.up);
 				}
@@ -1528,16 +1550,13 @@ public class jugador_al1 : MonoBehaviour
 		}
 		if (col.gameObject.tag == "enemigo" && cronoact == false)
 		{
-			muertesjug.Play();
+
 			
-			if(col.gameObject.GetComponent<enemigo1_al1>() != null)
+			if(col.gameObject.GetComponent<enemigo2_al1>() != null)
 			{
-				enemigo1_al1 enec = col.gameObject.GetComponent<enemigo1_al1>();
+				muertesjug.Play();
+				enemigo2_al1 enec = col.gameObject.GetComponent<enemigo2_al1>();
 				vida -= enec.danoj;
-				GameObject explosiont = Instantiate(enec.explosion,enec.transform.position,enec.transform.rotation) as GameObject;
-				enec.muertes.Play();
-				Destroy(explosiont, 1f);
-				Destroy(enec.transform.parent.gameObject);
 			}
 
 			
@@ -1615,12 +1634,29 @@ public class jugador_al1 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "pisar")
 		{
-			GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
-			manager.datosserial.asesinatos++;
-			muertes.Play();
-			manager.guardar();
-            Destroy(explosiont, 1f);
-            Destroy(col.transform.parent.gameObject);
+			if(col.gameObject.GetComponent<pisar_al1>().enemigo == 1)
+			{
+				enemigo1_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo1_al1>();
+				enec.vida -= 1;
+				_rb.AddForce(transform.up * 110 * 10);
+				enec.danoene.Play();
+				vidaeneact = true;			
+				vidaeneui = enec.vida;
+				vidaeneuimax = enec.vidamax;
+				vidaenebarra.SetActive(true);
+			}
+			if(col.gameObject.GetComponent<pisar_al1>().enemigo == 2)
+			{
+				enemigo2_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo2_al1>();
+				enec.vida -= 1;
+				_rb.AddForce(transform.up * 110 * 10);
+				enec.danoene.Play();
+				vidaeneact = true;			
+				vidaeneui = enec.vida;
+				vidaeneuimax = enec.vidamax;
+				vidaenebarra.SetActive(true);
+			}
+			
 		}
 		if (col.gameObject.tag == "pisarboss")
 		{
@@ -1651,6 +1687,22 @@ public class jugador_al1 : MonoBehaviour
 				this.textnpc.text = npcbase.cat_frase;
 				LocalizationManager.Instance.selectedLang =  SystemLanguage.Catalan;
 			}
+		}
+		if (col.gameObject.tag == "enemigo" && cronoact == false)
+		{
+			muertesjug.Play();
+			
+			if(col.gameObject.GetComponent<romperbala_al1>() != null)
+			{
+				romperbala_al1 enec = col.gameObject.GetComponent<romperbala_al1>();
+				vida -= enec.danoj;
+				GameObject explosiont = Instantiate(enec.explosion,enec.transform.position,enec.transform.rotation) as GameObject;
+				Destroy(explosiont, 1f);
+				enec.dest.Play();
+				Destroy(enec.transform);
+			}
+
+			
 		}
 
 	}
