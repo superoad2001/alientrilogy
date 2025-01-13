@@ -48,6 +48,7 @@ public class enemigo1boss_al1: MonoBehaviour
     public Animator conseguidoa;
 	public AudioSource fanfarria;
     public AudioSource musica;
+    public AudioSource danoene;
     // Start is called before the first frame update
     void Start()
     {
@@ -78,7 +79,7 @@ public class enemigo1boss_al1: MonoBehaviour
             Vector3 direction = objetivo1.position - transform.position;
             rotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
-        }
+        
 
 
             if(temp > balafrec)
@@ -97,6 +98,7 @@ public class enemigo1boss_al1: MonoBehaviour
                             temp = 0;
             }
             temp += 1 * Time.deltaTime;   
+        }
             if (vida <= 0)
             {
                 if(fin == false)
@@ -154,5 +156,42 @@ public class enemigo1boss_al1: MonoBehaviour
                 temp = 0;
             }    
         
+        
+    }
+    private void OnTriggerExit(Collider col)
+	{
+        if (col.gameObject.tag == "danoarma10")
+		{
+            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+            jugador1.muertesjug.Stop();
+            vida -= balajug.danoj;
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+            danoene.Play();
+		}
+        if (col.gameObject.tag == "danoarma9")
+		{
+            detectar = true;
+		}
+    }
+    private void OnTriggerEnter(Collider col)
+	{
+        if (col.gameObject.tag == "danoarma8")
+		{
+            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+            jugador1.muertesjug.Stop();
+            vida -= balajug.danoj;
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+            danoene.Play();
+		}
+        if (col.gameObject.tag == "danoarma9")
+		{
+            detectar = false;
+		}
     }
 }

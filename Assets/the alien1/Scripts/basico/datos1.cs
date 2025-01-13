@@ -78,6 +78,13 @@ public class datos1
 
 	public int tengosalto;
 
+	public int armasel;
+	public bool armapapa;
+
+	public bool armarelen;
+
+	public bool armadef;
+
 	public bool alien1muere;
 
 	public int tengonave;

@@ -164,6 +164,21 @@ public class enemigo3_al1: MonoBehaviour
             }
             
 		}
+        if (col.gameObject.tag == "danoarma8")
+		{
+            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+            jugador1.muertesjug.Stop();
+            vida -= balajug.danoj;
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+            danoene.Play();
+		}
+        if (col.gameObject.tag == "danoarma9")
+		{
+            detectar = false;
+		}
 	}
     private void OnCollisionEnter(Collision col) 
     {
@@ -175,5 +190,19 @@ public class enemigo3_al1: MonoBehaviour
 			Destroy(transform.parent.gameObject);
 		}
         
+    }
+    private void OnTriggerExit(Collider col)
+	{
+        if (col.gameObject.tag == "danoarma10")
+		{
+            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+            jugador1.muertesjug.Stop();
+            vida -= balajug.danoj;
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+            danoene.Play();
+		}
     }
 }

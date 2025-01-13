@@ -88,6 +88,21 @@ public class enemigo1_al1: MonoBehaviour
             jugador1.vidaeneuimax = vidamax;
             danoene.Play();
 		}
+        if (col.gameObject.tag == "danoarma8")
+		{
+            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+            jugador1.muertesjug.Stop();
+            vida -= balajug.danoj;
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+            danoene.Play();
+		}
+        if (col.gameObject.tag == "danoarma9")
+		{
+            detectar = false;
+		}
         if (col.gameObject.tag == "Player" && col.gameObject.tag != "golpeh")
 		{
 
@@ -100,6 +115,20 @@ public class enemigo1_al1: MonoBehaviour
         }
 
 	}
+    private void OnTriggerExit(Collider col)
+	{
+        if (col.gameObject.tag == "danoarma10")
+		{
+            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+            jugador1.muertesjug.Stop();
+            vida -= balajug.danoj;
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+            danoene.Play();
+		}
+    }
     private void OnTriggerStay(Collider col)
 	{
         if (col.gameObject.tag == "golpeh")

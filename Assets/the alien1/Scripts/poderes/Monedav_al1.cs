@@ -7,6 +7,7 @@ public class Monedav_al1 : MonoBehaviour
 	public manager_al1 manager;
 	public AudioSource audio;
 	public jugador_al1 jugador;
+	public GameObject part;
 	// Token: 0x06000028 RID: 40 RVA: 0x000038FA File Offset: 0x00001AFA
 	private void Start()
 	{
@@ -33,6 +34,16 @@ public class Monedav_al1 : MonoBehaviour
 			jugador.velocidad = this.velocidadmaxima;
 			jugador.velact = true;
 			audio.Play();
+		}
+	}
+	private void OnTriggerEnter(Collider col)
+	{
+		
+		if (col.gameObject.tag == "Player" && manager.datosserial.tengovel == 1)
+		{
+			GameObject parti = Instantiate(part,transform.position,transform.rotation) as GameObject;
+			parti.transform.SetParent(jugador.juego.transform);
+			Destroy(parti,1f);
 		}
 	}
 }

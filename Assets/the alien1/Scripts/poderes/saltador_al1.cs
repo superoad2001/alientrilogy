@@ -6,6 +6,8 @@ public class saltador_al1 : MonoBehaviour
 {
 	public manager_al1 manager;
 	public jugador_al1 jugador;
+
+	public GameObject part;
 	// Token: 0x06000034 RID: 52 RVA: 0x00003A23 File Offset: 0x00001C23
 	private void Start()
 	{
@@ -24,9 +26,15 @@ public class saltador_al1 : MonoBehaviour
 		
 		if (col.gameObject.tag == "Player" && manager.datosserial.tengosalto == 1)
 		{
+			if (jugador.a > 0f && jugador.dialogueact == false)
+			{
 
 				jugador.tiemposalto = 0.5f;
 				jugador.saltoalto();
+				GameObject parti = Instantiate(part,transform.position,transform.rotation) as GameObject;
+				parti.transform.SetParent(jugador.juego.transform);
+				Destroy(parti,1f);
+			}
 
 		}
 	}
