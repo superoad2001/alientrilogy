@@ -134,7 +134,7 @@ public class manager_al1 : MonoBehaviour
         {
             string datosconfig2 = JsonUtility.ToJson(datostrof);
             File.WriteAllText(path,datosconfig2);
-            Debug.Log(datosconfig2);
+            //Debug.Log(datosconfig2);
         }
         else if(!File.Exists(path))
         {
@@ -142,7 +142,7 @@ public class manager_al1 : MonoBehaviour
             file.Directory.Create();
             string datosconfig2 = JsonUtility.ToJson(datostrof);
             File.WriteAllText(path,datosconfig2);
-            Debug.Log(datosconfig2);
+            //Debug.Log(datosconfig2);
         }
         
     }
@@ -155,7 +155,7 @@ public class manager_al1 : MonoBehaviour
         {
             string datosinventario = JsonUtility.ToJson(datosserial);
             File.WriteAllText(path,datosinventario);
-            Debug.Log(datosinventario);
+            //Debug.Log(datosinventario);
         }
         else if(!File.Exists(path))
         {
@@ -163,7 +163,7 @@ public class manager_al1 : MonoBehaviour
             file.Directory.Create();
             string datosinventario = JsonUtility.ToJson(datosserial);
             File.WriteAllText(path,datosinventario);
-            Debug.Log(datosinventario);
+            //Debug.Log(datosinventario);
         }
         
     }
@@ -175,7 +175,7 @@ public class manager_al1 : MonoBehaviour
         {
             string datosconfig1 = JsonUtility.ToJson(datosconfig);
             File.WriteAllText(path,datosconfig1);
-            Debug.Log(datosconfig1);
+            //Debug.Log(datosconfig1);
         }
         else if(!File.Exists(path))
         {
@@ -183,7 +183,7 @@ public class manager_al1 : MonoBehaviour
             file.Directory.Create();
             string datosconfig1 = JsonUtility.ToJson(datosconfig);
             File.WriteAllText(path,datosconfig1);
-            Debug.Log(datosconfig1);
+            //Debug.Log(datosconfig1);
         }
         
     }
@@ -195,7 +195,7 @@ public class manager_al1 : MonoBehaviour
         {
             string datosconfig2 = File.ReadAllText(path);
             datostrof = JsonUtility.FromJson<datosextra>(datosconfig2);
-            Debug.Log(datosconfig2);
+            //Debug.Log(datosconfig2);
         }
         
     }
@@ -207,7 +207,7 @@ public class manager_al1 : MonoBehaviour
         {
             string datosinventario = File.ReadAllText(path);
             datosserial = JsonUtility.FromJson<datos1>(datosinventario);
-            Debug.Log(datosinventario);
+            //Debug.Log(datosinventario);
         }
         
     }
@@ -219,7 +219,7 @@ public class manager_al1 : MonoBehaviour
         {
             string datosconfig1 = File.ReadAllText(path);
             datosconfig = JsonUtility.FromJson<datosconfig>(datosconfig1);
-            Debug.Log(datosconfig1);
+            //Debug.Log(datosconfig1);
         }
         
     }

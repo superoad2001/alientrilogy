@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class enemigo2_al1: MonoBehaviour
 {
+    public GameObject slash;
 	public manager_al1 manager;
     public bool detectar;
     public GameObject objetivo;
@@ -39,11 +40,28 @@ public class enemigo2_al1: MonoBehaviour
     public AudioSource danoene;
     public GameObject vidamenu;
 
-    public float danoj;
+    public float danoj = 5;
+    public float danoj2 = 5;
+    public GameObject target;
+    public GameObject palo;
+    private Controles controles;
+    public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     
     // Start is called before the first frame update
     void Start()
     {
+        
         vida = vidamax;
         jugador1 = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         jugador1.explosion = explosion;
@@ -58,8 +76,22 @@ public class enemigo2_al1: MonoBehaviour
     void Update()
     {
 
+
+        if(jugador1.objetivotarget == transform.parent.gameObject)
+        {
+            target.SetActive(true);
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+        }
+        else
+        {
+            target.SetActive(false);
+        }
         det.transform.position = this.transform.position;
         dano.transform.position = this.transform.position;
+        target.transform.position = new Vector3(transform.position.x,transform.position.y + -0.37f,transform.position.z);
         
         if (vida <= 0)
         {
@@ -82,8 +114,12 @@ public class enemigo2_al1: MonoBehaviour
         {
             if(temp > 3f)
             {
+                GameObject slasht = Instantiate(slash, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
+                slasht.transform.SetParent(transform);
+				Destroy(slasht,1f);
                 anim.SetBool("atk",true);
                 temp = 0;
+                palo.GetComponent<golpe_al1>().dano = danoj2;
             }
             else
             {
@@ -138,8 +174,12 @@ public class enemigo2_al1: MonoBehaviour
             {
             if(temp > 3f)
             {
+                GameObject slasht = Instantiate(slash, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
+                slasht.transform.SetParent(transform);
+				Destroy(slasht,1f);
                 anim.SetBool("atk",true);
                 temp = 0;
+                palo.GetComponent<golpe_al1>().dano = danoj2;
             }
             else{
                 anim.SetBool("atk",false);
@@ -182,7 +222,7 @@ public class enemigo2_al1: MonoBehaviour
 
                             temp = 0;
                 }
-                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-4),vel * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-15),vel * Time.deltaTime);
                 Vector3 direction = objetivo1.position - transform.position;
                 if (anim.GetCurrentAnimatorStateInfo(1).IsName("atk"))
             {
@@ -228,7 +268,7 @@ public class enemigo2_al1: MonoBehaviour
 	{
         if (col.gameObject.tag == "golpeh")
 		{
-            vida -= jugador1.danoarma;
+            vida -= col.gameObject.GetComponent<golpe_al1>().dano;
             danoene.Play();
             jugador1.vidaeneact = true;
             
@@ -253,6 +293,13 @@ public class enemigo2_al1: MonoBehaviour
             detectar = false;
 		}
 	}
+    private void OnTriggerStay(Collider col)
+	{
+        if (col.gameObject.tag == "danoarma9")
+		{
+            detectar = false;
+		}
+    }
     private void OnCollisionEnter(Collision col) 
     {
         if (col.gameObject.tag == "respawn")

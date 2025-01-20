@@ -99,6 +99,7 @@ public class enemigo1boss_al1: MonoBehaviour
             }
             temp += 1 * Time.deltaTime;   
         }
+        detectar = true;
             if (vida <= 0)
             {
                 if(fin == false)
@@ -160,6 +161,7 @@ public class enemigo1boss_al1: MonoBehaviour
     }
     private void OnTriggerExit(Collider col)
 	{
+        
         if (col.gameObject.tag == "danoarma10")
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
@@ -176,8 +178,25 @@ public class enemigo1boss_al1: MonoBehaviour
             detectar = true;
 		}
     }
+    private void OnTriggerStay(Collider col)
+	{
+        if (col.gameObject.tag == "danoarma9")
+		{
+            detectar = false;
+		}
+	}
     private void OnTriggerEnter(Collider col)
 	{
+        if (col.gameObject.tag == "golpeh")
+		{
+            jugador1.muertesjug.Stop();
+            vida -= col.gameObject.GetComponent<golpe_al1>().dano;
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+            danoene.Play();
+		}
         if (col.gameObject.tag == "danoarma8")
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();

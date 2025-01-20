@@ -31,6 +31,7 @@ public class enemigo1_al1: MonoBehaviour
     public AudioSource danoene;
 
     public GameObject vidamenu;
+    public GameObject target;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +47,18 @@ public class enemigo1_al1: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(jugador1.objetivotarget == transform.parent.gameObject)
+        {
+            target.SetActive(true);
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+        }
+        else
+        {
+            target.SetActive(false);
+        }
         if (vida <= 0)
         {
             GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
@@ -60,6 +73,7 @@ public class enemigo1_al1: MonoBehaviour
         }
         det.transform.position = this.transform.position;
         dano.transform.position = this.transform.position;
+        target.transform.position = new Vector3(transform.position.x,transform.position.y+ -1.44f,transform.position.z);
         if(objetivo == null)
         {
             objetivo = objetivob;
@@ -78,10 +92,10 @@ public class enemigo1_al1: MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        if (col.gameObject.tag != "Player" && col.gameObject.tag == "golpeh")
+        if (col.gameObject.tag == "golpeh")
 		{
             jugador1.muertesjug.Stop();
-            vida -= jugador1.danoarma;
+            vida -= col.gameObject.GetComponent<golpe_al1>().dano;
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
@@ -135,6 +149,10 @@ public class enemigo1_al1: MonoBehaviour
 		{
 
             jugador1.muertesjug.Stop();
+        }
+        if (col.gameObject.tag == "danoarma9")
+		{
+            detectar = false;
         }
 
 	}

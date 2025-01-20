@@ -14,6 +14,7 @@ public class enemigo3_al1: MonoBehaviour
     public Transform objetivo1;
     public Transform objetivo1b;
     public Rigidbody rb_;
+    private Controles controles;
     public float vel = 2;
     public bool desactivar;
     public enemigodet3_al1 enemigodet;
@@ -45,6 +46,19 @@ public class enemigo3_al1: MonoBehaviour
     public float tempescudo;
     public float danoj;
     public float vidaescudo;
+    public GameObject target;
+    public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +75,19 @@ public class enemigo3_al1: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        target.transform.position = new Vector3(transform.position.x,transform.position.y + 0.21f,transform.position.z);
+        if(jugador1.objetivotarget == transform.parent.gameObject)
+        {
+            target.SetActive(true);
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+        }
+        else
+        {
+            target.SetActive(false);
+        }
 
         det.transform.position = this.transform.position;
         
@@ -135,11 +162,18 @@ public class enemigo3_al1: MonoBehaviour
         
         
     }
+    private void OnTriggerStay(Collider col)
+	{
+        if (col.gameObject.tag == "danoarma9")
+		{
+            detectar = false;
+		}
+    }
     private void OnTriggerEnter(Collider col)
 	{
         if (col.gameObject.tag == "golpeh" && escudoact == false)
 		{
-            vida -= jugador1.danoarma;
+            vida -= col.gameObject.GetComponent<golpe_al1>().dano;
             danoene.Play();
             jugador1.vidaeneact = true;
             

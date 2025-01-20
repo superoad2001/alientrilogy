@@ -31,7 +31,7 @@ public class datos1
 
 	public string nivelu;
 
-	public float vidamax = 5;
+	public float vidamax = 50;
 
 	public string carganivel;
 

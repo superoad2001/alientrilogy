@@ -118,6 +118,15 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""xpress"",
+                    ""type"": ""Button"",
+                    ""id"": ""2ee2ecf8-e3e3-4455-b94c-2fbc03bd2622"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Tap"",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""lhorizontal"",
                     ""type"": ""Value"",
                     ""id"": ""5aca5cd2-8e2c-47f6-9735-942e91821fbe"",
@@ -178,6 +187,51 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""lder"",
+                    ""type"": ""Button"",
+                    ""id"": ""811c2047-14fd-4418-a437-ba07c209c61b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""larr"",
+                    ""type"": ""Button"",
+                    ""id"": ""9a10cb04-4021-46e1-adf7-8c2449bfc5be"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""lizq"",
+                    ""type"": ""Button"",
+                    ""id"": ""ccb97e69-7a39-45d0-b76c-6f4284e085f7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""labj"",
+                    ""type"": ""Button"",
+                    ""id"": ""d6a7a8a9-5816-42f9-9624-1224df5f520b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""r3"",
+                    ""type"": ""Button"",
+                    ""id"": ""14aabed4-5b95-4a76-80f7-e04e4e2dbeca"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Tap"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -404,6 +458,28 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""5a2904c9-f5af-4c83-abc6-701663bfc2c6"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""xpress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fa96943f-00c6-45ec-8cc2-3d4270b8a6a9"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""xpress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""6ce2629a-8a79-414d-aef3-e76f1ee0fb6f"",
                     ""path"": ""<Gamepad>/leftStick/x"",
                     ""interactions"": """",
@@ -577,6 +653,116 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""action"": ""rt"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0e1e5ab-da1c-4234-b692-9f8ba46dc70d"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""lder"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7c6c0755-7b8c-4076-a16e-d90919c42725"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""lder"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6dd44003-b361-4b24-973a-5453f3508efc"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""larr"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49bd831c-4251-4d35-990b-dbfd1b037be3"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""larr"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8adaeb31-3fa5-4311-9e12-8b7a6e41ff3f"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""lizq"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""35d68bcb-f382-4a64-a988-3c65117452bd"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""lizq"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8ea605c5-d9a3-42ed-a801-bde2b9e7e6fd"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""labj"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""010334c9-9f9b-4b75-8084-646d7ad051a8"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""labj"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e250318e-1062-4dd8-a779-fcd05b1641fd"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""r3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eb3d3e1c-7b8c-4871-b67b-2af236707764"",
+                    ""path"": ""<Keyboard>/alt"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""r3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -705,6 +891,15 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""name"": ""l3"",
                     ""type"": ""Button"",
                     ""id"": ""ccec0bbe-f554-48cd-9e74-eb65480a67ed"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""r3"",
+                    ""type"": ""Button"",
+                    ""id"": ""33283891-2111-4de3-9a00-f1f5dab6915c"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -1061,6 +1256,17 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""l3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83e6c449-f5ae-400e-a819-80a7a2bf3193"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""r3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -2154,6 +2360,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         m_al1_rb = m_al1.FindAction("rb", throwIfNotFound: true);
         m_al1_b = m_al1.FindAction("b", throwIfNotFound: true);
         m_al1_x = m_al1.FindAction("x", throwIfNotFound: true);
+        m_al1_xpress = m_al1.FindAction("xpress", throwIfNotFound: true);
         m_al1_lhorizontal = m_al1.FindAction("lhorizontal", throwIfNotFound: true);
         m_al1_lvertical = m_al1.FindAction("lvertical", throwIfNotFound: true);
         m_al1_rhorizontal = m_al1.FindAction("rhorizontal", throwIfNotFound: true);
@@ -2161,6 +2368,11 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         m_al1_pausa = m_al1.FindAction("pausa", throwIfNotFound: true);
         m_al1_lt = m_al1.FindAction("lt", throwIfNotFound: true);
         m_al1_rt = m_al1.FindAction("rt", throwIfNotFound: true);
+        m_al1_lder = m_al1.FindAction("lder", throwIfNotFound: true);
+        m_al1_larr = m_al1.FindAction("larr", throwIfNotFound: true);
+        m_al1_lizq = m_al1.FindAction("lizq", throwIfNotFound: true);
+        m_al1_labj = m_al1.FindAction("labj", throwIfNotFound: true);
+        m_al1_r3 = m_al1.FindAction("r3", throwIfNotFound: true);
         // al2
         m_al2 = asset.FindActionMap("al2", throwIfNotFound: true);
         m_al2_a = m_al2.FindAction("a", throwIfNotFound: true);
@@ -2177,6 +2389,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         m_al2_rb = m_al2.FindAction("rb", throwIfNotFound: true);
         m_al2_rt = m_al2.FindAction("rt", throwIfNotFound: true);
         m_al2_l3 = m_al2.FindAction("l3", throwIfNotFound: true);
+        m_al2_r3 = m_al2.FindAction("r3", throwIfNotFound: true);
         // al3
         m_al3 = asset.FindActionMap("al3", throwIfNotFound: true);
         m_al3_a = m_al3.FindAction("a", throwIfNotFound: true);
@@ -2294,6 +2507,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     private readonly InputAction m_al1_rb;
     private readonly InputAction m_al1_b;
     private readonly InputAction m_al1_x;
+    private readonly InputAction m_al1_xpress;
     private readonly InputAction m_al1_lhorizontal;
     private readonly InputAction m_al1_lvertical;
     private readonly InputAction m_al1_rhorizontal;
@@ -2301,6 +2515,11 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     private readonly InputAction m_al1_pausa;
     private readonly InputAction m_al1_lt;
     private readonly InputAction m_al1_rt;
+    private readonly InputAction m_al1_lder;
+    private readonly InputAction m_al1_larr;
+    private readonly InputAction m_al1_lizq;
+    private readonly InputAction m_al1_labj;
+    private readonly InputAction m_al1_r3;
     public struct Al1Actions
     {
         private @Controles m_Wrapper;
@@ -2315,6 +2534,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         public InputAction @rb => m_Wrapper.m_al1_rb;
         public InputAction @b => m_Wrapper.m_al1_b;
         public InputAction @x => m_Wrapper.m_al1_x;
+        public InputAction @xpress => m_Wrapper.m_al1_xpress;
         public InputAction @lhorizontal => m_Wrapper.m_al1_lhorizontal;
         public InputAction @lvertical => m_Wrapper.m_al1_lvertical;
         public InputAction @rhorizontal => m_Wrapper.m_al1_rhorizontal;
@@ -2322,6 +2542,11 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         public InputAction @pausa => m_Wrapper.m_al1_pausa;
         public InputAction @lt => m_Wrapper.m_al1_lt;
         public InputAction @rt => m_Wrapper.m_al1_rt;
+        public InputAction @lder => m_Wrapper.m_al1_lder;
+        public InputAction @larr => m_Wrapper.m_al1_larr;
+        public InputAction @lizq => m_Wrapper.m_al1_lizq;
+        public InputAction @labj => m_Wrapper.m_al1_labj;
+        public InputAction @r3 => m_Wrapper.m_al1_r3;
         public InputActionMap Get() { return m_Wrapper.m_al1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -2361,6 +2586,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @x.started += instance.OnX;
             @x.performed += instance.OnX;
             @x.canceled += instance.OnX;
+            @xpress.started += instance.OnXpress;
+            @xpress.performed += instance.OnXpress;
+            @xpress.canceled += instance.OnXpress;
             @lhorizontal.started += instance.OnLhorizontal;
             @lhorizontal.performed += instance.OnLhorizontal;
             @lhorizontal.canceled += instance.OnLhorizontal;
@@ -2382,6 +2610,21 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @rt.started += instance.OnRt;
             @rt.performed += instance.OnRt;
             @rt.canceled += instance.OnRt;
+            @lder.started += instance.OnLder;
+            @lder.performed += instance.OnLder;
+            @lder.canceled += instance.OnLder;
+            @larr.started += instance.OnLarr;
+            @larr.performed += instance.OnLarr;
+            @larr.canceled += instance.OnLarr;
+            @lizq.started += instance.OnLizq;
+            @lizq.performed += instance.OnLizq;
+            @lizq.canceled += instance.OnLizq;
+            @labj.started += instance.OnLabj;
+            @labj.performed += instance.OnLabj;
+            @labj.canceled += instance.OnLabj;
+            @r3.started += instance.OnR3;
+            @r3.performed += instance.OnR3;
+            @r3.canceled += instance.OnR3;
         }
 
         private void UnregisterCallbacks(IAl1Actions instance)
@@ -2416,6 +2659,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @x.started -= instance.OnX;
             @x.performed -= instance.OnX;
             @x.canceled -= instance.OnX;
+            @xpress.started -= instance.OnXpress;
+            @xpress.performed -= instance.OnXpress;
+            @xpress.canceled -= instance.OnXpress;
             @lhorizontal.started -= instance.OnLhorizontal;
             @lhorizontal.performed -= instance.OnLhorizontal;
             @lhorizontal.canceled -= instance.OnLhorizontal;
@@ -2437,6 +2683,21 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @rt.started -= instance.OnRt;
             @rt.performed -= instance.OnRt;
             @rt.canceled -= instance.OnRt;
+            @lder.started -= instance.OnLder;
+            @lder.performed -= instance.OnLder;
+            @lder.canceled -= instance.OnLder;
+            @larr.started -= instance.OnLarr;
+            @larr.performed -= instance.OnLarr;
+            @larr.canceled -= instance.OnLarr;
+            @lizq.started -= instance.OnLizq;
+            @lizq.performed -= instance.OnLizq;
+            @lizq.canceled -= instance.OnLizq;
+            @labj.started -= instance.OnLabj;
+            @labj.performed -= instance.OnLabj;
+            @labj.canceled -= instance.OnLabj;
+            @r3.started -= instance.OnR3;
+            @r3.performed -= instance.OnR3;
+            @r3.canceled -= instance.OnR3;
         }
 
         public void RemoveCallbacks(IAl1Actions instance)
@@ -2472,6 +2733,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     private readonly InputAction m_al2_rb;
     private readonly InputAction m_al2_rt;
     private readonly InputAction m_al2_l3;
+    private readonly InputAction m_al2_r3;
     public struct Al2Actions
     {
         private @Controles m_Wrapper;
@@ -2490,6 +2752,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         public InputAction @rb => m_Wrapper.m_al2_rb;
         public InputAction @rt => m_Wrapper.m_al2_rt;
         public InputAction @l3 => m_Wrapper.m_al2_l3;
+        public InputAction @r3 => m_Wrapper.m_al2_r3;
         public InputActionMap Get() { return m_Wrapper.m_al2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -2541,6 +2804,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @l3.started += instance.OnL3;
             @l3.performed += instance.OnL3;
             @l3.canceled += instance.OnL3;
+            @r3.started += instance.OnR3;
+            @r3.performed += instance.OnR3;
+            @r3.canceled += instance.OnR3;
         }
 
         private void UnregisterCallbacks(IAl2Actions instance)
@@ -2587,6 +2853,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @l3.started -= instance.OnL3;
             @l3.performed -= instance.OnL3;
             @l3.canceled -= instance.OnL3;
+            @r3.started -= instance.OnR3;
+            @r3.performed -= instance.OnR3;
+            @r3.canceled -= instance.OnR3;
         }
 
         public void RemoveCallbacks(IAl2Actions instance)
@@ -2978,6 +3247,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         void OnRb(InputAction.CallbackContext context);
         void OnB(InputAction.CallbackContext context);
         void OnX(InputAction.CallbackContext context);
+        void OnXpress(InputAction.CallbackContext context);
         void OnLhorizontal(InputAction.CallbackContext context);
         void OnLvertical(InputAction.CallbackContext context);
         void OnRhorizontal(InputAction.CallbackContext context);
@@ -2985,6 +3255,11 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         void OnPausa(InputAction.CallbackContext context);
         void OnLt(InputAction.CallbackContext context);
         void OnRt(InputAction.CallbackContext context);
+        void OnLder(InputAction.CallbackContext context);
+        void OnLarr(InputAction.CallbackContext context);
+        void OnLizq(InputAction.CallbackContext context);
+        void OnLabj(InputAction.CallbackContext context);
+        void OnR3(InputAction.CallbackContext context);
     }
     public interface IAl2Actions
     {
@@ -3002,6 +3277,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         void OnRb(InputAction.CallbackContext context);
         void OnRt(InputAction.CallbackContext context);
         void OnL3(InputAction.CallbackContext context);
+        void OnR3(InputAction.CallbackContext context);
     }
     public interface IAl3Actions
     {

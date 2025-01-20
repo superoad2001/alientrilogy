@@ -99,12 +99,13 @@ public class pausa_al1 : MonoBehaviour
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         plataforma = manager.datosconfig.plat;
         temp = 0;
+        jugador.controlact = true;
         if(plataforma == 1)
 		{
 			Cursor.visible = false;
         	Cursor.lockState = CursorLockMode.Locked;
 		}
-        juego.SetActive(true);
+        Time.timeScale = 1;
         jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         if(plataforma == 2)
 		{
