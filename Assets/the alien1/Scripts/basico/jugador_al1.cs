@@ -16,6 +16,11 @@ public class jugador_al1 : MonoBehaviour
 
 	public static GameObject FindGameObjectsAll(string name) { return Resources.FindObjectsOfTypeAll<GameObject>().First(x => x.name == name); }
 	public GameObject []target;
+	public GameObject camarainterna;
+	public float distancia;
+	public float cam_maxdistance;
+	public float cam_mindistance;
+	public Vector3 direccion;
 
 	public bool actzonaespecial;
 	public int indicetarget = -1;
@@ -25,6 +30,7 @@ public class jugador_al1 : MonoBehaviour
 	private float camaux = 0;
 	private float modaux = 0;
 	public GameObject ex;
+	public int palosel;
 
 	public bool tarbossact;
 	public GameObject tarboss;
@@ -37,7 +43,11 @@ public class jugador_al1 : MonoBehaviour
 	public int combo;
 	public float temppalo;
 	public float tempatk;
+	public float mulinbuir = 1;
+	public AudioSource inbuir;
 	public AudioSource dashson;
+	public AudioSource espiraloaud;
+	public AudioSource escudoaud;
 	public AudioSource dashairson;
 	public AudioSource golpeson;
 	public AudioSource lanzarson;
@@ -165,6 +175,9 @@ public class jugador_al1 : MonoBehaviour
 		if(GameObject.Find("armapaloimg") == true)
 		{paloimg = GameObject.Find("armapaloimg").GetComponent<Image>();}
 
+		if(GameObject.Find("backarmapaloimg") == true)
+		{backpaloimg = GameObject.Find("backarmapaloimg").GetComponent<Image>();}
+
 		if(GameObject.Find("armapapaimg") == true)
 		{pistolaimg = GameObject.Find("armapapaimg").GetComponent<Image>();}
 
@@ -202,10 +215,30 @@ public class jugador_al1 : MonoBehaviour
 			}
 			else{pistolap.SetActive(true);}
 			
-			if(manager.datosserial.armasel == 1)
+			if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 1)
 			{
-				iconodisp.sprite = arma1;
+				iconodisp.sprite = arma1_1;
+
 			}
+			if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 2)
+			{
+				iconodisp.sprite = arma1_2;
+			}
+			if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3)
+			{
+				iconodisp.sprite = arma1_3;
+			}
+			if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 4)
+			{
+				iconodisp.sprite = arma1_4;
+			}
+			if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 5)
+			{
+				iconodisp.sprite = arma1_5;
+			}
+
+
+
 			if(manager.datosserial.armasel == 3)
 			{
 				iconodisp.sprite = arma3;
@@ -278,6 +311,12 @@ public class jugador_al1 : MonoBehaviour
 			vidaeneimg = vidaenebarra.transform.GetChild(0).gameObject.GetComponent<Image>();
 			vidaenebarra.SetActive(false);
 		}
+		if(manager.juego == 4)
+		{
+			direccion = camarainterna.transform.localPosition.normalized;
+			distancia = camarainterna.transform.localPosition.magnitude;
+		}
+		
 		
 	}
 	public float tiempoascensor = 0;
@@ -325,7 +364,15 @@ public class jugador_al1 : MonoBehaviour
 	public bool vidaeneact;
 
 	public Image iconodisp;
+	public Image backpaloimg;
 	public Sprite arma1;
+
+	public Sprite arma1_1;
+	public Sprite arma1_2;
+	public Sprite arma1_3;
+	public Sprite arma1_4;
+	public Sprite arma1_5;
+
 	public Sprite arma2;
 	public Sprite arma3;
 	public Sprite arma4;
@@ -364,7 +411,7 @@ public class jugador_al1 : MonoBehaviour
 	if(manager.juego != 6 && manager.juego != 0 && manager.juego != 1  && manager.juego != 2 && cronoact == false )
 	{
 		vidab.fillAmount = vida/vidamax; 
-		vidat.text = vida+"/"+vidamax;
+		vidat.text = (int)vida+"/"+(int)vidamax;
 	}
 	if(ascensors != null && ascact == true)
 	{
@@ -561,62 +608,220 @@ public class jugador_al1 : MonoBehaviour
 	{
 		if(verticalpad  > 0.5f && manager.datosserial.tengolanzar == true && tiempodisp > 0.5f)
 		{
-			tiempodisp = 0;
-			manager.datosserial.armasel = 1;
-			manager.guardar();
-			iconodisp.sprite = arma1;
+			if(manager.datosserial.armasel != 1 || manager.datosserial.nivelarmapalo == manager.datosserial.palosel)
+			{
+				tiempodisp = 0;
+				manager.datosserial.armasel = 1;
+				manager.datosserial.palosel = 1;
+				manager.guardar();
+				iconodisp.sprite = arma1_1;
+				if(manager.datosserial.nivelarmapalo == 1) 
+				{
+					paloimg.sprite = arma1;
+					backpaloimg.sprite = arma1;
+				}
+				else if(manager.datosserial.nivelarmapalo >= 2)
+				{
+					paloimg.sprite = arma1_2;
+					backpaloimg.sprite = arma1_2;
+				}
+			}
+			else if(manager.datosserial.palosel == 1 && manager.datosserial.nivelarmapalo >= 2)
+			{
+				tiempodisp = 0;
+				manager.datosserial.armasel = 1;
+				manager.datosserial.palosel = 2;
+				manager.guardar();
+				iconodisp.sprite = arma1_2;
+				paloimg.sprite = arma1_3;
+				backpaloimg.sprite = arma1_3;
+
+				paloimg.sprite = arma1_2;
+				backpaloimg.sprite = arma1_2;
+
+
+			}
+			else if(manager.datosserial.palosel == 2 && manager.datosserial.nivelarmapalo >= 3)
+			{
+				tiempodisp = 0;
+				manager.datosserial.armasel = 1;
+				manager.datosserial.palosel = 3;
+				manager.guardar();
+				iconodisp.sprite = arma1_3;
+				paloimg.sprite = arma1_3;
+				backpaloimg.sprite = arma1_3;
+			}
+			else if(manager.datosserial.palosel == 3 && manager.datosserial.nivelarmapalo >= 4)
+			{
+				tiempodisp = 0;
+				manager.datosserial.armasel = 1;
+				manager.datosserial.palosel = 4;
+				manager.guardar();
+				iconodisp.sprite = arma1_4;
+				paloimg.sprite = arma1_4;
+				backpaloimg.sprite = arma1_4;	
+			}
+			else if(manager.datosserial.palosel == 4 && manager.datosserial.nivelarmapalo == 5)
+			{
+				tiempodisp = 0;
+				manager.datosserial.armasel = 1;
+				manager.datosserial.palosel = 5;
+				manager.guardar();
+				iconodisp.sprite = arma1_5;
+				paloimg.sprite = arma1_5;
+				backpaloimg.sprite = arma1_5;
+			}
 		}
 		if(verticalpad < -0.5f && manager.datosserial.armadef == true && tiempodisp > 0.5f)
 		{
+			balaprefabpapa = prebalapapal[manager.datosserial.nivelarmapapa -1];
 			tiempodisp = 0;
 			manager.datosserial.armasel = 3;
+			manager.datosserial.palosel = 1;
 			manager.guardar();
 			iconodisp.sprite = arma3;
+			if(manager.datosserial.tengolanzar == true)
+			{paloimg.sprite = arma1;}
+			else
+			{paloimg.sprite = nopimg;}
+			backpaloimg.sprite = arma1;
 		}
 		if(horizontalpad  > 0.5f && manager.datosserial.armapapa == true && tiempodisp > 0.5f)
 		{
+			balaprefabrel = prebalarell[manager.datosserial.nivelarmarel -1];
 			tiempodisp = 0;
 			manager.datosserial.armasel = 2;
+			manager.datosserial.palosel = 1;
 			manager.guardar();
 			iconodisp.sprite = arma2;
+			if(manager.datosserial.tengolanzar == true)
+			{paloimg.sprite = arma1;}
+			else
+			{paloimg.sprite = nopimg;}
+			backpaloimg.sprite = arma1;
 		}
 		if(horizontalpad < -0.5f&& manager.datosserial.armarelen == true && tiempodisp > 0.5f)
 		{
+			balaprefabdef = prebaladefl[manager.datosserial.nivelarmadef -1];
 			tiempodisp = 0;
 			manager.datosserial.armasel = 4;
+			manager.datosserial.palosel = 1;
 			manager.guardar();
 			iconodisp.sprite = arma4;
+			if(manager.datosserial.tengolanzar == true)
+			{paloimg.sprite = arma1;}
+			else
+			{paloimg.sprite = nopimg;}
+			backpaloimg.sprite = arma1;
 		}
 	}
 	if(manager.juego == 3)
 	{
 		if(lverticalc > 0.5f && manager.datosserial.tengolanzar == true && tiempodisp > 0.5f)
 		{
-			tiempodisp = 0;
-			manager.datosserial.armasel = 1;
-			manager.guardar();
-			iconodisp.sprite = arma1;
+			if(manager.datosserial.armasel != 1 || manager.datosserial.nivelarmapalo == manager.datosserial.palosel)
+			{
+				tiempodisp = 0;
+				manager.datosserial.armasel = 1;
+				manager.datosserial.palosel = 1;
+				manager.guardar();
+				iconodisp.sprite = arma1_1;
+				if(manager.datosserial.nivelarmapalo == 1) 
+				{
+					paloimg.sprite = arma1;
+					backpaloimg.sprite = arma1;
+				}
+				else if(manager.datosserial.nivelarmapalo >= 2)
+				{
+					paloimg.sprite = arma1_2;
+					backpaloimg.sprite = arma1_2;
+				}
+			}
+			else if(manager.datosserial.palosel == 1 && manager.datosserial.nivelarmapalo == 2)
+			{
+				tiempodisp = 0;
+				manager.datosserial.armasel = 1;
+				manager.datosserial.palosel = 2;
+				manager.guardar();
+				iconodisp.sprite = arma1_2;
+				paloimg.sprite = arma1_3;
+				backpaloimg.sprite = arma1_3;
+
+
+
+			}
+			else if(manager.datosserial.palosel == 2 && manager.datosserial.nivelarmapalo == 3)
+			{
+				tiempodisp = 0;
+				manager.datosserial.armasel = 1;
+				manager.datosserial.palosel = 3;
+				manager.guardar();
+				iconodisp.sprite = arma1_3;
+				paloimg.sprite = arma1_4;
+				backpaloimg.sprite = arma1_4;
+			}
+			else if(manager.datosserial.palosel == 3 && manager.datosserial.nivelarmapalo == 4)
+			{
+				tiempodisp = 0;
+				manager.datosserial.armasel = 1;
+				manager.datosserial.palosel = 4;
+				manager.guardar();
+				iconodisp.sprite = arma1_4;
+				paloimg.sprite = arma1_5;
+				backpaloimg.sprite = arma1_5;	
+			}
+			else if(manager.datosserial.palosel == 4 && manager.datosserial.nivelarmapalo == 5)
+			{
+				tiempodisp = 0;
+				manager.datosserial.armasel = 1;
+				manager.datosserial.palosel = 5;
+				manager.guardar();
+				iconodisp.sprite = arma1_5;
+				paloimg.sprite = arma1_1;
+				backpaloimg.sprite = arma1_1;
+			}
 		}
 		if(lverticalc < -0.5f && manager.datosserial.armadef == true && tiempodisp > 0.5f)
 		{
+			balaprefabpapa = prebalapapal[manager.datosserial.nivelarmapapa -1];
 			tiempodisp = 0;
 			manager.datosserial.armasel = 3;
+			manager.datosserial.palosel = 1;
 			manager.guardar();
 			iconodisp.sprite = arma3;
+			if(manager.datosserial.tengolanzar == true)
+			{paloimg.sprite = arma1;}
+			else
+			{paloimg.sprite = nopimg;}
+			backpaloimg.sprite = arma1;
 		}
 		if(lhorizontalc > 0.5f && manager.datosserial.armapapa == true && tiempodisp > 0.5f)
 		{
+			balaprefabrel = prebalarell[manager.datosserial.nivelarmarel -1];
 			tiempodisp = 0;
 			manager.datosserial.armasel = 2;
+			manager.datosserial.palosel = 1;
 			manager.guardar();
 			iconodisp.sprite = arma2;
+			if(manager.datosserial.tengolanzar == true)
+			{paloimg.sprite = arma1;}
+			else
+			{paloimg.sprite = nopimg;}
+			backpaloimg.sprite = arma1;
 		}
 		if(lhorizontalc < -0.5f && manager.datosserial.armarelen == true && tiempodisp > 0.5f)
 		{
+			balaprefabdef = prebaladefl[manager.datosserial.nivelarmadef -1];
 			tiempodisp = 0;
 			manager.datosserial.armasel = 4;
+			manager.datosserial.palosel = 1;
 			manager.guardar();
 			iconodisp.sprite = arma4;
+			if(manager.datosserial.tengolanzar == true)
+			{paloimg.sprite = arma1;}
+			else
+			{paloimg.sprite = nopimg;}
+			backpaloimg.sprite = arma1;
 		}
 	}
 	if(manager.datosserial.jefe1 == false && manager.datosserial.tengovel == 1 && manager.piso == 1 && tiempoascensor > 2f && manager.juego == 0 && manager.dentrotienda == false)
@@ -1493,19 +1698,21 @@ public class jugador_al1 : MonoBehaviour
 						mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(mod.transform.localEulerAngles.x,0,mod.transform.localEulerAngles.z),5* Time.deltaTime);
 
 					}
+					movdire = _rb.linearVelocity;
+					movdire.y = 0;
+					float distance = movdire.magnitude * Time.fixedDeltaTime;
+					movdire.Normalize();
+					RaycastHit hit;
+					if(lverticalc == 0f && lhorizontalc == 0f || _rb.SweepTest(movdire,out hit,distance,QueryTriggerInteraction.Ignore))
+					{
+						dashefect = false;
+						_rb.MovePosition(_rb.position + transform.TransformDirection(movdirnow) * velocidad * Time.deltaTime);
+					}
 
 
 				
 				}
-                movdire = _rb.linearVelocity;
-                movdire.y = 0;
-                float distance = movdire.magnitude * Time.fixedDeltaTime;
-                movdire.Normalize();
-                RaycastHit hit;
-                if(lverticalc == 0f && lhorizontalc == 0f || _rb.SweepTest(movdire,out hit,distance,QueryTriggerInteraction.Ignore))
-                {
-					dashefect = false;
-                }
+                
                 if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
                 {
                     if(temppaso > pasotiempo)
@@ -1627,12 +1834,11 @@ public class jugador_al1 : MonoBehaviour
 					anim.SetFloat("vely",lverticalc);
 					
 
-					Vector3 movdirnow = new Vector3 (lhorizontalc , 0, lverticalc ).normalized;
-					Vector3 movdirnow2 = transform.TransformDirection(movdirnow);
+					Vector3 movdirnow = new Vector3 (lhorizontalc * velocidad * Time.deltaTime,0, lverticalc * velocidad * Time.deltaTime);
 					if(lhorizontalc != 0 || lverticalc != 0)
 					{
 
-						_rb.MovePosition(_rb.position + transform.TransformDirection(movdirnow) * velocidad * Time.deltaTime);
+						_rb.linearVelocity = transform.TransformDirection(new Vector3 (movdirnow.x  * 50,_rb.linearVelocity.y,movdirnow.z  * 50));
 
 						angulomod =  Mathf.Atan2(lhorizontalc,lverticalc)* Mathf.Rad2Deg;
 						mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(mod.transform.localEulerAngles.x,angulomod,mod.transform.localEulerAngles.z),5* Time.deltaTime);
@@ -1646,6 +1852,7 @@ public class jugador_al1 : MonoBehaviour
 					if(lverticalc == 0f && lhorizontalc == 0f || _rb.SweepTest(movdire,out hit,distaxe,QueryTriggerInteraction.Ignore))
 					{
 						dashefect = false;
+						_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
 					}
 
 					if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
@@ -1702,6 +1909,21 @@ public class jugador_al1 : MonoBehaviour
 				float clampedX = Mathf.Clamp(fixedAngle_f, -10, 30);
 				camara.transform.localRotation = Quaternion.Euler(clampedX, camara.transform.localEulerAngles.y, camara.transform.localEulerAngles.z);
 
+				
+
+				Vector3 poscam = camarainterna.transform.parent.TransformPoint(direccion * cam_maxdistance);
+
+				RaycastHit hitcam;
+				if(Physics.Linecast(camarainterna.transform.position,poscam,out hitcam))
+				{
+					distancia = Mathf.Clamp(hit.distance * 0.85f,cam_mindistance,cam_maxdistance);
+				}
+				else
+				{
+					distancia = cam_maxdistance;
+				}
+				camarainterna.transform.localPosition = Vector3.Lerp(camarainterna.transform.localPosition,direccion * distancia, 1 * Time.deltaTime);
+
 
 
 				
@@ -1750,17 +1972,35 @@ public class jugador_al1 : MonoBehaviour
 				if(subir == false && bajar == false)
 				{
 
-					Vector3 movdirnow = new Vector3 (lhorizontalc , 0, lverticalc ).normalized;
+					Vector3 movdirnow = new Vector3 (lhorizontalc * velocidad * Time.deltaTime,0, lverticalc * velocidad * Time.deltaTime);
 					if(lhorizontalc != 0 || lverticalc != 0)
 					{
-						_rb.MovePosition(_rb.position + transform.TransformDirection(movdirnow) * velocidad * Time.deltaTime);
+
+						_rb.linearVelocity = transform.TransformDirection(new Vector3 (movdirnow.x  * 50,_rb.linearVelocity.y,movdirnow.z  * 50));
 
 						angulomod =  Mathf.Atan2(lhorizontalc,lverticalc)* Mathf.Rad2Deg;
 
-						mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(mod.transform.localEulerAngles.x,0,mod.transform.localEulerAngles.z),100* Time.deltaTime);
+
+						if(dash + 0.5f > tempdash)
+						{
+							mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(mod.transform.localEulerAngles.x,angulomod,mod.transform.localEulerAngles.z),10* Time.deltaTime);
+						}
+						else
+						{
+							mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(mod.transform.localEulerAngles.x,0,mod.transform.localEulerAngles.z),10* Time.deltaTime);
+						}
 
 						
 						
+					}
+					movdire = transform.TransformDirection(movdirnow).normalized;
+					float distaxe = movdire.magnitude * Time.fixedDeltaTime;
+					movdire.Normalize();
+					RaycastHit hit;
+					if(lverticalc == 0f && lhorizontalc == 0f || _rb.SweepTest(movdire,out hit,distaxe,QueryTriggerInteraction.Ignore))
+					{
+						dashefect = false;
+						_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
 					}
 
 
@@ -1799,15 +2039,6 @@ public class jugador_al1 : MonoBehaviour
 					
 					}
 				}
-                movdire = _rb.linearVelocity;
-                movdire.y = 0;
-                float distance = movdire.magnitude * Time.fixedDeltaTime;
-                movdire.Normalize();
-                RaycastHit hit;
-                if(lverticalc == 0f && lhorizontalc == 0f || _rb.SweepTest(movdire,out hit,distance,QueryTriggerInteraction.Ignore))
-                {
-					dashefect = false;
-                }
                 if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
                 {
                     if(temppaso > pasotiempo)
@@ -1884,7 +2115,7 @@ public class jugador_al1 : MonoBehaviour
 				{
 					Vector3 directiontt = objetivotarget.transform.position - transform.position;
 					Quaternion rotation = Quaternion.LookRotation(directiontt);
-               		transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),100f * Time.deltaTime);
+               		transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),10f * Time.deltaTime);
 					camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.x,camara.transform.localEulerAngles.z),10f* Time.deltaTime);
 				}
 
@@ -2036,25 +2267,59 @@ public class jugador_al1 : MonoBehaviour
 		{
 			if(manager.datosserial.tengolanzar == true )
 			{
-				if(rt > 0 && ascensor == false && tiempodisp > 0.5f && temppalo > 3)
+				if(rt > 0 && ascensor == false && tiempodisp > 0.5f )
 				{
-					if(manager.datosserial.armasel == 1)
+					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 1 && temppalo > 3)
 					{
 						tiempodisp = 0;
-						temppalo = 0;
-						palo.GetComponent<golpe_al1>().dano = 1;
-						anim.SetBool("arma3",true);
+						temppalo -= 3;
+						palo.GetComponent<golpe_al1>().dano = 3;
+						anim.Play("arma3");
 						tempatk = 0; 
 						lanzarson.Play();
 					}
+					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 2 && temppalo > 40)
+					{
+						tiempodisp = 0;
+						temppalo -= 40;
+						palo.GetComponent<golpe_al1>().dano = 1.5f;
+						anim.Play("escudogiratorio");
+						tempatk = 0; 
+						//lanzarson.Play();
+					}
+					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3 && temppalo > 5)
+					{
+						tiempodisp = 0;
+						temppalo -= 5;
+						palo.GetComponent<golpe_al1>().dano = 5;
+						tempatk = 0; 
+						anim.Play("dashtierra");
+						dashairson.Play();
+					}
+					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 4 && temppalo > 30)
+					{
+						tiempodisp = 0;
+						temppalo -= 30;
+						palo.GetComponent<golpe_al1>().dano = 5;
+						tempatk = 0; 
+						anim.Play("espiralarea");
+						//lanzarson.Play();
+					}
+					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 5 && temppalo > 60)
+					{
+						tiempodisp = 0;
+						temppalo = 0;
+						anim.Play("inbuir");
+						tempatk = 0; 
+						inbuir.Play();
+					}
 				}
-				else if(xp > 0 && suelo == true && tiempodisp > 0.7f && temppalo > 3 && combo == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar"))
+				else if(xp > 0 && suelo == true && tiempodisp > 0.7f  && combo == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar"))
 				{
 					anim.SetBool("atk",true);
 					tiempodisp = 0;
 					tempatk = 0; 
 					danoarma = 1;
-					temppalo = 2;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2072,7 +2337,6 @@ public class jugador_al1 : MonoBehaviour
 					tiempodisp = 0;
 					tempatk = 0; 
 					danoarma = 0.5f;
-					temppalo = 1;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2090,7 +2354,6 @@ public class jugador_al1 : MonoBehaviour
 					tiempodisp = 0;
 					tempatk = 0; 
 					danoarma = 1;
-					temppalo = 1;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2110,7 +2373,6 @@ public class jugador_al1 : MonoBehaviour
 					tiempodisp = 0;
 					tempatk = 0; 
 					danoarma = 0.5f;
-					temppalo = 1;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2128,7 +2390,6 @@ public class jugador_al1 : MonoBehaviour
 					tiempodisp = 0;
 					tempatk = 0; 
 					danoarma = 5;
-					temppalo = 1;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2137,7 +2398,7 @@ public class jugador_al1 : MonoBehaviour
 				}
 
 
-				else if(xp > 0 && suelo == false && ascensor == false && temppalo > 3 )
+				else if(xp > 0 && suelo == false && ascensor == false )
 				{
 					anim.SetBool("atks",true);
 					tiempodisp = 0;
@@ -2188,28 +2449,49 @@ public class jugador_al1 : MonoBehaviour
 					}
 					if(ascensor == false)
 					{
-						iconodisp.sprite = arma1;
+						if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 1)
+						{
+							iconodisp.sprite = arma1_1;
+
+						}
+						if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 2)
+						{
+							iconodisp.sprite = arma1_2;
+
+						}
+						if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3)
+						{
+							iconodisp.sprite = arma1_3;
+						}
+						if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 4)
+						{
+							iconodisp.sprite = arma1_4;
+						}
+						if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 5)
+						{
+							iconodisp.sprite = arma1_5;
+						}
 					}
 				}
 
 			}
 			if(manager.datosserial.armapapa == true && manager.datosserial.armasel == 2)
 			{
-				if(rt > 0 && ascensor == false && tiempodisp > 0.5f && temppaparec >= 2)
+				if(rt > 0 && ascensor == false && temppaparec >= balapapamun[manager.datosserial.nivelarmapapa -1] && tiempodisp > balapadrecaden[manager.datosserial.nivelarmapapa-1] )
 				{
-					danoarma = 1;
+					balaprefabpapa = prebalapapal[manager.datosserial.nivelarmapapa -1];
 					tiempodisp = 0;
-					temppaparec -= 2;
+					temppaparec -= balapapamun[manager.datosserial.nivelarmapapa -1];
 
 					GameObject BalaTemporal = Instantiate(balaprefabpapa, pistolap.transform.position,mod.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 					BalaTemporal.transform.SetParent(juego.transform);
 
-					rbb.AddForce(mod.transform.forward * 110 * 20);
+					rbb.AddForce(mod.transform.forward * 110 * balapadrevel[manager.datosserial.nivelarmapapa-1]);
 
 					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 4f;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = 2f;
+					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balapadredano[manager.datosserial.nivelarmapapa-1];
 
 					disp.Play();
 
@@ -2227,8 +2509,8 @@ public class jugador_al1 : MonoBehaviour
 			{
 				if(rt > 0 && ascensor == false && tiempodisp > 0.5f && temprelrec >= 40f)
 				{
+					balaprefabrel = prebalarell[manager.datosserial.nivelarmarel -1];
 					temprelrec = 0;
-					danoarma = 1;
 					tiempodisp = 0; 
 
 					GameObject BalaTemporal = Instantiate(balaprefabrel, pistolap.transform.position,mod.transform.rotation) as GameObject;
@@ -2239,7 +2521,7 @@ public class jugador_al1 : MonoBehaviour
 					rbb.AddForce(mod.transform.forward * 110 * 4);
 
 					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 15f;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = 0f;
+					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balareldano[manager.datosserial.nivelarmarel-1];
 
 					disprel.Play();
 
@@ -2257,8 +2539,8 @@ public class jugador_al1 : MonoBehaviour
 			{
 				if(rt > 0 && ascensor == false && tiempodisp > 0.5f && tempdefrec >= 60f)
 				{
+					balaprefabdef = prebaladefl[manager.datosserial.nivelarmadef -1];
 					tempdefrec = 0;
-					danoarma = 1;
 					tiempodisp = 0; 
 
 					GameObject BalaTemporal = Instantiate(balaprefabdef, pistolap.transform.position,mod.transform.rotation) as GameObject;
@@ -2268,8 +2550,8 @@ public class jugador_al1 : MonoBehaviour
 
 					rbb.AddForce(new Vector3(0,mod.transform.up.y,mod.transform.forward.z) * 110 * 10);
 
-					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 15f;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = 50f;
+					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 30f;
+					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = baladefdano[manager.datosserial.nivelarmadef-1];
 
 					dispdef.Play();
 
@@ -2288,7 +2570,7 @@ public class jugador_al1 : MonoBehaviour
 			
 			if(manager.juego == 4 || manager.juego == 3)
 			{
-				if(b > 0 && tempdash > dash && suelo == false && manager.datosserial.tengodash == true && tiempodisp > 0.95f && lt == 0)
+				if(b > 0 && tempdash > dash && suelo == false && manager.datosserial.tengodash == true && tiempodisp2 > 0.95f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar"))
 				{
 					anim.SetBool("saltoatras",false);
 					anim.SetBool("latder",false);
@@ -2297,16 +2579,15 @@ public class jugador_al1 : MonoBehaviour
 					anim.SetBool("rueda",false);
 
 					dashefect = true;
-					tiempodisp = 0;
+					tiempodisp2 = 0;
 					disdash = 10;
 					veldash = 120;
 					tempdash = 0;
-					tempdash2 = 0;
 					dashaeract = true;
 					movdirectaux = movdire;
 					dashairson.Play();
 				}
-				else if(b > 0 && tempdash2 > dash2 && suelo == true && tiempodisp > 0.7f && lt == 0)
+				else if(b > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar"))
 				{
 					anim.SetBool("saltoatras",false);
 					anim.SetBool("latder",false);
@@ -2314,10 +2595,9 @@ public class jugador_al1 : MonoBehaviour
 					anim.SetBool("rueda",true);
 					anim.SetBool("dash",false);
 					dashefect = true;
-					tiempodisp = 0;
+					tiempodisp2 = 0;
 					disdash = 10;
 					veldash = 80;
-					tempdash = 0;
 					tempdash2 = 0;
 					movdirectaux = movdire;
 					dashson.Play();
@@ -2390,13 +2670,15 @@ public class jugador_al1 : MonoBehaviour
         {temp9 += 1 * Time.deltaTime;}
 		if(tempgir > 0)
         {tempgir -= 1 * Time.deltaTime;}
+		if(tiempodisp2 < 15)
+        {tiempodisp2 += 1 * Time.deltaTime;}
 		if(tiempodisp < 15)
         {tiempodisp += 1 * Time.deltaTime;}
 		if(tempdash< 15)
         {tempdash += 1 * Time.deltaTime;}
 		if(tempdash2< 15)
         {tempdash2 += 1 * Time.deltaTime;}
-		if(temppalo< 15)
+		if(temppalo< 60)
         {temppalo += 1 * Time.deltaTime;}
 
 		if(temppaparec< 20)
@@ -2413,6 +2695,19 @@ public class jugador_al1 : MonoBehaviour
 
 		if(manager.juego == 3 || manager.juego == 4)
 		{
+			if(manager.datosserial.tengolanzar == true)
+			{
+				if(manager.datosserial.palosel == 1)
+				{paloimg.fillAmount = temppalo/3; }
+				if(manager.datosserial.palosel == 2)
+				{paloimg.fillAmount = temppalo/40; }
+				if(manager.datosserial.palosel == 3)
+				{paloimg.fillAmount = temppalo/5; }
+				if(manager.datosserial.palosel == 4)
+				{paloimg.fillAmount = temppalo/30; }
+				if(manager.datosserial.palosel == 5)
+				{paloimg.fillAmount = temppalo/60; }
+			}
 			if(manager.datosserial.armapapa == true)
 			{
 				pistolaimg.fillAmount = temppaparec/20; 
@@ -2909,4 +3204,17 @@ public class jugador_al1 : MonoBehaviour
 	public Vector3 movdirectaux;
 	public RaycastHit hit;
 
+	public GameObject []prebaladefl;
+	public GameObject []prebalarell;
+	public GameObject []prebalapapal;
+	
+	public float []balapadrevel;
+	public float []balapadredano;
+	public float []balapadrecaden;
+
+	public float []baladefdano;
+	public float []balareldano;
+	public float []balapapamun;
+
+	public float tiempodisp2;
 }

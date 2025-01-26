@@ -6,6 +6,7 @@ public class balarel : MonoBehaviour
 
     public float temp;
     public Rigidbody rb;
+    public float escala = 25;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,7 +18,7 @@ public class balarel : MonoBehaviour
     {
         if (temp < 2)
         {
-            transform.localScale += new Vector3(25 * Time.deltaTime,25 * Time.deltaTime,25 * Time.deltaTime);
+            transform.localScale += new Vector3(escala * Time.deltaTime,escala * Time.deltaTime,escala * Time.deltaTime);
         }
         if(temp > 2)
         {

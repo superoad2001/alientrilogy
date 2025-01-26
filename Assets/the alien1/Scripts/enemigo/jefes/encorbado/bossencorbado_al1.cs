@@ -91,8 +91,8 @@ public class bossencorbado_al1: MonoBehaviour
         if(tempgolpe < 15)
         {tempgolpe += 1 * Time.deltaTime;}
         
-        vidab.fillAmount = vida/vidaux;
-        vidat.text = vida+"/"+vidamax;
+        vidab.fillAmount = vida/vidamax;
+        vidat.text = (int)vida+"/"+(int)vidamax;
         if(vida <= 0)
         {
             GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;

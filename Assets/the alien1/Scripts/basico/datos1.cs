@@ -10,6 +10,15 @@ public class datos1
 
 	public float asc;
     public int plat;
+	public int nivelarmapapa = 1;
+	public int nivelarmarel = 1;
+	public int nivelarmadef = 1;
+	public int nivelarmapalo = 1;
+	public float danoarmapapa = 2;
+	public float danoarmarel = 0;
+	public float danoarmadef = 25;
+	public float cadarmapapa = 2;
+	public float velarmapapa = 5;
 
     public string idioma;
 	public int muertes;
@@ -78,7 +87,9 @@ public class datos1
 
 	public int tengosalto;
 
-	public int armasel;
+	public int armasel = 1;
+	
+	public int palosel = 1;
 	public bool armapapa;
 
 	public bool armarelen;

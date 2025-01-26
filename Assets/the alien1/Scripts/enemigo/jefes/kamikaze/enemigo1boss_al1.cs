@@ -63,7 +63,7 @@ public class enemigo1boss_al1: MonoBehaviour
     void Update()
     {
         vidab.fillAmount = vida/vidamax; 
-		vidat.text = vida+"/"+vidamax;
+		vidat.text = (int)vida+"/"+(int)vidamax;
 
         det.transform.position = this.transform.position;
         dano.transform.position = this.transform.position;
