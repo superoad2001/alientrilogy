@@ -13,5 +13,6 @@ public class planetgrav_al1 : MonoBehaviour
         Quaternion targetRotation = Quaternion.FromToRotation(bodyUp,gravityUp)* body.rotation;
         body.rotation = Quaternion.Slerp(body.rotation,targetRotation,50 * Time.deltaTime);
 
+
     }
 }

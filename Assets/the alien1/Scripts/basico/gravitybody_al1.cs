@@ -20,7 +20,7 @@ public class gravitybody_al1 : MonoBehaviour
         }
         else
         {
-        transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,transform.eulerAngles.y,0),2.5f* Time.deltaTime);
+            transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,transform.eulerAngles.y,0),2.5f* Time.deltaTime);
         }
         
     }

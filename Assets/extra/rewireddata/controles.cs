@@ -149,7 +149,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""ca1fada3-21b4-465d-999e-62b832c121d0"",
                     ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
+                    ""processors"": ""Clamp(min=-1,max=1)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -158,7 +158,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""7bd8c1e3-37fb-4fb5-b2e6-42c0ebdd8386"",
                     ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
+                    ""processors"": ""Clamp(min=-1,max=1)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -829,7 +829,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""ed6ca56d-886c-4484-85da-78a458d93b1a"",
                     ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
+                    ""processors"": ""Normalize(min=-1,max=1)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -838,7 +838,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""7f96c2cd-d101-4e54-8442-69d8033aa095"",
                     ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
+                    ""processors"": ""Normalize(min=-1,max=1)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -1326,7 +1326,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""6af68c1b-0a53-4b21-84d1-ed1fca8a5a41"",
                     ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
+                    ""processors"": ""Normalize(min=-1,max=1)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -1335,7 +1335,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""34eeab51-dd89-4895-8de2-8a5152376f51"",
                     ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
+                    ""processors"": ""Normalize(min=-1,max=1)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
