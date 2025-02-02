@@ -30,6 +30,15 @@ public class pausa_al1 : MonoBehaviour
     public Text boton3;
     public Text boton4;
     public Text boton5;
+
+    public Text gemas;
+    public Text monedam;
+    
+    public Text monedar;
+    public Text llave;
+    public Text llaver;
+    public Text mision1;
+    public Text mision2;
     public float temp;
     public int piso = 1;
     public GameObject normal;
@@ -38,9 +47,11 @@ public class pausa_al1 : MonoBehaviour
     public manager_al1 manager;
     public managerBASE manager2;
     public jugador_al1 jugador;
+    public bool mapa;
     // Start is called before the first frame update
     public AudioSource moveson;
     public Transform hip;
+    public float boton;
 
 	// Token: 0x06000025 RID: 37 RVA: 0x0000334C File Offset: 0x0000154C
 
@@ -58,42 +69,98 @@ public class pausa_al1 : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+        if(mapa == false)
+        {boton = controles.al1.pausa.ReadValue<float>();}
+        else
+        {boton = controles.al1.select.ReadValue<float>();}
+        
         if(manager.datosconfig.idioma == "es")
         {
+            if(mapa == false)
+            {
             boton2.text = "salir";
             boton1.text = "continuar";
             if(manager.nivel >= 1 && manager.nivel <= 15)
             {boton3.text = "salir del nivel";}
             boton4.text = "pausa";
             boton5.text = "opciones";
+            }
+            else
+            {
+                boton1.text = "continuar";
+                boton4.text = "mapa";
+                gemas.text = manager.datosserial.gemas+"/15";
+                monedam.text = manager.datosserial.monedas+" : "+manager.datosserial.monedasmax+"/50";
+                monedar.text = manager.datosserial.monedasr+""+" : "+manager.datosserial.monedasrmax+"/50";
+                llave.text = manager.datosserial.llaves+"/4";
+                llaver.text = manager.datosserial.fragmento+"/3";
+                mision1.text = manager.mision;
+                mision2.text = manager.mision2;
+            }
         }
         if(manager.datosconfig.idioma == "en")
         {
+            if(mapa == false)
+            {
             boton2.text = "exit";
             boton1.text = "continue";
             if(manager.nivel >= 1 && manager.nivel <= 15)
             {boton3.text = "exit of the level";}
             boton4.text = "pause";
             boton5.text = "settings";
+            }
+            else
+            {
+                boton1.text = "continue";
+                boton4.text = "map";
+                gemas.text = manager.datosserial.gemas+"/15";
+                monedam.text = manager.datosserial.monedas+" : "+manager.datosserial.monedasmax+"/50";
+                monedar.text = manager.datosserial.monedasr+""+" : "+manager.datosserial.monedasrmax+"/50";
+                llave.text = manager.datosserial.llaves+"/4";
+                llaver.text = manager.datosserial.fragmento+"/3";
+                mision1.text = manager.mision;
+                mision2.text = manager.mision2;
+            }
         }
         if(manager.datosconfig.idioma == "cat")
         {
+            if(mapa == false)
+            {
             boton2.text = "sortir";
             boton1.text = "continuar";
             if(manager.nivel >= 1 && manager.nivel <= 15)
             {boton3.text = "sortir a la base";}
             boton4.text = "pausa";
             boton5.text = "opcions";
+            }
+            else
+            {
+                boton4.text = "mapa";
+                boton1.text = "continuar";
+                gemas.text = manager.datosserial.gemas+"/15";
+                monedam.text = manager.datosserial.monedas+" : "+manager.datosserial.monedasmax+"/50";
+                monedar.text = manager.datosserial.monedasr+""+" : "+manager.datosserial.monedasrmax+"/50";
+                llave.text = manager.datosserial.llaves+"/4";
+                llaver.text = manager.datosserial.fragmento+"/3";
+                mision1.text = manager.mision;
+                mision2.text = manager.mision2;
+            }
         }
-        if(controles.al1.pausa.ReadValue<float>() > 0 && temp > 0.7f)
+        if(boton > 0 && temp > 0.7f)
         {
-            
-            if(opciones1.activeSelf)
-            {aplicar2();}
-            continuar();
+            if(mapa == false)
+            {
+                if(opciones1.activeSelf)
+                {aplicar2();}
+                continuar();
+            }
+            else
+            {
+                continuar();
+            }
         }
         if(temp < 15)
-        {temp += 1 * Time.deltaTime;}
+        {temp += 1 * Time.unscaledDeltaTime;}
     }
     public void continuar(){
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));

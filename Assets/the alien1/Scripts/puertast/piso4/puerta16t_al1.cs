@@ -21,7 +21,7 @@ public class puerta16t_al1 : MonoBehaviour
 	private void OnCollisionEnter(Collision col)
 	{
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
-		if (col.gameObject.tag == "Player" && manager.datosserial.gemas >= 15 && manager.datosserial.tengollave3 == 1)
+		if (col.gameObject.tag == "Player" && manager.datosserial.gemas >= 15 )
 		{
 			SceneManager.LoadScene("nivel15t_al1");
 		}

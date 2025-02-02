@@ -233,6 +233,24 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Tap"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""lb"",
+                    ""type"": ""Button"",
+                    ""id"": ""020ff4d3-183d-4d45-b9b6-b0560a905f70"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""select"",
+                    ""type"": ""Button"",
+                    ""id"": ""11f85273-56f4-4ede-bce2-3417f8b6baa0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -761,6 +779,50 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""r3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1e9a1472-f637-49fb-b05c-6402bdf047a4"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""lb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""357b3fd8-1889-492f-9479-86c172a539f1"",
+                    ""path"": ""<Keyboard>/#(Q)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""lb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d91b48c-b7cb-4053-8647-18460f94ffa8"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c601dd47-ecd0-4be3-84da-04dcd765acf3"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -2373,6 +2435,8 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         m_al1_lizq = m_al1.FindAction("lizq", throwIfNotFound: true);
         m_al1_labj = m_al1.FindAction("labj", throwIfNotFound: true);
         m_al1_r3 = m_al1.FindAction("r3", throwIfNotFound: true);
+        m_al1_lb = m_al1.FindAction("lb", throwIfNotFound: true);
+        m_al1_select = m_al1.FindAction("select", throwIfNotFound: true);
         // al2
         m_al2 = asset.FindActionMap("al2", throwIfNotFound: true);
         m_al2_a = m_al2.FindAction("a", throwIfNotFound: true);
@@ -2520,6 +2584,8 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     private readonly InputAction m_al1_lizq;
     private readonly InputAction m_al1_labj;
     private readonly InputAction m_al1_r3;
+    private readonly InputAction m_al1_lb;
+    private readonly InputAction m_al1_select;
     public struct Al1Actions
     {
         private @Controles m_Wrapper;
@@ -2547,6 +2613,8 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         public InputAction @lizq => m_Wrapper.m_al1_lizq;
         public InputAction @labj => m_Wrapper.m_al1_labj;
         public InputAction @r3 => m_Wrapper.m_al1_r3;
+        public InputAction @lb => m_Wrapper.m_al1_lb;
+        public InputAction @select => m_Wrapper.m_al1_select;
         public InputActionMap Get() { return m_Wrapper.m_al1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -2625,6 +2693,12 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @r3.started += instance.OnR3;
             @r3.performed += instance.OnR3;
             @r3.canceled += instance.OnR3;
+            @lb.started += instance.OnLb;
+            @lb.performed += instance.OnLb;
+            @lb.canceled += instance.OnLb;
+            @select.started += instance.OnSelect;
+            @select.performed += instance.OnSelect;
+            @select.canceled += instance.OnSelect;
         }
 
         private void UnregisterCallbacks(IAl1Actions instance)
@@ -2698,6 +2772,12 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @r3.started -= instance.OnR3;
             @r3.performed -= instance.OnR3;
             @r3.canceled -= instance.OnR3;
+            @lb.started -= instance.OnLb;
+            @lb.performed -= instance.OnLb;
+            @lb.canceled -= instance.OnLb;
+            @select.started -= instance.OnSelect;
+            @select.performed -= instance.OnSelect;
+            @select.canceled -= instance.OnSelect;
         }
 
         public void RemoveCallbacks(IAl1Actions instance)
@@ -3260,6 +3340,8 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         void OnLizq(InputAction.CallbackContext context);
         void OnLabj(InputAction.CallbackContext context);
         void OnR3(InputAction.CallbackContext context);
+        void OnLb(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
     }
     public interface IAl2Actions
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class romperbala_al1: MonoBehaviour
 {
-	
+	public bool empujar;
 	public float danoj = 1;
 
 	public AudioSource dest;
@@ -25,6 +25,6 @@ public class romperbala_al1: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,transform.forward.y,transform.rotation.eulerAngles.z),5000f * Time.deltaTime);
     }
 }

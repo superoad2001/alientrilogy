@@ -85,7 +85,7 @@ public class enemigo1_al1: MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position,vel * Time.deltaTime);
             Vector3 direction = objetivo1.position - transform.position;
             rotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),25f * Time.deltaTime);
         }
         
         
@@ -117,16 +117,6 @@ public class enemigo1_al1: MonoBehaviour
 		{
             detectar = false;
 		}
-        if (col.gameObject.tag == "Player" && col.gameObject.tag != "golpeh")
-		{
-
-            jugador1.muertesjug.Play();
-            jugador1.vida -= danoj;
-            GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
-            muertes.Play();
-            Destroy(explosiont, 1f);
-            Destroy(transform.parent.gameObject);
-        }
 
 	}
     private void OnTriggerExit(Collider col)
@@ -169,6 +159,11 @@ public class enemigo1_al1: MonoBehaviour
 		}
         if (col.gameObject.tag == "Player" && col.gameObject.tag != "golpeh")
 		{
+            jugador1.eneempuj = this.gameObject;
+            jugador1.enmovdirectaux = transform.TransformDirection((jugador1.eneempuj.transform.forward *70) + (jugador1.eneempuj.transform.up * -50));
+            jugador1.enmovdirectaux = jugador1.enmovdirectaux.normalized;
+            jugador1.tempempujon = 0;
+            jugador1.empujon = true;
 
             jugador1.muertesjug.Play();
             jugador1.vida -= danoj;

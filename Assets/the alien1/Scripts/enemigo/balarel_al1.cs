@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class balarel : MonoBehaviour
+public class balarel_al1 : MonoBehaviour
 {
 
 

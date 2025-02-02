@@ -52,6 +52,9 @@ public class manager_al1 : MonoBehaviour
 	public Text boton5;
 	public Text boton6;
 	public Text boton7;
+
+	public Text tmonedar;
+	public Text tllave;
 	public int menu = 0;
 	public int estados = 0;
 	public int tuto = 0;
@@ -70,6 +73,8 @@ public class manager_al1 : MonoBehaviour
 	public string repathtro;
 
 	public AudioSource moveson;
+	public string mision;
+	public string mision2;
 
 	// Token: 0x06000025 RID: 37 RVA: 0x0000334C File Offset: 0x0000154C
 
@@ -330,11 +335,11 @@ public class manager_al1 : MonoBehaviour
 			{
 				audio4.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 12 && datosserial.tengonave == 1 && dentrotienda == false && datosserial.fragmento < 3 && datosserial.tengomejora == 0 && datosserial.tengollave4 == 0)
+			if (this.piso == 1 && this.datosserial.gemas >= 12 && datosserial.tengonave == 1 && dentrotienda == false && datosserial.fragmento < 3 && datosserial.tengomejora == 0 && datosserial.llave[7] == 0)
 			{
 				audio5.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas == 15 && datosserial.tengomejora == 0 && dentrotienda == false && datosserial.fragmento == 3 && datosserial.tengollave4 == 0 && datosserial.monedas == 50)
+			if (this.piso == 1 && this.datosserial.gemas == 15 && datosserial.tengomejora == 0 && dentrotienda == false && datosserial.fragmento == 3 && datosserial.llave[7] == 0 && datosserial.monedas == 50)
 			{
 				audio6.Play();
 			}
@@ -362,11 +367,11 @@ public class manager_al1 : MonoBehaviour
 			{
 				audio4en.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 12 && datosserial.tengonave == 1 && dentrotienda == false && datosserial.fragmento < 3 && datosserial.tengomejora == 0 && datosserial.tengollave4 == 0)
+			if (this.piso == 1 && this.datosserial.gemas >= 12 && datosserial.tengonave == 1 && dentrotienda == false && datosserial.fragmento < 3 && datosserial.tengomejora == 0 && datosserial.llave[7] == 0)
 			{
 				audio5en.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas == 15 && datosserial.tengomejora == 0 && dentrotienda == false && datosserial.fragmento == 3 && datosserial.tengollave4 == 0 && datosserial.monedas == 50)
+			if (this.piso == 1 && this.datosserial.gemas == 15 && datosserial.tengomejora == 0 && dentrotienda == false && datosserial.fragmento == 3 && datosserial.llave[7] == 0 && datosserial.monedas == 50)
 			{
 				audio6en.Play();
 			}
@@ -394,11 +399,11 @@ public class manager_al1 : MonoBehaviour
 			{
 				audio4cat.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 12 && datosserial.tengonave == 1 && dentrotienda == false && datosserial.fragmento < 3 && datosserial.tengomejora == 0 && datosserial.tengollave4 == 0)
+			if (this.piso == 1 && this.datosserial.gemas >= 12 && datosserial.tengonave == 1 && dentrotienda == false && datosserial.fragmento < 3 && datosserial.tengomejora == 0 && datosserial.llave[7] == 0)
 			{
 				audio5cat.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas == 15 && datosserial.tengomejora == 0 && dentrotienda == false && datosserial.fragmento == 3 && datosserial.tengollave4 == 0 && datosserial.monedas == 50)
+			if (this.piso == 1 && this.datosserial.gemas == 15 && datosserial.tengomejora == 0 && dentrotienda == false && datosserial.fragmento == 3 && datosserial.llave[7] == 0 && datosserial.monedas == 50)
 			{
 				audio6cat.Play();
 			}
@@ -431,9 +436,9 @@ public class manager_al1 : MonoBehaviour
 	public int espacio = 0;
 
 
-	public Text mision;
+	public Text mision1t;
 
-	public Text mision2;
+	public Text mision2t;
 
 	// Token: 0x04000029 RID: 41
 	public Text cuentagemas;
@@ -622,165 +627,169 @@ public class manager_al1 : MonoBehaviour
 		}
 		if (this.juego == 0 && this.piso == 1 && dentrotienda == true && pauseact == false)
 		{
-			this.cuentamonedas.text = "Monedas:  " + this.datosserial.monedas+"/50";
-			this.cuentagemas.text = "Gemas:  " + this.datosserial.gemas+"/15";
-			this.cuentafrag.text = "Fragmentos de Gran Gema: " + this.datosserial.fragmento + "/3";
+			this.cuentamonedas.text = this.datosserial.monedas+"";
+			this.cuentagemas.text = this.datosserial.gemas+"/15";
+			tmonedar.text = datosserial.monedasr+"";
+			tllave.text = datosserial.llaves+"/4";
+			this.cuentafrag.text = datosserial.fragmento+"/3";
 
 		}
 		if (this.juego == 0 && this.piso == 1 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 2 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 3 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 4 && dentrotienda == false && pauseact == false|| mundo != 0)
 		{
-			this.cuentamonedas.text = "Monedas:  " + this.datosserial.monedas+"/50";
-			this.cuentagemas.text = "Gemas:  " + this.datosserial.gemas+"/15";
-			this.cuentafrag.text = "Fragmentos de Gran Gema: " + this.datosserial.fragmento + "/3";
+			this.cuentamonedas.text = this.datosserial.monedas+"";
+			this.cuentagemas.text = this.datosserial.gemas+"/15";
+			tmonedar.text = datosserial.monedasr+"";
+			tllave.text = datosserial.llaves+"/4";
+			this.cuentafrag.text = datosserial.fragmento+"/3";
 
 			if (datosserial.gemas == 0)
 			{
-				this.mision.text = "MISION: Cruza una puerta y consigue una gema completando un nivel";
+				this.mision = "MISION: Cruza una puerta y consigue una gema completando un nivel";
 			}
 			if (datosserial.gemas == 1 && datosserial.monedas < 10)
 			{
-				this.mision.text = "MISION: Haz los 2 niveles que quedan y baja abajo y consigue 10 monedas";
+				this.mision = "MISION: Haz los 2 niveles que quedan y baja abajo y consigue 10 monedas";
 			}
 			if (datosserial.gemas == 2 && datosserial.monedas < 10)
 			{
-				this.mision.text = "MISION: Haz el nivel que te queda y baja abajo y consigue 10 monedas";
+				this.mision = "MISION: Haz el nivel que te queda y baja abajo y consigue 10 monedas";
 			}
 			if (datosserial.gemas == 3 && datosserial.monedas < 10)
 			{
-				this.mision.text = "MISION: Baja abajo y consigue 10 monedas";
+				this.mision = "MISION: Baja abajo y consigue 10 monedas";
 			}
 			if (datosserial.gemas == 1 && datosserial.monedas == 10)
 			{
-				this.mision.text = "MISION: Haz los 2 niveles que quedan";
+				this.mision = "MISION: Haz los 2 niveles que quedan";
 			}
 			if (datosserial.gemas == 2 && datosserial.monedas == 10)
 			{
-				this.mision.text = "MISION: Haz el nivel que te queda";
+				this.mision = "MISION: Haz el nivel que te queda";
 			}
 			if (datosserial.gemas == 3 && datosserial.monedas == 10 && datosserial.tengovel == 0)
 			{
-				this.mision.text = "MISION: Ve a la tienda del primer  piso y recoge el acelerador";
+				this.mision = "MISION: Ve a la tienda del primer  piso y recoge el acelerador";
 			}
 			if (datosserial.gemas <= 6 && datosserial.monedas <= 20 && datosserial.tengovel == 1)
 			{
-				this.mision.text = "MISION: Sube al segundo piso y consigue 6 gemas  baja al espacio y llega a las 20 monedas usando el acelerador";
+				this.mision = "MISION: Sube al segundo piso y consigue 6 gemas  baja al espacio y llega a las 20 monedas usando el acelerador";
 			}
 			if (datosserial.gemas == 6 && datosserial.monedas == 20 && datosserial.tengocoche == 0)
 			{
-				this.mision.text = "MISION: Ve a la tienda y recoge tu nuevo coche";
+				this.mision = "MISION: Ve a la tienda y recoge tu nuevo coche";
 			}
 			if (datosserial.gemas <= 9 && datosserial.monedas <= 30 && datosserial.tengocoche == 1)
 			{
-				this.mision.text = "MISION: Sube al tercer piso y consigue 9 gemas                                                     baja al espacio y llega a las 30 monedas usando el coche para usarlo tocalo";
+				this.mision = "MISION: Sube al tercer piso y consigue 9 gemas                                                     baja al espacio y llega a las 30 monedas usando el coche para usarlo tocalo";
 			}
 			if (datosserial.gemas == 9 && datosserial.monedas == 30 && datosserial.tengosalto == 0)
 			{
-				this.mision.text = "MISION: Ve a la tienda y recoge el saltador";
+				this.mision = "MISION: Ve a la tienda y recoge el saltador";
 			}
 			if (datosserial.gemas <= 12 && datosserial.monedas <= 40 && datosserial.tengosalto == 1)
 			{
-				this.mision.text = "MISION: Sube al cuarto piso y consigue 12 gemas                                                     baja al espacio y llega a las 40 monedas usando el saltador";
+				this.mision = "MISION: Sube al cuarto piso y consigue 12 gemas                                                     baja al espacio y llega a las 40 monedas usando el saltador";
 			}
 			if (datosserial.gemas == 12 && datosserial.monedas == 40 && datosserial.tengonave == 0)
 			{
-				this.mision.text = "MISION: Ve a la tienda y recoge la nave espacial";
+				this.mision = "MISION: Ve a la tienda y recoge la nave espacial";
 			}
 			if (datosserial.gemas == 12 && datosserial.monedas == 40 && datosserial.tengonave == 1)
 			{
-				this.mision.text = "MISION fase 1: Usa la nave espacial en tu propiedad tocandola en la zona libre y viaja a asteroides y llega a las 13 gemas";
+				this.mision = "MISION fase 1: Usa la nave espacial en tu propiedad tocandola en la zona libre y viaja a asteroides y llega a las 13 gemas";
 			}
-			if (datosserial.gemas == 13 && datosserial.tengonave == 1 && datosserial.tengollave1 == 0)
+			if (datosserial.gemas == 13 && datosserial.tengonave == 1 && datosserial.llave[4] == 0)
 			{
-				this.mision.text = "MISION fase 1: Ve a la tienda y recoge la llave secreta de las minas del piso 2 ";
+				this.mision = "MISION fase 1: Ve a la tienda y recoge la llave secreta de las minas del piso 2 ";
 			}
-			if (datosserial.gemas == 13 &&  datosserial.tengonave == 1 && datosserial.tengollave1 == 1 && datosserial.tengollave2 == 0 && datosserial.tengollave3 == 0)
+			if (datosserial.gemas == 13 &&  datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0)
 			{
-				this.mision.text = "MISION fase 1: Usa la nave espacial en tu propiedad tocandola en la zona libre y viaja a asteroides y llega a las 14 gemas";
+				this.mision = "MISION fase 1: Usa la nave espacial en tu propiedad tocandola en la zona libre y viaja a asteroides y llega a las 14 gemas";
 			}
-			if (datosserial.gemas == 14 && datosserial.tengonave == 1 && datosserial.tengollave1 == 1 && datosserial.tengollave2 == 0)
+			if (datosserial.gemas == 14 && datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 0)
 			{
-				this.mision.text = "MISION fase 1: Ve a la tienda y recoge la llave secreta de las minas del piso 3 ";
+				this.mision = "MISION fase 1: Ve a la tienda y recoge la llave secreta de las minas del piso 3 ";
 			}
-			if (datosserial.gemas == 14 &&  datosserial.tengonave == 1 && datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 0)
+			if (datosserial.gemas == 14 &&  datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0)
 			{
-				this.mision.text = "MISION fase 1: Usa la nave espacial en tu propiedad tocandola en la zona libre y viaja a asteroides y llega a las 15 gemas";
+				this.mision = "MISION fase 1: Usa la nave espacial en tu propiedad tocandola en la zona libre y viaja a asteroides y llega a las 15 gemas";
 			}
-			if (datosserial.gemas == 15 && datosserial.tengonave == 1 && datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 0)
+			if (datosserial.gemas == 15 && datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0)
 			{
-				this.mision.text = "MISION fase 1: vV a la tienda y recoge la llave secreta de las minas del piso 4 ";
+				this.mision = "MISION fase 1: vV a la tienda y recoge la llave secreta de las minas del piso 4 ";
 			}
-			if (datosserial.gemas == 14 && datosserial.tengonave == 1 && datosserial.tengollave1 == 0 && datosserial.tengollave2 == 0)
+			if (datosserial.gemas == 14 && datosserial.tengonave == 1 && datosserial.llave[4] == 0 && datosserial.llave[5] == 0)
 			{
-				this.mision.text = "MISION fase 1: Ve a la tienda y recoge la llave secreta de las minas del piso 2 y 3 ";
+				this.mision = "MISION fase 1: Ve a la tienda y recoge la llave secreta de las minas del piso 2 y 3 ";
 			}
-			if (datosserial.gemas == 15 && datosserial.tengonave == 1 && datosserial.tengollave1 == 0 && datosserial.tengollave2 == 0 && datosserial.tengollave3 == 0)
+			if (datosserial.gemas == 15 && datosserial.tengonave == 1 && datosserial.llave[4] == 0 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0)
 			{
-				this.mision.text = "MISION fase 1: Ve a la tienda y recoge la llave secreta de las minas del piso 2,3 y 4 ";
+				this.mision = "MISION fase 1: Ve a la tienda y recoge la llave secreta de las minas del piso 2,3 y 4 ";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 0 && datosserial.tengollave3 == 0 && datosserial.fragmento == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0 && datosserial.fragmento == 0)
 			{
-				this.mision2.text = "MISION fase 2: Ve al segundo piso y consigue un fragmento de gran gema en el nivel secreto";
+				this.mision2 = "MISION fase 2: Ve al segundo piso y consigue un fragmento de gran gema en el nivel secreto";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 0 && datosserial.fragmento == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0 && datosserial.fragmento == 0)
 			{
-				this.mision2.text = "MISION fase 2: Ve al piso 2 y 3 y consigue un fragmento de gran gema en su respectivo nivel secreto";
+				this.mision2 = "MISION fase 2: Ve al piso 2 y 3 y consigue un fragmento de gran gema en su respectivo nivel secreto";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 0)
 			{
-				this.mision2.text = "MISION fase 2: Ve al piso 2, 3 y 4 y consigue un fragmento de gran gema en su respectivo nivel secreto";
+				this.mision2 = "MISION fase 2: Ve al piso 2, 3 y 4 y consigue un fragmento de gran gema en su respectivo nivel secreto";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 0 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 1)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 1)
 			{
-				this.mision2.text = "MISION fase 2: Ve al segundo piso y consigue un fragmento de gran gema en el nivel secreto";
+				this.mision2 = "MISION fase 2: Ve al segundo piso y consigue un fragmento de gran gema en el nivel secreto";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 0 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 0)
 			{
-				this.mision2.text = "MISION fase 2: Ve al tercer piso y consigue un fragmento de gran gema en el nivel secreto";
+				this.mision2 = "MISION fase 2: Ve al tercer piso y consigue un fragmento de gran gema en el nivel secreto";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 0 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 0 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 0)
 			{
-				this.mision2.text = "MISION fase 2: Ve al piso 2, 3 y 4 y consigue un fragmento de gran gema en su respectivo nivel secreto";
+				this.mision2 = "MISION fase 2: Ve al piso 2, 3 y 4 y consigue un fragmento de gran gema en su respectivo nivel secreto";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 0)
 			{
-				this.mision2.text = "MISION fase 2: Ve al piso 3 y 4 y consigue un fragmento de gran gema en su respectivo nivel secreto";
+				this.mision2 = "MISION fase 2: Ve al piso 3 y 4 y consigue un fragmento de gran gema en su respectivo nivel secreto";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 2 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 1 && datosserial.fragmentoN3 == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 2 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 1 && datosserial.fragmentoN3 == 0)
 			{
-				this.mision2.text = "MISION fase 2: Ve al cuarto piso y consigue un fragmento de gran gema en el nivel secreto";
+				this.mision2 = "MISION fase 2: Ve al cuarto piso y consigue un fragmento de gran gema en el nivel secreto";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 1)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 1)
 			{
-				this.mision2.text = "MISION fase 2: Ve al piso 2 y 3 y consigue un fragmento de gran gema en su respectivo nivel secreto";
+				this.mision2 = "MISION fase 2: Ve al piso 2 y 3 y consigue un fragmento de gran gema en su respectivo nivel secreto";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 2 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 1 && datosserial.fragmentoN3 == 1)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 2 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 1 && datosserial.fragmentoN3 == 1)
 			{
-				this.mision2.text = "MISION fase 2: Ve al segundo piso y consigue un fragmento de gran gema en el nivel secreto";
+				this.mision2 = "MISION fase 2: Ve al segundo piso y consigue un fragmento de gran gema en el nivel secreto";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 1 && datosserial.fragmentoN3 == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 1 && datosserial.fragmentoN3 == 0)
 			{
-				this.mision2.text = "MISION fase 2: Ve al piso 2 y 4 y consigue un fragmento de gran gema en su respectivo nivel secreto";
+				this.mision2 = "MISION fase 2: Ve al piso 2 y 4 y consigue un fragmento de gran gema en su respectivo nivel secreto";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 2 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 1)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 2 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 1)
 			{
-				this.mision2.text = "MISION fase 2: Ve al tercer piso y consigue un fragmento de gran gema en el nivel secreto";
+				this.mision2 = "MISION fase 2: Ve al tercer piso y consigue un fragmento de gran gema en el nivel secreto";
 			}
-			if (datosserial.fragmento == 3 && datosserial.monedas < 50 && datosserial.tengollave4 == 0)
+			if (datosserial.fragmento == 3 && datosserial.monedas < 50 && datosserial.llave[7] == 0)
 			{
-				this.mision.text = "MISION fase 3: Consigue 50 monedas por el espacio";
+				this.mision = "MISION fase 3: Consigue 50 monedas por el espacio";
 			}
-			if (datosserial.fragmento == 3 && datosserial.monedas == 50 && datosserial.tengollave4 == 0)
+			if (datosserial.fragmento == 3 && datosserial.monedas == 50 && datosserial.llave[7] == 0)
 			{
-				this.mision.text = "MISION fase 3: Ve a la tienda y recoje la llave del quinto piso";
+				this.mision = "MISION fase 3: Ve a la tienda y recoje la llave del quinto piso";
 			}
 
-			if (datosserial.fragmento == 3 && datosserial.tengollave4 == 1 && datosserial.tengomejora == 0)
+			if (datosserial.fragmento == 3 && datosserial.llave[7] == 1 && datosserial.tengomejora == 0)
 			{
-				this.mision.text = "MISION fase 3: Recoje el hiperpropulsor en el quinto piso";
+				this.mision = "MISION fase 3: Recoje el hiperpropulsor en el quinto piso";
 			}
 			if (datosserial.fragmento == 3 && datosserial.tengomejora == 1)
 			{
-				this.mision.text = "MISION fase final: Ve al espacio con la nave y largate de esta galaxia                 has desbloqueado la torre del tiempo sube arriba del quinto piso y supera tus records";
+				this.mision = "MISION fase final: Ve al espacio con la nave y largate de esta galaxia                 has desbloqueado la torre del tiempo sube arriba del quinto piso y supera tus records";
 			}
 			
 
@@ -788,23 +797,29 @@ public class manager_al1 : MonoBehaviour
 		}
 		if (piso == 5 && datosserial.tengomejora == 1)
 		{
-			this.mision.text = "MISION fase final: Ve al espacio con la nave y largate de esta galaxia                 has desbloqueado la torre del tiempo sube arriba del quinto piso y supera los records negtivos";
+			this.mision = "MISION fase final: Ve al espacio con la nave y largate de esta galaxia                 has desbloqueado la torre del tiempo sube arriba del quinto piso y supera los records negtivos";
 		}
 		if (this.juego == 4 && this.piso == 10  && pauseact == false|| this.juego == 1 && this.piso == 10  && pauseact == false|| this.juego == 4 && this.piso == 1 && pauseact == false)
 		{
-			this.cuentagemas.text = "Gemas:  " + this.datosserial.gemas+"/15";
-			this.cuentamonedas.text = "Monedas:  " + this.datosserial.monedas+"/50";
+			this.cuentamonedas.text = this.datosserial.monedas+"";
+			this.cuentagemas.text = this.datosserial.gemas+"/15";
+			tmonedar.text = datosserial.monedasr+"";
+			tllave.text = datosserial.llaves+"/4";
+			this.cuentafrag.text = datosserial.fragmento+"/3";
 			
 		}
 		if (this.juego == 4 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 1 && this.piso == 10 && this.mundos == true && pauseact == false || this.juego == 4 && this.piso == 1 && this.mundos == true && pauseact == false)
 		{
-			this.cuentagemas.text = "Gemas:  " + this.datosserial.gemas+"/15";
-			this.cuentamonedas.text = "Monedas:  " + this.datosserial.monedas+"/50";
+			this.cuentamonedas.text = this.datosserial.monedas+"";
+			this.cuentagemas.text = this.datosserial.gemas+"/15";
+			tmonedar.text = datosserial.monedasr+"";
+			tllave.text = datosserial.llaves+"/4";
+			this.cuentafrag.text = datosserial.fragmento+"/3";
 		}
 		if (juego == 6 && datosserial.tengomejora == 1)
 		{
 
-			this.mision.text = "MISION fase final: Vuela arriba a la plataforma de aterrizaje y sal de esta galaxia";
+			this.mision = "MISION fase final: Vuela arriba a la plataforma de aterrizaje y sal de esta galaxia";
 		}
 		}
 	if(datosconfig.idioma == "en")
@@ -876,165 +891,169 @@ public class manager_al1 : MonoBehaviour
 		}
 		if (this.juego == 0 && this.piso == 1 && dentrotienda == true && pauseact == false)
 		{
-			this.cuentamonedas.text = "Coins:  " + this.datosserial.monedas+"/50";
-			this.cuentagemas.text = "Gems:  " + this.datosserial.gemas+"/15";
-			this.cuentafrag.text = "Special Gem fragments: " + this.datosserial.fragmento + "/3";
+			this.cuentamonedas.text = this.datosserial.monedas+"";
+			this.cuentagemas.text = this.datosserial.gemas+"/15";
+			tmonedar.text = datosserial.monedasr+"";
+			tllave.text = datosserial.llaves+"/4";
+			this.cuentafrag.text = datosserial.fragmento+"/3";
 
 		}
 		if (this.juego == 0 && this.piso == 1 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 2 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 3 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 4 && dentrotienda == false && pauseact == false || mundo != 0)
 		{
-			this.cuentamonedas.text = "Coins:  " + this.datosserial.monedas+"/50";
-			this.cuentagemas.text = "Gems:  " + this.datosserial.gemas+"/15";
-			this.cuentafrag.text = "Special Gem fragments: " + this.datosserial.fragmento + "/3";
+			this.cuentamonedas.text = this.datosserial.monedas+"";
+			this.cuentagemas.text = this.datosserial.gemas+"/15";
+			tmonedar.text = datosserial.monedasr+"";
+			tllave.text = datosserial.llaves+"/4";
+			this.cuentafrag.text = datosserial.fragmento+"/3";
 
 			if (datosserial.gemas == 0)
 			{
-				this.mision.text = "MISSION: Go through a door and get a gem by completing a level";
+				this.mision = "MISSION: Go through a door and get a gem by completing a level";
 			}
 			if (datosserial.gemas == 1 && datosserial.monedas < 10)
 			{
-				this.mision.text = "MISSION: Do the remaining 2 levels and go downstairs and get 10 coins";
+				this.mision = "MISSION: Do the remaining 2 levels and go downstairs and get 10 coins";
 			}
 			if (datosserial.gemas == 2 && datosserial.monedas < 10)
 			{
-				this.mision.text = "MISSION: Do the level you have left and go down below and get 10 coins";
+				this.mision = "MISSION: Do the level you have left and go down below and get 10 coins";
 			}
 			if (datosserial.gemas == 3 && datosserial.monedas < 10)
 			{
-				this.mision.text = "MISSION: Go downstairs and get 10 coins";
+				this.mision = "MISSION: Go downstairs and get 10 coins";
 			}
 			if (datosserial.gemas == 1 && datosserial.monedas == 10)
 			{
-				this.mision.text = "MISSION: Do the remaining 2 levels";
+				this.mision = "MISSION: Do the remaining 2 levels";
 			}
 			if (datosserial.gemas == 2 && datosserial.monedas == 10)
 			{
-				this.mision.text = "MISSION: Do the level you have left";
+				this.mision = "MISSION: Do the level you have left";
 			}
 			if (datosserial.gemas == 3 && datosserial.monedas == 10 && datosserial.tengovel == 0)
 			{
-				this.mision.text = "MISSION: Go to the shop on the first floor and pick up the accelerator";
+				this.mision = "MISSION: Go to the shop on the first floor and pick up the accelerator";
 			}
 			if (datosserial.gemas <= 6 && datosserial.monedas <= 20 && datosserial.tengovel == 1)
 			{
-				this.mision.text = "MISSION: Go up to the second floor and get 6 gems go down to space and reach 20 coins using the accelerator";
+				this.mision = "MISSION: Go up to the second floor and get 6 gems go down to space and reach 20 coins using the accelerator";
 			}
 			if (datosserial.gemas == 6 && datosserial.monedas == 20 && datosserial.tengocoche == 0)
 			{
-				this.mision.text = "MISSION: Go to the store and pick up your new car";
+				this.mision = "MISSION: Go to the store and pick up your new car";
 			}
 			if (datosserial.gemas <= 9 && datosserial.monedas <= 30 && datosserial.tengocoche == 1)
 			{
-				this.mision.text = "MISSION: Go up to the third floor and get 9 gems go down to space and reach 30 coins using the car to use it touch it";
+				this.mision = "MISSION: Go up to the third floor and get 9 gems go down to space and reach 30 coins using the car to use it touch it";
 			}
 			if (datosserial.gemas == 9 && datosserial.monedas == 30 && datosserial.tengosalto == 0)
 			{
-				this.mision.text = "MISSION: Go to the store and pick up the jumper";
+				this.mision = "MISSION: Go to the store and pick up the jumper";
 			}
 			if (datosserial.gemas <= 12 && datosserial.monedas <= 40 && datosserial.tengosalto == 1)
 			{
-				this.mision.text = "MISSION: Go up to the fourth floor and get 12 gems go down to space and reach 40 coins using the jumper";
+				this.mision = "MISSION: Go up to the fourth floor and get 12 gems go down to space and reach 40 coins using the jumper";
 			}
 			if (datosserial.gemas == 12 && datosserial.monedas == 40 && datosserial.tengonave == 0)
 			{
-				this.mision.text = "MISSION: Go to the store and pick up the spaceship";
+				this.mision = "MISSION: Go to the store and pick up the spaceship";
 			}
 			if (datosserial.gemas == 12 && datosserial.monedas == 40 && datosserial.tengonave == 1)
 			{
-				this.mision.text = "MISSION phase 1: Use the spaceship on your property by touching it in the free zone and travel to asteroids and reach all 13 gems";
+				this.mision = "MISSION phase 1: Use the spaceship on your property by touching it in the free zone and travel to asteroids and reach all 13 gems";
 			}
-			if (datosserial.gemas == 13 && datosserial.tengonave == 1 && datosserial.tengollave1 == 0)
+			if (datosserial.gemas == 13 && datosserial.tengonave == 1 && datosserial.llave[4] == 0)
 			{
-				this.mision.text = "MISSION phase 1: Go to the store and collect the secret key to the mines on floor 2";
+				this.mision = "MISSION phase 1: Go to the store and collect the secret key to the mines on floor 2";
 			}
-			if (datosserial.gemas == 13 &&  datosserial.tengonave == 1 && datosserial.tengollave1 == 1 && datosserial.tengollave2 == 0 && datosserial.tengollave3 == 0)
+			if (datosserial.gemas == 13 &&  datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0)
 			{
-				this.mision.text = "MISSION phase 1: Use the spaceship on your property by touching it in the free zone and travel to asteroids and reach 14 gems";
+				this.mision = "MISSION phase 1: Use the spaceship on your property by touching it in the free zone and travel to asteroids and reach 14 gems";
 			}
-			if (datosserial.gemas == 14 && datosserial.tengonave == 1 && datosserial.tengollave1 == 1 && datosserial.tengollave2 == 0)
+			if (datosserial.gemas == 14 && datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 0)
 			{
-				this.mision.text = "MISSION phase 1: Go to the store and collect the secret key to the mines on floor 3";
+				this.mision = "MISSION phase 1: Go to the store and collect the secret key to the mines on floor 3";
 			}
-			if (datosserial.gemas == 14 &&  datosserial.tengonave == 1 && datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 0)
+			if (datosserial.gemas == 14 &&  datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0)
 			{
-				this.mision.text = "MISSION phase 1: Use the spaceship on your property by touching it in the free zone and travel to asteroids and reach 15 gems";
+				this.mision = "MISSION phase 1: Use the spaceship on your property by touching it in the free zone and travel to asteroids and reach 15 gems";
 			}
-			if (datosserial.gemas == 15 && datosserial.tengonave == 1 && datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 0)
+			if (datosserial.gemas == 15 && datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0)
 			{
-				this.mision.text = "MISSION phase 1: Go to the store and collect the secret key to the mines on floor 4";
+				this.mision = "MISSION phase 1: Go to the store and collect the secret key to the mines on floor 4";
 			}
-			if (datosserial.gemas == 14 && datosserial.tengonave == 1 && datosserial.tengollave1 == 0 && datosserial.tengollave2 == 0)
+			if (datosserial.gemas == 14 && datosserial.tengonave == 1 && datosserial.llave[4] == 0 && datosserial.llave[5] == 0)
 			{
-				this.mision.text = "MISSION phase 1: Go to the store and collect the secret key to the mines on floor 2 and 3";
+				this.mision = "MISSION phase 1: Go to the store and collect the secret key to the mines on floor 2 and 3";
 			}
-			if (datosserial.gemas == 15 && datosserial.tengonave == 1 && datosserial.tengollave1 == 0 && datosserial.tengollave2 == 0 && datosserial.tengollave3 == 0)
+			if (datosserial.gemas == 15 && datosserial.tengonave == 1 && datosserial.llave[4] == 0 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0)
 			{
-				this.mision.text = "MISSION phase 1: Go to the store and collect the secret key to the mines on floors 2, 3 and 4";
+				this.mision = "MISSION phase 1: Go to the store and collect the secret key to the mines on floors 2, 3 and 4";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 0 && datosserial.tengollave3 == 0 && datosserial.fragmento == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0 && datosserial.fragmento == 0)
 			{
-				this.mision2.text = "MISSION phase 2: Go to the second floor and get a large gem fragment in the secret level";
+				this.mision2 = "MISSION phase 2: Go to the second floor and get a large gem fragment in the secret level";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 0 && datosserial.fragmento == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0 && datosserial.fragmento == 0)
 			{
-				this.mision2.text = "MISSION phase 2: Go to floor 2 and 3 and get a large gem fragment in their respective secret level";
+				this.mision2 = "MISSION phase 2: Go to floor 2 and 3 and get a large gem fragment in their respective secret level";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 0)
 			{
-				this.mision2.text = "MISSION phase 2: Go to floor 2, 3 and 4 and get a large gem fragment in their respective secret level";
+				this.mision2 = "MISSION phase 2: Go to floor 2, 3 and 4 and get a large gem fragment in their respective secret level";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 0 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 1)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 1)
 			{
-				this.mision2.text = "MISSION phase 2: Go to the second floor and get a large gem fragment in the secret level";
+				this.mision2 = "MISSION phase 2: Go to the second floor and get a large gem fragment in the secret level";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 0 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 0)
 			{
-				this.mision2.text = "MISSION phase 2: Go to the third floor and get a large gem fragment in the secret level";
+				this.mision2 = "MISSION phase 2: Go to the third floor and get a large gem fragment in the secret level";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 0 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 0 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 0)
 			{
-				this.mision2.text = "MISSION phase 2: Go to floor 2, 3 and 4 and get a large gem fragment in their respective secret level";
+				this.mision2 = "MISSION phase 2: Go to floor 2, 3 and 4 and get a large gem fragment in their respective secret level";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 0)
 			{
-				this.mision2.text = "MISSION phase 2: Go to floor 3 and 4 and get a large gem fragment in their respective secret level";
+				this.mision2 = "MISSION phase 2: Go to floor 3 and 4 and get a large gem fragment in their respective secret level";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 2 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 1 && datosserial.fragmentoN3 == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 2 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 1 && datosserial.fragmentoN3 == 0)
 			{
-				this.mision2.text = "MISSION phase 2: Go to the fourth floor and get a large gem fragment in the secret level";
+				this.mision2 = "MISSION phase 2: Go to the fourth floor and get a large gem fragment in the secret level";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 1)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 1)
 			{
-				this.mision2.text = "MISSION phase 2: Go to floor 2 and 3 and get a large gem fragment in their respective secret level";
+				this.mision2 = "MISSION phase 2: Go to floor 2 and 3 and get a large gem fragment in their respective secret level";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 2 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 1 && datosserial.fragmentoN3 == 1)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 2 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 1 && datosserial.fragmentoN3 == 1)
 			{
-				this.mision2.text = "MISSION phase 2: Go to the second floor and get a large gem fragment in the secret level";
+				this.mision2 = "MISSION phase 2: Go to the second floor and get a large gem fragment in the secret level";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 1 && datosserial.fragmentoN3 == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 1 && datosserial.fragmentoN3 == 0)
 			{
-				this.mision2.text = "MISSION phase 2: Go to floor 2 and 4 and get a large gem fragment in their respective secret level";
+				this.mision2 = "MISSION phase 2: Go to floor 2 and 4 and get a large gem fragment in their respective secret level";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 2 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 1)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 2 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 1)
 			{
-				this.mision2.text = "MISSION phase 2: Go to the third floor and get a large gem fragment in the secret level";
+				this.mision2 = "MISSION phase 2: Go to the third floor and get a large gem fragment in the secret level";
 			}
-			if (datosserial.fragmento == 3 && datosserial.monedas < 50 && datosserial.tengollave4 == 0)
+			if (datosserial.fragmento == 3 && datosserial.monedas < 50 && datosserial.llave[7] == 0)
 			{
-				this.mision.text = "MISSION phase 3: Get 50 Coins in the space";
+				this.mision = "MISSION phase 3: Get 50 Coins in the space";
 			}
-			if (datosserial.fragmento == 3 && datosserial.monedas == 50 && datosserial.tengollave4 == 0)
+			if (datosserial.fragmento == 3 && datosserial.monedas == 50 && datosserial.llave[7] == 0)
 			{
-				this.mision.text = "MISSION phase 3: Go to the store and collect the key to the fifth floor";
+				this.mision = "MISSION phase 3: Go to the store and collect the key to the fifth floor";
 			}
 
-			if (datosserial.fragmento == 3 && datosserial.tengollave4 == 1 && datosserial.tengomejora == 0)
+			if (datosserial.fragmento == 3 && datosserial.llave[7] == 1 && datosserial.tengomejora == 0)
 			{
-				this.mision.text = "MISSION phase 3: Pick up the hyperdrive on the fifth floor";
+				this.mision = "MISSION phase 3: Pick up the hyperdrive on the fifth floor";
 			}
 			if (datosserial.fragmento == 3 && datosserial.tengomejora == 1)
 			{
-				this.mision.text = "MISSION final phase: Go to space with the ship and get out of this galaxy you have unlocked the tower of time go up to the fifth floor and beat your records";
+				this.mision = "MISSION final phase: Go to space with the ship and get out of this galaxy you have unlocked the tower of time go up to the fifth floor and beat your records";
 			}
 			
 
@@ -1042,21 +1061,27 @@ public class manager_al1 : MonoBehaviour
 		}
 		if (piso == 5 && datosserial.tengomejora == 1)
 		{
-			this.mision.text = "MISSION final phase: Go to space with the ship and get out of this galaxy you have unlocked the tower of time go up to the fifth floor and beat your recordss";
+			this.mision = "MISSION final phase: Go to space with the ship and get out of this galaxy you have unlocked the tower of time go up to the fifth floor and beat your recordss";
 		}
 		if (this.juego == 4 && this.piso == 10  && pauseact == false|| this.juego == 1 && this.piso == 10 && pauseact == false || this.juego == 4 && this.piso == 1 && pauseact == false)
 		{
-			this.cuentagemas.text = "Gems:  " + this.datosserial.gemas+"/15";
-			this.cuentamonedas.text = "Coins:  " + this.datosserial.monedas+"/50";
+			this.cuentamonedas.text = this.datosserial.monedas+"";
+			this.cuentagemas.text = this.datosserial.gemas+"/15";
+			tmonedar.text = datosserial.monedasr+"";
+			tllave.text = datosserial.llaves+"/4";
+			this.cuentafrag.text = datosserial.fragmento+"/3";
 		}
 		if (this.juego == 4 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 1 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 4 && this.piso == 1 && this.mundos == true && pauseact == false)
 		{
-			this.cuentagemas.text = "Gems:  " + this.datosserial.gemas+"/15";
-			this.cuentamonedas.text = "Coins:  " + this.datosserial.monedas+"/50";
+			this.cuentamonedas.text = this.datosserial.monedas+"";
+			this.cuentagemas.text = this.datosserial.gemas+"/15";
+			tmonedar.text = datosserial.monedasr+"";
+			tllave.text = datosserial.llaves+"/4";
+			this.cuentafrag.text = datosserial.fragmento+"/3";
 		}
 		if (juego == 6 && datosserial.tengomejora == 1)
 		{
-			this.mision.text = "MISSION final phase: Fly up to the landing platform and get out of this galaxy";
+			this.mision = "MISSION final phase: Fly up to the landing platform and get out of this galaxy";
 		}
 		}
 	if(datosconfig.idioma == "cat")
@@ -1129,165 +1154,169 @@ public class manager_al1 : MonoBehaviour
 		}
 		if (this.juego == 0 && this.piso == 1 && dentrotienda == true && pauseact == false)
 		{
-			this.cuentamonedas.text = "Diners:  " + this.datosserial.monedas+"/50";
-			this.cuentagemas.text = "Gemmes:  " + this.datosserial.gemas+"/15";
-			this.cuentafrag.text = "Fragments de Gran Gemme: " + this.datosserial.fragmento + "/3";
+			this.cuentamonedas.text = this.datosserial.monedas+"";
+			this.cuentagemas.text = this.datosserial.gemas+"/15";
+			tmonedar.text = datosserial.monedasr+"";
+			tllave.text = datosserial.llaves+"/4";
+			this.cuentafrag.text = datosserial.fragmento+"/3";
 
 		}
 		if (this.juego == 0 && this.piso == 1 && dentrotienda == false  && pauseact == false || this.juego == 0 && this.piso == 2 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 3 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 4 && dentrotienda == false && pauseact == false || mundo != 0)
 		{
-			this.cuentamonedas.text = "Diners:  " + this.datosserial.monedas+"/50";
-			this.cuentagemas.text = "Gemmes:  " + this.datosserial.gemas+"/15";
-			this.cuentafrag.text = "Fragments de Gran Gemme: " + this.datosserial.fragmento + "/3";
+			this.cuentamonedas.text = this.datosserial.monedas+"";
+			this.cuentagemas.text = this.datosserial.gemas+"/15";
+			tmonedar.text = datosserial.monedasr+"";
+			tllave.text = datosserial.llaves+"/4";
+			this.cuentafrag.text = datosserial.fragmento+"/3";
 
 			if (datosserial.gemas == 0)
 			{
-				this.mision.text = "MISIO: Creua una porta i consegueix una gema completan un nivell";
+				this.mision = "MISIO: Creua una porta i consegueix una gema completan un nivell";
 			}
 			if (datosserial.gemas == 1 && datosserial.monedas < 10)
 			{
-				this.mision.text = "MISIO: Fes els 2 niveles que queden i baixa abaix i agafa 10 monedes";
+				this.mision = "MISIO: Fes els 2 niveles que queden i baixa abaix i agafa 10 monedes";
 			}
 			if (datosserial.gemas == 2 && datosserial.monedas < 10)
 			{
-				this.mision.text = "MISIO: Fes el nivell que et queda i baixa abaix i agafa 10 monedes";
+				this.mision = "MISIO: Fes el nivell que et queda i baixa abaix i agafa 10 monedes";
 			}
 			if (datosserial.gemas == 3 && datosserial.monedas < 10)
 			{
-				this.mision.text = "MISIO: Baixa abaix i agafa 10 monedes";
+				this.mision = "MISIO: Baixa abaix i agafa 10 monedes";
 			}
 			if (datosserial.gemas == 1 && datosserial.monedas == 10)
 			{
-				this.mision.text = "MISIO: Fes els 2 niveles que queden";
+				this.mision = "MISIO: Fes els 2 niveles que queden";
 			}
 			if (datosserial.gemas == 2 && datosserial.monedas == 10)
 			{
-				this.mision.text = "MISIO: Fes el nivell que et queda";
+				this.mision = "MISIO: Fes el nivell que et queda";
 			}
 			if (datosserial.gemas == 3 && datosserial.monedas == 10 && datosserial.tengovel == 0)
 			{
-				this.mision.text = "MISIO: Ves a la tenda del primer  pis i agafa el acelerador";
+				this.mision = "MISIO: Ves a la tenda del primer  pis i agafa el acelerador";
 			}
 			if (datosserial.gemas <= 6 && datosserial.monedas <= 20 && datosserial.tengovel == 1)
 			{
-				this.mision.text = "MISIO: Puja al segon pis i agafa 6 gemmes  baixa al espai y arriba a les 20 monedes fent servir el acelerador";
+				this.mision = "MISIO: Puja al segon pis i agafa 6 gemmes  baixa al espai y arriba a les 20 monedes fent servir el acelerador";
 			}
 			if (datosserial.gemas == 6 && datosserial.monedas == 20 && datosserial.tengocoche == 0)
 			{
-				this.mision.text = "MISIO: Ves a la tenda i agafa el teu nuo cotxe";
+				this.mision = "MISIO: Ves a la tenda i agafa el teu nuo cotxe";
 			}
 			if (datosserial.gemas <= 9 && datosserial.monedas <= 30 && datosserial.tengocoche == 1)
 			{
-				this.mision.text = "MISIO: Puja al tercer pis i agafa 9 gemmes                                                     baixa al espai y arriba a les 30 monedes fent servir el cotxe per ferlo servir tocal";
+				this.mision = "MISIO: Puja al tercer pis i agafa 9 gemmes                                                     baixa al espai y arriba a les 30 monedes fent servir el cotxe per ferlo servir tocal";
 			}
 			if (datosserial.gemas == 9 && datosserial.monedas == 30 && datosserial.tengosalto == 0)
 			{
-				this.mision.text = "MISIO: Ves a la tenda y agafa el saltador";
+				this.mision = "MISIO: Ves a la tenda y agafa el saltador";
 			}
 			if (datosserial.gemas <= 12 && datosserial.monedas <= 40 && datosserial.tengosalto == 1)
 			{
-				this.mision.text = "MISIO: Puja al quart pis i agafa 12 gemmes                                                    baixa al espai i arriba a les 40 monedes fent servir el saltador";
+				this.mision = "MISIO: Puja al quart pis i agafa 12 gemmes                                                    baixa al espai i arriba a les 40 monedes fent servir el saltador";
 			}
 			if (datosserial.gemas == 12 && datosserial.monedas == 40 && datosserial.tengonave == 0)
 			{
-				this.mision.text = "MISIO: Ves a la tenda y agafa la nau espacial";
+				this.mision = "MISIO: Ves a la tenda y agafa la nau espacial";
 			}
 			if (datosserial.gemas == 12 && datosserial.monedas == 40 && datosserial.tengonave == 1)
 			{
-				this.mision.text = "MISIO fase 1: Fes servir la nau espacial tocanla al espai i viatja als asteroides i arriba a les 13 gemmes";
+				this.mision = "MISIO fase 1: Fes servir la nau espacial tocanla al espai i viatja als asteroides i arriba a les 13 gemmes";
 			}
-			if (datosserial.gemas == 13 && datosserial.tengonave == 1 && datosserial.tengollave1 == 0)
+			if (datosserial.gemas == 13 && datosserial.tengonave == 1 && datosserial.llave[4] == 0)
 			{
-				this.mision.text = "MISIO fase 1: Ves a la tenda y recull la clau secreta de les mines del pis 2 ";
+				this.mision = "MISIO fase 1: Ves a la tenda y recull la clau secreta de les mines del pis 2 ";
 			}
-			if (datosserial.gemas == 13 &&  datosserial.tengonave == 1 && datosserial.tengollave1 == 1 && datosserial.tengollave2 == 0 && datosserial.tengollave3 == 0)
+			if (datosserial.gemas == 13 &&  datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0)
 			{
-				this.mision.text = "MISIO fase 1: Fes servir la nau espacial tocanla al espai i viatja als asteroides i arriba a les 14 gemmes";
+				this.mision = "MISIO fase 1: Fes servir la nau espacial tocanla al espai i viatja als asteroides i arriba a les 14 gemmes";
 			}
-			if (datosserial.gemas == 14 && datosserial.tengonave == 1 && datosserial.tengollave1 == 1 && datosserial.tengollave2 == 0)
+			if (datosserial.gemas == 14 && datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 0)
 			{
-				this.mision.text = "MISIO fase 1: Ves a la tenda i recull la clau secreta de les mines del pis 3";
+				this.mision = "MISIO fase 1: Ves a la tenda i recull la clau secreta de les mines del pis 3";
 			}
-			if (datosserial.gemas == 14 &&  datosserial.tengonave == 1 && datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 0)
+			if (datosserial.gemas == 14 &&  datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0)
 			{
-				this.mision.text = "MISIO fase 1: Fes servir la nau espacial tocanla al espai i viatja als asteroides i arriba a les 15 gemmes";
+				this.mision = "MISIO fase 1: Fes servir la nau espacial tocanla al espai i viatja als asteroides i arriba a les 15 gemmes";
 			}
-			if (datosserial.gemas == 15 && datosserial.tengonave == 1 && datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 0)
+			if (datosserial.gemas == 15 && datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0)
 			{
-				this.mision.text = "MISIO fase 1: Ves a la tenda i recull la clau secreta de les mines del pis 4 ";
+				this.mision = "MISIO fase 1: Ves a la tenda i recull la clau secreta de les mines del pis 4 ";
 			}
-			if (datosserial.gemas == 14 && datosserial.tengonave == 1 && datosserial.tengollave1 == 0 && datosserial.tengollave2 == 0)
+			if (datosserial.gemas == 14 && datosserial.tengonave == 1 && datosserial.llave[4] == 0 && datosserial.llave[5] == 0)
 			{
-				this.mision.text = "MISIO fase 1:Ves a la tenda i recull la clau secreta de les mines del pis 2 i 4 ";
+				this.mision = "MISIO fase 1:Ves a la tenda i recull la clau secreta de les mines del pis 2 i 4 ";
 			}
-			if (datosserial.gemas == 15 && datosserial.tengonave == 1 && datosserial.tengollave1 == 0 && datosserial.tengollave2 == 0 && datosserial.tengollave3 == 0)
+			if (datosserial.gemas == 15 && datosserial.tengonave == 1 && datosserial.llave[4] == 0 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0)
 			{
-				this.mision.text = "MISIO fase 1: Ves a la tenda i recull la clau secreta de les mines del pis 2,3 i 4";
+				this.mision = "MISIO fase 1: Ves a la tenda i recull la clau secreta de les mines del pis 2,3 i 4";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 0 && datosserial.tengollave3 == 0 && datosserial.fragmento == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0 && datosserial.fragmento == 0)
 			{
-				this.mision2.text = "MISIO fase 2: Ves al segon pis i agafa un fragment de gran gemmme en el nivell secret";
+				this.mision2 = "MISIO fase 2: Ves al segon pis i agafa un fragment de gran gemmme en el nivell secret";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 0 && datosserial.fragmento == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0 && datosserial.fragmento == 0)
 			{
-				this.mision2.text = "MISIO fase 2: Ves al pis 2 i 3 i agafa un fragment de gran gemme al seu respectiu nivell secret";
+				this.mision2 = "MISIO fase 2: Ves al pis 2 i 3 i agafa un fragment de gran gemme al seu respectiu nivell secret";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 0)
 			{
-				this.mision2.text = "MISIO fase 2: Ves al pis 2, 3 i 4 i agafa un fragment de gran gemme al seu respectiu nivell secret";
+				this.mision2 = "MISIO fase 2: Ves al pis 2, 3 i 4 i agafa un fragment de gran gemme al seu respectiu nivell secret";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 0 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 1)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 1)
 			{
-				this.mision2.text = "MISIO fase 2: Ves al segon pis y agafa el fragment de gran gemme en el nivell secret";
+				this.mision2 = "MISIO fase 2: Ves al segon pis y agafa el fragment de gran gemme en el nivell secret";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 0 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 0)
 			{
-				this.mision2.text = "MISIO fase 2: Ves al tercer pis y agafa el fragment de gran gemme en el nivell secret";
+				this.mision2 = "MISIO fase 2: Ves al tercer pis y agafa el fragment de gran gemme en el nivell secret";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 0 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 0 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 0)
 			{
-				this.mision2.text = "MISIO fase 2: Ves al pis 2, 3 i 4 i agafa un fragment de gran gemme al seu respectiu nivell secret";
+				this.mision2 = "MISIO fase 2: Ves al pis 2, 3 i 4 i agafa un fragment de gran gemme al seu respectiu nivell secret";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 0)
 			{
-				this.mision2.text = "MISIO fase 2: Ves al pis 3 i 4 i agafa un fragment de gran gemme al seu respectiu nivell secret";
+				this.mision2 = "MISIO fase 2: Ves al pis 3 i 4 i agafa un fragment de gran gemme al seu respectiu nivell secret";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 2 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 1 && datosserial.fragmentoN3 == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 2 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 1 && datosserial.fragmentoN3 == 0)
 			{
-				this.mision2.text = "MISIO fase 2: Ves al quart pis i agafa un fragment de gran gemmme en el nivell secret";
+				this.mision2 = "MISIO fase 2: Ves al quart pis i agafa un fragment de gran gemmme en el nivell secret";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 1)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 1)
 			{
-				this.mision2.text = "MISIO fase 2: Ves al pis 2 i 3 i agafa un fragment de gran gemme al seu respectiu nivell secret";
+				this.mision2 = "MISIO fase 2: Ves al pis 2 i 3 i agafa un fragment de gran gemme al seu respectiu nivell secret";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 2 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 1 && datosserial.fragmentoN3 == 1)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 2 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 1 && datosserial.fragmentoN3 == 1)
 			{
-				this.mision2.text = "MISIO fase 2: Ves al seguon pis i agafa un fragment de gran gemme en el nivell secret";
+				this.mision2 = "MISIO fase 2: Ves al seguon pis i agafa un fragment de gran gemme en el nivell secret";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 1 && datosserial.fragmentoN3 == 0)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 1 && datosserial.fragmentoN1 == 0 && datosserial.fragmentoN2 == 1 && datosserial.fragmentoN3 == 0)
 			{
-				this.mision2.text = "MISIO fase 2: Ves al pis 2 y 4 i agafa un fragment de gran gemme en el seu respectiu nivell secret";
+				this.mision2 = "MISIO fase 2: Ves al pis 2 y 4 i agafa un fragment de gran gemme en el seu respectiu nivell secret";
 			}
-			if (datosserial.tengollave1 == 1 && datosserial.tengollave2 == 1 && datosserial.tengollave3 == 1 && datosserial.fragmento == 2 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 1)
+			if (datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 1 && datosserial.fragmento == 2 && datosserial.fragmentoN1 == 1 && datosserial.fragmentoN2 == 0 && datosserial.fragmentoN3 == 1)
 			{
-				this.mision2.text = "MISIO fase 2: Ves al tercer pis y agafa un fragment de gran gemme en el nivell secret";
+				this.mision2 = "MISIO fase 2: Ves al tercer pis y agafa un fragment de gran gemme en el nivell secret";
 			}
-			if (datosserial.fragmento == 3 && datosserial.monedas < 50 && datosserial.tengollave4 == 0)
+			if (datosserial.fragmento == 3 && datosserial.monedas < 50 && datosserial.llave[7] == 0)
 			{
-				this.mision.text = "MISIO fase 3: Agafa 50 monedes en el espai amb la nau";
+				this.mision = "MISIO fase 3: Agafa 50 monedes en el espai amb la nau";
 			}
-			if (datosserial.fragmento == 3 && datosserial.monedas == 50 && datosserial.tengollave4 == 0)
+			if (datosserial.fragmento == 3 && datosserial.monedas == 50 && datosserial.llave[7] == 0)
 			{
-				this.mision.text = "MISIO fase 3: Ves a la tenda i agafa la calu del cinque pis";
+				this.mision = "MISIO fase 3: Ves a la tenda i agafa la calu del cinque pis";
 			}
 
-			if (datosserial.fragmento == 3 && datosserial.tengollave4 == 1 && datosserial.tengomejora == 0)
+			if (datosserial.fragmento == 3 && datosserial.llave[7] == 1 && datosserial.tengomejora == 0)
 			{
-				this.mision.text = "MISIO fase 3: Recull el hiperpropulsor en el cinque pis";
+				this.mision = "MISIO fase 3: Recull el hiperpropulsor en el cinque pis";
 			}
 			if (datosserial.fragmento == 3 && datosserial.tengomejora == 1)
 			{
-				this.mision.text = "MISIO fase final: Ves al espaci amb la nau i vesten d aquesta galaxia                 has desbloquejat la torre del temps puja a d alt del cinque pis y supera els records negatius";
+				this.mision = "MISIO fase final: Ves al espaci amb la nau i vesten d aquesta galaxia                 has desbloquejat la torre del temps puja a d alt del cinque pis y supera els records negatius";
 			}
 			
 
@@ -1295,22 +1324,32 @@ public class manager_al1 : MonoBehaviour
 		}
 		if (piso == 5 && datosserial.tengomejora == 1)
 		{
-			this.mision.text = "MISIO fase final: Ves al espai amb la nau y vesten de aquesta galaxia                 has desbloquejat la torre del temps puja a d alt del cinque pis y supera els records negatius";
+			this.mision = "MISIO fase final: Ves al espai amb la nau y vesten de aquesta galaxia                 has desbloquejat la torre del temps puja a d alt del cinque pis y supera els records negatius";
 		}
 		if (this.juego == 4 && this.piso == 10  && pauseact == false|| this.juego == 1 && this.piso == 10  && pauseact == false|| this.juego == 4 && this.piso == 1 && pauseact == false)
 		{
-			this.cuentamonedas.text = "Diners:  " + this.datosserial.monedas+"/50";
-			this.cuentagemas.text = "Gemmes:  " + this.datosserial.gemas+"/15";
+			this.cuentamonedas.text = this.datosserial.monedas+"";
+			this.cuentagemas.text = this.datosserial.gemas+"/15";
+			tmonedar.text = datosserial.monedasr+"";
+			tllave.text = datosserial.llaves+"/4";
+			this.cuentafrag.text = datosserial.fragmento+"/3";
 		}
 		if (this.juego == 4 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 1 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 4 && this.piso == 1 && this.mundos == true  && pauseact == false)
 		{
-			this.cuentamonedas.text = "Diners:  " + this.datosserial.monedas+"/50";
-			this.cuentagemas.text = "Gemmes:  " + this.datosserial.gemas+"/15";
+			this.cuentamonedas.text = this.datosserial.monedas+"";
+			this.cuentagemas.text = this.datosserial.gemas+"/15";
+			tmonedar.text = datosserial.monedasr+"";
+			tllave.text = datosserial.llaves+"/4";
+			this.cuentafrag.text = datosserial.fragmento+"/3";
 		}
 		if (juego == 6 && datosserial.tengomejora == 1)
 		{
-			this.mision.text = "MISION fase final: Vola a d'alt d la plataforma de aterricaje y surt d aquesta galaxia";
+			this.mision = "MISION fase final: Vola a d'alt d la plataforma de aterricaje y surt d aquesta galaxia";
 		}
+		}
+		if(mision == "" && mision == "")
+		{
+			mision = "Mision:";
 		}
 
 

@@ -142,7 +142,7 @@ public class enemigo2_al1: MonoBehaviour
 
                         BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj;
 
-                        rb.AddForce(transform.forward * 110 * 20);
+                        rb.AddForce(BalaTemporal.transform.forward * 110 * 20);
 
                         BalaTemporal.GetComponent<romperbala_al1>().destb = 4f;
 
@@ -214,7 +214,7 @@ public class enemigo2_al1: MonoBehaviour
 
                             BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj;
 
-                            rb.AddForce(transform.forward * 110 * 20);
+                            rb.AddForce(BalaTemporal.transform.forward * 110 * 20);
 
                             BalaTemporal.GetComponent<romperbala_al1>().destb = 4f;
 

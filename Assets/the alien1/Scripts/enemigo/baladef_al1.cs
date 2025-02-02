@@ -41,7 +41,7 @@ public class baladef_al1 : MonoBehaviour
             if(armadef)
             {
                     GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
-                    Destroy(explosiont, 3f);
+                    Destroy(explosiont, 13f);
                     Destroy(this.gameObject);
                     
             }
