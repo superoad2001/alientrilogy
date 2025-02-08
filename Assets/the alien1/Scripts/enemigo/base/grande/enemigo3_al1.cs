@@ -37,6 +37,8 @@ public class enemigo3_al1: MonoBehaviour
     public float vidamax;
     public Image vidab;
 
+    public int nivel = 1;
+
     public AudioSource danoene;
     public AudioSource danoescudo;
     public GameObject vidamenu;
@@ -44,9 +46,29 @@ public class enemigo3_al1: MonoBehaviour
     public GameObject escudovis;
     public bool escudoact;
     public float tempescudo;
-    public float danoj;
+    public float danoj = 8;
     public float vidaescudo;
     public GameObject target;
+    
+    public float nivelfuerza;
+    public float nivelvida;
+    public int nivelactual = 1;
+
+    public float valorexp = 2f;
+    public float vidabasetut = 9;
+    public float vidabase = 99;
+    public float vidabasemax = 999;
+    public float vidaplusmax = 9999;
+
+    public float fuebasetut = 3;
+    public float fuebase = 30;
+    public float fuebasemax = 300;
+    public float fueplusmax = 4000;
+
+
+    public float []nivelfuerza_a = new float[99];
+    public float []nivelvida_a = new float[99];
+
     public void Awake()
     {
         controles = new Controles();
@@ -62,6 +84,36 @@ public class enemigo3_al1: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        nivelvida_a[0] = vidabasetut;
+        nivelvida_a[1] = vidabase;
+        for(int i = 2 ;i <= 49;  i++ )
+        {   
+            nivelvida_a[i] = (vidabase) + (((vidabasemax-vidabase)/48) * (i -1 ));
+        }
+        for(int i = 50 ; i <= 98; i++)
+        {   
+            nivelvida_a[i] = (vidabasemax) + (((vidaplusmax - vidabasemax)/49) * (i - 49));
+        }
+
+        nivelfuerza_a[0] = fuebasetut;
+        nivelvida_a[1] = fuebase;
+        for(int i = 2 ;i <= 49;  i++ )
+        {   
+            nivelfuerza_a[i] = (fuebase) + (((fuebasemax-fuebase)/48) * (i - 2));
+        }
+        for(int i = 50 ; i <= 98; i++)
+        {   
+            nivelfuerza_a[i] = (fuebasemax) + (((fueplusmax -fuebasemax)/49) * (i - 49));
+        }
+
+        nivelfuerza = nivelfuerza_a[nivelactual];
+        nivelvida = nivelvida_a[nivelactual];
+        vidamax = nivelvida;
+
+
+
+        danoj = nivelfuerza;
         vida = vidamax;
         jugador1 = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         jugador1.explosion = explosion;
@@ -91,11 +143,39 @@ public class enemigo3_al1: MonoBehaviour
 
         det.transform.position = this.transform.position;
         
-        if (vida <= 0)
+        if (vida < 1)
         {
             GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
             muertes.Play();
+            if(nivelactual == manager.datosserial.niveljug)
+            {
+                manager.datosserial.nivelexp += valorexp;
+            }
+            else if(nivelactual < manager.datosserial.niveljug && nivelactual  >= (manager.datosserial.niveljug -10))
+            {
+                int diferencianivel = manager.datosserial.niveljug - nivelactual;
+                manager.datosserial.nivelexp += (valorexp / (((diferencianivel) + 1)/2));
+            }
+            else if(nivelactual > manager.datosserial.niveljug && nivelactual  <= (manager.datosserial.niveljug + 10))
+            {
+                int diferencianivel =  nivelactual - manager.datosserial.niveljug ;
+                manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
+            }
+            else if(nivelactual > manager.datosserial.niveljug && nivelactual  > (manager.datosserial.niveljug + 10))
+            {
+                int diferencianivel =  10;
+                manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
+            }
+            if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp)
+            {
+                manager.datosserial.nivelexp = 0;
+                manager.datosserial.niveljug++;
+                manager.datosserial.signivelexp += 7;
+                jugador1.subirnivel();
+            }
+            
+
             manager.datosserial.asesinatos++;
             manager.guardar();
             jugador1.vidaenebarra.SetActive(false);

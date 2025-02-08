@@ -52,6 +52,8 @@ public class pausa_al1 : MonoBehaviour
     public AudioSource moveson;
     public Transform hip;
     public float boton;
+    public float botonb;
+
 
 	// Token: 0x06000025 RID: 37 RVA: 0x0000334C File Offset: 0x0000154C
 
@@ -73,6 +75,8 @@ public class pausa_al1 : MonoBehaviour
         {boton = controles.al1.pausa.ReadValue<float>();}
         else
         {boton = controles.al1.select.ReadValue<float>();}
+
+        botonb = controles.al1.b.ReadValue<float>();
         
         if(manager.datosconfig.idioma == "es")
         {
@@ -146,7 +150,7 @@ public class pausa_al1 : MonoBehaviour
                 mision2.text = manager.mision2;
             }
         }
-        if(boton > 0 && temp > 0.7f)
+        if(boton > 0 && temp > 0.7f || botonb > 0 && temp > 0.7f)
         {
             if(mapa == false)
             {

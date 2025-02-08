@@ -14,14 +14,30 @@ public class datos1
 	public int nivelarmarel = 1;
 	public int nivelarmadef = 1;
 	public int nivelarmapalo = 1;
+	
+	public bool []licenciaarmapalo = new bool[5];
+	public bool []licenciaarmapapa = new bool[5];
+	public bool []licenciaarmarel = new bool[5];
+	public bool []licenciaarmadef = new bool[5];
+	
+
+
+	public float nivelarmapapaexp;
+	public float nivelarmarelexp;
+	public float nivelarmadefexp;
+	public float nivelarmapaloexp;
+
+	public int niveljug = 1;
+	public float nivelexp = 0;
+
+	public float signivelexp = 20;
+
 	public float danoarmapapa = 2;
 	public float danoarmarel = 0;
 	public float danoarmadef = 25;
 	public float cadarmapapa = 2;
 	public float velarmapapa = 5;
 	public int pocionesmax;
-	public int nivelexp;
-	public float exp;
 
     public string idioma;
 	public int muertes;

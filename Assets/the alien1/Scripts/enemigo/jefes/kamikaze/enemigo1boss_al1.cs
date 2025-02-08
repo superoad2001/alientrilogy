@@ -10,6 +10,7 @@ public class enemigo1boss_al1: MonoBehaviour
     public float vidamax;
     public manager_al1 manager;
     public bool detectar;
+    public int nivel = 1;
     public GameObject objetivo;
     public GameObject objetivob;
     public Quaternion rotation;
@@ -49,9 +50,55 @@ public class enemigo1boss_al1: MonoBehaviour
 	public AudioSource fanfarria;
     public AudioSource musica;
     public AudioSource danoene;
+    public float nivelexp;
+    public float nivelfuerza;
+    public float nivelvida;
+    public float niveldefensa;
+
+     public float valorexp = 10f;
+    public float vidabasetut = 4;
+    public float vidabase = 4;
+    public float vidabasemax = 9999;
+    public float vidaplusmax = 99999;
+
+    public float fuebasetut = 1;
+    public float fuebase = 10;
+    public float fuebasemax = 100;
+    public float fueplusmax = 2000;
+    public int nivelactual = 1;
+    public float []nivelfuerza_a = new float[99];
+    public float []nivelvida_a = new float[99];
+
     // Start is called before the first frame update
     void Start()
     {
+
+
+        nivelvida_a[0] = vidabasetut;
+        nivelvida_a[1] = vidabase;
+        for(int i = 2 ;i <= 49;  i++ )
+        {   
+            nivelvida_a[i] = (vidabase) + (((vidabasemax-vidabase)/48) * (i -1 ));
+        }
+        for(int i = 50 ; i <= 98; i++)
+        {   
+            nivelvida_a[i] = (vidabasemax) + (((vidaplusmax - vidabasemax)/49) * (i - 49));
+        }
+
+        nivelfuerza_a[0] = fuebasetut;
+        nivelvida_a[1] = fuebase;
+        for(int i = 2 ;i <= 49;  i++ )
+        {   
+            nivelfuerza_a[i] = (fuebase) + (((fuebasemax-fuebase)/48) * (i - 2));
+        }
+        for(int i = 50 ; i <= 98; i++)
+        {   
+            nivelfuerza_a[i] = (fuebasemax) + (((fueplusmax -fuebasemax)/49) * (i - 49));
+        }
+
+        nivelfuerza = nivelfuerza_a[nivelactual];
+        nivelvida = nivelvida_a[nivelactual];
+        vidamax = nivelvida;
         vida = vidamax;
         jugador1 = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         jugador1.explosion = explosion;
@@ -89,6 +136,8 @@ public class enemigo1boss_al1: MonoBehaviour
                             Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
                             BalaTemporal.transform.SetParent(juego);
 
+                            BalaTemporal.GetComponent<romperbala_al1>().danoj = ((nivelfuerza / 2) * 2) + nivelfuerza;
+
                             BalaTemporal.GetComponent<bala_tele_al1>().objetivo = objetivo;
 
                             Destroy(BalaTemporal, 20f);
@@ -100,7 +149,7 @@ public class enemigo1boss_al1: MonoBehaviour
             temp += 1 * Time.deltaTime;   
         }
         detectar = true;
-            if (vida <= 0)
+            if (vida < 1)
             {
                 if(fin == false)
                 {
@@ -112,6 +161,33 @@ public class enemigo1boss_al1: MonoBehaviour
                 }
                 if(Temp >= 10 )
                 {
+                    if(nivelactual == manager.datosserial.niveljug)
+                    {
+                        manager.datosserial.nivelexp += valorexp;
+                    }
+                    else if(nivelactual < manager.datosserial.niveljug && nivelactual  >= (manager.datosserial.niveljug -10))
+                    {
+                        int diferencianivel = manager.datosserial.niveljug - nivelactual;
+                        manager.datosserial.nivelexp += (valorexp / (((diferencianivel) + 1)/2));
+                    }
+                    else if(nivelactual > manager.datosserial.niveljug && nivelactual  <= (manager.datosserial.niveljug + 10))
+                    {
+                        int diferencianivel =  nivelactual - manager.datosserial.niveljug ;
+                        manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
+                    }
+                    else if(nivelactual > manager.datosserial.niveljug && nivelactual  > (manager.datosserial.niveljug + 10))
+                    {
+                        int diferencianivel =  10;
+                        manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
+                    }
+                    if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp)
+                    {
+                        manager.datosserial.nivelexp = 0;
+                        manager.datosserial.niveljug++;
+                        manager.datosserial.signivelexp += 7;
+                        jugador1.subirnivel();
+                    }
+                    manager.datosserial.asesinatos++;
                     manager.datosserial.jefe1 = true;
                     manager.guardar();
                     SceneManager.LoadScene("piso2_al1");

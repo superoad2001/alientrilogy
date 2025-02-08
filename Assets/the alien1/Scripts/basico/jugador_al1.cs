@@ -23,10 +23,10 @@ public class jugador_al1 : MonoBehaviour
 	private bool inbuiract;
 	private float tempinbuir;
 	private bool velrecfin;
-	private float distancia;
-	private float cam_maxdistance = 12;
-	private float cam_mindistance = 5;
-	private Vector3 direccion;
+	public float distancia;
+	public float cam_maxdistance = 12;
+	public float cam_mindistance = 5;
+	public Vector3 direccion;
 	private float danoextra = 1;
 	private float tempberserk;
 	private float tempvelrec;
@@ -99,6 +99,26 @@ public class jugador_al1 : MonoBehaviour
 	public float temprelrec = 40f; 
 	public float temppaparec = 20f; 
 
+	public float vidabasetut = 9;
+    public float vidabase = 99;
+    public float vidabasemax = 999;
+    public float vidaplusmax = 9999;
+
+    public float fuebasetut = 1;
+    public float fuebase = 2;
+    public float fuebasemax = 5;
+    public float fueplusmax = 10;
+
+
+    public float nivelfuerza;
+    public float nivelvida;
+    public float []nivelfuerza_a = new float[99];
+    public float []nivelvida_a = new float[99];
+
+	public float []armapalosignv = new float[5];
+	public float []armadefsignv = new float[5];
+	public float []armapapasignv = new float[5];
+	public float []armarelsignv = new float[5];
 
 	public float vidamax;
 	public bool tposepause;
@@ -146,6 +166,34 @@ public class jugador_al1 : MonoBehaviour
 
 		if(GameObject.Find("armadefimg") == true)
 		{armadefimg = GameObject.Find("armadefimg").GetComponent<Image>();}
+		
+		nivelvida_a[0] = vidabasetut;
+        nivelvida_a[1] = vidabase;
+        for(int i = 2 ;i <= 49;  i++ )
+        {   
+            nivelvida_a[i] = (vidabase) + (((vidabasemax-vidabase)/48) * (i -1 ));
+        }
+        for(int i = 50 ; i <= 98; i++)
+        {   
+            nivelvida_a[i] = (vidabasemax) + (((vidaplusmax - vidabasemax)/49) * (i - 49));
+        }
+
+        nivelfuerza_a[0] = fuebasetut;
+        nivelvida_a[1] = fuebase;
+        for(int i = 2 ;i <= 49;  i++ )
+        {   
+            nivelfuerza_a[i] = (fuebase) + (((fuebasemax-fuebase)/48) * (i - 2));
+        }
+        for(int i = 50 ; i <= 98; i++)
+        {   
+            nivelfuerza_a[i] = (fuebasemax) + (((fueplusmax -fuebasemax)/49) * (i - 49));
+        }
+
+        nivelfuerza = nivelfuerza_a[manager.datosserial.niveljug];
+        nivelvida = nivelvida_a[manager.datosserial.niveljug];
+        vidamax = nivelvida;
+
+
 		if(manager.juego == 0 || manager.juego == 4)
 		{
 			camara.transform.eulerAngles = new Vector3(0,0,0);
@@ -338,8 +386,9 @@ public class jugador_al1 : MonoBehaviour
 	{
 		anim.SetBool("act",true);
 	}
-	if(vida <= 0)
+	if(vida < 1)
 	{
+		vida = 0;
 		muerte = true;
 	}
 	if(muerte == true)
@@ -359,6 +408,8 @@ public class jugador_al1 : MonoBehaviour
 	{
 		vidab.fillAmount = vida/vidamax; 
 		vidat.text = (int)vida+"/"+(int)vidamax;
+		niverlbarra.fillAmount = manager.datosserial.nivelexp/manager.datosserial.signivelexp; 
+		niveluit.text = "LEVEL "+ manager.datosserial.niveljug;
 	}
 	if(ascensors != null && ascact == true)
 	{
@@ -594,18 +645,144 @@ public class jugador_al1 : MonoBehaviour
 			if(manager.datosserial.armasel == 1)
 			{
 				balaarmat.text = (int)((temppalo/60)*100)+"%";
+				armanvt.text = "nv"+manager.datosserial.nivelarmapalo;
+				if(manager.datosserial.nivelarmapalo == 1)
+				{
+					barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmapaloexp/armapalosignv[manager.datosserial.nivelarmapalo];
+				}
+				else if(manager.datosserial.nivelarmapalo > 1)
+				{
+					barraarmaimgnv1.fillAmount = 1;
+					barraarmaimgnv2.fillAmount = manager.datosserial.nivelarmapaloexp/armapalosignv[manager.datosserial.nivelarmapalo];
+				}
+				else if(manager.datosserial.nivelarmapalo > 2)
+				{
+					barraarmaimgnv1.fillAmount = 1;
+					barraarmaimgnv2.fillAmount = 1;
+					barraarmaimgnv3.fillAmount = manager.datosserial.nivelarmapaloexp/armapalosignv[manager.datosserial.nivelarmapalo];
+				}
+				else if(manager.datosserial.nivelarmapalo > 3)
+				{
+					barraarmaimgnv1.fillAmount = 1;
+					barraarmaimgnv2.fillAmount = 1;
+					barraarmaimgnv3.fillAmount = 1;
+					barraarmaimgnv4.fillAmount = manager.datosserial.nivelarmapaloexp/armapalosignv[manager.datosserial.nivelarmapalo];
+				}
+				else if(manager.datosserial.nivelarmapalo > 3)
+				{
+					barraarmaimgnv1.fillAmount = 1;
+					barraarmaimgnv2.fillAmount = 1;
+					barraarmaimgnv3.fillAmount = 1;
+					barraarmaimgnv4.fillAmount = 1;
+				}
+				
+
 			}
 			if(manager.datosserial.armasel == 2)
 			{
 				balaarmat.text = (int)((temppaparec/20)*100)+"%";
+				armanvt.text = "nv"+manager.datosserial.nivelarmapapa;
+
+
+				if(manager.datosserial.nivelarmapapa == 1)
+				{
+					barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmapapaexp/armapapasignv[manager.datosserial.nivelarmapapa];
+				}
+				else if(manager.datosserial.nivelarmapapa > 1)
+				{
+					barraarmaimgnv1.fillAmount = 1;
+					barraarmaimgnv2.fillAmount = manager.datosserial.nivelarmapapaexp/armapapasignv[manager.datosserial.nivelarmapapa];
+				}
+				else if(manager.datosserial.nivelarmapapa > 2)
+				{
+					barraarmaimgnv1.fillAmount = 1;
+					barraarmaimgnv2.fillAmount = 1;
+					barraarmaimgnv3.fillAmount = manager.datosserial.nivelarmapapaexp/armapapasignv[manager.datosserial.nivelarmapapa];
+				}
+				else if(manager.datosserial.nivelarmapapa > 3)
+				{
+					barraarmaimgnv1.fillAmount = 1;
+					barraarmaimgnv2.fillAmount = 1;
+					barraarmaimgnv3.fillAmount = 1;
+					barraarmaimgnv4.fillAmount = manager.datosserial.nivelarmapapaexp/armapapasignv[manager.datosserial.nivelarmapapa];
+				}
+				else if(manager.datosserial.nivelarmapapa > 3)
+				{
+					barraarmaimgnv1.fillAmount = 1;
+					barraarmaimgnv2.fillAmount = 1;
+					barraarmaimgnv3.fillAmount = 1;
+					barraarmaimgnv4.fillAmount = 1;
+				}
 			}
 			if(manager.datosserial.armasel == 3)
 			{
 				balaarmat.text = (int)((tempdefrec/60)*100)+"%";
+				armanvt.text = "nv"+manager.datosserial.nivelarmadef;
+				if(manager.datosserial.nivelarmadef == 1)
+				{
+					barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmadefexp/armadefsignv[manager.datosserial.nivelarmadef];
+				}
+				else if(manager.datosserial.nivelarmadef > 1)
+				{
+					barraarmaimgnv1.fillAmount = 1;
+					barraarmaimgnv2.fillAmount = manager.datosserial.nivelarmadefexp/armadefsignv[manager.datosserial.nivelarmadef];
+				}
+				else if(manager.datosserial.nivelarmadef > 2)
+				{
+					barraarmaimgnv1.fillAmount = 1;
+					barraarmaimgnv2.fillAmount = 1;
+					barraarmaimgnv3.fillAmount = manager.datosserial.nivelarmadefexp/armadefsignv[manager.datosserial.nivelarmadef];
+				}
+				else if(manager.datosserial.nivelarmadef > 3)
+				{
+					barraarmaimgnv1.fillAmount = 1;
+					barraarmaimgnv2.fillAmount = 1;
+					barraarmaimgnv3.fillAmount = 1;
+					barraarmaimgnv4.fillAmount = manager.datosserial.nivelarmadefexp/armadefsignv[manager.datosserial.nivelarmadef];
+				}
+				else if(manager.datosserial.nivelarmadef > 3)
+				{
+					barraarmaimgnv1.fillAmount = 1;
+					barraarmaimgnv2.fillAmount = 1;
+					barraarmaimgnv3.fillAmount = 1;
+					barraarmaimgnv4.fillAmount = 1;
+				}
+				
 			}
 			if(manager.datosserial.armasel == 4)
 			{
 				balaarmat.text = (int)((temprelrec/40)*100)+"%";
+				armanvt.text = "nv"+manager.datosserial.nivelarmarel;
+				if(manager.datosserial.nivelarmarel == 1)
+				{
+					barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmarelexp/armarelsignv[manager.datosserial.nivelarmarel];
+				}
+				else if(manager.datosserial.nivelarmarel > 1)
+				{
+					barraarmaimgnv1.fillAmount = 1;
+					barraarmaimgnv2.fillAmount = manager.datosserial.nivelarmarelexp/armarelsignv[manager.datosserial.nivelarmarel];
+				}
+				else if(manager.datosserial.nivelarmarel > 2)
+				{
+					barraarmaimgnv1.fillAmount = 1;
+					barraarmaimgnv2.fillAmount = 1;
+					barraarmaimgnv3.fillAmount = manager.datosserial.nivelarmarelexp/armarelsignv[manager.datosserial.nivelarmarel];
+				}
+				else if(manager.datosserial.nivelarmarel > 3)
+				{
+					barraarmaimgnv1.fillAmount = 1;
+					barraarmaimgnv2.fillAmount = 1;
+					barraarmaimgnv3.fillAmount = 1;
+					barraarmaimgnv4.fillAmount = manager.datosserial.nivelarmarelexp/armarelsignv[manager.datosserial.nivelarmarel];
+				}
+				else if(manager.datosserial.nivelarmarel > 3)
+				{
+					barraarmaimgnv1.fillAmount = 1;
+					barraarmaimgnv2.fillAmount = 1;
+					barraarmaimgnv3.fillAmount = 1;
+					barraarmaimgnv4.fillAmount = 1;
+				}
+				
 			}
 			if(manager.datosserial.tengolanzar == true)
 			{
@@ -2557,26 +2734,50 @@ public class jugador_al1 : MonoBehaviour
 					{
 						tiempodisp = 0;
 						temppalo -= 3;
-						palo.GetComponent<golpe_al1>().dano = 3 * danoextra;
+						palo.GetComponent<golpe_al1>().dano = 3 * danoextra * nivelfuerza;
 						anim.Play("arma3");
 						tempatk = 0; 
 						lanzarson.Play();
+						if(manager.datosserial.licenciaarmapalo[manager.datosserial.nivelarmapalo-1] == true)
+						{
+							manager.datosserial.nivelarmapaloexp += 1;
+						}
+
+						
+						if(manager.datosserial.nivelarmapaloexp >= armapalosignv[manager.datosserial.nivelarmapalo-1])
+						{
+							manager.datosserial.nivelarmapalo++;
+							manager.datosserial.nivelarmapaloexp = 0;
+						}
+						manager.guardar();
 					}
 					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 2 && temppalo > 40 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  rt > 0 && ascensor == false )
 					{
 						tiempodisp = 0;
 						temppalo -= 40;
-						palo.GetComponent<golpe_al1>().dano = 1.5f * danoextra;
+						palo.GetComponent<golpe_al1>().dano = 1.5f * danoextra * nivelfuerza;
 						anim.Play("escudogiratorio");
 						tempatk = 0; 
 						escudohabaud.Play();
+						if(manager.datosserial.licenciaarmapalo[manager.datosserial.nivelarmapalo-1] == true)
+						{
+							manager.datosserial.nivelarmapaloexp += 7;
+						}
+
+						
+						if(manager.datosserial.nivelarmapaloexp >= armapalosignv[manager.datosserial.nivelarmapalo-1])
+						{
+							manager.datosserial.nivelarmapalo++;
+							manager.datosserial.nivelarmapaloexp = 0;
+						}
+						manager.guardar();
 					}
 
 					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3 && temppalo > 5 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && suelo == true && tiempodisp > 0.5f &&  rt > 0 && ascensor == false )
 					{
 						tiempodisp = 0;
 						temppalo -= 5 * Time.deltaTime;
-						palo.GetComponent<golpe_al1>().dano = 5 * danoextra;
+						palo.GetComponent<golpe_al1>().dano = 5 * danoextra * nivelfuerza;
 						tempatk = 0;
 						transform.position = Vector3.MoveTowards(transform.position,transform.position + mod.transform.forward * 5, 20 * Time.deltaTime);
 						anim.Play("dashtierra");
@@ -2584,12 +2785,24 @@ public class jugador_al1 : MonoBehaviour
 						dashairson.loop = true;
 						dashairson.Play();
 						mod.transform.rotation = Quaternion.Lerp(mod.transform.rotation,Quaternion.Euler(mod.transform.eulerAngles.x,camara.transform.eulerAngles.y,mod.transform.eulerAngles.z),10* Time.deltaTime);
+						if(manager.datosserial.licenciaarmapalo[manager.datosserial.nivelarmapalo-1] == true)
+						{
+							manager.datosserial.nivelarmapaloexp += 0.1f;
+						}
+
+						
+						if(manager.datosserial.nivelarmapaloexp >= armapalosignv[manager.datosserial.nivelarmapalo-1])
+						{
+							manager.datosserial.nivelarmapalo++;
+							manager.datosserial.nivelarmapaloexp = 0;
+						}
+						manager.guardar();
 					}
 					else if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3 && temppalo > 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("dashtierra") && suelo == true &&  rt > 0 && ascensor == false )
 					{
 						tiempodisp = 0;
 						temppalo -= 5 * Time.deltaTime;
-						palo.GetComponent<golpe_al1>().dano = 5 * danoextra;
+						palo.GetComponent<golpe_al1>().dano = 5 * danoextra * nivelfuerza;
 						tempatk = 0;
 						anim.SetBool("dashtierra",true);
 						transform.position = Vector3.MoveTowards(transform.position,transform.position + mod.transform.forward * 5, 20 * Time.deltaTime);
@@ -2607,10 +2820,22 @@ public class jugador_al1 : MonoBehaviour
 					{
 						tiempodisp = 0;
 						temppalo -= 30;
-						palo.GetComponent<golpe_al1>().dano = 5 * danoextra;
+						palo.GetComponent<golpe_al1>().dano = 5 * danoextra * nivelfuerza;
 						tempatk = 0; 
 						anim.Play("espiralarea");
 						dashairson.Play();
+						if(manager.datosserial.licenciaarmapalo[manager.datosserial.nivelarmapalo-1] == true)
+						{
+							manager.datosserial.nivelarmapaloexp += 5;
+						}
+
+						
+						if(manager.datosserial.nivelarmapaloexp >= armapalosignv[manager.datosserial.nivelarmapalo-1])
+						{
+							manager.datosserial.nivelarmapalo++;
+							manager.datosserial.nivelarmapaloexp = 0;
+						}
+						manager.guardar();
 					}
 					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 5 && temppalo >= 60 && inbuiract == false && tempinbuir  == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  rt > 0 && ascensor == false )
 					{
@@ -2623,6 +2848,18 @@ public class jugador_al1 : MonoBehaviour
 						danoextra += 1;
 						inbuiract = true;
 						tempinbuir = 30;
+						if(manager.datosserial.licenciaarmapalo[manager.datosserial.nivelarmapalo-1] == true)
+						{
+							manager.datosserial.nivelarmapaloexp += 10;
+						}
+
+						
+						if(manager.datosserial.nivelarmapaloexp >= armapalosignv[manager.datosserial.nivelarmapalo-1])
+						{
+							manager.datosserial.nivelarmapalo++;
+							manager.datosserial.nivelarmapaloexp = 0;
+						}
+						manager.guardar();
 					}
 				
 				if(xp > 0 && suelo == true && tiempodisp > 0.7f  && combo == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") &&  rt == 0 )
@@ -2630,7 +2867,7 @@ public class jugador_al1 : MonoBehaviour
 					anim.SetBool("atk",true);
 					tiempodisp = 0;
 					tempatk = 0; 
-					danoarma = 1 * danoextra;
+					danoarma = 1 * danoextra * nivelfuerza;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2664,7 +2901,7 @@ public class jugador_al1 : MonoBehaviour
 				{
 					tiempodisp = 0;
 					tempatk = 0; 
-					danoarma = 1 * danoextra;
+					danoarma = 1 * danoextra * nivelfuerza;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2683,7 +2920,7 @@ public class jugador_al1 : MonoBehaviour
 				{
 					tiempodisp = 0;
 					tempatk = 0; 
-					danoarma = 0.5f * danoextra;
+					danoarma = 0.5f * danoextra * nivelfuerza;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2700,7 +2937,7 @@ public class jugador_al1 : MonoBehaviour
 				{
 					tiempodisp = 0;
 					tempatk = 0; 
-					danoarma = 5 * danoextra;
+					danoarma = 5 * danoextra * nivelfuerza;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2713,7 +2950,7 @@ public class jugador_al1 : MonoBehaviour
 				{
 					anim.SetBool("atks",true);
 					tiempodisp = 0;
-					danoarma = 0.1f * danoextra;
+					danoarma = 0.1f * danoextra * nivelfuerza;
 					this._rb.AddRelativeForce(500 * 2f * -Vector3.up);
 					lanzarson.Play();
 				}
@@ -2790,6 +3027,19 @@ public class jugador_al1 : MonoBehaviour
 			{
 				if(rt > 0 && ascensor == false && temppaparec >= balapapamun[manager.datosserial.nivelarmapapa -1] && tiempodisp > balapadrecaden[manager.datosserial.nivelarmapapa-1] && papaagotada == false)
 				{
+					if(manager.datosserial.licenciaarmapapa[manager.datosserial.nivelarmapapa-1] == true)
+					{
+						manager.datosserial.nivelarmapapaexp++;
+					}
+
+					
+					if(manager.datosserial.nivelarmapapaexp >= armapapasignv[manager.datosserial.nivelarmapapa-1])
+					{
+						manager.datosserial.nivelarmapapa++;
+						manager.datosserial.nivelarmapapaexp = 0;
+					}
+
+					manager.guardar();
 					balaprefabpapa = prebalapapal[manager.datosserial.nivelarmapapa -1];
 					tiempodisp = 0;
 					temppaparec -= balapapamun[manager.datosserial.nivelarmapapa -1];
@@ -2802,7 +3052,7 @@ public class jugador_al1 : MonoBehaviour
 					rbb.AddForce(mod.transform.forward * 110 * balapadrevel[manager.datosserial.nivelarmapapa-1]);
 
 					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 4f;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balapadredano[manager.datosserial.nivelarmapapa-1];
+					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balapadredano[manager.datosserial.nivelarmapapa-1] * nivelfuerza;
 
 					disp.Play();
 
@@ -2827,6 +3077,20 @@ public class jugador_al1 : MonoBehaviour
 			{
 				if(rt > 0 && ascensor == false && tiempodisp > 0.5f && temprelrec >= 40f)
 				{
+					
+
+					if(manager.datosserial.licenciaarmarel[manager.datosserial.nivelarmarel-1] == true)
+					{
+						manager.datosserial.nivelarmarelexp++;
+					}
+
+					
+					if(manager.datosserial.nivelarmarelexp >= armarelsignv[manager.datosserial.nivelarmarel-1])
+					{
+						manager.datosserial.nivelarmarel++;
+						manager.datosserial.nivelarmarelexp = 0;
+					}
+					manager.guardar();
 					balaprefabrel = prebalarell[manager.datosserial.nivelarmarel -1];
 					temprelrec = 0;
 					tiempodisp = 0; 
@@ -2839,7 +3103,7 @@ public class jugador_al1 : MonoBehaviour
 					rbb.AddForce(mod.transform.forward * 110 * 4);
 
 					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 15f;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balareldano[manager.datosserial.nivelarmarel-1];
+					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balareldano[manager.datosserial.nivelarmarel-1] * nivelfuerza;
 
 					disprel.Play();
 
@@ -2857,6 +3121,20 @@ public class jugador_al1 : MonoBehaviour
 			{
 				if(rt > 0 && ascensor == false && tiempodisp > 0.5f && tempdefrec >= 60f)
 				{
+
+					
+					if(manager.datosserial.licenciaarmadef[manager.datosserial.nivelarmadef-1] == true)
+					{
+						manager.datosserial.nivelarmadefexp++;
+					}
+
+					
+					if(manager.datosserial.nivelarmadefexp >= armadefsignv[manager.datosserial.nivelarmadef-1])
+					{
+						manager.datosserial.nivelarmadef++;
+						manager.datosserial.nivelarmadefexp = 0;
+					}
+					manager.guardar();
 					balaprefabdef = prebaladefl[manager.datosserial.nivelarmadef -1];
 					tempdefrec = 0;
 					tiempodisp = 0; 
@@ -2869,7 +3147,7 @@ public class jugador_al1 : MonoBehaviour
 					rbb.AddForce(new Vector3(0,mod.transform.up.y,mod.transform.forward.z) * 110 * 10);
 
 					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 30f;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = baladefdano[manager.datosserial.nivelarmadef-1];
+					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = baladefdano[manager.datosserial.nivelarmadef-1] * nivelfuerza;
 
 					dispdef.Play();
 
@@ -3502,6 +3780,20 @@ public class jugador_al1 : MonoBehaviour
 			}
 		}
 	}
+	public void subirnivel()
+	{
+		subirnivelaud.Play();
+		
+		GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
+
+        expltemp.transform.SetParent(this.gameObject.transform);
+
+        Destroy(expltemp,5f);
+
+	}
+
+	public AudioSource subirnivelaud;
+	public GameObject subirnivelexpl;
 
 	
 
@@ -3515,7 +3807,7 @@ public class jugador_al1 : MonoBehaviour
 	public float velocidadr = 20f;
 
 	// Token: 0x0400000F RID: 15
-	private Rigidbody _rb;
+	public Rigidbody _rb;
 
 	// Token: 0x04000010 RID: 16
 	private float jumpforce = 500f;
@@ -3587,7 +3879,8 @@ public class jugador_al1 : MonoBehaviour
 
 
 
-
+	public Text niveluit;
+	public Image niverlbarra;
 
 	private static GameObject FindGameObjectsAll(string name) { return Resources.FindObjectsOfTypeAll<GameObject>().First(x => x.name == name); }
 	private GameObject []target = new GameObject[3];
@@ -3704,5 +3997,12 @@ public class jugador_al1 : MonoBehaviour
 	public Text vidat;
 	public Animator ascensors;
 	public GameObject vidaenebarra;
+	public Image barraarmaimgnv1;
+	public Image barraarmaimgnv2;
+	public Image barraarmaimgnv3;
+	public Image barraarmaimgnv4;
+	public Image barraarmaimgnv5;
+	
+	public Text armanvt;
 	
 }
