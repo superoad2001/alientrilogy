@@ -15,7 +15,7 @@ public class jugador_al1 : MonoBehaviour
 
 	private int cambioruedaact;
 
-
+	public float staminaact = 50;
 
 	private float velrecextra = 1;
 	public Vector3 enmovdirectaux;
@@ -137,6 +137,7 @@ public class jugador_al1 : MonoBehaviour
 	// Token: 0x0600001D RID: 29 RVA: 0x000025E8 File Offset: 0x000007E8
 	private void Start()
 	{
+		stamina = staminamax;
 		tiempovelint = 3;
 		if(camara != null)
         {cameraverticalangle2 = camara.transform.eulerAngles.y;}
@@ -306,7 +307,6 @@ public class jugador_al1 : MonoBehaviour
 		{
 			mod = this.gameObject.transform.GetChild(0).gameObject;
 		}
-		vidamax = manager.datosserial.vidamax;
 		vida = vidamax;
 		if(manager.datosserial.tengopalo == false)
 		{
@@ -370,6 +370,8 @@ public class jugador_al1 : MonoBehaviour
 	public float vidaeneui;
 	public float vidaeneuimax;
 	public bool vidaeneact;
+	public float staminamax = 100;
+	public float stamina;
 
 	// Token: 0x0600001E RID: 30 RVA: 0x00002604 File Offset: 0x00000804
 	
@@ -410,6 +412,7 @@ public class jugador_al1 : MonoBehaviour
 		vidat.text = (int)vida+"/"+(int)vidamax;
 		niverlbarra.fillAmount = manager.datosserial.nivelexp/manager.datosserial.signivelexp; 
 		niveluit.text = "LEVEL "+ manager.datosserial.niveljug;
+		staminabarra.fillAmount = stamina/staminamax;
 	}
 	if(ascensors != null && ascact == true)
 	{
@@ -648,27 +651,33 @@ public class jugador_al1 : MonoBehaviour
 				armanvt.text = "nv"+manager.datosserial.nivelarmapalo;
 				if(manager.datosserial.nivelarmapalo == 1)
 				{
-					barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmapaloexp/armapalosignv[manager.datosserial.nivelarmapalo];
+					barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmapaloexp/armapalosignv[manager.datosserial.nivelarmapalo-1];
+					barraarmaimgnv2.fillAmount = 0;
+					barraarmaimgnv3.fillAmount = 0;
+					barraarmaimgnv4.fillAmount = 0;
 				}
-				else if(manager.datosserial.nivelarmapalo > 1)
+				else if(manager.datosserial.nivelarmapalo == 2)
 				{
 					barraarmaimgnv1.fillAmount = 1;
-					barraarmaimgnv2.fillAmount = manager.datosserial.nivelarmapaloexp/armapalosignv[manager.datosserial.nivelarmapalo];
+					barraarmaimgnv2.fillAmount = manager.datosserial.nivelarmapaloexp/armapalosignv[manager.datosserial.nivelarmapalo-1];
+					barraarmaimgnv3.fillAmount = 0;
+					barraarmaimgnv4.fillAmount = 0;
 				}
-				else if(manager.datosserial.nivelarmapalo > 2)
+				else if(manager.datosserial.nivelarmapalo == 3)
 				{
 					barraarmaimgnv1.fillAmount = 1;
 					barraarmaimgnv2.fillAmount = 1;
-					barraarmaimgnv3.fillAmount = manager.datosserial.nivelarmapaloexp/armapalosignv[manager.datosserial.nivelarmapalo];
+					barraarmaimgnv3.fillAmount = manager.datosserial.nivelarmapaloexp/armapalosignv[manager.datosserial.nivelarmapalo-1];
+					barraarmaimgnv4.fillAmount = 0;
 				}
-				else if(manager.datosserial.nivelarmapalo > 3)
+				else if(manager.datosserial.nivelarmapalo == 4)
 				{
 					barraarmaimgnv1.fillAmount = 1;
 					barraarmaimgnv2.fillAmount = 1;
 					barraarmaimgnv3.fillAmount = 1;
-					barraarmaimgnv4.fillAmount = manager.datosserial.nivelarmapaloexp/armapalosignv[manager.datosserial.nivelarmapalo];
+					barraarmaimgnv4.fillAmount = manager.datosserial.nivelarmapaloexp/armapalosignv[manager.datosserial.nivelarmapalo-1];
 				}
-				else if(manager.datosserial.nivelarmapalo > 3)
+				else if(manager.datosserial.nivelarmapalo == 5)
 				{
 					barraarmaimgnv1.fillAmount = 1;
 					barraarmaimgnv2.fillAmount = 1;
@@ -686,27 +695,33 @@ public class jugador_al1 : MonoBehaviour
 
 				if(manager.datosserial.nivelarmapapa == 1)
 				{
-					barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmapapaexp/armapapasignv[manager.datosserial.nivelarmapapa];
+					barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmapapaexp/armapapasignv[manager.datosserial.nivelarmapapa-1];
+					barraarmaimgnv2.fillAmount = 0;
+					barraarmaimgnv3.fillAmount = 0;
+					barraarmaimgnv4.fillAmount = 0;
 				}
-				else if(manager.datosserial.nivelarmapapa > 1)
+				else if(manager.datosserial.nivelarmapapa == 2)
 				{
 					barraarmaimgnv1.fillAmount = 1;
-					barraarmaimgnv2.fillAmount = manager.datosserial.nivelarmapapaexp/armapapasignv[manager.datosserial.nivelarmapapa];
+					barraarmaimgnv2.fillAmount = manager.datosserial.nivelarmapapaexp/armapapasignv[manager.datosserial.nivelarmapapa-1];
+					barraarmaimgnv3.fillAmount = 0;
+					barraarmaimgnv4.fillAmount = 0;
 				}
-				else if(manager.datosserial.nivelarmapapa > 2)
+				else if(manager.datosserial.nivelarmapapa == 3)
 				{
 					barraarmaimgnv1.fillAmount = 1;
 					barraarmaimgnv2.fillAmount = 1;
-					barraarmaimgnv3.fillAmount = manager.datosserial.nivelarmapapaexp/armapapasignv[manager.datosserial.nivelarmapapa];
+					barraarmaimgnv3.fillAmount = manager.datosserial.nivelarmapapaexp/armapapasignv[manager.datosserial.nivelarmapapa-1];
+					barraarmaimgnv4.fillAmount = 0;
 				}
-				else if(manager.datosserial.nivelarmapapa > 3)
+				else if(manager.datosserial.nivelarmapapa == 4)
 				{
 					barraarmaimgnv1.fillAmount = 1;
 					barraarmaimgnv2.fillAmount = 1;
 					barraarmaimgnv3.fillAmount = 1;
-					barraarmaimgnv4.fillAmount = manager.datosserial.nivelarmapapaexp/armapapasignv[manager.datosserial.nivelarmapapa];
+					barraarmaimgnv4.fillAmount = manager.datosserial.nivelarmapapaexp/armapapasignv[manager.datosserial.nivelarmapapa-1];
 				}
-				else if(manager.datosserial.nivelarmapapa > 3)
+				else if(manager.datosserial.nivelarmapapa == 5)
 				{
 					barraarmaimgnv1.fillAmount = 1;
 					barraarmaimgnv2.fillAmount = 1;
@@ -720,27 +735,33 @@ public class jugador_al1 : MonoBehaviour
 				armanvt.text = "nv"+manager.datosserial.nivelarmadef;
 				if(manager.datosserial.nivelarmadef == 1)
 				{
-					barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmadefexp/armadefsignv[manager.datosserial.nivelarmadef];
+					barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmadefexp/armadefsignv[manager.datosserial.nivelarmadef-1];
+					barraarmaimgnv2.fillAmount = 0;
+					barraarmaimgnv3.fillAmount = 0;
+					barraarmaimgnv4.fillAmount = 0;
 				}
-				else if(manager.datosserial.nivelarmadef > 1)
+				else if(manager.datosserial.nivelarmadef == 2)
 				{
 					barraarmaimgnv1.fillAmount = 1;
-					barraarmaimgnv2.fillAmount = manager.datosserial.nivelarmadefexp/armadefsignv[manager.datosserial.nivelarmadef];
+					barraarmaimgnv2.fillAmount = manager.datosserial.nivelarmadefexp/armadefsignv[manager.datosserial.nivelarmadef-1];
+					barraarmaimgnv3.fillAmount = 0;
+					barraarmaimgnv4.fillAmount = 0;
 				}
-				else if(manager.datosserial.nivelarmadef > 2)
+				else if(manager.datosserial.nivelarmadef == 3)
 				{
 					barraarmaimgnv1.fillAmount = 1;
 					barraarmaimgnv2.fillAmount = 1;
-					barraarmaimgnv3.fillAmount = manager.datosserial.nivelarmadefexp/armadefsignv[manager.datosserial.nivelarmadef];
+					barraarmaimgnv3.fillAmount = manager.datosserial.nivelarmadefexp/armadefsignv[manager.datosserial.nivelarmadef-1];
+					barraarmaimgnv4.fillAmount = 0;
 				}
-				else if(manager.datosserial.nivelarmadef > 3)
+				else if(manager.datosserial.nivelarmadef == 4)
 				{
 					barraarmaimgnv1.fillAmount = 1;
 					barraarmaimgnv2.fillAmount = 1;
 					barraarmaimgnv3.fillAmount = 1;
-					barraarmaimgnv4.fillAmount = manager.datosserial.nivelarmadefexp/armadefsignv[manager.datosserial.nivelarmadef];
+					barraarmaimgnv4.fillAmount = manager.datosserial.nivelarmadefexp/armadefsignv[manager.datosserial.nivelarmadef-1];
 				}
-				else if(manager.datosserial.nivelarmadef > 3)
+				else if(manager.datosserial.nivelarmadef == 5)
 				{
 					barraarmaimgnv1.fillAmount = 1;
 					barraarmaimgnv2.fillAmount = 1;
@@ -755,27 +776,33 @@ public class jugador_al1 : MonoBehaviour
 				armanvt.text = "nv"+manager.datosserial.nivelarmarel;
 				if(manager.datosserial.nivelarmarel == 1)
 				{
-					barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmarelexp/armarelsignv[manager.datosserial.nivelarmarel];
+					barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmarelexp/armarelsignv[manager.datosserial.nivelarmarel-1];
+					barraarmaimgnv2.fillAmount = 0;
+					barraarmaimgnv3.fillAmount = 0;
+					barraarmaimgnv4.fillAmount = 0;
 				}
-				else if(manager.datosserial.nivelarmarel > 1)
+				else if(manager.datosserial.nivelarmarel == 2)
 				{
 					barraarmaimgnv1.fillAmount = 1;
-					barraarmaimgnv2.fillAmount = manager.datosserial.nivelarmarelexp/armarelsignv[manager.datosserial.nivelarmarel];
+					barraarmaimgnv2.fillAmount = manager.datosserial.nivelarmarelexp/armarelsignv[manager.datosserial.nivelarmarel-1];
+					barraarmaimgnv3.fillAmount = 0;
+					barraarmaimgnv4.fillAmount = 0;
 				}
-				else if(manager.datosserial.nivelarmarel > 2)
+				else if(manager.datosserial.nivelarmarel == 3)
 				{
 					barraarmaimgnv1.fillAmount = 1;
 					barraarmaimgnv2.fillAmount = 1;
-					barraarmaimgnv3.fillAmount = manager.datosserial.nivelarmarelexp/armarelsignv[manager.datosserial.nivelarmarel];
+					barraarmaimgnv3.fillAmount = manager.datosserial.nivelarmarelexp/armarelsignv[manager.datosserial.nivelarmarel-1];
+					barraarmaimgnv4.fillAmount = 0;
 				}
-				else if(manager.datosserial.nivelarmarel > 3)
+				else if(manager.datosserial.nivelarmarel == 4)
 				{
 					barraarmaimgnv1.fillAmount = 1;
 					barraarmaimgnv2.fillAmount = 1;
 					barraarmaimgnv3.fillAmount = 1;
-					barraarmaimgnv4.fillAmount = manager.datosserial.nivelarmarelexp/armarelsignv[manager.datosserial.nivelarmarel];
+					barraarmaimgnv4.fillAmount = manager.datosserial.nivelarmarelexp/armarelsignv[manager.datosserial.nivelarmarel-1];
 				}
-				else if(manager.datosserial.nivelarmarel > 3)
+				else if(manager.datosserial.nivelarmarel == 5)
 				{
 					barraarmaimgnv1.fillAmount = 1;
 					barraarmaimgnv2.fillAmount = 1;
@@ -2862,7 +2889,7 @@ public class jugador_al1 : MonoBehaviour
 						manager.guardar();
 					}
 				
-				if(xp > 0 && suelo == true && tiempodisp > 0.7f  && combo == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") &&  rt == 0 )
+				if(xp > 0 && suelo == true && tiempodisp > 0.7f  && combo == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") &&  rt == 0 && stamina > 10 )
 				{
 					anim.SetBool("atk",true);
 					tiempodisp = 0;
@@ -2873,11 +2900,15 @@ public class jugador_al1 : MonoBehaviour
 					Destroy(slasht,1f);
 					golpeson.Play();
 					combo = 1;
+					stamina -= 10;
+					staminaact = -1;
 				}
-				else if(xp > 0 && suelo == true && tiempodisp > 0.2f && combo == 1 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk") &&  rt == 0 )
+				else if(xp > 0 && suelo == true && tiempodisp > 0.2f && combo == 1 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk") &&  rt == 0 && stamina > 10 )
 				{
 					anim.SetBool("atk2",true);
 					combo = 2;
+					stamina -= 10;
+					staminaact = -1;
 					
 				}
 				else if(suelo == true && combo == 2 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk2"))
@@ -2891,10 +2922,12 @@ public class jugador_al1 : MonoBehaviour
 					golpeson.Play();
 					combo = 3;
 				}
-				else if(xp > 0 && suelo == true && tiempodisp > 0.3f && combo == 3 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk2") &&  rt == 0 )
+				else if(xp > 0 && suelo == true && tiempodisp > 0.3f && combo == 3 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk2") &&  rt == 0  && stamina > 10)
 				{
 					anim.SetBool("atk3",true);
 					combo = 4;
+					stamina -= 10;
+					staminaact = -1;
 					
 				}
 				else if(suelo == true && combo == 4 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk3"))
@@ -2910,10 +2943,12 @@ public class jugador_al1 : MonoBehaviour
 				}
 
 
-				else if(xp > 0 && suelo == true && combo == 5 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk3") &&  rt == 0 )
+				else if(xp > 0 && suelo == true && combo == 5 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk3") &&  rt == 0 && stamina > 10 )
 				{
 					anim.SetBool("atk4",true);
 					combo = 6;
+					stamina -= 10;
+					staminaact = -1;
 					
 				}
 				else if(suelo == true && combo == 6 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk4"))
@@ -2927,10 +2962,12 @@ public class jugador_al1 : MonoBehaviour
 					golpeson.Play();
 					combo = 7;
 				}
-				else if(xp > 0 && suelo == true && tiempodisp > 0.2f && combo == 7 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk4") &&  rt == 0 )
+				else if(xp > 0 && suelo == true && tiempodisp > 0.2f && combo == 7 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk4") &&  rt == 0 && stamina > 10)
 				{
 					anim.SetBool("atk5",true);
 					combo = 8;
+					stamina -= 10;
+					staminaact = -1;
 					
 				}
 				else if(suelo == true && combo == 8 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk5"))
@@ -2946,13 +2983,15 @@ public class jugador_al1 : MonoBehaviour
 				}
 
 
-				else if(xp > 0 && suelo == false && ascensor == false &&  rt == 0 )
+				else if(xp > 0 && suelo == false && ascensor == false &&  rt == 0  && stamina > 20)
 				{
 					anim.SetBool("atks",true);
 					tiempodisp = 0;
 					danoarma = 0.1f * danoextra * nivelfuerza;
 					this._rb.AddRelativeForce(500 * 2f * -Vector3.up);
 					lanzarson.Play();
+					stamina -= 20;
+					staminaact = -1;
 				}
 				else if(tiempodisp > 0.1f)
 				{
@@ -3166,7 +3205,7 @@ public class jugador_al1 : MonoBehaviour
 			
 			if(manager.juego == 4 || manager.juego == 3)
 			{
-				if(b > 0 && tempdash > dash && suelo == false && manager.datosserial.tengodash == true && tiempodisp2 > 0.95f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar"))
+				if(b > 0 && tempdash > dash && suelo == false && manager.datosserial.tengodash == true && tiempodisp2 > 0.95f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 30)
 				{
 					anim.SetBool("saltoatras",false);
 					anim.SetBool("latder",false);
@@ -3182,8 +3221,10 @@ public class jugador_al1 : MonoBehaviour
 					dashaeract = true;
 					movdirectaux = movdire;
 					dashairson.Play();
+					stamina -= 30;
+					staminaact = -1;
 				}
-				else if(b > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar"))
+				else if(b > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 30)
 				{
 					anim.SetBool("saltoatras",false);
 					anim.SetBool("latder",false);
@@ -3197,6 +3238,8 @@ public class jugador_al1 : MonoBehaviour
 					tempdash2 = 0;
 					movdirectaux = movdire;
 					dashson.Play();
+					stamina -= 30;
+					staminaact = -1;
 				}
 				Debug.DrawRay(transform.position + new Vector3(0,2,0),movdire * 100f, Color.green);
 				if(tempdash > dash && tempdash2 > dash2 )
@@ -3290,8 +3333,10 @@ public class jugador_al1 : MonoBehaviour
 		Debug.DrawRay(transform.position + new Vector3(0,3,0),movdirectaux * 300, Color.green);
 		if(manager.juego == 3 || manager.juego == 4)
 		{
-			if(rb > 0 && velact != true)
+			if(rb > 0 && velact != true && stamina > 0)
 			{
+				stamina -= 15 * Time.deltaTime;
+				staminaact = 0;
 				velocidad = velocidadmaxima;
 			}
 			else if (velact != true){velocidad = velocidadaux;}
@@ -3365,6 +3410,20 @@ public class jugador_al1 : MonoBehaviour
 
 		if(tempatk < 15)
         {tempatk += 1 * Time.deltaTime;}
+
+
+		if(staminaact > 0.7f)
+		{
+			if (stamina < 0)
+			{stamina = 0;}
+			if(stamina < 100)
+			{stamina += 120 * Time.deltaTime;}
+			else{stamina = 100;}
+		}
+		else
+		{
+			staminaact += 1 * Time.deltaTime;
+		}
 		
 	}
 
@@ -4001,8 +4060,8 @@ public class jugador_al1 : MonoBehaviour
 	public Image barraarmaimgnv2;
 	public Image barraarmaimgnv3;
 	public Image barraarmaimgnv4;
-	public Image barraarmaimgnv5;
 	
 	public Text armanvt;
+	public Image staminabarra;
 	
 }
