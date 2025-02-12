@@ -122,6 +122,8 @@ public class jugador_al1 : MonoBehaviour
 
 	public float vidamax;
 	public bool tposepause;
+	public Vector3 poscam;
+	public Quaternion rotationinput2;
 	public void Awake()
     {
         controles = new Controles();
@@ -140,7 +142,11 @@ public class jugador_al1 : MonoBehaviour
 		stamina = staminamax;
 		tiempovelint = 3;
 		if(camara != null)
-        {cameraverticalangle2 = camara.transform.eulerAngles.y;}
+        {
+			cameraverticalangle2 = camara.transform.eulerAngles.y;
+			rotationinput2 = camara.transform.localRotation;
+			poscam = camarainterna.transform.localPosition;
+		}
 		if(GameObject.Find("muerteaudio") == true)
 		{muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();}
 		if(GameObject.Find("muerteaudiojug") == true)
@@ -2357,7 +2363,7 @@ public class jugador_al1 : MonoBehaviour
 					
 
 				}
-				if(objetivotarget == null)
+				/*if(objetivotarget == null)
 				{
 				if(rhorizontalc != 0)
 				{rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;}
@@ -2376,32 +2382,42 @@ public class jugador_al1 : MonoBehaviour
 					vercam = Vector3.right * -rotationinput.y;
 
 				
-					camara.transform.localEulerAngles += vercam + horcam;
-
-				Quaternion xRotationx = Quaternion.Euler(camara.transform.localEulerAngles.x,0,0);
-				float angle_f = Quaternion.Angle(Quaternion.identity, xRotationx);
-				float fixedAngle_f = angle_f;
-				if (xRotationx.eulerAngles.x>180)
-				{
-					fixedAngle_f *= -1;
-				}
-				float clampedX = Mathf.Clamp(fixedAngle_f, -10, 30);
-				camara.transform.localRotation = Quaternion.Euler(clampedX, camara.transform.localEulerAngles.y, camara.transform.localEulerAngles.z);
+					*/
 
 				
 
-				Vector3 poscam = camarainterna.transform.parent.TransformPoint(direccion * cam_maxdistance);
+				
+
+				if(objetivotarget == null)
+				{
+				
+				rotationinput2.x +=  rverticalc * rotspeed * Time.deltaTime;
+				}
+
+				
+				rotationinput2.y += rhorizontalc* rotspeed * Time.deltaTime;
+
+				
+
+				
+				rotationinput2.x = Mathf.Clamp(rotationinput2.x, -10, 30);
+				
+				
+
+
+				
+
+
 
 				RaycastHit hitcam;
-				if(Physics.Linecast(camarainterna.transform.position,poscam,out hitcam))
+				if(Physics.Linecast(camara.transform.position,camara.transform.position +  camara.transform.localRotation * poscam ,out hitcam))
 				{
-					distancia = Mathf.Clamp(hit.distance * 0.85f,cam_mindistance,cam_maxdistance);
+					camarainterna.transform.localPosition = new Vector3 (0,0, Vector3.Distance(camara.transform.position,hitcam.point));
 				}
 				else
 				{
-					distancia = cam_maxdistance;
+					camarainterna.transform.localPosition = Vector3.Lerp(camarainterna.transform.localPosition,poscam,Time.deltaTime);
 				}
-				camarainterna.transform.localPosition = Vector3.Lerp(camarainterna.transform.localPosition,direccion * distancia, 1 * Time.deltaTime);
 
 
 
@@ -2428,6 +2444,11 @@ public class jugador_al1 : MonoBehaviour
 					{
 						transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.Euler(transform.eulerAngles.x,camaux,transform.eulerAngles.z),30f* Time.deltaTime);
 						camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.y,camara.transform.localEulerAngles.z),30f* Time.deltaTime);	
+						rotationinput2 = camara.transform.localRotation;
+					}
+					else
+					{
+						camara.transform.localRotation = Quaternion.Euler(rotationinput2.x, rotationinput2.y, rotationinput2.z);
 					}
 						
 
