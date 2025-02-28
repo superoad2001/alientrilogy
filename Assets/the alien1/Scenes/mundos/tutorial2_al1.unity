@@ -1551,6 +1551,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4523343597318786292, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
   m_PrefabInstance: {fileID: 3976241158672281683}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &198143812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7632943427873292405, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
+  m_PrefabInstance: {fileID: 2008837026}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &238267695 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4658910260318573319, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
@@ -2986,6 +2991,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 985486066}
   m_SourcePrefab: {fileID: 100100000, guid: 05ce920d629922a4eb4795ef7494ce5c, type: 3}
+--- !u!1 &667157542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5834187332820444144, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
+  m_PrefabInstance: {fileID: 2008837026}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &697903922
 GameObject:
   m_ObjectHideFlags: 0
@@ -6122,38 +6132,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &1741743361 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5940046450542321453, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
-  m_PrefabInstance: {fileID: 2008837026}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &1741743367
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1741743361}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!1 &1747415726
 GameObject:
   m_ObjectHideFlags: 0
@@ -7029,6 +7007,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: jugadornormal
       objectReference: {fileID: 0}
+    - target: {fileID: 2630650128157739852, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: disp
       value: 
@@ -7057,6 +7039,10 @@ PrefabInstance:
       propertyPath: armanvt
       value: 
       objectReference: {fileID: 1818896492}
+    - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
+      propertyPath: boxcam2
+      value: 
+      objectReference: {fileID: 667157542}
     - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: dispdef
       value: 
@@ -7106,6 +7092,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 238267695}
     - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
+      propertyPath: jugtarget
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: levelexpt
       value: 
       objectReference: {fileID: 1664731914}
@@ -7130,6 +7120,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1514557035}
     - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
+      propertyPath: maxDistance
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
+      propertyPath: minDistance
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: niverlbarra
       value: 
       objectReference: {fileID: 1920946029}
@@ -7141,6 +7139,10 @@ PrefabInstance:
       propertyPath: vidaenebarra
       value: 
       objectReference: {fileID: 179553544}
+    - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
+      propertyPath: camarainterna
+      value: 
+      objectReference: {fileID: 198143812}
     - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: relentizarimg
       value: 
@@ -7173,6 +7175,10 @@ PrefabInstance:
       propertyPath: backrelentizarimg
       value: 
       objectReference: {fileID: 1759830891}
+    - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
+      propertyPath: collisionLayers.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4174150872076526791, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 41.6
@@ -7216,10 +7222,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5940046450542321453, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1741743367}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
 --- !u!4 &2008837027 stripped
 Transform:

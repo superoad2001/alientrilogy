@@ -14,19 +14,14 @@ public class jugador_al1 : MonoBehaviour
 {
 
 	private int cambioruedaact;
-
+	private Vector3 direccion;
 	public float staminaact = 50;
-
 	private float velrecextra = 1;
 	public Vector3 enmovdirectaux;
 	private bool berserkfin;
 	private bool inbuiract;
 	private float tempinbuir;
 	private bool velrecfin;
-	public float distancia;
-	public float cam_maxdistance = 12;
-	public float cam_mindistance = 5;
-	public Vector3 direccion;
 	private float danoextra = 1;
 	private float tempberserk;
 	private float tempvelrec;
@@ -122,8 +117,6 @@ public class jugador_al1 : MonoBehaviour
 
 	public float vidamax;
 	public bool tposepause;
-	public Vector3 poscam;
-	public Quaternion rotationinput2;
 	public void Awake()
     {
         controles = new Controles();
@@ -142,11 +135,7 @@ public class jugador_al1 : MonoBehaviour
 		stamina = staminamax;
 		tiempovelint = 3;
 		if(camara != null)
-        {
-			cameraverticalangle2 = camara.transform.eulerAngles.y;
-			rotationinput2 = camara.transform.localRotation;
-			poscam = camarainterna.transform.localPosition;
-		}
+        {cameraverticalangle2 = camara.transform.eulerAngles.y;}
 		if(GameObject.Find("muerteaudio") == true)
 		{muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();}
 		if(GameObject.Find("muerteaudiojug") == true)
@@ -327,11 +316,6 @@ public class jugador_al1 : MonoBehaviour
 			vidaenebarra = GameObject.Find("barravidaenemigobase");
 			vidaeneimg = vidaenebarra.transform.GetChild(2).gameObject.GetComponent<Image>();
 			vidaenebarra.SetActive(false);
-		}
-		if(manager.juego == 4)
-		{
-			direccion = camarainterna.transform.localPosition.normalized;
-			distancia = camarainterna.transform.localPosition.magnitude;
 		}
 		
 		
@@ -2363,7 +2347,7 @@ public class jugador_al1 : MonoBehaviour
 					
 
 				}
-				/*if(objetivotarget == null)
+				if(objetivotarget == null)
 				{
 				if(rhorizontalc != 0)
 				{rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;}
@@ -2382,42 +2366,24 @@ public class jugador_al1 : MonoBehaviour
 					vercam = Vector3.right * -rotationinput.y;
 
 				
-					*/
+					camara.transform.localEulerAngles += vercam + horcam;
 
-				
-
-				
-
-				if(objetivotarget == null)
+				Quaternion xRotationx = Quaternion.Euler(camara.transform.localEulerAngles.x,0,0);
+				float angle_f = Quaternion.Angle(Quaternion.identity, xRotationx);
+				float fixedAngle_f = angle_f;
+				if (xRotationx.eulerAngles.x>180)
 				{
-				
-				rotationinput2.x +=  rverticalc * rotspeed * Time.deltaTime;
+					fixedAngle_f *= -1;
 				}
-
-				
-				rotationinput2.y += rhorizontalc* rotspeed * Time.deltaTime;
-
-				
-
-				
-				rotationinput2.x = Mathf.Clamp(rotationinput2.x, -10, 30);
-				
-				
-
+				float clampedX = Mathf.Clamp(fixedAngle_f, 10, 40);
+				camara.transform.localRotation = Quaternion.Euler(clampedX, camara.transform.localEulerAngles.y, camara.transform.localEulerAngles.z);
 
 				
 
+				
 
-
-				RaycastHit hitcam;
-				if(Physics.Linecast(camara.transform.position,camara.transform.position +  camara.transform.localRotation * poscam ,out hitcam))
-				{
-					camarainterna.transform.localPosition = new Vector3 (0,0, Vector3.Distance(camara.transform.position,hitcam.point));
-				}
-				else
-				{
-					camarainterna.transform.localPosition = Vector3.Lerp(camarainterna.transform.localPosition,poscam,Time.deltaTime);
-				}
+				
+				
 
 
 
@@ -2444,11 +2410,6 @@ public class jugador_al1 : MonoBehaviour
 					{
 						transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.Euler(transform.eulerAngles.x,camaux,transform.eulerAngles.z),30f* Time.deltaTime);
 						camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.y,camara.transform.localEulerAngles.z),30f* Time.deltaTime);	
-						rotationinput2 = camara.transform.localRotation;
-					}
-					else
-					{
-						camara.transform.localRotation = Quaternion.Euler(rotationinput2.x, rotationinput2.y, rotationinput2.z);
 					}
 						
 
@@ -2922,14 +2883,14 @@ public class jugador_al1 : MonoBehaviour
 					golpeson.Play();
 					combo = 1;
 					stamina -= 10;
-					staminaact = -1;
+					staminaact = -2;
 				}
 				else if(xp > 0 && suelo == true && tiempodisp > 0.2f && combo == 1 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk") &&  rt == 0 && stamina > 10 )
 				{
 					anim.SetBool("atk2",true);
 					combo = 2;
 					stamina -= 10;
-					staminaact = -1;
+					staminaact = -2;
 					
 				}
 				else if(suelo == true && combo == 2 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk2"))
@@ -2948,7 +2909,7 @@ public class jugador_al1 : MonoBehaviour
 					anim.SetBool("atk3",true);
 					combo = 4;
 					stamina -= 10;
-					staminaact = -1;
+					staminaact = -2;
 					
 				}
 				else if(suelo == true && combo == 4 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk3"))
@@ -2969,7 +2930,7 @@ public class jugador_al1 : MonoBehaviour
 					anim.SetBool("atk4",true);
 					combo = 6;
 					stamina -= 10;
-					staminaact = -1;
+					staminaact = -2;
 					
 				}
 				else if(suelo == true && combo == 6 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk4"))
@@ -2988,7 +2949,7 @@ public class jugador_al1 : MonoBehaviour
 					anim.SetBool("atk5",true);
 					combo = 8;
 					stamina -= 10;
-					staminaact = -1;
+					staminaact = -2;
 					
 				}
 				else if(suelo == true && combo == 8 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk5"))
@@ -3226,7 +3187,7 @@ public class jugador_al1 : MonoBehaviour
 			
 			if(manager.juego == 4 || manager.juego == 3)
 			{
-				if(b > 0 && tempdash > dash && suelo == false && manager.datosserial.tengodash == true && tiempodisp2 > 0.95f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 30)
+				if(b > 0 && tempdash > dash && suelo == false && manager.datosserial.tengodash == true && tiempodisp2 > 0.95f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0)
 				{
 					anim.SetBool("saltoatras",false);
 					anim.SetBool("latder",false);
@@ -3242,10 +3203,10 @@ public class jugador_al1 : MonoBehaviour
 					dashaeract = true;
 					movdirectaux = movdire;
 					dashairson.Play();
-					stamina -= 30;
-					staminaact = -1;
+					stamina -= 15;
+					staminaact = -2;
 				}
-				else if(b > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 30)
+				else if(b > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0)
 				{
 					anim.SetBool("saltoatras",false);
 					anim.SetBool("latder",false);
@@ -3259,8 +3220,8 @@ public class jugador_al1 : MonoBehaviour
 					tempdash2 = 0;
 					movdirectaux = movdire;
 					dashson.Play();
-					stamina -= 30;
-					staminaact = -1;
+					stamina -= 15;
+					staminaact = -2;
 				}
 				Debug.DrawRay(transform.position + new Vector3(0,2,0),movdire * 100f, Color.green);
 				if(tempdash > dash && tempdash2 > dash2 )
@@ -4081,8 +4042,10 @@ public class jugador_al1 : MonoBehaviour
 	public Image barraarmaimgnv2;
 	public Image barraarmaimgnv3;
 	public Image barraarmaimgnv4;
+	public GameObject boxcam2;
 	
 	public Text armanvt;
 	public Image staminabarra;
+	
 	
 }
