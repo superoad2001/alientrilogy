@@ -86,29 +86,27 @@ public class enemigo3_al1: MonoBehaviour
     {
         
         nivelvida_a[0] = vidabasetut;
-        nivelvida_a[1] = vidabase;
-        for(int i = 2 ;i <= 49;  i++ )
+        for(int i = 1 ;i <= 49;  i++ )
         {   
             nivelvida_a[i] = (vidabase) + (((vidabasemax-vidabase)/48) * (i -1 ));
         }
         for(int i = 50 ; i <= 98; i++)
         {   
-            nivelvida_a[i] = (vidabasemax) + (((vidaplusmax - vidabasemax)/49) * (i - 49));
+            nivelvida_a[i] = (vidabasemax+51) + (((vidaplusmax - vidabasemax+51)/49) * (i - 49));
         }
 
         nivelfuerza_a[0] = fuebasetut;
-        nivelvida_a[1] = fuebase;
-        for(int i = 2 ;i <= 49;  i++ )
+        for(int i = 1 ;i <= 49;  i++ )
         {   
             nivelfuerza_a[i] = (fuebase) + (((fuebasemax-fuebase)/48) * (i - 2));
         }
         for(int i = 50 ; i <= 98; i++)
         {   
-            nivelfuerza_a[i] = (fuebasemax) + (((fueplusmax -fuebasemax)/49) * (i - 49));
+            nivelfuerza_a[i] = (fuebasemax+0.5f) + (((fueplusmax -fuebasemax+0.5f)/49) * (i - 49));
         }
 
-        nivelfuerza = nivelfuerza_a[nivelactual];
-        nivelvida = nivelvida_a[nivelactual];
+        nivelfuerza = nivelfuerza_a[nivelactual-1];
+        nivelvida = nivelvida_a[nivelactual-1];
         vidamax = nivelvida;
 
 
@@ -253,7 +251,7 @@ public class enemigo3_al1: MonoBehaviour
 	{
         if (col.gameObject.tag == "golpeh" && escudoact == false)
 		{
-            vida -= col.gameObject.GetComponent<golpe_al1>().dano;
+            vida -= jugador1.danoarma;
             danoene.Play();
             jugador1.vidaeneact = true;
             

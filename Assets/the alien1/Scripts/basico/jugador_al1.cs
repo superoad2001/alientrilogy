@@ -27,7 +27,7 @@ public class jugador_al1 : MonoBehaviour
 	private float tempvelrec;
 	private float vidaberserk;
 	public bool actzonaespecial;
-	private int indicetarget = -1;
+	public int indicetarget = -1;
 	private float angulomod;
 	private float r3;
 	private float camaux = 0;
@@ -164,29 +164,27 @@ public class jugador_al1 : MonoBehaviour
 		{armadefimg = GameObject.Find("armadefimg").GetComponent<Image>();}
 		
 		nivelvida_a[0] = vidabasetut;
-        nivelvida_a[1] = vidabase;
-        for(int i = 2 ;i <= 49;  i++ )
+        for(int i = 1 ;i <= 49;  i++ )
         {   
             nivelvida_a[i] = (vidabase) + (((vidabasemax-vidabase)/48) * (i -1 ));
         }
         for(int i = 50 ; i <= 98; i++)
         {   
-            nivelvida_a[i] = (vidabasemax) + (((vidaplusmax - vidabasemax)/49) * (i - 49));
+            nivelvida_a[i] = (vidabasemax+51) + (((vidaplusmax - vidabasemax+51)/49) * (i - 49));
         }
 
         nivelfuerza_a[0] = fuebasetut;
-        nivelvida_a[1] = fuebase;
-        for(int i = 2 ;i <= 49;  i++ )
+        for(int i = 1 ;i <= 49;  i++ )
         {   
             nivelfuerza_a[i] = (fuebase) + (((fuebasemax-fuebase)/48) * (i - 2));
         }
         for(int i = 50 ; i <= 98; i++)
         {   
-            nivelfuerza_a[i] = (fuebasemax) + (((fueplusmax -fuebasemax)/49) * (i - 49));
+            nivelfuerza_a[i] = (fuebasemax+0.5f) + (((fueplusmax -fuebasemax+0.5f)/49) * (i - 49));
         }
 
-        nivelfuerza = nivelfuerza_a[manager.datosserial.niveljug];
-        nivelvida = nivelvida_a[manager.datosserial.niveljug];
+        nivelfuerza = nivelfuerza_a[manager.datosserial.niveljug - 1];
+        nivelvida = nivelvida_a[manager.datosserial.niveljug -1];
         vidamax = nivelvida;
 
 
@@ -1874,15 +1872,15 @@ public class jugador_al1 : MonoBehaviour
 				temp10 = 0;
 				if(indicetarget == -1)
 				{
-					if(target[0] != null)
-					{
-						indicetarget = 0;
-						objetivotarget = target[0];
-					}
-					else if(tarbossact)
+					if(tarbossact)
 					{
 						indicetarget = 3;
 						objetivotarget = tarboss;
+					}
+					else if(target[0] != null)
+					{
+						indicetarget = 0;
+						objetivotarget = target[0];
 					}
 					else
 					{
@@ -2156,11 +2154,26 @@ public class jugador_al1 : MonoBehaviour
 					float distance = movdire.magnitude * Time.fixedDeltaTime;
 					movdire.Normalize();
 					RaycastHit hit;
-					if(lverticalc == 0f && lhorizontalc == 0f || _rb.SweepTest(movdire,out hit,distance,QueryTriggerInteraction.Ignore))
+					
+					if(lverticalc == 0f && lhorizontalc == 0f)
 					{
 						anim.SetBool("stat",true);
 						dashefect = false;
 						_rb.MovePosition(_rb.position + transform.TransformDirection(movdirnow) * velocidad * Time.deltaTime);
+					}
+					else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity,0,QueryTriggerInteraction.Ignore))
+					{
+						if(hit.distance < 1f)
+						{
+						anim.SetBool("stat",true);
+						dashefect = false;
+						_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
+						}
+						else
+						{
+							anim.SetBool("stat",false);
+						}
+						Debug.Log(hit.distance);
 					}
 					else
 					{
@@ -2269,7 +2282,7 @@ public class jugador_al1 : MonoBehaviour
 					Vector3 directiontt = objetivotarget.transform.position - transform.position;
 					Quaternion rotation = Quaternion.LookRotation(directiontt);
                		transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),100f * Time.deltaTime);
-					camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.x,camara.transform.localEulerAngles.z),10f* Time.deltaTime);
+					camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.y,camara.transform.localEulerAngles.z),10f* Time.deltaTime);
 				}
 
 
@@ -2313,11 +2326,25 @@ public class jugador_al1 : MonoBehaviour
 					movdire.Normalize();
 					RaycastHit hit;
 
-					if(lverticalc == 0f && lhorizontalc == 0f || _rb.SweepTest(movdire,out hit,distaxe,QueryTriggerInteraction.Ignore))
+					if(lverticalc == 0f && lhorizontalc == 0f)
 					{
 						anim.SetBool("stat",true);
 						dashefect = false;
 						_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
+					}
+					else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity,0,QueryTriggerInteraction.Ignore))
+					{
+						if(hit.distance < 1f)
+						{
+						anim.SetBool("stat",true);
+						dashefect = false;
+						_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
+						}
+						else
+						{
+							anim.SetBool("stat",false);
+						}
+						Debug.Log(hit.distance);
 					}
 					else
 					{
@@ -2397,8 +2424,8 @@ public class jugador_al1 : MonoBehaviour
 				{
 					Vector3 directiontt = objetivotarget.transform.position - transform.position;
 					Quaternion rotation = Quaternion.LookRotation(directiontt);
-               		transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),10f * Time.deltaTime);
-					camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.x,camara.transform.localEulerAngles.z),10f* Time.deltaTime);	
+               		transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),30f * Time.deltaTime);
+					camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.y,camara.transform.localEulerAngles.z),30f* Time.deltaTime);	
 				}
 
 
@@ -2463,11 +2490,26 @@ public class jugador_al1 : MonoBehaviour
 					float distaxe = movdire.magnitude * Time.fixedDeltaTime;
 					movdire.Normalize();
 					RaycastHit hit;
-					if(lverticalc == 0f && lhorizontalc == 0f || _rb.SweepTest(movdire,out hit,distaxe,QueryTriggerInteraction.Ignore))
+
+					if(lverticalc == 0f && lhorizontalc == 0f)
 					{
 						anim.SetBool("stat",true);
 						dashefect = false;
 						_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
+					}
+					else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity,0,QueryTriggerInteraction.Ignore))
+					{
+						if(hit.distance < 1f)
+						{
+						anim.SetBool("stat",true);
+						dashefect = false;
+						_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
+						}
+						else
+						{
+							anim.SetBool("stat",false);
+						}
+						Debug.Log(hit.distance);
 					}
 					else
 					{
@@ -2586,8 +2628,8 @@ public class jugador_al1 : MonoBehaviour
 				{
 					Vector3 directiontt = objetivotarget.transform.position - transform.position;
 					Quaternion rotation = Quaternion.LookRotation(directiontt);
-               		transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),10f * Time.deltaTime);
-					camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.x,camara.transform.localEulerAngles.z),10f* Time.deltaTime);
+               		transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),30f * Time.deltaTime);
+					camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.y,camara.transform.localEulerAngles.z),30f* Time.deltaTime);
 				}
 
 
@@ -2876,7 +2918,7 @@ public class jugador_al1 : MonoBehaviour
 					anim.SetBool("atk",true);
 					tiempodisp = 0;
 					tempatk = 0; 
-					danoarma = 1 * danoextra * nivelfuerza;
+					danoarma = 0.3f * danoextra * nivelfuerza;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2897,7 +2939,7 @@ public class jugador_al1 : MonoBehaviour
 				{
 					tiempodisp = 0;
 					tempatk = 0; 
-					danoarma = 0.5f * danoextra;
+					danoarma = 0.2f * danoextra;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2916,7 +2958,7 @@ public class jugador_al1 : MonoBehaviour
 				{
 					tiempodisp = 0;
 					tempatk = 0; 
-					danoarma = 1 * danoextra * nivelfuerza;
+					danoarma = 0.5f * danoextra * nivelfuerza;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2937,7 +2979,7 @@ public class jugador_al1 : MonoBehaviour
 				{
 					tiempodisp = 0;
 					tempatk = 0; 
-					danoarma = 0.5f * danoextra * nivelfuerza;
+					danoarma = 0.1f * danoextra * nivelfuerza;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2956,7 +2998,7 @@ public class jugador_al1 : MonoBehaviour
 				{
 					tiempodisp = 0;
 					tempatk = 0; 
-					danoarma = 5 * danoextra * nivelfuerza;
+					danoarma = 2 * danoextra * nivelfuerza;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -3589,21 +3631,40 @@ public class jugador_al1 : MonoBehaviour
 		{
 			if(target[0] == null )
 			{
-				target[0]  = col.transform.parent.gameObject;
+				target[0]  = col.transform.parent.gameObject.transform.Find("enemigo").gameObject;
 			}
 			else if(target[0] != null && target[1] == null )
 			{
-				target[1] = col.transform.parent.gameObject;
+				target[1] = col.transform.parent.gameObject.transform.Find("enemigo").gameObject;
 			}
 			else if(target[0]  != null && target[1] != null && target[2] == null )
 			{
-				target[2] = col.transform.parent.gameObject;
+				target[2] = col.transform.parent.gameObject.transform.Find("enemigo").gameObject;
 			}
 			else if(target[0]  != null && target[1] != null && target[2] != null )
 			{
-			target[0]  = target[1];
-			target[1] = target[2];
-			target[2] = col.transform.parent.gameObject;
+				if(target[0] == objetivotarget)
+				{
+					target[1] = target[2];
+					target[2] = col.transform.parent.gameObject.transform.Find("enemigo").gameObject;
+				}
+				else if(target[1] == objetivotarget)
+				{
+					target[0]  = target[2];
+					target[2] = col.transform.parent.gameObject.transform.Find("enemigo").gameObject;
+				}
+				else if(target[2] == objetivotarget)
+				{
+					target[0]  = target[1];
+					target[1] = col.transform.parent.gameObject.transform.Find("enemigo").gameObject;
+				}
+				else
+				{
+					target[0]  = target[1];
+					target[1] = target[2];
+					target[2] = col.transform.parent.gameObject.transform.Find("enemigo").gameObject;
+				}
+			
 			}
 			for(int i = 0;i == 3;i++ )
 			{
@@ -3779,9 +3840,9 @@ public class jugador_al1 : MonoBehaviour
 		}
 		if (col.gameObject.tag == "enemigodet")
 		{
-			for(int i = 0;i == 3;i++ )
+			for(int i = 0;i < 2;i++ )
 			{
-				for(int t = 0;t == 3;t++ )
+				for(int t = 0;t < 2;t++ )
 				{
 					if(target[i] == target[t] && i != t)
 					{
@@ -3790,19 +3851,7 @@ public class jugador_al1 : MonoBehaviour
 				}
 
 			}
-			if(target[0]  == null )
-			{
-				target[0]  = col.transform.parent.gameObject;
-			}
-			else if(target[1] == null )
-			{
-				target[1] = col.transform.parent.gameObject;
-			}
-			else if(target[2] == null )
-			{
-				target[2] = col.transform.parent.gameObject;
-			}
-			for(int i = 0;i == 3;i++ )
+			for(int i = 0;i < 2;i++ )
 			{
 				if(objetivotarget == target[i])
 				{
@@ -3924,7 +3973,7 @@ public class jugador_al1 : MonoBehaviour
 	public Image niverlbarra;
 
 	private static GameObject FindGameObjectsAll(string name) { return Resources.FindObjectsOfTypeAll<GameObject>().First(x => x.name == name); }
-	private GameObject []target = new GameObject[3];
+	public GameObject []target = new GameObject[3];
 	public GameObject camarainterna;
 	public Text levelexpt;
 	public Text levelarmat;
