@@ -7,6 +7,8 @@ using UnityEngine.Audio;
 
 public class pausa_al1 : MonoBehaviour
 {
+    public AudioSource positive;
+    public AudioSource negative;
     public GameObject juego;
     public GameObject pausa1;
     public int plataforma;
@@ -60,6 +62,14 @@ public class pausa_al1 : MonoBehaviour
 	public void move()
 	{
 		moveson.Play();
+	}
+    public void positivea()
+	{
+		positive.Play();
+	}
+    public void negativea()
+	{
+		negative.Play();
 	}
     void Start()
     {
@@ -161,6 +171,7 @@ public class pausa_al1 : MonoBehaviour
             else
             {
                 continuar();
+                
             }
         }
         if(temp < 15)
@@ -170,6 +181,7 @@ public class pausa_al1 : MonoBehaviour
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         plataforma = manager.datosconfig.plat;
         temp = 0;
+        jugador.temppause = 0;
         jugador.controlact = true;
         if(plataforma == 1)
 		{
@@ -241,8 +253,9 @@ public class pausa_al1 : MonoBehaviour
 
 		manager2.guardar();
 
-        normal.SetActive(true);
         opciones1.SetActive(false);
+        normal.SetActive(true);
+        
 		
     }
 }

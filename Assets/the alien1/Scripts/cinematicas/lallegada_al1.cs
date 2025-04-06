@@ -40,7 +40,7 @@ public class lallegada_al1 : MonoBehaviour
 	{
 		if (controles.menu.saltar.ReadValue<float>() > 0f)
 		{
-			SceneManager.LoadScene("cinematicainicial_al1");
+			SceneManager.LoadScene("tutorial_al1");
 		}
 		
 	}
@@ -48,7 +48,7 @@ public class lallegada_al1 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			SceneManager.LoadScene("cinematicainicial_al1");
+			SceneManager.LoadScene("tutorial_al1");
 		}
 	}
 

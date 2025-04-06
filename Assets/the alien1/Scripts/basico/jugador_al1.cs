@@ -20,6 +20,7 @@ public class jugador_al1 : MonoBehaviour
 	public Vector3 enmovdirectaux;
 	private bool berserkfin;
 	private bool inbuiract;
+	public float temppause;
 	private float tempinbuir;
 	private bool velrecfin;
 	private float danoextra = 1;
@@ -2739,7 +2740,7 @@ public class jugador_al1 : MonoBehaviour
 		if (manager.juego == 3)
 		{
 			this.tiemposalto -= Time.deltaTime;
-			if (this.tiemposalto <= 0f && a > 0f && dialogueact == false)
+			if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f)
 			{
 					if(jumpforce == jumpforcebase)
 					{tiempodisp = 0;}
@@ -2753,7 +2754,7 @@ public class jugador_al1 : MonoBehaviour
 		if (manager.juego == 0)
 		{
 			this.tiemposalto -= Time.deltaTime;
-			if (this.tiemposalto <= 0f && a > 0f && dialogueact == false )
+			if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f)
 			{
 					if(jumpforce == jumpforcebase)
 					{tiempodisp = 0;}
@@ -2766,7 +2767,7 @@ public class jugador_al1 : MonoBehaviour
 		if (manager.juego == 4)
 		{
 			this.tiemposalto -= Time.deltaTime;
-			if (this.tiemposalto <= 0f && a > 0f && dialogueact == false )
+			if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f)
 			{
 					if(jumpforce == jumpforcebase)
 					{tiempodisp = 0;}
@@ -3110,7 +3111,6 @@ public class jugador_al1 : MonoBehaviour
 					GameObject BalaTemporal = Instantiate(balaprefabpapa, pistolap.transform.position,mod.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
-					BalaTemporal.transform.SetParent(juego.transform);
 
 					rbb.AddForce(mod.transform.forward * 110 * balapadrevel[manager.datosserial.nivelarmapapa-1]);
 
@@ -3229,7 +3229,7 @@ public class jugador_al1 : MonoBehaviour
 			
 			if(manager.juego == 4 || manager.juego == 3)
 			{
-				if(b > 0 && tempdash > dash && suelo == false && manager.datosserial.tengodash == true && tiempodisp2 > 0.95f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0)
+				if(b > 0 && tempdash > dash && suelo == false && manager.datosserial.tengodash == true && tiempodisp2 > 0.95f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f && movdire != new Vector3(0,0,0))
 				{
 					anim.SetBool("saltoatras",false);
 					anim.SetBool("latder",false);
@@ -3248,7 +3248,7 @@ public class jugador_al1 : MonoBehaviour
 					stamina -= 15;
 					staminaact = -2;
 				}
-				else if(b > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0)
+				else if(b > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
 				{
 					anim.SetBool("saltoatras",false);
 					anim.SetBool("latder",false);
@@ -3385,6 +3385,10 @@ public class jugador_al1 : MonoBehaviour
 		if(temppaparec< 20)
         {temppaparec += 0.25f * velrecextra * Time.deltaTime;}
 		else{temppaparec = 20;}
+		
+		if(temppause < 20)
+        {temppause  += 1 * Time.deltaTime;}
+		else{temppause  = 20;}
 
 		if(temprelrec< 40)
         {temprelrec += 1 * velrecextra * Time.deltaTime;}
@@ -3743,7 +3747,7 @@ public class jugador_al1 : MonoBehaviour
 				GameObject explosiont = Instantiate(enec.explosion,enec.transform.position,enec.transform.rotation) as GameObject;
 				Destroy(explosiont, 1f);
 				enec.dest.Play();
-				Destroy(enec.transform);
+				Destroy(enec.gameObject);
 			}
 
 			
