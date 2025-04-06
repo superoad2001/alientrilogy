@@ -31,10 +31,6 @@ public class inicio_al1 : MonoBehaviour
 	{
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 
-		if(!audio.isPlaying)
-		{
-			SceneManager.LoadScene("intro_al1");
-		}
 		if (temp < 15)
 		{temp += 1 * Time.deltaTime;}
 
