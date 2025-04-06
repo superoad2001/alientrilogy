@@ -236,7 +236,7 @@ namespace MeetAndTalk
             else if (_nodeData.AvatarPos == AvatarPosition.Right) dialogueUIManager.UpdateAvatars(null, _nodeData.Character, _nodeData.AvatarType);
             else dialogueUIManager.UpdateAvatars(null, null, _nodeData.AvatarType);
 
-            dialogueUIManager.SkipButton.SetActive(true);
+            //dialogueUIManager.SkipButton.SetActive(true);
             MakeButtons(new List<DialogueNodePort>());
 
             if(_nodeData.AudioClips.Find(clip => clip.languageEnum == localizationManager.SelectedLang()).LanguageGenericType != null) audioSource.PlayOneShot(_nodeData.AudioClips.Find(clip => clip.languageEnum == localizationManager.SelectedLang()).LanguageGenericType);
