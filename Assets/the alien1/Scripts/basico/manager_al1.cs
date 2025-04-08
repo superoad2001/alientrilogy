@@ -70,7 +70,10 @@ public class manager_al1 : MonoBehaviour
 	public datosconfig datosconfig;
 	[SerializeField]
 	public datosextra datostrof;
+	[SerializeField]
+	public datosconfigslot datosslot;
 	public string repathtro;
+	public string repathslot;
 
 	public AudioSource moveson;
 	public string mision;
@@ -82,6 +85,52 @@ public class manager_al1 : MonoBehaviour
 	{
 		moveson.Play();
 	}
+	public void GetFilePathslot()
+    {
+        string result;
+
+    	result = Path.Combine(Application.persistentDataPath,"AlienData");
+        result = Path.Combine(result, $"datosslot.data");
+
+		#if UNITY_EDITOR
+    	result = Path.Combine(Application.persistentDataPath,"AlienDatadev");
+        result = Path.Combine(result, $"datosslot.data");
+		#endif
+ 
+        repathslot = result;
+    }
+	public void guardarslot()
+    {
+        GetFilePathslot();
+        string path = repathslot;
+        if(File.Exists(path))
+        {
+            string datosconfigslot1 = JsonUtility.ToJson(datosslot);
+            File.WriteAllText(path,datosconfigslot1);
+            //Debug.Log(datosconfig2);
+        }
+        else if(!File.Exists(path))
+        {
+            System.IO.FileInfo file = new System.IO.FileInfo(path);
+            file.Directory.Create();
+            string datosconfigslot1 = JsonUtility.ToJson(datosslot);
+            File.WriteAllText(path,datosconfigslot1);
+            //Debug.Log(datosconfig2);
+        }
+        
+    }
+	public void cargarslot()
+    {
+        GetFilePathslot();
+        string path = repathslot;
+        if(File.Exists(path))
+        {
+            string datosconfigslot1 = File.ReadAllText(path);
+            datosslot = JsonUtility.FromJson<datosconfigslot>(datosconfigslot1);
+            //Debug.Log(datosinventario);
+        }
+        
+    }
 
 
 
@@ -92,11 +141,11 @@ public class manager_al1 : MonoBehaviour
         string result;
 
     	result = Path.Combine(Application.persistentDataPath,"AlienData");
-        result = Path.Combine(result, $"alien1data.data");
+        result = Path.Combine(result, $"alien1data"+datosslot.datos1slot+".data");
 
 		#if UNITY_EDITOR
     	result = Path.Combine(Application.persistentDataPath,"AlienDatadev");
-        result = Path.Combine(result, $"alien1data.data");
+        result = Path.Combine(result, $"alien1data"+datosslot.datos1slot+".data");
 		#endif
  
         repath = result;
@@ -262,6 +311,7 @@ public class manager_al1 : MonoBehaviour
 	}
 	public void Start()
 	{
+		cargarslot();
 		cargar();
 		cargarconfig();
 		cargartro();
@@ -583,9 +633,9 @@ public class manager_al1 : MonoBehaviour
 		}
 		if(menu == 1)
 		{
-			boton1.text = "Borrar partida";
+			boton1.text = "gestion de partidas";
 			boton2.text = "Opciones";
-			boton3.text = "Comenzar partida";
+			boton3.text = "Comenzar";
 			boton4.text = "Salir";
 		}
 		if(menu == -1)
@@ -599,9 +649,7 @@ public class manager_al1 : MonoBehaviour
 		}
 		if(menu == 2)
 		{
-			boton1.text = "Estas seguro?";
-			boton2.text = "Borrar partida";
-			boton3.text = "Volver atras";
+			
 		}
 		if(menu == 3)
 		{

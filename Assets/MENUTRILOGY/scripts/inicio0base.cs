@@ -28,32 +28,20 @@ public class inicio0base : MonoBehaviour
 	{
 		if(temp > 1)
 		{
-		if(manager.datosconfig.idioma != "es" && manager.datosconfig.idioma != "en" && manager.datosconfig.idioma != "cat")
-		{
-			SceneManager.LoadScene("idiomabase");
-		}
-		else if(manager.datosconfig.plat != 1 && manager.datosconfig.plat != 2)
-		{
-			SceneManager.LoadScene("controlesbase");
-		}
-		else if(manager.datosconfig.distancia != 200 && manager.datosconfig.distancia != 500 && manager.datosconfig.distancia != 1000 && manager.datosconfig.distancia != 2000 && manager.datosconfig.distancia != 3000)
-		{
-			SceneManager.LoadScene("distanciabase");
-		}
-		else if(manager.datosconfig.postpro != 1 && manager.datosconfig.postpro != 2)
-		{
-			SceneManager.LoadScene("mejorabase");
-		}
-		else
-		{
-			SceneManager.LoadScene("presentacionbase");
-		}
+			if(manager.datosconfig.primera == false)
+			{
+				SceneManager.LoadScene("opcionesbase");
+			}
+			else
+			{
+				SceneManager.LoadScene("menutrilogy");
+			}
 		}
 		temp += 1 * Time.deltaTime;
 	}
 	public void reset()
 	{
 		manager.borrar_data();
-		SceneManager.LoadScene("idiomabase");
+		SceneManager.LoadScene("opcionesbase");
 	}
 }

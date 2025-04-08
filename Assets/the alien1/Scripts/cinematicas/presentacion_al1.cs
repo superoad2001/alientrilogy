@@ -22,11 +22,76 @@ public class presentacion_al1 : MonoBehaviour
 
     public GameObject menu_ui;
     public int gemas = 0;
+
+    public GameObject slot1b;
+    public GameObject slot2b;
+    public GameObject slot3b;
+
+    public GameObject borrarb;
+    public GameObject cargarb;
+    public GameObject nuevab;
+    public GameObject eventslot;
+    public GameObject eventbor;
+    public GameObject eventsel;
+    public GameObject selectmode;
+    public GameObject botper;
+    public int slotseln;
 	// Token: 0x06000012 RID: 18 RVA: 0x0000243B File Offset: 0x0000063B
 	private void Start()
 	{
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         gemas = manager.datosserial.gemas;
+        
+    }
+    public void slot1p()
+    {
+        borrarb.transform.localPosition = new Vector3 (borrarb.transform.localPosition.x,slot1b.transform.localPosition.y,borrarb.transform.localPosition.z);
+        nuevab.transform.localPosition = new Vector3 (nuevab.transform.localPosition.x,slot1b.transform.localPosition.y,nuevab.transform.localPosition.z);
+        cargarb.transform.localPosition = new Vector3 (cargarb.transform.localPosition.x,slot1b.transform.localPosition.y,cargarb.transform.localPosition.z);
+        botper.transform.localPosition = new Vector3 (botper.transform.localPosition.x,slot1b.transform.localPosition.y,botper.transform.localPosition.z);
+        eventslot.SetActive(false);
+        slot1b.SetActive(false);
+        slot2b.SetActive(true);
+        slot3b.SetActive(true);
+        selectmode.SetActive(true);
+        manager.datosslot.datos1slot = 1;
+        manager.cargar();
+    }
+    public void slot2p()
+    {
+        borrarb.transform.localPosition = new Vector3 (borrarb.transform.localPosition.x,slot2b.transform.localPosition.y,borrarb.transform.localPosition.z);
+        nuevab.transform.localPosition = new Vector3 (nuevab.transform.localPosition.x,slot2b.transform.localPosition.y,nuevab.transform.localPosition.z);
+        cargarb.transform.localPosition = new Vector3 (cargarb.transform.localPosition.x,slot2b.transform.localPosition.y,cargarb.transform.localPosition.z);
+        botper.transform.localPosition = new Vector3 (botper.transform.localPosition.x,slot2b.transform.localPosition.y,botper.transform.localPosition.z);
+        eventslot.SetActive(false);
+        slot1b.SetActive(true);
+        slot2b.SetActive(false);
+        slot3b.SetActive(true);
+        selectmode.SetActive(true);
+        manager.datosslot.datos1slot = 2;
+        manager.cargar();
+    }
+    public void slot3p()
+    {
+        borrarb.transform.localPosition = new Vector3 (borrarb.transform.localPosition.x,slot3b.transform.localPosition.y,borrarb.transform.localPosition.z);
+        nuevab.transform.localPosition = new Vector3 (nuevab.transform.localPosition.x,slot3b.transform.localPosition.y,nuevab.transform.localPosition.z);
+        cargarb.transform.localPosition = new Vector3 (cargarb.transform.localPosition.x,slot3b.transform.localPosition.y,cargarb.transform.localPosition.z);
+        botper.transform.localPosition = new Vector3 (botper.transform.localPosition.x,slot3b.transform.localPosition.y,botper.transform.localPosition.z);
+        eventslot.SetActive(false);
+        slot1b.SetActive(true);
+        slot2b.SetActive(true);
+        slot3b.SetActive(false);
+        selectmode.SetActive(true);
+        manager.datosslot.datos1slot = 3;
+        manager.cargar();
+    }
+    public void slotatras()
+    {
+        selectmode.SetActive(false);
+        eventslot.SetActive(true);
+        slot1b.SetActive(true);
+        slot2b.SetActive(true);
+        slot3b.SetActive(true);
         
     }
     public void act()
@@ -143,14 +208,63 @@ public class presentacion_al1 : MonoBehaviour
             temp = -1;
         }
     }
+    public void borraract()
+    {
+        if (temp >= 1)
+        {
+            selectmode.SetActive(false);
+            slot1b.SetActive(true);
+            slot2b.SetActive(true);
+            slot3b.SetActive(true);
+            eventslot.SetActive(false);
+            eventbor.SetActive(true);
+            cam_a.SetInteger("modo",3);
+            menu_a.SetInteger("modo",3);
+            temp = -1;
+            
+        }
+    }
+    public void borraractvol()
+    {
+        if (temp >= 1)
+        {
+            eventbor.SetActive(false);
+            eventslot.SetActive(true);
+            cam_a.SetInteger("modo",2);
+            menu_a.SetInteger("modo",2);
+            temp = -1;
+        }
+    }
     public void borrardat()
     {
         if (temp >= 1)
         {
+            manager.guardar();
             cam_a.SetInteger("modo",1);
             menu_a.SetInteger("modo",1);
             manager.borrar_data();
             temp = -1;
+        }
+    }
+    public void nuevap()
+    {
+         //añadir que cuando le des te de opcion de borrar partida y que no se sobrescriba automaticamente
+        if (temp >= 1)
+        {
+            manager.guardar();
+            manager.borrar_data();
+            manager.guardarslot();
+            continuar();
+        }
+    }
+    public void cargarp()
+    {
+        if (temp >= 1)
+        {
+            manager.guardar();
+            manager.cargar();
+            manager.guardarslot();
+            continuar();
         }
     }
 }

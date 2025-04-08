@@ -7,18 +7,19 @@ using System;
 [Serializable]
 public class datosconfig
 {
-    public string idioma;
-    public int plat;
-    public int distancia;
-    public int postpro;
+    public bool primera;
+    public string idioma = "es";
+    public int plat = 1;
+    public int distancia = 1000;
+    public int postpro = 1;
     public int resoluciones;
-    public int lastgame = 1;
+    public int lastgame = 0;
 
-    public float master = -7;
-    public float masterslider = 0.5f;
+    public float master = -28;
 
     public float musica = 14;
     public float musicaslider = 0.5f;
+    
     public float sfx = 10;
     public float sfxslider = 3f;
 

@@ -19,6 +19,9 @@ public class controlmusicabase : MonoBehaviour
 
     public bool opciones;
     public managerBASE manager;
+
+    public Text disp;
+    public int dispt = 2;
     public void Start ()
     {
         
