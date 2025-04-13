@@ -7,20 +7,25 @@ using UnityEngine.UI;
 public class inicio3base : MonoBehaviour
 {
     private Controles controles;
-    public bool menu;
 
-    public Text logo1;
-    public Text logo2;
-    public Text logo3;
-    public Text logo4;
-    public RectTransform logoo1;
-    public GameObject logoo2;
-    public GameObject logoo3;
-    public GameObject logoo4;
+    public Text al1;
+    public Text log2;
+    public Text adv3;
+    public Text num4;
     public int juego = 1;
     public float temp;
     public managerBASE manager;
-    public Animator anim;
+    public Animator menu;
+    public Animator pres;
+    public Animator nave1;
+    public Animator camaraanim;
+    public bool presskip;
+    public float temp2;
+    public GameObject event1;
+    public GameObject event2;
+
+    public AudioSource musica1;
+    public AudioSource musica2;
     
     public void Awake()
     {
@@ -34,31 +39,91 @@ public class inicio3base : MonoBehaviour
     {
         controles.Disable();
     }
-
+    public void skip()
+    {
+        if(presskip == false)
+        {
+            menu.SetBool("skip",true);
+            pres.SetBool("skip",true);
+            nave1.SetBool("skip",true);
+            camaraanim.SetBool("skip",true);
+            event1.SetActive(false);
+            event2.SetActive(true);
+            musica1.Stop();
+            musica2.Play();
+            presskip = true;
+        }
+    }
     public void izq()
     {
-        if(juego == 4)
+        if(presskip == true)
         {
-            juego = 1;
-            manager.move();
-        }
-        else if(juego > 1)
-        {
-            juego -= 1;
-            manager.move();
+
+            // para alien 1
+            /*if(juego == 4)
+            {
+                juego = 1;
+                manager.move();
+            }
+            else if(juego > 1)
+            {
+                juego -= 1;
+                manager.move();
+            }*/
+            //para alien 2
+            /*if(juego == 4)
+            {
+                juego = 2;
+                manager.move();
+            }
+            else if(juego > 1)
+            {
+                juego -= 1;
+                manager.move();
+            }*/
+
+            //para alien 3
+
+            if(juego > 1)
+            {
+                juego -= 1;
+                manager.move();
+            }
         }
     }
     public void der()
     {
-        if(juego == 1)
+        if(presskip == true)
         {
-            juego = 4;
-            manager.move();
-        }
-        else if(juego < 5)
-        {
-            juego += 1;
-            manager.move();
+            // para alien 1
+            /*if(juego == 1)
+            {
+                juego = 4;
+                manager.move();
+            }
+            else if(juego < 5)
+            {
+                juego += 1;
+                manager.move();
+            }*/
+            //para alien 2
+            /*if(juego == 2)
+            {
+                juego = 4;
+                manager.move();
+            }
+            else if(juego < 5)
+            {
+                juego += 1;
+                manager.move();
+            }*/
+
+            //para alien 3
+            if(juego < 5)
+            {
+                juego += 1;
+                manager.move();
+            }
         }
     }
     public void salir()
@@ -67,27 +132,30 @@ public class inicio3base : MonoBehaviour
     }
     public void comenzar()
     {
-        if(juego == 1)
+        if(presskip == true)
         {
-            SceneManager.LoadScene("presentacion_al1");
-        }
-        if(juego == 2)
-        {
-            SceneManager.LoadScene("presentacion_al2");
-        }
-        if(juego == 3)
-        {
-            SceneManager.LoadScene("presentacion_al3");
-        }
-        if(juego == 4)
-        {
-            SceneManager.LoadScene("trofeos");
-        }
-        if(juego == 5)
-        {
-            manager.datosconfig.lastgame = 1;
-            manager.guardar();
-            SceneManager.LoadScene("opcionesbase");
+            if(juego == 1)
+            {
+                SceneManager.LoadScene("presentacion_al1");
+            }
+            if(juego == 2)
+            {
+                SceneManager.LoadScene("presentacion_al2");
+            }
+            if(juego == 3)
+            {
+                SceneManager.LoadScene("presentacion_al3");
+            }
+            if(juego == 4)
+            {
+                SceneManager.LoadScene("trofeos");
+            }
+            if(juego == 5)
+            {
+                manager.datosconfig.lastgame = 1;
+                manager.guardar();
+                SceneManager.LoadScene("opcionesbase");
+            }
         }
     }
     // Start is called before the first frame update
@@ -99,114 +167,108 @@ public class inicio3base : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(menu)
-        {
-            if(controles.al3.horizontalpad.ReadValue<float>() > 0 && temp > 0.5f)
+            if(controles.al3.horizontalpad.ReadValue<float>() > 0 && temp > 0.5f && presskip)
             {
                 der();
                 temp = 0;
             }
-            if(controles.al3.horizontalpad.ReadValue<float>() < 0 && temp > 0.5f)
+            if(controles.al3.horizontalpad.ReadValue<float>() < 0 && temp > 0.5f && presskip)
             {
                 izq();
                 temp = 0;
                 
             }
+            if(controles.al3.pausa.ReadValue<float>() > 0 && temp > 0.5f && presskip == false)
+            {
+                skip();
+            }
             
             if(juego == 1) 
             {
-                logo1.color = new Color32(255,64,64,255);
-                logo2.color = new Color32(229,213,74,255);
-                logo3.color = new Color32(255,64,64,255);
-                logo4.color = new Color32(229,213,74,255);
-                /*logoo1.transform.localPosition = new Vector3(247.499939f,-30.0000076f,0f);
-                logoo2.transform.localPosition = new Vector3(211.349915f,30.9999924f,0f);
-                logoo3.transform.localPosition = new Vector3(214.5f,-112f,0f);
-                logoo4.transform.localPosition = new Vector3(196.5f,-183f,0f);*/
-                logo3.text = "ADVENTURE";
-                logo4.text = "";
-                anim.SetInteger("juego",1);
+                al1.color = new Color32(255,64,64,255);
+                log2.color = new Color32(229,213,74,255);
+                adv3.color = new Color32(255,64,64,255);
+                num4.color = new Color32(229,213,74,255);
+                adv3.text = "ADVENTURE";
+                num4.text = "";
+                menu.SetInteger("juego",1);
+                camaraanim.SetInteger("juego",1);
             }
             if(juego == 2) 
             {
-                logo1.color = new Color32(255,64,64,255);
-                logo2.color = new Color32(229,213,74,255);
-                logo3.color = new Color32(255,64,64,255);
-                logo4.color = new Color32(229,213,74,255);
-                /*logoo1.transform.localPosition = new Vector3(247.499939f,-30.0000076f,0f);
-                logoo2.transform.localPosition = new Vector3(211.349915f,30.9999924f,0f);
-                logoo3.transform.localPosition = new Vector3(214.5f,-112f,0f);
-                logoo4.transform.localPosition = new Vector3(196.5f,-229f,0f);*/
-                logo3.text = "ADVENTURE";
-                logo4.text = "2";
-                anim.SetInteger("juego",2);
+                al1.color = new Color32(255,64,64,255);
+                log2.color = new Color32(229,213,74,255);
+                adv3.color = new Color32(255,64,64,255);
+                num4.color = new Color32(229,213,74,255);
+                adv3.text = "ADVENTURE";
+                num4.text = "2";
+                menu.SetInteger("juego",2);
+                camaraanim.SetInteger("juego",2);
             }
             if(juego == 3) 
             {
-                logo1.color = new Color32(255,0,239,255);
-                logo2.color = new Color32(229,213,74,255);
-                logo3.color = new Color32(66,255,68,255);
-                logo4.color = new Color32(255,255,255,255);
-                /*logoo1.transform.localPosition = new Vector3(247.499939f,-83f,0f);
-                logoo2.transform.localPosition = new Vector3(211.349915f,82f,0f);
-                logoo3.transform.localPosition = new Vector3(211.5f,-143f,0f);
-                logoo4.transform.localPosition = new Vector3(453.5f,-23f,0f);*/
-                logo3.text = "ADVENTURE";
-                logo4.text = "3";
-                anim.SetInteger("juego",3);
+                al1.color = new Color32(255,0,239,255);
+                log2.color = new Color32(229,213,74,255);
+                adv3.color = new Color32(66,255,68,255);
+                num4.color = new Color32(255,255,255,255);
+                adv3.text = "ADVENTURE";
+                num4.text = "3";
+                menu.SetInteger("juego",3);
+                camaraanim.SetInteger("juego",3);
             }
             if(juego == 4) 
             {
-                logo1.color = new Color32(255,64,64,255);
-                logo2.color = new Color32(229,213,74,255);
-                logo3.color = new Color32(0,229,255,255);
-                logo4.color = new Color32(255,255,255,255);
-                /*logoo1.transform.localPosition = new Vector3(247.499939f,-83f,0f);
-                logoo2.transform.localPosition = new Vector3(211.349915f,82f,0f);
-                logoo3.transform.localPosition = new Vector3(211.5f,-143f,0f);
-                logoo4.transform.localPosition = new Vector3(453.5f,-23f,0f);*/
+                al1.color = new Color32(255,64,64,255);
+                log2.color = new Color32(229,213,74,255);
+                adv3.color = new Color32(0,229,255,255);
+                num4.color = new Color32(255,255,255,255);
                 if(manager.datosconfig.idioma == "es")
                 {
-                logo3.text = "trofeos";
+                adv3.text = "trofeos";
                 }
                 if(manager.datosconfig.idioma == "en")
                 {
-                logo3.text = "trophys";
+                adv3.text = "trophys";
                 }
                 if(manager.datosconfig.idioma == "cat")
                 {
-                logo3.text = "trofeus";
+                adv3.text = "trofeus";
                 }
-                logo4.text = "";
-                anim.SetInteger("juego",4);
+                num4.text = "";
+                menu.SetInteger("juego",4);
+                camaraanim.SetInteger("juego",4);
             }
             if(juego == 5) 
             {
-                logo1.color = new Color32(255,64,64,255);
-                logo2.color = new Color32(229,213,74,255);
-                logo3.color = new Color32(236,150,6,255);
-                logo4.color = new Color32(255,255,255,255);
-                /*logoo1.transform.localPosition = new Vector3(247.499939f,-83f,0f);
-                logoo2.transform.localPosition = new Vector3(211.349915f,82f,0f);
-                logoo3.transform.localPosition = new Vector3(211.5f,-143f,0f);
-                logoo4.transform.localPosition = new Vector3(453.5f,-23f,0f);*/
+                al1.color = new Color32(255,64,64,255);
+                log2.color = new Color32(229,213,74,255);
+                adv3.color = new Color32(236,150,6,255);
+                num4.color = new Color32(255,255,255,255);
                 if(manager.datosconfig.idioma == "es")
                 {
-                logo3.text = "opciones";
+                adv3.text = "opciones";
                 }
                 if(manager.datosconfig.idioma == "en")
                 {
-                logo3.text = "settings";
+                adv3.text = "settings";
                 }
                 if(manager.datosconfig.idioma == "cat")
                 {
-                logo3.text = "opcions";
+                adv3.text = "opcions";
                 }
-                logo4.text = "";
-                anim.SetInteger("juego",5);
+                num4.text = "";
+                menu.SetInteger("juego",5);
+                camaraanim.SetInteger("juego",5);
             }
             if(temp < 15)
             {temp += 1 * Time.deltaTime;}
-        }
+            if (temp2 <= 12)
+            {
+                temp2 += 1 * Time.deltaTime;
+            }
+            if(presskip == false && temp2 > 10)
+            {
+                skip();
+            }
     }
 }

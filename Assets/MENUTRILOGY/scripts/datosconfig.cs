@@ -28,5 +28,9 @@ public class datosconfig
 
     public float ui = 12;
     public float uislider = 4f;
+    public int largo;
+    public int altura;
+    public int ind;
+    public bool full;
 
 }

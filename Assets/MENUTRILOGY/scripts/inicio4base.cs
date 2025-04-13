@@ -40,7 +40,42 @@ public class inicio4base : MonoBehaviour
 	public Text conftxtcontroles;
 	public Text conftxtpost;
 	public Text conftxtdistancia;
+	public int gameL;
+	public int gameA;
+	public Toggle toggle;
+	public Dropdown resoL;
+	Resolution[] resolucionesL;
 
+	public void rescheck()
+	{
+		resolucionesL = Screen.resolutions;
+		resoL.ClearOptions();
+		List<string> opcionesR = new List<string>();
+		int resolucionAc = 0;
+
+		for(int i = 0;i < resolucionesL.Length;i++)
+		{
+			string opcion = resolucionesL[i].width + " X " + resolucionesL[i].width+"P";
+			opcionesR.Add(opcion);
+
+			if(Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height)
+			{
+				resolucionAc = manager.datosconfig.ind;
+			}
+			resoL.AddOptions(opcionesR);
+			resoL.value = resolucionAc;
+			resoL.RefreshShownValue();
+
+		}
+
+		
+	}
+	public void cambiarresoluciones(int inres)
+	{
+		manager.datosconfig.ind = inres;
+		Resolution resolucionD = resolucionesL[inres];
+		Screen.SetResolution(resolucionD.width,resolucionD.height,Screen.fullScreen);
+	}
 	public void idiomab()
 	{
 		manager.datosconfig.plat = plat;
@@ -137,11 +172,24 @@ public class inicio4base : MonoBehaviour
 		audiomixer.SetFloat ("SFXVolume",manager.datosconfig.sfx);
 		audiomixer.SetFloat ("UIVolume",manager.datosconfig.ui);
 		}
-
+		
 		plat = manager.datosconfig.plat;
 		idioma = manager.datosconfig.idioma;
 		postpro = manager.datosconfig.postpro;
 		distancia = manager.datosconfig.distancia;
+		if(manager.datosconfig.primera == true)
+		{
+			if(Screen.fullScreen)
+			{
+				toggle.isOn = true;
+			}
+			else
+			{
+				toggle.isOn = false;
+			}
+			Screen.SetResolution(manager.datosconfig.largo,manager.datosconfig.altura,Screen.fullScreen);
+		}
+		rescheck();
 
 		
 	}
@@ -174,7 +222,7 @@ public class inicio4base : MonoBehaviour
 			conftxtpost.text = "postprocesado: activado";
 		}
 		conftxtdistancia.text = "distancia: "+manager.datosconfig.distancia;
-		conftxtresolucion.text = "resolucion: ";
+		conftxtresolucion.text = "resolucion: " +Screen.width +" X "+ Screen.height+"P";
 
 		
 		
@@ -195,9 +243,16 @@ public class inicio4base : MonoBehaviour
 	}
 	public void aplicaresolucion()
     {
+		manager.datosconfig.altura = Screen.height;
+		manager.datosconfig.largo = Screen.width;
+		manager.datosconfig.full = Screen.fullScreen;
 		manager.guardar();
 		resolucionm.SetActive(false);
 		eventbase.SetActive(true);
+	}
+	public void resolucionfull0(bool pantallaCompleta)
+    {
+		Screen.fullScreen = pantallaCompleta;
 	}
 	public void aplicarcontroles()
     {
@@ -285,8 +340,18 @@ public class inicio4base : MonoBehaviour
 		manager.datosconfig.idioma = idioma;
 		manager.datosconfig.postpro = postpro;
 		manager.datosconfig.distancia = distancia;
+		
+		
+		if(manager.datosconfig.primera == false)
+		{
+			manager.datosconfig.full = Screen.fullScreen;
+			manager.datosconfig.altura = Screen.height;
+			manager.datosconfig.largo = Screen.width;
+			Screen.SetResolution(manager.datosconfig.largo,manager.datosconfig.altura,Screen.fullScreen);
+		}
 
 		manager.datosconfig.primera = true;
+		manager.guardar();
 		
 		if(manager.datosconfig.lastgame == 1)
 		{SceneManager.LoadScene("menutrilogy");}
@@ -296,6 +361,17 @@ public class inicio4base : MonoBehaviour
 		{SceneManager.LoadScene("menu_de_carga_al2");}
 		if(manager.datosconfig.lastgame == 4)
 		{SceneManager.LoadScene("carga_al3");}
+	}
+	public void aplicartodo()
+	{
+		aplicaridioma();
+		idi_es();
+		aplicaresolucion();
+		aplicarcontroles();
+		aplicarpost();
+		aplicardistancia();
+		aplicarmusica();
+		salir();
 	}
 
 

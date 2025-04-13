@@ -27,10 +27,10 @@ public class controlmusicabase : MonoBehaviour
         
         
         manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
-        slidermusica.value =  (manager.datosconfig.musicaslider);
-        slidervoz.value =  (manager.datosconfig.vozslider);
-        slidersfx.value =  (manager.datosconfig.sfxslider);
-        sliderui.value =  (manager.datosconfig.uislider);
+        slidermusica.value =  manager.datosconfig.musicaslider;
+        slidervoz.value =  manager.datosconfig.vozslider;
+        slidersfx.value =  manager.datosconfig.sfxslider;
+        sliderui.value =  manager.datosconfig.uislider;
         uia.Stop();
         sfxa.Stop();
         voza.Stop();

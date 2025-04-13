@@ -21,6 +21,8 @@ public class managerBASE : MonoBehaviour
     public Text boton8;
     public Text boton9;
 
+
+
 	[SerializeField]
 	public datosconfig datosconfig;
     [SerializeField]
