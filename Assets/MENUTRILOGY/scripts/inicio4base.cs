@@ -22,7 +22,6 @@ public class inicio4base : MonoBehaviour
 	public Text postt;
 	public Text distanciat;
 	public Resolution[] resoluciones;
-	public List<string> opcionesr = new List<string>();
 	public int opcres = 0;
 	public Text resolt;
 	public AudioMixer audiomixer;
@@ -44,44 +43,57 @@ public class inicio4base : MonoBehaviour
 	public int gameA;
 	public Toggle toggle;
 	public Dropdown resoL;
-	Resolution[] resolucionesL;
+	public Resolution[] Allres;
+	public List<Resolution> resolucion = new List<Resolution>();
+	public List<string> opcionesR = new List<string>();
+	public int C;
+
+	public int ind;
+	public bool full;
+	public int largo;
+	public int altura;
 
 	public void rescheck()
 	{
-		resolucionesL = Screen.resolutions;
+		Allres = Screen.resolutions;
 		resoL.ClearOptions();
-		List<string> opcionesR = new List<string>();
-		int resolucionAc = 0;
-
-		for(int i = 0;i < resolucionesL.Length;i++)
+		string opcion;
+		
+		foreach(Resolution resv in Allres)
 		{
-			string opcion = resolucionesL[i].width + " X " + resolucionesL[i].height+"P";
-			opcionesR.Add(opcion);
-
-			if(Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height)
+			opcion = resv.width.ToString() + " X " + resv.height.ToString()+"P";
+			if(!opcionesR.Contains(opcion))
 			{
-				resolucionAc = manager.datosconfig.ind;
+				
+
+				opcionesR.Add(opcion);
+				resolucion.Add(resv);
+
+				if(Screen.fullScreen && resv.width == Screen.currentResolution.width && resv.height == Screen.currentResolution.height)
+				{
+					ind = C;
+					resoL.value = ind;
+				}
+				C++;
 			}
-			resoL.AddOptions(opcionesR);
-			resoL.value = resolucionAc;
-			resoL.RefreshShownValue();
+			
 
 		}
+		resoL.AddOptions(opcionesR);
+
 
 		
 	}
-	public void cambiarresoluciones(int inres)
+	public void cambiarresoluciones()
 	{
-		manager.datosconfig.ind = inres;
-		Resolution resolucionD = resolucionesL[inres];
-		Screen.SetResolution(resolucionD.width,resolucionD.height,Screen.fullScreen);
+		if(Screen.width >= resolucion[resoL.value].width && Screen.height >= resolucion[resoL.value].height)
+		{
+			ind = resoL.value;
+			Screen.SetResolution(resolucion[ind].width,resolucion[ind].height,full);
+		}
 	}
 	public void idiomab()
 	{
-		manager.datosconfig.plat = plat;
-		manager.datosconfig.idioma = idioma;
-		manager.datosconfig.postpro = postpro;
-		manager.datosconfig.distancia = distancia;
 		eventbase.SetActive(false);
 		resolucionm.SetActive(false);
 		controlesm.SetActive(false);
@@ -92,10 +104,7 @@ public class inicio4base : MonoBehaviour
 	}
 	public void resolucionb()
 	{
-		manager.datosconfig.plat = plat;
-		manager.datosconfig.idioma = idioma;
-		manager.datosconfig.postpro = postpro;
-		manager.datosconfig.distancia = distancia;
+
 		eventbase.SetActive(false);
 		idiomam.SetActive(false);
 		controlesm.SetActive(false);
@@ -106,10 +115,7 @@ public class inicio4base : MonoBehaviour
 	}
 	public void controlesb()
 	{
-		manager.datosconfig.plat = plat;
-		manager.datosconfig.idioma = idioma;
-		manager.datosconfig.postpro = postpro;
-		manager.datosconfig.distancia = distancia;
+
 		eventbase.SetActive(false);
 		resolucionm.SetActive(false);
 		idiomam.SetActive(false);
@@ -120,10 +126,7 @@ public class inicio4base : MonoBehaviour
 	}
 	public void sonidob()
 	{
-		manager.datosconfig.plat = plat;
-		manager.datosconfig.idioma = idioma;
-		manager.datosconfig.postpro = postpro;
-		manager.datosconfig.distancia = distancia;
+
 		eventbase.SetActive(false);
 		resolucionm.SetActive(false);
 		controlesm.SetActive(false);
@@ -134,10 +137,7 @@ public class inicio4base : MonoBehaviour
 	}
 	public void postb()
 	{
-		manager.datosconfig.plat = plat;
-		manager.datosconfig.idioma = idioma;
-		manager.datosconfig.postpro = postpro;
-		manager.datosconfig.distancia = distancia;
+
 		eventbase.SetActive(false);
 		resolucionm.SetActive(false);
 		controlesm.SetActive(false);
@@ -148,10 +148,6 @@ public class inicio4base : MonoBehaviour
 	}
 	public void distanciab()
 	{
-		manager.datosconfig.plat = plat;
-		manager.datosconfig.idioma = idioma;
-		manager.datosconfig.postpro = postpro;
-		manager.datosconfig.distancia = distancia;
 		eventbase.SetActive(false);
 		resolucionm.SetActive(false);
 		controlesm.SetActive(false);
@@ -177,7 +173,26 @@ public class inicio4base : MonoBehaviour
 		idioma = manager.datosconfig.idioma;
 		postpro = manager.datosconfig.postpro;
 		distancia = manager.datosconfig.distancia;
-		if(manager.datosconfig.primera == true)
+		largo = manager.datosconfig.largo;
+    	altura = manager.datosconfig.altura;
+   		ind = manager.datosconfig.ind;
+    	full = manager.datosconfig.full;
+
+			if(manager.datosconfig.primera == false)
+			{
+			manager.datosconfig.plat = 1;
+
+			#if UNITY_ANDROID
+			manager.datosconfig.plat = 2;
+			#endif
+
+			manager.datosconfig.idioma = "es";
+			manager.datosconfig.postpro = 0;
+			manager.datosconfig.distancia = 200;
+			}
+			manager.datosconfig.lastgame = 1;
+
+		if(manager.datosconfig.primerares == true)
 		{
 			if(Screen.fullScreen)
 			{
@@ -187,9 +202,13 @@ public class inicio4base : MonoBehaviour
 			{
 				toggle.isOn = false;
 			}
-			Screen.SetResolution(manager.datosconfig.largo,manager.datosconfig.altura,Screen.fullScreen);
+			if(Screen.width >= manager.datosconfig.largo && Screen.height >= manager.datosconfig.altura)
+			{
+				Screen.SetResolution(manager.datosconfig.largo,manager.datosconfig.altura,manager.datosconfig.full);
+			}
 		}
 		rescheck();
+		resoL.value = ind;
 
 		
 	}
@@ -221,8 +240,8 @@ public class inicio4base : MonoBehaviour
 		{
 			conftxtpost.text = "postprocesado: activado";
 		}
-		conftxtdistancia.text = "distancia: "+manager.datosconfig.distancia;
-		conftxtresolucion.text = "resolucion: " +Screen.width +" X "+ Screen.height+"P";
+		conftxtdistancia.text = "distancia: "+distancia;
+		conftxtresolucion.text = "resolucion: " +resolucion[ind].width +" X "+resolucion[ind].height+"P";
 
 		
 		
@@ -232,84 +251,87 @@ public class inicio4base : MonoBehaviour
 	}
 	public void aplicaridioma()
     {
-		idioma = manager.datosconfig.idioma;
+		manager.datosconfig.idioma = idioma;
 		manager.guardar();
 		idiomam.SetActive(false);
 		eventbase.SetActive(true);
 	}
 	public void idi_es()
     {
-		manager.datosconfig.idioma = "es";
+		idioma = "es";
 	}
 	public void aplicaresolucion()
     {
-		manager.datosconfig.altura = Screen.height;
-		manager.datosconfig.largo = Screen.width;
-		manager.datosconfig.full = Screen.fullScreen;
+		manager.datosconfig.altura = altura;
+		manager.datosconfig.largo = largo;
+		manager.datosconfig.full = full;
+		manager.datosconfig.ind = ind;
+		manager.datosconfig.primerares = true;
 		manager.guardar();
 		resolucionm.SetActive(false);
 		eventbase.SetActive(true);
 	}
-	public void resolucionfull0(bool pantallaCompleta)
+	public void fullScreen_change()
     {
-		Screen.fullScreen = pantallaCompleta;
+		full = toggle.isOn;
+		Screen.fullScreen = full;
 	}
 	public void aplicarcontroles()
     {
-		plat = manager.datosconfig.plat;
+		manager.datosconfig.plat = plat;
 		manager.guardar();
 		controlesm.SetActive(false);
 		eventbase.SetActive(true);
 	}
 	public void con_fisico()
     {
-		manager.datosconfig.plat = 1;
+		plat = 1;
 	}
 	public void con_Touch()
     {
-		manager.datosconfig.plat = 2;
+		plat = 2;
 	}
 	public void aplicarpost()
     {
-		postpro = manager.datosconfig.postpro;
+		manager.datosconfig.postpro = postpro;
 		manager.guardar();
 		postm.SetActive(false);
 		eventbase.SetActive(true);
 	}
 	public void post_si()
     {
-		manager.datosconfig.postpro = 2;
+		postpro = 2;
 	}
 	public void post_no()
     {
-		manager.datosconfig.postpro = 1;
+		postpro = 1;
 	}
 	public void aplicardistancia()
     {
-		distancia = manager.datosconfig.distancia;
+		manager.datosconfig.distancia = distancia;
 		manager.guardar();
 		distanciam.SetActive(false);
 		eventbase.SetActive(true);
 	}
 	public void dist_200()
     {
-		manager.datosconfig.distancia = 200;
+		distancia = 200;
 	}
 	public void dist_500()
     {
-		manager.datosconfig.distancia = 500;
+		distancia = 500;
 	}
 	public void dist_1000()
     {
-		manager.datosconfig.distancia = 1000;
+		distancia = 1000;
 	}
 	public void dist_2000()
     {
-		manager.datosconfig.distancia = 2000;
+		distancia = 2000;
 	}
 	public void dist_3000()
     {
-		manager.datosconfig.distancia = 3000;
+		distancia = 3000;
 	}
 	public void aplicarmusica()
     {
@@ -336,21 +358,20 @@ public class inicio4base : MonoBehaviour
     }
 	public void salir()
     {
-		manager.datosconfig.plat = plat;
-		manager.datosconfig.idioma = idioma;
-		manager.datosconfig.postpro = postpro;
-		manager.datosconfig.distancia = distancia;
 		
 		
-		if(manager.datosconfig.primera == false)
+		
+		if(manager.datosconfig.primerares == false)
 		{
 			manager.datosconfig.full = Screen.fullScreen;
 			manager.datosconfig.altura = Screen.height;
 			manager.datosconfig.largo = Screen.width;
-			Screen.SetResolution(manager.datosconfig.largo,manager.datosconfig.altura,Screen.fullScreen);
+			manager.datosconfig.ind = ind;
+			Screen.SetResolution(manager.datosconfig.largo,manager.datosconfig.altura,manager.datosconfig.full);
 		}
 
 		manager.datosconfig.primera = true;
+		manager.datosconfig.primerares = true;
 		manager.guardar();
 		
 		if(manager.datosconfig.lastgame == 1)

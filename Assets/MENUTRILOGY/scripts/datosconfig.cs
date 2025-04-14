@@ -8,6 +8,7 @@ using System;
 public class datosconfig
 {
     public bool primera;
+    public bool primerares;
     public string idioma = "es";
     public int plat = 1;
     public int distancia = 1000;

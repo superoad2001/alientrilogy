@@ -186,7 +186,6 @@ MonoBehaviour:
   idiomat: {fileID: 0}
   postt: {fileID: 0}
   distanciat: {fileID: 0}
-  opcionesr: []
   opcres: 0
   resolt: {fileID: 0}
   audiomixer: {fileID: 24100000, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
@@ -208,6 +207,12 @@ MonoBehaviour:
   gameA: 0
   toggle: {fileID: 2126882874}
   resoL: {fileID: 1571429873}
+  opcionesR: []
+  C: 0
+  ind: 0
+  full: 0
+  largo: 0
+  altura: 0
   temp: 0
 --- !u!20 &23
 Camera:
@@ -1699,6 +1704,7 @@ MonoBehaviour:
   boton9: {fileID: 867143070}
   datosconfig:
     primera: 0
+    primerares: 0
     idioma: 
     plat: 0
     distancia: 0
@@ -2652,7 +2658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.13664317, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3095,7 +3101,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1600594188}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: controlmusicabase, Assembly-CSharp
         m_MethodName: controlvoz
         m_Mode: 0
@@ -3301,7 +3307,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1600594188}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: controlmusicabase, Assembly-CSharp
         m_MethodName: controlmusica
         m_Mode: 0
@@ -3912,6 +3918,7 @@ GameObject:
   - component: {fileID: 437094989}
   - component: {fileID: 437094991}
   - component: {fileID: 437094990}
+  - component: {fileID: 437094992}
   m_Layer: 5
   m_Name: op
   m_TagString: Untagged
@@ -3982,6 +3989,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437094988}
   m_CullTransparentMesh: 1
+--- !u!114 &437094992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437094988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a741a884998441c43b51d511519a0bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audiomixer: {fileID: 24100000, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
+  slidermusica: {fileID: 324698613}
+  slidervoz: {fileID: 276242238}
+  slidersfx: {fileID: 1053264947}
+  sliderui: {fileID: 1759395176}
+  sfxa: {fileID: 1189760636}
+  voza: {fileID: 365464846}
+  uia: {fileID: 2145478004}
+  test: 0
+  opciones: 0
+  manager: {fileID: 0}
+  disp: {fileID: 0}
+  dispt: 2
 --- !u!1 &440736608
 GameObject:
   m_ObjectHideFlags: 0
@@ -4455,8 +4487,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -21}
-  m_SizeDelta: {x: 0, y: 38}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -3.9999995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &467193255
 MonoBehaviour:
@@ -4471,7 +4503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+  m_Color: {r: 0.6509433, g: 0.7448416, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5008,7 +5040,7 @@ RectTransform:
   m_Father: {fileID: 1755897156}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5626,9 +5658,9 @@ RectTransform:
   m_Father: {fileID: 1981968157}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -17, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &734673447
 MonoBehaviour:
@@ -7667,7 +7699,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.0000667572}
-  m_SizeDelta: {x: 0, y: 28}
+  m_SizeDelta: {x: 0, y: 80}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1010524459
 GameObject:
@@ -8123,7 +8155,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1600594188}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: controlmusicabase, Assembly-CSharp
         m_MethodName: controlsfx
         m_Mode: 0
@@ -10361,7 +10393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1430488085
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10708,7 +10740,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 80}
+  m_SizeDelta: {x: 0, y: 61.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1523312274
 MonoBehaviour:
@@ -10756,19 +10788,7 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 21}
-        m_TargetAssemblyTypeName: inicio4base, Assembly-CSharp
-        m_MethodName: resolucionfull0
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
   m_IsOn: 1
 --- !u!1 &1530223741
 GameObject:
@@ -11026,7 +11046,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 21}
+        m_TargetAssemblyTypeName: inicio4base, Assembly-CSharp
+        m_MethodName: cambiarresoluciones
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1571429874
 MonoBehaviour:
@@ -11041,7 +11073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7201257, g: 0.81290936, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11229,7 +11261,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1600594187}
-  - component: {fileID: 1600594188}
   m_Layer: 5
   m_Name: sonido
   m_TagString: Untagged
@@ -11271,31 +11302,6 @@ RectTransform:
   m_AnchoredPosition: {x: -535.9363, y: 4.775201}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1600594188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1600594186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a741a884998441c43b51d511519a0bbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audiomixer: {fileID: 24100000, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  slidermusica: {fileID: 324698613}
-  slidervoz: {fileID: 276242238}
-  slidersfx: {fileID: 1053264947}
-  sliderui: {fileID: 1759395176}
-  sfxa: {fileID: 1189760636}
-  voza: {fileID: 365464846}
-  uia: {fileID: 2145478004}
-  test: 0
-  opciones: 0
-  manager: {fileID: 0}
-  disp: {fileID: 0}
-  dispt: 2
 --- !u!1 &1630189908
 GameObject:
   m_ObjectHideFlags: 0
@@ -12980,7 +12986,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1600594188}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: controlmusicabase, Assembly-CSharp
         m_MethodName: controlui
         m_Mode: 0
@@ -13937,8 +13943,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchoredPosition: {x: -28.9, y: 0}
+  m_SizeDelta: {x: 58.4, y: 55.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1943599152
 MonoBehaviour:
@@ -13953,7 +13959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.43552685, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -14450,7 +14456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1981968157
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14491,7 +14497,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 1
-  m_ScrollSensitivity: 400
+  m_ScrollSensitivity: 100
   m_Viewport: {fileID: 734673446}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 2139605670}
@@ -14515,7 +14521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7327044, g: 0.8067525, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -14574,8 +14580,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5, y: -21}
-  m_SizeDelta: {x: -30, y: 38}
+  m_AnchoredPosition: {x: 5, y: -1}
+  m_SizeDelta: {x: -30, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1988236378
 MonoBehaviour:
@@ -15470,10 +15476,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.7843138, g: 0.7843138, b: 0.7843138, a: 1}
+    m_HighlightedColor: {r: 0.54402506, g: 0.9624127, b: 1, a: 1}
+    m_PressedColor: {r: 0.09119487, g: 1, b: 0.7941708, a: 1}
+    m_SelectedColor: {r: 0.54509807, g: 0.9607844, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -15495,7 +15501,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 21}
+        m_TargetAssemblyTypeName: inicio4base, Assembly-CSharp
+        m_MethodName: fullScreen_change
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &2139605668
 GameObject:
