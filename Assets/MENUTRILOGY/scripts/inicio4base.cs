@@ -55,7 +55,7 @@ public class inicio4base : MonoBehaviour
 
 		for(int i = 0;i < resolucionesL.Length;i++)
 		{
-			string opcion = resolucionesL[i].width + " X " + resolucionesL[i].width+"P";
+			string opcion = resolucionesL[i].width + " X " + resolucionesL[i].height+"P";
 			opcionesR.Add(opcion);
 
 			if(Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height)
