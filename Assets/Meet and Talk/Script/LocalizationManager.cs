@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -252,7 +251,7 @@ namespace MeetAndTalk.Localization
         {
             for (int i = 0; i < lang.Count; i++)
             {
-                if (lang[i].ToString() == selectedLang.ToString())
+                if (lang[i] == selectedLang)
                 {
                     return (LocalizationEnum)(i + 1);
                 }

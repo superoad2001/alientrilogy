@@ -118,7 +118,7 @@ public class enemigo1boss_al1: MonoBehaviour
             objetivo1 = objetivo1b;
         }
         
-        if(detectar == true && desactivar == false)
+        if(detectar == true && desactivar == false && manager.controlene == true)
         {
             transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivo.transform.position.x,transform.position.y,objetivo.transform.position.z),vel * Time.deltaTime);
             Vector3 direction = objetivo1.position - transform.position;

@@ -8,7 +8,7 @@ public class inicio7base : MonoBehaviour
 {
 
 
-public float temp;
+    public float temp;
     private Controles controles;
 	public void Awake()
     {
@@ -73,7 +73,8 @@ public float temp;
     }
     public void alt()
     {
-        /*manager.moveson.Play();
+        //alien3
+        manager.moveson.Play();
         if(alter == 3)
         {
             alter = 1;
@@ -115,6 +116,36 @@ public float temp;
             logo3t.text = "ADVENTURE";
             logo4t.text = "3";
             anim.SetInteger("juego",3);
+        }
+        //alien2
+        /*manager.moveson.Play();
+        if(alter == 2)
+        {
+            alter = 1;
+            iniciojuego = 1;
+            finjuego = 21;
+            trofeo = 1;
+            logo1t.color = new Color32(255,64,64,255);
+            logo2t.color = new Color32(229,213,74,255);
+            logo3t.color = new Color32(255,64,64,255);
+            logo4t.color = new Color32(229,213,74,255);
+            logo3t.text = "ADVENTURE";
+            logo4t.text = "";
+            anim.SetInteger("juego",1);
+        }
+        else if(alter == 1)
+        {
+            alter = 2;
+            iniciojuego = 22;
+            finjuego = 51;
+            trofeo = 22;
+            logo1t.color = new Color32(255,64,64,255);
+            logo2t.color = new Color32(229,213,74,255);
+            logo3t.color = new Color32(255,64,64,255);
+            logo4t.color = new Color32(229,213,74,255);
+            logo3t.text = "ADVENTURE";
+            logo4t.text = "2";
+            anim.SetInteger("juego",2);
         }*/
     }
     // Start is called before the first frame update

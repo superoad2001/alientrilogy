@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
 using System;
+using UnityEngine.Audio;
+using MeetAndTalk.Localization;
 
 public class manager_al3: MonoBehaviour
 {
@@ -94,6 +96,7 @@ public class manager_al3: MonoBehaviour
 
 	public string repathtro;
 	public AudioSource moevson;
+	public AudioMixer audiomixer;
 	public void move()
 	{
 		moevson.Play();
@@ -262,9 +265,14 @@ public class manager_al3: MonoBehaviour
 		cargar();
 		cargartro();
 
-
+		LocalizationManager.Instance.selectedLang = datosconfig.sysidi;
 		
 		guardartro();
+
+		audiomixer.SetFloat ("MusicVolume",datosconfig.musica);
+		audiomixer.SetFloat ("EnvironmentVolume",datosconfig.voz);
+		audiomixer.SetFloat ("SFXVolume",datosconfig.sfx);
+		audiomixer.SetFloat ("UIVolume",datosconfig.ui);
 
 		
 		jugador1_al3 jugador = (jugador1_al3)FindFirstObjectByType(typeof(jugador1_al3));

@@ -6,12 +6,16 @@ using UnityEngine.Events;
 using TMPro;
 using System.Text.RegularExpressions;
 using MeetAndTalk.GlobalValue;
+using System;
+using System.Linq;
+using UnityEditor;
 
 namespace MeetAndTalk
 {
     public class DialogueUIManager : MonoBehaviour
     {
         public static DialogueUIManager Instance;
+        public string ID;
 
         [Header("Type Writing")]                    // Premium Feature
         public bool EnableTypeWriting = false;      // Premium Feature
@@ -26,17 +30,18 @@ namespace MeetAndTalk
         public GameObject dialogueCanvas;
         public Slider TimerSlider;
         public GameObject SkipButton;
-        public GameObject SpriteLeft;
-        public GameObject SpriteRight;
+        public GameObject GoBackButton;
 
         [Header("Dynamic Dialogue UI")]
-        public GameObject ButtonPrefab;
+        public List<ChoiceTypeButton> BtnPrefabs = new List<ChoiceTypeButton>();
         public GameObject ButtonContainer;
 
-        [Header("Hide IF Condition")]
-        public List<GameObject> HideIfLeftAvatarEmpty = new List<GameObject>();         // Premium Feature
-        public List<GameObject> HideIfRightAvatarEmpty = new List<GameObject>();        // Premium Feature
+        public List<PortraitUIClass> Portraits = new List<PortraitUIClass>();
+        public List<GameObject> HideIfAllAvatarEmpty = new List<GameObject>();          // Premium Feature
+        public List<GameObject> HideIfNoCharacter = new List<GameObject>();             // Premium Feature
         public List<GameObject> HideIfChoiceEmpty = new List<GameObject>();             // Premium Feature
+        public UnityEvent StartDialogueEvent;
+        public UnityEvent EndDialogueEvent;
 
         [HideInInspector] public string prefixText;
         [HideInInspector] public string fullText;
@@ -55,6 +60,31 @@ namespace MeetAndTalk
 
             // Premium Feature: Type-Writing
             if(EnableTypeWriting) lastTypingTime = Time.time;
+        }
+
+        private void OnValidate()
+        {
+            foreach (AdvancedChoiceType type in Enum.GetValues(typeof(AdvancedChoiceType)))
+            {
+                bool exists = BtnPrefabs.Exists(btn => btn.Type == type);
+                if (!exists)
+                {
+                    ChoiceTypeButton btn = new ChoiceTypeButton();
+                    btn.Type = type;
+                    BtnPrefabs.Add(btn);
+                }
+            }
+
+            foreach (PortraitPosition type in Enum.GetValues(typeof(PortraitPosition)))
+            {
+                bool exists = Portraits.Exists(btn => btn.Position == type);
+                if (!exists && type != PortraitPosition.None)
+                {
+                    PortraitUIClass btn = new PortraitUIClass();
+                    btn.Position = type;
+                    Portraits.Add(btn);
+                }
+            }
         }
 
         private void Update()
@@ -84,33 +114,125 @@ namespace MeetAndTalk
             {
                 textBox.text = prefixText+fullText;
             }
-        }
 
+            if (DialogueManager.Instance.listOfOpenedNodes.Count > 1) { GoBackButton.SetActive(true); }else { GoBackButton.SetActive(false); }
+        }
 
         /// <summary>
-        /// 
+        /// Funkcja 
         /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        public void UpdateAvatars(DialogueCharacterSO left, DialogueCharacterSO right, AvatarType emotion)
+        /// <param name="Character"></param>
+        /// <param name="DialogueText"></param>
+        public void DisplayText(DialogueCharacterSO Character, string DialogueText)
         {
-            foreach (GameObject obj in HideIfLeftAvatarEmpty)
+            // Get Actual Global Values 
+            GlobalValueManager manager = Resources.Load<GlobalValueManager>("GlobalValue");
+            manager.LoadFile();
+
+            // Multiline
+            if (showSeparateName && nameTextBox != null)
             {
-                if (obj != null) { obj.SetActive(left!=null); }
-            }
-            foreach (GameObject obj in HideIfRightAvatarEmpty)
-            {
-                if (obj != null) { obj.SetActive(right != null); }
+                // Reset Dialogue Text
+                ResetText("");
+
+                // Use Global Value [Dynamic] Name
+                if (Character != null && Character.UseGlobalValue) { SetSeparateName($"<color={Character.HexColor()}>{manager.Get<string>(GlobalValueType.String, Character.CustomizedName.ValueName)}: </color>"); }
+                
+                // Use Defualt Character Name
+                else if (Character != null) { SetSeparateName($"<color={Character.HexColor()}>{Character.characterName.Find(text => text.languageEnum == DialogueManager.Instance.localizationManager.SelectedLang()).LanguageGenericType}: </color>"); }
+                
+                // Don't Show Character Name
+                else { SetSeparateName(""); }
             }
 
-            if (left != null) { SpriteLeft.SetActive(true); SpriteLeft.GetComponent<Image>().sprite = left.GetAvatar(AvatarPosition.Left, emotion); }
-            else { SpriteLeft.SetActive(false); }
+            // Single
+            else
+            {
+                // Use Global Value [Dynamic] Name
+                if (Character != null && Character.UseGlobalValue) { ResetText($"<color={Character.HexColor()}>{manager.Get<string>(GlobalValueType.String, Character.CustomizedName.ValueName)}: </color>"); }
 
-            if (right != null) { SpriteRight.SetActive(true); SpriteRight.GetComponent<Image>().sprite = right.GetAvatar(AvatarPosition.Right, emotion); }
-            else { SpriteRight.SetActive(false); }
+                // Use Defualt Character Name
+                else if (Character != null) { ResetText($"<color={Character.HexColor()}>{Character.characterName.Find(text => text.languageEnum == DialogueManager.Instance.localizationManager.SelectedLang()).LanguageGenericType}: </color>"); }
+
+                // Don't Show Character Name
+                else { ResetText(""); }
+            }
+
+            SetFullText(DialogueText);
+
+            //
+            if (nameTextBox==null || nameTextBox.text == "") { foreach (GameObject obj in HideIfAllAvatarEmpty) obj.SetActive(true); }
+            else { foreach (GameObject obj in HideIfAllAvatarEmpty) obj.SetActive(false); }
         }
 
+        public void SetupPortraits(DialogueCharacterSO Character, PortraitPosition Position, string Emotion,
+            DialogueCharacterSO SecoundCharacter, PortraitPosition SecoundPosition, string SecoundEmotion)
+        {
+            // Reset All
+            foreach (PortraitUIClass portrait in Portraits)
+            {
+                foreach (GameObject obj in HideIfAllAvatarEmpty) { obj.SetActive(false); }
+                portrait.PortraitImage.SetActive(false);
+            }
+            bool any = false;
 
+            // Main Character
+            if (Character != null)
+            {
+                if (Position != PortraitPosition.None)
+                {
+                    PortraitUIClass ui = Portraits.Find(d => d.Position == Position);
+                    if (ui != null)
+                    {
+                        // Setup Portrait
+                        Sprite tmp = Character.Avatars.Find(d => Emotion == d.EmotionName)?.Portrait.SpriteImage;
+                        if (tmp != null)
+                        {
+                            ui.PortraitImage.SetActive(true);
+                            ui.PortraitImage.GetComponent<Image>().sprite = tmp;
+                            // Enable
+                            foreach (GameObject obj in ui.HideIfPortraitEmpty) obj.SetActive(true);
+                        }
+                        else
+                        {
+                            ui.PortraitImage.SetActive(false);
+                        }
+                    }
+                    any = true;
+                }
+            }
+
+            // Alt Character
+            if (SecoundCharacter != null)
+            {
+                if (SecoundPosition != PortraitPosition.None)
+                {
+                    PortraitUIClass ui = Portraits.Find(d => d.Position == SecoundPosition);
+                    if (ui != null)
+                    {
+                        Sprite tmp = SecoundCharacter.Avatars.Find(d => SecoundEmotion == d.EmotionName)?.Portrait.SpriteImage;
+                        if (tmp != null)
+                        {
+                            // Setup Portrait
+                            ui.PortraitImage.SetActive(true);
+                            ui.PortraitImage.GetComponent<Image>().sprite = SecoundCharacter.Avatars.Find(d => SecoundEmotion == d.EmotionName).Portrait.SpriteImage;
+
+                            // Enable
+                            foreach (GameObject obj in ui.HideIfPortraitEmpty) obj.SetActive(true);
+                        }
+                        else
+                        {
+                            ui.PortraitImage.SetActive(false);
+                        }
+                    }
+                    any = true;
+                }
+            }
+
+            // Show / Hide Elements
+            if (any) { foreach (GameObject obj in HideIfAllAvatarEmpty) obj.SetActive(true);  }
+            else { foreach (GameObject obj in HideIfAllAvatarEmpty) obj.SetActive(false); }
+        }
 
         public void ResetText(string prefix)
         {
@@ -147,7 +269,7 @@ namespace MeetAndTalk
             fullText = newText;
         }
 
-        public void SetButtons(List<string> _texts, List<UnityAction> _unityActions, bool showTimer)
+        public void SetButtons(List<string> _texts, List<UnityAction> _unityActions, List<AdvancedChoiceType> _type, bool showTimer)
         {
             // Hide If Choice Empty
             foreach (GameObject obj in HideIfChoiceEmpty)
@@ -163,11 +285,20 @@ namespace MeetAndTalk
 
             for (int i = 0; i < _texts.Count; i++)
             {
-                GameObject btn = Instantiate(ButtonPrefab, ButtonContainer.transform);
+                GameObject btn = null;
+
+                //Debug.Log(_type[i]);
+
+                ChoiceTypeButton tmpButton = BtnPrefabs.FirstOrDefault(d => d.Type == _type[i]);
+                GameObject tmp = tmpButton != null ? tmpButton.BtnPrefab : null;
+
+                btn = Instantiate(tmp, ButtonContainer.transform);
                 btn.transform.Find("Text").GetComponent<TMP_Text>().text = _texts[i];
                 btn.gameObject.SetActive(true);
                 btn.GetComponent<Button>().onClick = new Button.ButtonClickedEvent();
                 btn.GetComponent<Button>().onClick.AddListener(_unityActions[i]);
+
+
             }
 
             TimerSlider.gameObject.SetActive(showTimer);
@@ -200,6 +331,7 @@ namespace MeetAndTalk
         {
             return System.Text.RegularExpressions.Regex.Replace(input, "<.*?>", string.Empty);
         }
+
 
     }
 }

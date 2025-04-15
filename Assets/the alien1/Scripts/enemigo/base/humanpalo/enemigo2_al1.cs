@@ -184,7 +184,7 @@ public class enemigo2_al1: MonoBehaviour
             objetivo = objetivob;
             objetivo1 = objetivo1b;
         }
-        if(detectar == true && desactivar == false && enemigo == 1)
+        if(detectar == true && desactivar == false && enemigo == 1 && manager.controlene == true)
         {
             if(temp > 3f)
             {
@@ -205,7 +205,7 @@ public class enemigo2_al1: MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
             temp += 1 * Time.deltaTime;
         }
-        if(detectar == true && enemigo == 2 && desactivar == false)
+        if(detectar == true && enemigo == 2 && desactivar == false && manager.controlene == true)
         {
             if(temp > balafrec)
             {
@@ -242,7 +242,7 @@ public class enemigo2_al1: MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
             temp += 1 * Time.deltaTime;
         }
-        if(detectar == true && enemigo == 3 && desactivar == false)
+        if(detectar == true && enemigo == 3 && desactivar == false && manager.controlene == true)
         {
             if(enemigo3 == 1)
             {

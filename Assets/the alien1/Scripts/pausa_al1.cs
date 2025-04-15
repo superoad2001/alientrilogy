@@ -13,6 +13,8 @@ public class pausa_al1 : MonoBehaviour
     public GameObject pausa1;
     public int plataforma;
     private Controles controles;
+
+    public opcionespause oppau;
     
 	public void Awake()
     {
@@ -165,7 +167,9 @@ public class pausa_al1 : MonoBehaviour
             if(mapa == false)
             {
                 if(opciones1.activeSelf)
-                {aplicar2();}
+                {
+                    no_aplicar();
+                }
                 continuar();
             }
             else
@@ -233,26 +237,16 @@ public class pausa_al1 : MonoBehaviour
         normal.SetActive(false);
         opciones1.SetActive(true);
     }
-    public void aplicar2()
+    public void aplicar()
     {
-		manager2 = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
-		controlmusicabase controlslider = (controlmusicabase)FindFirstObjectByType(typeof(controlmusicabase));
-
-
-		audiomixer.GetFloat ("MusicVolume",out manager.datosconfig.musica);
-		manager2.datosconfig.musicaslider = controlslider.slidermusica.value;
-
-		audiomixer.GetFloat ("EnvironmentVolume",out manager.datosconfig.voz);
-		manager2.datosconfig.vozslider = controlslider.slidervoz.value;
-
-		audiomixer.GetFloat ("SFXVolume",out manager.datosconfig.sfx);
-		manager2.datosconfig.sfxslider = controlslider.slidersfx.value;
-
-		audiomixer.GetFloat ("UIVolume",out manager.datosconfig.ui);
-		manager2.datosconfig.uislider = controlslider.sliderui.value;
-
-		manager2.guardar();
-
+		oppau.aplicartodo();
+        opciones1.SetActive(false);
+        normal.SetActive(true);
+        
+		
+    }
+    public void no_aplicar()
+    {
         opciones1.SetActive(false);
         normal.SetActive(true);
         

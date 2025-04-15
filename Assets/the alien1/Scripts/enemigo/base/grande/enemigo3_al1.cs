@@ -200,7 +200,7 @@ public class enemigo3_al1: MonoBehaviour
             objetivo = objetivob;
             objetivo1 = objetivo1b;
         }
-        if(detectar == true  && desactivar == false)
+        if(detectar == true  && desactivar == false && manager.controlene == true)
         {
             if(temp > balafrec)
             {

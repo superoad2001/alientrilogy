@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 using System.IO;
 using System;
-
+using UnityEngine.Audio;
+using MeetAndTalk.Localization;
 // Token: 0x0200000B RID: 11
 public class manager_al1 : MonoBehaviour
 {
 	public manager_al1 manager;
 
 	public int trofeoact;
+	public bool controlene = true;
 	public float tempshow;
 	public bool actguardarub;
 	public string nivelu;
@@ -295,7 +297,7 @@ public class manager_al1 : MonoBehaviour
 
 
 
-
+	public AudioMixer audiomixer;
 	public void Awake() {
 	{
 
@@ -315,6 +317,17 @@ public class manager_al1 : MonoBehaviour
 		cargar();
 		cargarconfig();
 		cargartro();
+
+		audiomixer.SetFloat ("MusicVolume",datosconfig.musica);
+		audiomixer.SetFloat ("EnvironmentVolume",datosconfig.voz);
+		audiomixer.SetFloat ("SFXVolume",datosconfig.sfx);
+		audiomixer.SetFloat ("UIVolume",datosconfig.ui);
+
+		LocalizationManager.Instance.selectedLang = datosconfig.sysidi;
+		Debug.Log(LocalizationManager.Instance);
+
+		Debug.Log(LocalizationManager.Instance.SelectedLang());
+		
 
 		if(actguardarub == true)
 		{

@@ -152,7 +152,7 @@ public class enemigo1_al1: MonoBehaviour
             objetivo1 = objetivo1b;
         }
         
-        if(detectar == true && desactivar == false)
+        if(detectar == true && desactivar == false && manager.controlene == true)
         {
             transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position,vel * Time.deltaTime);
             Vector3 direction = objetivo1.position - transform.position;

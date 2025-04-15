@@ -9,73 +9,19 @@ namespace MeetAndTalk
     [CreateAssetMenu(menuName = "Dialogue/New Dialogue Character")]
     public class DialogueCharacterSO : ScriptableObject
     {
-        [Header("Name")]
+        //[Header("Name Settings")]
         public List<LanguageGeneric<string>> characterName;
         public GlobalValueClass CustomizedName;
         public bool UseGlobalValue = false;
-        [Header("Name Color")]
         public Color textColor = new Color(.8f, .8f, .8f, 1);
-        [Header("Avatars")]
-        public List<CharacterSprite> Avatars;
+
+        //[Header("Portrait Settings")]
+        public List<EmotionClass> Avatars = new List<EmotionClass>();
+        //public PortraitPosition DefualtPosition;
 
         public string HexColor()
         {
             return $"#{ColorUtility.ToHtmlStringRGB(textColor)}";
-        }
-
-        private void OnValidate()
-        {
-            //Validate();
-
-        }
-
-        public void Validate()
-        {
-#if UNITY_EDITOR
-            // Check if the game is not currently playing or about to change play mode
-            if (!EditorApplication.isPlayingOrWillChangePlaymode)
-            {
-                if (characterName != null)
-                {
-                    if (characterName.Count < System.Enum.GetNames(typeof(LocalizationEnum)).Length)
-                    {
-                        foreach (LocalizationEnum language in (LocalizationEnum[])System.Enum.GetValues(typeof(LocalizationEnum)))
-                        {
-                            characterName.Add(new LanguageGeneric<string>
-                            {
-                                languageEnum = language,
-                                LanguageGenericType = ""
-                            });
-                        }
-                    }
-                }
-                else
-                {
-                    characterName = new List<LanguageGeneric<string>>();
-                    Debug.Log("New");
-                }
-                if (Avatars != null)
-                {
-                    if (Avatars.Count < System.Enum.GetNames(typeof(AvatarType)).Length)
-                    {
-                        foreach (AvatarType language in (AvatarType[])System.Enum.GetValues(typeof(AvatarType)))
-                        {
-                            Avatars.Add(new CharacterSprite
-                            {
-                                type = language,
-                                LeftPosition = null,
-                                RightPosition = null,
-                            });
-                        }
-                    }
-                }
-                else
-                {
-                    Avatars = new List<CharacterSprite>();
-                    Debug.Log("New");
-                }
-            }
-#endif
         }
 
 
@@ -91,29 +37,26 @@ namespace MeetAndTalk
                 return "Can't find Localization Manager in scene";
             }
         }
-
-        public Sprite GetAvatar(AvatarPosition position, AvatarType type)
-        {
-            CharacterSprite cs = Avatars[(int)type];
-
-            if (position == AvatarPosition.Left) return cs.LeftPosition;
-            if (position == AvatarPosition.Right) return cs.RightPosition;
-
-            return null;
-        }
     }
 }
 
 [System.Serializable]
-public class CharacterSprite
+public class EmotionClass
 {
-    public AvatarType type;
-    public Sprite LeftPosition;
-    public Sprite RightPosition;
+    public string EmotionName;
+    public OrientationPortrait Portrait;
 }
 
 [System.Serializable]
-public enum AvatarPosition { None, Left, Right }
+public class OrientationPortrait
+{
+    public Sprite SpriteImage;
+}
 
-[System.Serializable]
-public enum AvatarType { Normal = 0, Smile = 1, Suprized = 2, Disgust = 3, Crying = 4, Angry = 5 }
+
+public enum PortraitPosition
+{
+    None = 0, 
+    Primary = 1,        PrimaryDist= 2,
+    Secoundary = 3,     SecoundaryDist = 4,
+}

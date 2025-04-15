@@ -7,6 +7,8 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEngine.UIElements;
+using System.Linq;
+using static MeetAndTalk.DialogueGetData;
 
 namespace MeetAndTalk.GlobalValue
 {
@@ -137,11 +139,13 @@ namespace MeetAndTalk.GlobalValue
             {
                 if (IntValues[i].ValueName == valueName)
                 {
+                    Debug.Log($"Test0 {valueName}");
                     if (operations == GlobalValueIFOperations.Equal) { return (IntValues[i].Value == (int)Convert.ChangeType(value, typeof(int))); }
+                    if (operations == GlobalValueIFOperations.NoEqual) { return (IntValues[i].Value != (int)Convert.ChangeType(value, typeof(int))); }
                     if (operations == GlobalValueIFOperations.Lesser) { return (IntValues[i].Value < (int)Convert.ChangeType(value, typeof(int))); }
                     if (operations == GlobalValueIFOperations.Greater) { return (IntValues[i].Value > (int)Convert.ChangeType(value, typeof(int))); }
                     if (operations == GlobalValueIFOperations.LesserOrEqual) { return (IntValues[i].Value <= (int)Convert.ChangeType(value, typeof(int))); }
-                    if (operations == GlobalValueIFOperations.GreaterOrEqual) { Debug.Log((int)Convert.ChangeType(IntValues[i].Value, typeof(int))); return (IntValues[i].Value >= (int)Convert.ChangeType(value, typeof(int))); }
+                    if (operations == GlobalValueIFOperations.GreaterOrEqual) { return (IntValues[i].Value >= (int)Convert.ChangeType(value, typeof(int))); }
                 }
             }
             for (int i = 0; i < FloatValues.Count; i++)
@@ -149,6 +153,7 @@ namespace MeetAndTalk.GlobalValue
                 if (FloatValues[i].ValueName == valueName)
                 {
                     if (operations == GlobalValueIFOperations.Equal) { return (FloatValues[i].Value == (float)Convert.ChangeType(value, typeof(float))); }
+                    if (operations == GlobalValueIFOperations.NoEqual) { return (FloatValues[i].Value != (float)Convert.ChangeType(value, typeof(float))); }
                     if (operations == GlobalValueIFOperations.Lesser) { return (FloatValues[i].Value < (float)Convert.ChangeType(value, typeof(float))); }
                     if (operations == GlobalValueIFOperations.Greater) { return (FloatValues[i].Value > (float)Convert.ChangeType(value, typeof(float))); }
                     if (operations == GlobalValueIFOperations.LesserOrEqual) { return (FloatValues[i].Value <= (float)Convert.ChangeType(value, typeof(float))); }
@@ -165,6 +170,21 @@ namespace MeetAndTalk.GlobalValue
             return false;
         }
 
+        public bool IfTrue(ConditionClass condition)
+        {
+            GlobalValueIFOperations operation = GlobalValueIFOperations.Equal;
+
+
+            if (condition.ValueName == "Always True") return true;
+
+            if(condition.Operator == "!=") { operation = GlobalValueIFOperations.NoEqual; }
+            if(condition.Operator == "<") { operation = GlobalValueIFOperations.Lesser; }
+            if(condition.Operator == ">") { operation = GlobalValueIFOperations.Greater; }
+            if(condition.Operator == "<=") { operation = GlobalValueIFOperations.LesserOrEqual; }
+            if(condition.Operator == ">=") { operation = GlobalValueIFOperations.GreaterOrEqual; }
+
+            return IfTrue(condition.ValueName, operation, condition.Value);
+        }
 
         public void Set(string name, string value)
         {
@@ -396,7 +416,7 @@ namespace MeetAndTalk.GlobalValue
     }
     public enum GlobalValueIFOperations
     {
-        Equal = 0, Lesser = 1, Greater = 2, LesserOrEqual = 3, GreaterOrEqual = 4
+        Equal = 0, NoEqual = 5, Lesser = 1, Greater = 2, LesserOrEqual = 3, GreaterOrEqual = 4
     }
 
     [System.Serializable]
@@ -443,8 +463,12 @@ namespace MeetAndTalk.GlobalValue
         public string ValueName;
         public GlobalValueOperations Operation;
         public string OperationValue;
+
     }
     #endregion
+
+
+
     #region Custom Property Drawer
 
 #if UNITY_EDITOR

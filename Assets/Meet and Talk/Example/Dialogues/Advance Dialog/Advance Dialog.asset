@@ -14,17 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllowDialogueSave: 0
   BlockingReopeningDialogue: 0
+  ResetSavedNodeOnChoice: 1
+  LimitChoiceOptionPerNode: 0
+  MaxChoiceOptionPerNode: 8
   NodeLinkDatas:
   - BaseNodeGuid: 4071364c-a83c-4bae-a1a7-d1d25f7f9a0b
     TargetNodeGuid: b4ca8450-991e-48b8-9576-7f584425f273
-  - BaseNodeGuid: f079d2a4-4fa6-43bb-b9c3-44107bbd693d
-    TargetNodeGuid: 8680110b-4a6e-422f-91d2-506642132d87
-  - BaseNodeGuid: 64fef6c4-198f-49c2-982b-06a108d85e39
-    TargetNodeGuid: 65747e49-4536-43bb-8ec0-fe4a70daef3b
-  - BaseNodeGuid: 64fef6c4-198f-49c2-982b-06a108d85e39
-    TargetNodeGuid: 5c66fcde-2dad-4f13-b48b-6606463da620
-  - BaseNodeGuid: 64fef6c4-198f-49c2-982b-06a108d85e39
-    TargetNodeGuid: 1d62c9f4-af31-46bd-a601-b76a98aae1a1
   - BaseNodeGuid: b4ca8450-991e-48b8-9576-7f584425f273
     TargetNodeGuid: 460d437e-e3d1-4f7f-b5c2-58e52161d1b7
   - BaseNodeGuid: 460d437e-e3d1-4f7f-b5c2-58e52161d1b7
@@ -51,6 +46,8 @@ MonoBehaviour:
     TargetNodeGuid: cbb451b5-d2f8-4f29-b95e-72ac6c0a88f4
   - BaseNodeGuid: 44c5d062-bf78-4c9a-ab7a-59df8ce8256f
     TargetNodeGuid: b35ac00b-b1b9-4f34-915f-ee4b546243f5
+  - BaseNodeGuid: f079d2a4-4fa6-43bb-b9c3-44107bbd693d
+    TargetNodeGuid: 8680110b-4a6e-422f-91d2-506642132d87
   - BaseNodeGuid: be0fc28f-c992-4b37-be0e-3757dd44fc0b
     TargetNodeGuid: bdae65e1-73a7-4104-a131-67da22680c2f
   - BaseNodeGuid: be0fc28f-c992-4b37-be0e-3757dd44fc0b
@@ -63,9 +60,32 @@ MonoBehaviour:
     TargetNodeGuid: 44c5d062-bf78-4c9a-ab7a-59df8ce8256f
   - BaseNodeGuid: 78cb0013-7d9b-4e4d-8586-cd5c1bb878ac
     TargetNodeGuid: acfd52b3-a13a-467d-a2e7-b7239ad29eb4
+  - BaseNodeGuid: 64fef6c4-198f-49c2-982b-06a108d85e39
+    TargetNodeGuid: 65747e49-4536-43bb-8ec0-fe4a70daef3b
+  - BaseNodeGuid: 64fef6c4-198f-49c2-982b-06a108d85e39
+    TargetNodeGuid: 5c66fcde-2dad-4f13-b48b-6606463da620
+  - BaseNodeGuid: 64fef6c4-198f-49c2-982b-06a108d85e39
+    TargetNodeGuid: 1d62c9f4-af31-46bd-a601-b76a98aae1a1
   DialogueChoiceNodeDatas:
   - NodeGuid: be0fc28f-c992-4b37-be0e-3757dd44fc0b
-    Position: {x: 3239.2, y: 514.4}
+    Position: {x: 3239, y: 514}
+    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
+    PortraitPosition: 0
+    Emotion: Left/Defualt
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
+    AudioClips:
+    - languageEnum: 0
+      LanguageGenericType: {fileID: 0}
+    - languageEnum: 1
+      LanguageGenericType: {fileID: 0}
+    TextType:
+    - languageEnum: 0
+      LanguageGenericType: Choose from four options
+    - languageEnum: 1
+      LanguageGenericType: "Wybierz jedn\u0105 z czterech opcji"
+    Duration: 5
     DialogueNodePorts:
     - PortGuid: bfe9f465-754a-47eb-983b-789e494f4f6a
       InputGuid: bdae65e1-73a7-4104-a131-67da22680c2f
@@ -99,22 +119,26 @@ MonoBehaviour:
         LanguageGenericType: Return to Start
       - languageEnum: 1
         LanguageGenericType: "Zacznijmy od pocz\u0105tku"
+  - NodeGuid: 78cb0013-7d9b-4e4d-8586-cd5c1bb878ac
+    Position: {x: 361, y: 102}
+    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
+    PortraitPosition: 0
+    Emotion: Left/Defualt
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
-    AvatarPos: 1
-    AvatarType: 0
     TextType:
     - languageEnum: 0
-      LanguageGenericType: Choose from four options
+      LanguageGenericType: Let's start with you remembering what a selector is.
     - languageEnum: 1
-      LanguageGenericType: "Wybierz jedn\u0105 z czterech opcji"
-    Duration: 5
-  - NodeGuid: 78cb0013-7d9b-4e4d-8586-cd5c1bb878ac
-    Position: {x: 360.8, y: 101.600006}
+      LanguageGenericType: "Mo\u017Ce zacznijmy czy pami\u0119tasz co to jest opcja
+        wyboru"
+    Duration: 2
     DialogueNodePorts:
     - PortGuid: f24b5fc1-6443-4b67-85fc-c448e43fc9d5
       InputGuid: 44c5d062-bf78-4c9a-ab7a-59df8ce8256f
@@ -132,33 +156,20 @@ MonoBehaviour:
         LanguageGenericType: No
       - languageEnum: 1
         LanguageGenericType: Nie
-    AudioClips:
-    - languageEnum: 0
-      LanguageGenericType: {fileID: 0}
-    - languageEnum: 1
-      LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
-    AvatarPos: 1
-    AvatarType: 0
-    TextType:
-    - languageEnum: 0
-      LanguageGenericType: Let's start with you remembering what a selector is.
-    - languageEnum: 1
-      LanguageGenericType: "Mo\u017Ce zacznijmy czy pami\u0119tasz co to jest opcja
-        wyboru"
-    Duration: 2
   DialogueNodeDatas:
   - NodeGuid: b4ca8450-991e-48b8-9576-7f584425f273
-    Position: {x: -112, y: 101.600006}
-    DialogueNodePorts: []
+    Position: {x: -112, y: 102}
+    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
+    PortraitPosition: 0
+    Emotion: Left/Defualt
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
-    AvatarPos: 1
-    AvatarType: 0
     TextType:
     - languageEnum: 0
       LanguageGenericType: Dialogues can also be created without using sounds
@@ -167,16 +178,18 @@ MonoBehaviour:
         d\u017Awi\u0119k\xF3w"
     Duration: 2
   - NodeGuid: 460d437e-e3d1-4f7f-b5c2-58e52161d1b7
-    Position: {x: 118.4, y: 101.600006}
-    DialogueNodePorts: []
+    Position: {x: 118, y: 102}
+    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
+    PortraitPosition: 0
+    Emotion: Left/Defualt
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
-    AvatarPos: 1
-    AvatarType: 0
     TextType:
     - languageEnum: 0
       LanguageGenericType: It's now time to test more advanced features.
@@ -184,16 +197,18 @@ MonoBehaviour:
       LanguageGenericType: "To teraz czas przetestowa\u0107 bardziej zaawansone funkcje."
     Duration: 2
   - NodeGuid: b35ac00b-b1b9-4f34-915f-ee4b546243f5
-    Position: {x: 1146.4, y: 101.600006}
-    DialogueNodePorts: []
+    Position: {x: 1146, y: 102}
+    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
+    PortraitPosition: 0
+    Emotion: Left/Defualt
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
-    AvatarPos: 1
-    AvatarType: 0
     TextType:
     - languageEnum: 0
       LanguageGenericType: Well now something more interesting
@@ -201,16 +216,18 @@ MonoBehaviour:
       LanguageGenericType: "Dobrze to teraz co\u015B bardziej ciekawego"
     Duration: 2
   - NodeGuid: cbb451b5-d2f8-4f29-b95e-72ac6c0a88f4
-    Position: {x: 920.8, y: 101.600006}
-    DialogueNodePorts: []
+    Position: {x: 921, y: 102}
+    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
+    PortraitPosition: 0
+    Emotion: Left/Defualt
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
-    AvatarPos: 1
-    AvatarType: 0
     TextType:
     - languageEnum: 0
       LanguageGenericType: I know you've already tested it and know how it works
@@ -219,16 +236,18 @@ MonoBehaviour:
         jak to dzia\u0142a"
     Duration: 2
   - NodeGuid: 5102739e-52e3-4088-b8a3-e2f5da2630cf
-    Position: {x: 2162.4, y: 101.600006}
-    DialogueNodePorts: []
+    Position: {x: 2162, y: 102}
+    Character: {fileID: 11400000, guid: 6c7c2303cba66254eb2469508683ee61, type: 2}
+    PortraitPosition: 0
+    Emotion: Left/Defualt
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: 6c7c2303cba66254eb2469508683ee61, type: 2}
-    AvatarPos: 2
-    AvatarType: 0
     TextType:
     - languageEnum: 0
       LanguageGenericType: True, I displayed the information in the console
@@ -236,16 +255,18 @@ MonoBehaviour:
       LanguageGenericType: "Prawda, wy\u015Bwietlila mi si\u0119 informacja w konsoli"
     Duration: 2
   - NodeGuid: 8680110b-4a6e-422f-91d2-506642132d87
-    Position: {x: 1696, y: 101.600006}
-    DialogueNodePorts: []
+    Position: {x: 1696, y: 102}
+    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
+    PortraitPosition: 0
+    Emotion: Left/Defualt
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
-    AvatarPos: 1
-    AvatarType: 0
     TextType:
     - languageEnum: 0
       LanguageGenericType: Now, a message should appear in the console, it was created
@@ -255,16 +276,18 @@ MonoBehaviour:
         zosta\u0142a ona stworzona za pomoc\u0105 \"Event Node\""
     Duration: 4
   - NodeGuid: 72a1b969-53f4-4aab-9ad9-068c9c267c83
-    Position: {x: 1924.8, y: 101.600006}
-    DialogueNodePorts: []
+    Position: {x: 1925, y: 102}
+    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
+    PortraitPosition: 0
+    Emotion: Left/Defualt
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
-    AvatarPos: 1
-    AvatarType: 0
     TextType:
     - languageEnum: 0
       LanguageGenericType: It allows you to perform functions caked in Events (of
@@ -275,16 +298,18 @@ MonoBehaviour:
         do zamierzanego efektu)"
     Duration: 5
   - NodeGuid: 65747e49-4536-43bb-8ec0-fe4a70daef3b
-    Position: {x: 2719.2, y: 101.600006}
-    DialogueNodePorts: []
+    Position: {x: 2719, y: 102}
+    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
+    PortraitPosition: 0
+    Emotion: Left/Defualt
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
-    AvatarPos: 1
-    AvatarType: 0
     TextType:
     - languageEnum: 0
       LanguageGenericType: You have not selected anything, but using "End - Go Back"
@@ -294,16 +319,18 @@ MonoBehaviour:
         - Go Back\" powr\xF3cimy do czasowego wyboru (Dialog przed tym)"
     Duration: 3
   - NodeGuid: 9d851e89-cb76-41e4-b33d-d8559fadbbd1
-    Position: {x: 2992, y: 514.4}
-    DialogueNodePorts: []
+    Position: {x: 2992, y: 514}
+    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
+    PortraitPosition: 0
+    Emotion: Left/Defualt
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
-    AvatarPos: 1
-    AvatarType: 0
     TextType:
     - languageEnum: 0
       LanguageGenericType: This is now the last for this moment, we will test different
@@ -313,16 +340,18 @@ MonoBehaviour:
         r\xF3\u017Cne rodzaje \"End Node\""
     Duration: 10
   - NodeGuid: 5c66fcde-2dad-4f13-b48b-6606463da620
-    Position: {x: 2719.2, y: 424}
-    DialogueNodePorts: []
+    Position: {x: 2719, y: 424}
+    Character: {fileID: 11400000, guid: 6c7c2303cba66254eb2469508683ee61, type: 2}
+    PortraitPosition: 0
+    Emotion: Left/Defualt
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: 6c7c2303cba66254eb2469508683ee61, type: 2}
-    AvatarPos: 2
-    AvatarType: 0
     TextType:
     - languageEnum: 0
       LanguageGenericType: I choose the First Option
@@ -330,16 +359,18 @@ MonoBehaviour:
       LanguageGenericType: "Wybieram Pierwsz\u0105 Opcje"
     Duration: 10
   - NodeGuid: 1d62c9f4-af31-46bd-a601-b76a98aae1a1
-    Position: {x: 2719.2, y: 703.2}
-    DialogueNodePorts: []
+    Position: {x: 2719, y: 703}
+    Character: {fileID: 11400000, guid: 6c7c2303cba66254eb2469508683ee61, type: 2}
+    PortraitPosition: 0
+    Emotion: Left/Defualt
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: 6c7c2303cba66254eb2469508683ee61, type: 2}
-    AvatarPos: 2
-    AvatarType: 0
     TextType:
     - languageEnum: 0
       LanguageGenericType: I choose the Second Option
@@ -347,16 +378,18 @@ MonoBehaviour:
       LanguageGenericType: "Wybieram Drug\u0105 Opcje"
     Duration: 10
   - NodeGuid: acfd52b3-a13a-467d-a2e7-b7239ad29eb4
-    Position: {x: 688, y: 75.2}
-    DialogueNodePorts: []
+    Position: {x: 688, y: 75}
+    Character: {fileID: 11400000, guid: 6c7c2303cba66254eb2469508683ee61, type: 2}
+    PortraitPosition: 0
+    Emotion: Left/Defualt
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: 6c7c2303cba66254eb2469508683ee61, type: 2}
-    AvatarPos: 2
-    AvatarType: 0
     TextType:
     - languageEnum: 0
       LanguageGenericType: No, I don't remember
@@ -364,16 +397,18 @@ MonoBehaviour:
       LanguageGenericType: "Nie, nie pami\u0119tam"
     Duration: 1
   - NodeGuid: 44c5d062-bf78-4c9a-ab7a-59df8ce8256f
-    Position: {x: 688, y: 365.6}
-    DialogueNodePorts: []
+    Position: {x: 688, y: 366}
+    Character: {fileID: 11400000, guid: 6c7c2303cba66254eb2469508683ee61, type: 2}
+    PortraitPosition: 0
+    Emotion: Left/Defualt
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: 6c7c2303cba66254eb2469508683ee61, type: 2}
-    AvatarPos: 2
-    AvatarType: 0
     TextType:
     - languageEnum: 0
       LanguageGenericType: Of course I remember
@@ -382,40 +417,18 @@ MonoBehaviour:
     Duration: 1
   TimerChoiceNodeDatas:
   - NodeGuid: 64fef6c4-198f-49c2-982b-06a108d85e39
-    Position: {x: 2396, y: 101.600006}
-    DialogueNodePorts:
-    - PortGuid: 40d86e38-6e4b-4f33-8be3-567fd963f2c7
-      InputGuid: 65747e49-4536-43bb-8ec0-fe4a70daef3b
-      OutputGuid: 64fef6c4-198f-49c2-982b-06a108d85e39
-      TextLanguage:
-      - languageEnum: 0
-        LanguageGenericType: Choice 01
-      - languageEnum: 1
-        LanguageGenericType: Choice 01
-    - PortGuid: 60982cb2-2020-4c83-9a13-48cf981a835f
-      InputGuid: 5c66fcde-2dad-4f13-b48b-6606463da620
-      OutputGuid: 64fef6c4-198f-49c2-982b-06a108d85e39
-      TextLanguage:
-      - languageEnum: 0
-        LanguageGenericType: Option One
-      - languageEnum: 1
-        LanguageGenericType: Opcja Pierwsza
-    - PortGuid: 7fc177f5-dd1a-4538-9e73-6698da815ea3
-      InputGuid: 1d62c9f4-af31-46bd-a601-b76a98aae1a1
-      OutputGuid: 64fef6c4-198f-49c2-982b-06a108d85e39
-      TextLanguage:
-      - languageEnum: 0
-        LanguageGenericType: Option Two
-      - languageEnum: 1
-        LanguageGenericType: Opcja Druga
+    Position: {x: 2396, y: 102}
+    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
+    PortraitPosition: 0
+    Emotion: Left/Defualt
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: 52bf713ca2c3ac34995eb97495258ba0, type: 2}
-    AvatarPos: 1
-    AvatarType: 0
     TextType:
     - languageEnum: 0
       LanguageGenericType: It's now time for timed selection, you must select any
@@ -426,31 +439,38 @@ MonoBehaviour:
         kt\xF3r\u0105\u015B z opcji w okre\u015Blonym czasie, je\u017Celi nie wybierzesz
         wykona si\u0119 zdefiniowana niewidoczna opcja"
     Duration: 4
+    ShowTimer: 1
     time: 10
+    DialogueNodePorts: []
   EndNodeDatas:
   - NodeGuid: 7fc42e1f-64f4-4b95-9668-22784b152488
-    Position: {x: 2940.8, y: 101.600006}
+    Position: {x: 2941, y: 102}
     EndNodeType: 2
     Dialogue: {fileID: 0}
+    startID: 
   - NodeGuid: bdae65e1-73a7-4104-a131-67da22680c2f
-    Position: {x: 3574.4, y: 514.4}
+    Position: {x: 3574, y: 514}
     EndNodeType: 0
     Dialogue: {fileID: 0}
+    startID: 
   - NodeGuid: 9588b67b-949b-4274-b205-798a32268e38
-    Position: {x: 3574.4, y: 628}
+    Position: {x: 3574, y: 628}
     EndNodeType: 1
     Dialogue: {fileID: 0}
+    startID: 
   - NodeGuid: b1b95e76-ff69-4b13-9df1-22e9ac91b094
-    Position: {x: 3574.4, y: 748}
+    Position: {x: 3574, y: 748}
     EndNodeType: 2
     Dialogue: {fileID: 0}
+    startID: 
   - NodeGuid: dc9fe3f6-c34e-4ee1-8739-ada9030bf239
-    Position: {x: 3574.4, y: 880}
+    Position: {x: 3574, y: 880}
     EndNodeType: 3
     Dialogue: {fileID: 0}
+    startID: 
   EventNodeDatas:
   - NodeGuid: f079d2a4-4fa6-43bb-b9c3-44107bbd693d
-    Position: {x: 1371.2, y: 101.600006}
+    Position: {x: 1371, y: 102}
     EventScriptableObjects:
     - DialogueEventSO: {fileID: 11400000, guid: 0993d14b67e95464fa42aa9fdea1e15e, type: 2}
     - DialogueEventSO: {fileID: 11400000, guid: 18cd4edbf6ff0994988cad160ea6fe5b, type: 2}
@@ -460,12 +480,17 @@ MonoBehaviour:
     - DialogueEventSO: {fileID: 0}
   StartNodeDatas:
   - NodeGuid: 4071364c-a83c-4bae-a1a7-d1d25f7f9a0b
-    Position: {x: -215.2, y: 101.600006}
+    Position: {x: -294, y: 102}
     startID: 
   RandomNodeDatas: []
   CommandNodeDatas:
   - NodeGuid: 3dd84827-9852-4c1c-8853-3045b2552c93
-    Position: {x: 236, y: -1.5999985}
+    Position: {x: 361, y: 14}
     commmand: "This Dialogue Shows Basic Capabilities \nEvent Node and Timer Choice
       Node"
   IfNodeDatas: []
+  AdvancedIFNodeDatas: []
+  AdvancedChoiceNodeDatas: []
+  AdvancedTimeChoiceNodeDatas: []
+  ResetSavedNodeDatas: []
+  MusicNodeDatas: []

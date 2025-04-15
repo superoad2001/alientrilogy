@@ -33,5 +33,6 @@ public class datosconfig
     public int altura;
     public int ind;
     public bool full;
+    public SystemLanguage sysidi = SystemLanguage.Spanish;
 
 }

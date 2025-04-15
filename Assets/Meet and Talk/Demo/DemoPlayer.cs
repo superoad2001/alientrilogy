@@ -1,3 +1,4 @@
+using MeetAndTalk.Localization;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,19 +11,6 @@ namespace MeetAndTalk.Demo
     [RequireComponent(typeof(CharacterController))]
     public class DemoPlayer : MonoBehaviour
     {
-        private Controles controles;
-        public void Awake()
-        {
-            controles = new Controles();
-        }
-        private void OnEnable() 
-        {
-            controles.Enable();
-        }
-        private void OnDisable() 
-        {
-            controles.Disable();
-        }
         [Header("Movement")]
         public float walkSpeed = 6f;
         public float runSpeed = 12f;
@@ -35,7 +23,6 @@ namespace MeetAndTalk.Demo
         public float lookXLimit = 45f;
 
         [Header("Localization")]
-        //public MeetAndTalk.Localization.LocalizationManager localizationManager;
         public TMPro.TMP_Text Lanuage;
 
         [Header("Interaction")]
@@ -73,16 +60,16 @@ namespace MeetAndTalk.Demo
                 Vector3 right = transform.TransformDirection(Vector3.right);
 
                 // Press Left Shift to run
-                bool isRunning = controles.al3.rt.ReadValue<float>() > 0;
-                float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * controles.al3.lvertical.ReadValue<float>() : 0;
-                float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * controles.al3.lhorizontal.ReadValue<float>(): 0;
+                bool isRunning = Input.GetKey(KeyCode.LeftShift);
+                float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0;
+                float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
                 float movementDirectionY = moveDirection.y;
                 moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
                 #endregion
 
                 #region Handles Jumping
-                if (controles.al3.a.ReadValue<float>() > 0 && canMove && characterController.isGrounded)
+                if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
                 {
                     moveDirection.y = jumpPower;
                 }
@@ -103,10 +90,10 @@ namespace MeetAndTalk.Demo
 
                 if (canMove)
                 {
-                    rotationX += -controles.al3.rvertical.ReadValue<float>() * lookSpeed;
+                    rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
                     rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
                     playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-                    transform.rotation *= Quaternion.Euler(0, controles.al3.rhorizontal.ReadValue<float>() * lookSpeed, 0);
+                    transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
                 }
 
                 #endregion
@@ -121,14 +108,16 @@ namespace MeetAndTalk.Demo
 
             CastInteractionRay();
 
-            Lanuage.text = $"Language:\n<size=64>{Localization.LocalizationManager.Instance.SelectedLang()}";
-            if (controles.al3.rb.ReadValue<float>() > 0)
+            LocalizationManager lm = Resources.Load("Languages") as LocalizationManager;
+
+            Lanuage.text = $"{lm.SelectedLang()}";
+            if (Input.GetKeyDown(KeyCode.U))
             {
-                Localization.LocalizationManager.Instance.selectedLang = SystemLanguage.English;
+                lm.selectedLang = SystemLanguage.English;
             }
-            if (controles.al3.lb.ReadValue<float>() > 0)
+            if (Input.GetKeyDown(KeyCode.P))
             {
-                Localization.LocalizationManager.Instance.selectedLang = SystemLanguage.Polish;
+                lm.selectedLang = SystemLanguage.Polish;
             }
         }
 
@@ -146,7 +135,7 @@ namespace MeetAndTalk.Demo
                     InteractionUI.SetActive(true);
                     InteractionText.text = hit.collider.gameObject.GetComponent<DemoInteraction>().InteractionText;
 
-                    if(controles.al3.x.ReadValue<float>() > 0)
+                    if(Input.GetKeyDown(KeyCode.E))
                     {
                         hit.transform.SendMessage("Interaction", SendMessageOptions.DontRequireReceiver);
                     }

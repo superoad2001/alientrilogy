@@ -17,6 +17,7 @@ public class lallegada_al1 : MonoBehaviour
 	private Controles controles;
 	public DialogueManager menuoff;
 	public DialogueContainerSO DialogueSO;
+	public string idcin = "0";
 	public void Awake()
     {
         controles = new Controles();
@@ -32,7 +33,7 @@ public class lallegada_al1 : MonoBehaviour
 	// Token: 0x06000038 RID: 56 RVA: 0x00003A94 File Offset: 0x00001C94
 	private void Start()
 	{
-		menuoff.StartDialogue(DialogueSO,"cin");
+		menuoff.StartDialogue(DialogueSO,idcin);
 	}
 
 	// Token: 0x06000039 RID: 57 RVA: 0x00003A96 File Offset: 0x00001C96

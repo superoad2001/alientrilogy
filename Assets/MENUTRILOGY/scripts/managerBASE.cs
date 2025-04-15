@@ -5,6 +5,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System;
+using UnityEngine.Audio;
+using MeetAndTalk.Localization;
 
 public class managerBASE : MonoBehaviour
 {
@@ -20,6 +22,7 @@ public class managerBASE : MonoBehaviour
 	public Text boton7;
     public Text boton8;
     public Text boton9;
+    public AudioMixer audiomixer;
 
 
 
@@ -154,6 +157,13 @@ public class managerBASE : MonoBehaviour
 
 		cargar();
         cargartro();
+
+        LocalizationManager.Instance.selectedLang = datosconfig.sysidi;
+
+        audiomixer.SetFloat ("MusicVolume",datosconfig.musica);
+		audiomixer.SetFloat ("EnvironmentVolume",datosconfig.voz);
+		audiomixer.SetFloat ("SFXVolume",datosconfig.sfx);
+		audiomixer.SetFloat ("UIVolume",datosconfig.ui);
 
 
         if(datosconfig.idioma == "es")

@@ -28,6 +28,8 @@ namespace MeetAndTalk.Settings
         [SerializeField] public string DeeplApiKey;
         [SerializeField] public string GoogleTranslateApiKey;
 
+        [HideInInspector] public bool ShowMinimap = true;
+
         private static MeetAndTalkSettings _instance;
         public static MeetAndTalkSettings Instance
         {

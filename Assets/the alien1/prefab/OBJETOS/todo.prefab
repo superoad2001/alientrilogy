@@ -253,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   trofeoact: 7
+  controlene: 1
   tempshow: 0
   actguardarub: 1
   nivelu: mundo1_al1
@@ -399,6 +400,8 @@ MonoBehaviour:
     recordnv14: 888
     recordnv15: 888
   datosconfig:
+    primera: 0
+    primerares: 0
     idioma: 
     plat: 0
     distancia: 0
@@ -406,7 +409,6 @@ MonoBehaviour:
     resoluciones: 0
     lastgame: 0
     master: -21
-    masterslider: 0.5
     musica: -6
     musicaslider: 0.5
     sfx: 9
@@ -415,6 +417,11 @@ MonoBehaviour:
     vozslider: 5
     ui: 12
     uislider: 4
+    largo: 0
+    altura: 0
+    ind: 0
+    full: 0
+    sysidi: 34
   datostrof:
     completaalien1v: 0
     completaalien1m: 0
@@ -519,10 +526,15 @@ MonoBehaviour:
     alien3planeta15nave: 0
     alien3planeta16nave: 0
     alien3planeta17nave: 0
+  datosslot:
+    datos1slot: 1
+    newgameplus1: 0
   repathtro: 
+  repathslot: 
   moveson: {fileID: 0}
   mision: 
   mision2: 
+  audiomixer: {fileID: 24100000, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   mundos: 1
   jugador1: {fileID: 0}
   jefe1: {fileID: 0}
@@ -793,6 +805,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7168011168647084560}
   - {fileID: 3790156988927926310}
   - {fileID: 5907898223643441148}
   - {fileID: 6407206479330931748}
@@ -1266,6 +1279,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2399440758740682158}
     - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
+      propertyPath: menuoff
+      value: 
+      objectReference: {fileID: 965333444389097974}
+    - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: numpoct
       value: 
       objectReference: {fileID: 1180031617511785612}
@@ -1281,6 +1298,10 @@ PrefabInstance:
       propertyPath: select1
       value: 
       objectReference: {fileID: 7273693493274332110}
+    - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
+      propertyPath: menushow
+      value: 
+      objectReference: {fileID: 1187566702572847719}
     - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: niveluit
       value: 
@@ -2524,6 +2545,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7644745780462722608}
     m_Modifications:
+    - target: {fileID: 2922850218695459063, guid: 6b0353c72221023488363aef0e26872b, type: 3}
+      propertyPath: m_Pitch
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922850218695459063, guid: 6b0353c72221023488363aef0e26872b, type: 3}
+      propertyPath: m_Volume
+      value: 0.514
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922850218695459063, guid: 6b0353c72221023488363aef0e26872b, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: aadb11223d7fa2f4bae9d137f5462bdc, type: 3}
+    - target: {fileID: 2922850218695459063, guid: 6b0353c72221023488363aef0e26872b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: aadb11223d7fa2f4bae9d137f5462bdc, type: 3}
     - target: {fileID: 5793328801247398944, guid: 6b0353c72221023488363aef0e26872b, type: 3}
       propertyPath: m_Name
       value: danoenemigosonido
@@ -2679,10 +2716,97 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfbac84f578601b4b8bb79e512c8018f, type: 3}
+--- !u!95 &1187566702572847719 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6804180771425086253, guid: cfbac84f578601b4b8bb79e512c8018f, type: 3}
+  m_PrefabInstance: {fileID: 5626785678357047626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5480000284950410182 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 151579749435054732, guid: cfbac84f578601b4b8bb79e512c8018f, type: 3}
   m_PrefabInstance: {fileID: 5626785678357047626}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5821695348322770733
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7644745780462722608}
+    m_Modifications:
+    - target: {fileID: 621406110542854864, guid: f5f67f4c0b95ea347a9310ad80f40b7c, type: 3}
+      propertyPath: m_Name
+      value: Meet And Talk (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725379852982773053, guid: f5f67f4c0b95ea347a9310ad80f40b7c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725379852982773053, guid: f5f67f4c0b95ea347a9310ad80f40b7c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725379852982773053, guid: f5f67f4c0b95ea347a9310ad80f40b7c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725379852982773053, guid: f5f67f4c0b95ea347a9310ad80f40b7c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725379852982773053, guid: f5f67f4c0b95ea347a9310ad80f40b7c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725379852982773053, guid: f5f67f4c0b95ea347a9310ad80f40b7c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725379852982773053, guid: f5f67f4c0b95ea347a9310ad80f40b7c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725379852982773053, guid: f5f67f4c0b95ea347a9310ad80f40b7c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725379852982773053, guid: f5f67f4c0b95ea347a9310ad80f40b7c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725379852982773053, guid: f5f67f4c0b95ea347a9310ad80f40b7c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750716295316983515, guid: f5f67f4c0b95ea347a9310ad80f40b7c, type: 3}
+      propertyPath: musicAudioSource
+      value: 
+      objectReference: {fileID: 965333444389097930}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f5f67f4c0b95ea347a9310ad80f40b7c, type: 3}
+--- !u!82 &965333444389097930 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6750716295316983527, guid: f5f67f4c0b95ea347a9310ad80f40b7c, type: 3}
+  m_PrefabInstance: {fileID: 5821695348322770733}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &965333444389097974 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6750716295316983515, guid: f5f67f4c0b95ea347a9310ad80f40b7c, type: 3}
+  m_PrefabInstance: {fileID: 5821695348322770733}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c971cf79a675b548a5f8f84b13e53a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &7168011168647084560 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3725379852982773053, guid: f5f67f4c0b95ea347a9310ad80f40b7c, type: 3}
+  m_PrefabInstance: {fileID: 5821695348322770733}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6597935936377970590
 PrefabInstance:
@@ -2694,7 +2818,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2194248300790268255, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
       propertyPath: m_Name
-      value: muerteaudiojug
+      value: danojug
       objectReference: {fileID: 0}
     - target: {fileID: 3597171702356835367, guid: b0dd5ce75c08dc84ea79ee692b7c6f83, type: 3}
       propertyPath: m_LocalPosition.x

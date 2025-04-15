@@ -172,7 +172,7 @@ public class bossencorbado_al1: MonoBehaviour
             Destroy(transform.parent.gameObject);
             
         }
-        if(detectar == true && desactivar == false)
+        if(detectar == true && desactivar == false && manager.controlene == true)
         {
             anim.SetBool("atk",false);
             anim.SetBool("arma4",false);

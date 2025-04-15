@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllowDialogueSave: 0
   BlockingReopeningDialogue: 0
+  ResetSavedNodeOnChoice: 1
+  LimitChoiceOptionPerNode: 0
+  MaxChoiceOptionPerNode: 8
   NodeLinkDatas:
   - BaseNodeGuid: e3241282-f577-45ef-890a-947b4fc2a682
     TargetNodeGuid: 00080a2b-63e3-4558-ad9e-8db2de300291
@@ -31,7 +34,26 @@ MonoBehaviour:
     TargetNodeGuid: 2e6c61ae-c456-459e-8315-e107240b911b
   DialogueChoiceNodeDatas:
   - NodeGuid: 2f894b35-6077-4257-bb7d-180ef1ed6182
-    Position: {x: 1066.4, y: 599.2}
+    Position: {x: 1066, y: 599}
+    Character: {fileID: 11400000, guid: bb3fb7831a4429c469058c0f3f52f52f, type: 2}
+    PortraitPosition: 0
+    Emotion: 
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
+    AudioClips:
+    - languageEnum: 0
+      LanguageGenericType: {fileID: 0}
+    - languageEnum: 1
+      LanguageGenericType: {fileID: 0}
+    TextType:
+    - languageEnum: 0
+      LanguageGenericType: Of course, the choice dialogue does not use the automatic
+        transition
+    - languageEnum: 1
+      LanguageGenericType: "Oczywi\u015Bcie dialog z wyborem nie wykorzystuje automatycznego
+        przechodzenia"
+    Duration: 5
     DialogueNodePorts:
     - PortGuid: 13c4933f-9ac2-4844-8e95-76ccefb8f51c
       InputGuid: b879a269-bbd4-456a-9d1f-b4f37e5523f6
@@ -49,34 +71,20 @@ MonoBehaviour:
         LanguageGenericType: Cool
       - languageEnum: 1
         LanguageGenericType: Fajnie
-    AudioClips:
-    - languageEnum: 0
-      LanguageGenericType: {fileID: 0}
-    - languageEnum: 1
-      LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: bb3fb7831a4429c469058c0f3f52f52f, type: 2}
-    AvatarPos: 0
-    AvatarType: 0
-    TextType:
-    - languageEnum: 0
-      LanguageGenericType: Of course, the choice dialogue does not use the automatic
-        transition
-    - languageEnum: 1
-      LanguageGenericType: "Oczywi\u015Bcie dialog z wyborem nie wykorzystuje automatycznego
-        przechodzenia"
-    Duration: 5
   DialogueNodeDatas:
   - NodeGuid: 00080a2b-63e3-4558-ad9e-8db2de300291
-    Position: {x: 618.4, y: 599.2}
-    DialogueNodePorts: []
+    Position: {x: 618, y: 599}
+    Character: {fileID: 11400000, guid: bb3fb7831a4429c469058c0f3f52f52f, type: 2}
+    PortraitPosition: 0
+    Emotion: 
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: bb3fb7831a4429c469058c0f3f52f52f, type: 2}
-    AvatarPos: 0
-    AvatarType: 0
     TextType:
     - languageEnum: 0
       LanguageGenericType: This message will automatically go to the next dialogue
@@ -86,16 +94,18 @@ MonoBehaviour:
         do nast\u0119pnego dialogu"
     Duration: 5
   - NodeGuid: 76d6184f-f79f-4a98-9c72-47591da9bd69
-    Position: {x: 842.4, y: 599.2}
-    DialogueNodePorts: []
+    Position: {x: 842, y: 599}
+    Character: {fileID: 11400000, guid: bb3fb7831a4429c469058c0f3f52f52f, type: 2}
+    PortraitPosition: 0
+    Emotion: 
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: bb3fb7831a4429c469058c0f3f52f52f, type: 2}
-    AvatarPos: 0
-    AvatarType: 0
     TextType:
     - languageEnum: 0
       LanguageGenericType: And now you have to click the skip button to move on
@@ -104,16 +114,18 @@ MonoBehaviour:
         dalej"
     Duration: 0
   - NodeGuid: b879a269-bbd4-456a-9d1f-b4f37e5523f6
-    Position: {x: 1384, y: 599.2}
-    DialogueNodePorts: []
+    Position: {x: 1384, y: 599}
+    Character: {fileID: 11400000, guid: bb3fb7831a4429c469058c0f3f52f52f, type: 2}
+    PortraitPosition: 0
+    Emotion: 
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: bb3fb7831a4429c469058c0f3f52f52f, type: 2}
-    AvatarPos: 0
-    AvatarType: 0
     TextType:
     - languageEnum: 0
       LanguageGenericType: That's good, now go
@@ -121,16 +133,18 @@ MonoBehaviour:
       LanguageGenericType: "To dobrze, teraz ju\u017C id\u017A"
     Duration: 0
   - NodeGuid: 2e6c61ae-c456-459e-8315-e107240b911b
-    Position: {x: 1384, y: 893.60004}
-    DialogueNodePorts: []
+    Position: {x: 1384, y: 840}
+    Character: {fileID: 11400000, guid: bb3fb7831a4429c469058c0f3f52f52f, type: 2}
+    PortraitPosition: 0
+    Emotion: 
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
     AudioClips:
     - languageEnum: 0
       LanguageGenericType: {fileID: 0}
     - languageEnum: 1
       LanguageGenericType: {fileID: 0}
-    Character: {fileID: 11400000, guid: bb3fb7831a4429c469058c0f3f52f52f, type: 2}
-    AvatarPos: 0
-    AvatarType: 0
     TextType:
     - languageEnum: 0
       LanguageGenericType: To end the dialogue press the button
@@ -140,14 +154,29 @@ MonoBehaviour:
   TimerChoiceNodeDatas: []
   EndNodeDatas:
   - NodeGuid: b0eff016-f357-4d18-a0b1-990f74739b61
-    Position: {x: 1628.8, y: 599.2}
+    Position: {x: 1629, y: 599}
     EndNodeType: 0
     Dialogue: {fileID: 0}
+    startID: 
   EventNodeDatas: []
   StartNodeDatas:
   - NodeGuid: e3241282-f577-45ef-890a-947b4fc2a682
-    Position: {x: 524, y: 599.2}
+    Position: {x: 451, y: 599}
     startID: 
   RandomNodeDatas: []
-  CommandNodeDatas: []
+  CommandNodeDatas:
+  - NodeGuid: ac44f38f-0722-45bc-bc65-d83a4a164738
+    Position: {x: 785, y: 535}
+    commmand: You mush manually Skip Here
+  - NodeGuid: 12b304e4-6d81-4b40-a29d-e32731945e62
+    Position: {x: 1329, y: 535}
+    commmand: You mush manually Skip Here
+  - NodeGuid: 8941679b-d708-422e-be75-5a09890d5bf7
+    Position: {x: 1339, y: 1096}
+    commmand: You mush manually Skip Here
   IfNodeDatas: []
+  AdvancedIFNodeDatas: []
+  AdvancedChoiceNodeDatas: []
+  AdvancedTimeChoiceNodeDatas: []
+  ResetSavedNodeDatas: []
+  MusicNodeDatas: []

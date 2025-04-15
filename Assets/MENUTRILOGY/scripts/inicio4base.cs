@@ -52,6 +52,7 @@ public class inicio4base : MonoBehaviour
 	public bool full;
 	public int largo;
 	public int altura;
+	public SystemLanguage sysidi;
 
 	public void rescheck()
 	{
@@ -252,6 +253,7 @@ public class inicio4base : MonoBehaviour
 	public void aplicaridioma()
     {
 		manager.datosconfig.idioma = idioma;
+		manager.datosconfig.sysidi = sysidi;
 		manager.guardar();
 		idiomam.SetActive(false);
 		eventbase.SetActive(true);
@@ -259,6 +261,7 @@ public class inicio4base : MonoBehaviour
 	public void idi_es()
     {
 		idioma = "es";
+		sysidi = SystemLanguage.Spanish;
 	}
 	public void aplicaresolucion()
     {

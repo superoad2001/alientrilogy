@@ -5,30 +5,34 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using MeetAndTalk.GlobalValue;
 using MeetAndTalk.Localization;
-using Unity.VisualScripting;
 
 namespace MeetAndTalk
 {
     public class DialogueManager : DialogueGetData
     {
-        [HideInInspector] public static DialogueManager Instance;
-        public LocalizationManager localizationManager;
+        public static DialogueManager Instance;
 
-        [HideInInspector] public DialogueUIManager dialogueUIManager;
-        public AudioSource audioSource;
-        public DialogueUIManager MainUI;
+        public LocalizationManager localizationManager; 
+        [Tooltip("Audio Source responsible for playing Dialogue Sounds")] public AudioSource dialogueAudioSource;
+        [Tooltip("Audio Source responsible for playing Background Music")] public AudioSource musicAudioSource;
+        [Tooltip("Default UI displayed until swapped")] public DialogueUIManager MainUI;
 
         public UnityEvent StartDialogueEvent;
         public UnityEvent EndDialogueEvent;
 
+        // Private Value
+        [HideInInspector] public DialogueUIManager dialogueUIManager;
+        private List<Coroutine> activeCoroutines = new List<Coroutine>();
+
         private BaseNodeData currentDialogueNodeData;
         private BaseNodeData lastDialogueNodeData;
-        private TimerChoiceNodeData _nodeTimerInvoke;
-        private DialogueNodeData _nodeDialogueInvoke;
-        private DialogueChoiceNodeData _nodeChoiceInvoke;
+        public List<BaseNodeData> listOfOpenedNodes = new List<BaseNodeData>();
+        public List<EventNodeData> listOfOpenedEvents = new List<EventNodeData>();
 
-        public int estado;
-        private List<Coroutine> activeCoroutines = new List<Coroutine>();
+        private TimerChoiceNodeData tmpSavedTimeChoice;
+        private AdvancedTimeChoiceNodeData tmpSavedAdvancedTimeChoice;
+        private DialogueNodeData tmpSavedDialogue;
+        private DialogueChoiceNodeData tmpSavedChoice;
 
         float Timer;
 
@@ -43,12 +47,17 @@ namespace MeetAndTalk
             DialogueUIManager.Instance = MainUI;
             dialogueUIManager = DialogueUIManager.Instance;
 
-            audioSource = GetComponent<AudioSource>();
+            dialogueAudioSource = GetComponent<AudioSource>();
+
+            // Music 
+            musicAudioSource.clip = null;
+            musicAudioSource.loop = true;
+            musicAudioSource.Play();
         }
 
         private void Update()
         {
-            Timer -= Time.deltaTime;
+            Timer -= Time.unscaledDeltaTime;
             if (Timer > 0) dialogueUIManager.TimerSlider.value = Timer;
         }
 
@@ -61,6 +70,16 @@ namespace MeetAndTalk
             // Setup UI
             if (UI != null) DialogueUIManager.Instance = UI;
             else Debug.LogError("DialogueUIManager.UI Object jest Pusty!");
+        }
+
+        /// <summary>
+        /// Pozwala na zmiane aktualnego UI Dialogu
+        /// </summary>
+        /// <param name="UI"></param>
+        public void ChangeUI(string UI)
+        {
+            List<DialogueUIManager> dialogueElements = new List<DialogueUIManager>(FindObjectsOfType<DialogueUIManager>(true));
+            ChangeUI(dialogueElements.Find(d => d.ID == UI));
         }
 
         /// <summary>
@@ -78,6 +97,12 @@ namespace MeetAndTalk
         public void StartDialogue() { StartDialogue(null, ""); }
         public void StartDialogue(DialogueContainerSO DialogueSO, string StartID)
         {
+
+            // Reset Saved Nodes
+            listOfOpenedNodes.Clear();
+            listOfOpenedEvents.Clear();
+
+
             // Update Dialogue UI
             dialogueUIManager = DialogueUIManager.Instance;
             // Setup Dialogue (if not empty)
@@ -142,6 +167,7 @@ namespace MeetAndTalk
             // Enable UI
             dialogueUIManager.dialogueCanvas.SetActive(true);
             StartDialogueEvent.Invoke();
+
         }
 
         public void CheckNodeType(BaseNodeData _baseNodeData)
@@ -173,10 +199,27 @@ namespace MeetAndTalk
                 case IfNodeData nodeData:
                     RunNode(nodeData);
                     break;
+                case AdvancedIFNodeData nodeData:
+                    RunNode(nodeData);
+                    break;
+                case AdvancedChoiceNodeData nodeData:
+                    RunNode(nodeData);
+                    break;
+                case AdvancedTimeChoiceNodeData nodeData:
+                    RunNode(nodeData);
+                    break;
+                case ResetSavedNodeData nodeData:
+                    RunNode(nodeData);
+                    break;
+                case MusicNodeData nodeData:
+                    RunNode(nodeData);
+                    break;
                 default:
+                    Debug.LogError("!!! NIE PRAWID�OWY TYP DANYCH ZNALAZ� SI� W DIALOGUE CONTAINER !!!");
                     break;
             }
         }
+
 
         private void RunNode(StartNodeData _nodeData)
         {
@@ -184,17 +227,23 @@ namespace MeetAndTalk
             PlayerPrefs.SetString($"{dialogueContainer.name}_Progress", GUID);
 
             // Reset Audio
-            audioSource.Stop();
+            dialogueAudioSource.Stop();
 
             CheckNodeType(GetNextNode(_nodeData));
         }
         private void RunNode(RandomNodeData _nodeData)
         {
-            string GUID = _nodeData.DialogueNodePorts[Random.Range(0, _nodeData.DialogueNodePorts.Count)].InputGuid;
-            CheckNodeType(GetNodeByGuid(GUID));
+            // Dialogue History
+            // Doesn't Save Random Node!
+
+            // Go TO Random Node
+            CheckNodeType(GetNextNode(_nodeData));
         }
         private void RunNode(IfNodeData _nodeData)
         {
+            // Dialogue History
+            // Doesn't Save IF Node!
+
             string ValueName = _nodeData.ValueName;
             GlobalValueIFOperations Operations = _nodeData.Operations;
             string OperationValue = _nodeData.OperationValue;
@@ -205,52 +254,116 @@ namespace MeetAndTalk
             //Debug.Log("XXXX" + _nodeData.TrueGUID + "XXXX");
             CheckNodeType(GetNodeByGuid(manager.IfTrue(ValueName, Operations, OperationValue) ? _nodeData.TrueGUID : _nodeData.FalseGUID));
         }
+        private void RunNode(AdvancedIFNodeData _nodeData)
+        {
+            // Dialogue History
+            // Doesn't Save Advanced IF Node!
+
+            // GEt List of Conditions
+            List<ConditionInputPort> conditions = _nodeData.Conditions;
+
+            // Load GlobalValues
+            GlobalValueManager manager = Resources.Load<GlobalValueManager>("GlobalValue");
+            manager.LoadFile();
+
+            if (_nodeData.TrueWhenAllCondition)
+            {
+                // Get Defuatl Result           [All True]
+                bool conditionsResult = true;
+                foreach (ConditionInputPort condition in conditions)
+                {
+                    if (!manager.IfTrue(condition.Operation))
+                    { conditionsResult = false;  }
+                }
+                CheckNodeType(GetNodeByGuid(conditionsResult ? _nodeData.TrueGUID : _nodeData.FalseGUID));
+            }
+            else
+            {
+                // Get Defuatl Result           [At least one]
+                bool conditionsResult = false;
+                foreach (ConditionInputPort condition in conditions)
+                {
+                    if (manager.IfTrue(condition.Operation))
+                    { conditionsResult = true; }
+                }
+                CheckNodeType(GetNodeByGuid(conditionsResult ? _nodeData.TrueGUID : _nodeData.FalseGUID));
+            }
+        }
         private void RunNode(DialogueNodeData _nodeData)
         {
+            // DIalogue Progress
+            string GUID = _nodeData.NodeGuid;
+            PlayerPrefs.SetString($"{dialogueContainer.name}_Progress", GUID);
+
+            // Dialogue History
+            listOfOpenedNodes.Add(_nodeData);
+            lastDialogueNodeData = currentDialogueNodeData;
+            currentDialogueNodeData = _nodeData;
+
+            // Display Dialogue Text
+            dialogueUIManager.DisplayText(_nodeData.Character, _nodeData.TextType.Find(text => text.languageEnum == localizationManager.SelectedLang()).LanguageGenericType);
+            dialogueUIManager.SkipButton.SetActive(true);
+
+            // Display Portraits 
+            dialogueUIManager.SetupPortraits(_nodeData.Character, _nodeData.PortraitPosition, _nodeData.Emotion,
+                _nodeData.SecoundCharacter, _nodeData.SecoundPortraitPosition, _nodeData.SecoundEmotion);
+
+            // Doesn't generate buttons
+            MakeButtons(new List<DialogueNodePort>());
+
+            // Play Audio
+            if(_nodeData.AudioClips.Find(clip => clip.languageEnum == localizationManager.SelectedLang()).LanguageGenericType != null) dialogueAudioSource.PlayOneShot(_nodeData.AudioClips.Find(clip => clip.languageEnum == localizationManager.SelectedLang()).LanguageGenericType);
+
+            // Select
+            tmpSavedDialogue = _nodeData;
+
+            // Stop All Coroutines
+            StopAllTrackedCoroutines();
+
+            // Gen to next Node
+            IEnumerator tmp() { yield return new WaitForSeconds(_nodeData.Duration); DialogueNode_NextNode(); }
+            if(_nodeData.Duration != 0) StartTrackedCoroutine(tmp());;
+        }
+        private void RunNode(AdvancedChoiceNodeData _nodeData)
+        {
+            // Dialogue History
             lastDialogueNodeData = currentDialogueNodeData;
             currentDialogueNodeData = _nodeData;
 
             string GUID = _nodeData.NodeGuid;
             PlayerPrefs.SetString($"{dialogueContainer.name}_Progress", GUID);
 
-            GlobalValueManager manager = Resources.Load<GlobalValueManager>("GlobalValue");
-            manager.LoadFile();
-
-            // Gloval Value Multiline
-            if (dialogueUIManager.showSeparateName && dialogueUIManager.nameTextBox != null && _nodeData.Character != null && _nodeData.Character.UseGlobalValue) { dialogueUIManager.ResetText(""); dialogueUIManager.SetSeparateName($"<color={_nodeData.Character.HexColor()}>{manager.Get<string>(GlobalValueType.String, _nodeData.Character.CustomizedName.ValueName)}</color>"); }
-            // Normal Multiline
-            else if (dialogueUIManager.showSeparateName && dialogueUIManager.nameTextBox != null && _nodeData.Character != null) { dialogueUIManager.ResetText(""); dialogueUIManager.SetSeparateName($"<color={_nodeData.Character.HexColor()}>{_nodeData.Character.characterName.Find(text => text.languageEnum == localizationManager.SelectedLang()).LanguageGenericType}</color>"); }
-            // No Change Character Multiline
-            else if (dialogueUIManager.showSeparateName && dialogueUIManager.nameTextBox != null && _nodeData.Character != null) { dialogueUIManager.ResetText(""); }
-            // Global Value Inline
-            else if (_nodeData.Character != null && _nodeData.Character.UseGlobalValue) dialogueUIManager.ResetText($"<color={_nodeData.Character.HexColor()}>{manager.Get<string>(GlobalValueType.String, _nodeData.Character.CustomizedName.ValueName)}: </color>");
-            // Normal Inline
-            else if (_nodeData.Character != null) dialogueUIManager.ResetText($"<color={_nodeData.Character.HexColor()}>{_nodeData.Character.characterName.Find(text => text.languageEnum == localizationManager.SelectedLang()).LanguageGenericType}: </color>");
-            // Last Change
-            else dialogueUIManager.ResetText("");
-
-            dialogueUIManager.SetFullText($"{_nodeData.TextType.Find(text => text.languageEnum == localizationManager.SelectedLang()).LanguageGenericType}");
-
-            // New Character Avatar
-            if (_nodeData.AvatarPos == AvatarPosition.Left) dialogueUIManager.UpdateAvatars(_nodeData.Character, null, _nodeData.AvatarType);
-            else if (_nodeData.AvatarPos == AvatarPosition.Right) dialogueUIManager.UpdateAvatars(null, _nodeData.Character, _nodeData.AvatarType);
-            else dialogueUIManager.UpdateAvatars(null, null, _nodeData.AvatarType);
-
-            //dialogueUIManager.SkipButton.SetActive(true);
-            MakeButtons(new List<DialogueNodePort>());
-
-            if(_nodeData.AudioClips.Find(clip => clip.languageEnum == localizationManager.SelectedLang()).LanguageGenericType != null) audioSource.PlayOneShot(_nodeData.AudioClips.Find(clip => clip.languageEnum == localizationManager.SelectedLang()).LanguageGenericType);
-
-            _nodeDialogueInvoke = _nodeData;
+            //MakeButtons(new List<DialogueNodePort>());
 
             StopAllTrackedCoroutines();
 
+            // Generate Buttons
+            MakeAdvancedButtons(_nodeData, _nodeData.DialogueNodePorts, false);
+            dialogueUIManager.SkipButton.SetActive(false);
+        }
+        private void RunNode(AdvancedTimeChoiceNodeData _nodeData)
+        {
+            // Dialogue History
+            lastDialogueNodeData = currentDialogueNodeData;
+            currentDialogueNodeData = _nodeData;
 
-            IEnumerator tmp() { yield return new WaitForSeconds(_nodeData.Duration); DialogueNode_NextNode(); }
-            if(_nodeData.Duration != 0) StartTrackedCoroutine(tmp());;
+            string GUID = _nodeData.NodeGuid;
+            PlayerPrefs.SetString($"{dialogueContainer.name}_Progress", GUID);
+
+            //MakeButtons(new List<DialogueNodePort>());
+
+            StopAllTrackedCoroutines();
+
+            tmpSavedAdvancedTimeChoice = _nodeData;
+
+            // Generate Buttons
+            MakeAdvancedButtons(_nodeData, _nodeData.DialogueNodePorts, _nodeData.time, _nodeData.ShowTimer);
         }
         private void RunNode(DialogueChoiceNodeData _nodeData)
         {
+
+            // Dialogue History
+            listOfOpenedNodes.Add(_nodeData);
             lastDialogueNodeData = currentDialogueNodeData;
             currentDialogueNodeData = _nodeData;
 
@@ -274,31 +387,39 @@ namespace MeetAndTalk
             dialogueUIManager.SetFullText($"{_nodeData.TextType.Find(text => text.languageEnum == localizationManager.SelectedLang()).LanguageGenericType}");
 
             // New Character Avatar
-            if (_nodeData.AvatarPos == AvatarPosition.Left) dialogueUIManager.UpdateAvatars(_nodeData.Character, null, _nodeData.AvatarType);
-            else if (_nodeData.AvatarPos == AvatarPosition.Right) dialogueUIManager.UpdateAvatars(null, _nodeData.Character, _nodeData.AvatarType);
-            else dialogueUIManager.UpdateAvatars(null, null, _nodeData.AvatarType);
+            //if (_nodeData.AvatarPos == AvatarPosition.Left) dialogueUIManager.UpdateAvatars(_nodeData.Character, null, _nodeData.AvatarType);
+            //else if (_nodeData.AvatarPos == AvatarPosition.Right) dialogueUIManager.UpdateAvatars(null, _nodeData.Character, _nodeData.AvatarType);
+            //else dialogueUIManager.UpdateAvatars(null, null, _nodeData.AvatarType);
 
             dialogueUIManager.SkipButton.SetActive(true);
             MakeButtons(new List<DialogueNodePort>());
 
-            _nodeChoiceInvoke = _nodeData;
+            tmpSavedChoice = _nodeData;
 
-StopAllTrackedCoroutines();
+            StopAllTrackedCoroutines();
 
             IEnumerator tmp() { yield return new WaitForSeconds(_nodeData.Duration); ChoiceNode_GenerateChoice(); }
-            StartTrackedCoroutine(tmp());;
+            StartTrackedCoroutine(tmp()); ;
 
-            if (_nodeData.AudioClips.Find(clip => clip.languageEnum == localizationManager.SelectedLang()).LanguageGenericType != null) audioSource.PlayOneShot(_nodeData.AudioClips.Find(clip => clip.languageEnum == localizationManager.SelectedLang()).LanguageGenericType);
+            if (_nodeData.AudioClips.Find(clip => clip.languageEnum == localizationManager.SelectedLang()).LanguageGenericType != null) dialogueAudioSource.PlayOneShot(_nodeData.AudioClips.Find(clip => clip.languageEnum == localizationManager.SelectedLang()).LanguageGenericType);
         }
         private void RunNode(EventNodeData _nodeData)
         {
-            foreach (var item in _nodeData.EventScriptableObjects)
+            if (!listOfOpenedEvents.Contains(_nodeData))
             {
-                if (item.DialogueEventSO != null)
+                // Invoke All Event in Event Node
+                foreach (var item in _nodeData.EventScriptableObjects)
                 {
-                    item.DialogueEventSO.RunEvent();
+                    if (item.DialogueEventSO != null)
+                    {
+                        item.DialogueEventSO.RunEvent();
+                    }
                 }
             }
+
+            // Dialogue History
+            listOfOpenedEvents.Add(_nodeData);
+
             CheckNodeType(GetNextNode(_nodeData));
         }
         private void RunNode(EndNodeData _nodeData)
@@ -311,16 +432,10 @@ StopAllTrackedCoroutines();
                     dialogueUIManager.dialogueCanvas.SetActive(false);
                     EndDialogueEvent.Invoke();
                     break;
-                case EndNodeType.Repeat:
-                    CheckNodeType(GetNodeByGuid(currentDialogueNodeData.NodeGuid));
-                    break;
-                case EndNodeType.GoBack:
-                    CheckNodeType(GetNodeByGuid(lastDialogueNodeData.NodeGuid));
-                    break;
                 case EndNodeType.ReturnToStart:
                     CheckNodeType(GetNextNode(dialogueContainer.StartNodeDatas[Random.Range(0,dialogueContainer.StartNodeDatas.Count)]));
                     break;
-                case EndNodeType.StartDialogue:
+                case EndNodeType.NextDialogue:
                     StartDialogue(_nodeData.Dialogue, "");
                     break;
                 default:
@@ -329,6 +444,9 @@ StopAllTrackedCoroutines();
         }
         private void RunNode(TimerChoiceNodeData _nodeData)
         {
+
+            // Dialogue History
+            listOfOpenedNodes.Add(_nodeData);
             lastDialogueNodeData = currentDialogueNodeData;
             currentDialogueNodeData = _nodeData;
 
@@ -352,28 +470,55 @@ StopAllTrackedCoroutines();
             dialogueUIManager.SetFullText($"{_nodeData.TextType.Find(text => text.languageEnum == localizationManager.SelectedLang()).LanguageGenericType}");
 
             // New Character Avatar
-            if (_nodeData.AvatarPos == AvatarPosition.Left) dialogueUIManager.UpdateAvatars(_nodeData.Character, null, _nodeData.AvatarType);
-            else if (_nodeData.AvatarPos == AvatarPosition.Right) dialogueUIManager.UpdateAvatars(null, _nodeData.Character, _nodeData.AvatarType);
-            else dialogueUIManager.UpdateAvatars(null, null, _nodeData.AvatarType);
+            //if (_nodeData.AvatarPos == AvatarPosition.Left) dialogueUIManager.UpdateAvatars(_nodeData.Character, null, _nodeData.AvatarType);
+            //else if (_nodeData.AvatarPos == AvatarPosition.Right) dialogueUIManager.UpdateAvatars(null, _nodeData.Character, _nodeData.AvatarType);
+            //else dialogueUIManager.UpdateAvatars(null, null, _nodeData.AvatarType);
 
             dialogueUIManager.SkipButton.SetActive(true);
             MakeButtons(new List<DialogueNodePort>());
 
-            _nodeTimerInvoke = _nodeData;
+            tmpSavedTimeChoice = _nodeData;
 
 StopAllTrackedCoroutines();
 
             IEnumerator tmp() { yield return new WaitForSecondsRealtime(_nodeData.Duration); TimerNode_GenerateChoice(); }
             StartTrackedCoroutine(tmp());;
 
-            if (_nodeData.AudioClips.Find(clip => clip.languageEnum == localizationManager.SelectedLang()).LanguageGenericType != null) audioSource.PlayOneShot(_nodeData.AudioClips.Find(clip => clip.languageEnum == localizationManager.SelectedLang()).LanguageGenericType);
+            if (_nodeData.AudioClips.Find(clip => clip.languageEnum == localizationManager.SelectedLang()).LanguageGenericType != null) dialogueAudioSource.PlayOneShot(_nodeData.AudioClips.Find(clip => clip.languageEnum == localizationManager.SelectedLang()).LanguageGenericType);
 
         }
+        private void RunNode(ResetSavedNodeData _nodeData)
+        {
+            // Dialogue History
+            // Doesn't Save Random Node!
+
+            StopAllTrackedCoroutines();
+            listOfOpenedNodes.Clear();
+            CheckNodeType(GetNextNode(_nodeData));
+        }
+        private void RunNode(MusicNodeData _nodeData)
+        {
+            // Dialogue History
+            // Doesn't Save Random Node!
+
+            StopAllTrackedCoroutines();
+
+            StartCoroutine(Crossfade(_nodeData.AudioClips.Find(clip => clip.languageEnum == localizationManager.SelectedLang()).LanguageGenericType, _nodeData.SwitchTime));
+
+            //listOfOpenedNodes.Clear();
+            CheckNodeType(GetNextNode(_nodeData));
+        }
+
+
+
+
+
 
         private void MakeButtons(List<DialogueNodePort> _nodePorts)
         {
             List<string> texts = new List<string>();
             List<UnityAction> unityActions = new List<UnityAction>();
+            List<AdvancedChoiceType> choiceTypes = new List<AdvancedChoiceType>();
 
             foreach (DialogueNodePort nodePort in _nodePorts)
             {
@@ -381,17 +526,20 @@ StopAllTrackedCoroutines();
                 UnityAction tempAction = null;
                 tempAction += () =>
                 {
+                    if(dialogueContainer.ResetSavedNodeOnChoice) listOfOpenedNodes.Clear();
                     CheckNodeType(GetNodeByGuid(nodePort.InputGuid));
                 };
+                choiceTypes.Add(AdvancedChoiceType.Normal);
                 unityActions.Add(tempAction);
             }
 
-            dialogueUIManager.SetButtons(texts, unityActions, false);
+            dialogueUIManager.SetButtons(texts, unityActions, choiceTypes, false);
         }
         private void MakeTimerButtons(List<DialogueNodePort> _nodePorts, float ShowDuration, float timer)
         {
             List<string> texts = new List<string>();
             List<UnityAction> unityActions = new List<UnityAction>();
+            List<AdvancedChoiceType> choiceTypes = new List<AdvancedChoiceType>();
 
             IEnumerator tmp() { yield return new WaitForSeconds(timer); TimerNode_NextNode(); }
             StartTrackedCoroutine(tmp());;
@@ -404,25 +552,79 @@ StopAllTrackedCoroutines();
                     UnityAction tempAction = null;
                     tempAction += () =>
                     {
-            StopAllTrackedCoroutines();
+                        if (dialogueContainer.ResetSavedNodeOnChoice) listOfOpenedNodes.Clear();
+                        StopAllTrackedCoroutines();
                         CheckNodeType(GetNodeByGuid(nodePort.InputGuid));
                     };
+                    choiceTypes.Add(AdvancedChoiceType.Normal);
                     unityActions.Add(tempAction);
                 }
             }
 
-            dialogueUIManager.SetButtons(texts, unityActions, true);
+            dialogueUIManager.SetButtons(texts, unityActions, choiceTypes, tmpSavedTimeChoice.ShowTimer);
             dialogueUIManager.TimerSlider.maxValue = timer; Timer = timer;
         }
 
-        void DialogueNode_NextNode() { CheckNodeType(GetNextNode(_nodeDialogueInvoke)); }
-        void ChoiceNode_GenerateChoice() { MakeButtons(_nodeChoiceInvoke.DialogueNodePorts);
+        private void MakeAdvancedButtons(BaseNodeData _data, List<AdvancedDialogueNodePort> nodePorts, bool ShowTimer) { MakeAdvancedButtons(_data, nodePorts, 0, ShowTimer); }
+        private void MakeAdvancedButtons(BaseNodeData _data, List<AdvancedDialogueNodePort> nodePorts, float timer, bool ShowTimer) 
+        {
+            // Listy
+            List<string> texts = new List<string>();
+            List<UnityAction> unityActions = new List<UnityAction>();
+            List<AdvancedChoiceType> choices = new List<AdvancedChoiceType>();
+
+            // Global Value Manager
+            GlobalValueManager manager = Resources.Load<GlobalValueManager>("GlobalValue");
+
+            // IF ADVANCED TIMER CHOICE NODE
+            if(timer!=0)
+            {
+                IEnumerator tmp() { yield return new WaitForSeconds(timer); AdvancedTimerNode_NextNode(); }
+                StartTrackedCoroutine(tmp()); ;
+            }
+
+            foreach (AdvancedDialogueNodePort nodePort in nodePorts)
+            {
+                if (manager.IfTrue(nodePort.Condition))
+                {
+                    // Get Text
+                    texts.Add(nodePort.TextLanguage.Find(text => text.languageEnum == localizationManager.SelectedLang()).LanguageGenericType);
+                    // Get Action
+                    UnityAction tempAction = null;
+                    tempAction += () =>
+                    {
+                        if (dialogueContainer.ResetSavedNodeOnChoice) listOfOpenedNodes.Clear();
+                        CheckNodeType(GetNodeByGuid(nodePort.InputGuid));
+                    };
+                    unityActions.Add(tempAction);
+                    // Get Type
+                    choices.Add(nodePort.ChoiceType);
+                }
+            }
+
+            dialogueUIManager.SetButtons(texts, unityActions, choices, true);
+            // IF ADVANCED TIMER CHOICE NODE
+            if (timer != 0) dialogueUIManager.TimerSlider.maxValue = timer; Timer = timer;
+
+            if (texts.Count == 0)
+            {
+                if (_data is AdvancedChoiceNodeData) { CheckNodeType(GetNextNode((AdvancedChoiceNodeData)_data)); }
+                if (_data is AdvancedTimeChoiceNodeData) { CheckNodeType(GetNextNode((AdvancedTimeChoiceNodeData)_data)); }
+            }
+        }
+
+
+
+
+        void DialogueNode_NextNode() { CheckNodeType(GetNextNode(tmpSavedDialogue)); }
+        void ChoiceNode_GenerateChoice() { MakeButtons(tmpSavedChoice.DialogueNodePorts);
             dialogueUIManager.SkipButton.SetActive(false);
         }
-        void TimerNode_GenerateChoice() { MakeTimerButtons(_nodeTimerInvoke.DialogueNodePorts, _nodeTimerInvoke.Duration, _nodeTimerInvoke.time);
+        void TimerNode_GenerateChoice() { MakeTimerButtons(tmpSavedTimeChoice.DialogueNodePorts, tmpSavedTimeChoice.Duration, tmpSavedTimeChoice.time);
             dialogueUIManager.SkipButton.SetActive(false);
         }
-        void TimerNode_NextNode() { CheckNodeType(GetNextNode(_nodeTimerInvoke)); }
+        void TimerNode_NextNode() { CheckNodeType(GetNextNode(tmpSavedTimeChoice)); }
+        void AdvancedTimerNode_NextNode() { CheckNodeType(GetNextNode(tmpSavedAdvancedTimeChoice)); }
 
 
 
@@ -448,13 +650,50 @@ StopAllTrackedCoroutines();
         #endregion
 
 
+        private System.Collections.IEnumerator Crossfade(AudioClip nextClip, float crossfadeDuration = 4f)
+        {
+            if (musicAudioSource.clip != nextClip)
+            {
+                float time = 0f;
+
+                // Zmniejsz g�o�no�� do zera
+                while (time < crossfadeDuration / 2)
+                {
+                    if (musicAudioSource.clip == null) { time = 999; }
+                    time += Time.unscaledDeltaTime;
+                    musicAudioSource.volume = Mathf.Lerp(1f, 0f, time / (crossfadeDuration / 2));
+                    yield return null;
+                }
+
+                // Podmie� klip i odtw�rz nowy
+                musicAudioSource.clip = nextClip;
+                musicAudioSource.Play();
+
+                time = 0f;
+
+                // Zwi�ksz g�o�no�� do maksymalnej
+                while (time < crossfadeDuration / 2)
+                {
+                    if (musicAudioSource.clip == null) { time = 999; }
+                    time += Time.unscaledDeltaTime;
+                    musicAudioSource.volume = Mathf.Lerp(0f, 1f, time / (crossfadeDuration / 2));
+                    yield return null;
+                }
+
+                // Upewnij si�, �e g�o�no�� jest ustawiona na maksymaln�
+                musicAudioSource.volume = 1f;
+            }
+        }
+
+
+
         public void SkipDialogue()
         {
 
             // Reset Audio
-            audioSource.Stop();
+            dialogueAudioSource.Stop();
 
-StopAllTrackedCoroutines();
+            StopAllTrackedCoroutines();
 
             switch (currentDialogueNodeData)
             {
@@ -474,15 +713,36 @@ StopAllTrackedCoroutines();
         public void ForceEndDialog()
         {            
             // Reset Audio
-            audioSource.Stop();
+            dialogueAudioSource.Stop();
 
             dialogueUIManager.dialogueCanvas.SetActive(false);
             EndDialogueEvent.Invoke();
 
-StopAllTrackedCoroutines();
+            StopAllTrackedCoroutines();
 
             // Reset Audio
-            audioSource.Stop();
+            dialogueAudioSource.Stop();
         }
+
+        public void GoToPreviousNode()
+        {
+            if (listOfOpenedNodes.Count > 1)
+            {
+                // 
+                StopAllTrackedCoroutines();
+
+                // Reset Audio
+                dialogueAudioSource.Stop();
+
+                // 
+                listOfOpenedNodes.RemoveAt(listOfOpenedNodes.Count - 1);
+                string GUID = listOfOpenedNodes[listOfOpenedNodes.Count - 1].NodeGuid;
+                listOfOpenedNodes.RemoveAt(listOfOpenedNodes.Count - 1);
+                CheckNodeType(GetNodeByGuid(GUID));
+            }
+        }
+
+
+
     }
 }

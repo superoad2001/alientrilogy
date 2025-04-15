@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
 using System;
+using UnityEngine.Audio;
+using MeetAndTalk.Localization;
 
 public class manager_al2 : MonoBehaviour
 {
@@ -140,6 +142,7 @@ public class manager_al2 : MonoBehaviour
 	public string repathtro;
 	public jugador1_al2 jugador1;
 	public jugador2_al2 jugador2;
+	public AudioMixer audiomixer;
 	public void move()
 	{
 		moves.Play();
@@ -308,6 +311,13 @@ public class manager_al2 : MonoBehaviour
 		cargar();
 		cargarconfig();
 		cargartro();
+
+		LocalizationManager.Instance.selectedLang = datosconfig.sysidi;
+
+		audiomixer.SetFloat ("MusicVolume",datosconfig.musica);
+		audiomixer.SetFloat ("EnvironmentVolume",datosconfig.voz);
+		audiomixer.SetFloat ("SFXVolume",datosconfig.sfx);
+		audiomixer.SetFloat ("UIVolume",datosconfig.ui);
 
 		jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
 		jugador2 = (jugador2_al2)FindFirstObjectByType(typeof(jugador2_al2));
