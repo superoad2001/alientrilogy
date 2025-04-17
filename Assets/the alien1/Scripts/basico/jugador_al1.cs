@@ -32,6 +32,8 @@ public class jugador_al1 : MonoBehaviour
 	public int indicetarget = -1;
 	private float angulomod;
 	private float r3;
+	public GameObject pistolatiempo;
+	public GameObject pistolabazoka;
 	private float camaux = 0;
 	private float modaux = 0;
 	private int palosel;
@@ -195,6 +197,8 @@ public class jugador_al1 : MonoBehaviour
 		if(manager.juego == 3 || manager.juego == 4)
 		{
 			pistolap.SetActive(false);
+			pistolatiempo.SetActive(false);
+			pistolabazoka.SetActive(false);
 			if(manager.datosserial.tengopalo == false)
 			{
 				paloimg.sprite = nopimg;
@@ -205,19 +209,34 @@ public class jugador_al1 : MonoBehaviour
 			{
 				pistolaimg.sprite = nopimg;
 			}
-			else{pistolap.SetActive(true);}
+			else
+			{
+				pistolap.SetActive(true);
+				pistolatiempo.SetActive(false);
+				pistolabazoka.SetActive(false);
+			}
 
 			if(manager.datosserial.armarelen == false)
 			{
 				relentizarimg.sprite = nopimg;
 			}
-			else{pistolap.SetActive(true);}
+			else
+			{
+				pistolap.SetActive(false);
+				pistolatiempo.SetActive(true);
+				pistolabazoka.SetActive(false);
+			}
 			
 			if(manager.datosserial.armadef == false)
 			{
 				armadefimg.sprite = nopimg;
 			}
-			else{pistolap.SetActive(true);}
+			else
+			{
+				pistolap.SetActive(false);
+				pistolatiempo.SetActive(false);
+				pistolabazoka.SetActive(true);
+			}
 			
 			if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 1)
 			{
@@ -3158,7 +3177,7 @@ public class jugador_al1 : MonoBehaviour
 					temprelrec = 0;
 					tiempodisp = 0; 
 
-					GameObject BalaTemporal = Instantiate(balaprefabrel, pistolap.transform.position,mod.transform.rotation) as GameObject;
+					GameObject BalaTemporal = Instantiate(balaprefabrel, pistolatiempo.transform.position,mod.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 					BalaTemporal.transform.SetParent(juego.transform);
@@ -3202,7 +3221,7 @@ public class jugador_al1 : MonoBehaviour
 					tempdefrec = 0;
 					tiempodisp = 0; 
 
-					GameObject BalaTemporal = Instantiate(balaprefabdef, pistolap.transform.position,mod.transform.rotation) as GameObject;
+					GameObject BalaTemporal = Instantiate(balaprefabdef, pistolabazoka.transform.position,mod.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 					BalaTemporal.transform.SetParent(juego.transform);

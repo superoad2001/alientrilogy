@@ -11,7 +11,7 @@ using MeetAndTalk.Localization;
 public class manager_al1 : MonoBehaviour
 {
 	public manager_al1 manager;
-
+	public bool muertetutorial;
 	public int trofeoact;
 	public bool controlene = true;
 	public float tempshow;
