@@ -8,6 +8,8 @@ public class enemigo2_al1: MonoBehaviour
 {
     public GameObject slash;
 	public manager_al1 manager;
+    public bool muertetemp;
+    public float tempM;
     public bool detectar;
     public GameObject objetivo;
     public GameObject objetivob;
@@ -62,6 +64,8 @@ public class enemigo2_al1: MonoBehaviour
 
     public float nivelfuerza;
     public float nivelvida;
+
+    public bool enemigostut;
 
     public float []nivelfuerza_a = new float[99];
     public float []nivelvida_a = new float[99];
@@ -137,40 +141,54 @@ public class enemigo2_al1: MonoBehaviour
             target.SetActive(false);
         }
         det.transform.position = this.transform.position;
-        dano.transform.position = this.transform.position;
+        dano.transform.position = new Vector3 (this.transform.position.x,this.transform.position.y + 4.14f,this.transform.position.z);
         target.transform.position = new Vector3(transform.position.x,transform.position.y + -0.37f,transform.position.z);
-        
+        if (muertetemp == true)
+        {
+            if(tempM > 45)
+            {
+                GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
+                Destroy(explosiont, 1f);
+                muertes.Play();
+                jugador1.vidaenebarra.SetActive(false);
+                jugador1.vidaeneact = false;
+                Destroy(transform.parent.gameObject);
+            }
+            tempM += 1 * Time.deltaTime;
+        }
         if (vida < 1)
         {
             GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
             muertes.Play();
-
-            if(nivelactual == manager.datosserial.niveljug)
+            if(enemigostut == false)
             {
-                manager.datosserial.nivelexp += valorexp;
-            }
-            else if(nivelactual < manager.datosserial.niveljug && nivelactual  >= (manager.datosserial.niveljug -10))
-            {
-                int diferencianivel = manager.datosserial.niveljug - nivelactual;
-                manager.datosserial.nivelexp += (valorexp / (((diferencianivel) + 1)/2));
-            }
-            else if(nivelactual > manager.datosserial.niveljug && nivelactual  <= (manager.datosserial.niveljug + 10))
-            {
-                int diferencianivel =  nivelactual - manager.datosserial.niveljug ;
-                manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
-            }
-            else if(nivelactual > manager.datosserial.niveljug && nivelactual  > (manager.datosserial.niveljug + 10))
-            {
-                int diferencianivel =  10;
-                manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
-            }
-            if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp)
-            {
-                manager.datosserial.nivelexp = 0;
-                manager.datosserial.niveljug++;
-                manager.datosserial.signivelexp += 7;
-                jugador1.subirnivel();
+                if(nivelactual == manager.datosserial.niveljug)
+                {
+                    manager.datosserial.nivelexp += valorexp;
+                }
+                else if(nivelactual < manager.datosserial.niveljug && nivelactual  >= (manager.datosserial.niveljug -10))
+                {
+                    int diferencianivel = manager.datosserial.niveljug - nivelactual;
+                    manager.datosserial.nivelexp += (valorexp / (((diferencianivel) + 1)/2));
+                }
+                else if(nivelactual > manager.datosserial.niveljug && nivelactual  <= (manager.datosserial.niveljug + 10))
+                {
+                    int diferencianivel =  nivelactual - manager.datosserial.niveljug ;
+                    manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
+                }
+                else if(nivelactual > manager.datosserial.niveljug && nivelactual  > (manager.datosserial.niveljug + 10))
+                {
+                    int diferencianivel =  10;
+                    manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
+                }
+                if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp)
+                {
+                    manager.datosserial.nivelexp = 0;
+                    manager.datosserial.niveljug++;
+                    manager.datosserial.signivelexp += 7;
+                    jugador1.subirnivel();
+                }
             }
             manager.datosserial.asesinatos++;
             manager.guardar();
@@ -184,6 +202,7 @@ public class enemigo2_al1: MonoBehaviour
             objetivo = objetivob;
             objetivo1 = objetivo1b;
         }
+        
         if(detectar == true && desactivar == false && enemigo == 1 && manager.controlene == true)
         {
             if(temp > 3f)

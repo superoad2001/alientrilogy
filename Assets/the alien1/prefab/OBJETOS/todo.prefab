@@ -252,6 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
+  muertetutorial: 0
   trofeoact: 7
   controlene: 1
   tempshow: 0
@@ -1242,10 +1243,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: jugadornormal
       objectReference: {fileID: 0}
-    - target: {fileID: 2630650128157739852, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: disp
       value: 
@@ -1270,10 +1267,6 @@ PrefabInstance:
       propertyPath: armanvt
       value: 
       objectReference: {fileID: 128902867630668009}
-    - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
-      propertyPath: boxcam2
-      value: 
-      objectReference: {fileID: 6272705218647042146}
     - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: dispdef
       value: 
@@ -1327,10 +1320,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6780222925451068832}
     - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
-      propertyPath: jugtarget
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: levelexpt
       value: 
       objectReference: {fileID: 4768891513278777653}
@@ -1347,10 +1336,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7878002687529279589}
     - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
-      propertyPath: tarbossact
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: vidaeneimg
       value: 
       objectReference: {fileID: 3830705262896606202}
@@ -1358,14 +1343,6 @@ PrefabInstance:
       propertyPath: backpaloimg
       value: 
       objectReference: {fileID: 875313664053673663}
-    - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
-      propertyPath: maxDistance
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
-      propertyPath: minDistance
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: niverlbarra
       value: 
@@ -1378,10 +1355,6 @@ PrefabInstance:
       propertyPath: vidaenebarra
       value: 
       objectReference: {fileID: 2340134475871541843}
-    - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
-      propertyPath: camarainterna
-      value: 
-      objectReference: {fileID: 7933015724205853671}
     - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: relentizarimg
       value: 
@@ -1414,10 +1387,6 @@ PrefabInstance:
       propertyPath: backrelentizarimg
       value: 
       objectReference: {fileID: 3589711032221255511}
-    - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
-      propertyPath: collisionLayers.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4174150872076526791, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.120384
@@ -1466,16 +1435,6 @@ PrefabInstance:
 --- !u!4 &4474187984038047573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4174150872076526791, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
-  m_PrefabInstance: {fileID: 574792099122809746}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6272705218647042146 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5834187332820444144, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
-  m_PrefabInstance: {fileID: 574792099122809746}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7933015724205853671 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7632943427873292405, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
   m_PrefabInstance: {fileID: 574792099122809746}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2096439482490410617
@@ -2545,22 +2504,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7644745780462722608}
     m_Modifications:
-    - target: {fileID: 2922850218695459063, guid: 6b0353c72221023488363aef0e26872b, type: 3}
-      propertyPath: m_Pitch
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2922850218695459063, guid: 6b0353c72221023488363aef0e26872b, type: 3}
-      propertyPath: m_Volume
-      value: 0.514
-      objectReference: {fileID: 0}
-    - target: {fileID: 2922850218695459063, guid: 6b0353c72221023488363aef0e26872b, type: 3}
-      propertyPath: m_Resource
-      value: 
-      objectReference: {fileID: 8300000, guid: aadb11223d7fa2f4bae9d137f5462bdc, type: 3}
-    - target: {fileID: 2922850218695459063, guid: 6b0353c72221023488363aef0e26872b, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: aadb11223d7fa2f4bae9d137f5462bdc, type: 3}
     - target: {fileID: 5793328801247398944, guid: 6b0353c72221023488363aef0e26872b, type: 3}
       propertyPath: m_Name
       value: danoenemigosonido

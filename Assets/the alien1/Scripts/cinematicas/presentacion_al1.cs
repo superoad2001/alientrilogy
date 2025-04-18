@@ -98,8 +98,6 @@ public class presentacion_al1 : MonoBehaviour
     {
         cam_a.SetBool("skip",true);
         pres_a.SetBool("skip",true);
-        mus_pres.Stop();
-        mus_menu.Play();
         inicio = true;
         pres_ui.SetActive(false);
         pres_ui2.SetActive(false);

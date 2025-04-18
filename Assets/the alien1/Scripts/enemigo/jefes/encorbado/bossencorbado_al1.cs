@@ -7,8 +7,10 @@ using UnityEngine.UI;
 public class bossencorbado_al1: MonoBehaviour
 {
     public bool detectar;
+    public bool tutorial;
     public AudioSource muertes;
     public GameObject explosion;
+    public GameObject niebla; 
     public int lado = 1;
     public float temptp;
     public int tprandom;
@@ -21,6 +23,7 @@ public class bossencorbado_al1: MonoBehaviour
     public Transform objetivo1b;
     public Animator anim;
     public float temp;
+    public float temp2;
     public bool plat;
     public float vida = 4;
     public int enemigo = 1;
@@ -172,6 +175,12 @@ public class bossencorbado_al1: MonoBehaviour
             Destroy(transform.parent.gameObject);
             
         }
+        if(detectar == false && manager.controlene == true)
+        {
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            detectar = true;
+        }
         if(detectar == true && desactivar == false && manager.controlene == true)
         {
             anim.SetBool("atk",false);
@@ -179,7 +188,7 @@ public class bossencorbado_al1: MonoBehaviour
             anim.SetBool("encatk1",false);
             if(enemigo3 == 1)
             {
-                if(temp > 3f)
+                if(temp > 1f)
                 {
                 if(gigante == false)
                 {anim.SetBool("atk",true);}
@@ -195,7 +204,7 @@ public class bossencorbado_al1: MonoBehaviour
                 anim.SetBool("atk",false);
                 anim.SetBool("atkg",false);
                 }
-                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position+ new Vector3(0,0,-4),vel * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position+ new Vector3(0,0,-4),vel * 1.1f * Time.deltaTime);
                 Vector3 direction = objetivo1.position - transform.position;
                 if (anim.GetCurrentAnimatorStateInfo(1).IsName("atk"))
                 {
@@ -214,13 +223,13 @@ public class bossencorbado_al1: MonoBehaviour
                 temp += 1 * Time.deltaTime;
                 if (tempe3 > 10f)
                 {
-                    enemigo3 = Random.Range(1,7);
+                    enemigo3 = Random.Range(1,8);
                     tempe3 = 0;
                 }
             }
-            if(enemigo3 == 2)
+            if(enemigo3 == 2 || enemigo3 == 3)
             {
-                if(temp > 3f)
+                if(temp > 1f)
             {
                 anim.SetBool("arma4",true);
                 temp = 0;
@@ -248,18 +257,18 @@ public class bossencorbado_al1: MonoBehaviour
                 temp += 1 * Time.deltaTime;
                 if (tempe3 > 6f)
                 {
-                    enemigo3 = Random.Range(1,7);
+                    enemigo3 = Random.Range(1,8);
                     tempe3 = 0;
                 }
             }
-            if(enemigo3 == 3 || enemigo3 == 4)
+            if(enemigo3 == 4 || enemigo3 == 5)
             {
-                if(temp > 5f)
+                if(temp > 3f)
             {
                 rb_ = this.GetComponent<Rigidbody>();
                 anim.SetBool("encatk1",true);
                 palo.GetComponent<golpe_al1>().dano =  ((nivelfuerza / 2) * 2) + nivelfuerza;
-                this.rb_.AddForce(1000 * transform.TransformDirection(new Vector3 (0,0,1)));
+                this.rb_.AddForce(3000 * transform.TransformDirection(new Vector3 (0,0,1)));
                 temp = 0;
             }
             else{
@@ -285,24 +294,36 @@ public class bossencorbado_al1: MonoBehaviour
 
                 if (tempe3 > 10f)
                 {
-                    enemigo3 = Random.Range(1,7);
+                    enemigo3 = Random.Range(1,8);
                     tempe3 = 0;
                 }
             }
-            if(enemigo3 == 5)
+            if(enemigo3 == 6)
             {
                 if(temp > 5f)
                 {
                     GameObject enemigotemp = Instantiate(balaprefab,transform.position + new Vector3(5,0,0),transform.rotation) as GameObject;
                     enemigotemp.transform.SetParent(juego);
-                    Destroy(enemigotemp, 45f);
+                    enemigotemp.transform.Find("enemigo").GetComponent<enemigo2_al1>().muertetemp = true;
+
                     GameObject enemigotemp2 = Instantiate(balaprefab2,transform.position + new Vector3(-5,0,0),transform.rotation) as GameObject;
                     enemigotemp2.transform.SetParent(juego);
-                    Destroy(enemigotemp2, 45f);
+                    enemigotemp2.transform.Find("enemigo").GetComponent<enemigo2_al1>().muertetemp = true;
+
                     GameObject enemigotemp3 = Instantiate(balaprefab3,transform.position + new Vector3(0,0,5),transform.rotation) as GameObject;
                     enemigotemp3.transform.SetParent(juego);
-                    Destroy(enemigotemp3, 45f);
+                    enemigotemp3.transform.Find("enemigo").GetComponent<enemigo2_al1>().muertetemp = true;
+
+                    if(tutorial)
+                    {
+                        enemigotemp.transform.Find("enemigo").GetComponent<enemigo2_al1>().enemigostut = true;
+                        enemigotemp2.transform.Find("enemigo").GetComponent<enemigo2_al1>().enemigostut = true;
+                        enemigotemp3.transform.Find("enemigo").GetComponent<enemigo2_al1>().enemigostut = true;
+                    }
+
                     temp = 0;
+                    temp2 = 0;
+                    niebla.SetActive(true);
                 }
                 transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position+ new Vector3(0,0,-4f),vel * Time.deltaTime);
                 Vector3 direction = objetivo1.position - transform.position;
@@ -312,13 +333,13 @@ public class bossencorbado_al1: MonoBehaviour
 
                 if (tempe3 > 6f)
                 {
-                    enemigo3 = Random.Range(1,7);
+                    enemigo3 = Random.Range(1,8);
                     tempe3 = 0;
                 }
             }
-            if(enemigo3 == 6)
+            if(enemigo3 == 7)
             {
-                if(temp > 6)
+                if(temp > 1.5f)
                 {
                             GameObject BalaTemporal = Instantiate(balaprefab4,transform.position,transform.rotation) as GameObject;
 
@@ -357,11 +378,16 @@ public class bossencorbado_al1: MonoBehaviour
                 temp += 1 * Time.deltaTime;
                 if (tempe3 > 7f)
                 {
-                    enemigo3 = Random.Range(1,7);
+                    enemigo3 = Random.Range(1,8);
                     tempe3 = 0;
                 }
             }
             tempe3 += 1 * Time.deltaTime;
+            temp2 += 1 * Time.deltaTime;
+            if(temp2 > 1.4f)
+            {
+                niebla.SetActive(false);
+            } 
         
         
     }

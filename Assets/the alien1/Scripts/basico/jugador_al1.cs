@@ -1896,22 +1896,26 @@ public class jugador_al1 : MonoBehaviour
 					{
 						indicetarget = 3;
 						objetivotarget = tarboss;
+						vidaenebarra.SetActive(false);
 					}
 					else if(target[0] != null)
 					{
 						indicetarget = 0;
 						objetivotarget = target[0];
+						vidaenebarra.SetActive(true);
 					}
 					else
 					{
 						indicetarget = -1;
 						objetivotarget = null;
+						vidaenebarra.SetActive(false);
 					}
 				}
 				else if(indicetarget != -1)
 				{
 					indicetarget = -1;
 					objetivotarget = null;
+					vidaenebarra.SetActive(false);
 				
 				}
 				if(objetivotarget == tarboss && tarbossact && objetivotarget != null)
@@ -1931,16 +1935,19 @@ public class jugador_al1 : MonoBehaviour
 						{
 							indicetarget = 0;
 							objetivotarget = target[0];
+							vidaenebarra.SetActive(true);
 						}
 						else if(tarbossact)
 						{
 							indicetarget = 3;
 							objetivotarget = tarboss;
+							vidaenebarra.SetActive(false);
 						}
 						else
 						{
 							indicetarget = -1;
 							objetivotarget = null;
+							vidaenebarra.SetActive(false);
 						}
 			
 					}
@@ -1951,16 +1958,19 @@ public class jugador_al1 : MonoBehaviour
 						{
 							indicetarget = 1;
 							objetivotarget = target[1];
+							vidaenebarra.SetActive(true);
 						}
 						else if(tarbossact)
 						{
 							indicetarget = 3;
 							objetivotarget = tarboss;
+							vidaenebarra.SetActive(false);
 						}
 						else
 						{
 							indicetarget = -1;
 							objetivotarget = null;
+							vidaenebarra.SetActive(false);
 						}
 
 					}
@@ -1971,16 +1981,19 @@ public class jugador_al1 : MonoBehaviour
 						{
 							indicetarget = 2;
 							objetivotarget = target[2];
+							vidaenebarra.SetActive(true);
 						}
 						else if(tarbossact)
 						{
 							indicetarget = 3;
 							objetivotarget = tarboss;
+							vidaenebarra.SetActive(false);
 						}
 						else
 						{
 							indicetarget = -1;
 							objetivotarget = null;
+							vidaenebarra.SetActive(false);
 						}
 
 					}
@@ -1991,17 +2004,20 @@ public class jugador_al1 : MonoBehaviour
 
 							indicetarget = 3;
 							objetivotarget = tarboss;
+							vidaenebarra.SetActive(false);
 
 						}
 						else if(target[0] != null)
 						{
 							indicetarget = 0;
 							objetivotarget = target[0];
+							vidaenebarra.SetActive(true);
 						}
 						else
 						{
 							indicetarget = -1;
 							objetivotarget = null;
+							vidaenebarra.SetActive(false);
 						}
 
 					}
@@ -2020,26 +2036,31 @@ public class jugador_al1 : MonoBehaviour
 						{
 							indicetarget = 2;
 							objetivotarget = target[2];
+							vidaenebarra.SetActive(true);
 						}
 						else if(target[1] != null)
 						{
 							indicetarget = 1;
 							objetivotarget = target[1];
+							vidaenebarra.SetActive(true);
 						}
 						else if(target[0] != null)
 						{
 							indicetarget = 0;
 							objetivotarget = target[0];
+							vidaenebarra.SetActive(true);
 						}
 						else if(tarbossact)
 						{
 							indicetarget = 3;
 							objetivotarget = tarboss;
+							vidaenebarra.SetActive(false);
 						}
 						else
 						{
 							indicetarget = -1;
 							objetivotarget = null;
+							vidaenebarra.SetActive(false);
 						}
 			
 					}
@@ -2050,26 +2071,31 @@ public class jugador_al1 : MonoBehaviour
 						{
 							indicetarget = 3;
 							objetivotarget = tarboss;
+							vidaenebarra.SetActive(false);
 						}
 						else if(target[2] != null)
 						{
 							indicetarget = 2;
 							objetivotarget = target[2];
+							vidaenebarra.SetActive(true);
 						}
 						else if(target[1] != null)
 						{
 							indicetarget = 1;
 							objetivotarget = target[1];
+							vidaenebarra.SetActive(true);
 						}
 						else if(target[0] != null)
 						{
 							indicetarget = 0;
 							objetivotarget = target[0];
+							vidaenebarra.SetActive(true);
 						}
 						else
 						{
 							indicetarget = -1;
 							objetivotarget = null;
+							vidaenebarra.SetActive(false);
 						}
 
 					}
@@ -2080,26 +2106,31 @@ public class jugador_al1 : MonoBehaviour
 						{
 							indicetarget = 0;
 							objetivotarget = target[0];
+							vidaenebarra.SetActive(true);
 						}
 						else if(tarbossact)
 						{
 							indicetarget = 3;
 							objetivotarget = tarboss;
+							vidaenebarra.SetActive(false);
 						}
 						else if(target[2] != null)
 						{
 							indicetarget = 2;
 							objetivotarget = target[2];
+							vidaenebarra.SetActive(true);
 						}
 						else if(target[1] != null)
 						{
 							indicetarget = 1;
 							objetivotarget = target[1];
+							vidaenebarra.SetActive(true);
 						}
 						else
 						{
 							indicetarget = -1;
 							objetivotarget = null;
+							vidaenebarra.SetActive(false);
 						}
 						
 
@@ -2111,27 +2142,32 @@ public class jugador_al1 : MonoBehaviour
 						{
 							indicetarget = 1;
 							objetivotarget = target[1];
+							vidaenebarra.SetActive(true);
 						}
 						else if(target[0] != null)
 						{
 							indicetarget = 0;
 							objetivotarget = target[0];
+							vidaenebarra.SetActive(true);
 						}
 						else if(tarbossact)
 						{
 							indicetarget = 3;
 							objetivotarget = tarboss;
+							vidaenebarra.SetActive(false);
 
 						}
 						else if(target[2] != null)
 						{
 							indicetarget = 2;
 							objetivotarget = target[2];
+							vidaenebarra.SetActive(true);
 						}
 						else
 						{
 							indicetarget = -1;
 							objetivotarget = null;
+							vidaenebarra.SetActive(false);
 						}
 						if(objetivotarget == tarboss && tarbossact && objetivotarget != null)
 						{findchild(tarboss,true,"selectar");}
@@ -3378,7 +3414,7 @@ public class jugador_al1 : MonoBehaviour
 		{
 			if(rb > 0 && velact != true && stamina > 0)
 			{
-				stamina -= 15 * Time.deltaTime;
+				stamina -= 7 * Time.deltaTime;
 				staminaact = 0;
 				velocidad = velocidadmaxima;
 			}
