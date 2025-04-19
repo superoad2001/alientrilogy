@@ -12,6 +12,8 @@ public class bossencorbado_al1: MonoBehaviour
     public GameObject explosion;
     public GameObject niebla; 
     public int lado = 1;
+    public float temp3;
+    public RigidbodyConstraints originalConstraints;
     public float temptp;
     public int tprandom;
     public int nivel = 1;
@@ -93,6 +95,7 @@ public class bossencorbado_al1: MonoBehaviour
     {
 
         nivelvida_a[0] = vidabasetut;
+
         for(int i = 1 ;i <= 49;  i++ )
         {   
             nivelvida_a[i] = (vidabase) + (((vidabasemax-vidabase)/48) * (i -1 ));
@@ -122,6 +125,10 @@ public class bossencorbado_al1: MonoBehaviour
         muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();
         danoene = GameObject.Find("danoenemigosonido").GetComponent<AudioSource>();
         juego = GameObject.Find("juego").transform;
+    }
+    public void rbf()
+    {
+        
     }
 
     // Update is called once per frame
@@ -177,8 +184,6 @@ public class bossencorbado_al1: MonoBehaviour
         }
         if(detectar == false && manager.controlene == true)
         {
-            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
             detectar = true;
         }
         if(detectar == true && desactivar == false && manager.controlene == true)
@@ -384,6 +389,15 @@ public class bossencorbado_al1: MonoBehaviour
             }
             tempe3 += 1 * Time.deltaTime;
             temp2 += 1 * Time.deltaTime;
+            
+            if(temp3 > 5) 
+            {
+                this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+            }
+            else
+            {
+                temp3 += 1 * Time.deltaTime;
+            }
             if(temp2 > 1.4f)
             {
                 niebla.SetActive(false);
@@ -391,7 +405,6 @@ public class bossencorbado_al1: MonoBehaviour
         
         
     }
-    detectar = true;
 }
 
      private void OnTriggerEnter(Collider col)
