@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 
 // Token: 0x02000010 RID: 16
-public class lallegada_al1 : MonoBehaviour
+public class logicacin_al1 : MonoBehaviour
 {
 	public manager_al1 manager;
 	public bool botonm = false;
@@ -18,6 +18,9 @@ public class lallegada_al1 : MonoBehaviour
 	public DialogueManager menuoff;
 	public DialogueContainerSO DialogueSO;
 	public string idcin = "0";
+	public string sceneload;
+
+
 	public void Awake()
     {
         controles = new Controles();
@@ -41,16 +44,16 @@ public class lallegada_al1 : MonoBehaviour
 	{
 		if (controles.menu.saltar.ReadValue<float>() > 0f)
 		{
-			SceneManager.LoadScene("tutorial_al1");
+			SceneManager.LoadScene(sceneload);
+		}
+		if(menuoff != null)
+		{
+			if(menuoff.dialogueUIManager.dialogueCanvas.activeSelf == false )
+			{
+				SceneManager.LoadScene(sceneload);
+			}
 		}
 		
-	}
-	public void OnTriggerEnter(Collider col)
-	{
-		if (col.gameObject.tag == "Player")
-		{
-			SceneManager.LoadScene("tutorial_al1");
-		}
 	}
 
 }

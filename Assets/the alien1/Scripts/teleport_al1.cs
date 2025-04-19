@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 
 public class teleport_al1 : MonoBehaviour
@@ -12,6 +13,13 @@ public class teleport_al1 : MonoBehaviour
 	public GameObject objeto;
 	public manager_al1 manager;
     public string ubi;
+
+	private readonly Dictionary<string, string> languageTexts = new Dictionary<string, string>
+    {
+        {"es", "para teletransportarte"},
+        {"en", "To teleport"},
+        {"cat", "per teletransportarta"}
+    };
 	private void Start()
 	{
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
@@ -37,18 +45,16 @@ public class teleport_al1 : MonoBehaviour
     }
     private void OnTriggerStay(Collider col)
 	{
-		if (col.gameObject.tag == "Player" && manager.datosserial.tengonave == 1)
+		if (col.gameObject.tag == "Player")
 		{
 	    	anim.SetBool("show",true);
-			if(manager.datosconfig.idioma == "es")
-			{this.tutfinala.text = "para teletransportarte";}
-			if(manager.datosconfig.idioma == "en")
-			{this.tutfinala.text = "To teleport";}
-			if(manager.datosconfig.idioma == "cat")
-			{this.tutfinala.text = "per teletransportarta";}
+			if (languageTexts.TryGetValue(manager.datosconfig.idioma, out string text))
+            {
+                tutfinala.text = text;
+            }
 			if (controles.al1.y.ReadValue<float>() > 0f )
 			{
-				SceneManager.LoadScene("ubi");
+				SceneManager.LoadScene(ubi);
 			}
 		}
 	}

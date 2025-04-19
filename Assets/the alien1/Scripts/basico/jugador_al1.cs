@@ -402,17 +402,25 @@ public class jugador_al1 : MonoBehaviour
 	}
 	if(muerte == true)
 	{
-		muertesjug.Play();
-		manager.datosserial.alien1muere = true;
-		manager.datosserial.muertes++;
-		manager.guardar();
-		if(manager.datosconfig.plat == 2)
+		if(!manager.tutorial)
 		{
-			tactil.SetActive(false);
+			muertesjug.Play();
+			manager.datosserial.alien1muere = true;
+			manager.datosserial.muertes++;
+			manager.guardar();
+			if(manager.datosconfig.plat == 2)
+			{
+				tactil.SetActive(false);
+			}
+			respawn.SetActive(true);
+			juego.SetActive(false);
+			this.gameObject.SetActive(false);
 		}
-		respawn.SetActive(true);
-		juego.SetActive(false);
-		this.gameObject.SetActive(false);
+		else
+		{
+			SceneManager.LoadScene("tutorialcin2enc_al1");
+		}
+		
 	}
 	if(manager.juego != 6 && manager.juego != 0 && manager.juego != 1  && manager.juego != 2 && cronoact == false )
 	{
