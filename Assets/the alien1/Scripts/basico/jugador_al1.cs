@@ -31,7 +31,7 @@ public class jugador_al1 : MonoBehaviour
 	public bool actzonaespecial;
 	public int indicetarget = -1;
 	private float angulomod;
-	private float r3;
+	public float r3;
 	public GameObject pistolatiempo;
 	public GameObject pistolabazoka;
 	private float camaux = 0;

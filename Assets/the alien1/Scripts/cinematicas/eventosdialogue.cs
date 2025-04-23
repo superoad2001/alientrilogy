@@ -17,4 +17,6 @@ public class eventosdialogue : MonoBehaviour
     public DialogueContainerSO DialogueSO;
 
 
+
+
 }
