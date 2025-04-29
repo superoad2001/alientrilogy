@@ -126,7 +126,7 @@ public class enemigo3_al1: MonoBehaviour
     void Update()
     {
         target.transform.position = new Vector3(transform.position.x,transform.position.y + 0.21f,transform.position.z);
-        if(jugador1.objetivotarget == transform.parent.gameObject)
+        if(jugador1.objetivotarget == transform.gameObject)
         {
             target.SetActive(true);
             jugador1.vidaenebarra.SetActive(true);

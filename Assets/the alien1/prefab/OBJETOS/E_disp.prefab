@@ -285,7 +285,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7824385170410867167}
   - {fileID: 4836065598345173912}
   - {fileID: 1462799740669743728}
   - {fileID: 1766307452754061639}
@@ -3608,6 +3607,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7824385170410867167}
   - {fileID: 3202974784604640940}
   m_Father: {fileID: 7258600966809460510}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3625,6 +3625,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slash: {fileID: 0}
   manager: {fileID: 0}
+  muertetemp: 0
+  tempM: 0
   detectar: 0
   objetivo: {fileID: 0}
   objetivob: {fileID: 0}
@@ -3640,6 +3642,7 @@ MonoBehaviour:
   temp: 0
   anim: {fileID: 1923712262886456566}
   explosion: {fileID: 358637981425055526, guid: 2b6ef2ab1da759e41baf6157dfc37ebe, type: 3}
+  nivel: 1
   jugador1: {fileID: 0}
   muertes: {fileID: 0}
   enemigo: 2
@@ -3653,12 +3656,225 @@ MonoBehaviour:
   vida: 0
   vidamax: 5
   vidab: {fileID: 0}
+  nivelactual: 1
+  valorexp: 1.2
+  vidabasetut: 9
+  vidabase: 99
+  vidabasemax: 999
+  vidaplusmax: 9999
+  fuebasetut: 1
+  fuebase: 10
+  fuebasemax: 100
+  fueplusmax: 2000
   danoene: {fileID: 0}
   vidamenu: {fileID: 0}
   danoj: 5
   danoj2: 5
   target: {fileID: 1048682080243929189}
   palo: {fileID: 0}
+  nivelfuerza: 0
+  nivelvida: 0
+  enemigostut: 0
+  nivelfuerza_a:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  nivelvida_a:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
 --- !u!136 &7454962464479141862
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3827,7 +4043,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 7258600966809460510}
+    m_TransformParent: {fileID: 7264885804519019135}
     m_Modifications:
     - target: {fileID: 140423252894775985, guid: 05ce920d629922a4eb4795ef7494ce5c, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
@@ -3931,7 +4147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6928458153528979022, guid: 05ce920d629922a4eb4795ef7494ce5c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.37
+      value: -0.36999512
       objectReference: {fileID: 0}
     - target: {fileID: 6928458153528979022, guid: 05ce920d629922a4eb4795ef7494ce5c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3943,15 +4159,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6928458153528979022, guid: 05ce920d629922a4eb4795ef7494ce5c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6928458153528979022, guid: 05ce920d629922a4eb4795ef7494ce5c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6928458153528979022, guid: 05ce920d629922a4eb4795ef7494ce5c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6928458153528979022, guid: 05ce920d629922a4eb4795ef7494ce5c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -128,7 +128,7 @@ public class enemigo2_al1: MonoBehaviour
     {
 
 
-        if(jugador1.objetivotarget == transform.parent.gameObject)
+        if(jugador1.objetivotarget == transform.gameObject)
         {
             target.SetActive(true);
             jugador1.vidaenebarra.SetActive(true);
