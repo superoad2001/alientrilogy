@@ -12,6 +12,8 @@ using System.Linq;
 // Token: 0x0200000A RID: 10
 public class jugador_al1 : MonoBehaviour
 {
+	public bool static_ev = false;
+	public tutorialbase_al1 eventotut;
 	public eventosdialogue eventosdialogueE;
 	public bool eventoini;
 	private int cambioruedaact;
@@ -196,9 +198,7 @@ public class jugador_al1 : MonoBehaviour
 		}
 		if(manager.juego == 3 || manager.juego == 4)
 		{
-			pistolap.SetActive(false);
-			pistolatiempo.SetActive(false);
-			pistolabazoka.SetActive(false);
+
 			if(manager.datosserial.tengopalo == false)
 			{
 				paloimg.sprite = nopimg;
@@ -209,55 +209,53 @@ public class jugador_al1 : MonoBehaviour
 			{
 				pistolaimg.sprite = nopimg;
 			}
-			else
-			{
-				pistolap.SetActive(true);
-				pistolatiempo.SetActive(false);
-				pistolabazoka.SetActive(false);
-			}
 
 			if(manager.datosserial.armarelen == false)
 			{
 				relentizarimg.sprite = nopimg;
-			}
-			else
-			{
-				pistolap.SetActive(false);
-				pistolatiempo.SetActive(true);
-				pistolabazoka.SetActive(false);
 			}
 			
 			if(manager.datosserial.armadef == false)
 			{
 				armadefimg.sprite = nopimg;
 			}
-			else
-			{
-				pistolap.SetActive(false);
-				pistolatiempo.SetActive(false);
-				pistolabazoka.SetActive(true);
-			}
+
 			
 			if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 1)
 			{
 				iconodisp.sprite = arma1_1;
+				pistolap.SetActive(false);
+				pistolatiempo.SetActive(false);
+				pistolabazoka.SetActive(false);
 
 			}
 			if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 2)
 			{
 				iconodisp.sprite = arma1_2;
+				pistolap.SetActive(false);
+				pistolatiempo.SetActive(false);
+				pistolabazoka.SetActive(false);
 			}
 			if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3)
 			{
 				iconodisp.sprite = arma1_3;
+				pistolap.SetActive(false);
+				pistolatiempo.SetActive(false);
+				pistolabazoka.SetActive(false);
 			}
 			if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 4)
 			{
 				iconodisp.sprite = arma1_4;
+				pistolap.SetActive(false);
+				pistolatiempo.SetActive(false);
+				pistolabazoka.SetActive(false);
 			}
 			if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 5)
 			{
 				iconodisp.sprite = arma1_5;
+				pistolap.SetActive(false);
+				pistolatiempo.SetActive(false);
+				pistolabazoka.SetActive(false);
 			}
 
 
@@ -265,18 +263,30 @@ public class jugador_al1 : MonoBehaviour
 			if(manager.datosserial.armasel == 3)
 			{
 				iconodisp.sprite = arma3;
+				pistolap.SetActive(false);
+				pistolatiempo.SetActive(false);
+				pistolabazoka.SetActive(true);
 			}
 			if(manager.datosserial.armasel == 2)
 			{
 				iconodisp.sprite = arma2;
+				pistolap.SetActive(true);
+				pistolatiempo.SetActive(false);
+				pistolabazoka.SetActive(false);
 			}
 			if(manager.datosserial.armasel == 4)
 			{
 				iconodisp.sprite = arma4;
+				pistolap.SetActive(false);
+				pistolatiempo.SetActive(true);
+				pistolabazoka.SetActive(false);
 			}
 			if(manager.datosserial.armasel == 0)
 			{
 				iconodisp.sprite = nopimg;
+				pistolap.SetActive(false);
+				pistolatiempo.SetActive(false);
+				pistolabazoka.SetActive(false);
 			}
 		}
 
@@ -332,6 +342,7 @@ public class jugador_al1 : MonoBehaviour
 		{
 			vidaenebarra = GameObject.Find("barravidaenemigobase");
 			vidaeneimg = vidaenebarra.transform.GetChild(2).gameObject.GetComponent<Image>();
+			escudoeneimg = vidaenebarra.transform.GetChild(3).gameObject.GetComponent<Image>();
 			vidaenebarra.SetActive(false);
 		}
 		
@@ -379,6 +390,9 @@ public class jugador_al1 : MonoBehaviour
 	public bool vidaeneact;
 	public float staminamax = 100;
 	public float stamina;
+	public float vidaescudoene;
+	public float vidaescudomaxene;
+	public bool escudoeneact;
 
 	// Token: 0x0600001E RID: 30 RVA: 0x00002604 File Offset: 0x00000804
 	
@@ -386,6 +400,15 @@ public class jugador_al1 : MonoBehaviour
 	{
 	if(vidaeneact)
 	{vidaeneimg.fillAmount = vidaeneui/vidaeneuimax;}
+
+	if(escudoeneact)
+	{
+		escudoeneimg.fillAmount = vidaescudoene/vidaescudomaxene;
+	}
+	else
+	{
+		escudoeneimg.fillAmount = 0;
+	}
 
 	if(manager.juego == 1)
 	{
@@ -413,7 +436,6 @@ public class jugador_al1 : MonoBehaviour
 				tactil.SetActive(false);
 			}
 			respawn.SetActive(true);
-			juego.SetActive(false);
 			this.gameObject.SetActive(false);
 		}
 		else
@@ -627,27 +649,9 @@ public class jugador_al1 : MonoBehaviour
 	}
 	else
 	{
-		lhorizontalc = 0;
-		lverticalc = 0;
-
 
 		rhorizontalc = controles.al1.rhorizontal.ReadValue<float>();
 		rverticalc = controles.al1.rvertical.ReadValue<float>();
-
-		horizontalpad = 0;
-		verticalpad = 0;
-
-		a = 0;
-		b = 0;
-		x = 0;
-		y = 0;
-
-		
-		rt = 0;
-		lt = 0;
-		rb = 0;
-		
-		l3 = 0;
 	}
 	if(manager.juego == 4 || manager.juego == 3)
 	{
@@ -1042,6 +1046,9 @@ public class jugador_al1 : MonoBehaviour
 						paloimg.sprite = arma1_1;
 						backpaloimg.sprite = arma1_1;
 					}
+					pistolap.SetActive(false);
+					pistolatiempo.SetActive(false);
+					pistolabazoka.SetActive(false);
 					
 				}
 			}
@@ -1067,6 +1074,10 @@ public class jugador_al1 : MonoBehaviour
 					else
 					{paloimg.sprite = nopimg;}
 					backpaloimg.sprite = arma1;
+					pistolap.SetActive(false);
+					pistolatiempo.SetActive(false);
+					pistolabazoka.SetActive(true);
+					
 				}
 			}
 			if(horizontalpad > 0.5f && manager.juego == 4 || lhorizontalc > 0.5f && manager.juego == 3)
@@ -1097,6 +1108,9 @@ public class jugador_al1 : MonoBehaviour
 					else
 					{paloimg.sprite = nopimg;}
 					backpaloimg.sprite = arma1;
+					pistolap.SetActive(true);
+					pistolatiempo.SetActive(false);
+					pistolabazoka.SetActive(false);
 				}
 			}
 			if(horizontalpad < -0.5f && manager.juego == 4 || lhorizontalc < -0.5f && manager.juego == 3)
@@ -1121,6 +1135,9 @@ public class jugador_al1 : MonoBehaviour
 					else
 					{paloimg.sprite = nopimg;}
 					backpaloimg.sprite = arma1;
+					pistolap.SetActive(false);
+					pistolatiempo.SetActive(true);
+					pistolabazoka.SetActive(false);
 				}
 			}
 		}
@@ -1897,6 +1914,7 @@ public class jugador_al1 : MonoBehaviour
 		{
 			if(r3 > 0 && temp10 > 0.2f)
 			{
+				escudoeneact = false;
 				temp10 = 0;
 				if(indicetarget == -1)
 				{
@@ -1935,6 +1953,7 @@ public class jugador_al1 : MonoBehaviour
 			{
 				if(rhorizontalc > 0 && temp10 > 0.7f)
 				{
+					escudoeneact = false;
 					temp10 = 0;
 					if(indicetarget == 3)
 					{
@@ -2012,6 +2031,7 @@ public class jugador_al1 : MonoBehaviour
 				}
 				else if(rhorizontalc < 0 && temp10 > 0.7f)
 				{
+					escudoeneact = false;
 					temp10 = 0;
 					if(indicetarget == 3)
 					{
@@ -3176,7 +3196,6 @@ public class jugador_al1 : MonoBehaviour
 					GameObject BalaTemporal = Instantiate(balaprefabrel, pistolatiempo.transform.position,mod.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
-					BalaTemporal.transform.SetParent(juego.transform);
 
 					rbb.AddForce(mod.transform.forward * 110 * 4);
 
@@ -3220,7 +3239,6 @@ public class jugador_al1 : MonoBehaviour
 					GameObject BalaTemporal = Instantiate(balaprefabdef, pistolabazoka.transform.position,mod.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
-					BalaTemporal.transform.SetParent(juego.transform);
 
 					rbb.AddForce(new Vector3(0,mod.transform.up.y,mod.transform.forward.z) * 110 * 10);
 
@@ -3467,6 +3485,32 @@ public class jugador_al1 : MonoBehaviour
 		{
 			staminaact += 1 * Time.deltaTime;
 		}
+
+
+
+		lhorizontalc = 0;
+		lverticalc = 0;
+
+
+		rhorizontalc = 0;
+		rverticalc = 0;
+
+		horizontalpad = 0;
+		verticalpad = 0;
+
+		a = 0;
+		b = 0;
+		x = 0;
+		y = 0;
+
+		
+		rt = 0;
+		lt = 0;
+		rb = 0;
+		lb = 0;
+		
+		l3 = 0;
+		r3 = 0;
 		
 	}
 
@@ -3630,6 +3674,8 @@ public class jugador_al1 : MonoBehaviour
 						vidaeneui = enec.vida;
 						vidaeneuimax = enec.vidamax;
 						vidaenebarra.SetActive(true);
+						if(eventotut != null)
+						{eventotut.evento();}
 					}
 					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 2 && tempatk > 5)
 					{
@@ -3783,14 +3829,25 @@ public class jugador_al1 : MonoBehaviour
 			menuoff.MainUI.gameObject.SetActive(false);
 			}
 			dialogueact = false;
+			manager.controlene = true;
 		}
-		if (col.gameObject.tag == "evento")
+		if (col.gameObject.tag == "evento" && static_ev)
+		{
+			menushow.SetBool("show",false);
+			if(menuoff != null)
+			{
+			menuoff.MainUI.gameObject.SetActive(false);
+			}
+			dialogueact = false;
+		}
+		else if (col.gameObject.tag == "evento")
 		{
 			menushow.SetBool("show",false);
 			if(menuoff != null)
 			{
 			menuoff.MainUI.gameObject.SetActive(false);
 			controlact = true;
+			manager.controlene = true;
 			}
 			dialogueact = false;
 		}
@@ -3867,8 +3924,7 @@ public class jugador_al1 : MonoBehaviour
 			{
 				if(menuoff.dialogueUIManager.dialogueCanvas.activeSelf == false)
 				{
-					menushow.SetBool("show",true);
-					manager.controlene = true;
+					menushow.SetBool("show",true);				
 					dialogueact = false;
 				}
 			}
@@ -3877,8 +3933,6 @@ public class jugador_al1 : MonoBehaviour
 		{
 			eventosdialogueE = col.GetComponent<eventosdialogue>();
 			dialogueact = false;
-			controlact = false;
-			manager.controlene = false;
 
 			if (dialogueact == false && tiempodialogue > 0.7f)
 			{
@@ -3910,8 +3964,6 @@ public class jugador_al1 : MonoBehaviour
 				if(menuoff.dialogueUIManager.dialogueCanvas.activeSelf == false && eventoini == false)
 				{
 					dialogueact = false;
-					controlact = true;
-					manager.controlene = true;
 					Destroy(eventosdialogueE.gameObject);
 				}
 			}
@@ -4131,6 +4183,7 @@ public class jugador_al1 : MonoBehaviour
 	public GameObject select1;
 	public Image vidab;
 	public Image vidaeneimg;
+	public Image escudoeneimg;
 	public Image iconodisp;
 	public Image backpaloimg;
 	public Sprite arma1;
@@ -4165,6 +4218,7 @@ public class jugador_al1 : MonoBehaviour
 	public Text vidat;
 	public Animator ascensors;
 	public GameObject vidaenebarra;
+	public GameObject escudoenebarra;
 	public Image barraarmaimgnv1;
 	public Image barraarmaimgnv2;
 	public Image barraarmaimgnv3;

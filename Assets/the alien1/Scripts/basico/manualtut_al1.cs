@@ -9,7 +9,10 @@ public class manualtut_al1 : MonoBehaviour
 {
     public GameObject[] eventos = new GameObject[10];
     public GameObject[] objetivo = new GameObject[10];
-    public GameObject[] objetivo2 = new GameObject[10];
+    public GameObject[] tutev = new GameObject[10];
+    public bool[] staticev = new bool[10];
+    public bool[] staticjugev = new bool[10];
+    public bool[] staticeneev = new bool[10];
     public int index;
     public int indexmax;
     public GameObject player;
@@ -18,10 +21,12 @@ public class manualtut_al1 : MonoBehaviour
     public DialogueManager menuoff;
     public bool findi;
     public manager_al1 manager;
+    public jugador_al1 jugador;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+        jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         index = 0;
         pos = player.transform.position;
         rot = player.transform.eulerAngles;
@@ -30,11 +35,10 @@ public class manualtut_al1 : MonoBehaviour
     }
     public void terminar_evento()
     {
+        jugador.controlact = true;
         manager.controlene = true;
-        if(objetivo[index] != null)
-        {objetivo[index].SetActive(false);}
         index++;
-        if(indexmax > index)
+        if(index <= indexmax)
         {  
             if(eventos[index] != null)
             {eventos[index].SetActive(true);}
@@ -46,27 +50,29 @@ public class manualtut_al1 : MonoBehaviour
     {
         player.transform.position = pos;
         player.transform.eulerAngles = rot;
+        jugador.static_ev = staticev[index];
+        jugador.eventotut = tutev[index].GetComponent<tutorialbase_al1>();
         if(objetivo[index] != null)
         {objetivo[index].SetActive(true);}
-        findi = true;
         if((DialogueManager)FindFirstObjectByType(typeof(DialogueManager)) != null)
-		{menuoff = (DialogueManager)FindFirstObjectByType(typeof(DialogueManager));}
+		{
+            menuoff = (DialogueManager)FindFirstObjectByType(typeof(DialogueManager));
+
+        }
+        
         
     }
     public void fin_dialogue()
     {
-        if(menuoff.dialogueUIManager.dialogueCanvas.activeSelf == false)
-        {
-            findi = false;
-            manager.controlene = true;
-            if(objetivo2[index] != null)
-            {objetivo2[index].SetActive(true);}
-        }
+            if(tutev[index] != null)
+            {tutev[index].SetActive(true);}
+            jugador.controlact = staticjugev[index];
+            manager.controlene = staticeneev[index];
+        
         
     }
-    void FixedUpdate()
+    public void Update()
     {
-        if(findi == true)
-        {fin_dialogue();}
+        DialogueManager.Instance.EndDialogueEvent.AddListener(fin_dialogue);
     }
 }

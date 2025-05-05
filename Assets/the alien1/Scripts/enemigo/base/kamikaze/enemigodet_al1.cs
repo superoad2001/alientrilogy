@@ -6,6 +6,7 @@ public class enemigodet_al1: MonoBehaviour
 {
 	public manager_al1 manager;
       public AudioSource visto;
+      public bool nosonar;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,8 @@ public class enemigodet_al1: MonoBehaviour
             enemigo.objetivo1 = col.gameObject.transform;
             enemigo.gameObject.AddComponent<Rigidbody>();
             enemigo.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-            visto.Play();
+            if(nosonar == false)
+            {visto.Play();}
 		}
 
 	}

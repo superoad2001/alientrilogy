@@ -46,6 +46,9 @@ public class inicio4base : MonoBehaviour
 	public Resolution[] Allres;
 	public List<Resolution> resolucion = new List<Resolution>();
 	public List<string> opcionesR = new List<string>();
+	public List<string> opcionesRdef = new List<string>();
+	public List<int> resRdef = new List<int>();
+
 	public int C;
 
 	public int ind;
@@ -56,27 +59,52 @@ public class inicio4base : MonoBehaviour
 
 	public void rescheck()
 	{
+		opcionesRdef.Add("720P");
+		opcionesRdef.Add("1080P");
+		opcionesRdef.Add("2K");
+		opcionesRdef.Add("4K");
+
+		resRdef.Add(720);
+		resRdef.Add(1080);
+		resRdef.Add(1440);
+		resRdef.Add(2160);
+
+
 		Allres = Screen.resolutions;
 		resoL.ClearOptions();
 		string opcion;
+
 		
-		foreach(Resolution resv in Allres)
+		for(int i = 0; i < opcionesRdef.Count; i++)
 		{
-			opcion = resv.width.ToString() + " X " + resv.height.ToString()+"P";
-			if(!opcionesR.Contains(opcion))
+			opcion = opcionesRdef[i];
+			Resolution resop = new Resolution();
+			resop.height = 0;
+			resop.width = 0;
+			foreach(Resolution resv in Allres)
 			{
+				if(resv.height  == resRdef[i] && resv.width >= resop.width)
+				{
+					resop = resv;
+				}
 				
 
+			}
+			if(!opcionesR.Contains(opcion) && resop.height != 0)
+			{
 				opcionesR.Add(opcion);
-				resolucion.Add(resv);
-
-				if(Screen.fullScreen && resv.width == Screen.currentResolution.width && resv.height == Screen.currentResolution.height)
+				resolucion.Add(resop);
+				if(resop.height == Screen.currentResolution.height && resop.width == Screen.currentResolution.width)
 				{
 					ind = C;
 					resoL.value = ind;
 				}
 				C++;
+				
+				
 			}
+			
+			
 			
 
 		}
@@ -90,6 +118,8 @@ public class inicio4base : MonoBehaviour
 		if(Screen.width >= resolucion[resoL.value].width && Screen.height >= resolucion[resoL.value].height)
 		{
 			ind = resoL.value;
+			altura = resolucion[ind].height;
+			largo = resolucion[ind].width;
 			Screen.SetResolution(resolucion[ind].width,resolucion[ind].height,full);
 		}
 	}
@@ -195,7 +225,7 @@ public class inicio4base : MonoBehaviour
 
 		if(manager.datosconfig.primerares == true)
 		{
-			if(Screen.fullScreen)
+			if(full)
 			{
 				toggle.isOn = true;
 			}
@@ -203,9 +233,9 @@ public class inicio4base : MonoBehaviour
 			{
 				toggle.isOn = false;
 			}
-			if(Screen.width >= manager.datosconfig.largo && Screen.height >= manager.datosconfig.altura)
+			if(Screen.width >= largo && Screen.height >= altura)
 			{
-				Screen.SetResolution(manager.datosconfig.largo,manager.datosconfig.altura,manager.datosconfig.full);
+				Screen.SetResolution(largo,altura,full);
 			}
 		}
 		rescheck();
@@ -377,13 +407,13 @@ public class inicio4base : MonoBehaviour
 		manager.datosconfig.primerares = true;
 		manager.guardar();
 		
-		if(manager.datosconfig.lastgame == 1)
+		if(manager.datosconfig.lastgame == 0)
 		{SceneManager.LoadScene("menutrilogy");}
-		if(manager.datosconfig.lastgame == 2)
+		if(manager.datosconfig.lastgame == 1)
 		{SceneManager.LoadScene("menu_de_carga_al1");}
-		if(manager.datosconfig.lastgame == 3)
+		if(manager.datosconfig.lastgame == 2)
 		{SceneManager.LoadScene("menu_de_carga_al2");}
-		if(manager.datosconfig.lastgame == 4)
+		if(manager.datosconfig.lastgame == 3)
 		{SceneManager.LoadScene("carga_al3");}
 	}
 	public void aplicartodo()

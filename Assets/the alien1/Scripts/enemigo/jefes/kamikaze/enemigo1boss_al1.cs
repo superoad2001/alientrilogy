@@ -284,7 +284,16 @@ public class enemigo1boss_al1: MonoBehaviour
 		}
         if (col.gameObject.tag == "danoarma9")
 		{
+            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+            jugador1.muertesjug.Stop();
+            vidabase -= balajug.danoj;
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+            danoene.Play();
             detectar = false;
-		}
+        }
+
     }
 }

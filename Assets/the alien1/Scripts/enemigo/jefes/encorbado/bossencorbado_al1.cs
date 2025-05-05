@@ -442,10 +442,14 @@ public class bossencorbado_al1: MonoBehaviour
             vida -= balajug.danoj;
             danoene.Play();
 		}
-         if (col.gameObject.tag == "danoarma9")
+        if (col.gameObject.tag == "danoarma9")
 		{
-            detectar = true;
-		}
+            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+            jugador1.muertesjug.Stop();
+            vidabase -= balajug.danoj;
+            danoene.Play();
+            detectar = false;
+        }
     }
     private void OnCollisionEnter(Collision col) 
     {

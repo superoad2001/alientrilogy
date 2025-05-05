@@ -5,11 +5,13 @@ public class tutorialbase_al1 : MonoBehaviour
     public int id;
     public jugador_al1 player;
     public manager_al1 manager;
+    public manualtut_al1 manual;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         player = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+        manual = (manualtut_al1)FindFirstObjectByType(typeof(manualtut_al1));
     }
     public Controles controles;
     public void Awake()
@@ -33,9 +35,18 @@ public class tutorialbase_al1 : MonoBehaviour
             if(controles.al1.r3.ReadValue<float>() > 0)
             {
                 player.r3 = 1;
-                Destroy(gameObject);
+                Destroy(this.gameObject);
+                manual.terminar_evento();
             }
         }
+
         
+    }
+    public void evento()
+    {
+        if(id == 1)
+        {
+            manual.terminar_evento();
+        }
     }
 }

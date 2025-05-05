@@ -80,6 +80,7 @@ public class manager_al1 : MonoBehaviour
 	public AudioSource moveson;
 	public string mision;
 	public string mision2;
+	public bool dialogueact;
 
 	// Token: 0x06000025 RID: 37 RVA: 0x0000334C File Offset: 0x0000154C
 

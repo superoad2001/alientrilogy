@@ -48,6 +48,7 @@ public class enemigo3_al1: MonoBehaviour
     public float tempescudo;
     public float danoj = 8;
     public float vidaescudo;
+    public float vidaescudomax = 10;
     public GameObject target;
     
     public float nivelfuerza;
@@ -86,6 +87,7 @@ public class enemigo3_al1: MonoBehaviour
     {
         
         nivelvida_a[0] = vidabasetut;
+        vidaescudo = vidaescudomax;
         for(int i = 1 ;i <= 49;  i++ )
         {   
             nivelvida_a[i] = (vidabase) + (((vidabasemax-vidabase)/48) * (i -1 ));
@@ -131,8 +133,12 @@ public class enemigo3_al1: MonoBehaviour
             target.SetActive(true);
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
+            jugador1.escudoeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
+            jugador1.vidaescudoene = vidaescudo;
+            jugador1.vidaescudomaxene = vidaescudomax;
+
         }
         else
         {
@@ -190,7 +196,7 @@ public class enemigo3_al1: MonoBehaviour
                 escudovis.SetActive(true);
                 tempescudo = 0;
                 escudoact = true;
-                vidaescudo = 10;
+                vidaescudo = vidaescudomax;
             }
             tempescudo += 1 * Time.deltaTime;
 
@@ -252,6 +258,7 @@ public class enemigo3_al1: MonoBehaviour
         if (col.gameObject.tag == "golpeh" && escudoact == false)
 		{
             vida -= jugador1.danoarma;
+            jugador1.escudoeneact = true;
             danoene.Play();
             jugador1.vidaeneact = true;
             
@@ -260,12 +267,11 @@ public class enemigo3_al1: MonoBehaviour
             jugador1.vidaenebarra.SetActive(true);
             
 		}
-        if (col.gameObject.tag == "golpeh" && escudoact == true)
+        if (col.gameObject.tag == "golpeh" && escudoact == false)
 		{
-            vidaescudo -= jugador1.danoarma;
-            danoescudo.Play();
-            jugador1.vidaeneact = true;
             
+            jugador1.vidaeneact = true;
+            jugador1.escudoeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
             jugador1.vidaenebarra.SetActive(true);
@@ -276,18 +282,24 @@ public class enemigo3_al1: MonoBehaviour
             }
             
 		}
-        if (col.gameObject.tag == "danoarma8")
+        if (col.gameObject.tag == "danoarma8" && escudoact == true)
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
-            vida -= balajug.danoj;
+            
+            vidaescudo -= balajug.danoj;
+            danoescudo.Play();
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
-            danoene.Play();
+            if (vidaescudo <= 0)
+            {
+            GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+            Destroy(explosiont, 1f);
+            }
 		}
-        if (col.gameObject.tag == "danoarma9")
+        if (col.gameObject.tag == "danoarma9" )
 		{
             detectar = false;
 		}
@@ -305,16 +317,39 @@ public class enemigo3_al1: MonoBehaviour
     }
     private void OnTriggerExit(Collider col)
 	{
-        if (col.gameObject.tag == "danoarma10")
+        if (col.gameObject.tag == "danoarma10" && escudoact == true)
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
-            vida -= balajug.danoj;
+            vidaescudo -= balajug.danoj;
+            danoescudo.Play();
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
-            danoene.Play();
+            if (vidaescudo <= 0)
+            {
+            GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+            Destroy(explosiont, 1f);
+            }
 		}
+        if (col.gameObject.tag == "danoarma9" && escudoact == true)
+		{
+            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+            jugador1.muertesjug.Stop();
+            vidaescudo -= balajug.danoj;
+            danoescudo.Play();
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+            if (vidaescudo <= 0)
+            {
+            GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+            Destroy(explosiont, 1f);
+            }
+        }
+        
+        
     }
 }

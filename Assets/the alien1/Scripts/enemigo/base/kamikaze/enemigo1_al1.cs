@@ -50,6 +50,7 @@ public class enemigo1_al1: MonoBehaviour
     public float nivelvida;
     public float []nivelfuerza_a = new float[99];
     public float []nivelvida_a = new float[99];
+    public tutorialbase_al1 eventotut;
     // Start is called before the first frame update
     void Start()
     {
@@ -94,6 +95,7 @@ public class enemigo1_al1: MonoBehaviour
     {
         if(jugador1.objetivotarget == transform.gameObject)
         {
+            jugador1.escudoeneact = false;
             target.SetActive(true);
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
@@ -204,6 +206,17 @@ public class enemigo1_al1: MonoBehaviour
             jugador1.vidaeneuimax = vidamax;
             danoene.Play();
 		}
+        if (col.gameObject.tag == "danoarma9")
+		{
+            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+            jugador1.muertesjug.Stop();
+            vidabase -= balajug.danoj;
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+            danoene.Play();
+        }
     }
     private void OnTriggerStay(Collider col)
 	{

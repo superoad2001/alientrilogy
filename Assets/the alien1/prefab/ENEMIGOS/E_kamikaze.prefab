@@ -865,10 +865,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426493084747646966}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -978,6 +978,10 @@ PrefabInstance:
       propertyPath: InitialModule.startColor.maxColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4285771878599676362, guid: 05ce920d629922a4eb4795ef7494ce5c, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 1.1e-43
+      objectReference: {fileID: 0}
     - target: {fileID: 4285771878599676364, guid: 05ce920d629922a4eb4795ef7494ce5c, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1000,7 +1004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6928458153528979022, guid: 05ce920d629922a4eb4795ef7494ce5c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.45459
+      value: -0.481
       objectReference: {fileID: 0}
     - target: {fileID: 6928458153528979022, guid: 05ce920d629922a4eb4795ef7494ce5c, type: 3}
       propertyPath: m_LocalPosition.z
