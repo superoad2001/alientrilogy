@@ -27,4 +27,11 @@ public class romperbala_al1: MonoBehaviour
     {
         transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,transform.forward.y,transform.rotation.eulerAngles.z),5000f * Time.deltaTime);
     }
+    public void OnTriggerEnter(Collider col)
+    {
+    	if(col.gameObject.tag == "golpeh")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

@@ -66,6 +66,11 @@ public class enemigo3_al1: MonoBehaviour
     public float fuebasemax = 300;
     public float fueplusmax = 4000;
 
+    public float escudovida_noplus = 30;
+    public float escudovida_plus = 100;
+
+    public bool new_game_plus;
+
 
     public float []nivelfuerza_a = new float[99];
     public float []nivelvida_a = new float[99];
@@ -85,7 +90,14 @@ public class enemigo3_al1: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(new_game_plus == true)
+        {
+            vidaescudomax = escudovida_plus;
+        }  
+        else
+        {
+            vidaescudomax = escudovida_noplus;
+        }
         nivelvida_a[0] = vidabasetut;
         vidaescudo = vidaescudomax;
         for(int i = 1 ;i <= 49;  i++ )
@@ -264,6 +276,8 @@ public class enemigo3_al1: MonoBehaviour
             
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
+            jugador1.vidaescudoene = vidaescudo;
+            jugador1.vidaescudomaxene = vidaescudomax;
             jugador1.vidaenebarra.SetActive(true);
             
 		}
@@ -287,12 +301,14 @@ public class enemigo3_al1: MonoBehaviour
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
             
-            vidaescudo -= balajug.danoj;
+            vidaescudo -= 10;
             danoescudo.Play();
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
+            jugador1.vidaescudoene = vidaescudo;
+            jugador1.vidaescudomaxene = vidaescudomax;
             if (vidaescudo <= 0)
             {
             GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
@@ -321,12 +337,14 @@ public class enemigo3_al1: MonoBehaviour
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
-            vidaescudo -= balajug.danoj;
+            vidaescudo -= 300;
             danoescudo.Play();
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
+            jugador1.vidaescudoene = vidaescudo;
+            jugador1.vidaescudomaxene = vidaescudomax;
             if (vidaescudo <= 0)
             {
             GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
@@ -337,12 +355,14 @@ public class enemigo3_al1: MonoBehaviour
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
-            vidaescudo -= balajug.danoj;
+            vidaescudo -= 150;
             danoescudo.Play();
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
+            jugador1.vidaescudoene = vidaescudo;
+            jugador1.vidaescudomaxene = vidaescudomax;
             if (vidaescudo <= 0)
             {
             GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;

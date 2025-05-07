@@ -2823,6 +2823,7 @@ public class jugador_al1 : MonoBehaviour
 						temppalo -= 3;
 						palo.GetComponent<golpe_al1>().dano = 3 * danoextra * nivelfuerza;
 						anim.Play("arma3");
+						anim.SetBool("arma3",true);
 						tempatk = 0; 
 						lanzarson.Play();
 						if(manager.datosserial.licenciaarmapalo[manager.datosserial.nivelarmapalo-1] == true)
@@ -3055,7 +3056,6 @@ public class jugador_al1 : MonoBehaviour
 				}
 				else if(tiempodisp > 0.1f)
 				{
-					anim.SetBool("arma3",false);
 					anim.SetBool("atks",false);
 					
 				}
@@ -3283,6 +3283,24 @@ public class jugador_al1 : MonoBehaviour
 				}
 				else if(b > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
 				{
+					anim.SetBool("saltoatras",false);
+					anim.SetBool("latder",false);
+					anim.SetBool("latizq",false);
+					anim.SetBool("rueda",true);
+					anim.SetBool("dash",false);
+					dashefect = true;
+					tiempodisp2 = 0;
+					disdash = 10;
+					veldash = 80;
+					tempdash2 = 0;
+					movdirectaux = movdire;
+					dashson.Play();
+					stamina -= 15;
+					staminaact = -2;
+				}
+				else if(b > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.05f  && anim.GetCurrentAnimatorStateInfo(1).IsName("arma3") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
+				{
+					anim.SetBool("arma3",false);
 					anim.SetBool("saltoatras",false);
 					anim.SetBool("latder",false);
 					anim.SetBool("latizq",false);
@@ -3792,7 +3810,7 @@ public class jugador_al1 : MonoBehaviour
 			}
 
 		}
-		if (col.gameObject.tag == "enemigo" && cronoact == false)
+		if (col.gameObject.tag == "enemigo" && cronoact == false && col.gameObject.transform.parent == null)
 		{
 			
 			if(col.gameObject.GetComponent<romperbala_al1>() != null)
