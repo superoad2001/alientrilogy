@@ -13,6 +13,7 @@ using System.Linq;
 public class jugador_al1 : MonoBehaviour
 {
 	public bool static_ev = false;
+	public int toquespalo;
 	public tutorialbase_al1 eventotut;
 	public eventosdialogue eventosdialogueE;
 	public bool eventoini;
@@ -113,8 +114,8 @@ public class jugador_al1 : MonoBehaviour
 
     public float nivelfuerza;
     public float nivelvida;
-    public float []nivelfuerza_a = new float[99];
-    public float []nivelvida_a = new float[99];
+    public float []nivelfuerza_a = new float[100];
+    public float []nivelvida_a = new float[100];
 
 	public float []armapalosignv = new float[5];
 	public float []armadefsignv = new float[5];
@@ -172,9 +173,9 @@ public class jugador_al1 : MonoBehaviour
         {   
             nivelvida_a[i] = (vidabase) + (((vidabasemax-vidabase)/48) * (i -1 ));
         }
-        for(int i = 50 ; i <= 98; i++)
+        for(int i = 50 ; i <= 99; i++)
         {   
-            nivelvida_a[i] = (vidabasemax+51) + (((vidaplusmax - vidabasemax+51)/49) * (i - 49));
+            nivelvida_a[i] = (vidabasemax) + (((vidaplusmax - vidabasemax)/50) * (i - 49));
         }
 
         nivelfuerza_a[0] = fuebasetut;
@@ -182,9 +183,9 @@ public class jugador_al1 : MonoBehaviour
         {   
             nivelfuerza_a[i] = (fuebase) + (((fuebasemax-fuebase)/48) * (i - 2));
         }
-        for(int i = 50 ; i <= 98; i++)
+        for(int i = 50 ; i <= 99; i++)
         {   
-            nivelfuerza_a[i] = (fuebasemax+0.5f) + (((fueplusmax -fuebasemax+0.5f)/49) * (i - 49));
+            nivelfuerza_a[i] = (fuebasemax) + (((fueplusmax -fuebasemax)/50) * (i - 49));
         }
 
         nivelfuerza = nivelfuerza_a[manager.datosserial.niveljug - 1];
@@ -340,9 +341,6 @@ public class jugador_al1 : MonoBehaviour
 		}
 		if(manager.juego == 4 || manager.juego == 3)
 		{
-			vidaenebarra = GameObject.Find("barravidaenemigobase");
-			vidaeneimg = vidaenebarra.transform.GetChild(2).gameObject.GetComponent<Image>();
-			escudoeneimg = vidaenebarra.transform.GetChild(3).gameObject.GetComponent<Image>();
 			vidaenebarra.SetActive(false);
 		}
 		
@@ -382,7 +380,6 @@ public class jugador_al1 : MonoBehaviour
 	public bool ascact;
 	public bool muerte;
 	public bool cronoact;
-	public float danoarma;
 	public float lb;
 
 	public float vidaeneui;
@@ -2821,6 +2818,7 @@ public class jugador_al1 : MonoBehaviour
 					{
 						tiempodisp = 0;
 						temppalo -= 3;
+						toquespalo = 2;
 						palo.GetComponent<golpe_al1>().dano = 3 * danoextra * nivelfuerza;
 						anim.Play("arma3");
 						anim.SetBool("arma3",true);
@@ -2844,6 +2842,7 @@ public class jugador_al1 : MonoBehaviour
 						tiempodisp = 0;
 						temppalo -= 40;
 						palo.GetComponent<golpe_al1>().dano = 1.5f * danoextra * nivelfuerza;
+						toquespalo = 999;
 						anim.Play("escudogiratorio");
 						tempatk = 0; 
 						escudohabaud.Play();
@@ -2867,6 +2866,7 @@ public class jugador_al1 : MonoBehaviour
 						temppalo -= 5 * Time.deltaTime;
 						palo.GetComponent<golpe_al1>().dano = 5 * danoextra * nivelfuerza;
 						tempatk = 0;
+						toquespalo = 999;
 						transform.position = Vector3.MoveTowards(transform.position,transform.position + mod.transform.forward * 5, 20 * Time.deltaTime);
 						anim.Play("dashtierra");
 						anim.SetBool("dashtierra",true);
@@ -2890,6 +2890,7 @@ public class jugador_al1 : MonoBehaviour
 					{
 						tiempodisp = 0;
 						temppalo -= 5 * Time.deltaTime;
+						toquespalo = 999;
 						palo.GetComponent<golpe_al1>().dano = 5 * danoextra * nivelfuerza;
 						tempatk = 0;
 						anim.SetBool("dashtierra",true);
@@ -2910,6 +2911,7 @@ public class jugador_al1 : MonoBehaviour
 						temppalo -= 30;
 						palo.GetComponent<golpe_al1>().dano = 5 * danoextra * nivelfuerza;
 						tempatk = 0; 
+						toquespalo = 15;
 						anim.Play("espiralarea");
 						dashairson.Play();
 						if(manager.datosserial.licenciaarmapalo[manager.datosserial.nivelarmapalo-1] == true)
@@ -2955,7 +2957,8 @@ public class jugador_al1 : MonoBehaviour
 					anim.SetBool("atk",true);
 					tiempodisp = 0;
 					tempatk = 0; 
-					danoarma = 0.3f * danoextra * nivelfuerza;
+					palo.GetComponent<golpe_al1>().dano = 0.3f * danoextra * nivelfuerza;
+					toquespalo = 999;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2976,7 +2979,8 @@ public class jugador_al1 : MonoBehaviour
 				{
 					tiempodisp = 0;
 					tempatk = 0; 
-					danoarma = 0.2f * danoextra;
+					toquespalo = 999;
+					palo.GetComponent<golpe_al1>().dano = 0.2f * danoextra;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2995,7 +2999,8 @@ public class jugador_al1 : MonoBehaviour
 				{
 					tiempodisp = 0;
 					tempatk = 0; 
-					danoarma = 0.5f * danoextra * nivelfuerza;
+					toquespalo = 999;
+					palo.GetComponent<golpe_al1>().dano = 0.5f * danoextra * nivelfuerza;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -3016,7 +3021,8 @@ public class jugador_al1 : MonoBehaviour
 				{
 					tiempodisp = 0;
 					tempatk = 0; 
-					danoarma = 0.1f * danoextra * nivelfuerza;
+					toquespalo = 999;
+					palo.GetComponent<golpe_al1>().dano = 0.1f * danoextra * nivelfuerza;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -3035,7 +3041,8 @@ public class jugador_al1 : MonoBehaviour
 				{
 					tiempodisp = 0;
 					tempatk = 0; 
-					danoarma = 2 * danoextra * nivelfuerza;
+					toquespalo = 999;
+					palo.GetComponent<golpe_al1>().dano = 2 * danoextra * nivelfuerza;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -3048,7 +3055,8 @@ public class jugador_al1 : MonoBehaviour
 				{
 					anim.SetBool("atks",true);
 					tiempodisp = 0;
-					danoarma = 0.1f * danoextra * nivelfuerza;
+					toquespalo = 999;
+					palo.GetComponent<golpe_al1>().dano = 0.1f * danoextra * nivelfuerza;
 					this._rb.AddRelativeForce(500 * 2f * -Vector3.up);
 					lanzarson.Play();
 					stamina -= 20;
@@ -3297,6 +3305,8 @@ public class jugador_al1 : MonoBehaviour
 					dashson.Play();
 					stamina -= 15;
 					staminaact = -2;
+					palo.GetComponent<golpe_al1>().dano = 0.1f * danoextra * nivelfuerza;
+					toquespalo = 999;
 				}
 				else if(b > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.05f  && anim.GetCurrentAnimatorStateInfo(1).IsName("arma3") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
 				{
@@ -3315,6 +3325,8 @@ public class jugador_al1 : MonoBehaviour
 					dashson.Play();
 					stamina -= 15;
 					staminaact = -2;
+					palo.GetComponent<golpe_al1>().dano = 0.1f * danoextra * nivelfuerza;
+					toquespalo = 999;
 				}
 				Debug.DrawRay(transform.position + new Vector3(0,2,0),movdire * 100f, Color.green);
 				if(tempdash > dash && tempdash2 > dash2 )
@@ -3433,7 +3445,12 @@ public class jugador_al1 : MonoBehaviour
 		if(temppalo< 60)
         {temppalo += 1 * velrecextra * Time.deltaTime;}
 
-		if(temppaparec< 20)
+		if(temppaparec < 0)
+		{temppaparec = 0;}
+
+		if(temppaparec< 20 && papaagotada == false)
+        {temppaparec += 0.5f * velrecextra * Time.deltaTime;}
+		else if(temppaparec< 20)
         {temppaparec += 0.25f * velrecextra * Time.deltaTime;}
 		else{temppaparec = 20;}
 		
@@ -3680,22 +3697,32 @@ public class jugador_al1 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "pisar")
 		{
-					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 1 && tempatk > 5)
+					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 1 )
 					{
 
-
 						enemigo1_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo1_al1>();
-						enec.vida -= 1;
+						enec.vidapisar = true;
+						enec.rb_.AddRelativeForce(transform.forward * 110 * 10 *  (enec.tamano ));
+						if(enec.tamano == 0)
+						{enec.vida -= enec.vidamax;}
+						else if(enec.tamano == 1)
+						{enec.vida -= enec.vidamax/3;}
+						else if(enec.tamano == 2)
+						{enec.vida -= enec.vidamax/6;}
+						else if(enec.tamano == 3)
+						{enec.vida -= enec.vidamax/9;}
 						_rb.AddRelativeForce(transform.up * 110 * 10);
 						enec.danoene.Play();
 						vidaeneact = true;			
 						vidaeneui = enec.vida;
 						vidaeneuimax = enec.vidamax;
+						niveleneui.text = enec.nivelactual.ToString();
 						vidaenebarra.SetActive(true);
 						if(eventotut != null)
 						{eventotut.evento();}
+						
 					}
-					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 2 && tempatk > 5)
+					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 2 )
 					{
 						
 							enemigo2_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo2_al1>();
@@ -3705,6 +3732,7 @@ public class jugador_al1 : MonoBehaviour
 							vidaeneact = true;			
 							vidaeneui = enec.vida;
 							vidaeneuimax = enec.vidamax;
+							niveleneui.text = enec.nivelactual.ToString();
 							vidaenebarra.SetActive(true);
 						
 				}
@@ -3770,7 +3798,7 @@ public class jugador_al1 : MonoBehaviour
 				enmovdirectaux = enmovdirectaux.normalized;
 				tempempujon = 0;
 				empujon = true;
-
+		
 				golpe_al1 enec = col.gameObject.GetComponent<golpe_al1>();
 				vida -= enec.dano;
 				enec.dest.Play();
@@ -3781,7 +3809,7 @@ public class jugador_al1 : MonoBehaviour
 			GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
 			muertes.Play();
             Destroy(explosiont, 1f);
-			eneboss1.vida -= 1;
+			eneboss1.vida -= eneboss1.vidamax/4;
 			eneboss1.rb_.AddRelativeForce(transform.forward * 110 * 20);
 			_rb.AddRelativeForce(transform.up * 110 * 10);
 		}
@@ -3810,28 +3838,9 @@ public class jugador_al1 : MonoBehaviour
 			}
 
 		}
-		if (col.gameObject.tag == "enemigo" && cronoact == false && col.gameObject.transform.parent == null)
+		if (col.gameObject.tag == "enemigo" )
 		{
 			
-			if(col.gameObject.GetComponent<romperbala_al1>() != null)
-			{
-				muertesjug.Play();
-				romperbala_al1 enec = col.gameObject.GetComponent<romperbala_al1>();
-				if(enec.empujar)
-				{
-				eneempuj = col.gameObject;
-				enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
-				enmovdirectaux = enmovdirectaux.normalized;
-				tempempujon = 0;
-				empujon = true;
-				}
-				
-				vida -= enec.danoj;
-				GameObject explosiont = Instantiate(enec.explosion,enec.transform.position,enec.transform.rotation) as GameObject;
-				Destroy(explosiont, 1f);
-				enec.dest.Play();
-				Destroy(enec.gameObject);
-			}
 
 			
 		}
@@ -4018,6 +4027,13 @@ public class jugador_al1 : MonoBehaviour
 			}
 		}
 	}
+	public void nivel2()
+	{
+			manager.datosserial.nivelexp = 0;
+			manager.datosserial.niveljug = 2;
+			manager.datosserial.signivelexp += 7;
+			subirnivel();
+	}
 	public void subirnivel()
 	{
 		subirnivelaud.Play();
@@ -4027,6 +4043,8 @@ public class jugador_al1 : MonoBehaviour
         expltemp.transform.SetParent(this.gameObject.transform);
 
         Destroy(expltemp,5f);
+		conseguido.text = "subiste al nivel "+manager.datosserial.niveljug;
+		conseguidoa.Play("nivelsub2");
 
 	}
 
@@ -4245,6 +4263,9 @@ public class jugador_al1 : MonoBehaviour
 	
 	public Text armanvt;
 	public Image staminabarra;
+	public Text conseguido;
+	public Animator conseguidoa;
+	public Text niveleneui;
 	
 	
 }

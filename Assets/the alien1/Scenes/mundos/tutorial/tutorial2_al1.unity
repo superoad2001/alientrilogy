@@ -2813,10 +2813,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 757086686}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -4608,6 +4608,17 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 4426582821133070826, guid: e4cd9e774c2359149adb809c59c57a91, type: 3}
   m_PrefabInstance: {fileID: 3770964900790304621}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1607009743 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5516758837908441464, guid: e4cd9e774c2359149adb809c59c57a91, type: 3}
+  m_PrefabInstance: {fileID: 3770964900790304621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1614574467
 GameObject:
   m_ObjectHideFlags: 0
@@ -5215,9 +5226,11 @@ MonoBehaviour:
   fuebase: 30
   fuebasemax: 300
   fueplusmax: 3000
+  vidaUI: 0
   nivelfuerza: 0
   nivelvida: 0
   nivelfuerza_a:
+  - 0
   - 0
   - 0
   - 0
@@ -5417,6 +5430,8 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 0
+  niveltxt: {fileID: 1607009743}
 --- !u!54 &1846644559
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5424,10 +5439,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846644556}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -15682,6 +15697,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1270704918}
     - target: {fileID: 3452607398437096295, guid: e4cd9e774c2359149adb809c59c57a91, type: 3}
+      propertyPath: escudoenebarra
+      value: 
+      objectReference: {fileID: 3770964900790304622}
+    - target: {fileID: 3452607398437096295, guid: e4cd9e774c2359149adb809c59c57a91, type: 3}
       propertyPath: objetivotarget
       value: 
       objectReference: {fileID: 1846644556}
@@ -15766,6 +15785,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4cd9e774c2359149adb809c59c57a91, type: 3}
+--- !u!1 &3770964900790304622 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6216720509043435422, guid: e4cd9e774c2359149adb809c59c57a91, type: 3}
+  m_PrefabInstance: {fileID: 3770964900790304621}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3986179180126297974
 Transform:
   m_ObjectHideFlags: 0

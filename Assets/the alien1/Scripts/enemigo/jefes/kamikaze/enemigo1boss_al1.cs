@@ -19,6 +19,7 @@ public class enemigo1boss_al1: MonoBehaviour
     public Rigidbody rb_;
     public float vel = 2;
     public bool desactivar;
+    public float vidaUI;
 
     public float danoj;
     public GameObject dano;
@@ -66,22 +67,23 @@ public class enemigo1boss_al1: MonoBehaviour
     public float fuebasemax = 100;
     public float fueplusmax = 2000;
     public int nivelactual = 1;
-    public float []nivelfuerza_a = new float[99];
-    public float []nivelvida_a = new float[99];
+    public Text niveltxt;
+    public float []nivelfuerza_a = new float[100];
+    public float []nivelvida_a = new float[100];
 
     // Start is called before the first frame update
     void Start()
     {
 
-
+        vidaUI = vida;
         nivelvida_a[0] = vidabasetut;
         for(int i = 1 ;i <= 49;  i++ )
         {   
             nivelvida_a[i] = (vidabase) + (((vidabasemax-vidabase)/48) * (i -1 ));
         }
-        for(int i = 50 ; i <= 98; i++)
+        for(int i = 50 ; i <= 99; i++)
         {   
-            nivelvida_a[i] = (vidabasemax+51) + (((vidaplusmax - vidabasemax+51)/49) * (i - 49));
+            nivelvida_a[i] = (vidabasemax) + (((vidaplusmax - vidabasemax)/50) * (i - 49));
         }
 
         nivelfuerza_a[0] = fuebasetut;
@@ -89,9 +91,9 @@ public class enemigo1boss_al1: MonoBehaviour
         {   
             nivelfuerza_a[i] = (fuebase) + (((fuebasemax-fuebase)/48) * (i - 2));
         }
-        for(int i = 50 ; i <= 98; i++)
+        for(int i = 50 ; i <= 99; i++)
         {   
-            nivelfuerza_a[i] = (fuebasemax+0.5f) + (((fueplusmax -fuebasemax+0.5f)/49) * (i - 49));
+            nivelfuerza_a[i] = (fuebasemax) + (((fueplusmax -fuebasemax)/50) * (i - 49));
         }
 
         nivelfuerza = nivelfuerza_a[nivelactual-1];
@@ -107,7 +109,9 @@ public class enemigo1boss_al1: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        vidab.fillAmount = vida/vidamax; 
+        vidaUI = Mathf.Lerp(vidaUI, vida, Time.deltaTime * 2f);
+        niveltxt.text = nivelactual.ToString();
+        vidab.fillAmount = vidaUI/vidamax; 
 		vidat.text = (int)vida+"/"+(int)vidamax;
 
         det.transform.position = this.transform.position;
@@ -178,7 +182,14 @@ public class enemigo1boss_al1: MonoBehaviour
                         int diferencianivel =  10;
                         manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
                     }
-                    if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp)
+                     if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 50 )
+                    {
+                        manager.datosserial.nivelexp = 0;
+                        manager.datosserial.niveljug++;
+                        manager.datosserial.signivelexp += 7;
+                        jugador1.subirnivel();
+                    }
+                    else if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 100 && manager.datosserial.niveljug >= 2 && manager.datosserial.newgameplus1 == true)
                     {
                         manager.datosserial.nivelexp = 0;
                         manager.datosserial.niveljug++;
@@ -261,10 +272,11 @@ public class enemigo1boss_al1: MonoBehaviour
 	}
     private void OnTriggerEnter(Collider col)
 	{
-        if (col.gameObject.tag == "golpeh")
+        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0)
 		{
+            jugador1.toquespalo--;
             jugador1.muertesjug.Stop();
-            vida -= jugador1.danoarma;
+            vida -= col.gameObject.GetComponent<golpe_al1>().dano;
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
@@ -286,7 +298,7 @@ public class enemigo1boss_al1: MonoBehaviour
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
-            vidabase -= balajug.danoj;
+            vida -= balajug.danoj;
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;

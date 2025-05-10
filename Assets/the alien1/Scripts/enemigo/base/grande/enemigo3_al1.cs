@@ -34,6 +34,7 @@ public class enemigo3_al1: MonoBehaviour
     public GameObject pistola;
     public float tempe3;
     public float vida;
+    public float vidaUI;
     public float vidamax;
     public Image vidab;
 
@@ -49,6 +50,7 @@ public class enemigo3_al1: MonoBehaviour
     public float danoj = 8;
     public float vidaescudo;
     public float vidaescudomax = 10;
+    public float vidaescudoUI;
     public GameObject target;
     
     public float nivelfuerza;
@@ -72,8 +74,8 @@ public class enemigo3_al1: MonoBehaviour
     public bool new_game_plus;
 
 
-    public float []nivelfuerza_a = new float[99];
-    public float []nivelvida_a = new float[99];
+    public float []nivelfuerza_a = new float[100];
+    public float []nivelvida_a = new float[100];
 
     public void Awake()
     {
@@ -90,6 +92,8 @@ public class enemigo3_al1: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        vidaescudoUI = vidaescudo;
+        vidaUI = vida;
         if(new_game_plus == true)
         {
             vidaescudomax = escudovida_plus;
@@ -104,9 +108,9 @@ public class enemigo3_al1: MonoBehaviour
         {   
             nivelvida_a[i] = (vidabase) + (((vidabasemax-vidabase)/48) * (i -1 ));
         }
-        for(int i = 50 ; i <= 98; i++)
+        for(int i = 50 ; i <= 99; i++)
         {   
-            nivelvida_a[i] = (vidabasemax+51) + (((vidaplusmax - vidabasemax+51)/49) * (i - 49));
+            nivelvida_a[i] = (vidabasemax) + (((vidaplusmax - vidabasemax)/50) * (i -49));
         }
 
         nivelfuerza_a[0] = fuebasetut;
@@ -114,9 +118,9 @@ public class enemigo3_al1: MonoBehaviour
         {   
             nivelfuerza_a[i] = (fuebase) + (((fuebasemax-fuebase)/48) * (i - 2));
         }
-        for(int i = 50 ; i <= 98; i++)
+        for(int i = 50 ; i <= 99; i++)
         {   
-            nivelfuerza_a[i] = (fuebasemax+0.5f) + (((fueplusmax -fuebasemax+0.5f)/49) * (i - 49));
+            nivelfuerza_a[i] = (fuebasemax+0.5f) + (((fueplusmax -fuebasemax+0.5f)/50) * (i - 49));
         }
 
         nivelfuerza = nivelfuerza_a[nivelactual-1];
@@ -139,18 +143,19 @@ public class enemigo3_al1: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        target.transform.position = new Vector3(transform.position.x,transform.position.y + 0.21f,transform.position.z);
+        vidaescudoUI = Mathf.Lerp(vidaescudoUI, vidaescudo, Time.deltaTime * 2f);
+        vidaUI = Mathf.Lerp(vidaUI, vida, Time.deltaTime * 2f);
         if(jugador1.objetivotarget == transform.gameObject)
         {
             target.SetActive(true);
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.escudoeneact = true;
-            jugador1.vidaeneui = vida;
+            jugador1.vidaeneui = vidaUI;
             jugador1.vidaeneuimax = vidamax;
-            jugador1.vidaescudoene = vidaescudo;
+            jugador1.vidaescudoene = vidaescudoUI;
             jugador1.vidaescudomaxene = vidaescudomax;
-
+            jugador1.niveleneui.text = nivelactual.ToString();
         }
         else
         {
@@ -183,15 +188,20 @@ public class enemigo3_al1: MonoBehaviour
                 int diferencianivel =  10;
                 manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
             }
-            if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp)
+            if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 50 )
             {
                 manager.datosserial.nivelexp = 0;
                 manager.datosserial.niveljug++;
                 manager.datosserial.signivelexp += 7;
                 jugador1.subirnivel();
             }
-            
-
+            else if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 100 && manager.datosserial.niveljug >= 2 && manager.datosserial.newgameplus1 == true)
+            {
+                manager.datosserial.nivelexp = 0;
+                manager.datosserial.niveljug++;
+                manager.datosserial.signivelexp += 7;
+                jugador1.subirnivel();
+            }
             manager.datosserial.asesinatos++;
             manager.guardar();
             jugador1.vidaenebarra.SetActive(false);
@@ -267,9 +277,10 @@ public class enemigo3_al1: MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        if (col.gameObject.tag == "golpeh" && escudoact == false)
+        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0 && escudoact == false)
 		{
-            vida -= jugador1.danoarma;
+            jugador1.toquespalo--;
+            vida -= col.gameObject.GetComponent<golpe_al1>().dano;
             jugador1.escudoeneact = true;
             danoene.Play();
             jugador1.vidaeneact = true;
@@ -279,21 +290,7 @@ public class enemigo3_al1: MonoBehaviour
             jugador1.vidaescudoene = vidaescudo;
             jugador1.vidaescudomaxene = vidaescudomax;
             jugador1.vidaenebarra.SetActive(true);
-            
-		}
-        if (col.gameObject.tag == "golpeh" && escudoact == false)
-		{
-            
-            jugador1.vidaeneact = true;
-            jugador1.escudoeneact = true;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.vidaenebarra.SetActive(true);
-            if (vidaescudo <= 0)
-            {
-            GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
-            Destroy(explosiont, 1f);
-            }
+            jugador1.niveleneui.text = nivelactual.ToString();
             
 		}
         if (col.gameObject.tag == "danoarma8" && escudoact == true)
@@ -309,6 +306,7 @@ public class enemigo3_al1: MonoBehaviour
             jugador1.vidaeneuimax = vidamax;
             jugador1.vidaescudoene = vidaescudo;
             jugador1.vidaescudomaxene = vidaescudomax;
+            jugador1.niveleneui.text = nivelactual.ToString();
             if (vidaescudo <= 0)
             {
             GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
@@ -345,6 +343,7 @@ public class enemigo3_al1: MonoBehaviour
             jugador1.vidaeneuimax = vidamax;
             jugador1.vidaescudoene = vidaescudo;
             jugador1.vidaescudomaxene = vidaescudomax;
+            jugador1.niveleneui.text = nivelactual.ToString();
             if (vidaescudo <= 0)
             {
             GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
@@ -363,6 +362,7 @@ public class enemigo3_al1: MonoBehaviour
             jugador1.vidaeneuimax = vidamax;
             jugador1.vidaescudoene = vidaescudo;
             jugador1.vidaescudomaxene = vidaescudomax;
+            jugador1.niveleneui.text = nivelactual.ToString();
             if (vidaescudo <= 0)
             {
             GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;

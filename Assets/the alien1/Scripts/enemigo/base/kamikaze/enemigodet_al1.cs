@@ -27,6 +27,7 @@ public class enemigodet_al1: MonoBehaviour
             enemigo.objetivo1 = col.gameObject.transform;
             enemigo.gameObject.AddComponent<Rigidbody>();
             enemigo.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            enemigo.rb_ = enemigo.GetComponent<Rigidbody>();
             if(nosonar == false)
             {visto.Play();}
 		}

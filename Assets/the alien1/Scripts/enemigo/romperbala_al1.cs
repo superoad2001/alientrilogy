@@ -12,11 +12,14 @@ public class romperbala_al1: MonoBehaviour
 	public GameObject desto;
 
 	public GameObject explosion;
+    public bool balaene;
+    public jugador_al1 jugador1;
 
     public float destb;
     // Start is called before the first frame update
     void Start()
     {
+        jugador1 = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         desto = GameObject.Find("rompersonido");
         dest = desto.GetComponent<AudioSource>();
         Destroy(this.gameObject, destb);
@@ -32,6 +35,27 @@ public class romperbala_al1: MonoBehaviour
     	if(col.gameObject.tag == "golpeh")
         {
             Destroy(this.gameObject);
+        }
+        if (col.gameObject.tag == "Player" && balaene)
+        {
+        
+            if(col.gameObject.GetComponent<jugador_al1>() != null)
+            {
+                jugador1.muertesjug.Play();
+                if(empujar)
+                {
+                jugador1.enmovdirectaux = transform.TransformDirection((transform.forward *70) + (transform.up * -50));
+                jugador1.enmovdirectaux = jugador1.enmovdirectaux.normalized;
+                jugador1.tempempujon = 0;
+                jugador1.empujon = true;
+                }
+                
+                jugador1.vida -= danoj;
+                GameObject explosiont = Instantiate(explosion,transform.position,transform.rotation) as GameObject;
+                Destroy(explosiont, 1f);
+                dest.Play();
+                Destroy(this.gameObject);
+            }
         }
     }
 }

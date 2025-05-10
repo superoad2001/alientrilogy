@@ -35,8 +35,8 @@ public class tutorialbase_al1 : MonoBehaviour
             if(controles.al1.r3.ReadValue<float>() > 0)
             {
                 player.r3 = 1;
-                Destroy(this.gameObject);
                 manual.terminar_evento();
+                Destroy(this.gameObject);
             }
         }
 
@@ -47,6 +47,15 @@ public class tutorialbase_al1 : MonoBehaviour
         if(id == 1)
         {
             manual.terminar_evento();
+            Destroy(this.gameObject);
+        }
+    }
+    public void eventoene()
+    {
+        if(id == 2)
+        {
+            manual.terminar_evento();
+            Destroy(this.gameObject);
         }
     }
 }

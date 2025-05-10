@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 135647712422348886}
   - component: {fileID: 54741910725831293}
   - component: {fileID: 5540504162131385024}
+  - component: {fileID: -6106560405276500469}
   m_Layer: 0
   m_Name: bala_tele
-  m_TagString: bala
+  m_TagString: enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,10 +119,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777860533906856}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -152,6 +153,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objetivo: {fileID: 0}
   vel: 8
+--- !u!114 &-6106560405276500469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777860533906856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f05141227d7ea429eb538c1e44b708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  empujar: 1
+  danoj: 0
+  dest: {fileID: 0}
+  desto: {fileID: 0}
+  explosion: {fileID: 358637981425055526, guid: 14c1be6914734a14d8d4099c9472d975, type: 3}
+  balaene: 1
+  jugador1: {fileID: 0}
+  destb: 3
 --- !u!1001 &7624152966056186047
 PrefabInstance:
   m_ObjectHideFlags: 0

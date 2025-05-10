@@ -8,6 +8,8 @@ using System;
 public class datos1
 {
 
+	public bool newgameplus1;
+
 	public float asc;
     public int plat;
 	public int nivelarmapapa = 1;

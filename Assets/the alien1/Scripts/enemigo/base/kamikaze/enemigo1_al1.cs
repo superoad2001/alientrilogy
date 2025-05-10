@@ -32,14 +32,15 @@ public class enemigo1_al1: MonoBehaviour
     public AudioSource danoene;
 
     public GameObject vidamenu;
-
+    public int tutorial;
 
     public GameObject target;
     public float valorexp = 1f;
     public float vidabasetut = 9;
-    public float vidabase = 99;
-    public float vidabasemax = 999;
-    public float vidaplusmax = 9999;
+    public float []vidabase = new float[4];
+    public float []vidabasemax = new float[4];
+    public float []vidaplusmax = new float[4];
+    public int tamano;
     public int nivelactual = 1;
 
     public float fuebasetut = 1.5f;
@@ -48,21 +49,44 @@ public class enemigo1_al1: MonoBehaviour
     public float fueplusmax = 3000;
     public float nivelfuerza;
     public float nivelvida;
-    public float []nivelfuerza_a = new float[99];
-    public float []nivelvida_a = new float[99];
+    public float []nivelfuerza_a = new float[100];
+    public float []nivelvida_a = new float[100];
     public tutorialbase_al1 eventotut;
+
+    public GameObject big;
+    public GameObject med;
+    public GameObject peque; 
+    public float vidaUI;
+
+    public bool vidapisar;  
+    public float valorexppisado;
     // Start is called before the first frame update
     void Start()
     {
 
+        vidabase[0] = 9;
+        vidabasemax[0] = 300;
+        vidaplusmax[0] = 999;
+        vidabase[1] = 99;
+        vidabasemax[1] = 500;
+        vidaplusmax[1] = 9999;
+        vidabase[2] = 99;
+        vidabasemax[2] = 700;
+        vidaplusmax[2] = 9999;
+        vidabase[3] = 99;
+        vidabasemax[3] = 999;
+        vidaplusmax[3] = 9999;
+
+
+
         nivelvida_a[0] = vidabasetut;
         for(int i = 1 ;i <= 49;  i++ )
         {   
-            nivelvida_a[i] = (vidabase) + (((vidabasemax-vidabase)/48) * (i -1 ));
+            nivelvida_a[i] = (vidabase[tamano]) + (((vidabasemax[tamano]-vidabase[tamano])/48) * (i -1 ));
         }
-        for(int i = 50 ; i <= 98; i++)
+        for(int i = 50 ; i <= 99; i++)
         {   
-            nivelvida_a[i] = (vidabasemax+51) + (((vidaplusmax - vidabasemax+51)/49) * (i - 49));
+            nivelvida_a[i] = (vidabasemax[tamano]) + (((vidaplusmax[tamano] - vidabasemax[tamano])/50) * (i - 49));
         }
 
         nivelfuerza_a[0] = fuebasetut;
@@ -70,9 +94,9 @@ public class enemigo1_al1: MonoBehaviour
         {   
             nivelfuerza_a[i] = (fuebase) + (((fuebasemax-fuebase)/48) * (i - 2));
         }
-        for(int i = 50 ; i <= 98; i++)
+        for(int i = 50 ; i <= 99; i++)
         {   
-            nivelfuerza_a[i] = (fuebasemax+0.5f) + (((fueplusmax -fuebasemax+0.5f)/49) * (i - 49));
+            nivelfuerza_a[i] = (fuebasemax) + (((fueplusmax -fuebasemax)/50) * (i - 49));
         }
 
         nivelfuerza = nivelfuerza_a[nivelactual-1];
@@ -82,6 +106,7 @@ public class enemigo1_al1: MonoBehaviour
 
         vidamax = nivelvida;
         vida = vidamax;
+        vidaUI = vida;
         jugador1 = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         jugador1.explosion = explosion;
         muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();
@@ -93,6 +118,7 @@ public class enemigo1_al1: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        vidaUI = Mathf.Lerp(vidaUI, vida, Time.deltaTime * 2f);
         if(jugador1.objetivotarget == transform.gameObject)
         {
             jugador1.escudoeneact = false;
@@ -101,34 +127,128 @@ public class enemigo1_al1: MonoBehaviour
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
+            jugador1.niveleneui.text = nivelactual.ToString();
         }
         else
         {
             target.SetActive(false);
         }
-        if (vida < 1)
+        if (vida < 1 && tutorial == 0 && vidapisar == true)
         {
             GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
-            if(nivelactual == manager.datosserial.niveljug)
+            explosiont.transform.localScale = this.gameObject.transform.localScale;
+            if(nivelactual == manager.datosserial.niveljug && tamano == 0)
             {
                 manager.datosserial.nivelexp += valorexp;
             }
-            else if(nivelactual < manager.datosserial.niveljug && nivelactual  >= (manager.datosserial.niveljug -10))
+            else if(nivelactual < manager.datosserial.niveljug && nivelactual  >= (manager.datosserial.niveljug -10) && tamano == 0)
             {
                 int diferencianivel = manager.datosserial.niveljug - nivelactual;
                 manager.datosserial.nivelexp += (valorexp / (((diferencianivel) + 1)/2));
             }
-            else if(nivelactual > manager.datosserial.niveljug && nivelactual  <= (manager.datosserial.niveljug + 10))
+            else if(nivelactual > manager.datosserial.niveljug && nivelactual  <= (manager.datosserial.niveljug + 10) && tamano == 0)
             {
                 int diferencianivel =  nivelactual - manager.datosserial.niveljug ;
                 manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
             }
-            else if(nivelactual > manager.datosserial.niveljug && nivelactual  > (manager.datosserial.niveljug + 10))
+            else if(nivelactual > manager.datosserial.niveljug && nivelactual  > (manager.datosserial.niveljug + 10) && tamano == 0)
             {
                 int diferencianivel =  10;
                 manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
             }
-            if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp)
+            if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 50 && tamano == 0)
+            {
+                manager.datosserial.nivelexp = 0;
+                manager.datosserial.niveljug++;
+                manager.datosserial.signivelexp += 7;
+                jugador1.subirnivel();
+            }
+            else if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 100 && manager.datosserial.niveljug >= 2 && manager.datosserial.newgameplus1 == true)
+            {
+                manager.datosserial.nivelexp = 0;
+                manager.datosserial.niveljug++;
+                manager.datosserial.signivelexp += 7;
+                jugador1.subirnivel();
+            }
+
+			manager.datosserial.asesinatos++;
+			muertes.Play();
+			manager.guardar();
+            Destroy(explosiont, 1f);
+            jugador1.vidaenebarra.SetActive(false);
+            jugador1.vidaeneact = false;
+            Destroy(transform.parent.gameObject);
+        }
+        else if (vida < 1 && tutorial == 0 )
+        {
+            if(tamano == 3)
+            {
+                GameObject bigtemp = Instantiate(big, transform.position - new Vector3(10,0,0), transform.rotation);
+                GameObject bigtemp2 = Instantiate(big, transform.position + new Vector3(10,0,0), transform.rotation);
+                GameObject bigtemp3 = Instantiate(big, transform.position - new Vector3(0,0,10), transform.rotation);
+                GameObject bigtemp4 = Instantiate(big, transform.position + new Vector3(0,0,10), transform.rotation);
+                bigtemp.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().valorexp = valorexp/4;
+                bigtemp2.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().valorexp = valorexp/4;
+                bigtemp3.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().valorexp = valorexp/4;
+                bigtemp4.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().valorexp = valorexp/4;
+                bigtemp.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;
+                bigtemp2.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;
+                bigtemp3.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;
+                bigtemp4.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;
+            }
+            else if(tamano == 2)
+            {
+                GameObject medtemp = Instantiate(med, transform.position - new Vector3(7,0,0), transform.rotation);
+                GameObject medtemp2 = Instantiate(med, transform.position + new Vector3(7,0,0), transform.rotation);
+                medtemp.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().valorexp = valorexp/2;
+                medtemp2.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().valorexp = valorexp/2;
+                medtemp.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;
+                medtemp2.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;
+            }
+            else if(tamano == 1)
+            {
+                GameObject pequetemp = Instantiate(peque, transform.position - new Vector3(5,0,0), transform.rotation);
+                GameObject pequetemp2 = Instantiate(peque, transform.position + new Vector3(5,0,0), transform.rotation);
+                GameObject pequetemp3 = Instantiate(peque, transform.position - new Vector3(0,0,5), transform.rotation);
+                GameObject pequetemp4 = Instantiate(peque, transform.position + new Vector3(0,0,5), transform.rotation);
+                pequetemp.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().valorexp = valorexp/4;
+                pequetemp2.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().valorexp = valorexp/4;
+                pequetemp3.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().valorexp = valorexp/4;
+                pequetemp4.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().valorexp = valorexp/4;
+                pequetemp.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;
+                pequetemp2.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;
+                pequetemp3.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;
+                pequetemp4.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;
+            }
+            GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
+            explosiont.transform.localScale = transform.localScale;
+            if(nivelactual == manager.datosserial.niveljug && tamano == 0)
+            {
+                manager.datosserial.nivelexp += valorexp;
+            }
+            else if(nivelactual < manager.datosserial.niveljug && nivelactual  >= (manager.datosserial.niveljug -10) && tamano == 0)
+            {
+                int diferencianivel = manager.datosserial.niveljug - nivelactual;
+                manager.datosserial.nivelexp += (valorexp / (((diferencianivel) + 1)/2));
+            }
+            else if(nivelactual > manager.datosserial.niveljug && nivelactual  <= (manager.datosserial.niveljug + 10) && tamano == 0)
+            {
+                int diferencianivel =  nivelactual - manager.datosserial.niveljug ;
+                manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
+            }
+            else if(nivelactual > manager.datosserial.niveljug && nivelactual  > (manager.datosserial.niveljug + 10) && tamano == 0)
+            {
+                int diferencianivel =  10;
+                manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
+            }
+            if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 50 && tamano == 0)
+            {
+                manager.datosserial.nivelexp = 0;
+                manager.datosserial.niveljug++;
+                manager.datosserial.signivelexp += 7;
+                jugador1.subirnivel();
+            }
+            else if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 100 && manager.datosserial.niveljug >= 2 && manager.datosserial.newgameplus1 == true)
             {
                 manager.datosserial.nivelexp = 0;
                 manager.datosserial.niveljug++;
@@ -145,9 +265,68 @@ public class enemigo1_al1: MonoBehaviour
             Destroy(transform.parent.gameObject);
 
         }
+        else if (vida < 1 && tutorial == 1  && manager.datosserial.niveljug == 1)
+        {
+            GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
+            explosiont.transform.localScale = transform.localScale;
+            manager.datosserial.asesinatos++;
+            jugador1.nivel2();
+			muertes.Play();
+			manager.guardar();
+            Destroy(explosiont, 1f);
+            jugador1.vidaenebarra.SetActive(false);
+            jugador1.vidaeneact = false;
+            eventotut.eventoene();
+            Destroy(transform.parent.gameObject);
+        }
+        else if (vida < 1 && tutorial == 2 || vida < 1 && manager.datosserial.niveljug > 1 && tutorial == 1)
+        {
+            GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
+            explosiont.transform.localScale = transform.localScale;
+            if(nivelactual == manager.datosserial.niveljug && tamano == 0)
+            {
+                manager.datosserial.nivelexp += valorexppisado;
+            }
+            else if(nivelactual < manager.datosserial.niveljug && nivelactual  >= (manager.datosserial.niveljug -10) )
+            {
+                int diferencianivel = manager.datosserial.niveljug - nivelactual;
+                manager.datosserial.nivelexp += (valorexppisado / (((diferencianivel) + 1)/2));
+            }
+            else if(nivelactual > manager.datosserial.niveljug && nivelactual  <= (manager.datosserial.niveljug + 10) )
+            {
+                int diferencianivel =  nivelactual - manager.datosserial.niveljug ;
+                manager.datosserial.nivelexp += (valorexppisado * (((diferencianivel) + 2) / 3 ));
+            }
+            else if(nivelactual > manager.datosserial.niveljug && nivelactual  > (manager.datosserial.niveljug + 10) )
+            {
+                int diferencianivel =  10;
+                manager.datosserial.nivelexp += (valorexppisado * (((diferencianivel) + 2) / 3 ));
+            }
+            if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 50 )
+            {
+                manager.datosserial.nivelexp = 0;
+                manager.datosserial.niveljug++;
+                manager.datosserial.signivelexp += 7;
+                jugador1.subirnivel();
+            }
+            else if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 100 && manager.datosserial.niveljug >= 2 && manager.datosserial.newgameplus1 == true)
+            {
+                manager.datosserial.nivelexp = 0;
+                manager.datosserial.niveljug++;
+                manager.datosserial.signivelexp += 7;
+                jugador1.subirnivel();
+            }
+            manager.datosserial.asesinatos++;
+			muertes.Play();
+			manager.guardar();
+            Destroy(explosiont, 1f);
+            jugador1.vidaenebarra.SetActive(false);
+            jugador1.vidaeneact = false;
+            eventotut.eventoene();
+            Destroy(transform.parent.gameObject);
+        }
         det.transform.position = this.transform.position;
         dano.transform.position = this.transform.position;
-        target.transform.position = new Vector3(transform.position.x,transform.position.y+ -1.44f,transform.position.z);
         if(objetivo == null)
         {
             objetivo = objetivob;
@@ -166,15 +345,18 @@ public class enemigo1_al1: MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        if (col.gameObject.tag == "golpeh")
+        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0)
 		{
+            jugador1.toquespalo--;
             jugador1.muertesjug.Stop();
-            vida -= jugador1.danoarma;
+            vida -= col.gameObject.GetComponent<golpe_al1>().dano;
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
+            jugador1.niveleneui.text = nivelactual.ToString();
             danoene.Play();
+            vidapisar = false;
 		}
         if (col.gameObject.tag == "danoarma8")
 		{
@@ -185,7 +367,9 @@ public class enemigo1_al1: MonoBehaviour
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
+            jugador1.niveleneui.text = nivelactual.ToString();
             danoene.Play();
+            vidapisar = false;
 		}
         if (col.gameObject.tag == "danoarma9")
 		{
@@ -204,18 +388,22 @@ public class enemigo1_al1: MonoBehaviour
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
+            jugador1.niveleneui.text = nivelactual.ToString();
             danoene.Play();
+            vidapisar = false;
 		}
         if (col.gameObject.tag == "danoarma9")
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
-            vidabase -= balajug.danoj;
+            vida -= balajug.danoj;
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
+            jugador1.niveleneui.text = nivelactual.ToString();
             danoene.Play();
+            vidapisar = false;
         }
     }
     private void OnTriggerStay(Collider col)
