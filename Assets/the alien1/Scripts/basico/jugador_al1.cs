@@ -317,6 +317,7 @@ public class jugador_al1 : MonoBehaviour
 			velocidadaux = 8;
 			velocidadmaxima = 13;
 			jumpforce = 700;
+			camara.transform.rotation = Quaternion.Euler(0,180,0);
 		}
 		this._rb = base.GetComponent<Rigidbody>();
 		velocidadaux = velocidad;
@@ -975,7 +976,7 @@ public class jugador_al1 : MonoBehaviour
 				cambioruedaact = 1;
 			}
 
-			if(verticalpad > 0.5f && manager.juego == 4 || lverticalc > 0.5f && manager.juego == 3)
+			if(verticalpad > 0.5f && manager.juego == 4 || rverticalc > 0.5f && manager.juego == 3)
 			{
 				if(manager.datosserial.tengolanzar == true && tiempodisp > 0.2f)
 				{
@@ -1049,7 +1050,7 @@ public class jugador_al1 : MonoBehaviour
 					
 				}
 			}
-			if(verticalpad < -0.5f && manager.juego == 4 || lverticalc < -0.5f && manager.juego == 3)
+			if(verticalpad < -0.5f && manager.juego == 4 || rverticalc < -0.5f && manager.juego == 3)
 			{
 				
 				if(manager.datosserial.armadef == true && tiempodisp > 0.2f)
@@ -1077,7 +1078,7 @@ public class jugador_al1 : MonoBehaviour
 					
 				}
 			}
-			if(horizontalpad > 0.5f && manager.juego == 4 || lhorizontalc > 0.5f && manager.juego == 3)
+			if(horizontalpad > 0.5f && manager.juego == 4 || rhorizontalc > 0.5f && manager.juego == 3)
 			{
 				if(manager.datosserial.armapapa == true && tiempodisp > 0.2f)
 				{
@@ -1110,7 +1111,7 @@ public class jugador_al1 : MonoBehaviour
 					pistolabazoka.SetActive(false);
 				}
 			}
-			if(horizontalpad < -0.5f && manager.juego == 4 || lhorizontalc < -0.5f && manager.juego == 3)
+			if(horizontalpad < -0.5f && manager.juego == 4 || rhorizontalc < -0.5f && manager.juego == 3)
 			{
 				if(manager.datosserial.armarelen == true && tiempodisp > 0.2f)
 				{
@@ -1223,7 +1224,7 @@ public class jugador_al1 : MonoBehaviour
 				cambioruedaact = 0;
 			}
 			numpoct.text = numpociones.ToString();
-			if(verticalpad > 0.5f && manager.juego == 4 || lverticalc > 0.5f && manager.juego == 3)
+			if(verticalpad > 0.5f && manager.juego == 4 || rverticalc > 0.5f && manager.juego == 3)
 			{
 				if(tiempodisp > 0.5f && numpociones >= 1 &&  vida < manager.datosserial.vidamax/2)
 				{
@@ -1237,7 +1238,7 @@ public class jugador_al1 : MonoBehaviour
 				}
 			}
 
-			if(verticalpad < -0.5f && manager.juego == 4 || lverticalc < -0.5f && manager.juego == 3)
+			if(verticalpad < -0.5f && manager.juego == 4 || rverticalc < -0.5f && manager.juego == 3)
 			{
 				if(tiempodisp > 0.5f && numpociones >= 1)
 				{
@@ -1252,7 +1253,7 @@ public class jugador_al1 : MonoBehaviour
 					}
 				}
 			}
-			if(horizontalpad > 0.5f && manager.juego == 4 || lhorizontalc > 0.5f && manager.juego == 3)
+			if(horizontalpad > 0.5f && manager.juego == 4 || rhorizontalc > 0.5f && manager.juego == 3)
 			{
 				if(tiempodisp > 0.5f && numpociones >= 3 && tempberserk == 0)
 				{
@@ -1265,7 +1266,7 @@ public class jugador_al1 : MonoBehaviour
 					
 				}
 			}
-			if(horizontalpad < -0.5f && manager.juego == 4 || lhorizontalc < -0.5f && manager.juego == 3)
+			if(horizontalpad < -0.5f && manager.juego == 4 || rhorizontalc < -0.5f && manager.juego == 3)
 			{
 				if(tiempodisp > 0.5f && numpociones >= 2 && tempvelrec == 0 )
 				{
@@ -1744,28 +1745,7 @@ public class jugador_al1 : MonoBehaviour
 				_rb.linearVelocity = transform.TransformDirection(new Vector3 (-1 * velocidad,_rb.linearVelocity.y,_rb.linearVelocity.z));
 			}
 		}
-		if (manager.juego == 3 && l3 > 0f )
-		{
-			
-			if (!this.dimensiion && this.tiempogiro2 > 1.5f)
-			{
-				this.dimensiion = true;
-				this.tiempogiro2 = 0f;
-				girovalor = base.transform.eulerAngles.y;
-				girotd_der = true;
-			}
-			else if (this.dimensiion && this.tiempogiro2 > 1.5f)
-			{
-				this.tiempogiro2 = 0f;
-				this.dimensiion = false;
-				girovalor = base.transform.eulerAngles.y;
-				girotd_izq = true;
-			}
-				
-				
-				
-				
-		}
+		
 		if (tiempogiro2 > 1f)
 		{
 			if (girotd_izq == true)
@@ -1779,6 +1759,7 @@ public class jugador_al1 : MonoBehaviour
 			{
 
 				transform.rotation = Quaternion.Euler(0,90,0);
+
 			}
 			girotd_der = false;
 			girotd_izq = false;
@@ -1788,6 +1769,7 @@ public class jugador_al1 : MonoBehaviour
 			if (base.transform.eulerAngles.y >= girovalor - 180f)
 			{
 				transform.Rotate(Vector3.up,-180f * Time.deltaTime);
+
 			}
 
 		}
@@ -1796,8 +1778,14 @@ public class jugador_al1 : MonoBehaviour
 			if (base.transform.eulerAngles.y <= girovalor + 180f)
 			{
 				transform.Rotate(Vector3.up,180f * Time.deltaTime);
+
 			}
 
+		}
+		if(tiempogiro2 < 1.5f)
+		{
+			_rb.linearVelocity = Vector3.zero;
+			horizontalpad = 0;
 		}
 			this.tiempogiro2 += Time.deltaTime;
 
@@ -1831,7 +1819,7 @@ public class jugador_al1 : MonoBehaviour
 			{
 				anim.SetBool("stat",false);
 			}
-			if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
+			if(suelo == true && horizontalpad < 0f|| suelo == true && horizontalpad > 0f)
 				{
 				if(temppaso > pasotiempo)
 				{
@@ -1851,6 +1839,32 @@ public class jugador_al1 : MonoBehaviour
 				{temppaso += 1 * Time.deltaTime;}
 				}
 			this.tiempogiro2 += Time.deltaTime;
+			if(lverticalc != 0)
+				{rotationinput.y = lverticalc * rotspeed * Time.deltaTime;}
+				else{rotationinput.y = 0;}
+				
+
+					Vector3 horcam = Vector3.up * rotationinput.x;
+					Vector3 vercam = new Vector3(0,0,0);
+
+					
+					vercam = Vector3.right * rotationinput.y;
+
+				
+					camara.transform.localEulerAngles += vercam;
+					transform.localEulerAngles += horcam;
+
+				Quaternion xRotationx = Quaternion.Euler(camara.transform.localEulerAngles.x,0,0);
+				float angle_f = Quaternion.Angle(Quaternion.identity, xRotationx);
+				float fixedAngle_f = angle_f;
+				if (xRotationx.eulerAngles.x>180)
+				{
+					fixedAngle_f *= -1;
+				}
+				float clampedX = Mathf.Clamp(fixedAngle_f, -10, 30);
+				camara.transform.localRotation = Quaternion.Euler(clampedX, camara.transform.localEulerAngles.y, camara.transform.localEulerAngles.z);
+				
+				camaux = camara.transform.eulerAngles.y;
 		
 			
 			
@@ -1886,7 +1900,7 @@ public class jugador_al1 : MonoBehaviour
 			{
 				anim.SetBool("stat",false);
 			}
-			if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
+			if(suelo == true && horizontalpad< 0f|| suelo == true && horizontalpad > 0f)
 				{
 				if(temppaso > pasotiempo)
 				{
@@ -1906,6 +1920,32 @@ public class jugador_al1 : MonoBehaviour
 				{temppaso += 1 * Time.deltaTime;}
 				}
 			this.tiempogiro2 += Time.deltaTime;
+			if(lverticalc != 0)
+				{rotationinput.y = lverticalc * rotspeed * Time.deltaTime;}
+				else{rotationinput.y = 0;}
+				
+
+					Vector3 horcam = Vector3.up * rotationinput.x;
+					Vector3 vercam = new Vector3(0,0,0);
+
+					
+					vercam = Vector3.right * rotationinput.y;
+
+				
+					camara.transform.localEulerAngles += vercam;
+					transform.localEulerAngles += horcam;
+
+				Quaternion xRotationx = Quaternion.Euler(camara.transform.localEulerAngles.x,0,0);
+				float angle_f = Quaternion.Angle(Quaternion.identity, xRotationx);
+				float fixedAngle_f = angle_f;
+				if (xRotationx.eulerAngles.x>180)
+				{
+					fixedAngle_f *= -1;
+				}
+				float clampedX = Mathf.Clamp(fixedAngle_f, -10, 30);
+				camara.transform.localRotation = Quaternion.Euler(clampedX, camara.transform.localEulerAngles.y, camara.transform.localEulerAngles.z);
+				
+				camaux = camara.transform.eulerAngles.y;
 		}
 		if (manager.juego == 4)
 		{
@@ -3738,6 +3778,11 @@ public class jugador_al1 : MonoBehaviour
 				}
 			
 		}
+		if (col.gameObject.tag == "cambio")
+        {
+            menushow.SetBool("show",true);
+			comando.text = "cambiar direccion de compresion";
+        }
 		if (col.gameObject.tag == "enemigodet")
 		{
 			if(target[0] == null )
@@ -3922,6 +3967,10 @@ public class jugador_al1 : MonoBehaviour
 			}
 
 		}
+		if (col.gameObject.tag == "cambio")
+        {
+            menushow.SetBool("show",false);
+        }
 	}
 	public void OnTriggerStay(Collider col)
 	{
@@ -3956,6 +4005,10 @@ public class jugador_al1 : MonoBehaviour
 				}
 			}
 		}
+		if (col.gameObject.tag == "cambio")
+        {
+            giro2D();
+        }
 		if (col.gameObject.tag == "evento" && eventoini == true)
 		{
 			eventosdialogueE = col.GetComponent<eventosdialogue>();
@@ -4046,6 +4099,32 @@ public class jugador_al1 : MonoBehaviour
 		conseguido.text = "subiste al nivel "+manager.datosserial.niveljug;
 		conseguidoa.Play("nivelsub2");
 
+	}
+	public void giro2D()
+	{
+		if (manager.juego == 3 && controles.al1.y.ReadValue<float>() > 0f )
+		{
+			
+			if (!this.dimensiion && this.tiempogiro2 > 1.5f)
+			{
+				this.dimensiion = true;
+				this.tiempogiro2 = 0f;
+				girovalor = base.transform.eulerAngles.y;
+				girotd_der = true;
+			}
+			else if (this.dimensiion && this.tiempogiro2 > 1.5f)
+			{
+				this.tiempogiro2 = 0f;
+				this.dimensiion = false;
+				girovalor = base.transform.eulerAngles.y;
+				girotd_izq = true;
+			}
+			
+				
+				
+				
+				
+		}
 	}
 
 	public AudioSource subirnivelaud;
@@ -4266,6 +4345,7 @@ public class jugador_al1 : MonoBehaviour
 	public Text conseguido;
 	public Animator conseguidoa;
 	public Text niveleneui;
+	public Text comando;
 	
 	
 }
