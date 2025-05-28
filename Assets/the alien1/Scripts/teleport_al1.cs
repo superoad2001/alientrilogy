@@ -52,7 +52,7 @@ public class teleport_al1 : MonoBehaviour
             {
                 tutfinala.text = text;
             }
-			if (controles.al1.y.ReadValue<float>() > 0f )
+			if (controles.al1_general.y.ReadValue<float>() > 0f )
 			{
 				SceneManager.LoadScene(ubi);
 			}

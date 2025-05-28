@@ -84,11 +84,11 @@ public class pausa_al1 : MonoBehaviour
     public void Update()
     {
         if(mapa == false)
-        {boton = controles.al1.pausa.ReadValue<float>();}
+        {boton = controles.al1_general.pausa.ReadValue<float>();}
         else
-        {boton = controles.al1.select.ReadValue<float>();}
+        {boton = controles.al1_general.select.ReadValue<float>();}
 
-        botonb = controles.al1.b.ReadValue<float>();
+        botonb = controles.al1_general.b.ReadValue<float>();
         
         if(manager.datosconfig.idioma == "es")
         {

@@ -43,7 +43,7 @@ public class subirnave_al1 : MonoBehaviour
 			{this.tutfinala.text = "To enter to the ship press";}
 			if(manager.datosconfig.idioma == "cat")
 			{this.tutfinala.text = "per pujar a la nau pren";}
-			if (controles.al1.y.ReadValue<float>() > 0f )
+			if (controles.al1_general.y.ReadValue<float>() > 0f )
 			{
 				SceneManager.LoadScene("espacio_al1");
 			}

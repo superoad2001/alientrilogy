@@ -3812,7 +3812,7 @@ public class jugador1_al2 : MonoBehaviour
 		{
 			if(manager.juego == 1|| manager.juego == 2 || manager.juego == 3)
             {
-                if(controles.al1.rt.ReadValue<float>() > 0 && velact != true)
+                if(controles.al1_general.rt.ReadValue<float>() > 0 && velact != true)
                 {
                     velocidad = 12;
                 }

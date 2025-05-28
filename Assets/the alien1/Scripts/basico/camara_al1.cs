@@ -58,6 +58,7 @@ public class camara_al1 : MonoBehaviour
 		}
 		transform.position = boxcam2.transform.position + direction * distancia;
 		transform.rotation = Quaternion.LookRotation(boxcam2.transform.position - transform.position);
+		
 			
 	}
 	private void CalculatePlaneSize()

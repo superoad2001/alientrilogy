@@ -50,7 +50,7 @@ public class mundo_al1 : MonoBehaviour
 			{this.tutfinala.text = "To visit this place press";}
 			if(manager.datosconfig.idioma == "cat")
 			{this.tutfinala.text = "per visitar aquest lloc pren";}
-			if (controles.al1.y.ReadValue<float>() > 0f)
+			if (controles.al1_general.y.ReadValue<float>() > 0f)
 			{
 				SceneManager.LoadScene("mundo_al1");
 			}

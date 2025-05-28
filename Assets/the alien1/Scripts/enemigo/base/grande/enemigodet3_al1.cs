@@ -19,6 +19,7 @@ public class enemigodet3_al1: MonoBehaviour
       public AudioSource visto3es;
       public AudioSource visto3en;
       public AudioSource visto3cat;
+      public bool suelo;
       public float temp;
     // Start is called before the first frame update
     void Start()
@@ -92,6 +93,16 @@ public class enemigodet3_al1: MonoBehaviour
             enemigo.objetivob = col.gameObject;
             enemigo.objetivo1b = col.gameObject.transform;
 		}
+            if (col.gameObject.tag != "Player" && suelo == true)
+		{
+                  enemigo.detectar = false;
+                  Destroy (enemigo.GetComponent<Rigidbody>());
+                  Destroy (this.GetComponent<Rigidbody>());
+		}
+            if (col.gameObject.tag == "Player")
+		{
+             suelo = true;
+		}
 
 	}
       private void OnTriggerExit(Collider col)
@@ -103,6 +114,10 @@ public class enemigodet3_al1: MonoBehaviour
                   Destroy (enemigo.GetComponent<Rigidbody>());
                   Destroy (this.GetComponent<Rigidbody>());
             
+		}
+            if (col.gameObject.tag == "suelo")
+		{
+                  suelo = false;
 		}
 
 	}

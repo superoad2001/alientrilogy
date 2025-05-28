@@ -29,7 +29,7 @@ public class saltador_c_al1 : MonoBehaviour
 		jugador_al1 jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
 		if (col.gameObject.tag == "Player" && manager.datosserial.tengosalto == 1 && saltoc == false)
 		{
-			if (controles.al1.a.ReadValue<float>() > 0f && jugador.dialogueact == false)
+			if (controles.al1_general.a.ReadValue<float>() > 0f && jugador.dialogueact == false)
 			{
 				jugador.tiemposalto = 0.5f;
 				jugador.saltoalto2();
@@ -41,7 +41,7 @@ public class saltador_c_al1 : MonoBehaviour
 		}
 		if (col.gameObject.tag == "Player" && manager.datosserial.tengosalto == 1 && saltoc == true)
 		{
-			if (controles.al1.a.ReadValue<float>() > 0f && jugador.dialogueact == false)
+			if (controles.al1_general.a.ReadValue<float>() > 0f && jugador.dialogueact == false)
 			{
 				jugador.tiemposalto = 0.5f;
 				jugador.saltoalto3();

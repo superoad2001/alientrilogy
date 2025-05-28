@@ -122,7 +122,7 @@ public class presentacion_al1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(controles.al1.pausa.ReadValue<float>() > 0 && inicio == false)
+        if(controles.al1_general.pausa.ReadValue<float>() > 0 && inicio == false)
         {
             act();
         }

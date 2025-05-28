@@ -38,7 +38,7 @@ public class subircin2_al1 : MonoBehaviour
 	// Token: 0x06000039 RID: 57 RVA: 0x00003A96 File Offset: 0x00001C96
 	private void Update()
 	{
-		if (controles.al1.y.ReadValue<float>() > 0f || botonm == true)
+		if (controles.al1_general.y.ReadValue<float>() > 0f || botonm == true)
 		{
 			SceneManager.LoadScene("espacio_al1");
 		}
