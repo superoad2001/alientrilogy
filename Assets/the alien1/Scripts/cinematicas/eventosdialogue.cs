@@ -15,9 +15,24 @@ public class eventosdialogue : MonoBehaviour
 
     public string dialogueid;
     public DialogueContainerSO DialogueSO;
+    public bool jug;
     public void Start()
     {
         this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+    }
+    public void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            jug = true;
+        }
+    }
+    public void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            jug = false;
+        }
     }
 
 

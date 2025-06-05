@@ -4122,7 +4122,7 @@ public class jugador_al1 : MonoBehaviour
 	}
 	private void OnTriggerEnter(Collider col)
 	{
-		if (col.gameObject.tag == "pisar")
+		if (col.gameObject.tag == "pisar" && col.gameObject.tag != "enemigo")
 		{
 					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 1 )
 					{
@@ -4131,8 +4131,13 @@ public class jugador_al1 : MonoBehaviour
 							enec.vidapisar = true;
 							if(col.gameObject != null)
 							{
-								enec.rb_.AddRelativeForce(transform.forward * 110 * 10 *  (enec.tamano ));
+								enec.gameObject.AddComponent<Rigidbody>();
+            					enec.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            					enec.rb_ = enec.GetComponent<Rigidbody>();
+								enec.rb_.useGravity = false;
+								enec.rb_.AddRelativeForce(transform.forward * 110 * 4 * (enec.tamano + 1));
 								enec.danoene.Play();
+								enec.temprb = 1;
 							}
 							if(enec.tamano == 0)
 							{enec.vida -= enec.vidamax;}
@@ -4263,19 +4268,22 @@ public class jugador_al1 : MonoBehaviour
 		if (col.gameObject.tag == "evento")
 		{
 			eventosdialogueE = col.GetComponent<eventosdialogue>();
-			dialogueact = false;
-
-			if (dialogueact == false && tiempodialogue > 0.7f)
+			if(eventosdialogueE.jug == true)
 			{
-				menushow.SetBool("show",false);
-				if((DialogueManager)FindFirstObjectByType(typeof(DialogueManager)) != null)
-				{menuoff = (DialogueManager)FindFirstObjectByType(typeof(DialogueManager));}
-				menuoff.StartDialogue(eventosdialogueE.DialogueSO,eventosdialogueE.dialogueid);
-				dialogueact = true;
-				tiempodialogue = 0;
-				controlact = false;
-				manager.controlene = false;
-				
+				dialogueact = false;
+
+				if (dialogueact == false && tiempodialogue > 0.7f)
+				{
+					menushow.SetBool("show",false);
+					if((DialogueManager)FindFirstObjectByType(typeof(DialogueManager)) != null)
+					{menuoff = (DialogueManager)FindFirstObjectByType(typeof(DialogueManager));}
+					menuoff.StartDialogue(eventosdialogueE.DialogueSO,eventosdialogueE.dialogueid);
+					dialogueact = true;
+					tiempodialogue = 0;
+					controlact = false;
+					manager.controlene = false;
+					
+				}
 			}
 
 		}
@@ -4300,25 +4308,31 @@ public class jugador_al1 : MonoBehaviour
 			dialogueact = false;
 			manager.controlene = true;
 		}
-		if (col.gameObject.tag == "evento" && static_ev)
+		if (col.gameObject.tag == "evento" && static_ev && eventosdialogueE != null)
 		{
-			menushow.SetBool("show",false);
-			if(menuoff != null)
+			if(eventosdialogueE.jug == true)
 			{
-			menuoff.MainUI.gameObject.SetActive(false);
+				menushow.SetBool("show",false);
+				if(menuoff != null)
+				{
+				menuoff.MainUI.gameObject.SetActive(false);
+				}
+				dialogueact = false;
 			}
-			dialogueact = false;
 		}
-		else if (col.gameObject.tag == "evento")
+		else if (col.gameObject.tag == "evento" && eventosdialogueE != null)
 		{
-			menushow.SetBool("show",false);
-			if(menuoff != null)
+			if(eventosdialogueE.jug == true)
 			{
-			menuoff.MainUI.gameObject.SetActive(false);
-			controlact = true;
-			manager.controlene = true;
+				menushow.SetBool("show",false);
+				if(menuoff != null)
+				{
+				menuoff.MainUI.gameObject.SetActive(false);
+				controlact = true;
+				manager.controlene = true;
+				}
+				dialogueact = false;
 			}
-			dialogueact = false;
 		}
 		if (col.gameObject.tag == "enemigodet")
 		{
@@ -4409,44 +4423,50 @@ public class jugador_al1 : MonoBehaviour
 		if (col.gameObject.tag == "evento" && eventoini == true)
 		{
 			eventosdialogueE = col.GetComponent<eventosdialogue>();
-			dialogueact = false;
-			controlact = false;
-			manager.controlene = false;
-
-			if (dialogueact == false && tiempodialogue > 0.7f)
+			if(eventosdialogueE.jug == true)
 			{
-				menushow.SetBool("show",false);
-				if((DialogueManager)FindFirstObjectByType(typeof(DialogueManager)) != null)
-				{menuoff = (DialogueManager)FindFirstObjectByType(typeof(DialogueManager));}
-				menuoff.StartDialogue(eventosdialogueE.DialogueSO,eventosdialogueE.dialogueid);
-				dialogueact = true;
-				tiempodialogue = 0;
-				eventoini = false;
-				
-				
+				dialogueact = false;
+				controlact = false;
+				manager.controlene = false;
+
+				if (dialogueact == false && tiempodialogue > 0.7f)
+				{
+					menushow.SetBool("show",false);
+					if((DialogueManager)FindFirstObjectByType(typeof(DialogueManager)) != null)
+					{menuoff = (DialogueManager)FindFirstObjectByType(typeof(DialogueManager));}
+					menuoff.StartDialogue(eventosdialogueE.DialogueSO,eventosdialogueE.dialogueid);
+					dialogueact = true;
+					tiempodialogue = 0;
+					eventoini = false;
+					
+					
+				}
 			}
 
 		}
 		if (col.gameObject.tag == "evento")
-		{
-			if (controles.al1_general.cinnext.ReadValue<float>() > 0f && tiempodialogue > 0.3f && menuoff != null)
+		{	
+			if(eventosdialogueE.jug == true)
 			{
-				if(menuoff.dialogueUIManager.dialogueCanvas.activeSelf == true)
+				if (controles.al1_general.cinnext.ReadValue<float>() > 0f && tiempodialogue > 0.3f && menuoff != null)
 				{
-					menuoff.SkipDialogue();
-					tiempodialogue = 0;
-					tiemposalto = 0.7f;
+					if(menuoff.dialogueUIManager.dialogueCanvas.activeSelf == true)
+					{
+						menuoff.SkipDialogue();
+						tiempodialogue = 0;
+						tiemposalto = 0.7f;
+					}
+					
 				}
-				
-			}
-			if(menuoff != null)
-			{
-				if(menuoff.dialogueUIManager.dialogueCanvas.activeSelf == false && eventoini == false)
+				if(menuoff != null)
 				{
-					dialogueact = false;
-					manager.controlene = true;
-					controlact = true;
-					Destroy(eventosdialogueE.gameObject);
+					if(menuoff.dialogueUIManager.dialogueCanvas.activeSelf == false && eventoini == false)
+					{
+						dialogueact = false;
+						manager.controlene = true;
+						controlact = true;
+						Destroy(eventosdialogueE.gameObject);
+					}
 				}
 			}
 		}

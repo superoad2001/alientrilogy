@@ -17,6 +17,7 @@ public class enemigo1_al1: MonoBehaviour
     public Rigidbody rb_;
     public float vel = 2;
     public bool desactivar;
+    public float temprb;
     public enemigodet_al1 enemigodet;
 
     public float vida;
@@ -118,6 +119,17 @@ public class enemigo1_al1: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (temprb > 0f)
+        {
+            temprb -= Time.deltaTime;
+        }
+        else{temprb = 0f;}
+
+        if (temprb == 0f)
+        {
+            Destroy (rb_);
+        }
         vidaUI = Mathf.Lerp(vidaUI, vida, Time.deltaTime * 2f);
         if(jugador1.objetivotarget == transform.gameObject)
         {
@@ -133,7 +145,7 @@ public class enemigo1_al1: MonoBehaviour
         {
             target.SetActive(false);
         }
-        if (vida < 1 && tutorial == 0 && vidapisar == true)
+        if (vida < 1 && tutorial == 0 && vidapisar == true && temprb == 0)
         {
             GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
             explosiont.transform.localScale = this.gameObject.transform.localScale;
@@ -179,7 +191,7 @@ public class enemigo1_al1: MonoBehaviour
             jugador1.vidaeneact = false;
             Destroy(transform.parent.gameObject);
         }
-        else if (vida < 1 && tutorial == 0 )
+        else if (vida < 1 && tutorial == 0 && temprb == 0)
         {
             if(tamano == 3)
             {
@@ -265,7 +277,7 @@ public class enemigo1_al1: MonoBehaviour
             Destroy(transform.parent.gameObject);
 
         }
-        else if (vida < 1 && tutorial == 1  && manager.datosserial.niveljug == 1)
+        else if (vida < 1 && tutorial == 1  && manager.datosserial.niveljug == 1 && temprb == 0)
         {
             GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
             explosiont.transform.localScale = transform.localScale;
@@ -279,7 +291,7 @@ public class enemigo1_al1: MonoBehaviour
             eventotut.eventoene();
             Destroy(transform.parent.gameObject);
         }
-        else if (vida < 1 && tutorial == 2 || vida < 1 && manager.datosserial.niveljug > 1 && tutorial == 1)
+        else if (vida < 1 && tutorial == 2 || vida < 1 && manager.datosserial.niveljug > 1 && tutorial == 1 && temprb == 0)
         {
             GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
             explosiont.transform.localScale = transform.localScale;
@@ -340,6 +352,16 @@ public class enemigo1_al1: MonoBehaviour
             rotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),25f * Time.deltaTime);
         }
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position,-transform.up,out hit,Mathf.Infinity,0,QueryTriggerInteraction.Ignore))
+        {
+            if(hit.distance > 0f)
+            {
+                transform.position = Vector3.MoveTowards(transform.position,-transform.up,5 * Time.deltaTime);
+                 Debug.Log("si");
+            }
+            Debug.Log("no");
+        }
         
         
     }
@@ -356,6 +378,13 @@ public class enemigo1_al1: MonoBehaviour
             jugador1.vidaeneuimax = vidamax;
             jugador1.niveleneui.text = nivelactual.ToString();
             danoene.Play();
+            gameObject.AddComponent<Rigidbody>();
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            rb_ = GetComponent<Rigidbody>();
+            rb_.useGravity = false;
+            rb_.AddRelativeForce(jugador1.transform.forward + jugador1.transform.up * 110 * 4 *  (tamano + 1));
+            danoene.Play();
+            temprb = 1;
             vidapisar = false;
 		}
         if (col.gameObject.tag == "danoarma8")
@@ -430,7 +459,7 @@ public class enemigo1_al1: MonoBehaviour
 			Destroy(transform.parent.gameObject);
             
 		}
-        if (col.gameObject.tag == "Player" && col.gameObject.tag != "golpeh")
+        if (col.gameObject.tag == "Player" && col.gameObject.tag != "golpeh" && temprb == 0)
 		{
             jugador1.eneempuj = this.gameObject;
             jugador1.enmovdirectaux = transform.TransformDirection((jugador1.eneempuj.transform.forward *70) + (jugador1.eneempuj.transform.up * -50));
