@@ -15,6 +15,10 @@ public class eventosdialogue : MonoBehaviour
 
     public string dialogueid;
     public DialogueContainerSO DialogueSO;
+    public void Start()
+    {
+        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+    }
 
 
 

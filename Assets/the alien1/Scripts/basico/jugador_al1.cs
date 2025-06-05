@@ -17,7 +17,6 @@ public class jugador_al1 : MonoBehaviour
 	public bool static_ev = false;
 	public int toquespalo;
 	public Vector3 planetCenter;
-	public bool planeta;
 	public tutorialbase_al1 eventotut;
 	public eventosdialogue eventosdialogueE;
 	public bool eventoini;
@@ -55,7 +54,7 @@ public class jugador_al1 : MonoBehaviour
 	private float temppalo = 60;
 	private float tempatk;
 	private int numpociones;
-
+	public float disjugsave;
 	public bool camnomov;
 	public float vida = 5;
 	private float tiempodialogue;
@@ -79,6 +78,8 @@ public class jugador_al1 : MonoBehaviour
 	private bool girotizq = false;
 	private bool girotd_der = false;
 	private bool girotd_izq = false;
+	public bool jugadorEntrando;
+	public GameObject objplaneta;
 	public float lhorizontalc;
 	public float lverticalc;
 	public float rhorizontalc;
@@ -132,7 +133,7 @@ public class jugador_al1 : MonoBehaviour
 	public float jugpos;
 	public bool bocaabajo;
 	private Vector3 inputDirection1;
-	private bool invertirHorizontal = false;
+	public bool invertirHorizontal = false;
 	private bool controlActivo = false; 
 	public float horizontalFinal;
 	public void Awake()
@@ -150,17 +151,12 @@ public class jugador_al1 : MonoBehaviour
 	// Token: 0x0600001D RID: 29 RVA: 0x000025E8 File Offset: 0x000007E8
 	private void Start()
 	{
+
+		
 		stamina = staminamax;
 		tiempovelint = 3;
 
-		if(dimensiion == true)
-		{
-			jugpos = transform.position.x;
-		}
-		else if(dimensiion == false)
-		{
-			jugpos = transform.position.z;
-		}
+		
 		if(camara != null)
         {cameraverticalangle2 = camara.transform.eulerAngles.y;}
 		if(GameObject.Find("muerteaudio") == true)
@@ -346,6 +342,14 @@ public class jugador_al1 : MonoBehaviour
 		velocidadaux = velocidad;
 		girovalor = base.transform.eulerAngles.y;
 		jumpforcebase = jumpforce;
+		if(manager.juego == 3)
+        { 
+                this.jugadorEntrando = true;
+        }
+        if(manager.juego == 4)
+        { 
+                this.jugadorEntrando = false;
+        }
 		if(anim != null)
 		{
 			anim.updateMode = AnimatorUpdateMode.Fixed;
@@ -366,6 +370,14 @@ public class jugador_al1 : MonoBehaviour
 		if(manager.juego == 4 || manager.juego == 3)
 		{
 			vidaenebarra.SetActive(false);
+		}
+		if(dimensiion == true)
+		{
+			jugpos = transform.localPosition.x;
+		}
+		else if(dimensiion == false)
+		{
+			jugpos = transform.localPosition.z;
 		}
 		
 		
@@ -1919,36 +1931,100 @@ public class jugador_al1 : MonoBehaviour
 
 		if (manager.juego == 3 && this.dimensiion )
 		{
-
-			Vector3 nuevaPos = transform.position;
-			nuevaPos.x = jugpos;
-			transform.position = nuevaPos;
+			transform.localPosition = new Vector3(jugpos,transform.localPosition.y,transform.localPosition.z);
+			
+			
 
 			anim.SetFloat("velx",horizontalpad);
 			Vector3 movdirnow = transform.TransformDirection(new Vector3 (0,0, -horizontalpad)).normalized;
 
-				if (planeta == true && tiempogiro2 > 1.5f)
-				{
+				if (objplaneta != null && tiempogiro2 > 1.5f)
+				{					
+					// Calcular la dirección de movimiento basada en la orientación del jugador
 					Vector3 direccionDerecha = Vector3.Cross(transform.up, transform.forward).normalized;
 					Vector3 direccionAdelante = Vector3.Cross(direccionDerecha, transform.up).normalized;
-
+					
 					// Preservar la velocidad vertical (relativa a la superficie del planeta)
 					float velocidadVertical = Vector3.Dot(_rb.linearVelocity, transform.up);
 
-					// Aplicar velocidad tangencial a la superficie del planeta
+
+					// Obtener la inclinación del jugador
+					float inclinacionZ = transform.rotation.eulerAngles.z;
+					
+					// Normalizar ángulos a rango -180 a 180
+					if (inclinacionZ > 180) inclinacionZ -= 360;
+
+					// Si el jugador está presionando el control de movimiento
 					if (horizontalpad != 0)
 					{
-						// Usar direccionAdelante (eje Z) en lugar de direccionDerecha (eje X)
-						_rb.linearVelocity = direccionAdelante * horizontalpad * velocidad + transform.up * velocidadVertical;
+						// Si el control acaba de ser activado (no estaba activo antes)
+						if (!controlActivo)
+						{
+							controlActivo = true;
+							// Comprobar si la inclinación justifica la inversión
+							if (Mathf.Abs(inclinacionZ) > 90)
+							{
+								invertirHorizontal = true; // Invertir el estado
+							}
+							else
+							{
+								invertirHorizontal = false;
+							}
+						}
+						
+						// Aplicar la inversión si es necesario
+						horizontalFinal = invertirHorizontal ? -horizontalpad : horizontalpad;
+						
+						// Usar las variables existentes para el movimiento
+
+						_rb.linearVelocity = direccionDerecha * -horizontalFinal * velocidad + transform.up * velocidadVertical;
+
+						if(invertirHorizontal)
+						{
+							if (horizontalpad > 0f )
+							{
+								girodir = 90;
+							}
+							if (horizontalpad < 0f)
+							{
+								girodir = -90;
+								
+							}
+						}
+						else
+						{
+							if (horizontalpad > 0f )
+							{
+								girodir = -90;
+							}
+							if (horizontalpad < 0f)
+							{
+								girodir = 90;
+								
+							}
+						}
+
 					}
 					else
 					{
 						// Detener el movimiento horizontal pero mantener la velocidad vertical
-						_rb.linearVelocity = transform.up * velocidadVertical;
+						controlActivo = false; // Resetear el estado del control
+								// Mantener la velocidad actual o detener si no hay input
+						_rb.linearVelocity = transform.up * Vector3.Dot(_rb.linearVelocity, transform.up); 
 					}
 				}
 				else if (tiempogiro2 > 1.5f)
 				{
+					if (horizontalpad > 0f )
+					{
+						girodir = -90;
+					}
+					if (horizontalpad < 0f)
+					{
+						girodir = 90;
+					}
+
+					jugadorEntrando = true;
 					// Mantener el movimiento horizontal y la velocidad vertical
 					_rb.linearVelocity = new Vector3(0f, _rb.linearVelocity.y, horizontalpad * velocidad);
 					
@@ -1957,14 +2033,7 @@ public class jugador_al1 : MonoBehaviour
 					transform.rotation = Quaternion.Slerp(transform.rotation, rotacionNormal, Time.fixedDeltaTime * 3f);
 				}
 
-			if (horizontalpad > 0f )
-            {
-				girodir = -90;
-            }
-            if (horizontalpad < 0f)
-            {
-				girodir = 90;
-            }
+			
 			mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,girodir,0),30* Time.deltaTime);
            	movdire = transform.TransformDirection(movdirnow * velocidad);
             movdire.y = 0;
@@ -2035,53 +2104,107 @@ public class jugador_al1 : MonoBehaviour
 		}
 		if (manager.juego == 3 && !this.dimensiion )
 		{
-
-			Vector3 nuevaPos = transform.position;
-			nuevaPos.z = jugpos;
-			transform.position = nuevaPos;
-
+			
+			transform.localPosition = new Vector3(transform.localPosition.x,transform.localPosition.y,jugpos);
 			anim.SetFloat("velx",horizontalpad);
 			Vector3 movdirnow = transform.TransformDirection(new Vector3 (-horizontalpad,0, 0)).normalized;
-				if (planeta == true && tiempogiro2 > 1.5f)
+				if (objplaneta != null && tiempogiro2 > 1.5f)
 				{
+
 					// Calcular la dirección de movimiento basada en la orientación del jugador
 					Vector3 direccionDerecha = Vector3.Cross(transform.up, transform.forward).normalized;
 					Vector3 direccionAdelante = Vector3.Cross(direccionDerecha, transform.up).normalized;
 					
 					// Preservar la velocidad vertical (relativa a la superficie del planeta)
 					float velocidadVertical = Vector3.Dot(_rb.linearVelocity, transform.up);
+
+
+					// Obtener la inclinación del jugador
+					float inclinacionZ = transform.rotation.eulerAngles.z;
 					
-					// Aplicar velocidad tangencial a la superficie del planeta
+					// Normalizar ángulos a rango -180 a 180
+					if (inclinacionZ > 180) inclinacionZ -= 360;
+
+					// Si el jugador está presionando el control de movimiento
 					if (horizontalpad != 0)
 					{
-						_rb.linearVelocity = direccionDerecha * -horizontalpad * velocidad + transform.up * velocidadVertical;
+						// Si el control acaba de ser activado (no estaba activo antes)
+						if (!controlActivo)
+						{
+							controlActivo = true;
+							// Comprobar si la inclinación justifica la inversión
+							if (Mathf.Abs(inclinacionZ) > 90)
+							{
+								invertirHorizontal = true; // Invertir el estado
+							}
+							else
+							{
+								invertirHorizontal = false;
+							}
+						}
+						
+						// Aplicar la inversión si es necesario
+						horizontalFinal = invertirHorizontal ? -horizontalpad : horizontalpad;
+						
+						// Usar las variables existentes para el movimiento
+
+						_rb.linearVelocity = direccionDerecha * -horizontalFinal * velocidad + transform.up * velocidadVertical;
+
+						if(invertirHorizontal)
+						{
+							if (horizontalpad > 0f )
+							{
+								girodir = 90;
+							}
+							if (horizontalpad < 0f)
+							{
+								girodir = -90;
+								
+							}
+						}
+						else
+						{
+							if (horizontalpad > 0f )
+							{
+								girodir = -90;
+							}
+							if (horizontalpad < 0f)
+							{
+								girodir = 90;
+								
+							}
+						}
+
 					}
 					else
 					{
 						// Detener el movimiento horizontal pero mantener la velocidad vertical
-						_rb.linearVelocity = transform.up * velocidadVertical;
+						controlActivo = false; // Resetear el estado del control
+								// Mantener la velocidad actual o detener si no hay input
+						_rb.linearVelocity = transform.up * Vector3.Dot(_rb.linearVelocity, transform.up); 
 					}
 				}
 				else if (tiempogiro2 > 1.5f)
 				{
 					// Mantener el movimiento horizontal y la velocidad vertical
 					_rb.linearVelocity = new Vector3(-horizontalpad * velocidad, _rb.linearVelocity.y, 0);
-					
+
+					if (horizontalpad > 0f )
+					{
+						girodir = -90;
+					}
+					if (horizontalpad < 0f)
+					{
+						girodir = 90;
+					}
+					jugadorEntrando = true;
 					// Volver gradualmente a la rotación normal (gravedad hacia abajo)
 					Quaternion rotacionNormal = Quaternion.Euler(0, 0, 0);
 					transform.rotation = Quaternion.Slerp(transform.rotation, rotacionNormal, Time.fixedDeltaTime * 3f);
 				}
 				
 
-				if (horizontalpad > 0f )
-				{
-					girodir = -90;
-				}
-				if (horizontalpad < 0f)
-				{
-					girodir = 90;
-					
-				}
+				
 			
 			mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,girodir,0),30* Time.deltaTime);
             movdire = transform.TransformDirection(movdirnow * velocidad);
@@ -2401,7 +2524,7 @@ public class jugador_al1 : MonoBehaviour
 			
 			
 			
-			if(lt == 0 || ascensor == true || planeta == true)
+			if(lt == 0 || ascensor == true || objplaneta != null)
             {
 
 				anim.SetBool("movlat",false);
@@ -2424,8 +2547,9 @@ public class jugador_al1 : MonoBehaviour
 
 					Vector3 movdirnow = new Vector3 (lhorizontalc,0, lverticalc).normalized;
 
-					if (planeta == true)
+					if (objplaneta != null)
 					{
+						jugadorEntrando = true;
 						camarascript.maxdis = 40;
 						
 						
@@ -2469,7 +2593,7 @@ public class jugador_al1 : MonoBehaviour
 								{
 									controlActivo = true;
 									// Comprobar si la inclinación justifica la inversión
-									if (inclinacionX > 100 || inclinacionX < -100 || Mathf.Abs(inclinacionZ) > 150)
+									if (inclinacionX > 100 || inclinacionX < -100 || Mathf.Abs(inclinacionZ) > 90)
 									{
 										invertirHorizontal = true; // Invertir el estado
 									}
@@ -2551,6 +2675,14 @@ public class jugador_al1 : MonoBehaviour
 					}
 					else
 					{
+
+
+						if (jugadorEntrando == true)
+						{
+								
+								boxcam2.transform.localRotation = Quaternion.Euler(0.35f, 0, 0);
+								this.jugadorEntrando = false;
+						}				
 						camarascript.maxdis = 30;
 						if(lhorizontalc != 0 || lverticalc != 0)
 						{
@@ -2730,7 +2862,7 @@ public class jugador_al1 : MonoBehaviour
 				
 
 			}
-			else if(lt > 0 && ascensor == false && planeta == false)
+			else if(lt > 0 && ascensor == false && objplaneta == null)
             {
 				
 				
@@ -3021,7 +3153,7 @@ public class jugador_al1 : MonoBehaviour
 		if (manager.juego == 3)
 		{
 			this.tiemposalto -= Time.deltaTime;
-			if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && planeta == false)
+			if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && objplaneta == null)
 			{
 					if(jumpforce == jumpforcebase)
 					{tiempodisp = 0;}
@@ -3031,7 +3163,7 @@ public class jugador_al1 : MonoBehaviour
 					anim.SetBool("salto",true);
 					
 			}
-			else if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && planeta == true)
+			else if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && objplaneta != null)
 			{
 					if(jumpforce == jumpforcebase)
 					{tiempodisp = 0;}
@@ -3054,11 +3186,12 @@ public class jugador_al1 : MonoBehaviour
 					jumpforce = jumpforce / 1.8f;
 					anim.SetBool("salto",true);
 			}
+			
 		}
 		if (manager.juego == 4)
 		{
 			this.tiemposalto -= Time.deltaTime;
-			if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && planeta == false)
+			if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && objplaneta == null)
 			{
 					if(jumpforce == jumpforcebase)
 					{tiempodisp = 0;}
@@ -3067,11 +3200,11 @@ public class jugador_al1 : MonoBehaviour
 					jumpforce = jumpforce / 1.8f;
 					anim.SetBool("salto",true);
 			}
-			else if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && planeta == true)
+			else if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && objplaneta != null)
 			{
 					if(jumpforce == jumpforcebase)
 					{tiempodisp = 0;}
-					this._rb.AddRelativeForce((jumpforce + 200f) * Vector3.up);
+					this._rb.AddRelativeForce((jumpforce + 700f) * Vector3.up);
 					this.tiemposalto = 0.9f;
 					jumpforce = jumpforce / 1.8f ;
 					anim.SetBool("salto",true);
@@ -3993,27 +4126,32 @@ public class jugador_al1 : MonoBehaviour
 		{
 					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 1 )
 					{
-
-						enemigo1_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo1_al1>();
-						enec.vidapisar = true;
-						enec.rb_.AddRelativeForce(transform.forward * 110 * 10 *  (enec.tamano ));
-						if(enec.tamano == 0)
-						{enec.vida -= enec.vidamax;}
-						else if(enec.tamano == 1)
-						{enec.vida -= enec.vidamax/3;}
-						else if(enec.tamano == 2)
-						{enec.vida -= enec.vidamax/6;}
-						else if(enec.tamano == 3)
-						{enec.vida -= enec.vidamax/9;}
-						_rb.AddRelativeForce(transform.up * 110 * 10);
-						enec.danoene.Play();
-						vidaeneact = true;			
-						vidaeneui = enec.vida;
-						vidaeneuimax = enec.vidamax;
-						niveleneui.text = enec.nivelactual.ToString();
-						vidaenebarra.SetActive(true);
-						if(eventotut != null)
-						{eventotut.evento();}
+						
+							enemigo1_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo1_al1>();
+							enec.vidapisar = true;
+							if(col.gameObject != null)
+							{
+								enec.rb_.AddRelativeForce(transform.forward * 110 * 10 *  (enec.tamano ));
+								enec.danoene.Play();
+							}
+							if(enec.tamano == 0)
+							{enec.vida -= enec.vidamax;}
+							else if(enec.tamano == 1)
+							{enec.vida -= enec.vidamax/3;}
+							else if(enec.tamano == 2)
+							{enec.vida -= enec.vidamax/6;}
+							else if(enec.tamano == 3)
+							{enec.vida -= enec.vidamax/9;}
+							_rb.AddRelativeForce(transform.up * 110 * 10);
+							vidaeneact = true;			
+							vidaeneui = enec.vida;
+							vidaeneuimax = enec.vidamax;
+							niveleneui.text = enec.nivelactual.ToString();
+							vidaenebarra.SetActive(true);
+							if(eventotut != null)
+							{eventotut.evento();}
+						
+						
 						
 					}
 					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 2 )
@@ -4021,8 +4159,12 @@ public class jugador_al1 : MonoBehaviour
 						
 							enemigo2_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo2_al1>();
 							enec.vida -= 1;
-							_rb.AddRelativeForce(transform.up * 110 * 10);
-							enec.danoene.Play();
+							if(col.gameObject != null)
+							{
+								_rb.AddRelativeForce(transform.up * 110 * 10);
+								enec.danoene.Play();
+								
+							}
 							vidaeneact = true;			
 							vidaeneui = enec.vida;
 							vidaeneuimax = enec.vidamax;
@@ -4147,10 +4289,7 @@ public class jugador_al1 : MonoBehaviour
 	}
 	public void OnTriggerExit(Collider col)
 	{
-		if (col.gameObject.tag == "planetagrav")
-		{
-			planeta = false;
-		}
+
 		if (col.gameObject.tag == "npc")
 		{
 			menushow.SetBool("show",false);
@@ -4232,10 +4371,6 @@ public class jugador_al1 : MonoBehaviour
 	}
 	public void OnTriggerStay(Collider col)
 	{
-		if (col.gameObject.tag == "planetagrav")
-		{
-			planeta = true;
-		}	
 		if (col.gameObject.tag == "npc")
 		{
 			if (controles.al1_general.y.ReadValue<float>() > 0f && dialogueact == false && tiempodialogue > 0.7f)
@@ -4275,6 +4410,8 @@ public class jugador_al1 : MonoBehaviour
 		{
 			eventosdialogueE = col.GetComponent<eventosdialogue>();
 			dialogueact = false;
+			controlact = false;
+			manager.controlene = false;
 
 			if (dialogueact == false && tiempodialogue > 0.7f)
 			{
@@ -4285,6 +4422,7 @@ public class jugador_al1 : MonoBehaviour
 				dialogueact = true;
 				tiempodialogue = 0;
 				eventoini = false;
+				
 				
 			}
 
@@ -4306,6 +4444,8 @@ public class jugador_al1 : MonoBehaviour
 				if(menuoff.dialogueUIManager.dialogueCanvas.activeSelf == false && eventoini == false)
 				{
 					dialogueact = false;
+					manager.controlene = true;
+					controlact = true;
 					Destroy(eventosdialogueE.gameObject);
 				}
 			}
@@ -4384,11 +4524,11 @@ public class jugador_al1 : MonoBehaviour
 			}
 			if(dimensiion == true)
 			{
-				jugpos = transform.position.x;
+				jugpos = transform.localPosition.x;
 			}
 			else if(dimensiion == false)
 			{
-				jugpos = transform.position.z;
+				jugpos = transform.localPosition.z;
 			}
 			
 				

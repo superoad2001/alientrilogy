@@ -2152,7 +2152,6 @@ GameObject:
   - component: {fileID: 4174150872076526791}
   - component: {fileID: 7690491882814610543}
   - component: {fileID: 4758250725446550345}
-  - component: {fileID: 368031639248647540}
   - component: {fileID: 2886862872444403957}
   - component: {fileID: 4377967673386012797}
   - component: {fileID: 7168403057482902443}
@@ -2240,21 +2239,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &368031639248647540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2630650128157739852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8884d8c777887744bba646315ae1fdd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  atractor: {fileID: 0}
-  _rb: {fileID: 1306674474590770846}
-  camara1: {fileID: 0}
 --- !u!114 &2886862872444403957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2267,8 +2251,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6010a2de17a11514da18980e669b96f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetUp: {x: 0, y: 0, z: 0}
   static_ev: 0
   toquespalo: 0
+  planetCenter: {x: 0, y: 0, z: 0}
+  planeta: 0
   eventotut: {fileID: 0}
   eventosdialogueE: {fileID: 0}
   eventoini: 0
@@ -2541,6 +2528,9 @@ MonoBehaviour:
   - 50
   vidamax: 0
   tposepause: 0
+  jugpos: 0
+  bocaabajo: 0
+  horizontalFinal: 0
   tiempoascensor: 0
   bajar: 0
   subir: 0
@@ -2569,6 +2559,7 @@ MonoBehaviour:
   tiempovelint: 0
   velocidadaux: 0
   rotacion1: {x: 0, y: 0, z: 0, w: 1}
+  dimensiion: 0
   ascensor: 0
   dentrotienda: 0
   eneempuj: {fileID: 0}
@@ -2622,7 +2613,7 @@ MonoBehaviour:
   tragar: {fileID: 5370462187811129876}
   pistolabueno: {fileID: 8783142960687518875}
   pistolamalo: {fileID: 91342100009134723}
-  grav: {fileID: 368031639248647540}
+  grav: {fileID: 0}
   tarboss: {fileID: 0}
   objetivotarget: {fileID: 0}
   slash: {fileID: 3153472991145048103, guid: ca9e834f0484b14438c8c597c7fb0237, type: 3}
@@ -2735,6 +2726,8 @@ MonoBehaviour:
   conseguidoa: {fileID: 0}
   niveleneui: {fileID: 0}
   comando: {fileID: 0}
+  camarascript: {fileID: 0}
+  noarmasel: {fileID: 0}
 --- !u!108 &4377967673386012797
 Light:
   m_ObjectHideFlags: 0
