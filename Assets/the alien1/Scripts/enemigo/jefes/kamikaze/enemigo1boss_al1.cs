@@ -7,9 +7,10 @@ using UnityEngine.UI;
 public class enemigo1boss_al1: MonoBehaviour
 {
     public float vida;
+    public GameObject plataformas;
     public float vidamax;
     public manager_al1 manager;
-    public bool detectar;
+    public Text vidat2;
     public int nivel = 1;
     public GameObject objetivo;
     public GameObject objetivob;
@@ -23,7 +24,6 @@ public class enemigo1boss_al1: MonoBehaviour
 
     public float danoj;
     public GameObject dano;
-    public GameObject det;
     public GameObject explosion;
     public jugador_al1 jugador1;
     public AudioSource muertes;
@@ -56,12 +56,12 @@ public class enemigo1boss_al1: MonoBehaviour
     public float nivelvida;
     public float niveldefensa;
 
-     public float valorexp = 10f;
-    public float vidabasetut = 4;
-    public float vidabase = 4;
+    public float valorexp = 10f;
+    public float vidabasetut = 99;
+    public float vidabase = 999;
     public float vidabasemax = 9999;
     public float vidaplusmax = 99999;
-
+    public bool detectar;
     public float fuebasetut = 1;
     public float fuebase = 10;
     public float fuebasemax = 100;
@@ -70,11 +70,14 @@ public class enemigo1boss_al1: MonoBehaviour
     public Text niveltxt;
     public float []nivelfuerza_a = new float[100];
     public float []nivelvida_a = new float[100];
+    public float vidacabezamax = 4;
+    private int vidacabeza;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
         vidaUI = vida;
         nivelvida_a[0] = vidabasetut;
         for(int i = 1 ;i <= 49;  i++ )
@@ -111,10 +114,25 @@ public class enemigo1boss_al1: MonoBehaviour
     {
         vidaUI = Mathf.Lerp(vidaUI, vida, Time.deltaTime * 2f);
         niveltxt.text = nivelactual.ToString();
-        vidab.fillAmount = vidaUI/vidamax; 
+        vidab.fillAmount = vidaUI/vidamax;
+        float compvida = vida;
+        vidacabeza = 0;
+        for(int i = 0 ;i < vidacabezamax ; i++)
+        {
+            compvida -= vidamax/vidacabezamax;
+            vidacabeza++;
+            if(compvida <= 0)
+            {
+                break;
+            }
+        }
+        if(vida == 0)
+        {
+           vidacabeza = 0;
+        }
 		vidat.text = (int)vida+"/"+(int)vidamax;
+        vidat2.text = (int)(vidacabeza)+"/"+(int)vidacabezamax;
 
-        det.transform.position = this.transform.position;
         dano.transform.position = this.transform.position;
         if(objetivo == null)
         {
@@ -122,7 +140,7 @@ public class enemigo1boss_al1: MonoBehaviour
             objetivo1 = objetivo1b;
         }
         
-        if(detectar == true && desactivar == false && manager.controlene == true)
+        if(detectar == true && desactivar == false && manager.controlene == true && vida >= 1)
         {
             transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivo.transform.position.x,transform.position.y,objetivo.transform.position.z),vel * Time.deltaTime);
             Vector3 direction = objetivo1.position - transform.position;
@@ -150,9 +168,21 @@ public class enemigo1boss_al1: MonoBehaviour
             }
             temp += 1 * Time.deltaTime;   
         }
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivo.transform.position.x,transform.position.y,objetivo.transform.position.z),vel / 3 * Time.deltaTime);
+        }
         detectar = true;
             if (vida < 1)
             {
+                plataformas.SetActive(false);
+                transform.GetChild(0).gameObject.SetActive(false);
+                transform.GetChild(1).gameObject.SetActive(false);
+                transform.GetChild(2).gameObject.SetActive(false);
+                GetComponent<Collider>().enabled = false;
+                jugador1.vida = vidamax;
+                
+                vida = 0;
                 if(fin == false)
                 {
                 musica.Stop();
@@ -160,6 +190,9 @@ public class enemigo1boss_al1: MonoBehaviour
                 fin = true;
                 cam.SetBool("act",true);
                 jugador1.controlact = false;
+                GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
+                muertes.Play();
+                Destroy(explosiont, 1f);
                 }
                 if(Temp >= 10 )
                 {
@@ -225,17 +258,20 @@ public class enemigo1boss_al1: MonoBehaviour
                 }
 
             }
-            else if(vida <= 1)
+            else if(vidacabeza <= 1)
             {
                 balafrec = 2;
+                vel = 18;
             }   
-            else if(vida <= 2)
+            else if(vidacabeza <= 2)
             {
                 balafrec = 4;
+                vel = 14;
             } 
-            else if(vida <= 3)
+            else if(vidacabeza <= 3)
             {
                 balafrec = 7;
+                vel = 10;
             }  
             else
             {

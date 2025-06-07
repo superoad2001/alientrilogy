@@ -7,10 +7,12 @@ using UnityEngine.UI;
 public class enemigo2_al1: MonoBehaviour
 {
     public GameObject slash;
+    public GameObject escudoin;
 	public manager_al1 manager;
     public bool muertetemp;
     public float tempM;
     public bool detectar;
+    public float temprb;
     public GameObject objetivo;
     public GameObject objetivob;
     public Quaternion rotation;
@@ -67,6 +69,8 @@ public class enemigo2_al1: MonoBehaviour
     public float nivelvida;
 
     public bool enemigostut;
+    private Vector3 []objetivoa = new Vector3[4]; 
+    private Vector3 objetivon;
 
     public float []nivelfuerza_a = new float[100];
     public float []nivelvida_a = new float[100];
@@ -86,7 +90,17 @@ public class enemigo2_al1: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        objetivoa[0] = transform.position + new Vector3(0,0,-5);
+        objetivoa[1] = transform.position + new Vector3(0,0,5);
+        objetivoa[2] = transform.position + new Vector3(-5,0,0);
+        objetivoa[3] = transform.position + new Vector3(5,0,0);
+        objetivon = objetivoa[Random.Range(0,5)];
+        if(GetComponent<Rigidbody>() == null)
+        {
+            gameObject.AddComponent<Rigidbody>();
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            rb_ = GetComponent<Rigidbody>();
+        }
         nivelvida_a[0] = vidabasetut;
         for(int i = 1 ;i <= 49;  i++ )
         {   
@@ -128,6 +142,20 @@ public class enemigo2_al1: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(detectar == false)
+        {
+            escudoin.SetActive(true);
+        }
+        else
+        {
+        	escudoin.SetActive(false);
+        }
+        if (temprb > 0f)
+        {
+            temprb -= Time.deltaTime;
+        }
+        else{temprb = 0f;}
+
         vidaUI = Mathf.Lerp(vidaUI, vida, Time.deltaTime * 2f);
 
         if(jugador1.objetivotarget == transform.gameObject)
@@ -211,6 +239,9 @@ public class enemigo2_al1: MonoBehaviour
         {
             objetivo = objetivob;
             objetivo1 = objetivo1b;
+        }
+        else
+        {
         }
         
         if(detectar == true && desactivar == false && enemigo == 1 && manager.controlene == true)
@@ -350,12 +381,42 @@ public class enemigo2_al1: MonoBehaviour
             }
             tempe3 += 1 * Time.deltaTime;
         }
+        if(detectar == false )
+        {
+
+            if(manager.juego != 3)
+            {
+                if(new Vector3(objetivon.x,transform.position.y,objetivon.z) == transform.position)
+                {
+                    objetivon = objetivoa[Random.Range(0,4)];
+                }
+                Vector3 direction2 = objetivon - transform.position;
+                rotation = Quaternion.LookRotation(direction2);
+                transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivon.x,transform.position.y,objetivon.z),vel * Time.deltaTime);
+                anim.SetFloat("vely",1);
+            }
+            else if(manager.juego == 3)
+            {
+            }
+                // Lanzar rayo hacia abajo
+            RaycastHit hit;
+            if(Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity,0, QueryTriggerInteraction.Ignore))
+            {
+            	if (hit.distance < 0.1f)
+                {
+                    Destroy (GetComponent<Rigidbody>());
+                }
+            }
+
+            // Aplicar gravedad solo si no está en el suelo
+            
+        }
         
         
     }
     private void OnTriggerExit(Collider col)
 	{
-        if (col.gameObject.tag == "danoarma10")
+        if (col.gameObject.tag == "danoarma10" && detectar == true)
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
@@ -367,7 +428,7 @@ public class enemigo2_al1: MonoBehaviour
             jugador1.niveleneui.text = nivelactual.ToString();
             danoene.Play();
 		}
-        if (col.gameObject.tag == "danoarma9")
+        if (col.gameObject.tag == "danoarma9" && detectar == true)
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
@@ -382,20 +443,21 @@ public class enemigo2_al1: MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0)
+        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0 && detectar == true)
 		{
             jugador1.toquespalo--;
             vida -= col.gameObject.GetComponent<golpe_al1>().dano;
             danoene.Play();
             jugador1.vidaeneact = true;
-            
+            temprb = 1;
+            rb_.AddForce((jugador1.transform.forward * 110) + (transform.up  * 110 * 1.2f));
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
             jugador1.vidaenebarra.SetActive(true);
             jugador1.niveleneui.text = nivelactual.ToString();
             
 		}
-        if (col.gameObject.tag == "danoarma8")
+        if (col.gameObject.tag == "danoarma8" && detectar == true)
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();

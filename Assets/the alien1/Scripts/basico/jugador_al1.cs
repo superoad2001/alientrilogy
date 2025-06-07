@@ -12,7 +12,7 @@ using System.Linq;
 // Token: 0x0200000A RID: 10
 public class jugador_al1 : MonoBehaviour
 {
-	
+	private bool enetouch;
 	public Vector3 planetUp;
 	public bool static_ev = false;
 	public int toquespalo;
@@ -485,7 +485,7 @@ public class jugador_al1 : MonoBehaviour
 	if(manager.juego != 6 && manager.juego != 0 && manager.juego != 1  && manager.juego != 2 && cronoact == false )
 	{
 		vidab.fillAmount = vida/vidamax; 
-		vidat.text = (int)vida+"/"+(int)vidamax;
+		vidat.text = "VIT:"+(int)vida+"/"+(int)vidamax;
 		niverlbarra.fillAmount = manager.datosserial.nivelexp/manager.datosserial.signivelexp; 
 		niveluit.text = "LEVEL "+ manager.datosserial.niveljug;
 		staminabarra.fillAmount = stamina/staminamax;
@@ -973,6 +973,7 @@ public class jugador_al1 : MonoBehaviour
 			{
 
 				paloimg.fillAmount = temppalo/60;
+				circulopaloimg.fillAmount = temppalo/60;
 
 				
 
@@ -981,14 +982,17 @@ public class jugador_al1 : MonoBehaviour
 			if(manager.datosserial.armapapa == true)
 			{
 				pistolaimg.fillAmount = temppaparec/20; 
+				circulopistolaimg.fillAmount = temppaparec/20;
 			}
 			if(manager.datosserial.armarelen == true)
 			{
 				relentizarimg.fillAmount = temprelrec/40; 
+				circulorelentizarimg.fillAmount = temprelrec/40;
 			}
 			if(manager.datosserial.armadef == true)
 			{
 				armadefimg.fillAmount = tempdefrec/60; 
+				circuloarmadefimg.fillAmount = tempdefrec/60;
 			}
 			if(cambioruedaact == 0)
 			{
@@ -1281,6 +1285,11 @@ public class jugador_al1 : MonoBehaviour
 		}
 		if(lb > 0 && manager.datosserial.tengolanzar == true)
 		{
+
+			circulopaloimg.fillAmount = 1;
+			circulopistolaimg.fillAmount = 1;
+			circuloarmadefimg.fillAmount = 1;
+			circulorelentizarimg.fillAmount = 1;
 
 			if(papaagotada == true && temppaparec > 10)
 			{
@@ -2705,41 +2714,11 @@ public class jugador_al1 : MonoBehaviour
 						// Gradualmente volver a la rotación normal cuando no está en modo planeta
 						Quaternion rotacionNormal = Quaternion.Euler(0, transform.eulerAngles.y, 0);
 						transform.rotation = Quaternion.Slerp(transform.rotation, rotacionNormal, Time.fixedDeltaTime * 3f);
-						
-						// Control de cámara estándar
-						if(rhorizontalc != 0)
-						{
-							rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
-						}
-						else
-						{
-							rotationinput.x = 0;
-						}
-						
-						if(rverticalc != 0)
-						{
-							rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
-						}
-						else
-						{
-							rotationinput.y = 0;
-						}
-						
-						Vector3 horcam3 = Vector3.up * rotationinput.x;
-						Vector3 vercam3 = Vector3.right * -rotationinput.y;
 
-						camara.transform.localEulerAngles += vercam3 + horcam3;
-
-						Quaternion xRotationx2 = Quaternion.Euler(camara.transform.localEulerAngles.x, 0, 0);
-						float angle_f2 = Quaternion.Angle(Quaternion.identity, xRotationx2);
-						float fixedAngle_f2 = angle_f2;
-						if (xRotationx2.eulerAngles.x > 180)
-						{
-							fixedAngle_f2 *= -1;
-						}
-						float clampedX2 = Mathf.Clamp(fixedAngle_f2, -20, 30);
-						camara.transform.localRotation = Quaternion.Euler(clampedX2, camara.transform.localEulerAngles.y, camara.transform.localEulerAngles.z);
-
+						
+						
+						
+						
 						movdire = transform.TransformDirection(movdirnow * velocidad);
 						float distaxe = movdire.magnitude * Time.fixedDeltaTime;
 						movdire.Normalize();
@@ -3056,79 +3035,146 @@ public class jugador_al1 : MonoBehaviour
 		if (manager.juego == 0 && subir == false && bajar == false )
 		{
 			anim.SetFloat("velx",lhorizontalc);
-        	anim.SetFloat("vely",lverticalc);
+			anim.SetFloat("vely",lverticalc);
+			if(anim.GetCurrentAnimatorStateInfo(1).IsName("dashtierra"))
+			{
+				lhorizontalc = 0;
+				lverticalc = 0;
+			}
+			
+
+			Vector3 movdirnow = new Vector3 (lhorizontalc,0, lverticalc).normalized;
+			camarascript.maxdis = 10;
 			if(tiempoascensor > 1.7f)
 			{
+				if(lhorizontalc != 0 || lverticalc != 0)
+						{
+							// Movimiento normal cuando no está en modo planeta
+							_rb.linearVelocity = transform.TransformDirection(new Vector3(movdirnow.x * velocidad, _rb.linearVelocity.y, movdirnow.z * velocidad));
+							
+							// Rotar el modelo en la dirección del movimiento
+							angulomod = Mathf.Atan2(lhorizontalc, lverticalc) * Mathf.Rad2Deg;
+							mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation, 
+																		Quaternion.Euler(mod.transform.localEulerAngles.x, angulomod, mod.transform.localEulerAngles.z),
+																		2 * Time.deltaTime);
+							
+							// Rotar el personaje para que mire en la dirección de la cámara
+							float camaraYRotation = camara.transform.eulerAngles.y;
+							transform.rotation = Quaternion.Slerp(transform.rotation, 
+																Quaternion.Euler(0, camaraYRotation, 0),
+																1 * Time.deltaTime);
+						}
+						
+						// Gradualmente volver a la rotación normal cuando no está en modo planeta
+						Quaternion rotacionNormal = Quaternion.Euler(0, transform.eulerAngles.y, 0);
+						transform.rotation = Quaternion.Slerp(transform.rotation, rotacionNormal, Time.fixedDeltaTime * 3f);
+						
+						
+						
+						movdire = transform.TransformDirection(movdirnow * velocidad);
+						float distaxe = movdire.magnitude * Time.fixedDeltaTime;
+						movdire.Normalize();
+						RaycastHit hit;
+						Vector3 moveDirection = new Vector3(lhorizontalc, 0, lverticalc).normalized;
+
+						
+						
+						if(lverticalc == 0f && lhorizontalc == 0f)
+						{
+							anim.SetBool("stat",true);
+							dashefect = false;
+							_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
+						}
+						else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity,0,QueryTriggerInteraction.Ignore))
+						{
+							if(hit.distance < 1f)
+							{
+							anim.SetBool("stat",true);
+							dashefect = false;
+							_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
+							}
+							else
+							{
+								anim.SetBool("stat",false);
+							}
+							Debug.Log(hit.distance);
+						}
+						else
+						{
+							anim.SetBool("stat",false);
+						}
+						
+						
+
+						if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
+						{
+							if(temppaso > pasotiempo)
+							{
+								randompaso = Random.Range(1,3);
+								if(randompaso == 1)
+								{
+									pasos1.Play();
+								}
+								if(randompaso == 2)
+								{
+									pasos2.Play();
+								}
+								temppaso = 0;
+								pasotiempo = Random.Range(0.4f,0.6f);
+							}
+							if(temppaso < 15)
+							{temppaso += 1 * Time.deltaTime;}
+						}
 				
-				if (lhorizontalc > 0f )
-				{
-					_rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
-					mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,90,0),5* Time.deltaTime);
-				}
-				if (lhorizontalc < 0f)
-				{
-					_rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
-					mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,-90,0),5* Time.deltaTime);
-				}
-				if (lverticalc > 0f)
-				{
-					_rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
-					mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
-				}
-				if (lverticalc < 0f )
-				{
-					_rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
-					mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,180,0),5* Time.deltaTime);
-				}
-				if(lverticalc == 0f && lhorizontalc == 0f )
-				{
-					_rb.linearVelocity = new Vector3 (0, _rb.linearVelocity.y, 0);
-				}
-				if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
-				{
-				if(temppaso > pasotiempo)
-				{
-						randompaso = Random.Range(1,3);
-						if(randompaso == 1)
-						{
-							pasos1.Play();
-						}
-						if(randompaso == 2)
-						{
-							pasos2.Play();
-						}
-						temppaso = 0;
-						pasotiempo = Random.Range(0.4f,0.6f);
-					}
-					if(temppaso < 15)
-					{temppaso += 1 * Time.deltaTime;}
-				}
 			}
 
 		}
 		if (manager.juego == 0 )
 		{
+			camarascript.maxdis = 10;
 			if(tiempoascensor > 1.7f)
 			{
-			rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;
-            rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
 
-            cameraverticalangle +=  rotationinput.y/3;
-            cameraverticalangle = Mathf.Clamp(cameraverticalangle, -20 , 20);
+						if(rhorizontalc != 0)
+						{rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;}
+						else{rotationinput.x = 0;}
+						
 
-			cameraverticalangle2 +=  rotationinput.x;
+						if(rverticalc != 0)
+						{rotationinput.y = rverticalc * rotspeed * Time.deltaTime;}
+						else{rotationinput.y = 0;}
+						
 
-            camara.transform.localRotation = Quaternion.Euler(-cameraverticalangle,cameraverticalangle2,0);
-			if (lhorizontalc != 0f && rhorizontalc != 0f|| lverticalc != 0 && rhorizontalc != 0f)
-			{
-				transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),2.5f* Time.deltaTime);
-			}
-			else if (lhorizontalc != 0f || lverticalc != 0)
-			{
-				transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),90f* Time.deltaTime);
-			}
-				
-			camara.transform.position = new Vector3 (transform.position.x,transform.position.y,transform.position.z);
+							Vector3 horcam = Vector3.up * rotationinput.x;
+							Vector3 vercam = new Vector3(0,0,0);
+
+							
+							vercam = Vector3.right * -rotationinput.y;
+
+						
+							camara.transform.localEulerAngles += vercam + horcam;
+
+						Quaternion xRotationx = Quaternion.Euler(camara.transform.localEulerAngles.x,0,0);
+						float angle_f = Quaternion.Angle(Quaternion.identity, xRotationx);
+						float fixedAngle_f = angle_f;
+						if (xRotationx.eulerAngles.x>180)
+						{
+							fixedAngle_f *= -1;
+						}
+						float clampedX = Mathf.Clamp(fixedAngle_f, -20, 30);
+						camara.transform.localRotation = Quaternion.Euler(clampedX, camara.transform.localEulerAngles.y, camara.transform.localEulerAngles.z);
+						
+
+
+						camaux = camara.transform.eulerAngles.y;
+
+
+						if (lhorizontalc != 0f && rhorizontalc != 0f|| lverticalc != 0 && rhorizontalc != 0f || lhorizontalc != 0f || lverticalc != 0)
+						{
+							transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.Euler(transform.eulerAngles.x,camaux,transform.eulerAngles.z),30f* Time.deltaTime);
+							camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.y,camara.transform.localEulerAngles.z),30f* Time.deltaTime);	
+						}
+
 			}
 		}
 		if (manager.juego == 10)
@@ -3153,7 +3199,7 @@ public class jugador_al1 : MonoBehaviour
 		if (manager.juego == 3)
 		{
 			this.tiemposalto -= Time.deltaTime;
-			if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && objplaneta == null)
+			if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && objplaneta == null && tiempodialogue > 0.7f)
 			{
 					if(jumpforce == jumpforcebase)
 					{tiempodisp = 0;}
@@ -3163,7 +3209,7 @@ public class jugador_al1 : MonoBehaviour
 					anim.SetBool("salto",true);
 					
 			}
-			else if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && objplaneta != null)
+			else if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && objplaneta != null && tiempodialogue > 0.7f)
 			{
 					if(jumpforce == jumpforcebase)
 					{tiempodisp = 0;}
@@ -3177,7 +3223,7 @@ public class jugador_al1 : MonoBehaviour
 		if (manager.juego == 0)
 		{
 			this.tiemposalto -= Time.deltaTime;
-			if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f)
+			if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && tiempodialogue > 0.7f)
 			{
 					if(jumpforce == jumpforcebase)
 					{tiempodisp = 0;}
@@ -3191,7 +3237,7 @@ public class jugador_al1 : MonoBehaviour
 		if (manager.juego == 4)
 		{
 			this.tiemposalto -= Time.deltaTime;
-			if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && objplaneta == null)
+			if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && objplaneta == null && tiempodialogue > 0.7f)
 			{
 					if(jumpforce == jumpforcebase)
 					{tiempodisp = 0;}
@@ -3200,7 +3246,7 @@ public class jugador_al1 : MonoBehaviour
 					jumpforce = jumpforce / 1.8f;
 					anim.SetBool("salto",true);
 			}
-			else if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && objplaneta != null)
+			else if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && objplaneta != null && tiempodialogue > 0.7f)
 			{
 					if(jumpforce == jumpforcebase)
 					{tiempodisp = 0;}
@@ -4122,39 +4168,44 @@ public class jugador_al1 : MonoBehaviour
 	}
 	private void OnTriggerEnter(Collider col)
 	{
-		if (col.gameObject.tag == "pisar" && col.gameObject.tag != "enemigo")
+		if (col.gameObject.tag == "enemigo")
+		{
+			enetouch = true;
+		}
+		else if (col.gameObject.tag == "pisar" && col.gameObject.tag != "enemigo" && enetouch == false )
 		{
 					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 1 )
 					{
 						
 							enemigo1_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo1_al1>();
 							enec.vidapisar = true;
-							if(col.gameObject != null)
+							if(enec.temprb == 0)
 							{
-								enec.gameObject.AddComponent<Rigidbody>();
-            					enec.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-            					enec.rb_ = enec.GetComponent<Rigidbody>();
-								enec.rb_.useGravity = false;
-								enec.rb_.AddRelativeForce(transform.forward * 110 * 4 * (enec.tamano + 1));
-								enec.danoene.Play();
-								enec.temprb = 1;
+								if(col.gameObject != null)
+								{
+									
+								
+									enec.rb_.AddRelativeForce(transform.forward * 110 * 2 * (enec.tamano + 1));
+									enec.danoene.Play();
+									enec.temprb = 1;
+								}
+								if(enec.tamano == 0)
+								{enec.vida -= enec.vidamax;}
+								else if(enec.tamano == 1)
+								{enec.vida -= enec.vidamax/3;}
+								else if(enec.tamano == 2)
+								{enec.vida -= enec.vidamax/6;}
+								else if(enec.tamano == 3)
+								{enec.vida -= enec.vidamax/9;}
+								_rb.AddRelativeForce(transform.up * 110 * 3);
+								vidaeneact = true;			
+								vidaeneui = enec.vida;
+								vidaeneuimax = enec.vidamax;
+								niveleneui.text = enec.nivelactual.ToString();
+								vidaenebarra.SetActive(true);
+								if(eventotut != null)
+								{eventotut.evento();}
 							}
-							if(enec.tamano == 0)
-							{enec.vida -= enec.vidamax;}
-							else if(enec.tamano == 1)
-							{enec.vida -= enec.vidamax/3;}
-							else if(enec.tamano == 2)
-							{enec.vida -= enec.vidamax/6;}
-							else if(enec.tamano == 3)
-							{enec.vida -= enec.vidamax/9;}
-							_rb.AddRelativeForce(transform.up * 110 * 10);
-							vidaeneact = true;			
-							vidaeneui = enec.vida;
-							vidaeneuimax = enec.vidamax;
-							niveleneui.text = enec.nivelactual.ToString();
-							vidaenebarra.SetActive(true);
-							if(eventotut != null)
-							{eventotut.evento();}
 						
 						
 						
@@ -4163,11 +4214,14 @@ public class jugador_al1 : MonoBehaviour
 					{
 						
 							enemigo2_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo2_al1>();
+							if(enec.temprb == 0)
+							{
 							enec.vida -= 1;
 							if(col.gameObject != null)
 							{
-								_rb.AddRelativeForce(transform.up * 110 * 10);
+								_rb.AddRelativeForce(transform.up * 110 * 2);
 								enec.danoene.Play();
+								enec.temprb = 1;
 								
 							}
 							vidaeneact = true;			
@@ -4175,6 +4229,7 @@ public class jugador_al1 : MonoBehaviour
 							vidaeneuimax = enec.vidamax;
 							niveleneui.text = enec.nivelactual.ToString();
 							vidaenebarra.SetActive(true);
+							}
 						
 				}
 			
@@ -4297,6 +4352,11 @@ public class jugador_al1 : MonoBehaviour
 	}
 	public void OnTriggerExit(Collider col)
 	{
+
+		if (col.gameObject.tag == "enemigo")
+		{
+			enetouch = false;
+		}
 
 		if (col.gameObject.tag == "npc")
 		{
@@ -4517,6 +4577,11 @@ public class jugador_al1 : MonoBehaviour
 
         expltemp.transform.SetParent(this.gameObject.transform);
 
+		nivelfuerza = nivelfuerza_a[manager.datosserial.niveljug - 1];
+        nivelvida = nivelvida_a[manager.datosserial.niveljug -1];
+        vidamax = nivelvida;
+		vida = vidamax;
+
         Destroy(expltemp,5f);
 		conseguido.text = "subiste al nivel "+manager.datosserial.niveljug;
 		conseguidoa.Play("nivelsub2");
@@ -4677,6 +4742,10 @@ public class jugador_al1 : MonoBehaviour
 	public Image pistolaimg;
 	public Image relentizarimg;
 	public Image armadefimg;
+	public Image circulopaloimg;
+	public Image circulopistolaimg;
+	public Image circulorelentizarimg;
+	public Image circuloarmadefimg;
 
 	public Image backpistolaimg;
 	public Image backrelentizarimg;

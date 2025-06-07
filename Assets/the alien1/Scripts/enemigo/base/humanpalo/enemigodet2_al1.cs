@@ -61,8 +61,12 @@ public class enemigodet2_al1: MonoBehaviour
             enemigo.detectar = true;
             enemigo.objetivo = col.gameObject;
             enemigo.objetivo1 = col.gameObject.transform;
+            if(enemigo.GetComponent<Rigidbody>() == null)
+            {
             enemigo.gameObject.AddComponent<Rigidbody>();
             enemigo.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            enemigo.rb_ = enemigo.GetComponent<Rigidbody>();
+            }
                   if(temp > 8)
                   {
                         if(dec == 1)
@@ -96,8 +100,6 @@ public class enemigodet2_al1: MonoBehaviour
             if (col.gameObject.tag != "Player" && suelo == true)
 		{
                   enemigo.detectar = false;
-                  Destroy (enemigo.GetComponent<Rigidbody>());
-                  Destroy (this.GetComponent<Rigidbody>());
 		}
             if (col.gameObject.tag == "Player")
 		{
@@ -111,8 +113,6 @@ public class enemigodet2_al1: MonoBehaviour
 		{
 
                   enemigo.detectar = false;
-                  Destroy (enemigo.GetComponent<Rigidbody>());
-                  Destroy (this.GetComponent<Rigidbody>());
             
 		}
             if (col.gameObject.tag == "suelo")

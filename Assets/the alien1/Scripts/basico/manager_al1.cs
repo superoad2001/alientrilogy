@@ -694,6 +694,7 @@ public class manager_al1 : MonoBehaviour
 			tmonedar.text = datosserial.monedasr+"";
 			tllave.text = datosserial.llaves+"/4";
 			this.cuentafrag.text = datosserial.fragmento+"/3";
+			
 
 		}
 		if (this.juego == 0 && this.piso == 1 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 2 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 3 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 4 && dentrotienda == false && pauseact == false|| mundo != 0)

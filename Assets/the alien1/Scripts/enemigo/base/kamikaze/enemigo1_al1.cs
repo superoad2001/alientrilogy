@@ -13,12 +13,19 @@ public class enemigo1_al1: MonoBehaviour
     public Quaternion rotation;
     public Transform objetivo1;
     public Transform objetivo1b;
+    public GameObject escudoin;
     public int nivel = 1;
     public Rigidbody rb_;
     public float vel = 2;
     public bool desactivar;
     public float temprb;
     public enemigodet_al1 enemigodet;
+    public Animator anim;
+    public float gravityForce = 5f;
+    public float raycastDistance = 1f;
+    public LayerMask groundLayer;
+
+    private bool isGrounded = false;
 
     public float vida;
     public float vidamax;
@@ -58,13 +65,25 @@ public class enemigo1_al1: MonoBehaviour
     public GameObject med;
     public GameObject peque; 
     public float vidaUI;
+    private Vector3 []objetivoa = new Vector3[4]; 
+    private Vector3 objetivon;
 
     public bool vidapisar;  
     public float valorexppisado;
     // Start is called before the first frame update
     void Start()
     {
-
+        objetivoa[0] = transform.position + new Vector3(0,0,-5);
+        objetivoa[1] = transform.position + new Vector3(0,0,5);
+        objetivoa[2] = transform.position + new Vector3(-5,0,0);
+        objetivoa[3] = transform.position + new Vector3(5,0,0);
+        objetivon = objetivoa[Random.Range(0,5)];
+        if(GetComponent<Rigidbody>() == null)
+        {
+            gameObject.AddComponent<Rigidbody>();
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            rb_ = GetComponent<Rigidbody>();
+        }
         vidabase[0] = 9;
         vidabasemax[0] = 300;
         vidaplusmax[0] = 999;
@@ -119,6 +138,14 @@ public class enemigo1_al1: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(detectar == false)
+        {
+            escudoin.SetActive(true);
+        }
+        else
+        {
+        	escudoin.SetActive(false);
+        }
 
         if (temprb > 0f)
         {
@@ -128,7 +155,7 @@ public class enemigo1_al1: MonoBehaviour
 
         if (temprb == 0f)
         {
-            Destroy (rb_);
+            
         }
         vidaUI = Mathf.Lerp(vidaUI, vida, Time.deltaTime * 2f);
         if(jugador1.objetivotarget == transform.gameObject)
@@ -344,6 +371,10 @@ public class enemigo1_al1: MonoBehaviour
             objetivo = objetivob;
             objetivo1 = objetivo1b;
         }
+        else
+        {
+            anim.SetBool("salto",false);
+        }
         
         if(detectar == true && desactivar == false && manager.controlene == true)
         {
@@ -352,22 +383,44 @@ public class enemigo1_al1: MonoBehaviour
             rotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),25f * Time.deltaTime);
         }
-        RaycastHit hit;
-        if(Physics.Raycast(transform.position,-transform.up,out hit,Mathf.Infinity,0,QueryTriggerInteraction.Ignore))
+        else if(detectar == false )
         {
-            if(hit.distance > 0f)
+            if(manager.juego != 3)
             {
-                transform.position = Vector3.MoveTowards(transform.position,-transform.up,5 * Time.deltaTime);
-                 Debug.Log("si");
+                if(new Vector3(objetivon.x,transform.position.y,objetivon.z) == transform.position)
+                {
+                    objetivon = objetivoa[Random.Range(0,4)];
+                }
+                Vector3 direction2 = objetivon - transform.position;
+                rotation = Quaternion.LookRotation(direction2);
+                transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivon.x,transform.position.y,objetivon.z),vel * Time.deltaTime);
             }
-            Debug.Log("no");
+            else if(manager.juego == 3)
+            {
+                anim.SetBool("salto",true);
+            }
+            
+            transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),25f * Time.deltaTime);
+            RaycastHit hit;
+            if(Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity,0, QueryTriggerInteraction.Ignore))
+            {
+            	if (hit.distance < 0.1f)
+                {
+                    Destroy (GetComponent<Rigidbody>());
+                }
+            }
+
+            // Aplicar gravedad solo si no está en el suelo
+            
         }
+
+        
         
         
     }
     private void OnTriggerEnter(Collider col)
 	{
-        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0)
+        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0 && detectar == true )
 		{
             jugador1.toquespalo--;
             jugador1.muertesjug.Stop();
@@ -378,16 +431,12 @@ public class enemigo1_al1: MonoBehaviour
             jugador1.vidaeneuimax = vidamax;
             jugador1.niveleneui.text = nivelactual.ToString();
             danoene.Play();
-            gameObject.AddComponent<Rigidbody>();
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-            rb_ = GetComponent<Rigidbody>();
-            rb_.useGravity = false;
-            rb_.AddRelativeForce(jugador1.transform.forward + jugador1.transform.up * 110 * 4 *  (tamano + 1));
+            rb_.AddForce((jugador1.transform.forward * 110) + (transform.up  * 110 * 1.5f));
             danoene.Play();
             temprb = 1;
             vidapisar = false;
 		}
-        if (col.gameObject.tag == "danoarma8")
+        if (col.gameObject.tag == "danoarma8" && detectar == true)
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
@@ -400,7 +449,7 @@ public class enemigo1_al1: MonoBehaviour
             danoene.Play();
             vidapisar = false;
 		}
-        if (col.gameObject.tag == "danoarma9")
+        if (col.gameObject.tag == "danoarma9" && detectar == true)
 		{
             detectar = false;
 		}
@@ -408,7 +457,7 @@ public class enemigo1_al1: MonoBehaviour
 	}
     private void OnTriggerExit(Collider col)
 	{
-        if (col.gameObject.tag == "danoarma10")
+        if (col.gameObject.tag == "danoarma10" && detectar == true)
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
@@ -421,7 +470,7 @@ public class enemigo1_al1: MonoBehaviour
             danoene.Play();
             vidapisar = false;
 		}
-        if (col.gameObject.tag == "danoarma9")
+        if (col.gameObject.tag == "danoarma9" && detectar == true)
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
@@ -442,7 +491,7 @@ public class enemigo1_al1: MonoBehaviour
 
             jugador1.muertesjug.Stop();
         }
-        if (col.gameObject.tag == "danoarma9")
+        if (col.gameObject.tag == "danoarma9" )
 		{
             detectar = false;
         }
@@ -459,7 +508,7 @@ public class enemigo1_al1: MonoBehaviour
 			Destroy(transform.parent.gameObject);
             
 		}
-        if (col.gameObject.tag == "Player" && col.gameObject.tag != "golpeh" && temprb == 0)
+        if (col.gameObject.tag == "Player" && col.gameObject.tag != "golpeh" && temprb == 0 )
 		{
             jugador1.eneempuj = this.gameObject;
             jugador1.enmovdirectaux = transform.TransformDirection((jugador1.eneempuj.transform.forward *70) + (jugador1.eneempuj.transform.up * -50));

@@ -25,6 +25,12 @@ public class enemigodet_al1: MonoBehaviour
             enemigo.detectar = true;
             enemigo.objetivo = col.gameObject;
             enemigo.objetivo1 = col.gameObject.transform;
+            if(enemigo.GetComponent<Rigidbody>() == null)
+            {
+            enemigo.gameObject.AddComponent<Rigidbody>();
+            enemigo.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            enemigo.rb_ = enemigo.GetComponent<Rigidbody>();
+            }
             if(nosonar == false)
             {visto.Play();}
 		}
