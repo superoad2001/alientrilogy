@@ -338,6 +338,14 @@ public class jugador_al1 : MonoBehaviour
 			jumpforce = 700;
 			camara.transform.rotation = Quaternion.Euler(0,180,0);
 		}
+		if(manager.juego ==0)
+		{
+			velocidad = 4;
+			velocidadaux = 4;
+			velocidadmaxima = 8;
+			jumpforce = 200;
+			camara.transform.rotation = Quaternion.Euler(0,180,0);
+		}
 		this._rb = base.GetComponent<Rigidbody>();
 		velocidadaux = velocidad;
 		girovalor = base.transform.eulerAngles.y;
@@ -3131,7 +3139,7 @@ public class jugador_al1 : MonoBehaviour
 		}
 		if (manager.juego == 0 )
 		{
-			camarascript.maxdis = 10;
+			camarascript.maxdis = 5;
 			if(tiempoascensor > 1.7f)
 			{
 
