@@ -8,6 +8,7 @@ using System;
 public class datos1
 {
 
+	public bool []eventos = new bool[999];
 	public bool newgameplus1;
 
 	public float asc;
@@ -17,10 +18,15 @@ public class datos1
 	public int nivelarmadef = 1;
 	public int nivelarmapalo = 1;
 	
-	public bool []licenciaarmapalo = new bool[5];
-	public bool []licenciaarmapapa = new bool[5];
-	public bool []licenciaarmarel = new bool[5];
-	public bool []licenciaarmadef = new bool[5];
+	public bool[] licenciaarmapalo = new bool[5];
+	public bool[] licenciaarmapapa = new bool[5];
+	public bool[] licenciaarmarel = new bool[5];
+	public bool[] licenciaarmadef = new bool[5];
+
+	public bool[] notas = new bool[7];
+
+	public int[] misiones = new int[200];
+
 	
 
 
@@ -65,7 +71,6 @@ public class datos1
 
 	public string carganivel;
 
-	public int gemas;
 
 	public int gemaN1;
 
@@ -100,11 +105,6 @@ public class datos1
 
 	public int fragmentoN3;
 
-	public int monedas;
-	public int monedasr;
-
-	public int monedasmax;
-	public int monedasrmax;
 
 	public int tengovel;
 
@@ -127,7 +127,7 @@ public class datos1
 
 	public int fragmento;
 
-	public int llaves;
+	
 
 	public int []llave = new int[10]; 
 
@@ -143,27 +143,25 @@ public class datos1
 
 	public int []moneda = new int[150]; 
 
+	public int monedasrmax;
+	public int monedasmax;
+	public int monedasamax;
 
-	public float recordnv1 = 888;
-    public float recordnv2 = 888;
-    public float recordnv3 = 888;
-    public float recordnv4 = 888;
-    public float recordnv5 = 888;
-    public float recordnv6 = 888;
-    public float recordnv7 = 888;
-    public float recordnv8 = 888;
-    public float recordnv9 = 888;
-    public float recordnv10 = 888;
-    public float recordnv11 = 888;
-    public float recordnv12 = 888;
-    public float recordnv13 = 888;
-    public float recordnv14 = 888;
-    public float recordnv15 = 888;
-    
+
+
+	public int []economia = new int[7];
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        //economia[0]  gemas;
+		//economia[1]  llaves;
+		//economia[2]  fragllave;
+		//economia[3]  monedasrojas;
+		//economia[4]  monedasmoradas;
+		//economia[5]  monedasamarillas;
+
     }
 
     // Update is called once per frame

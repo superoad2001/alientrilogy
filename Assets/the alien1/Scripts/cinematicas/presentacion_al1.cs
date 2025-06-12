@@ -40,7 +40,7 @@ public class presentacion_al1 : MonoBehaviour
 	private void Start()
 	{
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
-        gemas = manager.datosserial.gemas;
+        gemas = manager.datosserial.economia[0];
         
     }
     public void slot1p()

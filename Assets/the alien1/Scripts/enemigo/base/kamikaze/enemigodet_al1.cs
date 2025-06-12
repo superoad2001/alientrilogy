@@ -7,10 +7,11 @@ public class enemigodet_al1: MonoBehaviour
 	public manager_al1 manager;
       public AudioSource visto;
       public bool nosonar;
+      public jugador_al1 jugador;
     // Start is called before the first frame update
     void Start()
     {
-        
+      jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
     }
     public enemigo1_al1 enemigo;
     // Update is called once per frame
@@ -22,6 +23,7 @@ public class enemigodet_al1: MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
+            jugador.peligro = true;
             enemigo.detectar = true;
             enemigo.objetivo = col.gameObject;
             enemigo.objetivo1 = col.gameObject.transform;
@@ -40,6 +42,7 @@ public class enemigodet_al1: MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
+            jugador.peligro = true;
             enemigo.detectar = true;
             enemigo.objetivo = col.gameObject;
             enemigo.objetivo1 = col.gameObject.transform;
@@ -55,6 +58,7 @@ public class enemigodet_al1: MonoBehaviour
 		if (col.gameObject.tag == "Player")
 		{
                   enemigo.detectar = false;
+                  
 		}
             
 

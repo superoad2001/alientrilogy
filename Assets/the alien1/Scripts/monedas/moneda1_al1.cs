@@ -34,7 +34,7 @@ public class moneda1_al1 : MonoBehaviour
 
 		if (manager.datosserial.moneda[moneda-1] == 1)
 		{
-			manager.datosserial.monedas++;
+			manager.datosserial.economia[4]++;
 			manager.datosserial.monedasmax++;
 			manager.datosserial.moneda[moneda-1] = 1;
 			manager.guardar();

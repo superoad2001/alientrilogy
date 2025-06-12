@@ -15,7 +15,6 @@ public class enemigo3_al1: MonoBehaviour
     public Transform objetivo1;
     public Transform objetivo1b;
     public Rigidbody rb_;
-    private Controles controles;
     public float vel = 2;
     public bool desactivar;
     public enemigodet3_al1 enemigodet;
@@ -84,16 +83,10 @@ public class enemigo3_al1: MonoBehaviour
 
     public void Awake()
     {
-        controles = new Controles();
+        manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+        jugador1 = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
     }
-    private void OnEnable() 
-    {
-        controles.Enable();
-    }
-    private void OnDisable() 
-    {
-        controles.Disable();
-    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -102,7 +95,7 @@ public class enemigo3_al1: MonoBehaviour
         objetivoa[1] = transform.position + new Vector3(0,0,5);
         objetivoa[2] = transform.position + new Vector3(-5,0,0);
         objetivoa[3] = transform.position + new Vector3(5,0,0);
-        objetivon = objetivoa[Random.Range(0,5)];
+        objetivon = objetivoa[Random.Range(0,4)];
         if(GetComponent<Rigidbody>() == null)
         {
             gameObject.AddComponent<Rigidbody>();
@@ -156,6 +149,7 @@ public class enemigo3_al1: MonoBehaviour
         vidamenu = GameObject.Find("barravidaenemigobase");
         juego = GameObject.Find("juego").transform;
     }
+  
 
     // Update is called once per frame
     void Update()
@@ -176,7 +170,7 @@ public class enemigo3_al1: MonoBehaviour
         else{temprb = 0f;}
         vidaescudoUI = Mathf.Lerp(vidaescudoUI, vidaescudo, Time.deltaTime * 2f);
         vidaUI = Mathf.Lerp(vidaUI, vida, Time.deltaTime * 2f);
-        if(jugador1.objetivotarget == transform.gameObject)
+        if(jugador1.objetivotarget == transform.gameObject && detectar == true)
         {
             target.SetActive(true);
             jugador1.vidaenebarra.SetActive(true);

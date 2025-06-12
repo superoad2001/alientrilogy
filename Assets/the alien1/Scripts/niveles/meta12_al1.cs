@@ -106,7 +106,7 @@ public class meta12_al1 : MonoBehaviour
 		{
 				if (manager.datosserial.gemaN12 == 0)
 				{
-					manager.datosserial.gemas++;
+					manager.datosserial.economia[0]++;
 					manager.datosserial.gemaN12 = 1;
 					manager.guardar();
 					fin = true;

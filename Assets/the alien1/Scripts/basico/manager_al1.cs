@@ -342,31 +342,31 @@ public class manager_al1 : MonoBehaviour
 			hide.anim.SetBool("show2",true);
 		}
 
-		if(datosserial.mejora1 == 0 && datosserial.gemas >= 3 && datosserial.monedas >= 10)
+		if(datosserial.mejora1 == 0 && datosserial.economia[0] >= 3 && datosserial.economia[4] >= 10)
 		{
 			datosserial.mejora1 = 1;
 			guardar();
 			SceneManager.LoadScene("mejora1_al1");
 		}
-		if(datosserial.mejora2 == 0 && datosserial.gemas >= 6 && datosserial.monedas >= 20)
+		if(datosserial.mejora2 == 0 && datosserial.economia[0] >= 6 && datosserial.economia[4] >= 20)
 		{
 			datosserial.mejora2 = 1;
 			guardar();
 			SceneManager.LoadScene("mejora2_al1");
 		}
-		if(datosserial.mejora3 == 0 && datosserial.gemas >= 9 && datosserial.monedas >= 30)
+		if(datosserial.mejora3 == 0 && datosserial.economia[0] >= 9 && datosserial.economia[4] >= 30)
 		{
 			datosserial.mejora3 = 1;
 			guardar();
 			SceneManager.LoadScene("mejora3_al1");
 		}
-		if(datosserial.mejora4 == 0 && datosserial.gemas >= 12 && datosserial.monedas >= 40)
+		if(datosserial.mejora4 == 0 && datosserial.economia[0] >= 12 && datosserial.economia[4] >= 40)
 		{
 			datosserial.mejora4 = 1;
 			guardar();
 			SceneManager.LoadScene("mejora4_al1");
 		}
-		if(datosserial.mejora5 == 0 && datosserial.fragmento >= 3 && datosserial.monedas >= 50)
+		if(datosserial.mejora5 == 0 && datosserial.fragmento >= 3 && datosserial.economia[4] >= 50)
 		{
 			datosserial.mejora5 = 1;
 			guardar();
@@ -378,96 +378,96 @@ public class manager_al1 : MonoBehaviour
 
 		if(datosconfig.idioma == "es")
 		{
-			if (this.piso == 1 && this.datosserial.gemas == 0 && dentrotienda == false)
+			if (this.piso == 1 && this.datosserial.economia[0] == 0 && dentrotienda == false)
 			{
 				audio.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 1 && this.datosserial.gemas <= 3 && datosserial.tengovel == 0 && dentrotienda == false)
+			if (this.piso == 1 && this.datosserial.economia[0] >= 1 && this.datosserial.economia[0] <= 3 && datosserial.tengovel == 0 && dentrotienda == false)
 			{
 				audio1.Play();
 			}
 			
-			if (this.piso == 1 && this.datosserial.gemas >= 3 && this.datosserial.gemas <= 6 && dentrotienda == false && datosserial.tengovel == 1 && datosserial.tengocoche == 0)
+			if (this.piso == 1 && this.datosserial.economia[0] >= 3 && this.datosserial.economia[0] <= 6 && dentrotienda == false && datosserial.tengovel == 1 && datosserial.tengocoche == 0)
 			{
 				audio2.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 6 && this.datosserial.gemas <= 9 && datosserial.tengocoche == 1 && dentrotienda == false && datosserial.tengosalto == 0)
+			if (this.piso == 1 && this.datosserial.economia[0] >= 6 && this.datosserial.economia[0] <= 9 && datosserial.tengocoche == 1 && dentrotienda == false && datosserial.tengosalto == 0)
 			{
 				audio3.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 9 && this.datosserial.gemas <= 12 && datosserial.tengosalto == 1 && dentrotienda == false && datosserial.tengonave == 0)
+			if (this.piso == 1 && this.datosserial.economia[0] >= 9 && this.datosserial.economia[0] <= 12 && datosserial.tengosalto == 1 && dentrotienda == false && datosserial.tengonave == 0)
 			{
 				audio4.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 12 && datosserial.tengonave == 1 && dentrotienda == false && datosserial.fragmento < 3 && datosserial.tengomejora == 0 && datosserial.llave[7] == 0)
+			if (this.piso == 1 && this.datosserial.economia[0] >= 12 && datosserial.tengonave == 1 && dentrotienda == false && datosserial.fragmento < 3 && datosserial.tengomejora == 0 && datosserial.llave[7] == 0)
 			{
 				audio5.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas == 15 && datosserial.tengomejora == 0 && dentrotienda == false && datosserial.fragmento == 3 && datosserial.llave[7] == 0 && datosserial.monedas == 50)
+			if (this.piso == 1 && this.datosserial.economia[0] == 15 && datosserial.tengomejora == 0 && dentrotienda == false && datosserial.fragmento == 3 && datosserial.llave[7] == 0 && datosserial.economia[4] == 50)
 			{
 				audio6.Play();
 			}
 		}
 		if(datosconfig.idioma == "en")
 		{
-			if (this.piso == 1 && this.datosserial.gemas == 0 && dentrotienda == false)
+			if (this.piso == 1 && this.datosserial.economia[0] == 0 && dentrotienda == false)
 			{
 				audioen.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 1 && this.datosserial.gemas <= 3 && datosserial.tengovel == 0 && dentrotienda == false)
+			if (this.piso == 1 && this.datosserial.economia[0] >= 1 && this.datosserial.economia[0] <= 3 && datosserial.tengovel == 0 && dentrotienda == false)
 			{
 				audio1en.Play();
 			}
 			
-			if (this.piso == 1 && this.datosserial.gemas >= 3 && this.datosserial.gemas <= 6 && dentrotienda == false && datosserial.tengovel == 1 && datosserial.tengocoche == 0)
+			if (this.piso == 1 && this.datosserial.economia[0] >= 3 && this.datosserial.economia[0] <= 6 && dentrotienda == false && datosserial.tengovel == 1 && datosserial.tengocoche == 0)
 			{
 				audio2en.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 6 && this.datosserial.gemas <= 9 && datosserial.tengocoche == 1 && dentrotienda == false && datosserial.tengosalto == 0)
+			if (this.piso == 1 && this.datosserial.economia[0] >= 6 && this.datosserial.economia[0] <= 9 && datosserial.tengocoche == 1 && dentrotienda == false && datosserial.tengosalto == 0)
 			{
 				audio3en.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 9 && this.datosserial.gemas <= 12 && datosserial.tengosalto == 1 && dentrotienda == false && datosserial.tengonave == 0)
+			if (this.piso == 1 && this.datosserial.economia[0] >= 9 && this.datosserial.economia[0] <= 12 && datosserial.tengosalto == 1 && dentrotienda == false && datosserial.tengonave == 0)
 			{
 				audio4en.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 12 && datosserial.tengonave == 1 && dentrotienda == false && datosserial.fragmento < 3 && datosserial.tengomejora == 0 && datosserial.llave[7] == 0)
+			if (this.piso == 1 && this.datosserial.economia[0] >= 12 && datosserial.tengonave == 1 && dentrotienda == false && datosserial.fragmento < 3 && datosserial.tengomejora == 0 && datosserial.llave[7] == 0)
 			{
 				audio5en.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas == 15 && datosserial.tengomejora == 0 && dentrotienda == false && datosserial.fragmento == 3 && datosserial.llave[7] == 0 && datosserial.monedas == 50)
+			if (this.piso == 1 && this.datosserial.economia[0] == 15 && datosserial.tengomejora == 0 && dentrotienda == false && datosserial.fragmento == 3 && datosserial.llave[7] == 0 && datosserial.economia[4] == 50)
 			{
 				audio6en.Play();
 			}
 		}
 		if(datosconfig.idioma == "cat")
 		{
-			if (this.piso == 1 && this.datosserial.gemas == 0 && dentrotienda == false)
+			if (this.piso == 1 && this.datosserial.economia[0] == 0 && dentrotienda == false)
 			{
 				audiocat.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 1 && this.datosserial.gemas <= 3 && datosserial.tengovel == 0 && dentrotienda == false)
+			if (this.piso == 1 && this.datosserial.economia[0] >= 1 && this.datosserial.economia[0] <= 3 && datosserial.tengovel == 0 && dentrotienda == false)
 			{
 				audio1cat.Play();
 			}
 			
-			if (this.piso == 1 && this.datosserial.gemas >= 3 && this.datosserial.gemas <= 6 && dentrotienda == false && datosserial.tengovel == 1 && datosserial.tengocoche == 0)
+			if (this.piso == 1 && this.datosserial.economia[0] >= 3 && this.datosserial.economia[0] <= 6 && dentrotienda == false && datosserial.tengovel == 1 && datosserial.tengocoche == 0)
 			{
 				audio2cat.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 6 && this.datosserial.gemas <= 9 && datosserial.tengocoche == 1 && dentrotienda == false && datosserial.tengosalto == 0)
+			if (this.piso == 1 && this.datosserial.economia[0] >= 6 && this.datosserial.economia[0] <= 9 && datosserial.tengocoche == 1 && dentrotienda == false && datosserial.tengosalto == 0)
 			{
 				audio3cat.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 9 && this.datosserial.gemas <= 12 && datosserial.tengosalto == 1 && dentrotienda == false && datosserial.tengonave == 0)
+			if (this.piso == 1 && this.datosserial.economia[0] >= 9 && this.datosserial.economia[0] <= 12 && datosserial.tengosalto == 1 && dentrotienda == false && datosserial.tengonave == 0)
 			{
 				audio4cat.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas >= 12 && datosserial.tengonave == 1 && dentrotienda == false && datosserial.fragmento < 3 && datosserial.tengomejora == 0 && datosserial.llave[7] == 0)
+			if (this.piso == 1 && this.datosserial.economia[0] >= 12 && datosserial.tengonave == 1 && dentrotienda == false && datosserial.fragmento < 3 && datosserial.tengomejora == 0 && datosserial.llave[7] == 0)
 			{
 				audio5cat.Play();
 			}
-			if (this.piso == 1 && this.datosserial.gemas == 15 && datosserial.tengomejora == 0 && dentrotienda == false && datosserial.fragmento == 3 && datosserial.llave[7] == 0 && datosserial.monedas == 50)
+			if (this.piso == 1 && this.datosserial.economia[0] == 15 && datosserial.tengomejora == 0 && dentrotienda == false && datosserial.fragmento == 3 && datosserial.llave[7] == 0 && datosserial.economia[4] == 50)
 			{
 				audio6cat.Play();
 			}
@@ -562,27 +562,27 @@ public class manager_al1 : MonoBehaviour
 			datostrof.alien1mejora5 = 1;
 			push.push(6);
 		}
-		if(trofeoact == 5 && datosserial.gemas >= 1 && datostrof.alien1consigue1gema == 0)
+		if(trofeoact == 5 && datosserial.economia[0] >= 1 && datostrof.alien1consigue1gema == 0)
 		{
 			datostrof.alien1consigue1gema = 1;
 			push.push(7);
 		}
-		if(trofeoact == 5 && datosserial.gemas >= 15 && datostrof.alien1consigue15gemas == 0)
+		if(trofeoact == 5 && datosserial.economia[0] >= 15 && datostrof.alien1consigue15gemas == 0)
 		{
 			datostrof.alien1consigue15gemas = 1;
 			push.push(9);
 		}
-		if(trofeoact == 5 && datosserial.monedas >= 10 && datostrof.alien1consigue10monedas == 0)
+		if(trofeoact == 5 && datosserial.economia[4] >= 10 && datostrof.alien1consigue10monedas == 0)
 		{
 			datostrof.alien1consigue10monedas = 1;
 			push.push(8);
 		}
-		if(trofeoact == 5 && datosserial.monedas >= 50 && datosserial.fragmento >= 3 && datostrof.alien1consigue50monedas == 0)
+		if(trofeoact == 5 && datosserial.economia[4] >= 50 && datosserial.fragmento >= 3 && datostrof.alien1consigue50monedas == 0)
 		{
 			datostrof.alien1consigue50monedas = 1;
 			push.push(10);
 		}
-		if(trofeoact == 7 && datosserial.monedas >= 50 && datosserial.fragmento < 3 && datostrof.alien1consigue50monedas == 0)
+		if(trofeoact == 7 && datosserial.economia[4] >= 50 && datosserial.fragmento < 3 && datostrof.alien1consigue50monedas == 0)
 		{
 			datostrof.alien1consigue50monedas = 1;
 			push.push(10);
@@ -689,103 +689,103 @@ public class manager_al1 : MonoBehaviour
 		}
 		if (this.juego == 0 && this.piso == 1 && dentrotienda == true && pauseact == false)
 		{
-			this.cuentamonedas.text = this.datosserial.monedas+"";
-			this.cuentagemas.text = this.datosserial.gemas+"/15";
-			tmonedar.text = datosserial.monedasr+"";
-			tllave.text = datosserial.llaves+"/4";
+			this.cuentamonedas.text = this.datosserial.economia[4]+"";
+			this.cuentagemas.text = this.datosserial.economia[0]+"/15";
+			tmonedar.text = datosserial.economia[3]+"";
+			tllave.text = datosserial.economia[1]+"/4";
 			this.cuentafrag.text = datosserial.fragmento+"/3";
 			
 
 		}
 		if (this.juego == 0 && this.piso == 1 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 2 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 3 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 4 && dentrotienda == false && pauseact == false|| mundo != 0)
 		{
-			this.cuentamonedas.text = this.datosserial.monedas+"";
-			this.cuentagemas.text = this.datosserial.gemas+"/15";
-			tmonedar.text = datosserial.monedasr+"";
-			tllave.text = datosserial.llaves+"/4";
+			this.cuentamonedas.text = this.datosserial.economia[4]+"";
+			this.cuentagemas.text = this.datosserial.economia[0]+"/15";
+			tmonedar.text = datosserial.economia[3]+"";
+			tllave.text = datosserial.economia[1]+"/4";
 			this.cuentafrag.text = datosserial.fragmento+"/3";
 
-			if (datosserial.gemas == 0)
+			if (datosserial.economia[0] == 0)
 			{
 				this.mision = "MISION: Cruza una puerta y consigue una gema completando un nivel";
 			}
-			if (datosserial.gemas == 1 && datosserial.monedas < 10)
+			if (datosserial.economia[0] == 1 && datosserial.economia[4] < 10)
 			{
 				this.mision = "MISION: Haz los 2 niveles que quedan y baja abajo y consigue 10 monedas";
 			}
-			if (datosserial.gemas == 2 && datosserial.monedas < 10)
+			if (datosserial.economia[0] == 2 && datosserial.economia[4] < 10)
 			{
 				this.mision = "MISION: Haz el nivel que te queda y baja abajo y consigue 10 monedas";
 			}
-			if (datosserial.gemas == 3 && datosserial.monedas < 10)
+			if (datosserial.economia[0] == 3 && datosserial.economia[4] < 10)
 			{
 				this.mision = "MISION: Baja abajo y consigue 10 monedas";
 			}
-			if (datosserial.gemas == 1 && datosserial.monedas == 10)
+			if (datosserial.economia[0] == 1 && datosserial.economia[4] == 10)
 			{
 				this.mision = "MISION: Haz los 2 niveles que quedan";
 			}
-			if (datosserial.gemas == 2 && datosserial.monedas == 10)
+			if (datosserial.economia[0] == 2 && datosserial.economia[4] == 10)
 			{
 				this.mision = "MISION: Haz el nivel que te queda";
 			}
-			if (datosserial.gemas == 3 && datosserial.monedas == 10 && datosserial.tengovel == 0)
+			if (datosserial.economia[0] == 3 && datosserial.economia[4] == 10 && datosserial.tengovel == 0)
 			{
 				this.mision = "MISION: Ve a la tienda del primer  piso y recoge el acelerador";
 			}
-			if (datosserial.gemas <= 6 && datosserial.monedas <= 20 && datosserial.tengovel == 1)
+			if (datosserial.economia[0] <= 6 && datosserial.economia[4] <= 20 && datosserial.tengovel == 1)
 			{
 				this.mision = "MISION: Sube al segundo piso y consigue 6 gemas  baja al espacio y llega a las 20 monedas usando el acelerador";
 			}
-			if (datosserial.gemas == 6 && datosserial.monedas == 20 && datosserial.tengocoche == 0)
+			if (datosserial.economia[0] == 6 && datosserial.economia[4] == 20 && datosserial.tengocoche == 0)
 			{
 				this.mision = "MISION: Ve a la tienda y recoge tu nuevo coche";
 			}
-			if (datosserial.gemas <= 9 && datosserial.monedas <= 30 && datosserial.tengocoche == 1)
+			if (datosserial.economia[0] <= 9 && datosserial.economia[4] <= 30 && datosserial.tengocoche == 1)
 			{
 				this.mision = "MISION: Sube al tercer piso y consigue 9 gemas                                                     baja al espacio y llega a las 30 monedas usando el coche para usarlo tocalo";
 			}
-			if (datosserial.gemas == 9 && datosserial.monedas == 30 && datosserial.tengosalto == 0)
+			if (datosserial.economia[0] == 9 && datosserial.economia[4] == 30 && datosserial.tengosalto == 0)
 			{
 				this.mision = "MISION: Ve a la tienda y recoge el saltador";
 			}
-			if (datosserial.gemas <= 12 && datosserial.monedas <= 40 && datosserial.tengosalto == 1)
+			if (datosserial.economia[0] <= 12 && datosserial.economia[4] <= 40 && datosserial.tengosalto == 1)
 			{
 				this.mision = "MISION: Sube al cuarto piso y consigue 12 gemas                                                     baja al espacio y llega a las 40 monedas usando el saltador";
 			}
-			if (datosserial.gemas == 12 && datosserial.monedas == 40 && datosserial.tengonave == 0)
+			if (datosserial.economia[0] == 12 && datosserial.economia[4] == 40 && datosserial.tengonave == 0)
 			{
 				this.mision = "MISION: Ve a la tienda y recoge la nave espacial";
 			}
-			if (datosserial.gemas == 12 && datosserial.monedas == 40 && datosserial.tengonave == 1)
+			if (datosserial.economia[0] == 12 && datosserial.economia[4] == 40 && datosserial.tengonave == 1)
 			{
 				this.mision = "MISION fase 1: Usa la nave espacial en tu propiedad tocandola en la zona libre y viaja a asteroides y llega a las 13 gemas";
 			}
-			if (datosserial.gemas == 13 && datosserial.tengonave == 1 && datosserial.llave[4] == 0)
+			if (datosserial.economia[0] == 13 && datosserial.tengonave == 1 && datosserial.llave[4] == 0)
 			{
 				this.mision = "MISION fase 1: Ve a la tienda y recoge la llave secreta de las minas del piso 2 ";
 			}
-			if (datosserial.gemas == 13 &&  datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0)
+			if (datosserial.economia[0] == 13 &&  datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0)
 			{
 				this.mision = "MISION fase 1: Usa la nave espacial en tu propiedad tocandola en la zona libre y viaja a asteroides y llega a las 14 gemas";
 			}
-			if (datosserial.gemas == 14 && datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 0)
+			if (datosserial.economia[0] == 14 && datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 0)
 			{
 				this.mision = "MISION fase 1: Ve a la tienda y recoge la llave secreta de las minas del piso 3 ";
 			}
-			if (datosserial.gemas == 14 &&  datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0)
+			if (datosserial.economia[0] == 14 &&  datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0)
 			{
 				this.mision = "MISION fase 1: Usa la nave espacial en tu propiedad tocandola en la zona libre y viaja a asteroides y llega a las 15 gemas";
 			}
-			if (datosserial.gemas == 15 && datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0)
+			if (datosserial.economia[0] == 15 && datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0)
 			{
 				this.mision = "MISION fase 1: vV a la tienda y recoge la llave secreta de las minas del piso 4 ";
 			}
-			if (datosserial.gemas == 14 && datosserial.tengonave == 1 && datosserial.llave[4] == 0 && datosserial.llave[5] == 0)
+			if (datosserial.economia[0] == 14 && datosserial.tengonave == 1 && datosserial.llave[4] == 0 && datosserial.llave[5] == 0)
 			{
 				this.mision = "MISION fase 1: Ve a la tienda y recoge la llave secreta de las minas del piso 2 y 3 ";
 			}
-			if (datosserial.gemas == 15 && datosserial.tengonave == 1 && datosserial.llave[4] == 0 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0)
+			if (datosserial.economia[0] == 15 && datosserial.tengonave == 1 && datosserial.llave[4] == 0 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0)
 			{
 				this.mision = "MISION fase 1: Ve a la tienda y recoge la llave secreta de las minas del piso 2,3 y 4 ";
 			}
@@ -837,11 +837,11 @@ public class manager_al1 : MonoBehaviour
 			{
 				this.mision2 = "MISION fase 2: Ve al tercer piso y consigue un fragmento de gran gema en el nivel secreto";
 			}
-			if (datosserial.fragmento == 3 && datosserial.monedas < 50 && datosserial.llave[7] == 0)
+			if (datosserial.fragmento == 3 && datosserial.economia[4] < 50 && datosserial.llave[7] == 0)
 			{
 				this.mision = "MISION fase 3: Consigue 50 monedas por el espacio";
 			}
-			if (datosserial.fragmento == 3 && datosserial.monedas == 50 && datosserial.llave[7] == 0)
+			if (datosserial.fragmento == 3 && datosserial.economia[4] == 50 && datosserial.llave[7] == 0)
 			{
 				this.mision = "MISION fase 3: Ve a la tienda y recoje la llave del quinto piso";
 			}
@@ -864,19 +864,19 @@ public class manager_al1 : MonoBehaviour
 		}
 		if (this.juego == 4 && this.piso == 10  && pauseact == false|| this.juego == 1 && this.piso == 10  && pauseact == false|| this.juego == 4 && this.piso == 1 && pauseact == false)
 		{
-			this.cuentamonedas.text = this.datosserial.monedas+"";
-			this.cuentagemas.text = this.datosserial.gemas+"/15";
-			tmonedar.text = datosserial.monedasr+"";
-			tllave.text = datosserial.llaves+"/4";
+			this.cuentamonedas.text = this.datosserial.economia[4]+"";
+			this.cuentagemas.text = this.datosserial.economia[0]+"/15";
+			tmonedar.text = datosserial.economia[3]+"";
+			tllave.text = datosserial.economia[1]+"/4";
 			this.cuentafrag.text = datosserial.fragmento+"/3";
 			
 		}
 		if (this.juego == 4 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 1 && this.piso == 10 && this.mundos == true && pauseact == false || this.juego == 4 && this.piso == 1 && this.mundos == true && pauseact == false)
 		{
-			this.cuentamonedas.text = this.datosserial.monedas+"";
-			this.cuentagemas.text = this.datosserial.gemas+"/15";
-			tmonedar.text = datosserial.monedasr+"";
-			tllave.text = datosserial.llaves+"/4";
+			this.cuentamonedas.text = this.datosserial.economia[4]+"";
+			this.cuentagemas.text = this.datosserial.economia[0]+"/15";
+			tmonedar.text = datosserial.economia[3]+"";
+			tllave.text = datosserial.economia[1]+"/4";
 			this.cuentafrag.text = datosserial.fragmento+"/3";
 		}
 		if (juego == 6 && datosserial.tengomejora == 1)
@@ -954,102 +954,102 @@ public class manager_al1 : MonoBehaviour
 		}
 		if (this.juego == 0 && this.piso == 1 && dentrotienda == true && pauseact == false)
 		{
-			this.cuentamonedas.text = this.datosserial.monedas+"";
-			this.cuentagemas.text = this.datosserial.gemas+"/15";
-			tmonedar.text = datosserial.monedasr+"";
-			tllave.text = datosserial.llaves+"/4";
+			this.cuentamonedas.text = this.datosserial.economia[4]+"";
+			this.cuentagemas.text = this.datosserial.economia[0]+"/15";
+			tmonedar.text = datosserial.economia[3]+"";
+			tllave.text = datosserial.economia[1]+"/4";
 			this.cuentafrag.text = datosserial.fragmento+"/3";
 
 		}
 		if (this.juego == 0 && this.piso == 1 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 2 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 3 && dentrotienda == false && pauseact == false|| this.juego == 0 && this.piso == 4 && dentrotienda == false && pauseact == false || mundo != 0)
 		{
-			this.cuentamonedas.text = this.datosserial.monedas+"";
-			this.cuentagemas.text = this.datosserial.gemas+"/15";
-			tmonedar.text = datosserial.monedasr+"";
-			tllave.text = datosserial.llaves+"/4";
+			this.cuentamonedas.text = this.datosserial.economia[4]+"";
+			this.cuentagemas.text = this.datosserial.economia[0]+"/15";
+			tmonedar.text = datosserial.economia[3]+"";
+			tllave.text = datosserial.economia[1]+"/4";
 			this.cuentafrag.text = datosserial.fragmento+"/3";
 
-			if (datosserial.gemas == 0)
+			if (datosserial.economia[0] == 0)
 			{
 				this.mision = "MISSION: Go through a door and get a gem by completing a level";
 			}
-			if (datosserial.gemas == 1 && datosserial.monedas < 10)
+			if (datosserial.economia[0] == 1 && datosserial.economia[4] < 10)
 			{
 				this.mision = "MISSION: Do the remaining 2 levels and go downstairs and get 10 coins";
 			}
-			if (datosserial.gemas == 2 && datosserial.monedas < 10)
+			if (datosserial.economia[0] == 2 && datosserial.economia[4] < 10)
 			{
 				this.mision = "MISSION: Do the level you have left and go down below and get 10 coins";
 			}
-			if (datosserial.gemas == 3 && datosserial.monedas < 10)
+			if (datosserial.economia[0] == 3 && datosserial.economia[4] < 10)
 			{
 				this.mision = "MISSION: Go downstairs and get 10 coins";
 			}
-			if (datosserial.gemas == 1 && datosserial.monedas == 10)
+			if (datosserial.economia[0] == 1 && datosserial.economia[4] == 10)
 			{
 				this.mision = "MISSION: Do the remaining 2 levels";
 			}
-			if (datosserial.gemas == 2 && datosserial.monedas == 10)
+			if (datosserial.economia[0] == 2 && datosserial.economia[4] == 10)
 			{
 				this.mision = "MISSION: Do the level you have left";
 			}
-			if (datosserial.gemas == 3 && datosserial.monedas == 10 && datosserial.tengovel == 0)
+			if (datosserial.economia[0] == 3 && datosserial.economia[4] == 10 && datosserial.tengovel == 0)
 			{
 				this.mision = "MISSION: Go to the shop on the first floor and pick up the accelerator";
 			}
-			if (datosserial.gemas <= 6 && datosserial.monedas <= 20 && datosserial.tengovel == 1)
+			if (datosserial.economia[0] <= 6 && datosserial.economia[4] <= 20 && datosserial.tengovel == 1)
 			{
 				this.mision = "MISSION: Go up to the second floor and get 6 gems go down to space and reach 20 coins using the accelerator";
 			}
-			if (datosserial.gemas == 6 && datosserial.monedas == 20 && datosserial.tengocoche == 0)
+			if (datosserial.economia[0] == 6 && datosserial.economia[4] == 20 && datosserial.tengocoche == 0)
 			{
 				this.mision = "MISSION: Go to the store and pick up your new car";
 			}
-			if (datosserial.gemas <= 9 && datosserial.monedas <= 30 && datosserial.tengocoche == 1)
+			if (datosserial.economia[0] <= 9 && datosserial.economia[4] <= 30 && datosserial.tengocoche == 1)
 			{
 				this.mision = "MISSION: Go up to the third floor and get 9 gems go down to space and reach 30 coins using the car to use it touch it";
 			}
-			if (datosserial.gemas == 9 && datosserial.monedas == 30 && datosserial.tengosalto == 0)
+			if (datosserial.economia[0] == 9 && datosserial.economia[4] == 30 && datosserial.tengosalto == 0)
 			{
 				this.mision = "MISSION: Go to the store and pick up the jumper";
 			}
-			if (datosserial.gemas <= 12 && datosserial.monedas <= 40 && datosserial.tengosalto == 1)
+			if (datosserial.economia[0] <= 12 && datosserial.economia[4] <= 40 && datosserial.tengosalto == 1)
 			{
 				this.mision = "MISSION: Go up to the fourth floor and get 12 gems go down to space and reach 40 coins using the jumper";
 			}
-			if (datosserial.gemas == 12 && datosserial.monedas == 40 && datosserial.tengonave == 0)
+			if (datosserial.economia[0] == 12 && datosserial.economia[4] == 40 && datosserial.tengonave == 0)
 			{
 				this.mision = "MISSION: Go to the store and pick up the spaceship";
 			}
-			if (datosserial.gemas == 12 && datosserial.monedas == 40 && datosserial.tengonave == 1)
+			if (datosserial.economia[0] == 12 && datosserial.economia[4] == 40 && datosserial.tengonave == 1)
 			{
 				this.mision = "MISSION phase 1: Use the spaceship on your property by touching it in the free zone and travel to asteroids and reach all 13 gems";
 			}
-			if (datosserial.gemas == 13 && datosserial.tengonave == 1 && datosserial.llave[4] == 0)
+			if (datosserial.economia[0] == 13 && datosserial.tengonave == 1 && datosserial.llave[4] == 0)
 			{
 				this.mision = "MISSION phase 1: Go to the store and collect the secret key to the mines on floor 2";
 			}
-			if (datosserial.gemas == 13 &&  datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0)
+			if (datosserial.economia[0] == 13 &&  datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0)
 			{
 				this.mision = "MISSION phase 1: Use the spaceship on your property by touching it in the free zone and travel to asteroids and reach 14 gems";
 			}
-			if (datosserial.gemas == 14 && datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 0)
+			if (datosserial.economia[0] == 14 && datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 0)
 			{
 				this.mision = "MISSION phase 1: Go to the store and collect the secret key to the mines on floor 3";
 			}
-			if (datosserial.gemas == 14 &&  datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0)
+			if (datosserial.economia[0] == 14 &&  datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0)
 			{
 				this.mision = "MISSION phase 1: Use the spaceship on your property by touching it in the free zone and travel to asteroids and reach 15 gems";
 			}
-			if (datosserial.gemas == 15 && datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0)
+			if (datosserial.economia[0] == 15 && datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0)
 			{
 				this.mision = "MISSION phase 1: Go to the store and collect the secret key to the mines on floor 4";
 			}
-			if (datosserial.gemas == 14 && datosserial.tengonave == 1 && datosserial.llave[4] == 0 && datosserial.llave[5] == 0)
+			if (datosserial.economia[0] == 14 && datosserial.tengonave == 1 && datosserial.llave[4] == 0 && datosserial.llave[5] == 0)
 			{
 				this.mision = "MISSION phase 1: Go to the store and collect the secret key to the mines on floor 2 and 3";
 			}
-			if (datosserial.gemas == 15 && datosserial.tengonave == 1 && datosserial.llave[4] == 0 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0)
+			if (datosserial.economia[0] == 15 && datosserial.tengonave == 1 && datosserial.llave[4] == 0 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0)
 			{
 				this.mision = "MISSION phase 1: Go to the store and collect the secret key to the mines on floors 2, 3 and 4";
 			}
@@ -1101,11 +1101,11 @@ public class manager_al1 : MonoBehaviour
 			{
 				this.mision2 = "MISSION phase 2: Go to the third floor and get a large gem fragment in the secret level";
 			}
-			if (datosserial.fragmento == 3 && datosserial.monedas < 50 && datosserial.llave[7] == 0)
+			if (datosserial.fragmento == 3 && datosserial.economia[4] < 50 && datosserial.llave[7] == 0)
 			{
 				this.mision = "MISSION phase 3: Get 50 Coins in the space";
 			}
-			if (datosserial.fragmento == 3 && datosserial.monedas == 50 && datosserial.llave[7] == 0)
+			if (datosserial.fragmento == 3 && datosserial.economia[4] == 50 && datosserial.llave[7] == 0)
 			{
 				this.mision = "MISSION phase 3: Go to the store and collect the key to the fifth floor";
 			}
@@ -1128,18 +1128,18 @@ public class manager_al1 : MonoBehaviour
 		}
 		if (this.juego == 4 && this.piso == 10  && pauseact == false|| this.juego == 1 && this.piso == 10 && pauseact == false || this.juego == 4 && this.piso == 1 && pauseact == false)
 		{
-			this.cuentamonedas.text = this.datosserial.monedas+"";
-			this.cuentagemas.text = this.datosserial.gemas+"/15";
-			tmonedar.text = datosserial.monedasr+"";
-			tllave.text = datosserial.llaves+"/4";
+			this.cuentamonedas.text = this.datosserial.economia[4]+"";
+			this.cuentagemas.text = this.datosserial.economia[0]+"/15";
+			tmonedar.text = datosserial.economia[3]+"";
+			tllave.text = datosserial.economia[1]+"/4";
 			this.cuentafrag.text = datosserial.fragmento+"/3";
 		}
 		if (this.juego == 4 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 1 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 4 && this.piso == 1 && this.mundos == true && pauseact == false)
 		{
-			this.cuentamonedas.text = this.datosserial.monedas+"";
-			this.cuentagemas.text = this.datosserial.gemas+"/15";
-			tmonedar.text = datosserial.monedasr+"";
-			tllave.text = datosserial.llaves+"/4";
+			this.cuentamonedas.text = this.datosserial.economia[4]+"";
+			this.cuentagemas.text = this.datosserial.economia[0]+"/15";
+			tmonedar.text = datosserial.economia[3]+"";
+			tllave.text = datosserial.economia[1]+"/4";
 			this.cuentafrag.text = datosserial.fragmento+"/3";
 		}
 		if (juego == 6 && datosserial.tengomejora == 1)
@@ -1217,102 +1217,102 @@ public class manager_al1 : MonoBehaviour
 		}
 		if (this.juego == 0 && this.piso == 1 && dentrotienda == true && pauseact == false)
 		{
-			this.cuentamonedas.text = this.datosserial.monedas+"";
-			this.cuentagemas.text = this.datosserial.gemas+"/15";
-			tmonedar.text = datosserial.monedasr+"";
-			tllave.text = datosserial.llaves+"/4";
+			this.cuentamonedas.text = this.datosserial.economia[4]+"";
+			this.cuentagemas.text = this.datosserial.economia[0]+"/15";
+			tmonedar.text = datosserial.economia[3]+"";
+			tllave.text = datosserial.economia[1]+"/4";
 			this.cuentafrag.text = datosserial.fragmento+"/3";
 
 		}
 		if (this.juego == 0 && this.piso == 1 && dentrotienda == false  && pauseact == false || this.juego == 0 && this.piso == 2 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 3 && dentrotienda == false  && pauseact == false|| this.juego == 0 && this.piso == 4 && dentrotienda == false && pauseact == false || mundo != 0)
 		{
-			this.cuentamonedas.text = this.datosserial.monedas+"";
-			this.cuentagemas.text = this.datosserial.gemas+"/15";
-			tmonedar.text = datosserial.monedasr+"";
-			tllave.text = datosserial.llaves+"/4";
+			this.cuentamonedas.text = this.datosserial.economia[4]+"";
+			this.cuentagemas.text = this.datosserial.economia[0]+"/15";
+			tmonedar.text = datosserial.economia[3]+"";
+			tllave.text = datosserial.economia[1]+"/4";
 			this.cuentafrag.text = datosserial.fragmento+"/3";
 
-			if (datosserial.gemas == 0)
+			if (datosserial.economia[0] == 0)
 			{
 				this.mision = "MISIO: Creua una porta i consegueix una gema completan un nivell";
 			}
-			if (datosserial.gemas == 1 && datosserial.monedas < 10)
+			if (datosserial.economia[0] == 1 && datosserial.economia[4] < 10)
 			{
 				this.mision = "MISIO: Fes els 2 niveles que queden i baixa abaix i agafa 10 monedes";
 			}
-			if (datosserial.gemas == 2 && datosserial.monedas < 10)
+			if (datosserial.economia[0] == 2 && datosserial.economia[4] < 10)
 			{
 				this.mision = "MISIO: Fes el nivell que et queda i baixa abaix i agafa 10 monedes";
 			}
-			if (datosserial.gemas == 3 && datosserial.monedas < 10)
+			if (datosserial.economia[0] == 3 && datosserial.economia[4] < 10)
 			{
 				this.mision = "MISIO: Baixa abaix i agafa 10 monedes";
 			}
-			if (datosserial.gemas == 1 && datosserial.monedas == 10)
+			if (datosserial.economia[0] == 1 && datosserial.economia[4] == 10)
 			{
 				this.mision = "MISIO: Fes els 2 niveles que queden";
 			}
-			if (datosserial.gemas == 2 && datosserial.monedas == 10)
+			if (datosserial.economia[0] == 2 && datosserial.economia[4] == 10)
 			{
 				this.mision = "MISIO: Fes el nivell que et queda";
 			}
-			if (datosserial.gemas == 3 && datosserial.monedas == 10 && datosserial.tengovel == 0)
+			if (datosserial.economia[0] == 3 && datosserial.economia[4] == 10 && datosserial.tengovel == 0)
 			{
 				this.mision = "MISIO: Ves a la tenda del primer  pis i agafa el acelerador";
 			}
-			if (datosserial.gemas <= 6 && datosserial.monedas <= 20 && datosserial.tengovel == 1)
+			if (datosserial.economia[0] <= 6 && datosserial.economia[4] <= 20 && datosserial.tengovel == 1)
 			{
 				this.mision = "MISIO: Puja al segon pis i agafa 6 gemmes  baixa al espai y arriba a les 20 monedes fent servir el acelerador";
 			}
-			if (datosserial.gemas == 6 && datosserial.monedas == 20 && datosserial.tengocoche == 0)
+			if (datosserial.economia[0] == 6 && datosserial.economia[4] == 20 && datosserial.tengocoche == 0)
 			{
 				this.mision = "MISIO: Ves a la tenda i agafa el teu nuo cotxe";
 			}
-			if (datosserial.gemas <= 9 && datosserial.monedas <= 30 && datosserial.tengocoche == 1)
+			if (datosserial.economia[0] <= 9 && datosserial.economia[4] <= 30 && datosserial.tengocoche == 1)
 			{
 				this.mision = "MISIO: Puja al tercer pis i agafa 9 gemmes                                                     baixa al espai y arriba a les 30 monedes fent servir el cotxe per ferlo servir tocal";
 			}
-			if (datosserial.gemas == 9 && datosserial.monedas == 30 && datosserial.tengosalto == 0)
+			if (datosserial.economia[0] == 9 && datosserial.economia[4] == 30 && datosserial.tengosalto == 0)
 			{
 				this.mision = "MISIO: Ves a la tenda y agafa el saltador";
 			}
-			if (datosserial.gemas <= 12 && datosserial.monedas <= 40 && datosserial.tengosalto == 1)
+			if (datosserial.economia[0] <= 12 && datosserial.economia[4] <= 40 && datosserial.tengosalto == 1)
 			{
 				this.mision = "MISIO: Puja al quart pis i agafa 12 gemmes                                                    baixa al espai i arriba a les 40 monedes fent servir el saltador";
 			}
-			if (datosserial.gemas == 12 && datosserial.monedas == 40 && datosserial.tengonave == 0)
+			if (datosserial.economia[0] == 12 && datosserial.economia[4] == 40 && datosserial.tengonave == 0)
 			{
 				this.mision = "MISIO: Ves a la tenda y agafa la nau espacial";
 			}
-			if (datosserial.gemas == 12 && datosserial.monedas == 40 && datosserial.tengonave == 1)
+			if (datosserial.economia[0] == 12 && datosserial.economia[4] == 40 && datosserial.tengonave == 1)
 			{
 				this.mision = "MISIO fase 1: Fes servir la nau espacial tocanla al espai i viatja als asteroides i arriba a les 13 gemmes";
 			}
-			if (datosserial.gemas == 13 && datosserial.tengonave == 1 && datosserial.llave[4] == 0)
+			if (datosserial.economia[0] == 13 && datosserial.tengonave == 1 && datosserial.llave[4] == 0)
 			{
 				this.mision = "MISIO fase 1: Ves a la tenda y recull la clau secreta de les mines del pis 2 ";
 			}
-			if (datosserial.gemas == 13 &&  datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0)
+			if (datosserial.economia[0] == 13 &&  datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0)
 			{
 				this.mision = "MISIO fase 1: Fes servir la nau espacial tocanla al espai i viatja als asteroides i arriba a les 14 gemmes";
 			}
-			if (datosserial.gemas == 14 && datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 0)
+			if (datosserial.economia[0] == 14 && datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 0)
 			{
 				this.mision = "MISIO fase 1: Ves a la tenda i recull la clau secreta de les mines del pis 3";
 			}
-			if (datosserial.gemas == 14 &&  datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0)
+			if (datosserial.economia[0] == 14 &&  datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0)
 			{
 				this.mision = "MISIO fase 1: Fes servir la nau espacial tocanla al espai i viatja als asteroides i arriba a les 15 gemmes";
 			}
-			if (datosserial.gemas == 15 && datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0)
+			if (datosserial.economia[0] == 15 && datosserial.tengonave == 1 && datosserial.llave[4] == 1 && datosserial.llave[5] == 1 && datosserial.llave[6] == 0)
 			{
 				this.mision = "MISIO fase 1: Ves a la tenda i recull la clau secreta de les mines del pis 4 ";
 			}
-			if (datosserial.gemas == 14 && datosserial.tengonave == 1 && datosserial.llave[4] == 0 && datosserial.llave[5] == 0)
+			if (datosserial.economia[0] == 14 && datosserial.tengonave == 1 && datosserial.llave[4] == 0 && datosserial.llave[5] == 0)
 			{
 				this.mision = "MISIO fase 1:Ves a la tenda i recull la clau secreta de les mines del pis 2 i 4 ";
 			}
-			if (datosserial.gemas == 15 && datosserial.tengonave == 1 && datosserial.llave[4] == 0 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0)
+			if (datosserial.economia[0] == 15 && datosserial.tengonave == 1 && datosserial.llave[4] == 0 && datosserial.llave[5] == 0 && datosserial.llave[6] == 0)
 			{
 				this.mision = "MISIO fase 1: Ves a la tenda i recull la clau secreta de les mines del pis 2,3 i 4";
 			}
@@ -1364,11 +1364,11 @@ public class manager_al1 : MonoBehaviour
 			{
 				this.mision2 = "MISIO fase 2: Ves al tercer pis y agafa un fragment de gran gemme en el nivell secret";
 			}
-			if (datosserial.fragmento == 3 && datosserial.monedas < 50 && datosserial.llave[7] == 0)
+			if (datosserial.fragmento == 3 && datosserial.economia[4] < 50 && datosserial.llave[7] == 0)
 			{
 				this.mision = "MISIO fase 3: Agafa 50 monedes en el espai amb la nau";
 			}
-			if (datosserial.fragmento == 3 && datosserial.monedas == 50 && datosserial.llave[7] == 0)
+			if (datosserial.fragmento == 3 && datosserial.economia[4] == 50 && datosserial.llave[7] == 0)
 			{
 				this.mision = "MISIO fase 3: Ves a la tenda i agafa la calu del cinque pis";
 			}
@@ -1391,18 +1391,18 @@ public class manager_al1 : MonoBehaviour
 		}
 		if (this.juego == 4 && this.piso == 10  && pauseact == false|| this.juego == 1 && this.piso == 10  && pauseact == false|| this.juego == 4 && this.piso == 1 && pauseact == false)
 		{
-			this.cuentamonedas.text = this.datosserial.monedas+"";
-			this.cuentagemas.text = this.datosserial.gemas+"/15";
-			tmonedar.text = datosserial.monedasr+"";
-			tllave.text = datosserial.llaves+"/4";
+			this.cuentamonedas.text = this.datosserial.economia[4]+"";
+			this.cuentagemas.text = this.datosserial.economia[0]+"/15";
+			tmonedar.text = datosserial.economia[3]+"";
+			tllave.text = datosserial.economia[1]+"/4";
 			this.cuentafrag.text = datosserial.fragmento+"/3";
 		}
 		if (this.juego == 4 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 1 && this.piso == 10 && this.mundos == true  && pauseact == false|| this.juego == 4 && this.piso == 1 && this.mundos == true  && pauseact == false)
 		{
-			this.cuentamonedas.text = this.datosserial.monedas+"";
-			this.cuentagemas.text = this.datosserial.gemas+"/15";
-			tmonedar.text = datosserial.monedasr+"";
-			tllave.text = datosserial.llaves+"/4";
+			this.cuentamonedas.text = this.datosserial.economia[4]+"";
+			this.cuentagemas.text = this.datosserial.economia[0]+"/15";
+			tmonedar.text = + datosserial.economia[3]+"";
+			tllave.text = datosserial.economia[1]+"/4";
 			this.cuentafrag.text = datosserial.fragmento+"/3";
 		}
 		if (juego == 6 && datosserial.tengomejora == 1)

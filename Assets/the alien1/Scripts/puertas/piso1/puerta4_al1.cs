@@ -22,7 +22,7 @@ public class puerta4_al1 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			SceneManager.LoadScene("tienda_al1");
+			SceneManager.LoadScene("tienda1_al1");
 		}
 	}
 }

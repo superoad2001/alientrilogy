@@ -21,6 +21,7 @@ public class manualtut_al1 : MonoBehaviour
     public bool findi;
     public manager_al1 manager;
     public jugador_al1 jugador;
+    public int manual = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -73,8 +74,15 @@ public class manualtut_al1 : MonoBehaviour
             if(tutev[index-1] != null)
             {tutev[index-1].SetActive(true);}
             else
-            {
-                SceneManager.LoadScene("tienda_al1");
+            {   
+                if(manual == 0)
+                {
+                    manager.datosserial.eventos[0] = false;
+                    manager.datosserial.eventos[1] = true;
+                    manager.guardar();
+                    SceneManager.LoadScene("tienda1_al1");
+                }
+
             }
             jugador.controlact = nostaticjugev[index-1];
             manager.controlene = nostaticeneev[index-1];          

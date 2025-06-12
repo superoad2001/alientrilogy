@@ -63,7 +63,7 @@ public class enemigo2_al1: MonoBehaviour
     public float danoj2 = 5;
     public GameObject target;
     public GameObject palo;
-    private Controles controles;
+
 
     public float nivelfuerza;
     public float nivelvida;
@@ -74,18 +74,8 @@ public class enemigo2_al1: MonoBehaviour
 
     public float []nivelfuerza_a = new float[100];
     public float []nivelvida_a = new float[100];
-    public void Awake()
-    {
-        controles = new Controles();
-    }
-    private void OnEnable() 
-    {
-        controles.Enable();
-    }
-    private void OnDisable() 
-    {
-        controles.Disable();
-    }
+
+
     
     // Start is called before the first frame update
     void Start()
@@ -94,7 +84,7 @@ public class enemigo2_al1: MonoBehaviour
         objetivoa[1] = transform.position + new Vector3(0,0,5);
         objetivoa[2] = transform.position + new Vector3(-5,0,0);
         objetivoa[3] = transform.position + new Vector3(5,0,0);
-        objetivon = objetivoa[Random.Range(0,5)];
+        objetivon = objetivoa[Random.Range(0,4)];
         if(GetComponent<Rigidbody>() == null)
         {
             gameObject.AddComponent<Rigidbody>();
@@ -138,6 +128,11 @@ public class enemigo2_al1: MonoBehaviour
         vidamenu = GameObject.Find("barravidaenemigobase");
         juego = GameObject.Find("juego").transform;
     }
+    public void Awake()
+    {
+        manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+        jugador1 = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+    }
 
     // Update is called once per frame
     void Update()
@@ -158,7 +153,7 @@ public class enemigo2_al1: MonoBehaviour
 
         vidaUI = Mathf.Lerp(vidaUI, vida, Time.deltaTime * 2f);
 
-        if(jugador1.objetivotarget == transform.gameObject)
+        if(jugador1.objetivotarget == transform.gameObject && detectar == true)
         {
             target.SetActive(true);
             jugador1.vidaenebarra.SetActive(true);

@@ -21,7 +21,7 @@ public class inicio_al1 : MonoBehaviour
 	public void Start()
 	{
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
-        gemas = manager.datosserial.gemas;
+        gemas = manager.datosserial.economia[0];
 	}
 
 

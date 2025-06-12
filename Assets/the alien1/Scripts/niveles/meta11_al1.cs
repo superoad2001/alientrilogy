@@ -81,21 +81,21 @@ public class meta11_al1 : MonoBehaviour
 		{
 			if (manager.datosserial.gemaN8 == 0 && gran == false && gema == 8)
 			{
-				manager.datosserial.gemas++;
+				manager.datosserial.economia[0]++;
 				manager.datosserial.gemaN8 = 1;
 				manager.guardar();
 				fin = true;
 			}
 			else if (manager.datosserial.gemaN9 == 0 && gran == false && gema == 9)
 			{
-				manager.datosserial.gemas++;
+				manager.datosserial.economia[0]++;
 				manager.datosserial.gemaN9 = 1;
 				manager.guardar();
 				fin = true;
 			}
 			else if (manager.datosserial.gemaN11 == 0 && gran == false && gema == 11)
 			{
-				manager.datosserial.gemas++;
+				manager.datosserial.economia[0]++;
 				manager.datosserial.gemaN11 = 1;
 				manager.guardar();
 				fin = true;

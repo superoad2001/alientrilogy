@@ -254,42 +254,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""lder"",
-                    ""type"": ""Button"",
-                    ""id"": ""811c2047-14fd-4418-a437-ba07c209c61b"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""larr"",
-                    ""type"": ""Button"",
-                    ""id"": ""9a10cb04-4021-46e1-adf7-8c2449bfc5be"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""lizq"",
-                    ""type"": ""Button"",
-                    ""id"": ""ccb97e69-7a39-45d0-b76c-6f4284e085f7"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""labj"",
-                    ""type"": ""Button"",
-                    ""id"": ""d6a7a8a9-5816-42f9-9624-1224df5f520b"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""r3"",
                     ""type"": ""Button"",
                     ""id"": ""14aabed4-5b95-4a76-80f7-e04e4e2dbeca"",
@@ -581,26 +545,37 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""a242c686-28b8-4c28-972a-dc87056170a9"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""name"": ""1D Axis"",
+                    ""id"": ""e5404876-bcc3-43bd-9127-6e70a148fa22"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
-                    ""processors"": ""Invert"",
-                    ""groups"": "";PC"",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""lhorizontal"",
-                    ""isComposite"": false,
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""05b412a3-4e20-4f1a-b560-02561599ca62"",
+                    ""name"": ""negative"",
+                    ""id"": ""39473246-225a-4190-8a99-9771355e7048"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""lhorizontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""69e95d13-7235-4636-9086-403e8e5acdda"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";PC"",
+                    ""groups"": """",
                     ""action"": ""lhorizontal"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -614,26 +589,37 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""81c52acf-4c2c-41bd-95d1-1ac15aebaae0"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""name"": ""1D Axis"",
+                    ""id"": ""094564af-34ab-4a8f-8aa8-d8b287e14ea8"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";PC"",
+                    ""groups"": """",
                     ""action"": ""lvertical"",
-                    ""isComposite"": false,
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""ef58f00c-76fd-4f37-9739-4e8d864e2767"",
+                    ""name"": ""negative"",
+                    ""id"": ""3f92dded-b7cf-4a3b-ab58-802a9a9a3ce4"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
-                    ""processors"": ""Invert"",
-                    ""groups"": "";PC"",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""lvertical"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""2f95ff1d-a7e7-4104-8052-64a8cb5a4939"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""lvertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -648,11 +634,11 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""493d2790-591f-4bdd-b93a-5cecf1f166a8"",
+                    ""id"": ""20bb7c61-b3b4-4388-8488-7211b6bd6c8e"",
                     ""path"": ""<Mouse>/delta/x"",
                     ""interactions"": """",
-                    ""processors"": ""Scale(factor=0.2)"",
-                    ""groups"": "";PC"",
+                    ""processors"": ""Scale(factor=2)"",
+                    ""groups"": """",
                     ""action"": ""rhorizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -670,11 +656,11 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""734a0d21-fd22-4add-b33f-3ad93ecb1b69"",
+                    ""id"": ""d473fb84-75f2-4c34-9367-21e9ec4ac71c"",
                     ""path"": ""<Mouse>/delta/y"",
                     ""interactions"": """",
-                    ""processors"": ""Scale(factor=0.2)"",
-                    ""groups"": "";PC"",
+                    ""processors"": ""Scale(factor=2)"",
+                    ""groups"": """",
                     ""action"": ""rvertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -742,94 +728,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";PC"",
                     ""action"": ""rt"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d0e1e5ab-da1c-4234-b692-9f8ba46dc70d"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";PAD"",
-                    ""action"": ""lder"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7c6c0755-7b8c-4076-a16e-d90919c42725"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";PC"",
-                    ""action"": ""lder"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6dd44003-b361-4b24-973a-5453f3508efc"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";PAD"",
-                    ""action"": ""larr"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""49bd831c-4251-4d35-990b-dbfd1b037be3"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";PC"",
-                    ""action"": ""larr"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8adaeb31-3fa5-4311-9e12-8b7a6e41ff3f"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";PAD"",
-                    ""action"": ""lizq"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""35d68bcb-f382-4a64-a988-3c65117452bd"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";PC"",
-                    ""action"": ""lizq"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8ea605c5-d9a3-42ed-a801-bde2b9e7e6fd"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";PAD"",
-                    ""action"": ""labj"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""010334c9-9f9b-4b75-8084-646d7ad051a8"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";PC"",
-                    ""action"": ""labj"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1101,42 +999,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""lder"",
-                    ""type"": ""Button"",
-                    ""id"": ""4cd5788e-0d73-4ac3-a799-21c4467d4ab4"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""larr"",
-                    ""type"": ""Button"",
-                    ""id"": ""0494e9a7-4c54-42d1-842a-f20be62a4047"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""lizq"",
-                    ""type"": ""Button"",
-                    ""id"": ""f3151679-c0ca-408d-86c4-34405c6e66e3"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""labj"",
-                    ""type"": ""Button"",
-                    ""id"": ""7e574d2f-5661-449c-8db4-89034458c8d3"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""r3"",
                     ""type"": ""Button"",
                     ""id"": ""c9af1667-cc43-4346-92e2-ee43b008c2e3"",
@@ -1171,6 +1033,42 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""uider"",
+                    ""type"": ""Button"",
+                    ""id"": ""9f435be6-cf74-468e-93de-a56ac6dd3b76"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""uiizq"",
+                    ""type"": ""Button"",
+                    ""id"": ""ed7b8f76-1c54-4237-a171-ba29a80038ee"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""uiarr"",
+                    ""type"": ""Button"",
+                    ""id"": ""e2e3228e-5913-47c6-9545-ff1e61fa36c4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""uiabj"",
+                    ""type"": ""Button"",
+                    ""id"": ""6f27a639-c92c-4301-ac81-e8941adfe1e1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1182,6 +1080,28 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";PAD"",
                     ""action"": ""a"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aa70e7ec-62e5-43d3-a5c2-b74d2b5590d3"",
+                    ""path"": ""<Gamepad>/leftStick/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";PAD"",
+                    ""action"": ""lhorizontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8e4ef8f0-d17f-471d-bcde-1821df38ecc4"",
+                    ""path"": ""<Mouse>/delta/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""lhorizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1210,7 +1130,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8b575e48-9b97-4678-9c24-5947488d01b8"",
-                    ""path"": ""<Keyboard>/upArrow"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": ""ScaleVector2"",
                     ""groups"": "";PC"",
@@ -1232,7 +1152,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""179e741c-7a7a-4539-90ce-b56674f09332"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC"",
@@ -1254,7 +1174,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ff813222-4abd-43ac-8640-a605e5b92f6e"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC"",
@@ -1276,7 +1196,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9d4bbb33-14f4-4149-94e0-9248325c26fd"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC"",
@@ -1432,7 +1352,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""id"": ""b410c3e9-35f4-47ed-94a3-2240520feafb"",
                     ""path"": ""<Mouse>/delta/y"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Invert"",
                     ""groups"": """",
                     ""action"": ""lvertical"",
                     ""isComposite"": false,
@@ -1463,7 +1383,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""479ce4ec-9017-4df0-9ed8-c3399764579b"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1474,7 +1394,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""95b179d2-bc83-43d6-9dfc-4026ba14cc1e"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1507,7 +1427,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""8b1491aa-79b1-48ef-9640-c8ae7b2437b8"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1518,7 +1438,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""ba210faa-67d7-4d4e-875d-b7520a625bcd"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1589,94 +1509,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";PC"",
                     ""action"": ""rt"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b7740396-6029-460b-9b21-e936ebe62a6a"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";PAD"",
-                    ""action"": ""lder"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""126d0fb3-5b58-460f-9f3a-27fd513bf789"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""lder"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2acaca6a-7957-4993-ba04-9e8673f4d5ee"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";PAD"",
-                    ""action"": ""larr"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""61e75289-99d6-4ed2-89c1-b7c873e9191d"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""larr"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6a50a979-730a-4834-88e5-3db4c5337ac3"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";PAD"",
-                    ""action"": ""lizq"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""28cddcad-f888-4eb0-8615-adf5f790ce6f"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""lizq"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5d40fd5e-edc1-4940-8124-4a81b6701faa"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";PAD"",
-                    ""action"": ""labj"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ee5f59c0-d5b7-4ccb-9450-5e90d88b7373"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""labj"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1776,6 +1608,94 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";PC"",
                     ""action"": ""cinnext"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe027b38-501f-4864-9bb5-e6072a911642"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""uider"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ace2a3ee-cd67-4451-b056-3d38e56fa6ed"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""uider"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c2feff1a-01d1-4aca-bbbf-6d1a0b8a0b48"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""uiizq"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0573ef26-9fc8-4e5e-b22b-c514d6f4734f"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""uiizq"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c3995c97-5ab9-4335-9db0-b31534849a6f"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""uiarr"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""40c9ef2f-00bf-47fe-b03f-5d697be387ef"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""uiarr"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6a2419dc-03da-4a6d-b28c-9fd3d256bcf3"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""uiabj"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""657cdddb-6d9e-428c-b0d8-0a367da2d87b"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""uiabj"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -3712,6 +3632,24 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""horizontalpad"",
+                    ""type"": ""Value"",
+                    ""id"": ""a8a27b6e-3c12-46dd-bec0-341cc476b4d7"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""verticalpad"",
+                    ""type"": ""Value"",
+                    ""id"": ""51da3dfb-1b6c-4110-8c18-8cd6945cadd0"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -4317,6 +4255,72 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";PC"",
                     ""action"": ""cinnext"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""65df74d0-633a-4fe8-8a7a-e11235efa9f8"",
+                    ""path"": ""<Gamepad>/dpad/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""horizontalpad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""24e66033-c0ea-40c3-ad0a-c2e5c516f7ff"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert"",
+                    ""groups"": """",
+                    ""action"": ""horizontalpad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c9b1e64-1452-4c5e-b275-cf29f59f14da"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""horizontalpad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""46354b19-6f8f-4242-8e09-563b82aad5e3"",
+                    ""path"": ""<Gamepad>/dpad/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""verticalpad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b6c752e8-7b87-4722-82cc-893fdafc37c9"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""verticalpad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39c436a4-318d-4d8b-a357-843213728bab"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert"",
+                    ""groups"": """",
+                    ""action"": ""verticalpad"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -6008,10 +6012,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         m_al1_3d_pausa = m_al1_3d.FindAction("pausa", throwIfNotFound: true);
         m_al1_3d_lt = m_al1_3d.FindAction("lt", throwIfNotFound: true);
         m_al1_3d_rt = m_al1_3d.FindAction("rt", throwIfNotFound: true);
-        m_al1_3d_lder = m_al1_3d.FindAction("lder", throwIfNotFound: true);
-        m_al1_3d_larr = m_al1_3d.FindAction("larr", throwIfNotFound: true);
-        m_al1_3d_lizq = m_al1_3d.FindAction("lizq", throwIfNotFound: true);
-        m_al1_3d_labj = m_al1_3d.FindAction("labj", throwIfNotFound: true);
         m_al1_3d_r3 = m_al1_3d.FindAction("r3", throwIfNotFound: true);
         m_al1_3d_lb = m_al1_3d.FindAction("lb", throwIfNotFound: true);
         m_al1_3d_select = m_al1_3d.FindAction("select", throwIfNotFound: true);
@@ -6036,14 +6036,14 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         m_al1_2d_pausa = m_al1_2d.FindAction("pausa", throwIfNotFound: true);
         m_al1_2d_lt = m_al1_2d.FindAction("lt", throwIfNotFound: true);
         m_al1_2d_rt = m_al1_2d.FindAction("rt", throwIfNotFound: true);
-        m_al1_2d_lder = m_al1_2d.FindAction("lder", throwIfNotFound: true);
-        m_al1_2d_larr = m_al1_2d.FindAction("larr", throwIfNotFound: true);
-        m_al1_2d_lizq = m_al1_2d.FindAction("lizq", throwIfNotFound: true);
-        m_al1_2d_labj = m_al1_2d.FindAction("labj", throwIfNotFound: true);
         m_al1_2d_r3 = m_al1_2d.FindAction("r3", throwIfNotFound: true);
         m_al1_2d_lb = m_al1_2d.FindAction("lb", throwIfNotFound: true);
         m_al1_2d_select = m_al1_2d.FindAction("select", throwIfNotFound: true);
         m_al1_2d_cinnext = m_al1_2d.FindAction("cinnext", throwIfNotFound: true);
+        m_al1_2d_uider = m_al1_2d.FindAction("uider", throwIfNotFound: true);
+        m_al1_2d_uiizq = m_al1_2d.FindAction("uiizq", throwIfNotFound: true);
+        m_al1_2d_uiarr = m_al1_2d.FindAction("uiarr", throwIfNotFound: true);
+        m_al1_2d_uiabj = m_al1_2d.FindAction("uiabj", throwIfNotFound: true);
         // al1_nave
         m_al1_nave = asset.FindActionMap("al1_nave", throwIfNotFound: true);
         m_al1_nave_a = m_al1_nave.FindAction("a", throwIfNotFound: true);
@@ -6128,6 +6128,8 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         m_al1_general_lb = m_al1_general.FindAction("lb", throwIfNotFound: true);
         m_al1_general_select = m_al1_general.FindAction("select", throwIfNotFound: true);
         m_al1_general_cinnext = m_al1_general.FindAction("cinnext", throwIfNotFound: true);
+        m_al1_general_horizontalpad = m_al1_general.FindAction("horizontalpad", throwIfNotFound: true);
+        m_al1_general_verticalpad = m_al1_general.FindAction("verticalpad", throwIfNotFound: true);
         // al2
         m_al2 = asset.FindActionMap("al2", throwIfNotFound: true);
         m_al2_a = m_al2.FindAction("a", throwIfNotFound: true);
@@ -6290,10 +6292,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     private readonly InputAction m_al1_3d_pausa;
     private readonly InputAction m_al1_3d_lt;
     private readonly InputAction m_al1_3d_rt;
-    private readonly InputAction m_al1_3d_lder;
-    private readonly InputAction m_al1_3d_larr;
-    private readonly InputAction m_al1_3d_lizq;
-    private readonly InputAction m_al1_3d_labj;
     private readonly InputAction m_al1_3d_r3;
     private readonly InputAction m_al1_3d_lb;
     private readonly InputAction m_al1_3d_select;
@@ -6381,22 +6379,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "al1_3d/rt".
         /// </summary>
         public InputAction @rt => m_Wrapper.m_al1_3d_rt;
-        /// <summary>
-        /// Provides access to the underlying input action "al1_3d/lder".
-        /// </summary>
-        public InputAction @lder => m_Wrapper.m_al1_3d_lder;
-        /// <summary>
-        /// Provides access to the underlying input action "al1_3d/larr".
-        /// </summary>
-        public InputAction @larr => m_Wrapper.m_al1_3d_larr;
-        /// <summary>
-        /// Provides access to the underlying input action "al1_3d/lizq".
-        /// </summary>
-        public InputAction @lizq => m_Wrapper.m_al1_3d_lizq;
-        /// <summary>
-        /// Provides access to the underlying input action "al1_3d/labj".
-        /// </summary>
-        public InputAction @labj => m_Wrapper.m_al1_3d_labj;
         /// <summary>
         /// Provides access to the underlying input action "al1_3d/r3".
         /// </summary>
@@ -6493,18 +6475,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @rt.started += instance.OnRt;
             @rt.performed += instance.OnRt;
             @rt.canceled += instance.OnRt;
-            @lder.started += instance.OnLder;
-            @lder.performed += instance.OnLder;
-            @lder.canceled += instance.OnLder;
-            @larr.started += instance.OnLarr;
-            @larr.performed += instance.OnLarr;
-            @larr.canceled += instance.OnLarr;
-            @lizq.started += instance.OnLizq;
-            @lizq.performed += instance.OnLizq;
-            @lizq.canceled += instance.OnLizq;
-            @labj.started += instance.OnLabj;
-            @labj.performed += instance.OnLabj;
-            @labj.canceled += instance.OnLabj;
             @r3.started += instance.OnR3;
             @r3.performed += instance.OnR3;
             @r3.canceled += instance.OnR3;
@@ -6582,18 +6552,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @rt.started -= instance.OnRt;
             @rt.performed -= instance.OnRt;
             @rt.canceled -= instance.OnRt;
-            @lder.started -= instance.OnLder;
-            @lder.performed -= instance.OnLder;
-            @lder.canceled -= instance.OnLder;
-            @larr.started -= instance.OnLarr;
-            @larr.performed -= instance.OnLarr;
-            @larr.canceled -= instance.OnLarr;
-            @lizq.started -= instance.OnLizq;
-            @lizq.performed -= instance.OnLizq;
-            @lizq.canceled -= instance.OnLizq;
-            @labj.started -= instance.OnLabj;
-            @labj.performed -= instance.OnLabj;
-            @labj.canceled -= instance.OnLabj;
             @r3.started -= instance.OnR3;
             @r3.performed -= instance.OnR3;
             @r3.canceled -= instance.OnR3;
@@ -6661,14 +6619,14 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     private readonly InputAction m_al1_2d_pausa;
     private readonly InputAction m_al1_2d_lt;
     private readonly InputAction m_al1_2d_rt;
-    private readonly InputAction m_al1_2d_lder;
-    private readonly InputAction m_al1_2d_larr;
-    private readonly InputAction m_al1_2d_lizq;
-    private readonly InputAction m_al1_2d_labj;
     private readonly InputAction m_al1_2d_r3;
     private readonly InputAction m_al1_2d_lb;
     private readonly InputAction m_al1_2d_select;
     private readonly InputAction m_al1_2d_cinnext;
+    private readonly InputAction m_al1_2d_uider;
+    private readonly InputAction m_al1_2d_uiizq;
+    private readonly InputAction m_al1_2d_uiarr;
+    private readonly InputAction m_al1_2d_uiabj;
     /// <summary>
     /// Provides access to input actions defined in input action map "al1_2d".
     /// </summary>
@@ -6753,22 +6711,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @rt => m_Wrapper.m_al1_2d_rt;
         /// <summary>
-        /// Provides access to the underlying input action "al1_2d/lder".
-        /// </summary>
-        public InputAction @lder => m_Wrapper.m_al1_2d_lder;
-        /// <summary>
-        /// Provides access to the underlying input action "al1_2d/larr".
-        /// </summary>
-        public InputAction @larr => m_Wrapper.m_al1_2d_larr;
-        /// <summary>
-        /// Provides access to the underlying input action "al1_2d/lizq".
-        /// </summary>
-        public InputAction @lizq => m_Wrapper.m_al1_2d_lizq;
-        /// <summary>
-        /// Provides access to the underlying input action "al1_2d/labj".
-        /// </summary>
-        public InputAction @labj => m_Wrapper.m_al1_2d_labj;
-        /// <summary>
         /// Provides access to the underlying input action "al1_2d/r3".
         /// </summary>
         public InputAction @r3 => m_Wrapper.m_al1_2d_r3;
@@ -6784,6 +6726,22 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "al1_2d/cinnext".
         /// </summary>
         public InputAction @cinnext => m_Wrapper.m_al1_2d_cinnext;
+        /// <summary>
+        /// Provides access to the underlying input action "al1_2d/uider".
+        /// </summary>
+        public InputAction @uider => m_Wrapper.m_al1_2d_uider;
+        /// <summary>
+        /// Provides access to the underlying input action "al1_2d/uiizq".
+        /// </summary>
+        public InputAction @uiizq => m_Wrapper.m_al1_2d_uiizq;
+        /// <summary>
+        /// Provides access to the underlying input action "al1_2d/uiarr".
+        /// </summary>
+        public InputAction @uiarr => m_Wrapper.m_al1_2d_uiarr;
+        /// <summary>
+        /// Provides access to the underlying input action "al1_2d/uiabj".
+        /// </summary>
+        public InputAction @uiabj => m_Wrapper.m_al1_2d_uiabj;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -6864,18 +6822,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @rt.started += instance.OnRt;
             @rt.performed += instance.OnRt;
             @rt.canceled += instance.OnRt;
-            @lder.started += instance.OnLder;
-            @lder.performed += instance.OnLder;
-            @lder.canceled += instance.OnLder;
-            @larr.started += instance.OnLarr;
-            @larr.performed += instance.OnLarr;
-            @larr.canceled += instance.OnLarr;
-            @lizq.started += instance.OnLizq;
-            @lizq.performed += instance.OnLizq;
-            @lizq.canceled += instance.OnLizq;
-            @labj.started += instance.OnLabj;
-            @labj.performed += instance.OnLabj;
-            @labj.canceled += instance.OnLabj;
             @r3.started += instance.OnR3;
             @r3.performed += instance.OnR3;
             @r3.canceled += instance.OnR3;
@@ -6888,6 +6834,18 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @cinnext.started += instance.OnCinnext;
             @cinnext.performed += instance.OnCinnext;
             @cinnext.canceled += instance.OnCinnext;
+            @uider.started += instance.OnUider;
+            @uider.performed += instance.OnUider;
+            @uider.canceled += instance.OnUider;
+            @uiizq.started += instance.OnUiizq;
+            @uiizq.performed += instance.OnUiizq;
+            @uiizq.canceled += instance.OnUiizq;
+            @uiarr.started += instance.OnUiarr;
+            @uiarr.performed += instance.OnUiarr;
+            @uiarr.canceled += instance.OnUiarr;
+            @uiabj.started += instance.OnUiabj;
+            @uiabj.performed += instance.OnUiabj;
+            @uiabj.canceled += instance.OnUiabj;
         }
 
         /// <summary>
@@ -6953,18 +6911,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @rt.started -= instance.OnRt;
             @rt.performed -= instance.OnRt;
             @rt.canceled -= instance.OnRt;
-            @lder.started -= instance.OnLder;
-            @lder.performed -= instance.OnLder;
-            @lder.canceled -= instance.OnLder;
-            @larr.started -= instance.OnLarr;
-            @larr.performed -= instance.OnLarr;
-            @larr.canceled -= instance.OnLarr;
-            @lizq.started -= instance.OnLizq;
-            @lizq.performed -= instance.OnLizq;
-            @lizq.canceled -= instance.OnLizq;
-            @labj.started -= instance.OnLabj;
-            @labj.performed -= instance.OnLabj;
-            @labj.canceled -= instance.OnLabj;
             @r3.started -= instance.OnR3;
             @r3.performed -= instance.OnR3;
             @r3.canceled -= instance.OnR3;
@@ -6977,6 +6923,18 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @cinnext.started -= instance.OnCinnext;
             @cinnext.performed -= instance.OnCinnext;
             @cinnext.canceled -= instance.OnCinnext;
+            @uider.started -= instance.OnUider;
+            @uider.performed -= instance.OnUider;
+            @uider.canceled -= instance.OnUider;
+            @uiizq.started -= instance.OnUiizq;
+            @uiizq.performed -= instance.OnUiizq;
+            @uiizq.canceled -= instance.OnUiizq;
+            @uiarr.started -= instance.OnUiarr;
+            @uiarr.performed -= instance.OnUiarr;
+            @uiarr.canceled -= instance.OnUiarr;
+            @uiabj.started -= instance.OnUiabj;
+            @uiabj.performed -= instance.OnUiabj;
+            @uiabj.canceled -= instance.OnUiabj;
         }
 
         /// <summary>
@@ -7782,6 +7740,8 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     private readonly InputAction m_al1_general_lb;
     private readonly InputAction m_al1_general_select;
     private readonly InputAction m_al1_general_cinnext;
+    private readonly InputAction m_al1_general_horizontalpad;
+    private readonly InputAction m_al1_general_verticalpad;
     /// <summary>
     /// Provides access to input actions defined in input action map "al1_general".
     /// </summary>
@@ -7898,6 +7858,14 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @cinnext => m_Wrapper.m_al1_general_cinnext;
         /// <summary>
+        /// Provides access to the underlying input action "al1_general/horizontalpad".
+        /// </summary>
+        public InputAction @horizontalpad => m_Wrapper.m_al1_general_horizontalpad;
+        /// <summary>
+        /// Provides access to the underlying input action "al1_general/verticalpad".
+        /// </summary>
+        public InputAction @verticalpad => m_Wrapper.m_al1_general_verticalpad;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_al1_general; }
@@ -8001,6 +7969,12 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @cinnext.started += instance.OnCinnext;
             @cinnext.performed += instance.OnCinnext;
             @cinnext.canceled += instance.OnCinnext;
+            @horizontalpad.started += instance.OnHorizontalpad;
+            @horizontalpad.performed += instance.OnHorizontalpad;
+            @horizontalpad.canceled += instance.OnHorizontalpad;
+            @verticalpad.started += instance.OnVerticalpad;
+            @verticalpad.performed += instance.OnVerticalpad;
+            @verticalpad.canceled += instance.OnVerticalpad;
         }
 
         /// <summary>
@@ -8090,6 +8064,12 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @cinnext.started -= instance.OnCinnext;
             @cinnext.performed -= instance.OnCinnext;
             @cinnext.canceled -= instance.OnCinnext;
+            @horizontalpad.started -= instance.OnHorizontalpad;
+            @horizontalpad.performed -= instance.OnHorizontalpad;
+            @horizontalpad.canceled -= instance.OnHorizontalpad;
+            @verticalpad.started -= instance.OnVerticalpad;
+            @verticalpad.performed -= instance.OnVerticalpad;
+            @verticalpad.canceled -= instance.OnVerticalpad;
         }
 
         /// <summary>
@@ -9125,34 +9105,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRt(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "lder" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnLder(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "larr" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnLarr(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "lizq" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnLizq(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "labj" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnLabj(InputAction.CallbackContext context);
-        /// <summary>
         /// Method invoked when associated input action "r3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -9315,34 +9267,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRt(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "lder" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnLder(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "larr" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnLarr(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "lizq" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnLizq(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "labj" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnLabj(InputAction.CallbackContext context);
-        /// <summary>
         /// Method invoked when associated input action "r3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -9370,6 +9294,34 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCinnext(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "uider" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnUider(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "uiizq" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnUiizq(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "uiarr" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnUiarr(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "uiabj" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnUiabj(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "al1_nave" which allows adding and removing callbacks.
@@ -9940,6 +9892,20 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCinnext(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "horizontalpad" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnHorizontalpad(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "verticalpad" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnVerticalpad(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "al2" which allows adding and removing callbacks.

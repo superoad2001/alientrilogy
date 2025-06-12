@@ -21,9 +21,11 @@ public class enemigodet3_al1: MonoBehaviour
       public AudioSource visto3cat;
       public bool suelo;
       public float temp;
+      public jugador_al1 jugador;
     // Start is called before the first frame update
     void Start()
     {
+      jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
       manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         if(manager.datosconfig.idioma == "es")
         {
@@ -57,6 +59,7 @@ public class enemigodet3_al1: MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
+            jugador.peligro = true;
             int dec = Random.Range(1,4);
             enemigo.detectar = true;
             enemigo.objetivo = col.gameObject;
@@ -91,20 +94,14 @@ public class enemigodet3_al1: MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
+            jugador.peligro = true;
             enemigo.detectar = true;
             enemigo.objetivo = col.gameObject;
             enemigo.objetivo1 = col.gameObject.transform;
             enemigo.objetivob = col.gameObject;
             enemigo.objetivo1b = col.gameObject.transform;
 		}
-            if (col.gameObject.tag != "Player" && suelo == true)
-		{
-                  enemigo.detectar = false;
-		}
-            if (col.gameObject.tag == "Player")
-		{
-             suelo = true;
-		}
+
 
 	}
       private void OnTriggerExit(Collider col)
@@ -115,10 +112,7 @@ public class enemigodet3_al1: MonoBehaviour
                   enemigo.detectar = false;
             
 		}
-            if (col.gameObject.tag == "suelo")
-		{
-                  suelo = false;
-		}
+
 
 	}
 }
