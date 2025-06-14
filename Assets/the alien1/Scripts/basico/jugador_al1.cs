@@ -12,8 +12,10 @@ using System.Linq;
 // Token: 0x0200000A RID: 10
 public class jugador_al1 : MonoBehaviour
 {
-    public HashSet<GameObject> enemigosEnContacto = new HashSet<GameObject>();
+    public List<GameObject> enemigosEnContacto = new List<GameObject>();
 	private bool enetouch;
+	public bool dispF;
+	public GameObject tiendaG;
 	public AudioSource musicajuego;
 	public AudioSource musicaC;
 	public AudioSource musicanoC;
@@ -97,7 +99,7 @@ public class jugador_al1 : MonoBehaviour
 	private float x;
 	private float y;
 	private float rb;
-	private float rt;
+	public float rt;
 	private float lt;
 	private float l3;
 	private float horizontalpad;
@@ -460,7 +462,7 @@ public class jugador_al1 : MonoBehaviour
 	// Token: 0x0600001E RID: 30 RVA: 0x00002604 File Offset: 0x00000804
 	public void fixedActualizarMusica()
 	{
-		if(peligro && manager.juego == 3 || peligro && manager.juego == 4)
+		if(peligro && manager.juego == 3 && tarbossact == false || peligro && manager.juego == 4 && tarbossact == false)
 		{
 			musicajuego.Stop();
 			musicajuego = musicaC;
@@ -468,7 +470,7 @@ public class jugador_al1 : MonoBehaviour
 			combini.Play();
 			musicajuego.time = Random.Range(0,20);
 		}
-		if( peligro == false && manager.juego == 3 || peligro == false && manager.juego == 4)
+		if( peligro == false && manager.juego == 3 && tarbossact == false || peligro == false && manager.juego == 4 && tarbossact == false)
 		{
 			combini.Stop();
 			musicajuego.Stop();
@@ -578,8 +580,10 @@ public class jugador_al1 : MonoBehaviour
 			rhorizontalc = controles.al1_2d.rhorizontal.ReadValue<float>();
 			rverticalc = controles.al1_2d.rvertical.ReadValue<float>();
 
+
 			lhorizontalc = controles.al1_2d.lhorizontal.ReadValue<float>();
 			lverticalc = controles.al1_2d.lvertical.ReadValue<float>();
+			
 
 
 			
@@ -610,8 +614,10 @@ public class jugador_al1 : MonoBehaviour
 		}
 		else if(manager.juego == 4)
 		{
+
 			rhorizontalc = controles.al1_3d.rhorizontal.ReadValue<float>();
 			rverticalc = controles.al1_3d.rvertical.ReadValue<float>();
+			
 
 			lhorizontalc = controles.al1_3d.lhorizontal.ReadValue<float>();
 			lverticalc = controles.al1_3d.lvertical.ReadValue<float>();
@@ -642,8 +648,11 @@ public class jugador_al1 : MonoBehaviour
 		}
 		else
 		{
+
+			
 			rhorizontalc = controles.al1_general.rhorizontal.ReadValue<float>();
 			rverticalc = controles.al1_general.rvertical.ReadValue<float>();
+			
 
 			lhorizontalc = controles.al1_general.lhorizontal.ReadValue<float>();
 			lverticalc = controles.al1_general.lvertical.ReadValue<float>();
@@ -817,6 +826,7 @@ public class jugador_al1 : MonoBehaviour
 			Cursor.visible = true;
 			Cursor.lockState = CursorLockMode.None;
 		}
+		
 
 		
 	}
@@ -1582,19 +1592,19 @@ public class jugador_al1 : MonoBehaviour
 		}
 
 	}
-	if(manager.datosserial.jefe1 == false && manager.datosserial.tengovel == 1 && manager.piso == 1 && tiempoascensor > 2f && manager.juego == 0 && manager.dentrotienda == false)
+	if(manager.datosserial.jefeV[0] == false && manager.datosserial.economia[1] >= 1 && manager.piso == 1 && tiempoascensor > 2f && manager.juego == 0)
 	{
 		manager.portalg.SetActive(true);
 	}
-	if(manager.datosserial.jefe2 == false && manager.datosserial.tengocoche == 1 && manager.piso == 2 && tiempoascensor > 2f && manager.juego == 0)
+	if(manager.datosserial.jefeV[1] == false && manager.datosserial.economia[1] >= 2 && manager.piso == 2 && tiempoascensor > 2f && manager.juego == 0)
 	{
 		manager.portalg.SetActive(true);
 	}
-	if(manager.datosserial.jefe3 == false && manager.datosserial.tengosalto == 1 && manager.piso == 3 && tiempoascensor > 2f && manager.juego == 0)
+	if(manager.datosserial.jefeV[2] == false && manager.datosserial.economia[1]  >= 3 && manager.piso == 3 && tiempoascensor > 2f && manager.juego == 0)
 	{
 		manager.portalg.SetActive(true);
 	}
-	if(manager.datosserial.jefe4 == false && manager.datosserial.llave[7] == 1 && manager.piso == 4 && tiempoascensor > 2f && manager.juego == 0)
+	if(manager.datosserial.jefeV[3] == false && manager.datosserial.economia[1]  >= 4 && manager.piso == 4 && tiempoascensor > 2f && manager.juego == 0)
 	{
 		manager.portalg.SetActive(true);
 	}
@@ -1719,7 +1729,7 @@ public class jugador_al1 : MonoBehaviour
 		if (subir5 == true){ascensors.SetFloat("asc2",1);}
 		if (this.ascensor && manager.juego == 0 && manager.piso == 4 && tiempoascensor > 2f)
 		{
-			if (rt > 0f && manager.datosserial.fragmento == 3 && manager.datosserial.llave[7] == 1 && bajar4 == false)
+			if (rt > 0f && manager.datosserial.economia[1] >= 4 && bajar4 == false)
 			{
 				subir4 = true;
 				subir = true;
@@ -1895,17 +1905,17 @@ public class jugador_al1 : MonoBehaviour
 
 		
 
-		if(subir1 == true && tiempoascensor > 0f && manager.datosserial.jefe1 == false && manager.datosserial.tengovel == 1){SceneManager.LoadScene("jefe1_al1");}
+		if(subir1 == true && tiempoascensor > 0f && manager.datosserial.jefeV[0] == false && manager.datosserial.economia[1]  >= 4){SceneManager.LoadScene("jefe1_al1");}
 		else if(subir1 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso2_al1");}
 
 
-		if(subir2 == true && tiempoascensor > 0f && manager.datosserial.jefe2 == false && manager.datosserial.tengocoche == 1){SceneManager.LoadScene("jefe2_al1");}
+		if(subir2 == true && tiempoascensor > 0f && manager.datosserial.jefeV[1] == false && manager.datosserial.economia[1]  >= 4){SceneManager.LoadScene("jefe2_al1");}
 		else if(subir2 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso3_al1");}
 
-		if(subir3 == true && tiempoascensor > 0f && manager.datosserial.jefe3 == false && manager.datosserial.tengosalto == 1){SceneManager.LoadScene("jefe3_al1");}
+		if(subir3 == true && tiempoascensor > 0f && manager.datosserial.jefeV[2] == false && manager.datosserial.economia[1]  >= 4){SceneManager.LoadScene("jefe3_al1");}
 		else if(subir3 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso4_al1");}
 
-		if(subir4 == true && tiempoascensor > 0f && manager.datosserial.jefe4 == false && manager.datosserial.llave[7] == 1){SceneManager.LoadScene("jefe4_al1");}
+		if(subir4 == true && tiempoascensor > 0f && manager.datosserial.jefeV[3] == false && manager.datosserial.economia[1]  >= 4){SceneManager.LoadScene("jefe4_al1");}
 		else if(subir4 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso5_al1");}
 		
 
@@ -3267,6 +3277,8 @@ public class jugador_al1 : MonoBehaviour
 		}
 		if (manager.juego == 0 )
 		{
+			
+
 			camarascript.maxdis = 5;
 			if(tiempoascensor > 1.7f)
 			{
@@ -3824,7 +3836,7 @@ public class jugador_al1 : MonoBehaviour
 			}
 			if(manager.datosserial.armadef == true  && manager.datosserial.armasel == 3)
 			{
-				if(rt > 0 && ascensor == false && tiempodisp > 0.5f && tempdefrec >= 60f)
+				if(rt > 0 && ascensor == false && tiempodisp > 0.5f && tempdefrec >= 60f && manager.datosserial.armadefdesbloqueada == true || dispF == true)
 				{
 
 					
@@ -3861,8 +3873,13 @@ public class jugador_al1 : MonoBehaviour
 
 					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 30f;
 					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = baladefdano[manager.datosserial.nivelarmadef-1] * nivelfuerza;
-
+					dispF = false;
 					dispdef.Play();
+
+				}
+				else if(rt > 0 && ascensor == false && tiempodisp > 0.5f && tempdefrec >= 60f && manager.datosserial.armadefdesbloqueada == false)
+				{
+					armadefpass();
 
 				}
 				else if(tempdefrec >= 60f && ascensor == false)
@@ -3874,6 +3891,7 @@ public class jugador_al1 : MonoBehaviour
 					iconodisp.sprite = nopimg;
 				}
 			}
+			
 
 				
 			
@@ -4377,7 +4395,11 @@ public class jugador_al1 : MonoBehaviour
         }
 		if (col.gameObject.tag == "enemigodet")
 		{
-			enemigosEnContacto.Add(col.gameObject);
+			if(enemigosEnContacto.Contains(col.gameObject) == false)
+			{
+				enemigosEnContacto.Add(col.gameObject);
+			}
+			
 			peligro = true;
 			if(target[0] == null )
 			{
@@ -4455,7 +4477,8 @@ public class jugador_al1 : MonoBehaviour
 		if (col.gameObject.tag == "npc")
 		{
 			npcbase = col.GetComponent<npc_tienda1_al1>();
-	    	menushow.SetBool("show",true);
+			comando.text = npcbase.es_frase;
+	    	menushow.SetBool("show",true);		
 			dialogueact = false;
 		}
 		if (col.gameObject.tag == "evento")
@@ -4502,6 +4525,7 @@ public class jugador_al1 : MonoBehaviour
 			if(menuoff != null)
 			{
 			menuoff.MainUI.gameObject.SetActive(false);
+			vozMeet.Stop();
 			}
 			dialogueact = false;
 			manager.controlene = true;
@@ -4592,13 +4616,17 @@ public class jugador_al1 : MonoBehaviour
 		{
 			if (controles.al1_general.y.ReadValue<float>() > 0f && dialogueact == false && tiempodialogue > 0.7f)
 			{
+				
 				menushow.SetBool("show",false);
 				if((DialogueManager)FindFirstObjectByType(typeof(DialogueManager)) != null)
 				{menuoff = (DialogueManager)FindFirstObjectByType(typeof(DialogueManager));}
+				
+				manager.misionS = col.gameObject.GetComponent<npc_tienda1_al1>().mision;
 				menuoff.StartDialogue(npcbase.DialogueSO,npcbase.dialogueid);
 				dialogueact = true;
 				tiempodialogue = 0;
 				manager.controlene = false;
+
 				
 			}
 			else if (controles.al1_general.cinnext.ReadValue<float>() > 0f && tiempodialogue > 0.3f && menuoff != null)
@@ -4775,7 +4803,56 @@ public class jugador_al1 : MonoBehaviour
 				
 		}
 	}
+	public void armadefpass()
+	{
 
+			Time.timeScale = 0;
+			manager.pauseact = true;
+			armadefpassC.SetActive(true);
+			controlact = false;
+			combo = 0;
+			if(manager.juego == 1)
+			{
+				anim.SetBool("act2",true);
+			}
+			if(manager.juego == 2)
+			{
+				anim.SetBool("act",true);
+			}
+			rt = 0;
+			temp10 = 0;
+			if(manager.datosconfig.plat == 2)
+			{
+				tactil.SetActive(false);
+			}
+			Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.None;
+	}
+	public void tiendaact()
+	{
+		Time.timeScale = 0;
+		manager.pauseact = true;
+		musicajuego.Stop();
+		tiendaG.SetActive(true);
+		tiendaMus.Play();
+		controlact = false;
+		combo = 0;
+		if(manager.juego == 1)
+		{
+			anim.SetBool("act2",true);
+		}
+		if(manager.juego == 2)
+		{
+			anim.SetBool("act",true);
+		}
+		temp10 = 0;
+		if(manager.datosconfig.plat == 2)
+		{
+			tactil.SetActive(false);
+		}
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.None;
+	}
 	public AudioSource subirnivelaud;
 	public GameObject subirnivelexpl;
 
@@ -4992,7 +5069,7 @@ public class jugador_al1 : MonoBehaviour
 	public Image barraarmaimgnv3;
 	public Image barraarmaimgnv4;
 	public GameObject boxcam2;
-	
+	public GameObject armadefpassC;
 	public Text armanvt;
 	public Image staminabarra;
 	public Text conseguido;
@@ -5001,6 +5078,8 @@ public class jugador_al1 : MonoBehaviour
 	public Text comando;
 	public camara_al1 camarascript; 
 	public GameObject noarmasel;
+	public AudioSource vozMeet;
+	public AudioSource tiendaMus;
 	
 	
 }

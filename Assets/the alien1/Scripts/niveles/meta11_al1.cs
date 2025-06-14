@@ -21,6 +21,7 @@ public class meta11_al1 : MonoBehaviour
 	public jugador_al1 jugador;
 	public AudioSource fanfarria;
 	public AudioSource musica;
+	public int LlaveID;
 	// Token: 0x06000012 RID: 18 RVA: 0x0000243B File Offset: 0x0000063B
 	private void Start()
 	{
@@ -79,31 +80,10 @@ public class meta11_al1 : MonoBehaviour
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player")
 		{
-			if (manager.datosserial.gemaN8 == 0 && gran == false && gema == 8)
+			if (manager.datosserial.LlaveT[LlaveID] == 0 )
 			{
 				manager.datosserial.economia[0]++;
-				manager.datosserial.gemaN8 = 1;
-				manager.guardar();
-				fin = true;
-			}
-			else if (manager.datosserial.gemaN9 == 0 && gran == false && gema == 9)
-			{
-				manager.datosserial.economia[0]++;
-				manager.datosserial.gemaN9 = 1;
-				manager.guardar();
-				fin = true;
-			}
-			else if (manager.datosserial.gemaN11 == 0 && gran == false && gema == 11)
-			{
-				manager.datosserial.economia[0]++;
-				manager.datosserial.gemaN11 = 1;
-				manager.guardar();
-				fin = true;
-			}
-			else if (manager.datosserial.fragmentoN2 == 0 && gema == 2 && gran == true)
-			{
-				manager.datosserial.fragmento++;
-				manager.datosserial.fragmentoN2 = 1;
+				manager.datosserial.LlaveT[LlaveID] = 1;
 				manager.guardar();
 				fin = true;
 			}

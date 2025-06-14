@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1946feaec865d344dabf0419b1c94973, type: 3}
+  m_Name: npc tienda_al1
+  m_EditorClassIdentifier: 
+  AllowDialogueSave: 0
+  BlockingReopeningDialogue: 0
+  ResetSavedNodeOnChoice: 0
+  LimitChoiceOptionPerNode: 0
+  MaxChoiceOptionPerNode: 0
+  NodeLinkDatas:
+  - BaseNodeGuid: ba1bf720-ddc3-49a6-b288-447449d68291
+    TargetNodeGuid: ed9fc731-b7c3-4580-ae20-ca14b2dc58b3
+  - BaseNodeGuid: ed9fc731-b7c3-4580-ae20-ca14b2dc58b3
+    TargetNodeGuid: c62e41b6-052d-4c60-8910-3eeea63e9e35
+  - BaseNodeGuid: c62e41b6-052d-4c60-8910-3eeea63e9e35
+    TargetNodeGuid: 83f89ec3-63ac-418e-a3e4-81e52e2da355
+  StartNodeDatas:
+  - NodeGuid: ba1bf720-ddc3-49a6-b288-447449d68291
+    Position: {x: -114.66667, y: -93.333336}
+    startID: 0
+  DialogueNodeDatas:
+  - NodeGuid: ed9fc731-b7c3-4580-ae20-ca14b2dc58b3
+    Position: {x: 166, y: -174}
+    Character: {fileID: 11400000, guid: cf881654da0d65246a3d93205a44bc7a, type: 2}
+    PortraitPosition: 0
+    Emotion: 
+    SecoundCharacter: {fileID: 0}
+    SecoundPortraitPosition: 0
+    SecoundEmotion: 
+    AudioClips:
+    - languageEnum: 0
+      LanguageGenericType: {fileID: 8300000, guid: 80776510186ffb341b4d1b2334beff33, type: 3}
+    - languageEnum: 1
+      LanguageGenericType: {fileID: 0}
+    - languageEnum: 2
+      LanguageGenericType: {fileID: 0}
+    TextType:
+    - languageEnum: 0
+      LanguageGenericType: en que te puedo servir?
+    - languageEnum: 1
+      LanguageGenericType: 
+    - languageEnum: 2
+      LanguageGenericType: 
+    Duration: 99999
+  DialogueChoiceNodeDatas: []
+  AdvancedChoiceNodeDatas: []
+  TimerChoiceNodeDatas: []
+  AdvancedTimeChoiceNodeDatas: []
+  EndNodeDatas:
+  - NodeGuid: 83f89ec3-63ac-418e-a3e4-81e52e2da355
+    Position: {x: 996, y: -180.66667}
+    EndNodeType: 0
+    Dialogue: {fileID: 0}
+    startID: 
+  EventNodeDatas:
+  - NodeGuid: c62e41b6-052d-4c60-8910-3eeea63e9e35
+    Position: {x: 474, y: -195.33333}
+    EventScriptableObjects:
+    - DialogueEventSO: {fileID: 11400000, guid: a14c32bc72229a74ab45fb341ce4f0b7, type: 2}
+  RandomNodeDatas: []
+  IfNodeDatas: []
+  AdvancedIFNodeDatas: []
+  ResetSavedNodeDatas: []
+  MusicNodeDatas: []
+  CommandNodeDatas: []

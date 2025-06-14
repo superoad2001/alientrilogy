@@ -229,6 +229,10 @@ public class enemigo3_al1: MonoBehaviour
                 manager.datosserial.signivelexp += 7;
                 jugador1.subirnivel();
             }
+            if(manager.juego == 3 || manager.juego == 4 )
+            {
+                jugador1.enemigosEnContacto.Remove(det.gameObject);
+            }
             manager.datosserial.asesinatos++;
             manager.guardar();
             jugador1.vidaenebarra.SetActive(false);

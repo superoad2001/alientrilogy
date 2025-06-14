@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 71}
   - component: {fileID: 56}
   - component: {fileID: 87}
-  - component: {fileID: 118}
+  - component: {fileID: 119}
   m_Layer: 0
   m_Name: tienda
   m_TagString: Untagged
@@ -104,9 +104,9 @@ GameObject:
   - component: {fileID: 73}
   - component: {fileID: 58}
   - component: {fileID: 89}
-  - component: {fileID: 122}
+  - component: {fileID: 123}
   m_Layer: 0
-  m_Name: nivel2
+  m_Name: mundo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -234,9 +234,9 @@ GameObject:
   - component: {fileID: 78}
   - component: {fileID: 63}
   - component: {fileID: 94}
-  - component: {fileID: 126}
+  - component: {fileID: 127}
   m_Layer: 0
-  m_Name: nivel3
+  m_Name: sala2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,9 +273,9 @@ GameObject:
   - component: {fileID: 80}
   - component: {fileID: 65}
   - component: {fileID: 96}
-  - component: {fileID: 128}
+  - component: {fileID: 129}
   m_Layer: 0
-  m_Name: nivel1
+  m_Name: sala1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -403,20 +403,20 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 47}
-  - {fileID: 37}
   - {fileID: 44}
+  - {fileID: 37}
   - {fileID: 34}
   - {fileID: 516347272}
   - {fileID: 1232002830}
   - {fileID: 530459056}
   - {fileID: 649456194}
-  m_Father: {fileID: 50}
+  m_Father: {fileID: 1400095578}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &39
 Transform:
@@ -576,7 +576,6 @@ Transform:
   - {fileID: 40}
   - {fileID: 33}
   - {fileID: 39}
-  - {fileID: 38}
   - {fileID: 809502491}
   - {fileID: 1913102547}
   m_Father: {fileID: 1400095578}
@@ -1321,11 +1320,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.7, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &88
 BoxCollider:
@@ -1363,11 +1362,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.7, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &90
 BoxCollider:
@@ -1468,11 +1467,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.7, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &95
 BoxCollider:
@@ -1510,11 +1509,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.7, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &97
 BoxCollider:
@@ -1643,7 +1642,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: ab2375984b0f99f4cbede37ebe38a53b, type: 2}
---- !u!114 &118
+--- !u!114 &119
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1652,11 +1651,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cacee260268f2940b3f98ba5666cf0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 786867d4585ca9245b391277b7a569db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutfinala: {fileID: 1946385026}
+  anim: {fileID: 1946385025}
   manager: {fileID: 0}
---- !u!114 &122
+  tipoTP: 2
+  ubi: tienda1_al1
+  lugar: la tienda
+--- !u!114 &123
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1665,11 +1669,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 9}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79f291c889e71454091e4607bc5b29f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 786867d4585ca9245b391277b7a569db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutfinala: {fileID: 1946385026}
+  anim: {fileID: 1946385025}
   manager: {fileID: 0}
---- !u!114 &126
+  tipoTP: 2
+  ubi: P1mundo_al1
+  lugar: el exteriror
+--- !u!114 &127
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1678,11 +1687,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 19}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8ca80e731d974c45924430f22ba255c, type: 3}
+  m_Script: {fileID: 11500000, guid: 786867d4585ca9245b391277b7a569db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutfinala: {fileID: 1946385026}
+  anim: {fileID: 1946385025}
   manager: {fileID: 0}
---- !u!114 &128
+  tipoTP: 2
+  ubi: P1sala2_al1
+  lugar: habitacion 2
+--- !u!114 &129
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1691,10 +1705,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 22}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e860389f24274e1409024bfbf793f565, type: 3}
+  m_Script: {fileID: 11500000, guid: 786867d4585ca9245b391277b7a569db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutfinala: {fileID: 1946385026}
+  anim: {fileID: 1946385025}
   manager: {fileID: 0}
+  tipoTP: 2
+  ubi: P1sala1_al1
+  lugar: habitacion 1
 --- !u!1 &36359320
 GameObject:
   m_ObjectHideFlags: 0
@@ -5066,6 +5085,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 265603722}
+  - {fileID: 38}
   - {fileID: 50}
   - {fileID: 1621484646}
   - {fileID: 509169633}
@@ -7130,6 +7150,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6216720509043435422, guid: e4cd9e774c2359149adb809c59c57a91, type: 3}
   m_PrefabInstance: {fileID: 1946385020}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1946385025 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1187566702572847719, guid: e4cd9e774c2359149adb809c59c57a91, type: 3}
+  m_PrefabInstance: {fileID: 1946385020}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1946385026 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2170086848107800613, guid: e4cd9e774c2359149adb809c59c57a91, type: 3}
+  m_PrefabInstance: {fileID: 1946385020}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1947804950
 GameObject:
   m_ObjectHideFlags: 0

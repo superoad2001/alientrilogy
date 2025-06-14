@@ -178,6 +178,10 @@ public class enemigo1_al1: MonoBehaviour
         }
         if (vida < 1 && tutorial == 0 && vidapisar == true && temprb == 0)
         {
+            if(manager.juego == 3 || manager.juego == 4 )
+            {
+                jugador1.enemigosEnContacto.Remove(det.gameObject);
+            }
             GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
             explosiont.transform.localScale = this.gameObject.transform.localScale;
             if(nivelactual == manager.datosserial.niveljug && tamano == 0)
@@ -214,6 +218,7 @@ public class enemigo1_al1: MonoBehaviour
                 jugador1.subirnivel();
             }
 
+            
 			manager.datosserial.asesinatos++;
 			muertes.Play();
 			manager.guardar();
@@ -224,6 +229,10 @@ public class enemigo1_al1: MonoBehaviour
         }
         else if (vida < 1 && tutorial == 0 && temprb == 0)
         {
+            if(manager.juego == 3 || manager.juego == 4 )
+            {
+                jugador1.enemigosEnContacto.Remove(det.gameObject);
+            }
             if(tamano == 3)
             {
                 GameObject bigtemp = Instantiate(big, transform.position - new Vector3(10,0,0), transform.rotation);
@@ -310,6 +319,10 @@ public class enemigo1_al1: MonoBehaviour
         }
         else if (vida < 1 && tutorial == 1  && manager.datosserial.niveljug == 1 && temprb == 0)
         {
+            if(manager.juego == 3 || manager.juego == 4 )
+            {
+                jugador1.enemigosEnContacto.Remove(det.gameObject);
+            }
             GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
             explosiont.transform.localScale = transform.localScale;
             manager.datosserial.asesinatos++;
@@ -324,6 +337,10 @@ public class enemigo1_al1: MonoBehaviour
         }
         else if (vida < 1 && tutorial == 2 || vida < 1 && manager.datosserial.niveljug > 1 && tutorial == 1 && temprb == 0)
         {
+            if(manager.juego == 3 || manager.juego == 4 )
+            {
+                jugador1.enemigosEnContacto.Remove(det.gameObject);
+            }
             GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
             explosiont.transform.localScale = transform.localScale;
             if(nivelactual == manager.datosserial.niveljug && tamano == 0)

@@ -30,6 +30,7 @@ public class meta12_al1 : MonoBehaviour
 	public jugador_al1 jugador;
 	public AudioSource fanfarria;
 	public AudioSource musica;
+	public int LlaveID;
 	// Token: 0x06000066 RID: 102 RVA: 0x00003DFC File Offset: 0x00001FFC
 		private void OnTriggerEnter(Collider col)
 		{
@@ -104,17 +105,17 @@ public class meta12_al1 : MonoBehaviour
 
 		if(vida <= 0 && fin == false)
 		{
-				if (manager.datosserial.gemaN12 == 0)
+				if (manager.datosserial.LlaveT[LlaveID] == 0)
 				{
 					manager.datosserial.economia[0]++;
-					manager.datosserial.gemaN12 = 1;
+					manager.datosserial.LlaveT[LlaveID] = 1;
 					manager.guardar();
 					fin = true;
 				}
-				else if (manager.datosserial.fragmentoN3 == 0 && gema == 3 && gran == true)
+				else if (manager.datosserial.LlaveT[LlaveID] == 0 && gran == true)
 				{
-					manager.datosserial.fragmento++;
-					manager.datosserial.fragmentoN3 = 1;
+					manager.datosserial.economia[0]++;
+					manager.datosserial.LlaveT[LlaveID] = 1;
 					manager.guardar();
 					fin = true;
 				}

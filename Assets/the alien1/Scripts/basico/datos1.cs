@@ -8,7 +8,7 @@ using System;
 public class datos1
 {
 
-	public bool []eventos = new bool[999];
+	public bool[] eventos = new bool[999];
 	public bool newgameplus1;
 
 	public float asc;
@@ -26,6 +26,12 @@ public class datos1
 	public bool[] notas = new bool[7];
 
 	public int[] misiones = new int[200];
+
+	public int[] LlaveT = new int[100];
+	public bool[] llaveC = new bool[99];
+	public bool[] pociones = new bool[9];
+	public bool armadefdesbloqueada;
+
 
 	
 
@@ -47,15 +53,11 @@ public class datos1
 	public float velarmapapa = 5;
 	public int pocionesmax;
 
-    public string idioma;
 	public int muertes;
 	public int asesinatos;
 	public bool salasecreta;
 
-	public bool jefe1;
-	public bool jefe2;
-	public bool jefe3;
-	public bool jefe4;
+	public bool[] jefeV = new bool[99];
 
 	public bool tengopalo;
 
@@ -67,37 +69,11 @@ public class datos1
 
 	public string nivelu;
 
-	public float vidamax = 50;
 
 	public string carganivel;
 
 
-	public int gemaN1;
-
-	public int gemaN2;
-
-	public int gemaN3;
-
-	public int gemaN4;
-
-	public int gemaN5;
-
-	public int gemaN6;
-
-	public int gemaN7;
-
-	public int gemaN8;
-
-	public int gemaN9;
-
-	public int gemaN10;
-
-	public int gemaN11;
-
-	public int gemaN12;
-	public int gemaN13;
-	public int gemaN14;
-	public int gemaN15;
+	public int[] gemaT = new int[100];
 
 	public int fragmentoN1;
 
@@ -119,17 +95,12 @@ public class datos1
 
 	public bool armarelen;
 
-	public bool armadef;
+	public bool armadef = true;
 
 	public bool alien1muere;
 
-	public int tengonave;
+	public int tengonave;	
 
-	public int fragmento;
-
-	
-
-	public int []llave = new int[10]; 
 
 	public int cinematicaf;
 
@@ -146,6 +117,8 @@ public class datos1
 	public int monedasrmax;
 	public int monedasmax;
 	public int monedasamax;
+	public string misionS = "";
+	public string misiondescS = "";
 
 
 

@@ -230,7 +230,7 @@ public class enemigo1boss_al1: MonoBehaviour
                         jugador1.subirnivel();
                     }
                     manager.datosserial.asesinatos++;
-                    manager.datosserial.jefe1 = true;
+                    manager.datosserial.jefeV[0] = true;
                     manager.guardar();
                     SceneManager.LoadScene("piso2_al1");
 

@@ -16,6 +16,8 @@ public class npc_tienda1_al1 : MonoBehaviour
 	public string en_frase;
 	public string cat_frase;
 
+    public int mision;
+
     public string dialogueid;
     public DialogueContainerSO DialogueSO;
 

@@ -12,12 +12,20 @@ public class pausa_al1 : MonoBehaviour
     public GameObject juego;
     public GameObject pausa1;
     public int plataforma;
+    public bool expmu;
 
     public GameObject mapa_b;
     public GameObject misiones_b;
     public GameObject notas_b;
     public GameObject estad_b;
     public GameObject objetos_b;
+
+    public Text[] misT = new Text[7];
+    public Text[] notT = new Text[7];
+    public GameObject[] misB = new GameObject[7];
+    public int contadormispag;
+    List<string> misionesA = new List<string>();
+    List<string>  misionesdesc = new List<string>();
 
 
     private Controles controles;
@@ -26,6 +34,8 @@ public class pausa_al1 : MonoBehaviour
 
     [SerializeField]
 	public misiones_al1 dmisiones;
+    [SerializeField]
+	public notas_al1 dnotas;
     
 	public void Awake()
     {
@@ -40,6 +50,7 @@ public class pausa_al1 : MonoBehaviour
     {
         controles.Disable();
     }
+    public int largomision;
     public Text boton1;
     public Text boton2;
     public Text boton3;
@@ -55,6 +66,7 @@ public class pausa_al1 : MonoBehaviour
     public Text licencia;
     public Text mision1;
     public Text mision2;
+    public Text inText;
     public float temp;
     public int piso = 1;
     public GameObject normal;
@@ -63,7 +75,7 @@ public class pausa_al1 : MonoBehaviour
     public manager_al1 manager;
     public managerBASE manager2;
     public jugador_al1 jugador;
-    public bool mapa;
+    public int modo;
     // Start is called before the first frame update
     public AudioSource moveson;
     public Transform hip;
@@ -80,6 +92,19 @@ public class pausa_al1 : MonoBehaviour
 
     public bool inicio;
     public GameObject camaramapa;
+    public int paginasM = 0;
+    private int misionesindice;
+    private int misionesindicemin;
+    private int misionesmax;
+    public Text misionT;
+    public Text misiondescT;
+    public GameObject botizqM;
+    public GameObject botderM;
+    public AudioSource nop;
+    public Text notasT;
+    public Text notasdescT;
+    
+
 
 
 
@@ -101,13 +126,140 @@ public class pausa_al1 : MonoBehaviour
     {
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
-        if(mapa == true)
-        {mapa_();}
+        if(modo == 1)
+        {
+            mapa_();
+            misionT.text = manager.datosserial.misionS;
+            misiondescT.text = manager.datosserial.misiondescS;
+        }
+        
+        
 
     }
     public void ubicar()
     {
         camaramapa.transform.position = new Vector3(jugador.transform.position.x,jugador.transform.position.y + 356f,jugador.transform.position.z);
+    }
+    public void notasC()
+    {
+        for(int i = 0; i < 7; i++)
+        {
+            if(manager.datosserial.notas[i] == true)
+        	{
+                notT[i].text = "nota"+(i+1);
+            }
+            else
+        	{
+                notT[i].text = "???";
+            }
+        }
+        notasT.text = "???";
+        notasdescT.text = "???";
+
+    }
+    public void misionesC()
+    {
+        misionesindice = 0;
+        misionesindicemin = 0;
+        misionesmax = 0;
+        for(int i = misionesindicemin; i < largomision && i < misionesindicemin+7; i++)
+        {
+        	misT[misionesmax].text = misionesA[i];
+            misionesmax++;
+        }
+        for(int i = 0; i < 7; i++)
+        {
+        	misB[i].SetActive(false);
+        }
+        for(int i = 0; i < misionesmax; i++)
+        {
+        	misB[i].SetActive(true);
+        }
+        misionT.text = "???";
+        misiondescT.text = "???";
+
+    }
+    public void misionesCder()
+    {
+        nop.Stop();
+        if(misionesindice  < paginasM)
+        {
+            misionesindice++;
+            misionesindicemin += 7;
+            misionesmax = 0;
+            for(int i = misionesindicemin; i < largomision && i < misionesindicemin+7; i++)
+            {
+                misT[misionesmax].text = misionesA[i];
+                misionesmax++;
+            }
+            for(int i = 0; i < 7; i++)
+            {
+                misB[i].SetActive(false);
+            }
+            for(int i = 0; i < misionesmax; i++)
+            {
+                misB[i].SetActive(true);
+            }
+        
+        }
+        else
+        {   
+            nop.Play();
+        }
+
+    }
+    public void misionesCizq()
+    {
+        if(misionesindice  > 0)
+        {
+            misionesindice--;
+            misionesindicemin -= 7;
+            misionesmax = 0;
+            for(int i = misionesindicemin; i < largomision && i < misionesindicemin+7; i++)
+            {
+                misT[misionesmax].text = misionesA[i];
+                misionesmax++;
+            }
+            for(int i = 0; i < 7; i++)
+            {
+                misB[i].SetActive(false);
+            }
+            for(int i = 0; i < misionesmax; i++)
+            {
+                misB[i].SetActive(true);
+            }
+        }
+        else
+        {
+            nop.Stop();
+            nop.Play();
+        }
+
+    }
+    public void botonmision(int boton1)
+    {
+        misionT.text = misionesA[boton1 + misionesindicemin];
+        misiondescT.text = misionesdesc[boton1 + misionesindicemin];
+        manager.datosserial.misionS = misionesA[boton1 + misionesindicemin];
+        manager.datosserial.misiondescS = misionesdesc[boton1 + misionesindicemin];
+        manager.guardar();
+
+    }
+    public void botonnotas(int boton1)
+    {
+        if(manager.datosserial.notas[boton1] == true)
+        {
+            notasT.text = dnotas.notas[boton1];
+            notasdescT.text = dnotas.notasdesc[boton1];
+        }
+        else
+        {
+            notasT.text = "???";
+            notasdescT.text = "???";
+            nop.Play();
+        }
+        
+
     }
 
     // Update is called once per frame
@@ -122,6 +274,8 @@ public class pausa_al1 : MonoBehaviour
 
             xmapC = controles.al1_general.lhorizontal.ReadValue<float>();
             ymapC = controles.al1_general.lvertical.ReadValue<float>();
+
+            
 
 
 
@@ -175,26 +329,52 @@ public class pausa_al1 : MonoBehaviour
 
 
         }
-        if (inicio == false && mapa == true)
+        if (inicio == false && modo == 1)
         {
+            largomision = 0;
             inicio = true;
             ubicar();
+            for(int i = 0; i < manager.datosserial.misiones.Length; i++)
+            {
+                if(manager.datosserial.misiones[i] == 1)
+                {
+                    misionesA.Add(dmisiones.misiones[i]);
+                    misionesdesc.Add(dmisiones.misionesdesc[i]);
+                    largomision++;
+                }
+            }
+
+            for(int i = 0; i < largomision; i++)
+            {
+                if(contadormispag > 6)
+                {
+                    contadormispag = 0;
+                    paginasM++;
+                }
+                contadormispag++;
+
+            }
             
         }
-        if(mapa == false)
+        if(modo == 0)
         {
             boton = controles.al1_general.pausa.ReadValue<float>();
         }
-        else
+        else if(modo == 1)
         {
             boton = controles.al1_general.select.ReadValue<float>();
         }
+        else if(modo == 2)
+        {
+            boton = controles.al1_general.pausa.ReadValue<float>();
+        }
+        
 
         botonb = controles.al1_general.b.ReadValue<float>();
         
         if(manager.datosconfig.idioma == "es")
         {
-            if(mapa == false)
+            if(modo == 0)
             {
             boton2.text = "salir";
             boton1.text = "continuar";
@@ -203,7 +383,7 @@ public class pausa_al1 : MonoBehaviour
             boton4.text = "pausa";
             boton5.text = "opciones";
             }
-            else
+            else if(modo == 1)
             {
                 boton1.text = "continuar";
                 boton4.text = "mapa";
@@ -227,9 +407,9 @@ public class pausa_al1 : MonoBehaviour
                 //economia[5] = monedasamarillas;
             }
         }
-        if(boton > 0 && temp > 0.7f || botonb > 0 && temp > 0.7f)
+        if(boton > 0 && temp > 0.7f )
         {
-            if(mapa == false)
+            if(modo == 0)
             {
                 if(opciones1.activeSelf)
                 {
@@ -237,10 +417,41 @@ public class pausa_al1 : MonoBehaviour
                 }
                 continuar();
             }
-            else
+            else if(modo == 1)
             {
                 inicio = false;
                 continuar_M();
+                
+            }
+            else if(modo == 2)
+            {
+                continuar_A();
+                
+            }
+        }
+        if(botonb > 0 && temp > 0.7f)
+        {
+            if(modo == 0)
+            {
+                if(opciones1.activeSelf)
+                {
+                    no_aplicar();
+                }
+                else
+                {
+                    continuar();
+                }
+                
+            }
+            else if(modo == 1)
+            {
+                inicio = false;
+                continuar_M();
+                
+            }
+            else if(modo == 2)
+            {
+                continuar_A();
                 
             }
         }
@@ -304,6 +515,70 @@ public class pausa_al1 : MonoBehaviour
         mapa_();
         pausa1.SetActive(false);
     }
+    public void continuar_A(){
+        manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+        plataforma = manager.datosconfig.plat;
+        temp = 0;
+        jugador.temppause = 0;
+        jugador.controlact = true;
+        if(plataforma == 1)
+		{
+			Cursor.visible = false;
+        	Cursor.lockState = CursorLockMode.Locked;
+		}
+        Time.timeScale = 1;
+        if(manager.datosserial.armadefdesbloqueada == true && manager.tutorialintro == false)
+        {
+            jugador.dispF = true;
+            positive.Play();
+            
+        }
+        else if(expmu == true && manager.tutorialintro  == true)
+        {
+            jugador.dispF = true;
+            positive.Play();
+            jugador.vida = 0;
+            
+        }
+        jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+        if(plataforma == 2)
+		{
+			jugador.tactil.SetActive(true);
+		}
+        manager.pauseact = false;    
+        if(manager.juego == 1)
+        {
+            jugador.anim.SetBool("act2",true);
+        }
+        if(manager.juego == 2)
+        {
+            jugador.anim.SetBool("act",true);
+        }
+        
+        pausa1.SetActive(false);
+    }
+    public void desbloqueararma()
+    {
+        string textM = inText.text.ToUpper();
+
+    	if(textM == "ARHODA201920??" && manager.tutorialintro == false)
+        {
+            manager.datosserial.armadefdesbloqueada = true;
+            manager.guardar();
+            continuar_A();
+
+        }
+        else if(textM == "ARHODA201920??" && manager.tutorialintro  == true)
+        {
+            expmu = true;
+            continuar_A();
+
+        }
+        else
+        {
+            nop.Play();
+        }
+    }
     public void salir(){
 
         SceneManager.LoadScene("menu_de_carga_al1");
@@ -321,6 +596,7 @@ public class pausa_al1 : MonoBehaviour
     public void misiones_()
     {
         mapaact = false;
+        misionesC();
         notas_b.SetActive(false);
         estad_b.SetActive(false);
         objetos_b.SetActive(false);
@@ -331,6 +607,7 @@ public class pausa_al1 : MonoBehaviour
     public void notas()
     {
         mapaact = false;
+        notasC();
         mapa_b.SetActive(false);
         estad_b.SetActive(false);
         misiones_b.SetActive(false);
