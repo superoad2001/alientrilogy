@@ -10,7 +10,7 @@ namespace MeetAndTalk.Event
     {
         #region Variables
         [HideInInspector] GlobalValueManager manager;
-        public manager_al1 manager1;
+        public jugador_al1 jugador;
         #endregion
 
         /// <summary>.
@@ -19,9 +19,8 @@ namespace MeetAndTalk.Event
         /// </summary>.
         public override void RunEvent()
         {
-            manager1 = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
-            // Load Global Value Manager
-            manager1.mision_aceptar(manager1.misionS);
+            jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+            jugador.mision_aceptar();
             
         }
     }

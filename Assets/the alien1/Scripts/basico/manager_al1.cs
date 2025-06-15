@@ -17,7 +17,7 @@ public class manager_al1 : MonoBehaviour
 	public float tempshow;
 	public bool actguardarub;
 	public string nivelu;
-
+	public jugador_al1 jugador;
 	public GameObject portalg;
 	public int nivel = 0;
 	public int piso_carga;
@@ -54,6 +54,7 @@ public class manager_al1 : MonoBehaviour
 	public Text boton5;
 	public Text boton6;
 	public Text boton7;
+	public GameObject misionUI;
 
 	public Text tmonedar;
 	public Text tllave;
@@ -87,10 +88,7 @@ public class manager_al1 : MonoBehaviour
 
 	public bool tutorialintro;
 	public int misionS;
-	public void mision_aceptar(int mision)
-	{
-		
-	}
+	
 
 	// Token: 0x06000025 RID: 37 RVA: 0x0000334C File Offset: 0x0000154C
 	public void misioncomplete(int i)
@@ -361,8 +359,9 @@ public class manager_al1 : MonoBehaviour
 			hide.anim.SetBool("show2",true);
 		}
 
-
-		jugador_al1 jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+		jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+		// Token: 0x06000026 RID: 38 RVA: 0x000034D8 File Offset: 0x000016D8
+		
 		
 
 		

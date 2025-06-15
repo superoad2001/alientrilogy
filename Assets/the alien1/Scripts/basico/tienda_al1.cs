@@ -192,6 +192,28 @@ public class tienda_al1 : MonoBehaviour
 
                 }
                 compson.Play();
+                if(productoid == 1)
+                {
+                    manager.datosserial.tengodash = true;
+                }
+                else if(productoid == 2)
+                {
+                    manager.datosserial.llaveC[1] = true;
+                }
+                else if(productoid == 3)
+                {
+                    manager.datosserial.pociones[0] = true;
+                }
+                else if(productoid == 4)
+                {
+                    manager.datosserial.llaveC[0] = true;
+                }
+                else if(productoid == 5)
+                {
+                    manager.datosserial.armadef = true;
+                }
+                manager.guardar();
+                
                 
             }
             else
@@ -215,26 +237,6 @@ public class tienda_al1 : MonoBehaviour
         }
         else if(IDboton == 2 && tiendanum == 0 && manager.datosserial.llaveC[1] == false)
         {
-            variedad = 1;
-            int[] _precio = new int[variedad];
-            int[] _tipomoneda = new int[variedad];
-            _precio[0] = 9999;
-            _tipomoneda[0] = 0;
-            prodcutoCL(1,_precio,_tipomoneda,variedad,"Llave P2","esta llave permite abirir el panel del ascensor para permitirte llegar a la segunda planta");
-        }
-        else if(IDboton == 3 && tiendanum == 0 && manager.datosserial.pociones[0] == false)
-        {
-            variedad = 2;
-            int[] _precio = new int[variedad];
-            int[] _tipomoneda = new int[variedad];
-            _precio[0] = 1;
-            _tipomoneda[0] = 0;
-            _precio[1] = 6;
-            _tipomoneda[1] = 4;
-            prodcutoCL(1,_precio,_tipomoneda,variedad,"Pocion+1","es un frasco de pocion que en su interior contiene un gramo de polvo que estuvo en contacto con la energia ancestral");
-        }
-        else if(IDboton == 4 && tiendanum == 0 && manager.datosserial.llaveC[0] == false)        
-        {
             variedad = 3;
             int[] _precio = new int[variedad];
             int[] _tipomoneda = new int[variedad];
@@ -246,7 +248,27 @@ public class tienda_al1 : MonoBehaviour
 
             _precio[2] = 3;
             _tipomoneda[2] = 0;
-            prodcutoCL(1,_precio,_tipomoneda,variedad,"Llave P.zero","esta llave te permitira acceder a al exterior del edifcio");
+            prodcutoCL(2,_precio,_tipomoneda,variedad,"Llave P2","esta llave permite abirir el panel del ascensor para permitirte llegar a la segunda planta");
+        }
+        else if(IDboton == 3 && tiendanum == 0 && manager.datosserial.pociones[0] == false)
+        {
+            variedad = 2;
+            int[] _precio = new int[variedad];
+            int[] _tipomoneda = new int[variedad];
+            _precio[0] = 1;
+            _tipomoneda[0] = 0;
+            _precio[1] = 6;
+            _tipomoneda[1] = 4;
+            prodcutoCL(3,_precio,_tipomoneda,variedad,"Pocion+1","es un frasco de pocion que en su interior contiene un gramo de polvo que estuvo en contacto con la energia ancestral");
+        }
+        else if(IDboton == 4 && tiendanum == 0 && manager.datosserial.llaveC[0] == false)        
+        {
+            variedad = 1;
+            int[] _precio = new int[variedad];
+            int[] _tipomoneda = new int[variedad];
+            _precio[0] = 9999;
+            _tipomoneda[0] = 0;
+            prodcutoCL(4,_precio,_tipomoneda,variedad,"Llave P.zero","esta llave te permitira acceder a al exterior del edifcio");
         }
         else if(IDboton == 5 && tiendanum == 0 && manager.datosserial.armadef == false)            
         {
@@ -255,7 +277,7 @@ public class tienda_al1 : MonoBehaviour
             int[] _tipomoneda = new int[variedad];
             _precio[0] = 1000000;
             _tipomoneda[0] = 5;
-            prodcutoCL(1,_precio,_tipomoneda,variedad,"PX4000","es el arma que encontre junto a ti es lo minimo que podia recibir por salvarte la vida pero es inutil esta bloqueada");
+            prodcutoCL(5,_precio,_tipomoneda,variedad,"PX4000","es el arma que encontre junto a ti es lo minimo que podia recibir por salvarte la vida pero es inutil esta bloqueada");
         }
         else
         {

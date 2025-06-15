@@ -60,7 +60,7 @@ public class jugador_al1 : MonoBehaviour
 	private float xp;
 	public float girodir = -90;
 
-	private int combo;
+	public int combo;
 	private float temppalo = 60;
 	private float tempatk;
 	private int numpociones;
@@ -428,7 +428,7 @@ public class jugador_al1 : MonoBehaviour
 	public bool subir = false;
 	private bool moverdelante = true;
 	private float temp9;
-	private float temp10;
+	public float temp10;
 	public bool dashaeract;
 
 	private float dash = 0.3f;
@@ -4633,6 +4633,7 @@ public class jugador_al1 : MonoBehaviour
 			{
 				if(menuoff.dialogueUIManager.dialogueCanvas.activeSelf == true)
 				{
+					vozMeet.Stop();
 					menuoff.SkipDialogue();
 					tiempodialogue = 0;
 				}
@@ -4683,6 +4684,7 @@ public class jugador_al1 : MonoBehaviour
 				{
 					if(menuoff.dialogueUIManager.dialogueCanvas.activeSelf == true)
 					{
+						vozMeet.Stop();
 						menuoff.SkipDialogue();
 						tiempodialogue = 0;
 						tiemposalto = 0.7f;
@@ -4835,6 +4837,30 @@ public class jugador_al1 : MonoBehaviour
 		musicajuego.Stop();
 		tiendaG.SetActive(true);
 		tiendaMus.Play();
+		controlact = false;
+		combo = 0;
+		if(manager.juego == 1)
+		{
+			anim.SetBool("act2",true);
+		}
+		if(manager.juego == 2)
+		{
+			anim.SetBool("act",true);
+		}
+		temp10 = 0;
+		if(manager.datosconfig.plat == 2)
+		{
+			tactil.SetActive(false);
+		}
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.None;
+	}
+	public void mision_aceptar()
+	{
+		
+		Time.timeScale = 0;
+		manager.pauseact = true;
+		misionUI.SetActive(true);
 		controlact = false;
 		combo = 0;
 		if(manager.juego == 1)
@@ -5021,7 +5047,7 @@ public class jugador_al1 : MonoBehaviour
 	public AudioSource muertesjug;
 	public Animator menushow;
 	public DialogueManager menuoff;
-
+	public GameObject misionUI;
 	public enemigo1boss_al1 eneboss1;
 	public GameObject juego;
     public GameObject pausa1;

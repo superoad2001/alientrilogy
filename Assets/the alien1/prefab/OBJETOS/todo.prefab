@@ -2368,6 +2368,7 @@ MonoBehaviour:
   tempshow: 0
   actguardarub: 1
   nivelu: mundo1_al1
+  jugador: {fileID: 0}
   portalg: {fileID: 0}
   nivel: 0
   piso_carga: 0
@@ -2404,6 +2405,7 @@ MonoBehaviour:
   boton5: {fileID: 0}
   boton6: {fileID: 0}
   boton7: {fileID: 0}
+  misionUI: {fileID: 0}
   tmonedar: {fileID: 1946915171397233373}
   tllave: {fileID: 1537089403321818375}
   menu: 0
@@ -3022,6 +3024,7 @@ MonoBehaviour:
     - 
     - 
   tutorialintro: 0
+  misionS: 0
   audiomixer: {fileID: 24100000, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   mundos: 1
   jugador1: {fileID: 0}
@@ -6956,6 +6959,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1187566702572847719}
     - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
+      propertyPath: misionUI
+      value: 
+      objectReference: {fileID: 8430628684305561579}
+    - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: niveluit
       value: 
       objectReference: {fileID: 4768891513278777653}
@@ -7024,10 +7031,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7878002687529279589}
     - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
-      propertyPath: tarbossact
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: vidaeneimg
       value: 
       objectReference: {fileID: 3830705262896606202}
@@ -7079,6 +7082,10 @@ PrefabInstance:
       propertyPath: circulopaloimg
       value: 
       objectReference: {fileID: 8885998786464357456}
+    - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
+      propertyPath: escudoenebarra
+      value: 
+      objectReference: {fileID: 6216720509043435422}
     - target: {fileID: 2886862872444403957, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: barraarmaimgnv1
       value: 
@@ -7861,6 +7868,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6216720509043435422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5258459151828644153, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+  m_PrefabInstance: {fileID: 2215760989994784423}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6307277012452647761 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5275973457336907254, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
@@ -7877,7 +7889,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5129949894379249095, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
   m_PrefabInstance: {fileID: 2215760989994784423}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 6216720509043435422}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -8218,22 +8230,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2224560238866791069, guid: 43c47fe2fadbc854cae1a317952d777b, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: -1
+    - target: {fileID: 1566049075571556195, guid: 43c47fe2fadbc854cae1a317952d777b, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4495589566739254417, guid: 43c47fe2fadbc854cae1a317952d777b, type: 3}
       propertyPath: m_Name
       value: tienda
       objectReference: {fileID: 0}
-    - target: {fileID: 6014948713819907175, guid: 43c47fe2fadbc854cae1a317952d777b, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 6713306738376340631, guid: 43c47fe2fadbc854cae1a317952d777b, type: 3}
       propertyPath: musicajuego
       value: 
       objectReference: {fileID: 7198999732202802268}
+    - target: {fileID: 8828696521652360464, guid: 43c47fe2fadbc854cae1a317952d777b, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9172,25 +9184,486 @@ PrefabInstance:
     - target: {fileID: 1395660580748020024, guid: e9442e1d43ee63e40a39fe7a6e81f34f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 8175728492911135031}
+    - target: {fileID: 1395660580748020024, guid: e9442e1d43ee63e40a39fe7a6e81f34f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: aceptar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395660580748020024, guid: e9442e1d43ee63e40a39fe7a6e81f34f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: misionA_al1, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1890304875744936726, guid: e9442e1d43ee63e40a39fe7a6e81f34f, type: 3}
       propertyPath: m_Name
       value: misionUI
       objectReference: {fileID: 0}
+    - target: {fileID: 1890304875744936726, guid: e9442e1d43ee63e40a39fe7a6e81f34f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2567860042130492084, guid: e9442e1d43ee63e40a39fe7a6e81f34f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 8175728492911135031}
+    - target: {fileID: 2567860042130492084, guid: e9442e1d43ee63e40a39fe7a6e81f34f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: denegar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567860042130492084, guid: e9442e1d43ee63e40a39fe7a6e81f34f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: misionA_al1, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1890304875744936726, guid: e9442e1d43ee63e40a39fe7a6e81f34f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9177613752668430217}
   m_SourcePrefab: {fileID: 100100000, guid: e9442e1d43ee63e40a39fe7a6e81f34f, type: 3}
 --- !u!4 &7610667564202887844 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 529928911418670681, guid: e9442e1d43ee63e40a39fe7a6e81f34f, type: 3}
   m_PrefabInstance: {fileID: 7981551005956781309}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8175728492911135031 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2283940622877670858, guid: e9442e1d43ee63e40a39fe7a6e81f34f, type: 3}
+  m_PrefabInstance: {fileID: 7981551005956781309}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8430628684305561579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2857003f0cd99304cb222cef97163bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8430628684305561579 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1890304875744936726, guid: e9442e1d43ee63e40a39fe7a6e81f34f, type: 3}
+  m_PrefabInstance: {fileID: 7981551005956781309}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9177613752668430217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8430628684305561579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2857003f0cd99304cb222cef97163bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mision: {fileID: 0}
+  misiondesc: {fileID: 0}
+  misionG: {fileID: 0}
+  misionesDB:
+    misiones:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    misionesdesc:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  manager: {fileID: 0}
+  jugador: {fileID: 0}
+  plataforma: 0
+  temp: 0
 --- !u!1001 &8095358128926641437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9305,17 +9778,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: mapa
       objectReference: {fileID: 0}
-    - target: {fileID: 5445603069264973059, guid: 47c0320eef55f5a4fad64fcfbb87360c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -454
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445603069264973059, guid: 47c0320eef55f5a4fad64fcfbb87360c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 537.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445603069264973059, guid: 47c0320eef55f5a4fad64fcfbb87360c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 175
+    - target: {fileID: 1973867558431587117, guid: 47c0320eef55f5a4fad64fcfbb87360c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
