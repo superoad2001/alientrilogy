@@ -9,6 +9,7 @@ public class hidemenu_al1 : MonoBehaviour
     private Controles controles;
     public Animator anim;
     public bool act = true;
+    public bool act2;
 	public void Awake()
     {
         controles = new Controles();
@@ -31,8 +32,11 @@ public class hidemenu_al1 : MonoBehaviour
     void Update()
     {
             anim = GetComponent<Animator>();
-            if(controles.al1_general.l3.ReadValue<float>() > 0)
-            {anim.SetBool("show",true);}
+            if(controles.al1_general.l3.ReadValue<float>() > 0 || act2 == true)
+            {
+                anim.SetBool("show",true);
+                act2 = false;
+            }
             else if(controles.al1_general.l3.ReadValue<float>() == 0)
             {anim.SetBool("show",false);}
 

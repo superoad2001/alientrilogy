@@ -240,6 +240,7 @@ public class pausa_al1 : MonoBehaviour
     {
         misionT.text = misionesA[boton1 + misionesindicemin];
         misiondescT.text = misionesdesc[boton1 + misionesindicemin];
+        mision1.text = misionesdesc[boton1 + misionesindicemin];
         manager.datosserial.misionS = misionesA[boton1 + misionesindicemin];
         manager.datosserial.misiondescS = misionesdesc[boton1 + misionesindicemin];
         manager.guardar();
@@ -396,8 +397,8 @@ public class pausa_al1 : MonoBehaviour
                 monedaa.text = manager.datosserial.economia[5]+"";
                 licencia.text = manager.datosserial.economia[6]+"";
 
-                mision1.text = manager.mision;
-                mision2.text = manager.mision2;
+                mision1.text = manager.datosserial.misionS;
+                mision2.text = manager.datosserial.misiondescS;
 
                 //economia[0] = gemas;
                 //economia[1] = llaves;

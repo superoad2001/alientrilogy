@@ -101,7 +101,7 @@ public class jugadorextension_al1 : MonoBehaviour
 	public Sprite armarelrueda;
 	public Sprite armadefrueda;
 	public GameObject palo;
-	public npc_tienda1_al1 npcbase;
+	public npc_al1 npcbase;
 	public GameObject respawn;
 	public GameObject balaprefab;
 	public Text textnpc;

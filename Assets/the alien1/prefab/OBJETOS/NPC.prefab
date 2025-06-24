@@ -152,6 +152,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 150b771c021f45d48873c0d8caddd485, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7322244500554576764}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 150b771c021f45d48873c0d8caddd485, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6172190452794200972}
   m_SourcePrefab: {fileID: 100100000, guid: 150b771c021f45d48873c0d8caddd485, type: 3}
 --- !u!1 &3985248754738754005 stripped
 GameObject:
@@ -191,9 +194,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2827757498d3a1d4faacc0e0a5fbb4e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  managernpc: {fileID: 6172190452794200972}
   es_frase: hablar con el
   en_frase: hablar con el
   cat_frase: hablar con el
+  npcF: 0
+  npc_precio: 0
+  mision: 3
   dialogueid: 0
   DialogueSO: {fileID: 11400000, guid: 36663f0081a9a1b4aa93267c49d8ffcb, type: 2}
 --- !u!136 &7322244500554576764
@@ -219,6 +226,21 @@ CapsuleCollider:
   m_Height: 4.776657
   m_Direction: 1
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!114 &6172190452794200972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3985248754738754005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 885381e66a397c74daef54806241db3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npc: {fileID: 3782041000529770050}
+  npcID: 0
+  manager: {fileID: 0}
 --- !u!4 &4325041190479407983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 150b771c021f45d48873c0d8caddd485, type: 3}

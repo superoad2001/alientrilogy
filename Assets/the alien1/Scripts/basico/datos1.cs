@@ -11,6 +11,9 @@ public class datos1
 	public bool[] eventos = new bool[999];
 	public bool newgameplus1;
 
+	public int[] npcF = new int[100];
+
+
 	public float asc;
     public int plat;
 	public int nivelarmapapa = 1;
@@ -112,17 +115,17 @@ public class datos1
 	public int mejora4;
 	public int mejora5;
 
-	public int []moneda = new int[150]; 
+	public int[] monedaM= new int[150]; 
+	public int[] monedaR= new int[150]; 
 
-	public int monedasrmax;
-	public int monedasmax;
-	public int monedasamax;
 	public string misionS = "";
 	public string misiondescS = "";
 
+	
 
 
-	public int []economia = new int[7];
+
+	public int[] economia = new int[7];
 
 
     // Start is called before the first frame update
@@ -134,6 +137,7 @@ public class datos1
 		//economia[3]  monedasrojas;
 		//economia[4]  monedasmoradas;
 		//economia[5]  monedasamarillas;
+		//economia[6]  licencias;
 
     }
 

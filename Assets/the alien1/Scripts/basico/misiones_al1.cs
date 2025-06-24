@@ -5,7 +5,7 @@ using System.IO;
 using System;
 
 [Serializable]
-public class misiones_al1
+public class misiones_al1 : MonoBehaviour
 {
     public string[] misiones = new string[200];
     public string[] misionesdesc = new string[200];

@@ -10,11 +10,17 @@ using Unity.VisualScripting;
 
 namespace MeetAndTalk
 {
-public class npc_tienda1_al1 : MonoBehaviour
+public class npc_al1 : MonoBehaviour
 {
+
+    public manager_npc_al1 managernpc;
     public string es_frase;
 	public string en_frase;
 	public string cat_frase;
+
+    public int npcF = 0;
+
+    public int npc_precio;
 
     public int mision;
 

@@ -399,7 +399,10 @@ public class jugador_al1 : MonoBehaviour
 		{
 			jugpos = transform.localPosition.z;
 		}
-		
+		if(manager.juego == 4 )
+		{
+			camara.transform.eulerAngles = new Vector3(camara.transform.eulerAngles.x,transform.eulerAngles.y,camara.transform.eulerAngles.z);
+		}
 		
 	}
 	public float tiempoascensor = 0;
@@ -4476,7 +4479,7 @@ public class jugador_al1 : MonoBehaviour
 		}
 		if (col.gameObject.tag == "npc")
 		{
-			npcbase = col.GetComponent<npc_tienda1_al1>();
+			npcbase = col.GetComponent<npc_al1>();
 			comando.text = npcbase.es_frase;
 	    	menushow.SetBool("show",true);		
 			dialogueact = false;
@@ -4621,7 +4624,9 @@ public class jugador_al1 : MonoBehaviour
 				if((DialogueManager)FindFirstObjectByType(typeof(DialogueManager)) != null)
 				{menuoff = (DialogueManager)FindFirstObjectByType(typeof(DialogueManager));}
 				
-				manager.misionS = col.gameObject.GetComponent<npc_tienda1_al1>().mision;
+				manager.misionS = col.gameObject.GetComponent<npc_al1>().mision;
+				misionA.npcid = col.gameObject.GetComponent<npc_al1>().managernpc.npcID;
+				misionA.premiocant = col.gameObject.GetComponent<npc_al1>().npc_precio;
 				menuoff.StartDialogue(npcbase.DialogueSO,npcbase.dialogueid);
 				dialogueact = true;
 				tiempodialogue = 0;
@@ -4861,6 +4866,32 @@ public class jugador_al1 : MonoBehaviour
 		Time.timeScale = 0;
 		manager.pauseact = true;
 		misionUI.SetActive(true);
+		misionA.modo = 1;
+		controlact = false;
+		combo = 0;
+		if(manager.juego == 1)
+		{
+			anim.SetBool("act2",true);
+		}
+		if(manager.juego == 2)
+		{
+			anim.SetBool("act",true);
+		}
+		temp10 = 0;
+		if(manager.datosconfig.plat == 2)
+		{
+			tactil.SetActive(false);
+		}
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.None;
+	}
+	public void mision_fin()
+	{
+		
+		Time.timeScale = 0;
+		manager.pauseact = true;
+		misionUI.SetActive(true);
+		misionA.modo = 2;
 		controlact = false;
 		combo = 0;
 		if(manager.juego == 1)
@@ -5024,7 +5055,7 @@ public class jugador_al1 : MonoBehaviour
 	public Sprite armarelrueda;
 	public Sprite armadefrueda;
 	public GameObject palo;
-	public npc_tienda1_al1 npcbase;
+	public npc_al1 npcbase;
 	public GameObject respawn;
 	public GameObject balaprefab;
 	public Text textnpc;
@@ -5083,6 +5114,7 @@ public class jugador_al1 : MonoBehaviour
 	public GameObject []prebaladefl;
 	public GameObject []prebalarell;
 	public GameObject []prebalapapal;
+	public misionA_al1 misionA;
 
 	public Controles controles;
 	public manager_al1 manager;
