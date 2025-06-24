@@ -12,8 +12,10 @@ public class teleport_al1 : MonoBehaviour
 	private Controles controles;
 	public manager_al1 manager;
     public int tipoTP;
+    public int tipoTP2;
     public string ubi;
     public string lugar;
+    public GameObject objetoTP;
 
 	private readonly Dictionary<string, string> languageTexts = new Dictionary<string, string>
     {
@@ -56,7 +58,7 @@ public class teleport_al1 : MonoBehaviour
     {
         
     }
-    private void OnTriggerStay(Collider col)
+    private void OnCollisionStay(Collision col)
 	{
 		if (col.gameObject.tag == "Player")
 		{
@@ -73,13 +75,18 @@ public class teleport_al1 : MonoBehaviour
             {
                 tutfinala.text = text2+lugar;
             }
-			if (controles.al1_general.y.ReadValue<float>() > 0f )
+
+			if (controles.al1_general.y.ReadValue<float>() > 0f && tipoTP2 == 0 )
 			{
 				SceneManager.LoadScene(ubi);
 			}
+            else if (controles.al1_general.y.ReadValue<float>() > 0f && tipoTP2 == 1)
+			{
+				col.gameObject.transform.position = objetoTP.transform.position + new Vector3(0, 1.5f, 0);
+			}
 		}
 	}
-    private void OnTriggerExit(Collider col)
+    private void OnCollisionExit(Collision col)
 	{
 		if (col.gameObject.tag == "Player")
 		{

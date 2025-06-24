@@ -13,6 +13,9 @@ public class enemigo2_al1: MonoBehaviour
     public float tempM;
     public bool detectar;
     public float temprb;
+    public bool destobj;
+    public GameObject destruible;
+    public GameObject moneda;
     public GameObject objetivo;
     public GameObject objetivob;
     public Quaternion rotation;
@@ -227,6 +230,11 @@ public class enemigo2_al1: MonoBehaviour
             {
                 jugador1.enemigosEnContacto.Remove(det.gameObject);
             }
+            if(destobj == true)
+            {
+                Destroy(destruible);
+            }
+            GameObject monedae = Instantiate(moneda, transform.position , transform.rotation);
             manager.datosserial.asesinatos++;
             manager.guardar();
             jugador1.vidaenebarra.SetActive(false);

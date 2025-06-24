@@ -15,6 +15,9 @@ public class enemigo3_al1: MonoBehaviour
     public Transform objetivo1;
     public Transform objetivo1b;
     public Rigidbody rb_;
+    public bool destobj;
+    public GameObject destruible;
+    public GameObject moneda;
     public float vel = 2;
     public bool desactivar;
     public enemigodet3_al1 enemigodet;
@@ -192,7 +195,8 @@ public class enemigo3_al1: MonoBehaviour
         det.transform.position = this.transform.position;
         
         if (vida < 1)
-        {
+        {   
+            
             GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
             muertes.Play();
@@ -232,6 +236,11 @@ public class enemigo3_al1: MonoBehaviour
             if(manager.juego == 3 || manager.juego == 4 )
             {
                 jugador1.enemigosEnContacto.Remove(det.gameObject);
+            }
+            GameObject monedae = Instantiate(moneda, transform.position , transform.rotation);
+            if(destobj == true)
+            {
+                Destroy(destruible);
             }
             manager.datosserial.asesinatos++;
             manager.guardar();

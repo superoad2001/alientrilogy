@@ -14,6 +14,9 @@ public class enemigo1_al1: MonoBehaviour
     public Transform objetivo1;
     public Transform objetivo1b;
     public GameObject escudoin;
+    public bool destobj;
+    public GameObject destruible;
+    public GameObject moneda;
     public int nivel = 1;
     public Rigidbody rb_;
     public float vel = 2;
@@ -218,7 +221,11 @@ public class enemigo1_al1: MonoBehaviour
                 jugador1.subirnivel();
             }
 
-            
+            GameObject monedae = Instantiate(moneda, transform.position , transform.rotation);
+            if(destobj == true)
+            {
+                Destroy(destruible);
+            }
 			manager.datosserial.asesinatos++;
 			muertes.Play();
 			manager.guardar();
@@ -308,6 +315,11 @@ public class enemigo1_al1: MonoBehaviour
                 jugador1.subirnivel();
             }
 
+            GameObject monedae = Instantiate(moneda, transform.position , transform.rotation);
+            if(destobj == true)
+            {
+                Destroy(destruible);
+            }
 			manager.datosserial.asesinatos++;
 			muertes.Play();
 			manager.guardar();
@@ -326,6 +338,11 @@ public class enemigo1_al1: MonoBehaviour
             GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
             explosiont.transform.localScale = transform.localScale;
             manager.datosserial.asesinatos++;
+            GameObject monedae = Instantiate(moneda, transform.position , transform.rotation);
+            if(destobj == true)
+            {
+                Destroy(destruible);
+            }
             jugador1.nivel2();
 			muertes.Play();
 			manager.guardar();
@@ -378,6 +395,11 @@ public class enemigo1_al1: MonoBehaviour
             }
             manager.datosserial.asesinatos++;
 			muertes.Play();
+            GameObject monedae = Instantiate(moneda, transform.position , transform.rotation);
+            if(destobj == true)
+            {
+                Destroy(destruible);
+            }
 			manager.guardar();
             Destroy(explosiont, 1f);
             jugador1.vidaenebarra.SetActive(false);

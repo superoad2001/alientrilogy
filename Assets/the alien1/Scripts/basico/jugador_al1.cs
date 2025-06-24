@@ -15,6 +15,7 @@ public class jugador_al1 : MonoBehaviour
     public List<GameObject> enemigosEnContacto = new List<GameObject>();
 	private bool enetouch;
 	public bool dispF;
+	private float tempaerodash = 9;
 	public GameObject tiendaG;
 	public AudioSource musicajuego;
 	public AudioSource musicaC;
@@ -3900,7 +3901,7 @@ public class jugador_al1 : MonoBehaviour
 			
 			if(manager.juego == 4 || manager.juego == 3)
 			{
-				if(b > 0 && tempdash > dash && suelo == false && manager.datosserial.tengodash == true && tiempodisp2 > 0.95f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f && movdire != new Vector3(0,0,0))
+				if(b > 0 && tempdash > dash && suelo == false && manager.datosserial.tengodash == true && tiempodisp2 > 0.95f && tempaerodash > 2.5f && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f && movdire != new Vector3(0,0,0))
 				{
 					anim.SetBool("saltoatras",false);
 					anim.SetBool("latder",false);
@@ -3918,6 +3919,7 @@ public class jugador_al1 : MonoBehaviour
 					dashairson.Play();
 					stamina -= 15;
 					staminaact = -2;
+					tempaerodash = 0;
 				}
 				else if(b > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
 				{
@@ -4060,6 +4062,8 @@ public class jugador_al1 : MonoBehaviour
 		}
 		if(temp10 < 15)
         {temp10 += 1 * Time.deltaTime;}
+		if(tempaerodash < 15)
+        {tempaerodash  += 1 * Time.deltaTime;}
 		if(temp9 < 15)
         {temp9 += 1 * Time.deltaTime;}
 		if(tempgir > 0)
@@ -4268,6 +4272,7 @@ public class jugador_al1 : MonoBehaviour
 		{
 			tut10.SetActive(true);
 			this.ascensor = true;
+			tempaerodash = 9;
 			
 			
 		}
@@ -4276,11 +4281,13 @@ public class jugador_al1 : MonoBehaviour
 			tut10.SetActive(true);
 			this.ascensor = true;
 			suelo = true;
+			tempaerodash = 9;
 		}
 		if (col.gameObject.tag == "suelo")
 		{
 			if(tiempovelint > 2)
 			{suelo = true;}
+			tempaerodash = 9;
 		
 		}
 		if (col.gameObject.tag == "suelo"  && manager.juego != 1 || col.gameObject.tag == "ascensor"  && manager.juego != 1)
