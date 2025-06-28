@@ -635,22 +635,10 @@ public class pausa_al1 : MonoBehaviour
     }
 
     public void salirnivel(){
-        if(piso == 1)
-        {SceneManager.LoadScene("piso1_al1");}
-        if(piso == 2)
-        {SceneManager.LoadScene("piso2_al1");}
-        if(piso == 3)
-        {SceneManager.LoadScene("piso3_al1");}
-        if(piso == 4)
-        {SceneManager.LoadScene("piso4_al1");}
-        if(piso == -1)
-        {SceneManager.LoadScene("piso1t_al1");}
-        if(piso == -2)
-        {SceneManager.LoadScene("piso2t_al1");}
-        if(piso == -3)
-        {SceneManager.LoadScene("piso3t_al1");}
-        if(piso == -4)
-        {SceneManager.LoadScene("piso4t_al1");}
+        manager.datosserial.actual_checkpoint = 0;
+        manager.guardar();
+        SceneManager.LoadScene(manager.datosserial.salirnivelsala);
+
     }
     public void opciones()
     {

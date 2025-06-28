@@ -56,6 +56,10 @@ public class camara_al1 : MonoBehaviour
 				distancia = maxdis;
 			}
 		}
+		if(distancia < 8)
+		{
+			distancia = 8;
+		}
 		transform.position = boxcam2.transform.position + direction * distancia;
 		transform.rotation = Quaternion.LookRotation(boxcam2.transform.position - transform.position);
 		

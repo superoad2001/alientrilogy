@@ -11,6 +11,9 @@ using MeetAndTalk.Localization;
 public class manager_al1 : MonoBehaviour
 {
 	public manager_al1 manager;
+	public bool nivelact;
+	public bool puertasgiract;
+	public bool puertasposact;
 	public bool muertetutorial;
 	public int trofeoact;
 	public bool controlene = true;
@@ -347,10 +350,7 @@ public class manager_al1 : MonoBehaviour
 		Debug.Log(LocalizationManager.Instance.SelectedLang());
 		
 
-		if(actguardarub == true)
-		{
-			datosserial.nivelu = nivelu;
-		}
+		
 
 		
 		if (juego == 6 && datosserial.tengomejora == 1)
@@ -360,7 +360,21 @@ public class manager_al1 : MonoBehaviour
 		}
 
 		jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
-		// Token: 0x06000026 RID: 38 RVA: 0x000034D8 File Offset: 0x000016D8
+		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
+
+		if(actguardarub == true)
+		{
+			datosserial.nivelu = nivelu;
+		}
+		if (puertasposact == true && datosserial.puertaposact == true)
+		{
+			jugador.transform.position = datosserial.puertapos;
+		}
+		if (puertasgiract == true && datosserial.puertagiract == true)
+		{
+			jugador.transform.eulerAngles = new Vector3(jugador.transform.eulerAngles.x,datosserial.puertagir,jugador.transform.eulerAngles.z);
+		}
 		
 		
 
@@ -422,90 +436,104 @@ public class manager_al1 : MonoBehaviour
 	// Token: 0x06000026 RID: 38 RVA: 0x000037BC File Offset: 0x000019BC
 	private void Update()
 	{
-		jugador_al1 jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
-		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
-		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
+		
 		/*if(trofeoact == 1 && datostrof.completaalien1m == 0)
 		{
 			datostrof.completaalien1m = 1;
 			push.push(15);
+			guardartro();
 		}
 		if(trofeoact == 2 && datostrof.completaalien1v == 0)
 		{
 			datostrof.completaalien1v = 1;
 			push.push(16);
+			guardartro();
 		}
 		if(trofeoact == 3 && datostrof.alien1saladelrey == 0)
 		{
 			datostrof.alien1saladelrey = 1;
 			push.push(19);
+			guardartro();
 		}
 		if(trofeoact == 4 && datostrof.alien1salasecreta == 0)
 		{
 			datostrof.alien1salasecreta = 1;
 			push.push(20);
+			guardartro();
 		}
 		if(trofeoact == 5 && datostrof.alien1primeracinematica == 0)
 		{
 			datostrof.alien1primeracinematica = 1;
 			push.push(1);
+			guardartro();
 		}
 		if(trofeoact == 6 && datosserial.tengomejora == 1 && datostrof.alien1mejora5 == 0)
 		{
 			datostrof.alien1mejora5 = 1;
 			push.push(6);
+			guardartro();
 		}
 		if(trofeoact == 5 && datosserial.economia[0] >= 1 && datostrof.alien1consigue1gema == 0)
 		{
 			datostrof.alien1consigue1gema = 1;
 			push.push(7);
+			guardartro();
 		}
 		if(trofeoact == 5 && datosserial.economia[0] >= 15 && datostrof.alien1consigue15gemas == 0)
 		{
 			datostrof.alien1consigue15gemas = 1;
 			push.push(9);
+			guardartro();
 		}
 		if(trofeoact == 5 && datosserial.economia[4] >= 10 && datostrof.alien1consigue10monedas == 0)
 		{
 			datostrof.alien1consigue10monedas = 1;
 			push.push(8);
+			guardartro();
 		}
 		if(trofeoact == 5 && datosserial.economia[4] >= 50 && datosserial.fragmento >= 3 && datostrof.alien1consigue50monedas == 0)
 		{
 			datostrof.alien1consigue50monedas = 1;
 			push.push(10);
+			guardartro();
 		}
 		if(trofeoact == 7 && datosserial.economia[4] >= 50 && datosserial.fragmento < 3 && datostrof.alien1consigue50monedas == 0)
 		{
 			datostrof.alien1consigue50monedas = 1;
 			push.push(10);
+			guardartro();
 		}
 		if(trofeoact == 5 && datosserial.fragmento >= 3 && datostrof.alien1consiguelagrangema == 0)
 		{
 			datostrof.alien1consiguelagrangema = 1;
 			push.push(11);
+			guardartro();
 		}
 		if(trofeoact == 8 && datostrof.alien1usaelcochedelmundo == 0)
 		{
 			datostrof.alien1usaelcochedelmundo = 1;
 			push.push(12);
+			guardartro();
 		}
 		if(trofeoact == 6 && datostrof.alien1usalanaveenelespacio == 0)
 		{
 			datostrof.alien1usalanaveenelespacio = 1;
 			push.push(13);
+			guardartro();
 		}
 		if(trofeoact == 7 && otroasteroide == true && datostrof.alien1visitaotroasteroide == 0)
 		{
 			datostrof.alien1visitaotroasteroide = 1;
 			push.push(14);
+			guardartro();
 		}
 		if(trofeoact == 5 && datosserial.alien1muere == true && datostrof.alien1muere == 0)
 		{
 			datostrof.alien1muere = 1;
 			push.push(17);
+			guardartro();
 		}*/
-		guardartro();
+		
 		if(tempshow > 1f && juego == 6 && datosserial.tengomejora == 1)
 		{
 			hidemenu_al1 hide = (hidemenu_al1)FindFirstObjectByType(typeof(hidemenu_al1));

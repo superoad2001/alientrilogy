@@ -68,7 +68,7 @@ public class jugador_al1 : MonoBehaviour
 	public float disjugsave;
 	public bool camnomov;
 	public float vida = 5;
-	private float tiempodialogue;
+	private float tiempodialogue = 2;
 	public bool dialogueact;
 	public float balavel = 20;
 	private float velcorr = 12;
@@ -150,6 +150,7 @@ public class jugador_al1 : MonoBehaviour
 	public void Awake()
     {
         controles = new Controles();
+		
     }
     private void OnEnable() 
     {
@@ -168,6 +169,7 @@ public class jugador_al1 : MonoBehaviour
 		musicajuego.time = Random.Range(0,20);
 		stamina = staminamax;
 		tiempovelint = 3;
+		
 
 		
 		if(camara != null)
@@ -351,7 +353,7 @@ public class jugador_al1 : MonoBehaviour
 			jumpforce = 700;
 			camara.transform.rotation = Quaternion.Euler(0,180,0);
 		}
-		if(manager.juego ==0)
+		if(manager.juego == 0)
 		{
 			velocidad = 4;
 			velocidadaux = 4;
@@ -404,6 +406,11 @@ public class jugador_al1 : MonoBehaviour
 		{
 			camara.transform.eulerAngles = new Vector3(camara.transform.eulerAngles.x,transform.eulerAngles.y,camara.transform.eulerAngles.z);
 		}
+		
+		
+	}
+	public void fixedStart()
+	{
 		
 	}
 	public float tiempoascensor = 0;
@@ -492,6 +499,7 @@ public class jugador_al1 : MonoBehaviour
 	}
 	private void Update()
 	{
+
 	
 	
 	noarmasel.SetActive(false);
@@ -2852,7 +2860,7 @@ public class jugador_al1 : MonoBehaviour
 							angulomod = Mathf.Atan2(lhorizontalc, lverticalc) * Mathf.Rad2Deg;
 							mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation, 
 																		Quaternion.Euler(mod.transform.localEulerAngles.x, angulomod, mod.transform.localEulerAngles.z),
-																		2 * Time.deltaTime);
+																		10 * Time.deltaTime);
 							
 							// Rotar el personaje para que mire en la dirección de la cámara
 							float camaraYRotation = camara.transform.eulerAngles.y;
@@ -4403,6 +4411,10 @@ public class jugador_al1 : MonoBehaviour
             menushow.SetBool("show",true);
 			comando.text = "cambiar direccion de compresion";
         }
+		if (col.gameObject.tag == "respawn")
+		{
+			muerte = true;
+		}
 		if (col.gameObject.tag == "enemigodet")
 		{
 			if(enemigosEnContacto.Contains(col.gameObject) == false)

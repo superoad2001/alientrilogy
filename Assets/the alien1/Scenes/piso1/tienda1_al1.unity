@@ -1406,8 +1406,15 @@ MonoBehaviour:
   anim: {fileID: 1855994851}
   manager: {fileID: 0}
   tipoTP: 1
+  tipoTP2: 0
   ubi: piso1_al1
   lugar: 
+  objetoTP: {fileID: 0}
+  puertagir: 3
+  puertagiract: 1
+  puertapos: {x: 0, y: 0, z: 0}
+  puertaposact: 0
+  noborrado: 0
 --- !u!65 &126
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33095,9 +33102,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2827757498d3a1d4faacc0e0a5fbb4e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  managernpc: {fileID: 0}
   es_frase: "hablar con el ermita\xF1eo"
   en_frase: hablar con el
   cat_frase: hablar con el
+  npcF: 0
+  npc_precio: 0
   mision: 0
   dialogueid: 0
   DialogueSO: {fileID: 11400000, guid: 6062b2224b56fc54aa0633cdb62bcf98, type: 2}
@@ -43606,6 +43616,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8422328940683663767, guid: e4cd9e774c2359149adb809c59c57a91, type: 3}
       propertyPath: otroasteroide
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422328940683663767, guid: e4cd9e774c2359149adb809c59c57a91, type: 3}
+      propertyPath: puertasgiract
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422328940683663767, guid: e4cd9e774c2359149adb809c59c57a91, type: 3}
+      propertyPath: puertasposact
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -10,6 +10,14 @@ public class datos1
 
 	public bool[] eventos = new bool[999];
 	public bool newgameplus1;
+	public float puertagir;
+	public Vector3 puertapos;
+	public bool puertagiract;
+	public bool puertaposact;
+	public string salirnivelsala;
+
+	public bool[] puertasdesbloqueadas = new bool[100];
+	public int actual_checkpoint;
 
 	public int[] npcF = new int[100];
 
