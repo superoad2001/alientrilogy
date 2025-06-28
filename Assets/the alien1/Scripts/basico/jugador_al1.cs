@@ -15,6 +15,7 @@ public class jugador_al1 : MonoBehaviour
     public List<GameObject> enemigosEnContacto = new List<GameObject>();
 	private bool enetouch;
 	public bool dispF;
+	private bool cargainicial;
 	private float tempaerodash = 9;
 	public GameObject tiendaG;
 	public AudioSource musicajuego;
@@ -499,6 +500,18 @@ public class jugador_al1 : MonoBehaviour
 	}
 	private void Update()
 	{
+		if(manager.juego == 3 && cargainicial == false)	
+		{
+			if(dimensiion == true)
+			{
+				jugpos = transform.localPosition.x;
+			}
+			else if(dimensiion == false)
+			{
+				jugpos = transform.localPosition.z;
+			}
+			cargainicial = true;
+		}
 
 	
 	
@@ -4340,6 +4353,14 @@ public class jugador_al1 : MonoBehaviour
 	}
 	private void OnTriggerEnter(Collider col)
 	{
+		if (col.gameObject.tag == "suelo"  && manager.juego != 1 || col.gameObject.tag == "ascensor" && manager.juego != 1)
+		{
+			jumpforce = jumpforcebase;
+			anim.SetBool("salto",false);
+			dashaeract = false;
+
+		
+		}
 		if (col.gameObject.tag == "enemigo")
 		{
 			enetouch = true;
