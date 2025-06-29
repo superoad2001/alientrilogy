@@ -77,12 +77,17 @@ public class enemigo2_al1: MonoBehaviour
 
     public float []nivelfuerza_a = new float[100];
     public float []nivelvida_a = new float[100];
+    public manager_ordas_al1 managerordas;
 
 
     
     // Start is called before the first frame update
     void Start()
     {
+        if((manager_ordas_al1)FindFirstObjectByType(typeof(manager_ordas_al1))!= null)
+        {
+        	managerordas = (manager_ordas_al1)FindFirstObjectByType(typeof(manager_ordas_al1));
+        }
         objetivoa[0] = transform.position + new Vector3(0,0,-5);
         objetivoa[1] = transform.position + new Vector3(0,0,5);
         objetivoa[2] = transform.position + new Vector3(-5,0,0);
@@ -225,6 +230,10 @@ public class enemigo2_al1: MonoBehaviour
                     manager.datosserial.signivelexp += 7;
                     jugador1.subirnivel();
                 }
+            }
+            if(managerordas != null)
+            {
+                managerordas.contadorene--;
             }
             if(manager.juego == 3 || manager.juego == 4 )
             {
@@ -495,6 +504,10 @@ public class enemigo2_al1: MonoBehaviour
             muertes.Play();
             jugador1.vidaenebarra.SetActive(false);
             jugador1.vidaeneact = false;
+            if(managerordas != null)
+            {
+                managerordas.contadorene--;
+            }
 			Destroy(transform.parent.gameObject);
 		}
         

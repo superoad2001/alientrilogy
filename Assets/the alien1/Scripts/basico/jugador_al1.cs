@@ -2034,6 +2034,36 @@ public class jugador_al1 : MonoBehaviour
             
             transform.Rotate(Vector3.up * rotationinput.x);
 			transform.Rotate(Vector3.left * rotationinput.y);
+
+			/*
+			r3 apuntar target
+
+			r2 ataque normal
+			l2 ataque secundario
+
+			flechas armas
+
+			joystick 1 y 2 movmientos alternos
+			
+
+			r1 acelarar
+
+			l1 reparar escudo mantener pulsado
+
+			circulo mas r1 o l1
+			r1 esquive der
+			l1 esquive izq
+
+			triangulo interactuar
+			cuadrado giro 180
+
+			equis turbo
+
+			pausa
+			select
+
+
+			*/
 		}
 		if (manager.juego == 1)
 		{
@@ -2111,7 +2141,8 @@ public class jugador_al1 : MonoBehaviour
 			Vector3 movdirnow = transform.TransformDirection(new Vector3 (0,0, -horizontalpad)).normalized;
 
 				if (objplaneta != null && tiempogiro2 > 1.5f)
-				{					
+				{
+					transform.eulerAngles = new Vector3(transform.eulerAngles.x,90,transform.eulerAngles.z);					
 					// Calcular la dirección de movimiento basada en la orientación del jugador
 					Vector3 direccionDerecha = Vector3.Cross(transform.up, transform.forward).normalized;
 					Vector3 direccionAdelante = Vector3.Cross(direccionDerecha, transform.up).normalized;
@@ -2283,7 +2314,7 @@ public class jugador_al1 : MonoBehaviour
 			Vector3 movdirnow = transform.TransformDirection(new Vector3 (-horizontalpad,0, 0)).normalized;
 				if (objplaneta != null && tiempogiro2 > 1.5f)
 				{
-
+					transform.eulerAngles = new Vector3(transform.eulerAngles.x,0,transform.eulerAngles.z);		
 					// Calcular la dirección de movimiento basada en la orientación del jugador
 					Vector3 direccionDerecha = Vector3.Cross(transform.up, transform.forward).normalized;
 					Vector3 direccionAdelante = Vector3.Cross(direccionDerecha, transform.up).normalized;

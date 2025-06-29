@@ -73,9 +73,14 @@ public class enemigo1_al1: MonoBehaviour
 
     public bool vidapisar;  
     public float valorexppisado;
+    public manager_ordas_al1 managerordas;
     // Start is called before the first frame update
     void Start()
     {
+        if((manager_ordas_al1)FindFirstObjectByType(typeof(manager_ordas_al1))!= null)
+        {
+        	managerordas = (manager_ordas_al1)FindFirstObjectByType(typeof(manager_ordas_al1));
+        }
         objetivoa[0] = transform.position + new Vector3(0,0,-5);
         objetivoa[1] = transform.position + new Vector3(0,0,5);
         objetivoa[2] = transform.position + new Vector3(-5,0,0);
@@ -181,6 +186,34 @@ public class enemigo1_al1: MonoBehaviour
         }
         if (vida < 1 && tutorial == 0 && vidapisar == true && temprb == 0)
         {
+            if(tamano == 3)
+            {
+                if(managerordas != null)
+                {
+                    managerordas.contadorene -= 45;
+                }
+            }
+            else if(tamano == 2)
+            {
+                if(managerordas != null)
+                {
+                    managerordas.contadorene -= 11;
+                }
+            }
+            else if(tamano == 1)
+            {
+                if(managerordas != null)
+                {
+                    managerordas.contadorene -= 5;
+                }
+            }
+            else if(tamano == 0)
+            {
+                if(managerordas != null)
+                {
+                    managerordas.contadorene -= 1;
+                }
+            }
             if(manager.juego == 3 || manager.juego == 4 )
             {
                 jugador1.enemigosEnContacto.Remove(det.gameObject);
@@ -236,6 +269,10 @@ public class enemigo1_al1: MonoBehaviour
         }
         else if (vida < 1 && tutorial == 0 && temprb == 0)
         {
+            if(managerordas != null)
+            {
+                managerordas.contadorene--;
+            }
             if(manager.juego == 3 || manager.juego == 4 )
             {
                 jugador1.enemigosEnContacto.Remove(det.gameObject);
@@ -548,6 +585,34 @@ public class enemigo1_al1: MonoBehaviour
             muertes.Play();
             jugador1.vidaenebarra.SetActive(false);
             jugador1.vidaeneact = false;
+            if(tamano == 3)
+            {
+                if(managerordas != null)
+                {
+                    managerordas.contadorene -= 45;
+                }
+            }
+            else if(tamano == 2)
+            {
+                if(managerordas != null)
+                {
+                    managerordas.contadorene -= 11;
+                }
+            }
+            else if(tamano == 1)
+            {
+                if(managerordas != null)
+                {
+                    managerordas.contadorene -= 5;
+                }
+            }
+            else if(tamano == 0)
+            {
+                if(managerordas != null)
+                {
+                    managerordas.contadorene -= 1;
+                }
+            }
 			Destroy(transform.parent.gameObject);
             
 		}
@@ -558,6 +623,34 @@ public class enemigo1_al1: MonoBehaviour
             jugador1.enmovdirectaux = jugador1.enmovdirectaux.normalized;
             jugador1.tempempujon = 0;
             jugador1.empujon = true;
+            if(tamano == 3)
+            {
+                if(managerordas != null)
+                {
+                    managerordas.contadorene -= 45;
+                }
+            }
+            else if(tamano == 2)
+            {
+                if(managerordas != null)
+                {
+                    managerordas.contadorene -= 11;
+                }
+            }
+            else if(tamano == 1)
+            {
+                if(managerordas != null)
+                {
+                    managerordas.contadorene -= 5;
+                }
+            }
+            else if(tamano == 0)
+            {
+                if(managerordas != null)
+                {
+                    managerordas.contadorene -= 1;
+                }
+            }
 
             jugador1.muertesjug.Play();
             jugador1.vida -= danoj;
