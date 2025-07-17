@@ -16,6 +16,7 @@ public class manager_al1 : MonoBehaviour
 	public bool puertasposact;
 	public bool muertetutorial;
 	public int trofeoact;
+	public bool combatenave;
 	public bool controlene = true;
 	public float tempshow;
 	public bool actguardarub;
@@ -428,6 +429,7 @@ public class manager_al1 : MonoBehaviour
 
 	// Token: 0x04000031 RID: 49
 	public int piso = 0;
+	public bool actG;
 
 	// Token: 0x04000032 RID: 
 
@@ -436,7 +438,11 @@ public class manager_al1 : MonoBehaviour
 	// Token: 0x06000026 RID: 38 RVA: 0x000037BC File Offset: 0x000019BC
 	private void Update()
 	{
-		
+		if(actG)
+		{
+			guardar();
+			actG = false;
+		}
 		/*if(trofeoact == 1 && datostrof.completaalien1m == 0)
 		{
 			datostrof.completaalien1m = 1;

@@ -27,6 +27,7 @@ public class misionA_al1 : MonoBehaviour
     public int premiocant;
     public int tipoC;
     public Color[] colores = new Color[7];
+    public bool tiendaact;
     public void obtener()
     {
         manager.datosserial.misiones[manager.misionS] = 3;

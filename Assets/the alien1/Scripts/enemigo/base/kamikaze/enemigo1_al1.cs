@@ -618,6 +618,10 @@ public class enemigo1_al1: MonoBehaviour
 		}
         if (col.gameObject.tag == "Player" && col.gameObject.tag != "golpeh" && temprb == 0 )
 		{
+            if(tutorial == 1)
+            {
+                jugador1.muerte = true;
+            }
             jugador1.eneempuj = this.gameObject;
             jugador1.enmovdirectaux = transform.TransformDirection((jugador1.eneempuj.transform.forward *70) + (jugador1.eneempuj.transform.up * -50));
             jugador1.enmovdirectaux = jugador1.enmovdirectaux.normalized;
@@ -651,6 +655,11 @@ public class enemigo1_al1: MonoBehaviour
                     managerordas.contadorene -= 1;
                 }
             }
+            jugador1.enemigosEnContacto.Remove(enemigodet.gameObject);
+			if (jugador1.enemigosEnContacto.Count == 0)
+			{
+				jugador1.peligro = false;
+			}
 
             jugador1.muertesjug.Play();
             jugador1.vida -= danoj;

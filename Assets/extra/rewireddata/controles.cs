@@ -1783,7 +1783,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""id"": ""9f385ebd-6b8e-44c0-9043-031d8c956104"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": ""Tap"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {

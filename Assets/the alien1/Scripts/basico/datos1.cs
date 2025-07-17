@@ -15,11 +15,13 @@ public class datos1
 	public bool puertagiract;
 	public bool puertaposact;
 	public string salirnivelsala;
+	public int nivelnavejug;
 
 	public bool[] puertasdesbloqueadas = new bool[100];
 	public int actual_checkpoint;
 
 	public int[] npcF = new int[100];
+	public int niveljugnave = 1;
 
 
 	public float asc;
@@ -28,6 +30,15 @@ public class datos1
 	public int nivelarmarel = 1;
 	public int nivelarmadef = 1;
 	public int nivelarmapalo = 1;
+
+	public int nivelarmanave1 = 1;
+	public int nivelarmanave2 = 1;
+	public int nivelarmanave3 = 1;
+	public int nivelarmanave4 = 1;
+
+	public bool tengoarmanave2;
+	public bool tengoarmanave3;
+	public bool tengoarmanave4;
 	
 	public bool[] licenciaarmapalo = new bool[5];
 	public bool[] licenciaarmapapa = new bool[5];

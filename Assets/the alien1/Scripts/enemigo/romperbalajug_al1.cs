@@ -16,6 +16,8 @@ public class romperbalajug_al1: MonoBehaviour
     public float destb;
     public bool armadef;
     public bool destenter;
+    public bool tele;
+    public GameObject objtele;
 
     public GameObject balajug;
     // Start is called before the first frame update
@@ -29,18 +31,50 @@ public class romperbalajug_al1: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(tele == true && objtele != null)
+        {
+            transform.position = Vector3.MoveTowards(transform.position,objtele.transform.position,25 * Time.deltaTime);
+
+        }
     }
     public void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "enemigo" && destenter == true && col.gameObject.GetComponent<romperbala_al1>() == null)
-        {           
-        	Destroy(this.gameObject);
-        }
-        else if (col.gameObject.tag == "enemigo" && destenter == true && col.gameObject.GetComponent<romperbala_al1>() != null)
+        if(tele == false)
         {
-            Destroy(col.gameObject);
-        	Destroy(this.gameObject);
+            if (col.gameObject.tag == "enemigo" && destenter == true && col.gameObject.GetComponent<romperbala_al1>() == null)
+            {           
+                Destroy(this.gameObject);
+            }
+            else if (col.gameObject.tag == "enemigo" && destenter == true && col.gameObject.GetComponent<romperbala_al1>() != null)
+            {
+                Destroy(col.gameObject);
+                Destroy(this.gameObject);
+            }
+        }
+        else if (tele == true && objtele == null)
+        {
+            if (col.gameObject.tag == "enemigo" && col.gameObject.GetComponent<romperbala_al1>() == null)
+            {           
+                objtele = col.gameObject;
+            }
+            
+        }
+    }
+    public void OnCollisionEnter(Collision col)
+    {
+        if (tele == true )
+        {
+      
+            if (col.gameObject.tag == "enemigo" && destenter == true && col.gameObject.GetComponent<romperbala_al1>() == null)
+            {           
+                Destroy(this.gameObject);
+            }
+            else if (col.gameObject.tag == "enemigo" && destenter == true && col.gameObject.GetComponent<romperbala_al1>() != null)
+            {
+                Destroy(col.gameObject);
+                Destroy(this.gameObject);
+            }
+            
         }
     }
     public void OnDestroy()

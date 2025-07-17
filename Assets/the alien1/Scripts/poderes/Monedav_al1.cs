@@ -13,6 +13,14 @@ public class Monedav_al1 : MonoBehaviour
 	{
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+		if (manager.datosserial.tengovel == 1)
+		{
+			part.SetActive(true);
+		}
+		else
+		{
+			part.SetActive(false);
+		}
 	}
 
 	// Token: 0x06000029 RID: 41 RVA: 0x000038FC File Offset: 0x00001AFC
@@ -42,7 +50,7 @@ public class Monedav_al1 : MonoBehaviour
 		if (col.gameObject.tag == "Player" && manager.datosserial.tengovel == 1)
 		{
 			GameObject parti = Instantiate(part,transform.position,transform.rotation) as GameObject;
-			parti.transform.SetParent(jugador.juego.transform);
+			parti.transform.SetParent(jugador.transform);
 			Destroy(parti,1f);
 		}
 	}

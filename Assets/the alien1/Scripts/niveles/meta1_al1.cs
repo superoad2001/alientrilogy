@@ -9,11 +9,11 @@ public class meta1_al1 : MonoBehaviour
 {
 	// Token: 0x0600005A RID: 90 RVA: 0x00003C7D File Offset: 0x00001E7D
 	public manager_al1 manager;
-	public int gema;
-	public bool gran;
 
 	public bool fake;
 	public AudioSource fakes;
+	public AudioSource rotoson;
+	public int pasos;
 
 	public Animator cam;
 
@@ -25,6 +25,7 @@ public class meta1_al1 : MonoBehaviour
 	public Animator conseguidoa;
 	public AudioSource fanfarria;
 	public GameObject rotoe;
+	public GameObject rotoobj;
 
 	public AudioSource musica;
 
@@ -34,18 +35,7 @@ public class meta1_al1 : MonoBehaviour
 	{
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
-		if (manager.datosserial.LlaveT[LlaveID] == 1)
-		{
-			Destroy(this.gameObject);
-		}
-		else if (manager.datosserial.LlaveT[LlaveID] == 1 )
-		{
-			Destroy(this.gameObject);
-		}
-		else if (manager.datosserial.LlaveT[LlaveID] == 1)
-		{
-			Destroy(this.gameObject);
-		}
+
 	}
 
 	// Token: 0x0600005B RID: 91 RVA: 0x00003C7F File Offset: 0x00001E7F
@@ -54,25 +44,16 @@ public class meta1_al1 : MonoBehaviour
 		
 		if(Temp >= 10 )
 		{
-			if(gema <= 3 && gema >= 1 && gran == false)
-			{
-				SceneManager.LoadScene("piso1_al1");
-			}
-			if(gema <= 6 && gema >= 4 && gran == false || gema == 1 && gran == true)
-			{
-				SceneManager.LoadScene("piso2_al1");
-			}
-			if(gema <= 9 && gema >= 7 && gran == false || gema == 2 && gran == true)
-			{
-				SceneManager.LoadScene("piso3_al1");
-			}
-			if(gema <= 12 && gema >= 10 && gran == false || gema == 3 && gran == true)
-			{
-				SceneManager.LoadScene("piso4_al1");
-			}
+
+			SceneManager.LoadScene(manager.datosserial.salirnivelsala);
+			
 		}
 		if(Temp > 5 )
 		{	
+			aparece.SetActive(true);
+		}
+		if(Temp > 5 && pasos < 1)
+		{	pasos++;
 			conseguidoa.SetBool("act",true);
 			aparece.SetActive(true);
 			if(manager.datosconfig.idioma == "es")
@@ -88,8 +69,9 @@ public class meta1_al1 : MonoBehaviour
 				conseguido.text = "o has aconseguit";
 			}
 		}
-		if(Temp > 7 && fake == true)
+		if(Temp > 6 && fake == true  && pasos < 2)
 		{
+			pasos++;
 			if(manager.datosconfig.idioma == "es")
 			{
 				conseguido.text = "o no?";
@@ -102,14 +84,25 @@ public class meta1_al1 : MonoBehaviour
 			{
 				conseguido.text = "o no?";
 			}
-			GameObject roto = Instantiate(rotoe, transform.position,transform.rotation) as GameObject;
+			
 			fakes.Play();
+			
+		}
+		if(Temp > 7 && fake == true  && pasos < 3)
+		{
+			pasos++;
+			GameObject roto = Instantiate(rotoe, transform.position,transform.rotation) as GameObject;
 			Destroy(roto, 1.0f);
+			rotoson.Play();
+			if(rotoobj != null)
+			{
+				Destroy(rotoobj);
+			}	
 			this.gameObject.GetComponent<MeshRenderer>().enabled = false;
 		}
 		if(Temp > 10 )
 		{
-			musica.Play();
+			jugador.musicajuego.Play();
 			fanfarria.Stop();
 			aparece.SetActive(false);
 			conseguido.text = "";
@@ -133,21 +126,34 @@ public class meta1_al1 : MonoBehaviour
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player")
 		{
-
-			if (manager.datosserial.LlaveT[LlaveID] == 0 && gema == 1 && gran == false)
+			if(fake == true)
 			{
-				manager.datosserial.economia[0]++;
-				manager.datosserial.LlaveT[LlaveID] = 1;
-				manager.guardar();
-				
-			}
-			else if(fake == true)
-			{
-				musica.Stop();
+				jugador.musicajuego.Stop();
 				fanfarria.Play();
 				fin = true;
 				cam.SetBool("act",true);
 				jugador.controlact = false;
+			}
+			else if (manager.datosserial.LlaveT[LlaveID] == 0)
+			{
+				manager.datosserial.economia[2]++;
+				manager.datosserial.LlaveT[LlaveID] = 1;
+				manager.guardar();
+				jugador.musicajuego.Stop();
+				fanfarria.Play();
+				fin = true;
+				cam.SetBool("act",true);
+				jugador.controlact = false;
+				
+			}
+			else
+			{
+				jugador.musicajuego.Stop();
+				fanfarria.Play();
+				fin = true;
+				cam.SetBool("act",true);
+				jugador.controlact = false;
+				
 			}
 			
 

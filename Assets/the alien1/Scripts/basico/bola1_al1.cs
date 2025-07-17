@@ -18,15 +18,15 @@ public class bola1_al1 : MonoBehaviour
 	{
 		if(manager.datosconfig.idioma == "es")
 		{
-		this.puestoj.text = "puesto : " + this.puesto;
+		//this.puestoj.text = puesto;
 		}
 		if(manager.datosconfig.idioma == "en")
 		{
-		this.puestoj.text = "place : " + this.puesto;
+		//this.puestoj.text = puesto;
 		}
 		if(manager.datosconfig.idioma == "cat")
 		{
-		this.puestoj.text = "lloc : " + this.puesto;
+		//this.puestoj.text = puesto;
 		}
 		base.transform.Translate(Vector3.forward * Time.deltaTime / 1.1f * this.velocidad);
 		if (base.gameObject.transform.position.z > this.jugador.gameObject.transform.position.z)

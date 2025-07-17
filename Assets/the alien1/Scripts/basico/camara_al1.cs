@@ -22,7 +22,10 @@ public class camara_al1 : MonoBehaviour
 		jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
 		boxcam1 = jugador.camara;
 		boxcam2 = jugador.boxcam2;
-		camara = GetComponent<Camera>();
+		if(GetComponent<Camera>() != null)
+		{
+			camara = GetComponent<Camera>();
+		}
 		CalculatePlaneSize();
 
 	}
@@ -56,12 +59,24 @@ public class camara_al1 : MonoBehaviour
 				distancia = maxdis;
 			}
 		}
-		if(distancia < 8)
+
+		if(manager.juego == 4 || manager.juego == 3  || manager.juego == 0 )
 		{
-			distancia = 8;
+			transform.position = boxcam2.transform.position + direction * distancia;
+			transform.rotation = Quaternion.LookRotation(boxcam2.transform.position - transform.position);
 		}
-		transform.position = boxcam2.transform.position + direction * distancia;
-		transform.rotation = Quaternion.LookRotation(boxcam2.transform.position - transform.position);
+		else if(manager.juego == 6 )
+		{
+			transform.position = jugador.transform.position + direction * distancia;
+			transform.position = transform.position + transform.TransformDirection(new Vector3(0,5.920013f,0));
+		}
+		else if(manager.juego == 1)
+		{
+			transform.position = boxcam2.transform.position + direction * distancia;
+
+		}
+
+		
 		
 			
 	}
@@ -75,7 +90,7 @@ public class camara_al1 : MonoBehaviour
 	private Vector3[] Getcamcolpo(Vector3 direction)
 	{
 		Vector3 position = boxcam2.transform.position;
-		Vector3 center = position + direction * (camara.nearClipPlane + 0.1f);
+		Vector3 center = position + direction * (camara.nearClipPlane - 0.5f);
 
 		Vector3 right = transform.right * newPlaneSize.x;
 		Vector3 up = transform.up  * newPlaneSize.y;

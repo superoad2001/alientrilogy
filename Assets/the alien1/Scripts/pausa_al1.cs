@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem.UI;
 
 public class pausa_al1 : MonoBehaviour
 {
@@ -36,6 +37,10 @@ public class pausa_al1 : MonoBehaviour
 	public misiones_al1 dmisiones;
     [SerializeField]
 	public notas_al1 dnotas;
+
+    public UnityEngine.InputSystem.UI.InputSystemUIInputModule inputModule;
+    
+    private UnityEngine.InputSystem.InputActionAsset originalControls;
     
 	public void Awake()
     {
@@ -44,12 +49,20 @@ public class pausa_al1 : MonoBehaviour
     private void OnEnable() 
     {
         controles.Enable();
+        if (originalControls == null && inputModule != null)
+        {
+            originalControls = inputModule.actionsAsset;
+        }
+    }
+    public void RestoreOriginalControls()
+    {
+        if (originalControls != null && inputModule != null)
+        {
+            inputModule.actionsAsset = originalControls;
+        }
     }
     
-    private void OnDisable() 
-    {
-        controles.Disable();
-    }
+
     public int largomision;
     public Text boton1;
     public Text boton2;
@@ -513,7 +526,8 @@ public class pausa_al1 : MonoBehaviour
         {
             jugador.anim.SetBool("act",true);
         }
-        mapa_();
+    
+        Time.timeScale = 1;
         pausa1.SetActive(false);
     }
     public void continuar_A(){

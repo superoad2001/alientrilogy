@@ -42,7 +42,6 @@ public class saltador_al1 : MonoBehaviour
 				jugador.tiemposalto = 0.5f;
 				jugador.saltoalto();
 				GameObject parti = Instantiate(part,transform.position,transform.rotation) as GameObject;
-				parti.transform.SetParent(jugador.juego.transform);
 				Destroy(parti,1f);
 			}
 
