@@ -75,17 +75,17 @@ public class menures_al1 : MonoBehaviour
         
         if(manager.datosconfig.idioma == "es")
         {
-            boton2.text = "salir del juego";
-            boton1.text = "reaparecer";
+            boton2.text = "Salir del juego";
+            boton1.text = "Reaparecer";
             if(salirnivelo)
-            {boton3.text = "salir del nivel";}
+            {boton3.text = "Salir del nivel";}
             if(perder == true)
             {
-                boton4.text = "perdiste";
+                boton4.text = "Perdiste";
             }
             else
             {
-                boton4.text = "has muerto";
+                boton4.text = "Has muerto";
             }
             
         }

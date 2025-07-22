@@ -11,6 +11,7 @@ public class jugador_coche_al1 : jugador_al1
 {
 	[Header("Propio coche")]
 	
+	public controlcoche_al1 ControlCarrera;
 	public float staminaobj;
 	private int cocheturbo;
 	private float derrape;
@@ -95,15 +96,12 @@ public class jugador_coche_al1 : jugador_al1
 	
 	if(muerte == true)
 	{
-			manager.datosserial.alien1muere = true;
-			manager.datosserial.muertes++;
-			manager.guardar();
-			if(manager.datosconfig.plat == 2)
-			{
-				tactil.SetActive(false);
-			}
-			respawn.SetActive(true);
-			this.gameObject.SetActive(false);
+
+		ControlCarrera.muerte[0] = true;
+		manager.datosserial.alien1muere = true;
+		manager.datosserial.muertes++;
+		manager.guardar();
+		muerte = false;
 		
 	}
 

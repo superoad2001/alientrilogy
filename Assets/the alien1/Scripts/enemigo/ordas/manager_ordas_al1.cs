@@ -200,10 +200,19 @@ public class manager_ordas_al1 : MonoBehaviour
 
     public void rondaC()
     {
-        posicionesG = new List<int>();
-        rondaText.text = "Ronda " + (ronda+1).ToString();
-        rondaAnim.Play("ordasanim1");
-        contadorene = maxenemigosrondas[ronda];
+        if(ronda  == maxronda)
+        {
+            rondaText.text = "consegido";
+            rondaAnim.Play("ordasanim1");
+            //si obstuviste llave dira llave obtenida si no dira conseguido
+        }
+        else
+        {
+            posicionesG = new List<int>();
+            rondaText.text = "Ronda " + (ronda+1).ToString();
+            rondaAnim.Play("ordasanim1");
+            contadorene = maxenemigosrondas[ronda];
+        }
         jugador.transform.position = posjugador;
         jugador.transform.eulerAngles = jugrotation;
         jugador.camara.transform.localEulerAngles = new Vector3(0, 0, 0);

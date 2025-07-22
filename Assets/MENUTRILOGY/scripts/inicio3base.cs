@@ -224,7 +224,7 @@ public class inicio3base : MonoBehaviour
                 num4.color = new Color32(255,255,255,255);
                 if(manager.datosconfig.idioma == "es")
                 {
-                adv3.text = "trofeos";
+                adv3.text = "TROFEOS";
                 }
                 if(manager.datosconfig.idioma == "en")
                 {
@@ -246,7 +246,7 @@ public class inicio3base : MonoBehaviour
                 num4.color = new Color32(255,255,255,255);
                 if(manager.datosconfig.idioma == "es")
                 {
-                adv3.text = "opciones";
+                adv3.text = "OPCIONES";
                 }
                 if(manager.datosconfig.idioma == "en")
                 {

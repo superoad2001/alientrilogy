@@ -87,7 +87,8 @@ public class checkmeta_al1 : MonoBehaviour
                     else if(controlcheck.checkverificado[i] == -3)
                     {
                         controlcheck.checkverificado[i] = -4;
-                        controlcheck.fincheck(i);
+                        if(i == 0)
+                        {controlcheck.fincheck(i);}
                     
                     }
                     else if(controlcheck.checkverificado[i] == -2)
@@ -109,7 +110,8 @@ public class checkmeta_al1 : MonoBehaviour
                     if(controlcheck.checkverificado[i] == 3)
                     {
                         controlcheck.checkverificado[i] = 4;
-                        controlcheck.fincheck(i);
+                        if(i == 0)
+                        {controlcheck.fincheck(i);}
                     
                     }
                     else if(controlcheck.checkverificado[i] == 2)
@@ -132,6 +134,8 @@ public class checkmeta_al1 : MonoBehaviour
                     {
                         controlcheck.checkverificado[i] = 0;
                     }
+                    if(i > 0)
+                    {controlcheck.fincheckene(i);}
 
                 }
             }

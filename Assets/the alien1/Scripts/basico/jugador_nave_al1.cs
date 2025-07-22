@@ -66,7 +66,6 @@ public class jugador_nave_al1 : jugador_al1
 	private float temppalo = 60;
 	private float tempatk;
 	private int numpociones;
-	public float disjugsave;
 	public bool camnomov;
 	private float tiempodialogue = 2;
 	public float balavel = 20;
@@ -686,7 +685,7 @@ public class jugador_nave_al1 : jugador_al1
 				slash.SetActive(true);
 				pasos2.UnPause();
 				pasos1.Pause();
-				_rb.linearVelocity = transform.TransformDirection(new Vector3 (0,0,1 * 40));
+				_rb.linearVelocity = transform.TransformDirection(new Vector3 (0,0,1 * 60));
 				movnave = true;
 				viento_nave.SetActive(false);
 				temp9 = 0;

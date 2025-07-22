@@ -22,7 +22,8 @@ public class datos1
 
 	public int[] npcF = new int[100];
 	public int niveljugnave = 1;
-
+	public int Logros;
+	public int JefesVen;
 
 	public float asc;
     public int plat;
@@ -53,6 +54,7 @@ public class datos1
 	public bool[] llaveC = new bool[99];
 	public bool[] pociones = new bool[9];
 	public bool armadefdesbloqueada;
+	public int MisionesCumplidas;
 
 
 	
@@ -67,6 +69,12 @@ public class datos1
 	public float nivelexp = 0;
 
 	public float signivelexp = 20;
+
+	public int ObjetosEnTienda = 99;
+	public int CochesObtenidos;
+	public int HabilidadesObtenidas;
+
+	public float puntoskarting;
 
 	public float danoarmapapa = 2;
 	public float danoarmarel = 0;
@@ -122,6 +130,8 @@ public class datos1
 	public bool alien1muere;
 
 	public int tengonave;	
+	public int ArmasNaveObtenidas;
+	public int ArmasAlienObtenidas;
 
 
 	public int cinematicaf;

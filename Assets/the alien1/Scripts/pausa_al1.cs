@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem.UI;
+using TMPro;
 
 public class pausa_al1 : MonoBehaviour
 {
@@ -80,6 +81,9 @@ public class pausa_al1 : MonoBehaviour
     public Text mision1;
     public Text mision2;
     public Text inText;
+
+    public TextMeshProUGUI Estadisitcas_panel1;
+    public TextMeshProUGUI Objetos_panel1;
     public float temp;
     public int piso = 1;
     public GameObject normal;
@@ -279,6 +283,31 @@ public class pausa_al1 : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+
+        Estadisitcas_panel1.text =
+        "Enemigos asesinados : "+manager.datosserial.asesinatos+"\n"+
+        "Muertes : "+manager.datosserial.muertes+"\n"+
+        "Nivel Nave : "+manager.datosserial.nivelnavejug+"\n"+
+        "Nivel Alien : "+manager.datosserial.niveljug+"\n"+
+        "Experienca : "+(int)manager.datosserial.nivelexp+"\n"+
+        "Req.Sig NV : "+manager.datosserial.signivelexp+"\n"+
+        "Logros : "+manager.datosserial.Logros+"\n"+
+        "Jefes Ven : "+manager.datosserial.JefesVen+"\n"+
+        "Kart Points : "+manager.datosserial.puntoskarting+"\n"+
+        "Misiones Completadas : "+manager.datosserial.MisionesCumplidas;
+        Objetos_panel1.text =
+        "Armas Alien : "+manager.datosserial.ArmasAlienObtenidas +"\n"+
+        "Armas Nave : "+manager.datosserial.ArmasNaveObtenidas +"\n"+ 
+        "Habilidades Obt. : "+manager.datosserial.HabilidadesObtenidas+"\n"+
+        "Coches Obt. : "+manager.datosserial.CochesObtenidos+"\n"+
+        "NV La ParteCraneos : "+manager.datosserial.nivelarmapalo+"\n"+
+        "NV El Gatillazonador : "+manager.datosserial.nivelarmapapa+"\n"+
+        "NV HARMONIZADORA: "+manager.datosserial.nivelarmarel+"\n"+
+        "NV PX4000 : "+manager.datosserial.nivelarmadef+"\n"+
+        "NV RataTaPUM V2 : "+manager.datosserial.nivelarmanave1+"\n"+
+        "NV REYNOVES : "+manager.datosserial.nivelarmanave3+"\n"+
+        "NV GuardaSueños : "+manager.datosserial.nivelarmanave2+"\n"+
+        "NV InSitu: "+manager.datosserial.nivelarmanave4;
         if(mapaact == true)
         {
             if(controles.al1_general.l3.ReadValue<float>() > 0)
@@ -390,17 +419,17 @@ public class pausa_al1 : MonoBehaviour
         {
             if(modo == 0)
             {
-            boton2.text = "salir";
-            boton1.text = "continuar";
+            boton2.text = "Salir";
+            boton1.text = "Continuar";
             if(manager.nivel >= 1 && manager.nivel <= 15)
-            {boton3.text = "salir del nivel";}
-            boton4.text = "pausa";
-            boton5.text = "opciones";
+            {boton3.text = "Salir del nivel";}
+            boton4.text = "Pausa";
+            boton5.text = "Opciones";
             }
             else if(modo == 1)
             {
-                boton1.text = "continuar";
-                boton4.text = "mapa";
+                boton1.text = "Continuar";
+                boton4.text = "Mapa";
                 
                 gemas.text = manager.datosserial.economia[0]+"";
                 llave.text = manager.datosserial.economia[1]+"";

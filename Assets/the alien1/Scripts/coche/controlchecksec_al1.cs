@@ -5,6 +5,7 @@ public class controlchecksec_al1 : MonoBehaviour
     public int IDCheckP;
     public controlcoche_al1 control;
     public int[] checkverificado = new int[4];
+    public posicioncoche_al1 pos1;
 
     void Start()
     {
@@ -30,5 +31,10 @@ public class controlchecksec_al1 : MonoBehaviour
                 checkverificado[i] = 0;
             }
         
+    }
+    public void fincheckene(int i)
+    {
+        control.IDsigSec[i] = IDCheckP + 1;
+        checkverificado[i] = 0;     
     }
 }

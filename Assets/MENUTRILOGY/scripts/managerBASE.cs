@@ -170,7 +170,7 @@ public class managerBASE : MonoBehaviour
 	    {
             if(cmenu == 1)
             {
-                boton1.text = "controles";
+                boton1.text = "Controles";
                 boton2.text = "pc o consola";
                 boton3.text = "dispositivo tactil";
                 boton4.text = "en que dispositivo estas jugando?";
@@ -179,35 +179,35 @@ public class managerBASE : MonoBehaviour
             }
             if(cmenu == 2)
             {
-                boton1.text = "entrar";
-                boton2.text = "salir";
+                boton1.text = "ENTRAR";
+                boton2.text = "SALIR";
             }
             if(cmenu == 3)
             {
-                boton1.text = "elige una distancia de dibujado subirla consume recursos del dispositivo";
-                boton2.text = "distancia de dibujado";
-                boton3.text = "una vez selecionado para cambiarlo entra a opciones";
+                boton1.text = "Elige una distancia de dibujado subirla consume recursos del dispositivo";
+                boton2.text = "Distancia de dibujado";
+                boton3.text = "Una vez selecionado para cambiarlo entra a opciones";
             }
             if(cmenu == 4)
             {
-                boton1.text = "mejora grafica";
-                boton2.text = "post procesado desactivado";
-                boton3.text = "post procesado activado";
-                boton4.text = "si juegas en un dispositivo con recursos moderados podras usar la mejora grafica";
-                boton5.text = "el post procesado puede crashear el juego en ciertos dispositivos si esto sucede resetea la configuracion con el boton de recuperacion al inicio del juego";
-                boton6.text = "una vez selecionado para cambiarlo entra a opciones";
+                boton1.text = "Mejora grafica";
+                boton2.text = "Post procesado desactivado";
+                boton3.text = "Post procesado activado";
+                boton4.text = "Si juegas en un dispositivo con recursos moderados podras usar la mejora grafica";
+                boton5.text = "El post procesado puede crashear el juego en ciertos dispositivos si esto sucede resetea la configuracion con el boton de recuperacion al inicio del juego";
+                boton6.text = "Una vez selecionado para cambiarlo entra a opciones";
             }
             if(cmenu == 5)
             {
-                boton1.text = "controles";
-                boton2.text = "idioma";
-                boton3.text = "distancia de dibujado";
-                boton4.text = "post procesado";
-                boton5.text = "sonido";
-                boton6.text = "musica";
-                boton7.text = "voces";
-                boton8.text = "sfx";
-                boton9.text = "trofeos";
+                boton1.text = "CONTROLES";
+                boton2.text = "IDIOMA";
+                boton3.text = "DISTANCIA DE DIBUJADO";
+                boton4.text = "POST PROCESADO";
+                boton5.text = "SONIDO";
+                boton6.text = "MUSICA";
+                boton7.text = "VOCES";
+                boton8.text = "SFX";
+                boton9.text = "LOGROS";
             }
             if(cmenu == 6)
             {
@@ -319,15 +319,15 @@ public class managerBASE : MonoBehaviour
 	    {
             if(cmenu == 5)
             {
-                boton1.text = "controles";
-                boton2.text = "idioma";
-                boton3.text = "distancia de dibujado";
-                boton4.text = "post procesado";
-                boton5.text = "sonido";
-                boton6.text = "musica";
-                boton7.text = "voces";
-                boton8.text = "sfx";
-                boton9.text = "trofeos";
+                boton1.text = "Controles";
+                boton2.text = "Idioma";
+                boton3.text = "Distancia de Dibujado";
+                boton4.text = "Post Procesado";
+                boton5.text = "Sonido";
+                boton6.text = "Musica";
+                boton7.text = "Voces";
+                boton8.text = "SFX";
+                boton9.text = "Logros";
             }
         }
         if(datosconfig.idioma == "en")

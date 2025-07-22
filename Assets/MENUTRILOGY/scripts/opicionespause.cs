@@ -257,7 +257,7 @@ public class opcionespause : MonoBehaviour
 		}
 		if(manager.datosconfig.plat== 2)
 		{
-			conftxtcontroles.text = "Modo: Touch";
+			conftxtcontroles.text = "Modo: Tactil";
 		}
 		if(manager.datosconfig.plat == 1)
 		{
@@ -265,14 +265,14 @@ public class opcionespause : MonoBehaviour
 		}
 		if(manager.datosconfig.postpro == 1)
 		{
-			conftxtpost.text = "postprocesado: desactivado";
+			conftxtpost.text = "Postprocesado: Desactivado";
 		}
 		if(manager.datosconfig.postpro == 2)
 		{
-			conftxtpost.text = "postprocesado: activado";
+			conftxtpost.text = "Postprocesado: Activado";
 		}
-		conftxtdistancia.text = "distancia: "+distancia;
-		conftxtresolucion.text = "resolucion: " +resolucion[ind].width +" X "+resolucion[ind].height+"P";
+		conftxtdistancia.text = "Distancia: "+distancia;
+		conftxtresolucion.text = "Resolucion: " +resolucion[ind].width +" X "+resolucion[ind].height+"P";
 
 		
 		
