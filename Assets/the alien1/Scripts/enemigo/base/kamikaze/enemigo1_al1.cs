@@ -92,6 +92,7 @@ public class enemigo1_al1: MonoBehaviour
     public bool programado;
     public float frenetismo = 1;
     public GameObject balaprefab2;
+    public bool fuera;
     // Start is called before the first frame update
     void Start()
     {
@@ -233,7 +234,7 @@ public class enemigo1_al1: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(detectar == false)
+        if(fuera == false)
         {
             escudoin.SetActive(true);
         }
@@ -860,7 +861,7 @@ public class enemigo1_al1: MonoBehaviour
 
                         BalaTemporal.GetComponent<bala_tele_al1>().objetivo = objetivo.gameObject;
 
-                        BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj;
+                        BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj/2;
 
                         BalaTemporal.GetComponent<romperbala_al1>().destb = 4f;
 
@@ -881,7 +882,7 @@ public class enemigo1_al1: MonoBehaviour
                         GameObject BalaTemporal = Instantiate(balaprefab1, transform.position,transform.rotation) as GameObject;
                         Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
 
-                        BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj;
+                        BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj/2;
 
                         rb.AddForce(BalaTemporal.transform.forward * 140 * 20);
 
@@ -941,7 +942,7 @@ public class enemigo1_al1: MonoBehaviour
 
             // te vio
         }
-        else if(detectar == false )
+        else if(fuera == false )
         {
             if(manager.juego != 3)
             {

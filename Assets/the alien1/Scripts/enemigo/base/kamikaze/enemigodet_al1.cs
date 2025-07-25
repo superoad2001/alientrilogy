@@ -25,6 +25,7 @@ public class enemigodet_al1: MonoBehaviour
 		{
             jugador.peligro = true;
             enemigo.detectar = true;
+            enemigo.fuera = true;
             enemigo.objetivo = col.gameObject;
             enemigo.objetivo1 = col.gameObject.transform;
             if(enemigo.GetComponent<Rigidbody>() == null)
@@ -44,6 +45,7 @@ public class enemigodet_al1: MonoBehaviour
 		{
             jugador.peligro = true;
             enemigo.detectar = true;
+            enemigo.fuera = true;
             enemigo.objetivo = col.gameObject;
             enemigo.objetivo1 = col.gameObject.transform;
             enemigo.objetivob = col.gameObject;
@@ -58,7 +60,7 @@ public class enemigodet_al1: MonoBehaviour
 		if (col.gameObject.tag == "Player")
 		{
                   enemigo.detectar = false;
-                  
+                  enemigo.fuera = false;
 		}
             
 

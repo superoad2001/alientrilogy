@@ -283,6 +283,8 @@ public class pausa_al1 : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+        if(modo == 1)
+        {
 
         Estadisitcas_panel1.text =
         "Enemigos asesinados : "+manager.datosserial.asesinatos+"\n"+
@@ -308,6 +310,7 @@ public class pausa_al1 : MonoBehaviour
         "NV REYNOVES : "+manager.datosserial.nivelarmanave3+"\n"+
         "NV GuardaSueños : "+manager.datosserial.nivelarmanave2+"\n"+
         "NV InSitu: "+manager.datosserial.nivelarmanave4;
+        }
         if(mapaact == true)
         {
             if(controles.al1_general.l3.ReadValue<float>() > 0)

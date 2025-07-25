@@ -3445,15 +3445,22 @@ public class jugador_chara3d_al1 : jugador_al1
 		{
 			if(col.gameObject.GetComponent<golpe_al1>() != null)
 			{
-				eneempuj = col.gameObject;
-				enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
-				enmovdirectaux = enmovdirectaux.normalized;
-				tempempujon = 0;
-				empujon = true;
-		
 				golpe_al1 enec = col.gameObject.GetComponent<golpe_al1>();
-				vida -= enec.dano;
-				enec.dest.Play();
+				if(enec.toquespalo > 0)
+				{
+					eneempuj = col.gameObject;
+					enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
+					enmovdirectaux = enmovdirectaux.normalized;
+					tempempujon = 0;
+					empujon = true;
+					
+					
+			
+					
+					enec.toquespalo--;
+					vida -= enec.dano;
+					enec.dest.Play();
+				}
 			}
 		}
 		if (col.gameObject.tag == "pisarboss")

@@ -62,6 +62,7 @@ public class enemigodet3_al1: MonoBehaviour
             jugador.peligro = true;
             int dec = Random.Range(1,4);
             enemigo.detectar = true;
+            enemigo.fuera = true;
             enemigo.objetivo = col.gameObject;
             enemigo.objetivo1 = col.gameObject.transform;
             if(enemigo.GetComponent<Rigidbody>() == null)
@@ -96,6 +97,7 @@ public class enemigodet3_al1: MonoBehaviour
 		{
             jugador.peligro = true;
             enemigo.detectar = true;
+            enemigo.fuera = true;
             enemigo.objetivo = col.gameObject;
             enemigo.objetivo1 = col.gameObject.transform;
             enemigo.objetivob = col.gameObject;
@@ -110,6 +112,7 @@ public class enemigodet3_al1: MonoBehaviour
 		{
 
                   enemigo.detectar = false;
+                  enemigo.fuera = false;
             
 		}
 

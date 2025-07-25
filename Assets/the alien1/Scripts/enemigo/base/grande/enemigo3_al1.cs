@@ -74,16 +74,23 @@ public class enemigo3_al1: MonoBehaviour
 
     public float escudovida_noplus = 30;
     public float escudovida_plus = 100;
+    public float[] niveldefensa = new float[100];
 
     public bool new_game_plus;
     
-    private Vector3 []objetivoa = new Vector3[4]; 
+    private Vector3[] objetivoa = new Vector3[4]; 
     private Vector3 objetivon;
 
 
-    public float []nivelfuerza_a = new float[100];
-    public float []nivelvida_a = new float[100];
+    public float[] nivelfuerza_a = new float[100];
+    public float[] nivelvida_a = new float[100];
 
+    public string modo;
+
+    public float defensabase = 5;
+    public float defensabasemax = 50;
+    public float defensaplusmax = 500;
+    public bool fuera;
     public void Awake()
     {
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
@@ -139,6 +146,16 @@ public class enemigo3_al1: MonoBehaviour
             nivelfuerza_a[i] = (fuebasemax+0.5f) + (((fueplusmax -fuebasemax+0.5f)/50) * (i - 49));
         }
 
+        niveldefensa[0] = 0.5f;
+        for(int i = 1 ;i <= 49;  i++ )
+        {   
+            niveldefensa[i] = (fuebase) + (((defensabasemax-defensabase)/48) * (i - 2));
+        }
+        for(int i = 50 ; i <= 99; i++)
+        {   
+            niveldefensa[i] = (fuebasemax) + (((defensaplusmax -defensabasemax)/50) * (i - 49));
+        }
+
         nivelfuerza = nivelfuerza_a[nivelactual-1];
         nivelvida = nivelvida_a[nivelactual-1];
         vidamax = nivelvida;
@@ -160,7 +177,7 @@ public class enemigo3_al1: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(detectar == false)
+        if(fuera == false)
         {
             escudoin.SetActive(true);
         }
@@ -280,7 +297,9 @@ public class enemigo3_al1: MonoBehaviour
         {
             anim.SetBool("salto",false);
         }
-        if(detectar == true  && desactivar == false && manager.controlene == true)
+
+
+        if(modo == "base" && detectar == true  && desactivar == false && manager.controlene == true)
         {
             if(temp > balafrec)
             {
@@ -318,7 +337,9 @@ public class enemigo3_al1: MonoBehaviour
             temp += 1 * Time.deltaTime;
             
         }
-        if(detectar == false )
+
+
+        if(fuera == false )
         {
 
             if(manager.juego != 3)

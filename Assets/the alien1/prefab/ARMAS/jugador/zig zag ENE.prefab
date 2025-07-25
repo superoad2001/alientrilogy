@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 7332590696845864630}
   - component: {fileID: 7332590696845864631}
   - component: {fileID: 7332590696845864584}
-  - component: {fileID: 7332590696845864585}
   - component: {fileID: 7332590696845864586}
   - component: {fileID: 968361879136136941}
+  - component: {fileID: 419452369411613983}
+  - component: {fileID: 1652120026510470966}
   m_Layer: 0
   m_Name: zig zag
-  m_TagString: danoarma9
+  m_TagString: enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,19 +112,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7332590696845864585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7332590696845864588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ca5240bd37653b47905d20fdf01252f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
 --- !u!95 &7332590696845864586
 Animator:
   serializedVersion: 7
@@ -173,6 +161,49 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 0
+--- !u!114 &419452369411613983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7332590696845864588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d22120d1e080787479b6a302f501b36e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  danoj: 1
+  dest: {fileID: 0}
+  desto: {fileID: 0}
+  explosion: {fileID: 358637981425055526, guid: 14c1be6914734a14d8d4099c9472d975, type: 3}
+  destb: 0
+  armadef: 0
+  destenter: 0
+  tele: 0
+  objtele: {fileID: 0}
+  balajug: {fileID: 0}
+--- !u!114 &1652120026510470966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7332590696845864588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f05141227d7ea429eb538c1e44b708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  empujar: 0
+  danoj: 1
+  dest: {fileID: 0}
+  desto: {fileID: 0}
+  explosion: {fileID: 0}
+  balaene: 1
+  jugador1: {fileID: 0}
+  destb: 3
+  armadef: 0
 --- !u!1 &7332590697502438400
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,12 +216,12 @@ GameObject:
   - component: {fileID: 7332590697502438410}
   - component: {fileID: 7332590697502438411}
   - component: {fileID: 7332590697502438412}
-  - component: {fileID: 7332590697502438413}
   - component: {fileID: 7332590697502438414}
   - component: {fileID: 6461203651671096584}
+  - component: {fileID: 5716063753469443021}
   m_Layer: 0
   m_Name: zig zag2
-  m_TagString: danoarma9
+  m_TagString: enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,19 +315,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7332590697502438413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7332590697502438400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ca5240bd37653b47905d20fdf01252f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
 --- !u!95 &7332590697502438414
 Animator:
   serializedVersion: 7
@@ -346,6 +364,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 0
+--- !u!114 &5716063753469443021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7332590697502438400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f05141227d7ea429eb538c1e44b708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  empujar: 0
+  danoj: 1
+  dest: {fileID: 0}
+  desto: {fileID: 0}
+  explosion: {fileID: 358637981425055526, guid: 14c1be6914734a14d8d4099c9472d975, type: 3}
+  balaene: 1
+  jugador1: {fileID: 0}
+  destb: 3
+  armadef: 0
 --- !u!1 &7332590698050240100
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +396,7 @@ GameObject:
   - component: {fileID: 7332590698286442679}
   - component: {fileID: 4269701164590506892}
   m_Layer: 0
-  m_Name: zig zag
+  m_Name: zig zag ENE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

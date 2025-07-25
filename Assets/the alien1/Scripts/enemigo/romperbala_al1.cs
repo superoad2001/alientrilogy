@@ -16,6 +16,7 @@ public class romperbala_al1: MonoBehaviour
     public jugador_al1 jugador1;
 
     public float destb;
+    public bool armadef;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,4 +59,14 @@ public class romperbala_al1: MonoBehaviour
             }
         }
     }
+    public void OnDestroy()
+    {
+        if(armadef == false)
+        {
+        GameObject exp = Instantiate(explosion, transform.position, transform.rotation);
+        exp.transform.localScale = transform.localScale;
+        Destroy(exp, 0.5f);
+        }
+    }
+    
 }
