@@ -13,6 +13,9 @@ using System.Linq;
 public class jugador_chara3d_al1 : jugador_al1
 {
 	[Header("Propio 3D")]
+	private float vidaescudoUI1;
+	private float vidaescudoUI2;
+	private float vidaescudoUI3;
 	public bool invertirHorizontal = false;
 	public GameObject ascensorui;
 	public bool camnomov;
@@ -493,11 +496,49 @@ public class jugador_chara3d_al1 : jugador_al1
 
 		if(escudoeneact)
 		{
-			escudoeneimg.fillAmount = vidaescudoene/vidaescudomaxene;
+			if(escudosene >= 1)
+			{
+				vidaescudoUI1 = Mathf.Lerp(vidaescudoUI1,  vidaescudoene1, Time.deltaTime * 2f);
+			}
+			if(escudosene >= 2)
+			{
+				vidaescudoUI2 = Mathf.Lerp(vidaescudoUI2, vidaescudoene2, Time.deltaTime * 2f);
+			}
+			if(escudosene == 3)
+			{
+				vidaescudoUI3 = Mathf.Lerp(vidaescudoUI3,  vidaescudoene3, Time.deltaTime * 2f);
+			}
+
+			if(escudosene == 1)
+			{
+				escudoeneimg1.fillAmount = vidaescudoUI1/vidaescudomaxene;
+				escudoeneimg2.fillAmount = 0;
+				escudoeneimg3.fillAmount = 0;
+			}
+			if(escudosene == 2)
+			{
+				escudoeneimg1.fillAmount = vidaescudoUI1/vidaescudomaxene;
+				escudoeneimg2.fillAmount = vidaescudoUI2/vidaescudomaxene;
+				escudoeneimg3.fillAmount = 0;
+			}
+			if(escudosene == 3)
+			{
+				escudoeneimg1.fillAmount = vidaescudoUI1/vidaescudomaxene;
+				escudoeneimg2.fillAmount = vidaescudoUI2/vidaescudomaxene;
+				escudoeneimg3.fillAmount = vidaescudoUI3/vidaescudomaxene;
+			}
+			
+			
+			
 		}
 		else
 		{
-			escudoeneimg.fillAmount = 0;
+
+			escudoeneimg1.fillAmount = 0;
+			escudoeneimg2.fillAmount = 0;
+			escudoeneimg3.fillAmount = 0;
+			
+			
 		}
 	
 	if(vida < 1)
@@ -564,14 +605,15 @@ public class jugador_chara3d_al1 : jugador_al1
 	{
 
 		
-		
-
+			
 			rhorizontalc = controles.al1_3d.rhorizontal.ReadValue<float>();
 			rverticalc = controles.al1_3d.rvertical.ReadValue<float>();
 			
-
+			if(movact == true)
+			{
 			lhorizontalc = controles.al1_3d.lhorizontal.ReadValue<float>();
 			lverticalc = controles.al1_3d.lvertical.ReadValue<float>();
+			}
 
 
 
@@ -3230,6 +3272,7 @@ public class jugador_chara3d_al1 : jugador_al1
 
 				
 			}
+			
 
 			
 		}
@@ -3311,6 +3354,30 @@ public class jugador_chara3d_al1 : jugador_al1
 		if (col.gameObject.tag == "enemigo")
 		{
 			enetouch = true;
+			
+		}
+		if (col.gameObject.tag == "dañox10")
+		{
+			if(col.gameObject.GetComponent<romperbala_al1>() != null)
+			{
+				romperbala_al1 enec = col.gameObject.GetComponent<romperbala_al1>();
+				if(enec.salir == false)
+				{
+					eneempuj = col.gameObject;
+					enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
+					enmovdirectaux = enmovdirectaux.normalized;
+					tempempujon = 0;
+					empujon = true;
+
+					muertesjug.Play();
+					if(enec.danofijo == true)
+					{
+						vida -= (vidamax/100) * enec.porcentaje;
+					}
+					else
+					{vida -= enec.danoj;}
+				}
+			}
 		}
 		else if (col.gameObject.tag == "pisar" && col.gameObject.tag != "enemigo" && enetouch == false )
 		{
@@ -3463,6 +3530,51 @@ public class jugador_chara3d_al1 : jugador_al1
 				}
 			}
 		}
+		if (col.gameObject.tag == "dañox5")
+		{
+			if(col.gameObject.GetComponent<golpe_al1>() != null)
+			{
+				golpe_al1 enec = col.gameObject.GetComponent<golpe_al1>();
+				if(enec.toquespalo > 0 && enec.minmun == true)
+				{
+					eneempuj = col.gameObject;
+					enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
+					enmovdirectaux = enmovdirectaux.normalized;
+					tempempujon = 0;
+					empujon = true;
+					enec.toquespalo--;
+					temppalo = 0;
+					temppaparec = 0;
+					tempdefrec = 0;
+					temprelrec = 0;
+					enec.dest.Play();
+				}
+				else if(enec.toquespalo > 0 && enec.ultimo == true)
+				{
+					eneempuj = col.gameObject;
+					enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
+					enmovdirectaux = enmovdirectaux.normalized;
+					tempempujon = 0;
+					empujon = true;
+					enec.toquespalo--;
+					temppalo = 0;
+					vida = 1;
+					enec.dest.Play();
+				}
+				else if(enec.toquespalo > 0 )
+				{
+					eneempuj = col.gameObject;
+					enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
+					enmovdirectaux = enmovdirectaux.normalized;
+					tempempujon = 0;
+					empujon = true;
+					enec.toquespalo--;
+					temppalo = 0;
+					vida -= enec.dano;
+					enec.dest.Play();
+				}
+			}
+		}
 		if (col.gameObject.tag == "pisarboss")
 		{
 			GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
@@ -3512,10 +3624,36 @@ public class jugador_chara3d_al1 : jugador_al1
 	public void OnTriggerExit(Collider col)
 	{
 
+		if (col.gameObject.tag == "dañox10")
+		{
+			if(col.gameObject.GetComponent<romperbala_al1>() != null)
+			{
+				romperbala_al1 enec = col.gameObject.GetComponent<romperbala_al1>();
+				if(enec.salir == true)
+				{
+					eneempuj = col.gameObject;
+					enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
+					enmovdirectaux = enmovdirectaux.normalized;
+					tempempujon = 0;
+					empujon = true;
+
+					muertesjug.Play();
+					
+					if(enec.danofijo == true)
+					{
+						vida -= (vidamax/100) * enec.porcentaje;
+					}
+					else
+					{vida -= enec.danoj;}
+				}
+			}
+		}
+
 		if (col.gameObject.tag == "enemigo")
 		{
 			enetouch = false;
 		}
+
 
 		if (col.gameObject.tag == "npc")
 		{

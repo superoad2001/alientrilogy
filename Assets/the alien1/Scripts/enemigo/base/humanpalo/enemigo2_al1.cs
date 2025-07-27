@@ -461,10 +461,10 @@ public class enemigo2_al1: MonoBehaviour
                 }
                 else if(temp > 3f && randomdec5 == 1)
                 {
-                    anim.SetBool("atkgrio",true);
+                    anim.SetBool("eneatk1",true);
                     temp = -5;
                     paloS.toquespalo = 5;
-                    paloS.GetComponent<golpe_al1>().dano = danoj ;
+                    paloS.GetComponent<golpe_al1>().dano = danoj/5;
 
 
                     GameObject BalaTemporal = Instantiate(teleprefab, pistola.transform.position,transform.rotation) as GameObject;
@@ -487,7 +487,7 @@ public class enemigo2_al1: MonoBehaviour
                     paloS.toquespalo = 2;
                     paloS.dano = danoj;
                     anim.Play("arma3");
-                    anim.SetBool("arma3",true);
+                    anim.SetBool("arma4",true);
                     lanzarson.Play();
                 }
                 else if(temp > 3f && randomdec5 == 3)
@@ -504,7 +504,6 @@ public class enemigo2_al1: MonoBehaviour
                 {
                     anim.SetBool("atk",false);
                     anim.SetBool("arma3",false);
-                    anim.SetBool("atkgrio",false);
                     anim.SetBool("encatk1",false);
                 }
             
@@ -680,6 +679,7 @@ public class enemigo2_al1: MonoBehaviour
                         cancelatk = 0;
                         tempcarga = 0;
                         modocarga = "";
+                        anim.SetBool("Playercarga",false);
                     }
                     if(modocarga == "vida+50")
                     {
@@ -691,6 +691,7 @@ public class enemigo2_al1: MonoBehaviour
                         cancelatk = 0;
                         tempcarga = 0;
                         modocarga = "";
+                        anim.SetBool("Playercarga",false);
                     }
                     if(modocarga == "trivision")
                     {
@@ -715,6 +716,7 @@ public class enemigo2_al1: MonoBehaviour
                         cancelatk = 0;
                         tempcarga = 0;
                         modocarga = "";
+                        anim.SetBool("Playercarga",false);
                     }
                     if(modocarga == "disvision")
                     {
@@ -733,11 +735,13 @@ public class enemigo2_al1: MonoBehaviour
                         cancelatk = 0;
                         tempcarga = 0;
                         modocarga = "";
+                        anim.SetBool("Playercarga",false);
                     }
                 }
             }
             else
             {
+                anim.SetBool("Playercarga",false);
                 modocarga = "";
             }
 
@@ -750,7 +754,8 @@ public class enemigo2_al1: MonoBehaviour
                     if(randomdec == 1)
                     {
                         cancelatk = 20;
-                        anim.Play("cargahab");
+                        anim.SetBool("Playercarga",true);
+                        anim.Play("cargahabene");
                         tempcarga = 0;
                         modocarga = "vida100";
                     }
@@ -767,7 +772,8 @@ public class enemigo2_al1: MonoBehaviour
                     if(randomdec == 1)
                     {
                         cancelatk = 10;
-                        anim.Play("cargahab");
+                        anim.SetBool("Playercarga",true);
+                        anim.Play("cargahabene");
                         tempcarga = 0;
                         modocarga = "vida+50";
                     }
@@ -780,7 +786,8 @@ public class enemigo2_al1: MonoBehaviour
                 if((vidamax/100) * 20 <= vida && division == true && tempcarga > 7)
                 {
                     cancelatk = 10;
-                    anim.Play("cargahab");
+                    anim.SetBool("Playercarga",true);
+                    anim.Play("cargahabene");
                     tempcarga = 0;
                     modocarga = "trivision";
                     division = false;
@@ -792,7 +799,8 @@ public class enemigo2_al1: MonoBehaviour
                 if((vidamax/100) * 50 <= vida && division2 == true && tempcarga > 7)
                 {
                     cancelatk = 20;
-                    anim.Play("cargahab");
+                    anim.SetBool("Playercarga",true);
+                    anim.Play("cargahabene");
                     tempcarga = 0;
                     modocarga = "division";
                     division2 = false;
@@ -837,6 +845,7 @@ public class enemigo2_al1: MonoBehaviour
             }
             else if(manager.juego == 3)
             {
+                anim.SetBool("Playeract",true);
             }
                 // Lanzar rayo hacia abajo
             RaycastHit hit;
@@ -850,6 +859,10 @@ public class enemigo2_al1: MonoBehaviour
 
             // Aplicar gravedad solo si no está en el suelo
             
+        }
+        else
+        {
+            anim.SetBool("Playeract",false);
         }
         
         

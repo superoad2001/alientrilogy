@@ -15,6 +15,7 @@ public class baladef_al1 : MonoBehaviour
 
     public float destb;
     public bool armadef;
+    public bool armadefene;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,7 +39,14 @@ public class baladef_al1 : MonoBehaviour
     }
         public void OnCollisionStay(Collision col)
         {
-            if(armadef)
+            if (armadef && armadefene)
+            {
+                    GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
+                    Destroy(explosiont, 6f);
+                    Destroy(this.gameObject);
+                    
+            }
+            else if(armadef && armadefene == false)
             {
                     GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
                     Destroy(explosiont, 13f);

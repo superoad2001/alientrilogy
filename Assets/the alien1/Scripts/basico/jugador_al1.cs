@@ -14,6 +14,7 @@ public abstract class jugador_al1 : MonoBehaviour
 {
 
 	[Header("Posición")]
+	public bool movact = true;
     public bool controlact = true;
 	public GameObject objplaneta;
 	public float disjugsave;
@@ -79,7 +80,10 @@ public abstract class jugador_al1 : MonoBehaviour
 	[HideInInspector]public bool vidaeneact;
 	[HideInInspector]public float staminamax = 100;
 	[HideInInspector]public float stamina;
-	[HideInInspector]public float vidaescudoene;
+	[HideInInspector]public int escudosene = 0;
+	[HideInInspector]public float vidaescudoene1;
+	[HideInInspector]public float vidaescudoene2;
+	[HideInInspector]public float vidaescudoene3;
 	[HideInInspector]public float vidaescudomaxene;
 	[HideInInspector]public bool escudoeneact;
 	[HideInInspector]public bool _peligro;
@@ -133,7 +137,9 @@ public abstract class jugador_al1 : MonoBehaviour
 	public GameObject select1;
 	public Image vidab;
 	public Image vidaeneimg;
-	public Image escudoeneimg;
+	public Image escudoeneimg1;
+	public Image escudoeneimg2;
+	public Image escudoeneimg3;
 	public Image iconodisp;
 	public misionA_al1 misionA;
 	

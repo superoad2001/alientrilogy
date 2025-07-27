@@ -3677,6 +3677,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dano: 0
   dest: {fileID: 959456759188832964}
+  toquespalo: 0
+  paloene: 0
+  minmun: 0
+  ultimo: 0
 --- !u!1 &858142237013737563
 GameObject:
   m_ObjectHideFlags: 0
@@ -10179,11 +10183,9 @@ GameObject:
   - component: {fileID: 2136975423616621862}
   - component: {fileID: 3965991163167212699}
   - component: {fileID: 7160936723478733541}
-  - component: {fileID: 2095715842921552889}
   - component: {fileID: 2816376894259764718}
   - component: {fileID: 8042069764456610935}
   - component: {fileID: 8367155274665388628}
-  - component: {fileID: 4768242843787612175}
   - component: {fileID: 7963387822817923398}
   - component: {fileID: 5776020763640523882}
   - component: {fileID: 6200934034480262322}
@@ -10268,71 +10270,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!108 &2095715842921552889
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1188860168306642404}
-  m_Enabled: 1
-  serializedVersion: 11
-  m_Type: 2
-  m_Color: {r: 0.01334992, g: 0.9433962, b: 0.8803862, a: 1}
-  m_Intensity: 4
-  m_Range: 7.033882
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ForceVisible: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
-  m_LightUnit: 1
-  m_LuxAtDistance: 1
-  m_EnableSpotReflector: 1
 --- !u!114 &2816376894259764718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10345,6 +10282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d84927abc252247b392853a0a31474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movact: 1
   controlact: 1
   objplaneta: {fileID: 0}
   disjugsave: 0
@@ -10630,7 +10568,10 @@ MonoBehaviour:
   vidaeneact: 0
   staminamax: 100
   stamina: 0
-  vidaescudoene: 0
+  escudosene: 0
+  vidaescudoene1: 0
+  vidaescudoene2: 0
+  vidaescudoene3: 0
   vidaescudomaxene: 0
   escudoeneact: 0
   _peligro: 0
@@ -10683,7 +10624,9 @@ MonoBehaviour:
   select1: {fileID: 2801030842010537782}
   vidab: {fileID: 4977358691158860675}
   vidaeneimg: {fileID: 2381247120313216825}
-  escudoeneimg: {fileID: 5316767837779735580}
+  escudoeneimg1: {fileID: 0}
+  escudoeneimg2: {fileID: 0}
+  escudoeneimg3: {fileID: 0}
   iconodisp: {fileID: 5993070274442266514}
   misionA: {fileID: 611009724071429865}
   manager: {fileID: 2128543842266305913}
@@ -10899,29 +10842,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
---- !u!114 &4768242843787612175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1188860168306642404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Version: 3
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_RenderingLayers: 1
-  m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!81 &7963387822817923398
 AudioListener:
   m_ObjectHideFlags: 0
@@ -19735,6 +19655,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dano: 0
   dest: {fileID: 959456759188832964}
+  toquespalo: 0
+  paloene: 0
+  minmun: 0
+  ultimo: 0
 --- !u!1 &2123797304669559454
 GameObject:
   m_ObjectHideFlags: 0
@@ -36049,7 +35973,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 836fdd5848f5fe242ae675246ac01811, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 050979d2c8b22734e8aa4b06646267c3, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -87682,10 +87606,10 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.9599531, g: 1, b: 0.004716992, a: 1}
-  m_Intensity: 50
-  m_Range: 199.1422
-  m_SpotAngle: 127.2365
-  m_InnerSpotAngle: 110.78111
+  m_Intensity: 3340.7
+  m_Range: 192.60622
+  m_SpotAngle: 80.25644
+  m_InnerSpotAngle: 46.134186
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -87721,10 +87645,10 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 338.2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}

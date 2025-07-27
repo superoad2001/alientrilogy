@@ -7,6 +7,7 @@ public class romperbala_al1: MonoBehaviour
 {
 	public bool empujar;
 	public float danoj = 1;
+    public bool salir;
 
 	public AudioSource dest;
 	public GameObject desto;
@@ -17,6 +18,8 @@ public class romperbala_al1: MonoBehaviour
 
     public float destb;
     public bool armadef;
+    public float porcentaje;
+    public bool danofijo;
     // Start is called before the first frame update
     void Start()
     {

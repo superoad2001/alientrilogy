@@ -14,6 +14,9 @@ public class jugador_chara2d_al1 : jugador_al1
 {
 	[Header("Propio 2D")]
 	public GameObject armadefpassC;
+	private float vidaescudoUI1;
+	private float vidaescudoUI2;
+	private float vidaescudoUI3;
 	public AudioSource saltoson;
 	private bool enetouch;
 	public float girodir = -90;
@@ -498,11 +501,44 @@ public class jugador_chara2d_al1 : jugador_al1
 
 		if(escudoeneact)
 		{
-			escudoeneimg.fillAmount = vidaescudoene/vidaescudomaxene;
+
+			if(escudosene >= 1)
+			{
+				vidaescudoUI1 = Mathf.Lerp(vidaescudoUI1,  vidaescudoene1, Time.deltaTime * 2f);
+			}
+			if(escudosene >= 2)
+			{
+				vidaescudoUI2 = Mathf.Lerp(vidaescudoUI2, vidaescudoene2, Time.deltaTime * 2f);
+			}
+			if(escudosene == 3)
+			{
+				vidaescudoUI3 = Mathf.Lerp(vidaescudoUI3,  vidaescudoene3, Time.deltaTime * 2f);
+			}
+
+			if(escudosene == 1)
+			{
+				escudoeneimg1.fillAmount = vidaescudoUI1/vidaescudomaxene;
+				escudoeneimg2.fillAmount = 0;
+				escudoeneimg3.fillAmount = 0;
+			}
+			if(escudosene == 2)
+			{
+				escudoeneimg1.fillAmount = vidaescudoUI1/vidaescudomaxene;
+				escudoeneimg2.fillAmount = vidaescudoUI2/vidaescudomaxene;
+				escudoeneimg3.fillAmount = 0;
+			}
+			if(escudosene == 3)
+			{
+				escudoeneimg1.fillAmount = vidaescudoUI1/vidaescudomaxene;
+				escudoeneimg2.fillAmount = vidaescudoUI2/vidaescudomaxene;
+				escudoeneimg3.fillAmount = vidaescudoUI3/vidaescudomaxene;
+			}
 		}
 		else
 		{
-			escudoeneimg.fillAmount = 0;
+			escudoeneimg1.fillAmount = 0;
+			escudoeneimg2.fillAmount = 0;
+			escudoeneimg3.fillAmount = 0;
 		}
 	
 	if(vida < 1)
@@ -555,27 +591,30 @@ public class jugador_chara2d_al1 : jugador_al1
 			
 
 
+			if(movact == true)
+			{
+				if(controles.al1_2d.padder.ReadValue<float>() > 0 && horizontalpad >= 0)
+				{
+					horizontalpad = controles.al1_2d.padder.ReadValue<float>();
+				}
+				else if(controles.al1_2d.padizq.ReadValue<float>() > 0 && horizontalpad <= 0)
+				{
+					horizontalpad = controles.al1_2d.padizq.ReadValue<float>() - (controles.al1_2d.padizq.ReadValue<float>() * 2);
+				}
+				else{horizontalpad = 0;}
+			
 
-			if(controles.al1_2d.padder.ReadValue<float>() > 0 && horizontalpad >= 0)
-			{
-				horizontalpad = controles.al1_2d.padder.ReadValue<float>();
-			}
-			else if(controles.al1_2d.padizq.ReadValue<float>() > 0 && horizontalpad <= 0)
-			{
-				horizontalpad = controles.al1_2d.padizq.ReadValue<float>() - (controles.al1_2d.padizq.ReadValue<float>() * 2);
-			}
-			else{horizontalpad = 0;}
 
-
-			if(controles.al1_2d.padarr.ReadValue<float>() > 0 && verticalpad >= 0)
-			{
-				verticalpad = controles.al1_2d.padarr.ReadValue<float>();
+				if(controles.al1_2d.padarr.ReadValue<float>() > 0 && verticalpad >= 0)
+				{
+					verticalpad = controles.al1_2d.padarr.ReadValue<float>();
+				}
+				else if(controles.al1_2d.padabj.ReadValue<float>() > 0 && verticalpad <= 0)
+				{
+					verticalpad = controles.al1_2d.padabj.ReadValue<float>() - (controles.al1_2d.padabj.ReadValue<float>() * 2);
+				}
+				else{verticalpad = 0;}
 			}
-			else if(controles.al1_2d.padabj.ReadValue<float>() > 0 && verticalpad <= 0)
-			{
-				verticalpad = controles.al1_2d.padabj.ReadValue<float>() - (controles.al1_2d.padabj.ReadValue<float>() * 2);
-			}
-			else{verticalpad = 0;}
 
 		
 
@@ -3092,6 +3131,29 @@ public class jugador_chara2d_al1 : jugador_al1
 		{
 			enetouch = true;
 		}
+		if (col.gameObject.tag == "dañox10")
+		{
+			if(col.gameObject.GetComponent<romperbala_al1>() != null)
+			{
+				romperbala_al1 enec = col.gameObject.GetComponent<romperbala_al1>();
+				if(enec.salir == false)
+				{
+					eneempuj = col.gameObject;
+					enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
+					enmovdirectaux = enmovdirectaux.normalized;
+					tempempujon = 0;
+					empujon = true;
+
+					muertesjug.Play();
+					if(enec.danofijo == true)
+					{
+						vida -= (vidamax/100) * enec.porcentaje;
+					}
+					else
+					{vida -= enec.danoj;}
+				}
+			}
+		}
 		else if (col.gameObject.tag == "pisar" && col.gameObject.tag != "enemigo" && enetouch == false )
 		{
 					
@@ -3236,6 +3298,51 @@ public class jugador_chara2d_al1 : jugador_al1
 				enec.dest.Play();
 			}
 		}
+		if (col.gameObject.tag == "dañox5")
+		{
+			if(col.gameObject.GetComponent<golpe_al1>() != null)
+			{
+				golpe_al1 enec = col.gameObject.GetComponent<golpe_al1>();
+				if(enec.toquespalo > 0 && enec.minmun == true)
+				{
+					eneempuj = col.gameObject;
+					enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
+					enmovdirectaux = enmovdirectaux.normalized;
+					tempempujon = 0;
+					empujon = true;
+					enec.toquespalo--;
+					temppalo = 0;
+					temppaparec = 0;
+					tempdefrec = 0;
+					temprelrec = 0;
+					enec.dest.Play();
+				}
+				else if(enec.toquespalo > 0 && enec.ultimo == true)
+				{
+					eneempuj = col.gameObject;
+					enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
+					enmovdirectaux = enmovdirectaux.normalized;
+					tempempujon = 0;
+					empujon = true;
+					enec.toquespalo--;
+					temppalo = 0;
+					vida = 1;
+					enec.dest.Play();
+				}
+				else if(enec.toquespalo > 0 )
+				{
+					eneempuj = col.gameObject;
+					enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
+					enmovdirectaux = enmovdirectaux.normalized;
+					tempempujon = 0;
+					empujon = true;
+					enec.toquespalo--;
+					temppalo = 0;
+					vida -= enec.dano;
+					enec.dest.Play();
+				}
+			}
+		}
 		if (col.gameObject.tag == "pisarboss")
 		{
 			GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
@@ -3284,6 +3391,30 @@ public class jugador_chara2d_al1 : jugador_al1
 	}
 	public void OnTriggerExit(Collider col)
 	{
+
+		if (col.gameObject.tag == "dañox10")
+		{
+			if(col.gameObject.GetComponent<romperbala_al1>() != null)
+			{
+				romperbala_al1 enec = col.gameObject.GetComponent<romperbala_al1>();
+				if(enec.salir == true)
+				{
+					eneempuj = col.gameObject;
+					enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
+					enmovdirectaux = enmovdirectaux.normalized;
+					tempempujon = 0;
+					empujon = true;
+
+					muertesjug.Play();
+					if(enec.danofijo == true)
+					{
+						vida -= (vidamax/100) * enec.porcentaje;
+					}
+					else
+					{vida -= enec.danoj;}
+				}
+			}
+		}
 
 		if (col.gameObject.tag == "enemigo")
 		{
