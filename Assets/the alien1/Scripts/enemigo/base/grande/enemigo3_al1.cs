@@ -659,7 +659,7 @@ public class enemigo3_al1: MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0 && escudoact == false && detectar == true)
+        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0 && escudoact == false && fuera == true)
 		{
             jugador1.toquespalo--;
             vida -= col.gameObject.GetComponent<golpe_al1>().dano;
@@ -677,7 +677,7 @@ public class enemigo3_al1: MonoBehaviour
             jugador1.niveleneui.text = nivelactual.ToString();
             
 		}
-        if (col.gameObject.tag == "danoarma8" && escudoact == true && detectar == true && modoatk != "encerrar")
+        if (col.gameObject.tag == "danoarma8" && escudoact == true && fuera == true && modoatk != "encerrar")
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
@@ -722,7 +722,7 @@ public class enemigo3_al1: MonoBehaviour
                 Destroy(explosiont, 1f);
             }
 		}
-        if (col.gameObject.tag == "danoarma9" && detectar == true)
+        if (col.gameObject.tag == "danoarma9" && fuera == true)
 		{
             detectar = false;
 		}
@@ -745,7 +745,7 @@ public class enemigo3_al1: MonoBehaviour
     }
     private void OnTriggerExit(Collider col)
 	{
-        if (col.gameObject.tag == "danoarma10" && escudoact == true && detectar == true)
+        if (col.gameObject.tag == "danoarma10" && escudoact == true && fuera == true)
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
@@ -788,7 +788,7 @@ public class enemigo3_al1: MonoBehaviour
                 Destroy(explosiont, 1f);
             }
 		}
-        if (col.gameObject.tag == "danoarma9" && escudoact == true && detectar == true)
+        if (col.gameObject.tag == "danoarma9" && escudoact == true && fuera == true)
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
@@ -833,7 +833,7 @@ public class enemigo3_al1: MonoBehaviour
             }
         }
 
-        if (col.gameObject.tag == "danoarma8" && escudoact == true && detectar == true && modoatk == "encerrar")
+        if (col.gameObject.tag == "danoarma8" && escudoact == true && modoatk == "encerrar")
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();

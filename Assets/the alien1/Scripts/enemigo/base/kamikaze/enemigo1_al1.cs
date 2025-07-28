@@ -979,7 +979,7 @@ public class enemigo1_al1: MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0 && detectar == true )
+        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0 && fuera == true)
 		{
             jugador1.toquespalo--;
             jugador1.muertesjug.Stop();
@@ -995,7 +995,7 @@ public class enemigo1_al1: MonoBehaviour
             temprb = 1;
             vidapisar = false;
 		}
-        if (col.gameObject.tag == "danoarma8" && detectar == true)
+        if (col.gameObject.tag == "danoarma8" && fuera == true)
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
@@ -1008,7 +1008,7 @@ public class enemigo1_al1: MonoBehaviour
             danoene.Play();
             vidapisar = false;
 		}
-        if (col.gameObject.tag == "danoarma9" && detectar == true)
+        if (col.gameObject.tag == "danoarma9" && fuera == true)
 		{
             detectar = false;
 		}
@@ -1016,7 +1016,7 @@ public class enemigo1_al1: MonoBehaviour
 	}
     private void OnTriggerExit(Collider col)
 	{
-        if (col.gameObject.tag == "danoarma10" && detectar == true)
+        if (col.gameObject.tag == "danoarma10" && fuera == true)
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
@@ -1029,7 +1029,7 @@ public class enemigo1_al1: MonoBehaviour
             danoene.Play();
             vidapisar = false;
 		}
-        if (col.gameObject.tag == "danoarma9" && detectar == true)
+        if (col.gameObject.tag == "danoarma9" && fuera == true)
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();

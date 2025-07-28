@@ -869,7 +869,7 @@ public class enemigo2_al1: MonoBehaviour
     }
     private void OnTriggerExit(Collider col)
 	{
-        if (col.gameObject.tag == "danoarma10" && detectar == true)
+        if (col.gameObject.tag == "danoarma10" && fuera == true)
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
@@ -882,7 +882,7 @@ public class enemigo2_al1: MonoBehaviour
             jugador1.niveleneui.text = nivelactual.ToString();
             danoene.Play();
 		}
-        if (col.gameObject.tag == "danoarma9" && detectar == true)
+        if (col.gameObject.tag == "danoarma9" && fuera == true)
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
@@ -898,7 +898,7 @@ public class enemigo2_al1: MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0 && detectar == true)
+        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0 && fuera == true)
 		{
             cancelatk--;
             jugador1.toquespalo--;
@@ -913,7 +913,7 @@ public class enemigo2_al1: MonoBehaviour
             jugador1.niveleneui.text = nivelactual.ToString();
             
 		}
-        if (col.gameObject.tag == "danoarma8" && detectar == true)
+        if (col.gameObject.tag == "danoarma8" && fuera == true)
 		{
             cancelatk--;
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
