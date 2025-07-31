@@ -122,8 +122,8 @@ public class tienda_al1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        boton = controles.al1_general.pausa.ReadValue<float>();
-        botonb = controles.al1_general.b.ReadValue<float>();
+        boton = controles.al1_UI.menu1.ReadValue<float>();
+        botonb = controles.al1_UI.atras.ReadValue<float>();
         if(boton > 0 && temp > 0.7f )
         {
                 if(tiendaM.activeSelf)

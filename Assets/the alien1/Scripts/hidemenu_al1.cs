@@ -32,12 +32,12 @@ public class hidemenu_al1 : MonoBehaviour
     void Update()
     {
             anim = GetComponent<Animator>();
-            if(controles.al1_general.l3.ReadValue<float>() > 0 || act2 == true)
+            if(controles.al1_UI.UIreducido.ReadValue<float>() > 0 || act2 == true)
             {
                 anim.SetBool("show",true);
                 act2 = false;
             }
-            else if(controles.al1_general.l3.ReadValue<float>() == 0)
+            else if(controles.al1_UI.UIreducido.ReadValue<float>() == 0)
             {anim.SetBool("show",false);}
 
     }

@@ -313,13 +313,13 @@ public class pausa_al1 : MonoBehaviour
         }
         if(mapaact == true)
         {
-            if(controles.al1_general.l3.ReadValue<float>() > 0)
+            if(controles.al1_UI.ubi.ReadValue<float>() > 0)
             {
                 ubicar();
             }
 
-            xmapC = controles.al1_general.lhorizontal.ReadValue<float>();
-            ymapC = controles.al1_general.lvertical.ReadValue<float>();
+            xmapC = controles.al1_UI.movX.ReadValue<float>();
+            ymapC = controles.al1_UI.movY.ReadValue<float>();
 
             
 
@@ -404,19 +404,19 @@ public class pausa_al1 : MonoBehaviour
         }
         if(modo == 0)
         {
-            boton = controles.al1_general.pausa.ReadValue<float>();
+            boton = controles.al1_UI.menu1.ReadValue<float>();
         }
         else if(modo == 1)
         {
-            boton = controles.al1_general.select.ReadValue<float>();
+            boton = controles.al1_UI.menu2.ReadValue<float>();
         }
         else if(modo == 2)
         {
-            boton = controles.al1_general.pausa.ReadValue<float>();
+            boton = controles.al1_UI.menu1.ReadValue<float>();
         }
         
 
-        botonb = controles.al1_general.b.ReadValue<float>();
+        botonb = controles.al1_UI.atras.ReadValue<float>();
         
         if(manager.datosconfig.idioma == "es")
         {

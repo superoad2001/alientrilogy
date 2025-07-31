@@ -141,7 +141,27 @@ public class jugador_charalobby_al1 : jugador_al1
 	public eventosdialogue eventosdialogueE;
 	public AudioSource vozMeet;
 	private float tempdash = 12;
-	private float tempdash2 = 12;	
+	private float tempdash2 = 12;
+	private float ruletaXc;
+	private float ruletaYc;
+	private float camXc;
+	private float camYc;
+	private float movXc;
+	private float movYc;
+	private float UIXc;
+	private float UIYc;	
+	private float saltarc;
+	private float dashc;
+	private float golpearc;
+	private float golpearMc;
+	private float interactuarc;
+	private float dispararc;
+	private float ruletac;
+	private float UIreducidoc;
+	private float correrc;
+	private float menu1c;
+	private float menu2c;
+	public float lateralc;		
 	public void Awake()
     {
         controles = new Controles();
@@ -335,101 +355,52 @@ public class jugador_charalobby_al1 : jugador_al1
 		
 
 			
-			rhorizontalc = controles.al1_general.rhorizontal.ReadValue<float>();
-			rverticalc = controles.al1_general.rvertical.ReadValue<float>();
+			ruletaXc = controles.al1_3d.movX.ReadValue<float>();
+			ruletaYc = controles.al1_3d.movY.ReadValue<float>();
+
+
+			camXc = controles.al1_3d.camX.ReadValue<float>();
+			camYc = controles.al1_3d.camY.ReadValue<float>();
+
 			
 
-			lhorizontalc = controles.al1_general.lhorizontal.ReadValue<float>();
-			lverticalc = controles.al1_general.lvertical.ReadValue<float>();
-
 
 			
 
 
+			if(movact == true)
+			{
+				movXc = controles.al1_3d.movX.ReadValue<float>();
+				movYc = controles.al1_3d.movY.ReadValue<float>();	
+			}
 
-			if(controles.al1_general.padder.ReadValue<float>() > 0 && horizontalpad >= 0)
-			{
-				horizontalpad = controles.al1_general.padder.ReadValue<float>();
-			}
-			else if(controles.al1_general.padizq.ReadValue<float>() > 0 && horizontalpad <= 0)
-			{
-				horizontalpad = controles.al1_general.padizq.ReadValue<float>() - (controles.al1_general.padizq.ReadValue<float>() * 2);
-			}
-			else{horizontalpad = 0;}
-
-			if(controles.al1_general.padarr.ReadValue<float>() > 0 && verticalpad >= 0)
-			{
-				verticalpad = controles.al1_general.padarr.ReadValue<float>();
-			}
-			else if(controles.al1_general.padabj.ReadValue<float>() > 0 && verticalpad <= 0)
-			{
-				verticalpad = controles.al1_general.padabj.ReadValue<float>() - (controles.al1_general.padabj.ReadValue<float>() * 2);
-			}
-			else{verticalpad = 0;}
 		
 
-		if(controles.al1_general.lder.ReadValue<float>() > 0 && menupadH >= 0)
-		{
-			menupadH = controles.al1_general.lder.ReadValue<float>();
-		}
-		else if(controles.al1_general.lizq.ReadValue<float>() > 0 && menupadH <= 0)
-		{
-			menupadH = controles.al1_general.lizq.ReadValue<float>() - (controles.al1_general.lizq.ReadValue<float>() * 2);
-		}
-		else{menupadH = 0;}
-
-		if(controles.al1_general.larr.ReadValue<float>() > 0 && menupadV >= 0)
-		{
-			menupadV = controles.al1_general.larr.ReadValue<float>();
-		}
-		else if(controles.al1_general.labj.ReadValue<float>() > 0 && menupadV <= 0)
-		{
-			menupadV = controles.al1_general.labj.ReadValue<float>() - (controles.al1_general.labj.ReadValue<float>() * 2);
-		}
-		else{menupadV = 0;}
-
-
-
-		a = controles.al1_general.a.ReadValue<float>();
-		b = controles.al1_general.b.ReadValue<float>();
-		x = controles.al1_general.x.ReadValue<float>();
-		y = controles.al1_general.y.ReadValue<float>();
-		xp = controles.al1_general.xpress.ReadValue<float>();
-		
-		rt = controles.al1_general.rt.ReadValue<float>();
-		lb = controles.al1_general.lb.ReadValue<float>();
-		
-		l3 = controles.al1_general.l3.ReadValue<float>();
-		r3 = controles.al1_general.r3.ReadValue<float>();
-
-
-		if(manager.datosconfig.plat == 2)
-		{
-				
-				lt = controles.al1_general.lt.ReadValue<float>();
-				rb = controles.al1_general.rb.ReadValue<float>();		
-			
-			
-		}
-		else
-		{
-		rb = controles.al1_general.rb.ReadValue<float>();
-		lt = controles.al1_general.lt.ReadValue<float>();
-		}
-
-		pausac = controles.al1_general.pausa.ReadValue<float>();
-
-		selectc = controles.al1_general.select.ReadValue<float>();
+		lateralc = controles.al1_3d.lateral.ReadValue<float>();
+		UIXc = controles.al1_UI.UIX.ReadValue<float>();
+		UIYc = controles.al1_UI.UIY.ReadValue<float>();	
+		saltarc = controles.al1_3d.saltar.ReadValue<float>();
+		dashc = controles.al1_3d.dash.ReadValue<float>();
+		golpearc = controles.al1_3d.golpear.ReadValue<float>();
+		golpearMc = controles.al1_3d.golpearM.ReadValue<float>();
+		interactuarc = controles.al1_3d.interactuar.ReadValue<float>();		
+		dispararc = controles.al1_3d.disparar.ReadValue<float>();
+		ruletac = controles.al1_3d.ruleta.ReadValue<float>();	
+		UIreducidoc = controles.al1_3d.UIreducido.ReadValue<float>();
+		marcarc = controles.al1_3d.marcar.ReadValue<float>();
+		correrc = controles.al1_3d.correr.ReadValue<float>();
+		menu1c = controles.al1_3d.menu1.ReadValue<float>();
+		menu2c = controles.al1_3d.menu2.ReadValue<float>();
 		
 
-		if (pausac > 0 && temp10 > 0.7f)
+		if (menu1c > 0 && temp10 > 0.7f)
 		{
 			Time.timeScale = 0;
 			manager.pauseact = true;
 			pausa1.SetActive(true);
 			controlact = false;
 			combo = 0;
-			pausac = 0;
+			menu1c = 0;
 			temp10 = 0;
 			if(manager.datosconfig.plat == 2)
 			{
@@ -439,7 +410,7 @@ public class jugador_charalobby_al1 : jugador_al1
 			Cursor.lockState = CursorLockMode.None;
 		}
 
-		else if (selectc > 0 && temp10 > 0.7f)
+		else if (menu2c > 0 && temp10 > 0.7f)
 		{
 			Time.timeScale = 0;
 			manager.pauseact = true;
@@ -449,7 +420,7 @@ public class jugador_charalobby_al1 : jugador_al1
 			pausatemp.RestoreOriginalControls();
 			controlact = false;
 			combo = 0;
-			selectc = 0;
+			menu2c = 0;
 			temp10 = 0;
 			if(manager.datosconfig.plat == 2)
 			{
@@ -465,8 +436,8 @@ public class jugador_charalobby_al1 : jugador_al1
 	else
 	{
 		
-		rhorizontalc = controles.al1_general.rhorizontal.ReadValue<float>();
-		rverticalc = controles.al1_general.rvertical.ReadValue<float>();
+		camXc = controles.al1_3d.camX.ReadValue<float>();
+		camYc = controles.al1_3d.camY.ReadValue<float>();
 		
 	}
 	
@@ -491,7 +462,7 @@ public class jugador_charalobby_al1 : jugador_al1
 		if (this.ascensor && manager.piso == 1)
 		{
 			
-			if (rt > 0f && manager.datosserial.tengovel == 1 && bajar1 == false && bajar1esp == false && tiempoascensor > 2f)
+			if (dispararc > 0f && manager.datosserial.tengovel == 1 && bajar1 == false && bajar1esp == false && tiempoascensor > 2f)
 			{
 				subir1 = true;
 				subir = true;
@@ -501,7 +472,7 @@ public class jugador_charalobby_al1 : jugador_al1
 				
 				
 			}
-			if (lt > 0f && manager.datosserial.tengonave == 1 && manager.datosserial.cinematicaf == 1 && subir1 == false && tiempoascensor > 2f)
+			if (lateralc > 0f && manager.datosserial.tengonave == 1 && manager.datosserial.cinematicaf == 1 && subir1 == false && tiempoascensor > 2f)
 			{
 				bajar1esp = true;
 				bajar = true;
@@ -510,7 +481,7 @@ public class jugador_charalobby_al1 : jugador_al1
 				manager.datosserial.asc = -1;
 				manager.guardar();
 			}
-			else if (lt> 0f && manager.datosserial.economia[0] >= 1 && subir1 == false && tiempoascensor > 2f)
+			else if (lateralc > 0f && manager.datosserial.economia[0] >= 1 && subir1 == false && tiempoascensor > 2f)
 			{
 				bajar1 = true;
 				bajar = true;
@@ -531,7 +502,7 @@ public class jugador_charalobby_al1 : jugador_al1
 		if (subir0 == true){ascensors.SetFloat("asc2",1);}
 		if (this.ascensor && manager.piso == 2 && tiempoascensor > 2f)
 		{
-			if (rt > 0f && manager.datosserial.tengocoche == 1 && bajar2 == false)
+			if (dispararc > 0f && manager.datosserial.tengocoche == 1 && bajar2 == false)
 			{
 				subir2 = true;
 				subir = true;
@@ -540,7 +511,7 @@ public class jugador_charalobby_al1 : jugador_al1
 				manager.guardar();
 				
 			}
-			if (lt > 0f && subir2 == false)
+			if (lateralc > 0f && subir2 == false)
 			{
 				bajar2 = true;
 				bajar = true;
@@ -556,7 +527,7 @@ public class jugador_charalobby_al1 : jugador_al1
 		}
 		if (this.ascensor && manager.piso == 3 && tiempoascensor > 2f)
 		{
-			if (rt > 0f && manager.datosserial.tengosalto == 1 && bajar3 == false )
+			if (dispararc > 0f && manager.datosserial.tengosalto == 1 && bajar3 == false )
 			{
 				subir3 = true;
 				subir = true;
@@ -564,7 +535,7 @@ public class jugador_charalobby_al1 : jugador_al1
 				manager.datosserial.asc = 1;
 				manager.guardar();
 			}
-			if (lt > 0f && subir3 == false )
+			if (lateralc > 0f && subir3 == false )
 			{
 				bajar3 = true;
 				bajar = true;
@@ -577,7 +548,7 @@ public class jugador_charalobby_al1 : jugador_al1
 			if (subir3 == true){ascensors.SetFloat("asc2",1);}
 			
 		}
-		if (this.ascensor && manager.piso == 5 && lt > 0f && subir5 == false && tiempoascensor > 2f)
+		if (this.ascensor && manager.piso == 5 && lateralc > 0f && subir5 == false && tiempoascensor > 2f)
 		{
 				bajar5 = true;
 				bajar = true;
@@ -585,7 +556,7 @@ public class jugador_charalobby_al1 : jugador_al1
 				manager.datosserial.asc = -1;
 				manager.guardar();
 		}
-				if (this.ascensor && manager.piso == 5 && rt > 0f && bajar5 == false && tiempoascensor > 2f)
+				if (this.ascensor && manager.piso == 5 && dispararc > 0f && bajar5 == false && tiempoascensor > 2f)
 		{
 				subir5 = true;
 				subir = true;
@@ -599,7 +570,7 @@ public class jugador_charalobby_al1 : jugador_al1
 		if (subir5 == true){ascensors.SetFloat("asc2",1);}
 		if (this.ascensor && manager.piso == 4 && tiempoascensor > 2f)
 		{
-			if (rt > 0f && manager.datosserial.economia[1] >= 4 && bajar4 == false)
+			if (dispararc > 0f && manager.datosserial.economia[1] >= 4 && bajar4 == false)
 			{
 				subir4 = true;
 				subir = true;
@@ -608,7 +579,7 @@ public class jugador_charalobby_al1 : jugador_al1
 				manager.guardar();
 				
 			}
-			if (lt > 0f && subir4 == false ) 
+			if (lateralc > 0f && subir4 == false ) 
 			{
 				bajar4 = true;
 				bajar = true;
@@ -623,7 +594,7 @@ public class jugador_charalobby_al1 : jugador_al1
 		}
 			if (this.ascensor && manager.piso == -1 && tiempoascensor > 2f)
 		{
-			if (rt > 0f && bajart1 == false )
+			if (dispararc > 0f && bajart1 == false )
 			{
 				subirt1 = true;
 				subir = true;
@@ -632,7 +603,7 @@ public class jugador_charalobby_al1 : jugador_al1
 				manager.guardar();
 				
 			}
-			if (lt> 0f && subirt1 == false) 
+			if (lateralc > 0f && subirt1 == false) 
 			{
 				bajart1 = true;
 				bajar = true;
@@ -647,7 +618,7 @@ public class jugador_charalobby_al1 : jugador_al1
 		}
 			if (this.ascensor && manager.piso == -2 && tiempoascensor > 2f)
 		{
-			if (rt > 0f && bajart2 == false)
+			if (dispararc > 0f && bajart2 == false)
 			{
 				subirt2= true;
 				subir = true;
@@ -656,7 +627,7 @@ public class jugador_charalobby_al1 : jugador_al1
 				manager.guardar();
 				
 			}
-			if (lt > 0f && subirt2 == false) 
+			if (lateralc > 0f && subirt2 == false) 
 			{
 				bajart2 = true;
 				bajar = true;
@@ -671,7 +642,7 @@ public class jugador_charalobby_al1 : jugador_al1
 		}
 			if (this.ascensor && manager.piso == -3 && tiempoascensor > 2f)
 		{
-			if (rt > 0f && bajart3 == false)
+			if (dispararc > 0f && bajart3 == false)
 			{
 				subirt3 = true;
 				subir = true;
@@ -680,7 +651,7 @@ public class jugador_charalobby_al1 : jugador_al1
 				manager.guardar();
 				
 			}
-			if (lt > 0f && subirt3 == false ) 
+			if (lateralc > 0f && subirt3 == false ) 
 			{
 				bajart3 = true;
 				bajar = true;
@@ -695,9 +666,9 @@ public class jugador_charalobby_al1 : jugador_al1
 		}
 		if (this.ascensor && manager.piso == -4 && tiempoascensor > 2f)
 		{
-			anim.SetFloat("velx",lhorizontalc);
-        anim.SetFloat("vely",lverticalc);
-			if (rt > 0f && bajart4 == false )
+			anim.SetFloat("velx",movXc);
+        anim.SetFloat("vely",movYc);
+			if (dispararc > 0f && bajart4 == false )
 			{
 				subirt4 = true;
 				subir = true;
@@ -706,7 +677,7 @@ public class jugador_charalobby_al1 : jugador_al1
 				manager.guardar();
 				
 			}
-			if (lt > 0f && subirt4 == false ) 
+			if (lateralc > 0f && subirt4 == false ) 
 			{
 				bajart4 = true;
 				bajar = true;
@@ -721,7 +692,7 @@ public class jugador_charalobby_al1 : jugador_al1
 		}
 		if (this.ascensor && manager.piso == -5 && tiempoascensor > 2f)
 		{
-			if (lt > 0f ) 
+			if (lateralc > 0f ) 
 			{
 				bajart5 = true;
 				bajar = true;
@@ -790,25 +761,25 @@ public class jugador_charalobby_al1 : jugador_al1
 
 		if (subir == false && bajar == false )
 		{
-			anim.SetFloat("velx",lhorizontalc);
-			anim.SetFloat("vely",lverticalc);
+			anim.SetFloat("velx",movXc);
+			anim.SetFloat("vely",movYc);
 			if(anim.GetCurrentAnimatorStateInfo(1).IsName("dashtierra"))
 			{
-				lhorizontalc = 0;
-				lverticalc = 0;
+				movXc = 0;
+				movYc = 0;
 			}
 			
 
-			Vector3 movdirnow = new Vector3 (lhorizontalc,0, lverticalc).normalized;
+			Vector3 movdirnow = new Vector3 (movXc,0, movYc).normalized;
 			camarascript.maxdis = 10;
 			if(tiempoascensor > 1.7f)
 			{
-				if(lhorizontalc != 0 || lverticalc != 0)
+				if(movXc != 0 || movYc != 0)
 				{
 					
 					_rb.linearVelocity = transform.TransformDirection(new Vector3(movdirnow.x * velocidad, _rb.linearVelocity.y, movdirnow.z * velocidad));
 					
-					angulomod = Mathf.Atan2(lhorizontalc, lverticalc) * Mathf.Rad2Deg;
+					angulomod = Mathf.Atan2(movXc, movYc) * Mathf.Rad2Deg;
 					mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation, 
 																Quaternion.Euler(mod.transform.localEulerAngles.x, angulomod, mod.transform.localEulerAngles.z),
 																15 * Time.deltaTime);
@@ -830,11 +801,11 @@ public class jugador_charalobby_al1 : jugador_al1
 				float distaxe = movdire.magnitude * Time.fixedDeltaTime;
 				movdire.Normalize();
 				RaycastHit hit;
-				Vector3 moveDirection = new Vector3(lhorizontalc, 0, lverticalc).normalized;
+				Vector3 moveDirection = new Vector3(movXc, 0, movYc).normalized;
 
 				
 				
-				if(lverticalc == 0f && lhorizontalc == 0f)
+				if(movYc == 0f && movXc == 0f)
 				{
 					anim.SetBool("stat",true);
 					dashefect = false;
@@ -861,7 +832,7 @@ public class jugador_charalobby_al1 : jugador_al1
 				
 				
 
-				if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
+				if(suelo == true && movYc < 0f || suelo == true && movYc > 0f || suelo == true && movXc < 0f|| suelo == true && movXc > 0f)
 				{
 					if(temppaso > pasotiempo)
 					{
@@ -890,13 +861,13 @@ public class jugador_charalobby_al1 : jugador_al1
 			if(tiempoascensor > 1.7f)
 			{
 
-				if(rhorizontalc != 0)
-				{rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;}
+				if(camXc != 0)
+				{rotationinput.x = camXc * rotspeed * Time.deltaTime;}
 				else{rotationinput.x = 0;}
 				
 
-				if(rverticalc != 0)
-				{rotationinput.y = rverticalc * rotspeed * Time.deltaTime;}
+				if(camYc != 0)
+				{rotationinput.y = camYc * rotspeed * Time.deltaTime;}
 				else{rotationinput.y = 0;}
 				
 
@@ -924,7 +895,7 @@ public class jugador_charalobby_al1 : jugador_al1
 				camaux = camara.transform.eulerAngles.y;
 
 
-				if (lhorizontalc != 0f && rhorizontalc != 0f|| lverticalc != 0 && rhorizontalc != 0f || lhorizontalc != 0f || lverticalc != 0)
+				if (movXc != 0f && camXc != 0f|| movYc != 0 && camXc != 0f || movXc != 0f || movYc != 0)
 				{
 					transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.Euler(transform.eulerAngles.x,camaux,transform.eulerAngles.z),30f* Time.deltaTime);
 					camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,boxcam2.transform.localEulerAngles.y,camara.transform.localEulerAngles.z),30f* Time.deltaTime);	
@@ -1101,7 +1072,7 @@ public class jugador_charalobby_al1 : jugador_al1
 						
 					}
 				
-				if(lb == 0)
+				if(ruletac == 0)
 				{
 					
 					if(manager.datosserial.tengolanzar == true)
@@ -1330,7 +1301,7 @@ public class jugador_charalobby_al1 : jugador_al1
 						cambioruedaact = 1;
 					}
 
-					if(verticalpad > 0.5f )
+					if(ruletaYc > 0.5f )
 					{
 						if(manager.datosserial.tengolanzar == true && tiempodisp > 0.2f)
 						{
@@ -1405,7 +1376,7 @@ public class jugador_charalobby_al1 : jugador_al1
 							
 						}
 					}
-					if(verticalpad < -0.5f )
+					if(ruletaYc < -0.5f )
 					{
 						
 						if(manager.datosserial.armadef == true && tiempodisp > 0.2f)
@@ -1434,7 +1405,7 @@ public class jugador_charalobby_al1 : jugador_al1
 							
 						}
 					}
-					if(horizontalpad > 0.5f )
+					if(ruletaXc > 0.5f )
 					{
 						if(manager.datosserial.armapapa == true && tiempodisp > 0.2f)
 						{
@@ -1468,7 +1439,7 @@ public class jugador_charalobby_al1 : jugador_al1
 							pistolabazoka.SetActive(false);
 						}
 					}
-					if(horizontalpad < -0.5f )
+					if(ruletaXc < -0.5f )
 					{
 						if(manager.datosserial.armarelen == true && tiempodisp > 0.2f)
 						{
@@ -1497,7 +1468,7 @@ public class jugador_charalobby_al1 : jugador_al1
 						}
 					}
 				}
-				if(lb > 0 && manager.datosserial.tengolanzar == true)
+				if(ruletac > 0 && manager.datosserial.tengolanzar == true)
 				{
 
 					circulopaloimg.fillAmount = 1;
@@ -1603,32 +1574,32 @@ public class jugador_charalobby_al1 : jugador_al1
 			if(manager.datosserial.tengolanzar == true )
 			{
 
-				if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 1 && temppalo > 3  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  rt > 0  )
+				if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 1 && temppalo > 3  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  dispararc > 0  )
 				{
 					
 				}
-				if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 2 && temppalo > 40 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  rt > 0 )
+				if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 2 && temppalo > 40 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  dispararc > 0 )
 				{
 					
 				}
 
-				if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3 && temppalo > 5 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && suelo == true && tiempodisp > 0.5f &&  rt > 0 )
+				if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3 && temppalo > 5 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && suelo == true && tiempodisp > 0.5f &&  dispararc > 0 )
 				{
 					
 				}
 				
 
 
-				if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 4 && temppalo > 30 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  rt > 0 )
+				if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 4 && temppalo > 30 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  dispararc > 0 )
 				{
 					
 				}
-				if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 5 && temppalo >= 60 && inbuiract == false && tempinbuir  == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  rt > 0 )
+				if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 5 && temppalo >= 60 && inbuiract == false && tempinbuir  == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  dispararc > 0 )
 				{
 					
 				}
 				
-				if(xp > 0 && suelo == true && tiempodisp > 0.7f  && combo == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") &&  rt == 0 && stamina > 10 )
+				if(xp > 0 && suelo == true && tiempodisp > 0.7f  && combo == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") &&  dispararc == 0 && stamina > 10 )
 				{
 					anim.SetBool("atk",true);
 					tiempodisp = 0;
@@ -1643,7 +1614,7 @@ public class jugador_charalobby_al1 : jugador_al1
 					stamina -= 10;
 					staminaact = -2;
 				}
-				else if(xp > 0 && suelo == true && tiempodisp > 0.2f && combo == 1 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk") &&  rt == 0 && stamina > 10 )
+				else if(xp > 0 && suelo == true && tiempodisp > 0.2f && combo == 1 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk") &&  dispararc == 0 && stamina > 10 )
 				{
 					anim.SetBool("atk2",true);
 					combo = 2;
@@ -1663,7 +1634,7 @@ public class jugador_charalobby_al1 : jugador_al1
 					golpeson.Play();
 					combo = 3;
 				}
-				else if(xp > 0 && suelo == true && tiempodisp > 0.3f && combo == 3 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk2") &&  rt == 0  && stamina > 10)
+				else if(xp > 0 && suelo == true && tiempodisp > 0.3f && combo == 3 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk2") &&  dispararc == 0  && stamina > 10)
 				{
 					anim.SetBool("atk3",true);
 					combo = 4;
@@ -1685,7 +1656,7 @@ public class jugador_charalobby_al1 : jugador_al1
 				}
 
 
-				else if(xp > 0 && suelo == true && combo == 5 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk3") &&  rt == 0 && stamina > 10 )
+				else if(xp > 0 && suelo == true && combo == 5 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk3") &&  dispararc == 0 && stamina > 10 )
 				{
 					anim.SetBool("atk4",true);
 					combo = 6;
@@ -1705,7 +1676,7 @@ public class jugador_charalobby_al1 : jugador_al1
 					golpeson.Play();
 					combo = 7;
 				}
-				else if(xp > 0 && suelo == true && tiempodisp > 0.2f && combo == 7 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk4") &&  rt == 0 && stamina > 10)
+				else if(xp > 0 && suelo == true && tiempodisp > 0.2f && combo == 7 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk4") &&  dispararc == 0 && stamina > 10)
 				{
 					anim.SetBool("atk5",true);
 					combo = 8;
@@ -1727,7 +1698,7 @@ public class jugador_charalobby_al1 : jugador_al1
 				}
 
 
-				else if(xp > 0 && suelo == false &&  rt == 0  && stamina > 20)
+				else if(xp > 0 && suelo == false &&  dispararc == 0  && stamina > 20)
 				{
 					anim.SetBool("atks",true);
 					tiempodisp = 0;
@@ -1782,7 +1753,7 @@ public class jugador_charalobby_al1 : jugador_al1
 			}
 			if(manager.datosserial.armapapa == true && manager.datosserial.armasel == 2)
 			{
-				if(rt > 0  && temppaparec >= balapapamun[manager.datosserial.nivelarmapapa -1] && tiempodisp > balapadrecaden[manager.datosserial.nivelarmapapa-1] && papaagotada == false)
+				if(dispararc > 0  && temppaparec >= balapapamun[manager.datosserial.nivelarmapapa -1] && tiempodisp > balapadrecaden[manager.datosserial.nivelarmapapa-1] && papaagotada == false)
 				{
 					
 
@@ -1794,7 +1765,7 @@ public class jugador_charalobby_al1 : jugador_al1
 			}
 			if(manager.datosserial.armarelen == true  && manager.datosserial.armasel == 4)
 			{
-				if(rt > 0  && tiempodisp > 0.5f && temprelrec >= 40f)
+				if(dispararc > 0  && tiempodisp > 0.5f && temprelrec >= 40f)
 				{
 					
 
@@ -1806,7 +1777,7 @@ public class jugador_charalobby_al1 : jugador_al1
 			}
 			if(manager.datosserial.armadef == true  && manager.datosserial.armasel == 3)
 			{
-				if(rt > 0  && tiempodisp > 0.5f && tempdefrec >= 60f && manager.datosserial.armadefdesbloqueada == true || dispF == true)
+				if(dispararc > 0  && tiempodisp > 0.5f && tempdefrec >= 60f && manager.datosserial.armadefdesbloqueada == true || dispF == true)
 				{
 
 					
@@ -1823,9 +1794,9 @@ public class jugador_charalobby_al1 : jugador_al1
 			
 
 				
-				if(b > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
+				if(dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
 				{
-					Debug.Log(b);
+
 					Debug.Log(tempdash);
 					Debug.Log(dash);
 					Debug.Log(suelo);
@@ -1909,7 +1880,7 @@ public class jugador_charalobby_al1 : jugador_al1
 
 		this.tiemposalto -= Time.deltaTime;
 
-		if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && tiempodialogue > 0.7f)
+		if (this.tiemposalto <= 0f && saltarc > 0f && dialogueact == false && temppause > 0.4f && tiempodialogue > 0.7f)
 		{
 				if(jumpforce == jumpforcebase)
 				{tiempodisp = 0;}
@@ -1918,7 +1889,7 @@ public class jugador_charalobby_al1 : jugador_al1
 				jumpforce = jumpforce / 1.8f;
 				anim.SetBool("salto",true);
 		}
-		if(rb > 0 && velact != true && stamina > 0)
+		if(correrc > 0 && velact != true && stamina > 0)
 		{
 			stamina -= 7 * Time.deltaTime;
 			staminaact = 0;
@@ -1975,29 +1946,29 @@ public class jugador_charalobby_al1 : jugador_al1
 
 
 
-		lhorizontalc = 0;
-		lverticalc = 0;
+		movXc = 0;
+		movYc = 0;
 
 
-		rhorizontalc = 0;
-		rverticalc = 0;
+		camXc = 0;
+		camYc = 0;
 
-		horizontalpad = 0;
-		verticalpad = 0;
+		ruletaXc = 0;
+		ruletaYc = 0;
 
-		a = 0;
-		b = 0;
-		x = 0;
-		y = 0;
+		saltarc = 0;
+		dashc = 0;
+		golpearc = 0;
+		interactuarc = 0;
 
 		
-		rt = 0;
-		lt = 0;
-		rb = 0;
-		lb = 0;
+		dispararc = 0;
+		lateralc = 0;
+		correrc = 0;
+		ruletac = 0;
 		
-		l3 = 0;
-		r3 = 0;
+		UIreducidoc = 0;
+		marcarc = 0;
 		
 	}
 
@@ -2168,7 +2139,7 @@ public class jugador_charalobby_al1 : jugador_al1
 	{
 		if (col.gameObject.tag == "npc")
 		{
-			if (controles.al1_general.y.ReadValue<float>() > 0f && dialogueact == false && tiempodialogue > 0.7f)
+			if (controles.al1_UI.interactuar.ReadValue<float>() > 0f && dialogueact == false && tiempodialogue > 0.7f)
 			{
 				
 				menushow.SetBool("show",false);
@@ -2189,7 +2160,7 @@ public class jugador_charalobby_al1 : jugador_al1
 
 				
 			}
-			else if (controles.al1_general.cinnext.ReadValue<float>() > 0f && tiempodialogue > 0.3f && menuoff != null)
+			else if (controles.al1_UI.cinnext.ReadValue<float>() > 0f && tiempodialogue > 0.3f && menuoff != null)
 			{
 				if(menuoff.dialogueUIManager.dialogueCanvas.activeSelf == true)
 				{
@@ -2237,7 +2208,7 @@ public class jugador_charalobby_al1 : jugador_al1
 		{	
 			if(eventosdialogueE.jug == true)
 			{
-				if (controles.al1_general.cinnext.ReadValue<float>() > 0f && tiempodialogue > 0.3f && menuoff != null)
+				if (controles.al1_UI.cinnext.ReadValue<float>() > 0f && tiempodialogue > 0.3f && menuoff != null)
 				{
 					if(menuoff.dialogueUIManager.dialogueCanvas.activeSelf == true)
 					{
@@ -2284,7 +2255,7 @@ public class jugador_charalobby_al1 : jugador_al1
 			armadefpassC.SetActive(true);
 			controlact = false;
 			combo = 0;
-			rt = 0;
+			dispararc = 0;
 			temp10 = 0;
 			if(manager.datosconfig.plat == 2)
 			{

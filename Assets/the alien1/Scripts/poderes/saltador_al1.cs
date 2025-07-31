@@ -36,7 +36,7 @@ public class saltador_al1 : MonoBehaviour
 		
 		if (col.gameObject.tag == "Player" && manager.datosserial.tengosalto == 1)
 		{
-			if (controles.al1_general.a.ReadValue<float>() > 0f && jugador.dialogueact == false)
+			if (controles.al1_3d.saltar.ReadValue<float>() > 0f && jugador.dialogueact == false)
 			{
 
 				jugador.tiemposalto = 0.5f;

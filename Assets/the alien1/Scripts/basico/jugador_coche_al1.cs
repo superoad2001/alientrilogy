@@ -15,6 +15,18 @@ public class jugador_coche_al1 : jugador_al1
 	public float staminaobj;
 	private int cocheturbo;
 	private float derrape;
+
+	private float movXc;
+	private float movYc;
+	private float UIXc;
+	private float UIYc;	
+	private float turboc;
+	private float aceleracionc;
+	private float habilidadc;
+	private float UIreducidoc;
+	private float aceleracion_atrasc;
+	private float menu1c;
+	private float menu2c;
 	public void Awake()
     {
         controles = new Controles();
@@ -109,93 +121,30 @@ public class jugador_coche_al1 : jugador_al1
 	if(controlact == true)
 	{
 
-			
-		rhorizontalc = controles.al1_general.rhorizontal.ReadValue<float>();
-		rverticalc = controles.al1_general.rvertical.ReadValue<float>();
-		
-
-		lhorizontalc = controles.al1_general.lhorizontal.ReadValue<float>();
-		lverticalc = controles.al1_general.lvertical.ReadValue<float>();
-
-
 		
 
 
+		if(movact == true)
+		{
+			movXc = controles.al1_coche.movX.ReadValue<float>();
+			movYc = controles.al1_coche.movY.ReadValue<float>();	
+		}
 
-		if(controles.al1_general.padder.ReadValue<float>() > 0 && horizontalpad >= 0)
-		{
-			horizontalpad = controles.al1_general.padder.ReadValue<float>();
-		}
-		else if(controles.al1_general.padizq.ReadValue<float>() > 0 && horizontalpad <= 0)
-		{
-			horizontalpad = controles.al1_general.padizq.ReadValue<float>() - (controles.al1_general.padizq.ReadValue<float>() * 2);
-		}
-		else{horizontalpad = 0;}
-
-		if(controles.al1_general.padarr.ReadValue<float>() > 0 && verticalpad >= 0)
-		{
-			verticalpad = controles.al1_general.padarr.ReadValue<float>();
-		}
-		else if(controles.al1_general.padabj.ReadValue<float>() > 0 && verticalpad <= 0)
-		{
-			verticalpad = controles.al1_general.padabj.ReadValue<float>() - (controles.al1_general.padabj.ReadValue<float>() * 2);
-		}
-		else{verticalpad = 0;}
 		
 
-		if(controles.al1_general.lder.ReadValue<float>() > 0 && menupadH >= 0)
-		{
-			menupadH = controles.al1_general.lder.ReadValue<float>();
-		}
-		else if(controles.al1_general.lizq.ReadValue<float>() > 0 && menupadH <= 0)
-		{
-			menupadH = controles.al1_general.lizq.ReadValue<float>() - (controles.al1_general.lizq.ReadValue<float>() * 2);
-		}
-		else{menupadH = 0;}
+		UIXc = controles.al1_UI.UIX.ReadValue<float>();
+		UIYc = controles.al1_UI.UIY.ReadValue<float>();	
+		turboc = controles.al1_coche.turbo.ReadValue<float>();	
+		aceleracionc = controles.al1_coche.aceleracion.ReadValue<float>();
+		aceleracion_atrasc = controles.al1_coche.aceleracion_atras.ReadValue<float>();
+		habilidadc = controles.al1_coche.habilidad.ReadValue<float>();	
+		UIreducidoc = controles.al1_coche.UIreducido.ReadValue<float>();
 
-		if(controles.al1_general.larr.ReadValue<float>() > 0 && menupadV >= 0)
-		{
-			menupadV = controles.al1_general.larr.ReadValue<float>();
-		}
-		else if(controles.al1_general.labj.ReadValue<float>() > 0 && menupadV <= 0)
-		{
-			menupadV = controles.al1_general.labj.ReadValue<float>() - (controles.al1_general.labj.ReadValue<float>() * 2);
-		}
-		else{menupadV = 0;}
-
-
-
-		a = controles.al1_general.a.ReadValue<float>();
-		b = controles.al1_general.b.ReadValue<float>();
-		x = controles.al1_general.x.ReadValue<float>();
-		y = controles.al1_general.y.ReadValue<float>();
-
-		
-		rt = controles.al1_general.rt.ReadValue<float>();
-		lb = controles.al1_general.lb.ReadValue<float>();
-		
-		l3 = controles.al1_general.l3.ReadValue<float>();
-		r3 = controles.al1_general.r3.ReadValue<float>();
-
-
-		if(manager.datosconfig.plat == 2)
-		{	
-				lt = controles.al1_general.lt.ReadValue<float>();
-				rb = controles.al1_general.rb.ReadValue<float>();		
-			
-		}
-		else
-		{
-		rb = controles.al1_general.rb.ReadValue<float>();
-		lt = controles.al1_general.lt.ReadValue<float>();
-		}
-
-		pausac = controles.al1_general.pausa.ReadValue<float>();
-
-		selectc = controles.al1_general.select.ReadValue<float>();
+		menu1c = controles.al1_coche.menu1.ReadValue<float>();
+		menu2c = controles.al1_coche.menu2.ReadValue<float>();
 		
 
-		if (pausac > 0 && temp10 > 0.7f)
+		if (menu1c > 0 && temp10 > 0.7f)
 		{
 			Time.timeScale = 0;
 			manager.pauseact = true;
@@ -205,7 +154,7 @@ public class jugador_coche_al1 : jugador_al1
 				anim.SetBool("act2",true);
 			
 
-			pausac = 0;
+			menu1c = 0;
 			temp10 = 0;
 			if(manager.datosconfig.plat == 2)
 			{
@@ -215,7 +164,7 @@ public class jugador_coche_al1 : jugador_al1
 			Cursor.lockState = CursorLockMode.None;
 		}
 
-		else if (selectc > 0 && temp10 > 0.7f)
+		else if (menu2c > 0 && temp10 > 0.7f)
 		{
 			Time.timeScale = 0;
 			manager.pauseact = true;
@@ -227,7 +176,7 @@ public class jugador_coche_al1 : jugador_al1
 		
 				anim.SetBool("act2",true);
 			
-			selectc = 0;
+			menu2c = 0;
 			temp10 = 0;
 			if(manager.datosconfig.plat == 2)
 			{
@@ -239,13 +188,6 @@ public class jugador_coche_al1 : jugador_al1
 		
 
 		
-	}
-	else
-	{
-
-		rhorizontalc = controles.al1_general.rhorizontal.ReadValue<float>();
-		rverticalc = controles.al1_general.rvertical.ReadValue<float>();
-
 	}
 	if (this.tiempovelint > 1 && suelo == false && velact == true)
 	{
@@ -341,7 +283,7 @@ public class jugador_coche_al1 : jugador_al1
 			staminabarra.fillAmount = staminaobj/100;
 			derrapebarra.fillAmount = derrapeobj/100;
 			camarascript.maxdis = 16;
-			if (a > 0 && turboact == false && cocheturbo > 0)
+			if (turboc > 0 && turboact == false && cocheturbo > 0)
 			{
 				cocheturbo--;
 				turboact = true;
@@ -372,14 +314,14 @@ public class jugador_coche_al1 : jugador_al1
 					turbotemp = 0;
 				}
 			}
-			else if (rt > 0f && lt > 0f)
+			else if (aceleracionc > 0f && aceleracion_atrasc > 0f)
 			{
-				if(derrapeact == false && lhorizontalc > 0.2f ||derrapeact == false && lhorizontalc < -0.7f)
+				if(derrapeact == false && movXc > 0.2f ||derrapeact == false && movXc < -0.7f)
 				{
-					derrapedir = lhorizontalc;
+					derrapedir = movXc;
 					derrapeact = true;
 				}
-				else if(derrapedir > 0 && lhorizontalc > 0.7f)
+				else if(derrapedir > 0 && movXc > 0.7f)
 				{
 					derrapedir += 0.005f * Time.deltaTime;
 					if(derrapedir > 1.05f)
@@ -388,7 +330,7 @@ public class jugador_coche_al1 : jugador_al1
 					}
 
 				}
-				else if(derrapedir < 0 && lhorizontalc < -0.7f)
+				else if(derrapedir < 0 && movXc < -0.7f)
 				{
 					derrapedir -= 0.005f * Time.deltaTime;
 					if(derrapedir > -1.05f)
@@ -399,7 +341,7 @@ public class jugador_coche_al1 : jugador_al1
 				}
 
 
-				_rb.linearVelocity = transform.TransformDirection(new Vector3 (lt * -derrapedir * derrapeaum,_rb.linearVelocity.y,rt * velocidad));
+				_rb.linearVelocity = transform.TransformDirection(new Vector3 (aceleracion_atrasc * -derrapedir * derrapeaum,_rb.linearVelocity.y,aceleracionc * velocidad));
 				pasosnave.Pause();
 				turboson.Pause();
 				derrapeson.UnPause();
@@ -425,9 +367,9 @@ public class jugador_coche_al1 : jugador_al1
 				derrape += 22.5f * Time.deltaTime;
 				
 			}
-			else if (rt > 0f )
+			else if (aceleracionc > 0f )
 			{
-				_rb.linearVelocity = transform.TransformDirection(new Vector3 (0,_rb.linearVelocity.y,rt * velocidad));
+				_rb.linearVelocity = transform.TransformDirection(new Vector3 (0,_rb.linearVelocity.y,aceleracionc* velocidad));
 				pasosnave.UnPause();
 				turboson.Pause();
 				derrapeson.Pause();
@@ -469,7 +411,7 @@ public class jugador_coche_al1 : jugador_al1
 			
 
 
-			if (lt > 0f  && rt == 0f )
+			if (aceleracion_atrasc > 0f  && aceleracionc == 0f )
 			{
 				_rb.linearVelocity = transform.TransformDirection(new Vector3 (0,_rb.linearVelocity.y,-1 * 10));
 				pasosnave.UnPause();
@@ -477,11 +419,11 @@ public class jugador_coche_al1 : jugador_al1
 			}
 			if(derrapeact == true)
 			{
-				transform.Rotate(transform.up, ((Time.deltaTime * velrotacioncoche * derrapedir ) + (Time.deltaTime * velrotacioncoche * (lhorizontalc/1.4f)) ));
+				transform.Rotate(transform.up, ((Time.deltaTime * velrotacioncoche * derrapedir ) + (Time.deltaTime * velrotacioncoche * (movXc/1.4f)) ));
 			}
 			else
 			{
-				transform.Rotate(transform.up, Time.deltaTime * velrotacioncoche * lhorizontalc);
+				transform.Rotate(transform.up, Time.deltaTime * velrotacioncoche * movXc);
 			}
 
 			
@@ -504,29 +446,19 @@ public class jugador_coche_al1 : jugador_al1
 
 
 
-		lhorizontalc = 0;
-		lverticalc = 0;
+		movXc = 0;
+		movYc = 0;
 
 
-		rhorizontalc = 0;
-		rverticalc = 0;
+		UIYc = 0;
+		UIXc = 0;
 
-		horizontalpad = 0;
-		verticalpad = 0;
-
-		a = 0;
-		b = 0;
-		x = 0;
-		y = 0;
+		turboc = 0;
 
 		
-		rt = 0;
-		lt = 0;
-		rb = 0;
-		lb = 0;
-		
-		l3 = 0;
-		r3 = 0;
+		aceleracionc = 0;
+		aceleracion_atrasc = 0;
+		habilidadc = 0;
 		
 	}
 

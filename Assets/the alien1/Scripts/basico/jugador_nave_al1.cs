@@ -61,7 +61,6 @@ public class jugador_nave_al1 : jugador_al1
 	private int palosel;
 	private bool papaagotada;
 	private bool actTarget;
-	private float xp;
 	public float girodir = -90;
 	private float temppalo = 60;
 	private float tempatk;
@@ -92,6 +91,26 @@ public class jugador_nave_al1 : jugador_al1
 	public float tempdefrec = 60f; 
 	public float temprelrec = 40f; 
 	public float temppaparec = 20f; 
+
+	private float ruletaXc;
+	private float ruletaYc;
+	private float camXc;
+	private float camYc;
+	private float movXc;
+	private float movYc;
+	private float UIXc;
+	private float UIYc;	
+	private float turboc;
+	private float giro180c;
+	private float interactuarc;
+	private float dispararc;
+	private float escudoc;
+	private float UIreducidoc;
+	private float dashc;
+	private float menu1c;
+	private float menu2c;	
+	public float acelerarc;
+	public float M_desplacamientoc;
 
 
 
@@ -329,104 +348,56 @@ public class jugador_nave_al1 : jugador_al1
 
 
 
+
+
+
+
+
+
+
 			
-		rhorizontalc = controles.al1_general.rhorizontal.ReadValue<float>();
-		rverticalc = controles.al1_general.rvertical.ReadValue<float>();
+
+		ruletaXc = controles.al1_nave.ruletaX.ReadValue<float>();
+		ruletaYc = controles.al1_nave.ruletaY.ReadValue<float>();
 
 
-		lhorizontalc = controles.al1_general.lhorizontal.ReadValue<float>();
-		lverticalc = controles.al1_general.lvertical.ReadValue<float>();
+		camXc = controles.al1_nave.camX.ReadValue<float>();
+		camYc = controles.al1_nave.camY.ReadValue<float>();
+		
 
 
-
-
-
-
-		if(controles.al1_general.padder.ReadValue<float>() > 0 && horizontalpad >= 0)
+		if(movact == true)
 		{
-		horizontalpad = controles.al1_general.padder.ReadValue<float>();
-		}
-		else if(controles.al1_general.padizq.ReadValue<float>() > 0 && horizontalpad <= 0)
-		{
-		horizontalpad = controles.al1_general.padizq.ReadValue<float>() - (controles.al1_general.padizq.ReadValue<float>() * 2);
-		}
-		else{horizontalpad = 0;}
-
-		if(controles.al1_general.padarr.ReadValue<float>() > 0 && verticalpad >= 0)
-		{
-		verticalpad = controles.al1_general.padarr.ReadValue<float>();
-		}
-		else if(controles.al1_general.padabj.ReadValue<float>() > 0 && verticalpad <= 0)
-		{
-		verticalpad = controles.al1_general.padabj.ReadValue<float>() - (controles.al1_general.padabj.ReadValue<float>() * 2);
-		}
-		else{verticalpad = 0;}
-
-
-		if(controles.al1_general.lder.ReadValue<float>() > 0 && menupadH >= 0)
-		{
-		menupadH = controles.al1_general.lder.ReadValue<float>();
-		}
-		else if(controles.al1_general.lizq.ReadValue<float>() > 0 && menupadH <= 0)
-		{
-		menupadH = controles.al1_general.lizq.ReadValue<float>() - (controles.al1_general.lizq.ReadValue<float>() * 2);
-		}
-		else{menupadH = 0;}
-
-		if(controles.al1_general.larr.ReadValue<float>() > 0 && menupadV >= 0)
-		{
-		menupadV = controles.al1_general.larr.ReadValue<float>();
-		}
-		else if(controles.al1_general.labj.ReadValue<float>() > 0 && menupadV <= 0)
-		{
-		menupadV = controles.al1_general.labj.ReadValue<float>() - (controles.al1_general.labj.ReadValue<float>() * 2);
-		}
-		else{menupadV = 0;}
-
-
-
-		a = controles.al1_general.a.ReadValue<float>();
-		b = controles.al1_general.b.ReadValue<float>();
-		x = controles.al1_general.x.ReadValue<float>();
-		xp = controles.al1_general.xpress.ReadValue<float>();
-		y = controles.al1_general.y.ReadValue<float>();
-
-
-		rt = controles.al1_general.rt.ReadValue<float>();
-		lb = controles.al1_general.lb.ReadValue<float>();
-
-		l3 = controles.al1_general.l3.ReadValue<float>();
-		r3 = controles.al1_general.r3.ReadValue<float>();
-
-
-		if(manager.datosconfig.plat == 2)
-		{
-
-
-		lt = controles.al1_general.lt.ReadValue<float>();
-		rb = controles.al1_general.rb.ReadValue<float>();		
-
-
-		}
-		else
-		{
-		rb = controles.al1_general.rb.ReadValue<float>();
-		lt = controles.al1_general.lt.ReadValue<float>();
+			movXc = controles.al1_nave.movX.ReadValue<float>();
+			movYc = controles.al1_nave.movY.ReadValue<float>();	
 		}
 
-		pausac = controles.al1_general.pausa.ReadValue<float>();
+		
+		acelerarc = controles.al1_nave.acelerar.ReadValue<float>();
+		M_desplacamientoc = controles.al1_nave.M_desplacamiento.ReadValue<float>();
+		UIXc = controles.al1_UI.UIX.ReadValue<float>();
+		UIYc = controles.al1_UI.UIY.ReadValue<float>();	
+		turboc = controles.al1_nave.turbo.ReadValue<float>();
+		giro180c = controles.al1_nave.giro180.ReadValue<float>();
+		interactuarc = controles.al1_nave.interactuar.ReadValue<float>();		
+		dispararc = controles.al1_nave.disparar.ReadValue<float>();
+		escudoc = controles.al1_nave.escudo.ReadValue<float>();	
+		UIreducidoc = controles.al1_nave.UIreducido.ReadValue<float>();
+		marcarc = controles.al1_nave.marcar.ReadValue<float>();
+		dashc = controles.al1_nave.dash.ReadValue<float>();
 
-		selectc = controles.al1_general.select.ReadValue<float>();
+		menu1c = controles.al1_nave.menu1.ReadValue<float>();
+		menu2c = controles.al1_nave.menu2.ReadValue<float>();
 
 
-		if (pausac > 0 && temp10 > 0.7f)
+		if (menu1c > 0 && temp10 > 0.7f)
 		{
 		Time.timeScale = 0;
 		manager.pauseact = true;
 		pausa1.SetActive(true);
 		controlact = false;
 		combo = 0;
-		pausac = 0;
+		menu1c = 0;
 		temp10 = 0;
 		if(manager.datosconfig.plat == 2)
 		{
@@ -436,7 +407,7 @@ public class jugador_nave_al1 : jugador_al1
 		Cursor.lockState = CursorLockMode.None;
 		}
 
-		else if (selectc > 0 && temp10 > 0.7f)
+		else if (menu2c > 0 && temp10 > 0.7f)
 		{
 		Time.timeScale = 0;
 		manager.pauseact = true;
@@ -446,7 +417,7 @@ public class jugador_nave_al1 : jugador_al1
 		pausatemp.RestoreOriginalControls();
 		controlact = false;
 		combo = 0;
-		selectc = 0;
+		menu2c = 0;
 		temp10 = 0;
 		if(manager.datosconfig.plat == 2)
 		{
@@ -462,8 +433,8 @@ public class jugador_nave_al1 : jugador_al1
 	else
 	{
 		
-		rhorizontalc = controles.al1_general.rhorizontal.ReadValue<float>();
-		rverticalc = controles.al1_general.rvertical.ReadValue<float>();
+		camXc = controles.al1_nave.camX.ReadValue<float>();
+		camYc = controles.al1_nave.camY.ReadValue<float>();
 		
 	}
 	
@@ -529,7 +500,7 @@ public class jugador_nave_al1 : jugador_al1
 			pistolaimg.sprite = arma4;
 		}
 
-		if(verticalpad > 0.5f)
+		if(ruletaYc > 0.5f)
 		{
 			if(tiempodisp > 0.2f)
 			{
@@ -545,7 +516,7 @@ public class jugador_nave_al1 : jugador_al1
 				
 			}
 		}
-		if(verticalpad < -0.5f )
+		if(ruletaYc < -0.5f )
 		{
 
 			if(manager.datosserial.tengoarmanave3 == true && tiempodisp > 0.2f)
@@ -563,7 +534,7 @@ public class jugador_nave_al1 : jugador_al1
 			}
 			
 		}
-		if(horizontalpad > 0.5f )
+		if(ruletaXc > 0.5f )
 		{
 			if(manager.datosserial.tengoarmanave4 == true && tiempodisp > 0.2f)
 			{
@@ -579,7 +550,7 @@ public class jugador_nave_al1 : jugador_al1
 				
 			}		
 		}
-		if(horizontalpad < -0.5f )
+		if(ruletaXc < -0.5f )
 		{
 			if(manager.datosserial.tengoarmanave2 == true && tiempodisp > 0.2f)
 			{
@@ -632,7 +603,7 @@ public class jugador_nave_al1 : jugador_al1
 
 				
 				
-		if (lb > 0f && dialogueact == false && stamina >= 30)
+		if (escudoc > 0f && dialogueact == false && stamina >= 30)
 		{
 			Gescudo_nave.SetActive(true);
 			stamina -= 40 * Time.deltaTime;
@@ -647,29 +618,29 @@ public class jugador_nave_al1 : jugador_al1
 			Gescudo_nave.SetActive(false);
 		}
 
-		if(lt == 0)
+		if(M_desplacamientoc == 0)
 		{
 
 			
-			if (lhorizontalc > 0f )  
+			if (movXc > 0f )  
 			{
 				base.transform.Rotate(Vector3.up, Time.deltaTime * 50f);
 			}
-			if (lhorizontalc < 0f )
+			if (movXc < 0f )
 			{
 				base.transform.Rotate(Vector3.down, Time.deltaTime * 50f);
 			}
-			if (lverticalc > 0f )
+			if (movYc > 0f )
 			{
 				base.transform.Rotate(Vector3.right, Time.deltaTime * -50f);
 			}
-			if (lverticalc < 0f )
+			if (movYc < 0f )
 			{
 				base.transform.Rotate(Vector3.left, Time.deltaTime * -50f);
 			}
 
 
-			if(a > 0f && dialogueact == false && tempdash > 1f && tiempodisp > 1.2f && stamina > 1)
+			if(turboc > 0f && dialogueact == false && tempdash > 1f && tiempodisp > 1.2f && stamina > 1)
 			{
 				slash.SetActive(true);
 				pasos1.UnPause();
@@ -680,12 +651,12 @@ public class jugador_nave_al1 : jugador_al1
 				staminaact = 0;
 				viento_nave.SetActive(true);
 			}
-			else if (rb > 0f && dialogueact == false )
+			else if (acelerarc > 0f && dialogueact == false )
 			{
 				slash.SetActive(true);
 				pasos2.UnPause();
 				pasos1.Pause();
-				_rb.linearVelocity = transform.TransformDirection(new Vector3 (0,0,1 * 60));
+				_rb.linearVelocity = transform.TransformDirection(new Vector3 (0,0,1 * 70));
 				movnave = true;
 				viento_nave.SetActive(false);
 				temp9 = 0;
@@ -701,11 +672,11 @@ public class jugador_nave_al1 : jugador_al1
 				viento_nave.SetActive(false);
 			}
 		}
-		else if(lt > 0)
+		else if(M_desplacamientoc > 0)
 		{
 		
 			
-			if(lhorizontalc != 0 || lverticalc != 0 || tempdash <= 1f)
+			if(movXc != 0 || movYc != 0 || tempdash <= 1f)
 			{
 				pasos2.UnPause();
 				slash.SetActive(true);
@@ -716,12 +687,12 @@ public class jugador_nave_al1 : jugador_al1
 				slash.SetActive(false);
 			}
 
-			if(a > 0f && dialogueact == false && tempdash > 1f && tiempodisp > 1.2f && stamina > 1)
+			if(turboc > 0f && dialogueact == false && tempdash > 1f && tiempodisp > 1.2f && stamina > 1)
 			{
 				slash.SetActive(true);
 				pasos1.UnPause();
 				pasos2.Pause();
-				_rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * 70, lverticalc *70,1 * 100));
+				_rb.linearVelocity = transform.TransformDirection(new Vector3 (movXc * 70, movYc *70,1 * 100));
 				movnave = true;
 				stamina -= 10* Time.deltaTime;
 				staminaact = 0;
@@ -732,7 +703,7 @@ public class jugador_nave_al1 : jugador_al1
 				slash.SetActive(false);
 				pasos1.Pause();
 				pasos2.Pause();
-				_rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * 70, lverticalc *70,0));
+				_rb.linearVelocity = transform.TransformDirection(new Vector3 (movXc * 70, movYc *70,0));
 				movnave = false;
 				movnave2 = false;
 				viento_nave.SetActive(false);
@@ -740,13 +711,13 @@ public class jugador_nave_al1 : jugador_al1
 
 
 			
-			if(rb > 0f && dialogueact == false && tempdash > 1f && tiempodisp > 1.2f && stamina >= 50 && lhorizontalc != 0 && temp9 > 1
-			|| rb > 0f && dialogueact == false && tempdash > 1f && tiempodisp > 1.2f && stamina >= 50 && lverticalc != 0 && temp9 > 1)
+			if(dashc > 0f && dialogueact == false && tempdash > 1f && tiempodisp > 1.2f && stamina >= 50 && movXc != 0 && temp9 > 1
+			|| dashc > 0f && dialogueact == false && tempdash > 1f && tiempodisp > 1.2f && stamina >= 50 && movYc != 0 && temp9 > 1)
 			{
 				
 				slash.SetActive(false);
 				_rb.linearVelocity = transform.TransformDirection(new Vector3 (0,0,0));
-				Vector3 dashnavedir = new Vector3 (lhorizontalc,lverticalc,0);
+				Vector3 dashnavedir = new Vector3 (movXc,movYc,0);
 				movdire = transform.TransformDirection(dashnavedir);
 				tempdash = 0;
 				dashaeract = true;
@@ -791,7 +762,7 @@ public class jugador_nave_al1 : jugador_al1
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, fij,180 * Time.deltaTime);
 		}
 
-		if (controles.al1_nave.x.ReadValue<float>() > 0f && tiempodisp > 1 && tempgir <= 0 && stamina >= 30)
+		if (giro180c > 0f && tiempodisp > 1 && tempgir <= 0 && stamina >= 30)
 		{
 			tempgir = 1;
 			tiempodisp = 0;
@@ -820,21 +791,21 @@ public class jugador_nave_al1 : jugador_al1
 
 
 
-			if(rhorizontalc != 0 && objetivotarget == null)
-            {rotationinput.x = rhorizontalc * 100 * Time.deltaTime;}
+			if(camXc != 0 && objetivotarget == null)
+            {rotationinput.x = camXc * 100 * Time.deltaTime;}
             else{rotationinput.x = 0;}
 			
 
-			if(rverticalc != 0 && objetivotarget == null)
+			if(camYc != 0 && objetivotarget == null)
 
-            {rotationinput.y = rverticalc * 100 * Time.deltaTime;}
+            {rotationinput.y = camYc * 100 * Time.deltaTime;}
             else{rotationinput.y = 0;}
 
 			if(objetivotarget != null)
 			{
-				if(rhorizontalc == 0)
+				if(camXc == 0)
 				{
-					rhorizontalc = rverticalc;
+					camXc = camYc;
 				}
 				Vector3 directiontt = objetivotarget.transform.position - transform.position;
 				Quaternion rotation = Quaternion.LookRotation(directiontt);
@@ -845,7 +816,7 @@ public class jugador_nave_al1 : jugador_al1
 			transform.Rotate(Vector3.left * rotationinput.y);
 		
 			
-			if(r3 > 0 && temp10 > 0.2f)
+			if(marcarc > 0 && temp10 > 0.2f)
 			{
 				escudoeneact = false;
 				temp10 = 0;
@@ -884,7 +855,7 @@ public class jugador_nave_al1 : jugador_al1
 			}
 			else if(indicetarget != -1)
 			{
-				if(rhorizontalc > 0 && temp10 > 0.7f)
+				if(camXc > 0 && temp10 > 0.7f)
 				{
 					escudoeneact = false;
 					temp10 = 0;
@@ -962,7 +933,7 @@ public class jugador_nave_al1 : jugador_al1
 					else if(objetivotarget != tarboss && tarbossact)
 					{findchild(tarboss,false,"selectar");}
 				}
-				else if(rhorizontalc < 0 && temp10 > 0.7f)
+				else if(camXc < 0 && temp10 > 0.7f)
 				{
 					escudoeneact = false;
 					temp10 = 0;
@@ -1122,7 +1093,7 @@ public class jugador_nave_al1 : jugador_al1
 			{
 
 				//disparo
-				if(rt > 0 && tiempodisp2 > 0.1f)
+				if(dispararc > 0 && tiempodisp2 > 0.1f)
 				{
 
 					balaprefabpapa = prebalanave1[manager.datosserial.nivelarmanave1 -1];
@@ -1154,7 +1125,7 @@ public class jugador_nave_al1 : jugador_al1
 			{
 
 				//mina
-				if(rt > 0 && tiempodisp2 > 1f && minabalas > 0)
+				if(dispararc > 0 && tiempodisp2 > 1f && minabalas > 0)
 				{
 
 					balaprefabpapa = prebalanave2[manager.datosserial.nivelarmanave2 -1];
@@ -1179,7 +1150,7 @@ public class jugador_nave_al1 : jugador_al1
 			if(armanavesel == 3)
 			{
 				//misil
-				if(rt > 0 && tiempodisp2 > 1f && misilbalas > 0)
+				if(dispararc > 0 && tiempodisp2 > 1f && misilbalas > 0)
 				{
 
 					balaprefabpapa = prebalanave3[manager.datosserial.nivelarmanave3 -1];
@@ -1214,7 +1185,7 @@ public class jugador_nave_al1 : jugador_al1
 			{
 
 				//escopeta
-				if(rt > 0 && tiempodisp2 > 1f && escopetabalas > 0)
+				if(dispararc > 0 && tiempodisp2 > 1f && escopetabalas > 0)
 				{
 
 					balaprefabpapa = prebalanave4[manager.datosserial.nivelarmanave4 -1];
@@ -1326,28 +1297,34 @@ public class jugador_nave_al1 : jugador_al1
 
 
 
-		lhorizontalc = 0;
-		lverticalc = 0;
+
+		turboc = 0;
+		giro180c = 0;
+
+		dispararc = 0;
+		M_desplacamientoc = 0;
+		dashc = 0;
+		escudoc  = 0;
 
 
-		rhorizontalc = 0;
-		rverticalc = 0;
+		movXc = 0;
+		movYc = 0;
 
-		horizontalpad = 0;
-		verticalpad = 0;
 
-		a = 0;
-		b = 0;
-		x = 0;
-		y = 0;
+		camXc = 0;
+		camYc = 0;
 
-		rt = 0;
-		lt = 0;
-		rb = 0;
-		lb = 0;
+		ruletaXc = 0;
+		ruletaYc = 0;
+
+		interactuarc = 0;
+
 		
-		l3 = 0;
-		r3 = 0;
+		dispararc = 0;
+		escudoc = 0;
+		
+		UIreducidoc = 0;
+		marcarc = 0;
 		
 	}
 

@@ -67,11 +67,24 @@ public class enemigo1nave_al1: MonoBehaviour
     public GameObject balaprefab2;
     private GameObject objetivo1;
     private GameObject objetivo1b;
+    public bool disparodes;
     // Start is called before the first frame update
     void Start()
     {
-        if( modo == "")
-        {modo = "base";}
+        if(nivelactual >= 15)
+        {
+            frenetismo = 1.2f;
+        }
+        else if(nivelactual >= 5)
+        {
+            frenetismo = 1.1f;
+        }
+
+
+        if(nivelactual >= 8)
+        {
+            disparodes = true;
+        }
         
         
 
@@ -92,10 +105,6 @@ public class enemigo1nave_al1: MonoBehaviour
                 modo = "disparo";
                 disparos = 10;
             }
-        }
-        if(nivel >= 90)
-        {
-            frenetismo = 1.2f;
         }
 
         if((manager_ordas_al1)FindFirstObjectByType(typeof(manager_ordas_al1))!= null)
@@ -276,11 +285,27 @@ public class enemigo1nave_al1: MonoBehaviour
         if( desactivar == false && manager.controlene == true)
         {
 
-            if(modo == "base")
+            if(temp > 3 && disparodes == true  )
             {
-                
+                GameObject BalaTemporal = Instantiate(balaprefab1, transform.position,transform.rotation) as GameObject;
+
+                Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
+
+                BalaTemporal.GetComponent<romperbala_al1>().danoj = nivelfuerza/2;
+
+                rb.AddForce(BalaTemporal.transform.forward * 110 * 20);
+
+                BalaTemporal.GetComponent<romperbala_al1>().destb = 4f;
+
+                disp.Play();
+
+                temp = 0;
             }
-              
+            if(temp < 15)
+            {temp += 1 * frenetismo *Time.deltaTime;}
+
+            transform.position = Vector3.MoveTowards(transform.position,jugador1.transform.position,10 * frenetismo * Time.deltaTime);
+
 
 
             // te vio

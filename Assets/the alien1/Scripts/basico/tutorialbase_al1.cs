@@ -32,9 +32,9 @@ public class tutorialbase_al1 : MonoBehaviour
         if(id == 0)
         {
             manager.controlene = false;
-            if(controles.al1_general.r3.ReadValue<float>() > 0)
+            if(controles.al1_3d.marcar.ReadValue<float>() > 0)
             {
-                player.r3 = 1;
+                player.marcarc = 1;
                 manual.terminar_evento();
                 Destroy(this.gameObject);
             }

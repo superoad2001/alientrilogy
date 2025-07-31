@@ -26,15 +26,12 @@ public abstract class jugador_al1 : MonoBehaviour
 	public AudioSource musicaC;
 	public AudioSource musicanoC;
 	public AudioSource combini;
-	[HideInInspector]public float menupadH;
-	[HideInInspector]public float menupadV;
 	[HideInInspector]public bool static_ev = false;
 	[HideInInspector]public int toquespalo;
 	public tutorialbase_al1 eventotut;
 	[HideInInspector]public float velrecextra = 1;
 	public Vector3 enmovdirectaux;
 	[HideInInspector]public float temppause;
-	[HideInInspector]public float r3;
 	[HideInInspector]public float tempempujon;
 	[HideInInspector]public bool tarbossact;
 	[HideInInspector]public int combo;
@@ -44,22 +41,6 @@ public abstract class jugador_al1 : MonoBehaviour
 	[HideInInspector]public bool suelo;
 	[HideInInspector]public bool velact;
 	[HideInInspector]public float tiempodisp;
-	[HideInInspector]public float lhorizontalc;
-	[HideInInspector]public float lverticalc;
-	[HideInInspector]public float rhorizontalc;
-	[HideInInspector]public float rverticalc;
-	[HideInInspector]public float a;
-	[HideInInspector]public float b;
-	[HideInInspector]public float x;
-	[HideInInspector]public float y;
-	[HideInInspector]public float rb;
-	[HideInInspector]public float rt;
-	[HideInInspector]public float lt;
-	[HideInInspector]public float l3;
-	[HideInInspector]public float horizontalpad;
-	[HideInInspector]public float verticalpad;
-	[HideInInspector]public float pausac;
-	[HideInInspector]public float selectc;
     [HideInInspector]public float nivelfuerza;
     [HideInInspector]public float nivelvida;
     [HideInInspector]public float []nivelfuerza_a = new float[100];
@@ -74,7 +55,6 @@ public abstract class jugador_al1 : MonoBehaviour
 	[HideInInspector]public float temp10;
 	[HideInInspector]public bool dashaeract;
 	[HideInInspector]public bool muerte;
-	[HideInInspector]public float lb;
 	[HideInInspector]public float vidaeneui;
 	[HideInInspector]public float vidaeneuimax;
 	[HideInInspector]public bool vidaeneact;
@@ -108,6 +88,7 @@ public abstract class jugador_al1 : MonoBehaviour
 	[HideInInspector]public Vector3 movdirect;
 	[HideInInspector]public Vector3 movdirectaux;
 	[HideInInspector]public RaycastHit hit;
+	[HideInInspector]public float marcarc;
 	public float[] balapadrevel = new float[5];
 	public float[] balapadredano = new float[5];
 	public float[] balapadrecaden = new float[5];
@@ -153,6 +134,7 @@ public abstract class jugador_al1 : MonoBehaviour
 	public Animator conseguidoa;
 	public Text niveleneui;
 	public AudioSource tiendaMus;
+	
 	[Header("resto")]
 	public Controles controles;
 	

@@ -164,7 +164,27 @@ public class jugador_chara3d_al1 : jugador_al1
 	public eventosdialogue eventosdialogueE;
 	public AudioSource vozMeet;
 	private float tempdash = 12;
-	private float tempdash2 = 12;	
+	private float tempdash2 = 12;
+	private float ruletaXc;
+	private float ruletaYc;
+	private float camXc;
+	private float camYc;
+	private float movXc;
+	private float movYc;
+	private float UIXc;
+	private float UIYc;	
+	private float saltarc;
+	private float dashc;
+	private float golpearc;
+	private float golpearMc;
+	private float interactuarc;
+	private float dispararc;
+	private float ruletac;
+	private float UIreducidoc;
+	private float correrc;
+	private float menu1c;
+	private float menu2c;
+	public float lateralc;		
 	public void Awake()
     {
         controles = new Controles();
@@ -605,124 +625,53 @@ public class jugador_chara3d_al1 : jugador_al1
 	{
 
 		
+			ruletaXc = controles.al1_3d.ruletaX.ReadValue<float>();
+			ruletaYc = controles.al1_3d.ruletaY.ReadValue<float>();
+
+
+			camXc = controles.al1_3d.camX.ReadValue<float>();
+			camYc = controles.al1_3d.camY.ReadValue<float>();
+
 			
-			rhorizontalc = controles.al1_3d.rhorizontal.ReadValue<float>();
-			rverticalc = controles.al1_3d.rvertical.ReadValue<float>();
+
+
 			
+
+
 			if(movact == true)
 			{
-			lhorizontalc = controles.al1_3d.lhorizontal.ReadValue<float>();
-			lverticalc = controles.al1_3d.lvertical.ReadValue<float>();
+				movXc = controles.al1_3d.movX.ReadValue<float>();
+				movYc = controles.al1_3d.movY.ReadValue<float>();	
 			}
 
+		
 
-
-
-
-			if(controles.al1_3d.padder.ReadValue<float>() > 0 && horizontalpad >= 0)
-			{
-				horizontalpad = controles.al1_3d.padder.ReadValue<float>();
-			}
-			else if(controles.al1_3d.padizq.ReadValue<float>() > 0 && horizontalpad <= 0)
-			{
-				horizontalpad = controles.al1_3d.padizq.ReadValue<float>() - (controles.al1_3d.padizq.ReadValue<float>() * 2);
-			}
-			else{horizontalpad = 0;}
-
-			if(controles.al1_3d.padarr.ReadValue<float>() > 0 && verticalpad >= 0)
-			{
-				verticalpad = controles.al1_3d.padarr.ReadValue<float>();
-			}
-			else if(controles.al1_3d.padabj.ReadValue<float>() > 0 && verticalpad <= 0)
-			{
-				verticalpad = controles.al1_3d.padabj.ReadValue<float>() - (controles.al1_3d.padabj.ReadValue<float>() * 2);
-			}
-			else{verticalpad = 0;}
+		lateralc = controles.al1_3d.lateral.ReadValue<float>();
+		UIXc = controles.al1_UI.UIX.ReadValue<float>();
+		UIYc = controles.al1_UI.UIY.ReadValue<float>();	
+		saltarc = controles.al1_3d.saltar.ReadValue<float>();
+		dashc = controles.al1_3d.dash.ReadValue<float>();
+		golpearc = controles.al1_3d.golpear.ReadValue<float>();
+		golpearMc = controles.al1_3d.golpearM.ReadValue<float>();
+		interactuarc = controles.al1_3d.interactuar.ReadValue<float>();		
+		dispararc = controles.al1_3d.disparar.ReadValue<float>();
+		ruletac = controles.al1_3d.ruleta.ReadValue<float>();	
+		UIreducidoc = controles.al1_3d.UIreducido.ReadValue<float>();
+		marcarc = controles.al1_3d.marcar.ReadValue<float>();
+		correrc = controles.al1_3d.correr.ReadValue<float>();
+		menu1c = controles.al1_3d.menu1.ReadValue<float>();
+		menu2c = controles.al1_3d.menu2.ReadValue<float>();
 		
 		
 
-		if(controles.al1_general.lder.ReadValue<float>() > 0 && menupadH >= 0)
-		{
-			menupadH = controles.al1_general.lder.ReadValue<float>();
-		}
-		else if(controles.al1_general.lizq.ReadValue<float>() > 0 && menupadH <= 0)
-		{
-			menupadH = controles.al1_general.lizq.ReadValue<float>() - (controles.al1_general.lizq.ReadValue<float>() * 2);
-		}
-		else{menupadH = 0;}
-
-		if(controles.al1_general.larr.ReadValue<float>() > 0 && menupadV >= 0)
-		{
-			menupadV = controles.al1_general.larr.ReadValue<float>();
-		}
-		else if(controles.al1_general.labj.ReadValue<float>() > 0 && menupadV <= 0)
-		{
-			menupadV = controles.al1_general.labj.ReadValue<float>() - (controles.al1_general.labj.ReadValue<float>() * 2);
-		}
-		else{menupadV = 0;}
-
-
-
-		a = controles.al1_general.a.ReadValue<float>();
-		b = controles.al1_general.b.ReadValue<float>();
-		x = controles.al1_general.x.ReadValue<float>();
-		xp = controles.al1_general.xpress.ReadValue<float>();
-		y = controles.al1_general.y.ReadValue<float>();
-
-		
-		rt = controles.al1_general.rt.ReadValue<float>();
-		lb = controles.al1_general.lb.ReadValue<float>();
-		
-		l3 = controles.al1_general.l3.ReadValue<float>();
-		r3 = controles.al1_general.r3.ReadValue<float>();
-
-
-		if(manager.datosconfig.plat == 2)
-		{
-			
-				if(controles.al1_general.lt.ReadValue<float>() > 0 && lt == 1 && temp9 > 0.5f)
-				{
-					lt = 0;
-					temp9 = 0;
-				}
-				else if(controles.al1_general.lt.ReadValue<float>() > 0 && lt == 0  && temp9 > 0.5f)
-				{
-					lt = 1;
-					temp9 = 0;
-				}
-
-				if(controles.al1_general.rb.ReadValue<float>() > 0 && rb == 1 && temp9 > 0.5f)
-				{
-					lt = 0;
-					temp9 = 0;
-				}
-				else if(controles.al1_general.rb.ReadValue<float>() > 0 && rb == 0  && temp9 > 0.5f)
-				{
-					lt = 1;
-					temp9 = 0;
-				}
-			
-			
-		}
-		else
-		{
-		rb = controles.al1_general.rb.ReadValue<float>();
-		lt = controles.al1_general.lt.ReadValue<float>();
-		}
-
-		pausac = controles.al1_general.pausa.ReadValue<float>();
-
-		selectc = controles.al1_general.select.ReadValue<float>();
-		
-
-		if (pausac > 0 && temp10 > 0.7f)
+		if (menu1c > 0 && temp10 > 0.7f)
 		{
 			Time.timeScale = 0;
 			manager.pauseact = true;
 			pausa1.SetActive(true);
 			controlact = false;
 			combo = 0;
-			pausac = 0;
+			menu1c = 0;
 			temp10 = 0;
 			if(manager.datosconfig.plat == 2)
 			{
@@ -732,7 +681,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			Cursor.lockState = CursorLockMode.None;
 		}
 
-		else if (selectc > 0 && temp10 > 0.7f)
+		else if (menu2c > 0 && temp10 > 0.7f)
 		{
 			Time.timeScale = 0;
 			manager.pauseact = true;
@@ -742,7 +691,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			pausatemp.RestoreOriginalControls();
 			controlact = false;
 			combo = 0;
-			selectc = 0;
+			menu2c = 0;
 			temp10 = 0;
 			if(manager.datosconfig.plat == 2)
 			{
@@ -758,8 +707,8 @@ public class jugador_chara3d_al1 : jugador_al1
 	else
 	{
 		
-		rhorizontalc = controles.al1_3d.rhorizontal.ReadValue<float>();
-		rverticalc = controles.al1_3d.rvertical.ReadValue<float>();
+		camXc = controles.al1_3d.camX.ReadValue<float>();
+		camYc = controles.al1_3d.camY.ReadValue<float>();
 		
 		
 	}
@@ -939,7 +888,7 @@ public class jugador_chara3d_al1 : jugador_al1
 				
 			}
 		
-		if(lb == 0)
+		if(ruletac == 0)
 		{
 			
 			if(manager.datosserial.tengolanzar == true)
@@ -1168,7 +1117,7 @@ public class jugador_chara3d_al1 : jugador_al1
 				cambioruedaact = 1;
 			}
 
-			if(verticalpad > 0.5f )
+			if(ruletaYc > 0.5f )
 			{
 				if(manager.datosserial.tengolanzar == true && tiempodisp > 0.2f)
 				{
@@ -1243,7 +1192,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					
 				}
 			}
-			if(verticalpad < -0.5f )
+			if(ruletaYc < -0.5f )
 			{
 				
 				if(manager.datosserial.armadef == true && tiempodisp > 0.2f)
@@ -1272,7 +1221,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					
 				}
 			}
-			if(horizontalpad > 0.5f )
+			if(ruletaXc > 0.5f )
 			{
 				if(manager.datosserial.armapapa == true && tiempodisp > 0.2f)
 				{
@@ -1306,7 +1255,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					pistolabazoka.SetActive(false);
 				}
 			}
-			if(horizontalpad < -0.5f )
+			if(ruletaXc < -0.5f )
 			{
 				if(manager.datosserial.armarelen == true && tiempodisp > 0.2f)
 				{
@@ -1335,7 +1284,7 @@ public class jugador_chara3d_al1 : jugador_al1
 				}
 			}
 		}
-		if(lb > 0 && manager.datosserial.tengolanzar == true)
+		if(ruletac > 0 && manager.datosserial.tengolanzar == true)
 		{
 
 			circulopaloimg.fillAmount = 1;
@@ -1429,7 +1378,7 @@ public class jugador_chara3d_al1 : jugador_al1
 				cambioruedaact = 0;
 			}
 			numpoct.text = numpociones.ToString();
-			if(verticalpad > 0.5f )
+			if(ruletaYc > 0.5f )
 			{
 				if(tiempodisp > 0.5f && numpociones >= 1 &&  vida < vidamax)
 				{
@@ -1443,7 +1392,7 @@ public class jugador_chara3d_al1 : jugador_al1
 				}
 			}
 
-			if(verticalpad < -0.5f )
+			if(ruletaYc < -0.5f )
 			{
 				if(tiempodisp > 0.5f && numpociones >= 1)
 				{
@@ -1458,7 +1407,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					}
 				}
 			}
-			if(horizontalpad > 0.5f )
+			if(ruletaXc > 0.5f )
 			{
 				if(tiempodisp > 0.5f && numpociones >= 3 && tempberserk == 0)
 				{
@@ -1471,7 +1420,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					
 				}
 			}
-			if(horizontalpad < -0.5f )
+			if(ruletaXc < -0.5f )
 			{
 				if(tiempodisp > 0.5f && numpociones >= 2 && tempvelrec == 0 )
 				{
@@ -1515,7 +1464,7 @@ public class jugador_chara3d_al1 : jugador_al1
 
 
 
-		if (this.ascensor && manager.piso == 0 && rt > 0f && tiempoascensor > 2f)
+		if (this.ascensor && manager.piso == 0 && dispararc > 0f && tiempoascensor > 2f)
 		{
 			subir0 = true;
 			subir = true;
@@ -1567,7 +1516,7 @@ public class jugador_chara3d_al1 : jugador_al1
 
 
 			
-			if(r3 > 0 && temp10 > 0.2f)
+			if(marcarc > 0 && temp10 > 0.2f)
 			{
 				escudoeneact = false;
 				temp10 = 0;
@@ -1606,7 +1555,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			}
 			else if(indicetarget != -1)
 			{
-				if(rhorizontalc > 0 && temp10 > 0.7f)
+				if(camXc > 0 && temp10 > 0.7f)
 				{
 					escudoeneact = false;
 					temp10 = 0;
@@ -1684,7 +1633,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					else if(objetivotarget != tarboss && tarbossact)
 					{findchild(tarboss,false,"selectar");}
 				}
-				else if(rhorizontalc < 0 && temp10 > 0.7f)
+				else if(camXc < 0 && temp10 > 0.7f)
 				{
 					escudoeneact = false;
 					temp10 = 0;
@@ -1818,7 +1767,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			
 			
 			
-			if(lt == 0 || ascensor == true || objplaneta != null)
+			if(lateralc == 0 || ascensor == true || objplaneta != null)
             {
 
 				anim.SetBool("movlat",false);
@@ -1830,16 +1779,16 @@ public class jugador_chara3d_al1 : jugador_al1
 
 				if(subir == false && bajar == false)
 				{
-					anim.SetFloat("velx",lhorizontalc);
-					anim.SetFloat("vely",lverticalc);
+					anim.SetFloat("velx",movXc);
+					anim.SetFloat("vely",movYc);
 					if(anim.GetCurrentAnimatorStateInfo(1).IsName("dashtierra"))
 					{
-						lhorizontalc = 0;
-						lverticalc = 0;
+						movXc = 0;
+						movYc = 0;
 					}
 					
 
-					Vector3 movdirnow = new Vector3 (lhorizontalc,0, lverticalc).normalized;
+					Vector3 movdirnow = new Vector3 (movXc,0, movYc).normalized;
 
 					if (objplaneta != null)
 					{
@@ -1849,10 +1798,10 @@ public class jugador_chara3d_al1 : jugador_al1
 						
 						// Manejar la rotación de la cámara
 						// Actualizar ángulos de rotación basados en la entrada del usuario
-						cameraverticalangle += rverticalc / 3;
+						cameraverticalangle += camYc / 3;
 						cameraverticalangle = Mathf.Clamp(cameraverticalangle, -20, 20); // Limitar ángulo vertical
 						
-						cameraverticalangle2 += rhorizontalc;
+						cameraverticalangle2 += camXc;
 						
 						// Configurar boxcam2 para que esté correctamente orientado respecto a la superficie del planeta
 							boxcam2.transform.rotation = Quaternion.LookRotation(
@@ -1880,7 +1829,7 @@ public class jugador_chara3d_al1 : jugador_al1
 							if (inclinacionZ > 180) inclinacionZ -= 360;
 
 							// Si el jugador está presionando el control de movimiento
-							if (lhorizontalc != 0 || lverticalc != 0)
+							if (movXc != 0 || movYc != 0)
 							{
 								// Si el control acaba de ser activado (no estaba activo antes)
 								if (!controlActivo)
@@ -1898,13 +1847,13 @@ public class jugador_chara3d_al1 : jugador_al1
 								}
 								
 								// Aplicar la inversión si es necesario
-								horizontalFinal = invertirHorizontal ? -lhorizontalc : lhorizontalc;
+								horizontalFinal = invertirHorizontal ? -movXc : movXc;
 								
 								// Usar las variables existentes para el movimiento
-								_rb.linearVelocity = (direccionDerecha1 * horizontalFinal + direccionAdelante1 * lverticalc) * velocidad + transform.up * velocidadVertical2;
+								_rb.linearVelocity = (direccionDerecha1 * horizontalFinal + direccionAdelante1 * movYc) * velocidad + transform.up * velocidadVertical2;
 								planetUp = (transform.position - planetCenter).normalized;
 
-								angulomod = Mathf.Atan2(horizontalFinal, lverticalc) * Mathf.Rad2Deg;
+								angulomod = Mathf.Atan2(horizontalFinal, movYc) * Mathf.Rad2Deg;
 								mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation, Quaternion.Euler(0, angulomod, 0), 30 * Time.deltaTime);
 
 							}
@@ -1919,9 +1868,9 @@ public class jugador_chara3d_al1 : jugador_al1
 							float distaxe = movdire.magnitude * Time.fixedDeltaTime;
 							movdire.Normalize();
 							RaycastHit hit;
-							Vector3 moveDirection = new Vector3(lhorizontalc, 0, lverticalc).normalized;
+							Vector3 moveDirection = new Vector3(movXc, 0, movYc).normalized;
 
-							if(lverticalc == 0f && lhorizontalc == 0f)
+							if(movYc == 0f && movXc == 0f)
 							{
 								anim.SetBool("stat",true);
 								dashefect = false;
@@ -1945,7 +1894,7 @@ public class jugador_chara3d_al1 : jugador_al1
 							{
 								anim.SetBool("stat",false);
 							}
-							if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
+							if(suelo == true && movYc < 0f || suelo == true && movYc > 0f || suelo == true && movXc < 0f|| suelo == true && movXc > 0f)
 							{
 								if(temppaso > pasotiempo)
 								{
@@ -1978,13 +1927,13 @@ public class jugador_chara3d_al1 : jugador_al1
 								this.jugadorEntrando = false;
 						}				
 						camarascript.maxdis = 30;
-						if(lhorizontalc != 0 || lverticalc != 0)
+						if(movXc != 0 || movYc != 0)
 						{
 							// Movimiento normal cuando no está en modo planeta
 							_rb.linearVelocity = transform.TransformDirection(new Vector3(movdirnow.x * velocidad, _rb.linearVelocity.y, movdirnow.z * velocidad));
 							
 							// Rotar el modelo en la dirección del movimiento
-							angulomod = Mathf.Atan2(lhorizontalc, lverticalc) * Mathf.Rad2Deg;
+							angulomod = Mathf.Atan2(movXc, movYc) * Mathf.Rad2Deg;
 							mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation, 
 																		Quaternion.Euler(mod.transform.localEulerAngles.x, angulomod, mod.transform.localEulerAngles.z),
 																		10 * Time.deltaTime);
@@ -2008,11 +1957,11 @@ public class jugador_chara3d_al1 : jugador_al1
 						float distaxe = movdire.magnitude * Time.fixedDeltaTime;
 						movdire.Normalize();
 						RaycastHit hit;
-						Vector3 moveDirection = new Vector3(lhorizontalc, 0, lverticalc).normalized;
+						Vector3 moveDirection = new Vector3(movXc, 0, movYc).normalized;
 
 						
 						
-						if(lverticalc == 0f && lhorizontalc == 0f)
+						if(movYc == 0f && movXc == 0f)
 						{
 							anim.SetBool("stat",true);
 							dashefect = false;
@@ -2039,7 +1988,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						
 						
 
-						if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
+						if(suelo == true && movYc < 0f || suelo == true && movYc > 0f || suelo == true && movXc < 0f|| suelo == true && movXc > 0f)
 						{
 							if(temppaso > pasotiempo)
 							{
@@ -2060,13 +2009,13 @@ public class jugador_chara3d_al1 : jugador_al1
 						}
 						if(objetivotarget == null)
 						{
-						if(rhorizontalc != 0)
-						{rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;}
+						if(camXc != 0)
+						{rotationinput.x = camXc * rotspeed * Time.deltaTime;}
 						else{rotationinput.x = 0;}
 						}
 
-						if(rverticalc != 0)
-						{rotationinput.y = rverticalc * rotspeed * Time.deltaTime;}
+						if(camYc != 0)
+						{rotationinput.y = camYc * rotspeed * Time.deltaTime;}
 						else{rotationinput.y = 0;}
 						
 
@@ -2103,7 +2052,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						if(objetivotarget == null)
 						{
 
-							if (lhorizontalc != 0f && rhorizontalc != 0f|| lverticalc != 0 && rhorizontalc != 0f || lhorizontalc != 0f || lverticalc != 0)
+							if (movXc != 0f && camXc != 0f|| movYc != 0 && camXc != 0f || movXc != 0f || movYc != 0)
 							{
 								transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.Euler(transform.eulerAngles.x,camaux,transform.eulerAngles.z),30f* Time.deltaTime);
 								camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.y,camara.transform.localEulerAngles.z),30f* Time.deltaTime);	
@@ -2126,30 +2075,30 @@ public class jugador_chara3d_al1 : jugador_al1
 				
 
 			}
-			else if(lt > 0 && ascensor == false && objplaneta == null)
+			else if(lateralc > 0 && ascensor == false && objplaneta == null)
             {
 				
 				
 				camarascript.maxdis = 20;
 				anim.SetBool("movlat",true);
                 camnomov = false;
-				anim.SetFloat("velx",lhorizontalc);
-				anim.SetFloat("vely",lverticalc);
+				anim.SetFloat("velx",movXc);
+				anim.SetFloat("vely",movYc);
 				if(subir == false && bajar == false)
 				{
 					if(anim.GetCurrentAnimatorStateInfo(1).IsName("dashtierra"))
 					{
-						lhorizontalc = 0;
-						lverticalc = 0;
+						movXc = 0;
+						movYc = 0;
 					}
 
-					Vector3 movdirnow = new Vector3 (lhorizontalc,0, lverticalc).normalized;
-					if(lhorizontalc != 0 || lverticalc != 0)
+					Vector3 movdirnow = new Vector3 (movXc,0, movYc).normalized;
+					if(movXc != 0 || movYc != 0)
 					{
 
 						_rb.linearVelocity = transform.TransformDirection(new Vector3 (movdirnow.x * velocidad,_rb.linearVelocity.y,movdirnow.z * velocidad));
 
-						angulomod =  Mathf.Atan2(lhorizontalc,lverticalc)* Mathf.Rad2Deg;
+						angulomod =  Mathf.Atan2(movXc,movYc)* Mathf.Rad2Deg;
 
 
 						if(dash + 0.5f > tempdash)
@@ -2169,7 +2118,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					movdire.Normalize();
 					RaycastHit hit;
 
-					if(lverticalc == 0f && lhorizontalc == 0f)
+					if(movYc == 0f && movXc == 0f)
 					{
 						anim.SetBool("stat",true);
 						dashefect = false;
@@ -2198,25 +2147,25 @@ public class jugador_chara3d_al1 : jugador_al1
 					
 
 
-					if (lhorizontalc >= 0.70f)
+					if (movXc >= 0.70f)
 					{
 						anim.SetBool("latder",true);
 						anim.SetBool("latizq",false);
 						anim.SetBool("saltoatras",false);
 					}
-					else if (lhorizontalc <= -0.70f)
+					else if (movXc <= -0.70f)
 					{
 						anim.SetBool("latizq",true);
 						anim.SetBool("latder",false);
 						anim.SetBool("saltoatras",false);
 					}
-					else if (lverticalc <= -0.70f)
+					else if (movYc <= -0.70f)
 					{
 						anim.SetBool("saltoatras",true);
 						anim.SetBool("latder",false);
 						anim.SetBool("latizq",false);
 					}
-					else if (lverticalc >= 0.70f)
+					else if (movYc >= 0.70f)
 					{
 						anim.SetBool("saltoatras",false);
 						anim.SetBool("latder",false);
@@ -2230,7 +2179,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					
 					}
 				}
-                if(suelo == true && lverticalc < 0f || suelo == true && lverticalc > 0f || suelo == true && lhorizontalc < 0f|| suelo == true && lhorizontalc > 0f)
+                if(suelo == true && movYc < 0f || suelo == true && movYc > 0f || suelo == true && movXc < 0f|| suelo == true && movXc > 0f)
                 {
                     if(temppaso > pasotiempo)
                     {
@@ -2249,18 +2198,18 @@ public class jugador_chara3d_al1 : jugador_al1
                     if(temppaso < 15)
                     {temppaso += 1 * Time.deltaTime;}
                 }
-                anim.SetFloat("vely",lverticalc);
+                anim.SetFloat("vely",movYc);
 
 
                 if(objetivotarget == null)
 				{
-					if(rhorizontalc != 0)
-					{rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;}
+					if(camXc != 0)
+					{rotationinput.x = camXc * rotspeed * Time.deltaTime;}
 					else{rotationinput.x = 0;}
 				}
 
-				if(rverticalc != 0)
-				{rotationinput.y = rverticalc * rotspeed * Time.deltaTime;}
+				if(camYc != 0)
+				{rotationinput.y = camYc * rotspeed * Time.deltaTime;}
 				else{rotationinput.y = 0;}
 				
 
@@ -2322,7 +2271,7 @@ public class jugador_chara3d_al1 : jugador_al1
 		
 		
 			this.tiemposalto -= Time.deltaTime;
-			if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && objplaneta == null && tiempodialogue > 0.7f)
+			if (this.tiemposalto <= 0f && saltarc > 0f && dialogueact == false && temppause > 0.4f && objplaneta == null && tiempodialogue > 0.7f)
 			{
 					if(jumpforce == jumpforcebase)
 					{tiempodisp = 0;}
@@ -2331,7 +2280,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					jumpforce = jumpforce / 1.8f;
 					anim.SetBool("salto",true);
 			}
-			else if (this.tiemposalto <= 0f && a > 0f && dialogueact == false && temppause > 0.4f && objplaneta != null && tiempodialogue > 0.7f)
+			else if (this.tiemposalto <= 0f && saltarc > 0f && dialogueact == false && temppause > 0.4f && objplaneta != null && tiempodialogue > 0.7f)
 			{
 					if(jumpforce == jumpforcebase)
 					{tiempodisp = 0;}
@@ -2346,7 +2295,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			if(manager.datosserial.tengolanzar == true )
 			{
 
-					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 1 && temppalo > 3  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  rt > 0 && ascensor == false )
+					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 1 && temppalo > 3  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  dispararc > 0 && ascensor == false )
 					{
 						tiempodisp = 0;
 						temppalo -= 3;
@@ -2380,7 +2329,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						}
 						manager.guardar();
 					}
-					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 2 && temppalo > 40 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  rt > 0 && ascensor == false )
+					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 2 && temppalo > 40 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  dispararc > 0 && ascensor == false )
 					{
 						tiempodisp = 0;
 						temppalo -= 40;
@@ -2414,7 +2363,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						manager.guardar();
 					}
 
-					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3 && temppalo > 5 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && suelo == true && tiempodisp > 0.5f &&  rt > 0 && ascensor == false )
+					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3 && temppalo > 5 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && suelo == true && tiempodisp > 0.5f &&  dispararc > 0 && ascensor == false )
 					{
 						tiempodisp = 0;
 						temppalo -= 5 * Time.deltaTime;
@@ -2451,7 +2400,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						}
 						manager.guardar();
 					}
-					else if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3 && temppalo > 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("dashtierra") && suelo == true &&  rt > 0 && ascensor == false )
+					else if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3 && temppalo > 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("dashtierra") && suelo == true &&  dispararc > 0 && ascensor == false )
 					{
 						tiempodisp = 0;
 						temppalo -= 5 * Time.deltaTime;
@@ -2470,7 +2419,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						anim.SetBool("dashtierra",false);
 					}
 
-					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 4 && temppalo > 30 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  rt > 0 && ascensor == false )
+					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 4 && temppalo > 30 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  dispararc > 0 && ascensor == false )
 					{
 						tiempodisp = 0;
 						temppalo -= 30;
@@ -2503,7 +2452,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						}
 						manager.guardar();
 					}
-					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 5 && temppalo >= 60 && inbuiract == false && tempinbuir  == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  rt > 0 && ascensor == false )
+					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 5 && temppalo >= 60 && inbuiract == false && tempinbuir  == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  dispararc > 0 && ascensor == false )
 					{
 						tiempodisp = 0;
 						temppalo = 0;
@@ -2539,7 +2488,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						manager.guardar();
 					}
 				
-				if(xp > 0 && suelo == true && tiempodisp > 0.7f  && combo == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") &&  rt == 0 && stamina > 10 )
+				if(golpearMc > 0 && suelo == true && tiempodisp > 0.7f  && combo == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") &&  dispararc == 0 && stamina > 10 )
 				{
 					anim.SetBool("atk",true);
 					tiempodisp = 0;
@@ -2554,7 +2503,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					stamina -= 10;
 					staminaact = -2;
 				}
-				else if(xp > 0 && suelo == true && tiempodisp > 0.2f && combo == 1 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk") &&  rt == 0 && stamina > 10 )
+				else if(golpearMc > 0 && suelo == true && tiempodisp > 0.2f && combo == 1 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk") &&  dispararc == 0 && stamina > 10 )
 				{
 					anim.SetBool("atk2",true);
 					combo = 2;
@@ -2574,7 +2523,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					golpeson.Play();
 					combo = 3;
 				}
-				else if(xp > 0 && suelo == true && tiempodisp > 0.3f && combo == 3 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk2") &&  rt == 0  && stamina > 10)
+				else if(golpearMc > 0 && suelo == true && tiempodisp > 0.3f && combo == 3 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk2") &&  dispararc == 0  && stamina > 10)
 				{
 					anim.SetBool("atk3",true);
 					combo = 4;
@@ -2596,7 +2545,7 @@ public class jugador_chara3d_al1 : jugador_al1
 				}
 
 
-				else if(xp > 0 && suelo == true && combo == 5 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk3") &&  rt == 0 && stamina > 10 )
+				else if(golpearMc > 0 && suelo == true && combo == 5 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk3") &&  dispararc == 0 && stamina > 10 )
 				{
 					anim.SetBool("atk4",true);
 					combo = 6;
@@ -2616,7 +2565,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					golpeson.Play();
 					combo = 7;
 				}
-				else if(xp > 0 && suelo == true && tiempodisp > 0.2f && combo == 7 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk4") &&  rt == 0 && stamina > 10)
+				else if(golpearMc > 0 && suelo == true && tiempodisp > 0.2f && combo == 7 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk4") &&  dispararc == 0 && stamina > 10)
 				{
 					anim.SetBool("atk5",true);
 					combo = 8;
@@ -2638,7 +2587,7 @@ public class jugador_chara3d_al1 : jugador_al1
 				}
 
 
-				else if(xp > 0 && suelo == false && ascensor == false &&  rt == 0  && stamina > 20)
+				else if(golpearMc > 0 && suelo == false && ascensor == false &&  dispararc == 0  && stamina > 20)
 				{
 					anim.SetBool("atks",true);
 					tiempodisp = 0;
@@ -2719,7 +2668,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			}
 			if(manager.datosserial.armapapa == true && manager.datosserial.armasel == 2)
 			{
-				if(rt > 0 && ascensor == false && temppaparec >= balapapamun[manager.datosserial.nivelarmapapa -1] && tiempodisp > balapadrecaden[manager.datosserial.nivelarmapapa-1] && papaagotada == false)
+				if(dispararc > 0 && ascensor == false && temppaparec >= balapapamun[manager.datosserial.nivelarmapapa -1] && tiempodisp > balapadrecaden[manager.datosserial.nivelarmapapa-1] && papaagotada == false)
 				{
 					if(manager.datosserial.nivelarmapapa < 5)
 					{
@@ -2767,7 +2716,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					disp.Play();
 
 				}
-				else if(rt > 0 && ascensor == false && temppaparec <= 1 && papaagotada == false)
+				else if(dispararc > 0 && ascensor == false && temppaparec <= 1 && papaagotada == false)
 				{
 					papaagotada = true;
 					temppaparec -= balapapamun[manager.datosserial.nivelarmapapa -1];
@@ -2785,7 +2734,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			}
 			if(manager.datosserial.armarelen == true  && manager.datosserial.armasel == 4)
 			{
-				if(rt > 0 && ascensor == false && tiempodisp > 0.5f && temprelrec >= 40f)
+				if(dispararc > 0 && ascensor == false && tiempodisp > 0.5f && temprelrec >= 40f)
 				{
 					
 
@@ -2847,7 +2796,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			}
 			if(manager.datosserial.armadef == true  && manager.datosserial.armasel == 3)
 			{
-				if(rt > 0 && ascensor == false && tiempodisp > 0.5f && tempdefrec >= 60f && manager.datosserial.armadefdesbloqueada == true || dispF == true)
+				if(dispararc > 0 && ascensor == false && tiempodisp > 0.5f && tempdefrec >= 60f && manager.datosserial.armadefdesbloqueada == true || dispF == true)
 				{
 
 					
@@ -2898,7 +2847,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					dispdef.Play();
 
 				}
-				else if(rt > 0 && ascensor == false && tiempodisp > 0.5f && tempdefrec >= 60f && manager.datosserial.armadefdesbloqueada == false)
+				else if(dispararc > 0 && ascensor == false && tiempodisp > 0.5f && tempdefrec >= 60f && manager.datosserial.armadefdesbloqueada == false)
 				{
 					armadefpass();
 
@@ -2918,9 +2867,8 @@ public class jugador_chara3d_al1 : jugador_al1
 			
 			
 				
-				if(b > 0 && tempdash > dash && suelo == false && manager.datosserial.tengodash == true && tiempodisp2 > 0.95f && tempaerodash > 2.5f && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f && movdire != new Vector3(0,0,0))
+				if(dashc > 0 && tempdash > dash && suelo == false && manager.datosserial.tengodash == true && tiempodisp2 > 0.95f && tempaerodash > 2.5f && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f && movdire != new Vector3(0,0,0))
 				{
-					Debug.Log(b);
 					Debug.Log(tempdash);
 					Debug.Log(dash);
 					Debug.Log(suelo);
@@ -2943,9 +2891,8 @@ public class jugador_chara3d_al1 : jugador_al1
 					staminaact = -2;
 					tempaerodash = 0;
 				}
-				else if(b > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
+				else if(dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
 				{
-					Debug.Log(b);
 					Debug.Log(tempdash);
 					Debug.Log(dash);
 					Debug.Log(suelo);
@@ -2967,7 +2914,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					palo.GetComponent<golpe_al1>().dano = 0.1f * danoextra * nivelfuerza;
 					toquespalo = 999;
 				}
-				else if(b > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.05f  && anim.GetCurrentAnimatorStateInfo(1).IsName("arma3") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
+				else if(dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.05f  && anim.GetCurrentAnimatorStateInfo(1).IsName("arma3") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
 				{
 					anim.SetBool("arma3",false);
 					anim.SetBool("saltoatras",false);
@@ -3078,7 +3025,7 @@ public class jugador_chara3d_al1 : jugador_al1
 		
 		Debug.DrawRay(transform.position + new Vector3(0,3,0),movdirectaux * 300, Color.green);
 	
-			if(rb > 0 && velact != true && stamina > 0)
+			if(correrc > 0 && velact != true && stamina > 0)
 			{
 				stamina -= 7 * Time.deltaTime;
 				staminaact = 0;
@@ -3182,29 +3129,30 @@ public class jugador_chara3d_al1 : jugador_al1
 
 
 
-		lhorizontalc = 0;
-		lverticalc = 0;
+		movXc = 0;
+		movYc = 0;
 
 
-		rhorizontalc = 0;
-		rverticalc = 0;
+		camXc = 0;
+		camYc = 0;
 
-		horizontalpad = 0;
-		verticalpad = 0;
+		ruletaXc = 0;
+		ruletaYc = 0;
 
-		a = 0;
-		b = 0;
-		x = 0;
-		y = 0;
+		saltarc = 0;
+		dashc = 0;
+		golpearc = 0;
+		golpearMc = 0;
+		interactuarc = 0;
 
 		
-		rt = 0;
-		lt = 0;
-		rb = 0;
-		lb = 0;
+		dispararc = 0;
+		lateralc = 0;
+		correrc = 0;
+		ruletac = 0;
 		
-		l3 = 0;
-		r3 = 0;
+		UIreducidoc = 0;
+		marcarc = 0;
 		
 	}
 
@@ -3750,7 +3698,7 @@ public class jugador_chara3d_al1 : jugador_al1
 	{
 		if (col.gameObject.tag == "npc")
 		{
-			if (controles.al1_general.y.ReadValue<float>() > 0f && dialogueact == false && tiempodialogue > 0.7f)
+			if (controles.al1_UI.interactuar.ReadValue<float>() > 0f && dialogueact == false && tiempodialogue > 0.7f)
 			{
 				
 				menushow.SetBool("show",false);
@@ -3771,7 +3719,7 @@ public class jugador_chara3d_al1 : jugador_al1
 
 				
 			}
-			else if (controles.al1_general.cinnext.ReadValue<float>() > 0f && tiempodialogue > 0.3f && menuoff != null)
+			else if (controles.al1_UI.cinnext.ReadValue<float>() > 0f && tiempodialogue > 0.3f && menuoff != null)
 			{
 				if(menuoff.dialogueUIManager.dialogueCanvas.activeSelf == true)
 				{
@@ -3818,7 +3766,7 @@ public class jugador_chara3d_al1 : jugador_al1
 		{	
 			if(eventosdialogueE.jug == true)
 			{
-				if (controles.al1_general.cinnext.ReadValue<float>() > 0f && tiempodialogue > 0.3f && menuoff != null)
+				if (controles.al1_UI.cinnext.ReadValue<float>() > 0f && tiempodialogue > 0.3f && menuoff != null)
 				{
 					if(menuoff.dialogueUIManager.dialogueCanvas.activeSelf == true)
 					{
@@ -3917,7 +3865,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			armadefpassC.SetActive(true);
 			controlact = false;
 			combo = 0;
-			rt = 0;
+			dispararc = 0;
 			temp10 = 0;
 			if(manager.datosconfig.plat == 2)
 			{

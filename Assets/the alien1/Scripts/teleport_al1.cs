@@ -95,7 +95,7 @@ public class teleport_al1 : MonoBehaviour
                 tutfinala.text = text2+lugar;
             }
 
-			if (controles.al1_general.y.ReadValue<float>() > 0f && tipoTP2 == 0 )
+			if (controles.al1_3d.interactuar.ReadValue<float>() > 0f && tipoTP2 == 0 )
 			{
                 if(puertagiract == true)
                 {
@@ -140,7 +140,7 @@ public class teleport_al1 : MonoBehaviour
                 manager.guardar();
 				SceneManager.LoadScene(ubi);
 			}
-            else if (controles.al1_general.y.ReadValue<float>() > 0f && tipoTP2 == 1 && bloqueada == false)
+            else if (controles.al1_3d.interactuar.ReadValue<float>() > 0f && tipoTP2 == 1 && bloqueada == false)
 			{
 				col.gameObject.transform.position = objetoTP.transform.position + new Vector3(0, 1.5f, 0);
 			}
@@ -171,7 +171,7 @@ public class teleport_al1 : MonoBehaviour
                 tutfinala.text = text2+lugar;
             }
 
-			if (controles.al1_general.y.ReadValue<float>() > 0f && tipoTP2 == 0 && bloqueada == false )
+			if (controles.al1_3d.interactuar.ReadValue<float>() > 0f && tipoTP2 == 0 && bloqueada == false )
 			{
                 if(puertagiract == true)
                 {
@@ -221,7 +221,7 @@ public class teleport_al1 : MonoBehaviour
                 manager.guardar();
 				SceneManager.LoadScene(ubi);
 			}
-            else if (controles.al1_general.y.ReadValue<float>() > 0f && tipoTP2 == 1)
+            else if (controles.al1_3d.interactuar.ReadValue<float>() > 0f && tipoTP2 == 1)
 			{
 				col.gameObject.transform.position = objetoTP.transform.position + new Vector3(0, 1.5f, 0);
 			}
