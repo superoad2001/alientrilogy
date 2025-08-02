@@ -20,6 +20,9 @@ public abstract class jugador_al1 : MonoBehaviour
 	public float disjugsave;
 	public Vector3 planetCenter;
     public List<GameObject> enemigosEnContacto = new List<GameObject>();
+	[HideInInspector]public float misilbalas;
+	[HideInInspector]public float minabalas;
+	[HideInInspector]public float escopetabalas;
 	[HideInInspector]public bool dispF;
 	public GameObject tiendaG;
 	public AudioSource musicajuego;

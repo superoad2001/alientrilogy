@@ -315,127 +315,60 @@ public class enemigo1nave_al1: MonoBehaviour
         
         
     }
+
     private void OnTriggerEnter(Collider col)
 	{
-        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0 )
-		{
-            jugador1.toquespalo--;
-            jugador1.muertesjug.Stop();
-            vida -= col.gameObject.GetComponent<golpe_al1>().dano;
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.vidaeneact = true;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            danoene.Play();
-            rb_.AddForce((jugador1.transform.forward * 110) + (transform.up  * 110 * 1.5f));
-            danoene.Play();
-            temprb = 1;
-		}
-        if (col.gameObject.tag == "danoarma8" )
+
+        if (col.gameObject.tag == "danoarma8")
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
             vida -= balajug.danoj;
+            danoene.Play();
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            danoene.Play();
+            jugador1.niveleneui.text = nivelactual.ToString();  
 		}
-
 	}
-    private void OnTriggerExit(Collider col)
+    private void OnCollisionEnter(Collision col)
 	{
-        if (col.gameObject.tag == "danoarma10" )
+        if (col.gameObject.tag == "danoarma9"  )
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
             vida -= balajug.danoj;
+            danoene.Play();
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            danoene.Play();
+            jugador1.niveleneui.text = nivelactual.ToString();  
 		}
-        if (col.gameObject.tag == "danoarma9" )
+        if (col.gameObject.tag == "Player" && temprb == 0 )
 		{
-            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
-            jugador1.muertesjug.Stop();
-            vida -= balajug.danoj;
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.vidaeneact = true;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            danoene.Play();
-        }
-    }
-    private void OnTriggerStay(Collider col)
-	{
-        if (col.gameObject.tag == "golpeh")
-		{
-
-            jugador1.muertesjug.Stop();
-        }
-
-	}
-    private void OnCollisionEnter(Collision col) 
-    {
-        if (col.gameObject.tag == "respawn")
-		{
-    
-            muertes.Play();
-            jugador1.vidaenebarra.SetActive(false);
-            jugador1.vidaeneact = false;
-
-            if(managerordas != null)
-            {
-                managerordas.contadorene -= 1;
-            }
-			Destroy(transform.parent.gameObject);
-            
-		}
-        if (col.gameObject.tag == "Player" && col.gameObject.tag != "golpeh" && temprb == 0 )
-		{
-
-            jugador1.eneempuj = this.gameObject;
-            jugador1.enmovdirectaux = transform.TransformDirection((jugador1.eneempuj.transform.forward *70) + (jugador1.eneempuj.transform.up * -50));
-            jugador1.enmovdirectaux = jugador1.enmovdirectaux.normalized;
-            jugador1.tempempujon = 0;
-            jugador1.empujon = true;
             jugador1.muertesjug.Play();
             jugador1.vida -= danoj;
             GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
             muertes.Play();
             Destroy(explosiont, 1f);
             int RandomM = Random.Range(0,2);
-            if(nivel >= 70 && RandomM == 1)
+            if(managerordas != null)
             {
-                vida = vidamax;
+                managerordas.contadorene -= 1;
             }
-            else if(nivel >= 40 && nivel < 70 && RandomM == 1 && vida > 1)
+            
+            if (jugador1.enemigosEnContacto.Count == 0)
             {
-                vida = 1;
-            }
-            else
-            {
-
-                if(managerordas != null)
-                {
-                    managerordas.contadorene -= 1;
-                }
-                
-                if (jugador1.enemigosEnContacto.Count == 0)
-                {
-                    jugador1.peligro = false;
-                }           
-                Destroy(transform.parent.gameObject);
-                }
+                jugador1.peligro = false;
+            }           
+            Destroy(transform.parent.gameObject);
             
         }
+        
+
+        
         
     }
 }

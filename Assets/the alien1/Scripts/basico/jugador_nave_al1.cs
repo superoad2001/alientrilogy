@@ -18,13 +18,12 @@ public class jugador_nave_al1 : jugador_al1
 	public jugador_al1 jugador;
 	private float temp9;
 	public GameObject tarboss;
+	private float vidaescudoUI1;
 	public int armanavesel = 1;
 	public float vidaobj;
-	private float minabalas;
+	private float tempparry = 8;
 	private float[] minabalasmax = new float[3];
-	private float misilbalas;
 	private float[] misilbalasmax = new float[3];
-	private float escopetabalas;
 	private float[] escopetabalasmax = new float[3];
 	private float[] balaarmanave1dano = new float[3];
 	private float[] balaarmanave2dano = new float[3];
@@ -111,6 +110,7 @@ public class jugador_nave_al1 : jugador_al1
 	private float menu2c;	
 	public float acelerarc;
 	public float M_desplacamientoc;
+	public bool escudoact;
 
 
 
@@ -282,7 +282,36 @@ public class jugador_nave_al1 : jugador_al1
 	{
 
 
+	if (minabalas > minabalasmax[manager.datosserial.nivelarmanave2 -1])
+	{minabalas = minabalasmax[manager.datosserial.nivelarmanave2 -1];}
+	if (misilbalas > misilbalasmax[manager.datosserial.nivelarmanave3 -1])
+	{misilbalas = misilbalasmax[manager.datosserial.nivelarmanave3 -1];}
+	if (escopetabalas > escopetabalasmax[manager.datosserial.nivelarmanave4 -1])
+	{escopetabalas = escopetabalasmax[manager.datosserial.nivelarmanave4 -1];}
 
+
+	if(escudoeneact)
+	{
+		if(escudosene >= 1)
+		{
+			vidaescudoUI1 = Mathf.Lerp(vidaescudoUI1,  vidaescudoene1, Time.deltaTime * 2f);
+		}
+
+		if(escudosene == 1)
+		{
+			escudoeneimg1.fillAmount = vidaescudoUI1/vidaescudomaxene;
+		}
+		
+		
+		
+	}
+	else
+	{
+
+		escudoeneimg1.fillAmount = 0;
+		
+		
+	}
 	
 
 	if(vida < 1)
@@ -605,6 +634,7 @@ public class jugador_nave_al1 : jugador_al1
 				
 		if (escudoc > 0f && dialogueact == false && stamina >= 30)
 		{
+			escudoact = true;
 			Gescudo_nave.SetActive(true);
 			stamina -= 40 * Time.deltaTime;
 			staminaact = 0;
@@ -615,6 +645,7 @@ public class jugador_nave_al1 : jugador_al1
 		}
 		else
 		{
+			escudoact = false;
 			Gescudo_nave.SetActive(false);
 		}
 
@@ -1113,6 +1144,7 @@ public class jugador_nave_al1 : jugador_al1
 					}
 
 					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 4f;
+					BalaTemporal.GetComponent<romperbalajug_al1>().danoesc = 5;
 					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balaarmanave1dano[manager.datosserial.nivelarmanave1 -1] * nivelfuerza;
 					
 
@@ -1140,6 +1172,7 @@ public class jugador_nave_al1 : jugador_al1
 					rbb.AddForce(mod.transform.forward * 110 * 20);
 
 					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 60f;
+					BalaTemporal.GetComponent<romperbalajug_al1>().danoesc = 100;
 					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balaarmanave2dano[manager.datosserial.nivelarmanave2 -1] * nivelfuerza;
 					
 
@@ -1174,6 +1207,7 @@ public class jugador_nave_al1 : jugador_al1
 					}
 
 					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 4f;
+					BalaTemporal.GetComponent<romperbalajug_al1>().danoesc = 30;
 					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balaarmanave3dano[manager.datosserial.nivelarmanave3 -1] * nivelfuerza;
 					
 
@@ -1201,6 +1235,7 @@ public class jugador_nave_al1 : jugador_al1
 					
 
 					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 0.4f;
+					BalaTemporal.GetComponent<romperbalajug_al1>().danoesc = 30;
 					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balaarmanave4dano[manager.datosserial.nivelarmanave4 -1] * nivelfuerza;
 					
 
@@ -1292,6 +1327,9 @@ public class jugador_nave_al1 : jugador_al1
 			{
 				staminaact += 1 * Time.deltaTime;
 			}
+
+			if(tempparry < 15)
+			{tempparry += 1 * Time.deltaTime;}
 		
 
 
@@ -1355,12 +1393,81 @@ public class jugador_nave_al1 : jugador_al1
 	}
 	public void OnTriggerEnter(Collider col)
 	{
-		
+		if (col.gameObject.tag == "dañox10")
+		{
+			if(col.gameObject.GetComponent<romperbala_al1>() != null && escudoact == false)
+			{
+				romperbala_al1 enec = col.gameObject.GetComponent<romperbala_al1>();
+				if(enec.salir == true)
+				{
+					muertesjug.Play();
+					
+					if(enec.danofijo == true)
+					{
+						vida -= (vidamax/100) * enec.porcentaje;
+					}
+					else
+					{vida -= enec.danoj;}
+				}
+			}
+		}
+		if(col.gameObject.GetComponent<romperbala_al1>() != null && escudoact == true  && tempparry > 8)
+		{
+			romperbala_al1 enec = col.gameObject.GetComponent<romperbala_al1>();
+			if(enec.salir == true)
+			{
+				int Randomun = Random.Range(0,3);
+
+				if(Randomun == 0)
+				{minabalas++;}
+				if(Randomun == 1)
+				{misilbalas += 5;}
+				if(Randomun == 2)
+				{escopetabalas += 3;}
+				tempparry = 0;
+
+			}
+		}
 
 	}
 	public void OnTriggerExit(Collider col)
 	{
+		if (col.gameObject.tag == "dañox10")
+		{
+			if(col.gameObject.GetComponent<romperbala_al1>() != null && escudoact == false)
+			{
+				romperbala_al1 enec = col.gameObject.GetComponent<romperbala_al1>();
+				if(enec.salir == true)
+				{
 
+					muertesjug.Play();
+					
+					if(enec.danofijo == true)
+					{
+						vida -= (vidamax/100) * enec.porcentaje;
+					}
+					else
+					{vida -= enec.danoj;}
+				}
+			}
+			if(col.gameObject.GetComponent<romperbala_al1>() != null && escudoact == true && tempparry > 8)
+			{
+				romperbala_al1 enec = col.gameObject.GetComponent<romperbala_al1>();
+				if(enec.salir == true)
+				{
+					int Randomun = Random.Range(0,3);
+
+					if(Randomun == 0)
+					{minabalas++;}
+					if(Randomun == 1)
+					{misilbalas += 5;}
+					if(Randomun == 2)
+					{escopetabalas += 3;}
+					tempparry = 0;
+
+				}
+			}
+		}
 		
 	}
 	public void OnTriggerStay(Collider col)

@@ -2710,6 +2710,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					}
 
 					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 4f;
+					BalaTemporal.GetComponent<romperbalajug_al1>().danoesc = 10;
 					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balapadredano[manager.datosserial.nivelarmapapa-1] * nivelfuerza;
 					
 
@@ -2780,6 +2781,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					}
 
 					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 15f;
+					BalaTemporal.GetComponent<romperbalajug_al1>().danoesc = 50;
 					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balareldano[manager.datosserial.nivelarmarel-1] * nivelfuerza;
 
 					disprel.Play();
@@ -2842,6 +2844,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					
 
 					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 30f;
+					BalaTemporal.GetComponent<romperbalajug_al1>().danoesc = 300;
 					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = baladefdano[manager.datosserial.nivelarmadef-1] * nivelfuerza;
 					dispF = false;
 					dispdef.Play();

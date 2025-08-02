@@ -8,7 +8,7 @@ public class enemigo2nave_al1: MonoBehaviour
 {
 	public manager_al1 manager;
     public bool muertetemp;
-    public GameObject drop;
+    public GameObject moneda;
     public float tempM;
     public float temprb;
     private Rigidbody rb_;
@@ -208,7 +208,7 @@ public class enemigo2nave_al1: MonoBehaviour
             {
                 managerordas.contadorene--;
             }
-            GameObject drope = Instantiate(drop, transform.position , transform.rotation);
+            GameObject monedae = Instantiate(moneda, transform.position , transform.rotation);
             manager.datosserial.asesinatos++;
             manager.guardar();
             jugador1.vidaenebarra.SetActive(false);
@@ -274,80 +274,40 @@ public class enemigo2nave_al1: MonoBehaviour
         
         
     }
-    private void OnTriggerExit(Collider col)
-	{
-        if (col.gameObject.tag == "danoarma10" )
-		{
-            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
-            jugador1.muertesjug.Stop();
-            vida -= balajug.danoj;
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.vidaeneact = true;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            danoene.Play();
-		}
-        if (col.gameObject.tag == "danoarma9" )
-		{
-            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
-            jugador1.muertesjug.Stop();
-            vida -= balajug.danoj;
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.vidaeneact = true;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            danoene.Play();
-        }
-    }
     private void OnTriggerEnter(Collider col)
 	{
-        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0)
-		{
-            jugador1.toquespalo--;
-            vida -= col.gameObject.GetComponent<golpe_al1>().dano;
-            danoene.Play();
-            jugador1.vidaeneact = true;
-            temprb = 1;
-            rb_.AddForce((jugador1.transform.forward * 110) + (transform.up  * 110 * 1.2f));
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.niveleneui.text = nivelactual.ToString();
-            
-		}
-        if (col.gameObject.tag == "danoarma8" )
+
+        if (col.gameObject.tag == "danoarma8")
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
             vida -= balajug.danoj;
+            danoene.Play();
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
-            danoene.Play();
-            jugador1.niveleneui.text = nivelactual.ToString();
+            jugador1.niveleneui.text = nivelactual.ToString();  
 		}
-
 	}
-    private void OnTriggerStay(Collider col)
+    private void OnCollisionEnter(Collision col)
 	{
-
-    }
-    private void OnCollisionEnter(Collision col) 
-    {
-        if (col.gameObject.tag == "respawn")
+        if (col.gameObject.tag == "danoarma9"  )
 		{
-            muertes.Play();
-            jugador1.vidaenebarra.SetActive(false);
-            jugador1.vidaeneact = false;
-            if(managerordas != null)
-            {
-                managerordas.contadorene--;
-            }
-			Destroy(transform.parent.gameObject);
+            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+            jugador1.muertesjug.Stop();
+            vida -= balajug.danoj;
+            danoene.Play();
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+            jugador1.niveleneui.text = nivelactual.ToString();  
 		}
+
+        
+
+        
         
     }
 }

@@ -18,6 +18,7 @@ public class romperbalajug_al1: MonoBehaviour
     public bool destenter;
     public bool tele;
     public GameObject objtele;
+    public float danoesc;
 
     public GameObject balajug;
     // Start is called before the first frame update

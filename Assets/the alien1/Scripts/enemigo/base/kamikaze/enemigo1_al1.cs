@@ -29,6 +29,7 @@ public class enemigo1_al1: MonoBehaviour
     public LayerMask groundLayer;
     public GameObject verdepeque;
     public enemigo1_al1 curaobj;
+    private int RandomM = 0;
 
     private bool isGrounded = false;
     public AudioSource disp;
@@ -1111,12 +1112,21 @@ public class enemigo1_al1: MonoBehaviour
             GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
             muertes.Play();
             Destroy(explosiont, 1f);
-            int RandomM = Random.Range(0,2);
+            
+            if(nivel >= 70 )
+            {
+                RandomM = Random.Range(0,2);
+            }
+            else
+            {
+                RandomM = 0;
+            }
+
             if(nivel >= 70 && RandomM == 1)
             {
                 vida = vidamax;
             }
-            else if(nivel >= 40 && nivel < 70 && RandomM == 1 && vida > 1)
+            else if(nivel >= 40 && RandomM == 0 && vida > 1)
             {
                 vida = 1;
             }

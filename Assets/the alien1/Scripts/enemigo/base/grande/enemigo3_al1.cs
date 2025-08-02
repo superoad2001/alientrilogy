@@ -683,11 +683,11 @@ public class enemigo3_al1: MonoBehaviour
             jugador1.muertesjug.Stop();
             
             if(escudos == 3)
-            {vidaescudo3 -= 10;}
+            {vidaescudo3 -= balajug.danoesc;}
             else if(escudos == 2)
-            {vidaescudo2 -= 10;}
+            {vidaescudo2 -= balajug.danoesc;}
             else if(escudos == 1)
-            {vidaescudo1 -= 10;}
+            {vidaescudo1 -= balajug.danoesc;}
 
             escudovis.GetComponent<Material>().SetColor("_BaseMap",new Color(1f,0.1207881f,0f,0.3490196f));
             tempesc = 0;
@@ -750,11 +750,11 @@ public class enemigo3_al1: MonoBehaviour
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
             if(escudos == 3)
-            {vidaescudo3 -= 300;}
+            {vidaescudo3 -= balajug.danoesc;}
             else if(escudos == 2)
-            {vidaescudo2 -= 300;}
+            {vidaescudo2 -= balajug.danoesc;}
             else if(escudos == 1)
-            {vidaescudo1 -= 300;}
+            {vidaescudo1 -= balajug.danoesc;}
             escudovis.GetComponent<Material>().SetColor("_BaseMap",new Color(1f,0.1207881f,0f,0.3490196f));
             tempesc = 0;
 
@@ -794,11 +794,11 @@ public class enemigo3_al1: MonoBehaviour
             jugador1.muertesjug.Stop();
 
             if(escudos == 3)
-            {vidaescudo3 -= 150;}
+            {vidaescudo3 -= balajug.danoesc;}
             else if(escudos == 2)
-            {vidaescudo2 -= 150;}
+            {vidaescudo2 -= balajug.danoesc;}
             else if(escudos == 1)
-            {vidaescudo1 -= 150;}
+            {vidaescudo1 -= balajug.danoesc;}
             escudovis.GetComponent<Material>().SetColor("_BaseMap",new Color(1f,0.1207881f,0f,0.3490196f));
             tempesc = 0;
 
@@ -839,11 +839,11 @@ public class enemigo3_al1: MonoBehaviour
             jugador1.muertesjug.Stop();
             
             if(escudos == 3)
-            {vidaescudo3 -= 10;}
+            {vidaescudo3 -= balajug.danoesc;}
             else if(escudos == 2)
-            {vidaescudo2 -= 10;}
+            {vidaescudo2 -= balajug.danoesc;}
             else if(escudos == 1)
-            {vidaescudo1 -= 10;}
+            {vidaescudo1 -= balajug.danoesc;}
             escudovis.GetComponent<Material>().SetColor("_BaseMap",new Color(1f,0.1207881f,0f,0.3490196f));
             tempesc = 0;
 

@@ -9,6 +9,7 @@ public class moneda1_al1 : MonoBehaviour
 	public GameObject explosion;
 	public string monedatipo;
 	public hidemenu_al1 menu;
+	public int valormonedaA;
 
 	public int moneda;
 	// Token: 0x06000096 RID: 150 RVA: 0x00004465 File Offset: 0x00002665
@@ -41,9 +42,8 @@ public class moneda1_al1 : MonoBehaviour
 
 	// Token: 0x06000097 RID: 151 RVA: 0x00004468 File Offset: 0x00002668
 	private void Update()
-	{
-		
-	
+	{	
+		valormonedaA = manager.datosserial.niveljug;	
 	}
 
 	// Token: 0x06000098 RID: 152 RVA: 0x000044A8 File Offset: 0x000026A8
@@ -82,7 +82,7 @@ public class moneda1_al1 : MonoBehaviour
 			}
 			if (monedatipo == "amarilla")
 			{
-				manager.datosserial.economia[5]++;
+				manager.datosserial.economia[5] += valormonedaA;
 				manager.guardar();
 				audio1.Play();
 				menu.act2 = true;
