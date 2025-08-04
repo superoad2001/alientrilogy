@@ -268,15 +268,35 @@ public class enemigo3_al1: MonoBehaviour
             target.SetActive(true);
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
-            jugador1.escudoeneact = true;
+            jugador1.escudoeneact = escudoact;
             jugador1.escudosene = escudos;
+
+
             jugador1.vidaeneui = vidaUI;
             jugador1.vidaeneuimax = vidamax;
+
             jugador1.vidaescudoene1 = vidaescudo1;
             jugador1.vidaescudoene2 = vidaescudo2;
             jugador1.vidaescudoene3 = vidaescudo3;
+
             jugador1.vidaescudomaxene = vidaescudomax;
-            rb_.AddForce((jugador1.transform.forward * 110) );
+            temprb = 1;
+            jugador1.niveleneui.text = nivelactual.ToString();
+        }
+        else if(jugador1.objetivotarget2 == transform.gameObject && jugador1.objetivotarget == null && detectar == true)
+        {
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.escudoeneact = false;
+            jugador1.escudosene = 0;
+
+            jugador1.vidaeneui = vidaUI;
+            jugador1.vidaeneuimax = vidamax;
+            jugador1.vidaescudoene1 = vidaescudo2;
+            jugador1.vidaescudoene2 = vidaescudo2;
+            jugador1.vidaescudoene3 = vidaescudo3;
+
+            jugador1.vidaescudomaxene = 0;
             temprb = 1;
             jugador1.niveleneui.text = nivelactual.ToString();
         }
@@ -338,6 +358,10 @@ public class enemigo3_al1: MonoBehaviour
             if(destobj == true)
             {
                 Destroy(destruible);
+            }
+            if(jugador1.objetivotarget2 == this.gameObject)
+            {
+                jugador1.objetivotarget2 = null;
             }
             manager.datosserial.asesinatos++;
             manager.guardar();
@@ -663,7 +687,6 @@ public class enemigo3_al1: MonoBehaviour
 		{
             jugador1.toquespalo--;
             vida -= col.gameObject.GetComponent<golpe_al1>().dano;
-            jugador1.escudoeneact = true;
             danoene.Play();
             jugador1.vidaeneact = true;
             jugador1.escudosene = escudos;
@@ -675,6 +698,8 @@ public class enemigo3_al1: MonoBehaviour
             jugador1.vidaescudomaxene = vidaescudomax;
             jugador1.vidaenebarra.SetActive(true);
             jugador1.niveleneui.text = nivelactual.ToString();
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
             
 		}
         if (col.gameObject.tag == "danoarma8" && escudoact == true && fuera == true && modoatk != "encerrar")
@@ -721,6 +746,8 @@ public class enemigo3_al1: MonoBehaviour
                 GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
             }
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
 		}
         if (col.gameObject.tag == "danoarma9" && fuera == true)
 		{
@@ -738,6 +765,10 @@ public class enemigo3_al1: MonoBehaviour
             if(managerordas != null)
             {
                 managerordas.contadorene--;
+            }
+            if(jugador1.objetivotarget2 == this.gameObject)
+            {
+                jugador1.objetivotarget2 = null;
             }
 			Destroy(transform.parent.gameObject);
 		}
@@ -787,6 +818,8 @@ public class enemigo3_al1: MonoBehaviour
                 GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
             }
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
 		}
         if (col.gameObject.tag == "danoarma9" && escudoact == true && fuera == true)
 		{
@@ -831,6 +864,8 @@ public class enemigo3_al1: MonoBehaviour
                 GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
             }
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
         }
 
         if (col.gameObject.tag == "danoarma8" && escudoact == true && modoatk == "encerrar")
@@ -876,6 +911,8 @@ public class enemigo3_al1: MonoBehaviour
                 GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
             }
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
 		}
         
         

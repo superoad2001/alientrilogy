@@ -46,6 +46,7 @@ public abstract class jugador_al1 : MonoBehaviour
 	[HideInInspector]public float tiempodisp;
     [HideInInspector]public float nivelfuerza;
     [HideInInspector]public float nivelvida;
+	[HideInInspector]public GameObject objetivotarget2;
     [HideInInspector]public float []nivelfuerza_a = new float[100];
     [HideInInspector]public float []nivelvida_a = new float[100];
 	public float []armapalosignv;
@@ -53,6 +54,7 @@ public abstract class jugador_al1 : MonoBehaviour
 	public float []armapapasignv;
 	public float []armarelsignv;
 	[HideInInspector]public bool bajar = false;
+	public float tempretarget;
 	[HideInInspector]public bool subir = false;
 	[HideInInspector]public bool moverdelante = true;
 	[HideInInspector]public float temp10;

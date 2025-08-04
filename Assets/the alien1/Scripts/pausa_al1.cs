@@ -15,6 +15,8 @@ public class pausa_al1 : MonoBehaviour
     public GameObject pausa1;
     public int plataforma;
     public bool expmu;
+    public GameObject controlobj;
+
 
     public GameObject mapa_b;
     public GameObject misiones_b;
@@ -70,6 +72,8 @@ public class pausa_al1 : MonoBehaviour
     public Text boton3;
     public Text boton4;
     public Text boton5;
+    public Text boton6;
+    public Text boton7;
 
     public Text gemas;
     public Text monedam;
@@ -148,6 +152,20 @@ public class pausa_al1 : MonoBehaviour
             mapa_();
             misionT.text = manager.datosserial.misionS;
             misiondescT.text = manager.datosserial.misiondescS;
+        }
+        if(manager.datosconfig.idioma == "es")
+        {
+            if(modo == 0)
+            {
+            boton2.text = "Salir";
+            boton1.text = "Continuar";
+            if(manager.nivel >= 1 && manager.nivel <= 15)
+            {boton3.text = "Salir del nivel";}
+            boton4.text = "Pausa";
+            boton5.text = "Opciones";
+            boton6.text = "Controles";
+            boton7.text = "atras";
+            }
         }
         
         
@@ -428,6 +446,8 @@ public class pausa_al1 : MonoBehaviour
             {boton3.text = "Salir del nivel";}
             boton4.text = "Pausa";
             boton5.text = "Opciones";
+            boton6.text = "Controles";
+            boton7.text = "atras";
             }
             else if(modo == 1)
             {
@@ -461,6 +481,8 @@ public class pausa_al1 : MonoBehaviour
                 {
                     no_aplicar();
                 }
+                controlobj.SetActive(false);
+                normal.SetActive(true);
                 continuar();
             }
             else if(modo == 1)
@@ -482,6 +504,11 @@ public class pausa_al1 : MonoBehaviour
                 if(opciones1.activeSelf)
                 {
                     no_aplicar();
+                }
+                else if(controlobj.activeSelf)
+                {
+                    controlobj.SetActive(false);
+                    normal.SetActive(true);
                 }
                 else
                 {
@@ -690,6 +717,16 @@ public class pausa_al1 : MonoBehaviour
     {
         normal.SetActive(false);
         opciones1.SetActive(true);
+    }
+    public void guia()
+    {
+        normal.SetActive(false);
+        controlobj.SetActive(true);
+    }
+    public void guia_atras()
+    {
+        controlobj.SetActive(false);
+        normal.SetActive(true);
     }
     public void aplicar()
     {

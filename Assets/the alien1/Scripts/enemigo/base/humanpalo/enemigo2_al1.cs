@@ -331,13 +331,33 @@ public class enemigo2_al1: MonoBehaviour
 
         if(jugador1.objetivotarget == transform.gameObject && detectar == true)
         {
-            target.SetActive(true);
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.niveleneui.text = nivelactual.ToString();
             jugador1.escudoeneact = false;
+            jugador1.escudosene = 0;
+
+            jugador1.vidaeneui = vidaUI;
+            jugador1.vidaeneuimax = vidamax;
+            jugador1.vidaescudoene1 = 0;
+            jugador1.vidaescudoene2 = 0;
+            jugador1.vidaescudoene3 = 0;
+            jugador1.vidaescudomaxene = 0;
+            jugador1.niveleneui.text = nivelactual.ToString();
+        }
+        else if(jugador1.objetivotarget2 == transform.gameObject && jugador1.objetivotarget == null && detectar == true)
+        {
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.escudoeneact = false;
+            jugador1.escudosene = 0;
+
+            jugador1.vidaeneui = vidaUI;
+            jugador1.vidaeneuimax = vidamax;
+            jugador1.vidaescudoene1 = 0;
+            jugador1.vidaescudoene2 = 0;
+            jugador1.vidaescudoene3 = 0;
+            jugador1.vidaescudomaxene = 0;
+            jugador1.niveleneui.text = nivelactual.ToString();
         }
         else
         {
@@ -352,6 +372,10 @@ public class enemigo2_al1: MonoBehaviour
         {
             if(tempM > 45)
             {
+                if(jugador1.objetivotarget2 == this.gameObject)
+                {
+                    jugador1.objetivotarget2 = null;
+                }
                 GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
                 muertes.Play();
@@ -413,6 +437,10 @@ public class enemigo2_al1: MonoBehaviour
             if(destobj == true)
             {
                 Destroy(destruible);
+            }
+            if(jugador1.objetivotarget2 == this.gameObject)
+            {
+                jugador1.objetivotarget2 = null;
             }
             GameObject monedae = Instantiate(moneda, transform.position , transform.rotation);
             manager.datosserial.asesinatos++;
@@ -881,6 +909,8 @@ public class enemigo2_al1: MonoBehaviour
             jugador1.vidaeneuimax = vidamax;
             jugador1.niveleneui.text = nivelactual.ToString();
             danoene.Play();
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
 		}
         if (col.gameObject.tag == "danoarma9" && fuera == true)
 		{
@@ -894,6 +924,8 @@ public class enemigo2_al1: MonoBehaviour
             jugador1.vidaeneuimax = vidamax;
             jugador1.niveleneui.text = nivelactual.ToString();
             danoene.Play();
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
         }
     }
     private void OnTriggerEnter(Collider col)
@@ -911,6 +943,8 @@ public class enemigo2_al1: MonoBehaviour
             jugador1.vidaeneuimax = vidamax;
             jugador1.vidaenebarra.SetActive(true);
             jugador1.niveleneui.text = nivelactual.ToString();
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
             
 		}
         if (col.gameObject.tag == "danoarma8" && fuera == true)
@@ -925,6 +959,8 @@ public class enemigo2_al1: MonoBehaviour
             jugador1.vidaeneuimax = vidamax;
             danoene.Play();
             jugador1.niveleneui.text = nivelactual.ToString();
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
 		}
         if (col.gameObject.tag == "danoarma9")
 		{
@@ -948,6 +984,10 @@ public class enemigo2_al1: MonoBehaviour
             if(managerordas != null)
             {
                 managerordas.contadorene--;
+            }
+            if(jugador1.objetivotarget2 == this.gameObject)
+            {
+                jugador1.objetivotarget2 = null;
             }
 			Destroy(transform.parent.gameObject);
 		}

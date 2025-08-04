@@ -57,14 +57,9 @@ public class enemigo2nave_al1: MonoBehaviour
 
     public float[] nivelfuerza_a = new float[20];
     public float[] nivelvida_a = new float[20];
-    public float[] niveldefensa = new float[20];
-    public manager_ordas_al1 managerordas;
+    public manager_ordas_nave_al1 managerordas;
 
     public string modo;
-
-    public float defensabase = 5;
-    public float defensabasemax = 50;
-    public float defensaplusmax = 500;
     
     public float frenetismo;
     public GameObject prefabmina;
@@ -78,6 +73,7 @@ public class enemigo2nave_al1: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        frenetismoarmas = 1;
          if(nivelactual >= 5)
         {
             vel = vel * 1.2f;
@@ -92,9 +88,9 @@ public class enemigo2nave_al1: MonoBehaviour
         }
 
 
-        if((manager_ordas_al1)FindFirstObjectByType(typeof(manager_ordas_al1))!= null)
+        if((manager_ordas_nave_al1)FindFirstObjectByType(typeof(manager_ordas_nave_al1))!= null)
         {
-        	managerordas = (manager_ordas_al1)FindFirstObjectByType(typeof(manager_ordas_al1));
+        	managerordas = (manager_ordas_nave_al1)FindFirstObjectByType(typeof(manager_ordas_nave_al1));
         }
 
         objetivoa[0] = transform.position + new Vector3(0,0,-5);
@@ -126,17 +122,10 @@ public class enemigo2nave_al1: MonoBehaviour
             nivelfuerza_a[i] = (fuebasemax) + (((fueplusmax -fuebasemax)/10) * (i - 10));
         }
 
-        for(int i = 0 ;i <= 9;  i++ )
-        {   
-            niveldefensa[i] = (fuebase) + (((defensabasemax-defensabase)/10) * i);
-        }
-        for(int i = 11 ; i <= 19; i++)
-        {   
-            niveldefensa[i] = (fuebasemax) + (((defensaplusmax -defensabasemax)/10) * (i - 10));
-        }
 
         nivelfuerza = nivelfuerza_a[nivelactual-1];
         nivelvida = nivelvida_a[nivelactual-1];
+        vidamax = nivelvida;
         
 
         danoj = nivelfuerza;
@@ -174,10 +163,25 @@ public class enemigo2nave_al1: MonoBehaviour
             target.SetActive(true);
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
+            jugador1.escudoeneact = false;
+            jugador1.escudosene = 0;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
+            jugador1.vidaescudoene1 = 0;
+            jugador1.vidaescudomaxene = 0;
             jugador1.niveleneui.text = nivelactual.ToString();
+        }
+        else if(jugador1.objetivotarget2 == transform.gameObject && jugador1.objetivotarget == null)
+        {
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
             jugador1.escudoeneact = false;
+            jugador1.escudosene = 0;
+            jugador1.vidaeneui = vidaUI;
+            jugador1.vidaeneuimax = vidamax;
+            jugador1.vidaescudoene1 = 0;
+            jugador1.vidaescudomaxene = 0;
+            jugador1.niveleneui.text = nivelactual.ToString();
         }
         else
         {
@@ -195,6 +199,10 @@ public class enemigo2nave_al1: MonoBehaviour
                 muertes.Play();
                 jugador1.vidaenebarra.SetActive(false);
                 jugador1.vidaeneact = false;
+                if(jugador1.objetivotarget2 == this.gameObject)
+                {
+                    jugador1.objetivotarget2 = null;
+                }
                 Destroy(transform.parent.gameObject);
             }
             tempM += 1 * Time.deltaTime;
@@ -213,6 +221,10 @@ public class enemigo2nave_al1: MonoBehaviour
             manager.guardar();
             jugador1.vidaenebarra.SetActive(false);
             jugador1.vidaeneact = false;
+            if(jugador1.objetivotarget2 == this.gameObject)
+            {
+                jugador1.objetivotarget2 = null;
+            }
             Destroy(transform.parent.gameObject);
 
         }
@@ -287,12 +299,14 @@ public class enemigo2nave_al1: MonoBehaviour
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
-            jugador1.niveleneui.text = nivelactual.ToString();  
+            jugador1.niveleneui.text = nivelactual.ToString(); 
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;} 
 		}
 	}
     private void OnCollisionEnter(Collision col)
 	{
-        if (col.gameObject.tag == "danoarma9"  )
+        if (col.gameObject.tag == "danoarma9" )
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
@@ -302,7 +316,9 @@ public class enemigo2nave_al1: MonoBehaviour
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
-            jugador1.niveleneui.text = nivelactual.ToString();  
+            jugador1.niveleneui.text = nivelactual.ToString();
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
 		}
 
         

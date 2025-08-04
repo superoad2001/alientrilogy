@@ -201,21 +201,21 @@ public class jugador_nave_al1 : jugador_al1
 		
 
 
-			balaarmanave1dano[0]  = 1;
-			balaarmanave1dano[1]  = 2;
-			balaarmanave1dano[2]  = 3;
+			balaarmanave1dano[0]  = 3;
+			balaarmanave1dano[1]  = 15;
+			balaarmanave1dano[2]  = 30;
 
-			balaarmanave2dano[0]  = 20;
-			balaarmanave2dano[1]  = 40;
-			balaarmanave2dano[2]  = 60;
+			balaarmanave2dano[0]  = 200;
+			balaarmanave2dano[1]  = 500;
+			balaarmanave2dano[2]  = 1200;
 
-			balaarmanave3dano[0]  = 5;
-			balaarmanave3dano[1]  = 7.5f;
-			balaarmanave3dano[2]  = 10;
+			balaarmanave3dano[0]  = 50;
+			balaarmanave3dano[1]  = 100f;
+			balaarmanave3dano[2]  = 200;
 			
-			balaarmanave4dano[0]  = 10;
-			balaarmanave4dano[1]  = 20;
-			balaarmanave4dano[2]  = 30;
+			balaarmanave4dano[0]  = 100;
+			balaarmanave4dano[1]  = 300;
+			balaarmanave4dano[2]  = 600;
 
 			minabalasmax[0] = 3;
 			minabalasmax[1] = 5;
@@ -264,6 +264,7 @@ public class jugador_nave_al1 : jugador_al1
 			vida = vidamaxN;
 			staminaobj = stamina;
 			vidaobj = vida;
+			vidaenebarra.SetActive(false);
 
 		
 		
@@ -292,7 +293,7 @@ public class jugador_nave_al1 : jugador_al1
 
 	if(escudoeneact)
 	{
-		if(escudosene >= 1)
+		if(escudosene == 1)
 		{
 			vidaescudoUI1 = Mathf.Lerp(vidaescudoUI1,  vidaescudoene1, Time.deltaTime * 2f);
 		}
@@ -313,7 +314,8 @@ public class jugador_nave_al1 : jugador_al1
 		
 	}
 	
-
+	if(vidaeneact)
+	{vidaeneimg.fillAmount = vidaeneui/vidaeneuimax;}
 	if(vida < 1)
 	{
 		vida = 0;
@@ -840,7 +842,7 @@ public class jugador_nave_al1 : jugador_al1
 				}
 				Vector3 directiontt = objetivotarget.transform.position - transform.position;
 				Quaternion rotation = Quaternion.LookRotation(directiontt);
-				transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(rotation.eulerAngles.x,rotation.eulerAngles.y,rotation.eulerAngles.z),0.5f * Time.deltaTime);
+				transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(rotation.eulerAngles.x,rotation.eulerAngles.y,rotation.eulerAngles.z),1.5f * Time.deltaTime);
 			}
             
             transform.Rotate(Vector3.up * rotationinput.x);
@@ -876,6 +878,7 @@ public class jugador_nave_al1 : jugador_al1
 				{
 					indicetarget = -1;
 					objetivotarget = null;
+					objetivotarget2 = null;
 					vidaenebarra.SetActive(false);
 				
 				}
@@ -1133,19 +1136,13 @@ public class jugador_nave_al1 : jugador_al1
 					GameObject BalaTemporal = Instantiate(balaprefabpapa, pistolap.transform.position,pistolap.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
-					if(objetivotarget != null)
-					{
-						Vector3 dirTarget = (objetivotarget.transform.position - mod.transform.position).normalized;
-    					rbb.AddForce(dirTarget * 110 * 200);
-					}
-					else
-					{
-						rbb.AddForce(mod.transform.forward * 110 * 200);
-					}
+
+					rbb.AddForce(mod.transform.forward * 110 * 200);
+					
 
 					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 4f;
 					BalaTemporal.GetComponent<romperbalajug_al1>().danoesc = 5;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balaarmanave1dano[manager.datosserial.nivelarmanave1 -1] * nivelfuerza;
+					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balaarmanave1dano[manager.datosserial.nivelarmanave1 -1];
 					
 
 					disp.Play();
@@ -1173,7 +1170,7 @@ public class jugador_nave_al1 : jugador_al1
 
 					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 60f;
 					BalaTemporal.GetComponent<romperbalajug_al1>().danoesc = 100;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balaarmanave2dano[manager.datosserial.nivelarmanave2 -1] * nivelfuerza;
+					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balaarmanave2dano[manager.datosserial.nivelarmanave2 -1];
 					
 
 					disp.Play();
@@ -1208,7 +1205,7 @@ public class jugador_nave_al1 : jugador_al1
 
 					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 4f;
 					BalaTemporal.GetComponent<romperbalajug_al1>().danoesc = 30;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balaarmanave3dano[manager.datosserial.nivelarmanave3 -1] * nivelfuerza;
+					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balaarmanave3dano[manager.datosserial.nivelarmanave3 -1];
 					
 
 					disp.Play();
@@ -1236,7 +1233,7 @@ public class jugador_nave_al1 : jugador_al1
 
 					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 0.4f;
 					BalaTemporal.GetComponent<romperbalajug_al1>().danoesc = 30;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balaarmanave4dano[manager.datosserial.nivelarmanave4 -1] * nivelfuerza;
+					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balaarmanave4dano[manager.datosserial.nivelarmanave4 -1];
 					
 
 					disp.Play();
@@ -1267,6 +1264,9 @@ public class jugador_nave_al1 : jugador_al1
 
 		if(temppaparec < 0)
 		{temppaparec = 0;}
+
+		if(tempretarget < 15)
+		{tempretarget += 1 * Time.deltaTime;}
 
 		if(temppaparec< 20 && papaagotada == false)
         {temppaparec += 0.5f * velrecextra * Time.deltaTime;}

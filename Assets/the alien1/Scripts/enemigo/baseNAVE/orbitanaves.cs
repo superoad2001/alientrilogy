@@ -35,18 +35,21 @@ public class orbitanave_al1 : MonoBehaviour
     {
         for(int i = 0 ;i < navesmax;  i++ )
         { 
-            navespunto[i].transform.Rotate(transform.up, Time.deltaTime * 20f);
+            navespunto[i].transform.Rotate(transform.up, Time.deltaTime * 10f);
         }
 
         for(int i = 0 ;i < navesmax;  i++ )
         { 
-            if(navesene[i].transform.localPosition == objetivopos[i])
+            if(navesene[i] != null)
             {
-                objetivopos[i] = new Vector3(Random.Range(1.5f,8),0,0);
+                if(navesene[i].transform.localPosition == objetivopos[i])
+                {
+                    objetivopos[i] = new Vector3(Random.Range(1.5f,8),0,0);
+                }
+                navesene[i].transform.localPosition = Vector3.MoveTowards(navesene[i].transform.localPosition,objetivopos[i],0.5f * Time.deltaTime);
+                Vector3 direction = jug.transform.position - navesene[i].transform.position;
+                navesene[i].transform.rotation = Quaternion.LookRotation(direction);
             }
-            navesene[i].transform.localPosition = Vector3.MoveTowards(navesene[i].transform.localPosition,objetivopos[i],0.5f * Time.deltaTime);
-            Vector3 direction = jug.transform.position - navesene[i].transform.position;
-            navesene[i].transform.rotation = Quaternion.LookRotation(direction);
         }
         
     }

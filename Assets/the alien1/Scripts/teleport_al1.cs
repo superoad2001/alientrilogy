@@ -24,6 +24,8 @@ public class teleport_al1 : MonoBehaviour
     public int puertasdesbloqueable;
     public bool bloqueada;
     public bool obertura;
+    public bool req_gemas;
+    public int cantgemas;
 
 	private readonly Dictionary<string, string> languageTexts = new Dictionary<string, string>
     {
@@ -81,19 +83,42 @@ public class teleport_al1 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-	    	anim.SetBool("show",true);
-			if (languageTexts.TryGetValue(manager.datosconfig.idioma, out string text) && tipoTP == 0)
+
+            anim.SetBool("show",true);
+            if(req_gemas == true)
             {
-                tutfinala.text = text;
+                if(manager.datosserial.economia[0] >= cantgemas)
+                {
+                    if (languageTexts3.TryGetValue(manager.datosconfig.idioma, out string text2) )
+                    {
+                        tutfinala.text = text2+lugar;
+                    }
+                }
+                else
+                {
+                    if (manager.datosconfig.idioma == "es")
+                    {
+                        tutfinala.text = "Falta energia necesitas "+ cantgemas +" gemas";
+                    }
+                }
             }
-            else if (languageTexts2.TryGetValue(manager.datosconfig.idioma, out string text1) && tipoTP == 1)
+            else
             {
-                tutfinala.text = text1;
+                if (languageTexts.TryGetValue(manager.datosconfig.idioma, out string text) && tipoTP == 0)
+                {
+                    tutfinala.text = text;
+                }
+                else if (languageTexts2.TryGetValue(manager.datosconfig.idioma, out string text1) && tipoTP == 1)
+                {
+                    tutfinala.text = text1;
+                }
+                else if (languageTexts3.TryGetValue(manager.datosconfig.idioma, out string text2) && tipoTP == 2)
+                {
+                    tutfinala.text = text2+lugar;
+                }
             }
-            else if (languageTexts3.TryGetValue(manager.datosconfig.idioma, out string text2) && tipoTP == 2)
-            {
-                tutfinala.text = text2+lugar;
-            }
+	    	
+			
 
 			if (controles.al1_3d.interactuar.ReadValue<float>() > 0f && tipoTP2 == 0 )
 			{
@@ -138,7 +163,24 @@ public class teleport_al1 : MonoBehaviour
                     manager.datosserial.actual_checkpoint = 0;
                 }
                 manager.guardar();
-				SceneManager.LoadScene(ubi);
+                if(req_gemas == true)
+                {
+                    if(manager.datosserial.economia[0] >= cantgemas)
+                    {
+                        SceneManager.LoadScene(ubi);
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else
+                {
+
+                    
+                    SceneManager.LoadScene(ubi);
+                }
+				
 			}
             else if (controles.al1_3d.interactuar.ReadValue<float>() > 0f && tipoTP2 == 1 && bloqueada == false)
 			{

@@ -23,7 +23,6 @@ public class jugador_coche_al1 : jugador_al1
 	private float turboc;
 	private float aceleracionc;
 	private float habilidadc;
-	private float UIreducidoc;
 	private float aceleracion_atrasc;
 	private float menu1c;
 	private float menu2c;
@@ -138,7 +137,6 @@ public class jugador_coche_al1 : jugador_al1
 		aceleracionc = controles.al1_coche.aceleracion.ReadValue<float>();
 		aceleracion_atrasc = controles.al1_coche.aceleracion_atras.ReadValue<float>();
 		habilidadc = controles.al1_coche.habilidad.ReadValue<float>();	
-		UIreducidoc = controles.al1_coche.UIreducido.ReadValue<float>();
 
 		menu1c = controles.al1_coche.menu1.ReadValue<float>();
 		menu2c = controles.al1_coche.menu2.ReadValue<float>();

@@ -1881,6 +1881,7 @@ public class jugador_chara2d_al1 : jugador_al1
 				{
 					indicetarget = -1;
 					objetivotarget = null;
+					objetivotarget2 = null;
 					vidaenebarra.SetActive(false);
 				
 				}

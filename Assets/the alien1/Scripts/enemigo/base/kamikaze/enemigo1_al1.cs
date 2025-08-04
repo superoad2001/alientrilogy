@@ -257,12 +257,33 @@ public class enemigo1_al1: MonoBehaviour
         vidaUI = Mathf.Lerp(vidaUI, vida, Time.deltaTime * 2f);
         if(jugador1.objetivotarget == transform.gameObject && detectar == true)
         {
-            jugador1.escudoeneact = false;
             target.SetActive(true);
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
+            jugador1.escudoeneact = false;
+            jugador1.escudosene = 0;
+
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
+            jugador1.vidaescudoene1 = 0;
+            jugador1.vidaescudoene2 = 0;
+            jugador1.vidaescudoene3 = 0;
+            jugador1.vidaescudomaxene = 0;
+            jugador1.niveleneui.text = nivelactual.ToString();
+        }
+        else if(jugador1.objetivotarget2 == transform.gameObject && jugador1.objetivotarget == null && detectar == true)
+        {
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.escudoeneact = false;
+            jugador1.escudosene = 0;
+
+            jugador1.vidaeneui = vidaUI;
+            jugador1.vidaeneuimax = vidamax;
+            jugador1.vidaescudoene1 = 0;
+            jugador1.vidaescudoene2 = 0;
+            jugador1.vidaescudoene3 = 0;
+            jugador1.vidaescudomaxene = 0;
             jugador1.niveleneui.text = nivelactual.ToString();
         }
         else
@@ -347,6 +368,10 @@ public class enemigo1_al1: MonoBehaviour
 			manager.datosserial.asesinatos++;
 			muertes.Play();
 			manager.guardar();
+            if(jugador1.objetivotarget2 == this.gameObject)
+            {
+                jugador1.objetivotarget2 = null;
+            }
             Destroy(explosiont, 1f);
             jugador1.vidaenebarra.SetActive(false);
             jugador1.vidaeneact = false;
@@ -712,6 +737,10 @@ public class enemigo1_al1: MonoBehaviour
             {
                 Destroy(destruible);
             }
+            if(jugador1.objetivotarget2 == this.gameObject)
+            {
+                jugador1.objetivotarget2 = null;
+            }
 			manager.datosserial.asesinatos++;
 			muertes.Play();
 			manager.guardar();
@@ -734,6 +763,10 @@ public class enemigo1_al1: MonoBehaviour
             if(destobj == true)
             {
                 Destroy(destruible);
+            }
+            if(jugador1.objetivotarget2 == this.gameObject)
+            {
+                jugador1.objetivotarget2 = null;
             }
             jugador1.nivel2();
 			muertes.Play();
@@ -791,6 +824,10 @@ public class enemigo1_al1: MonoBehaviour
             if(destobj == true)
             {
                 Destroy(destruible);
+            }
+            if(jugador1.objetivotarget2 == this.gameObject)
+            {
+                jugador1.objetivotarget2 = null;
             }
 			manager.guardar();
             Destroy(explosiont, 1f);
@@ -995,6 +1032,8 @@ public class enemigo1_al1: MonoBehaviour
             danoene.Play();
             temprb = 1;
             vidapisar = false;
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
 		}
         if (col.gameObject.tag == "danoarma8" && fuera == true)
 		{
@@ -1008,6 +1047,8 @@ public class enemigo1_al1: MonoBehaviour
             jugador1.niveleneui.text = nivelactual.ToString();
             danoene.Play();
             vidapisar = false;
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
 		}
         if (col.gameObject.tag == "danoarma9" && fuera == true)
 		{
@@ -1029,6 +1070,8 @@ public class enemigo1_al1: MonoBehaviour
             jugador1.niveleneui.text = nivelactual.ToString();
             danoene.Play();
             vidapisar = false;
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
 		}
         if (col.gameObject.tag == "danoarma9" && fuera == true)
 		{
@@ -1042,6 +1085,8 @@ public class enemigo1_al1: MonoBehaviour
             jugador1.niveleneui.text = nivelactual.ToString();
             danoene.Play();
             vidapisar = false;
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
         }
     }
     private void OnTriggerStay(Collider col)
@@ -1093,6 +1138,10 @@ public class enemigo1_al1: MonoBehaviour
                     managerordas.contadorene -= 1;
                 }
             }
+            if(jugador1.objetivotarget2 == this.gameObject)
+            {
+                jugador1.objetivotarget2 = null;
+            }
 			Destroy(transform.parent.gameObject);
             
 		}
@@ -1125,10 +1174,14 @@ public class enemigo1_al1: MonoBehaviour
             if(nivel >= 70 && RandomM == 1)
             {
                 vida = vidamax;
+                if(jugador1.tempretarget > 1)  
+                {jugador1.objetivotarget2 = this.gameObject;}
             }
             else if(nivel >= 40 && RandomM == 0 && vida > 1)
             {
                 vida = 1;
+                if(jugador1.tempretarget > 1)  
+                {jugador1.objetivotarget2 = this.gameObject;}
             }
             else
             {
@@ -1165,8 +1218,13 @@ public class enemigo1_al1: MonoBehaviour
                 {
                     jugador1.peligro = false;
                 }           
+                if(jugador1.objetivotarget2 == this.gameObject)
+                {
+                    jugador1.objetivotarget2 = null;
+                }
                 Destroy(transform.parent.gameObject);
                 }
+                
             
         }
         

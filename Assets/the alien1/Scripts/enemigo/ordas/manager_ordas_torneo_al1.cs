@@ -61,10 +61,7 @@ public class manager_ordas_torneo_al1 : MonoBehaviour
                 ronda++;
                 rondaC();
             }
-            else
-            {
-                SceneManager.LoadScene("piso1_al1");
-            }
+
         }
 
 
@@ -194,6 +191,8 @@ public class manager_ordas_torneo_al1 : MonoBehaviour
                         posicionesG.Add(pos);
                     }
                 }
+                else if(ronda == maxronda)
+                {SceneManager.LoadScene("piso1_al1");}
                 temp = 0;
                 actinironda = false;
             }
@@ -209,6 +208,7 @@ public class manager_ordas_torneo_al1 : MonoBehaviour
         {
             rondaText.text = "consegido";
             rondaAnim.Play("ordasanim1");
+            contadorene = 1;
             //si ganaste dara el torneo como superado
         }
         else

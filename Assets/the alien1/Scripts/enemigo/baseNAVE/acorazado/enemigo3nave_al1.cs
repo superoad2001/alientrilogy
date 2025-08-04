@@ -13,7 +13,6 @@ public class enemigo3nave_al1: MonoBehaviour
     public Transform objetivo1;
     public Transform objetivo1b;
     public Rigidbody rb_;
-
     public float vel = 2;
     public bool desactivar;
     public float temp;
@@ -38,6 +37,8 @@ public class enemigo3nave_al1: MonoBehaviour
     public float temprb;
 
     public GameObject escudovis;
+    public GameObject escudovis1;
+    public GameObject escudovis2;
     public bool escudoact;
     public float tempescudo;
     public float tempesc;
@@ -93,7 +94,7 @@ public class enemigo3nave_al1: MonoBehaviour
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         jugador1 = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
     }
-    public manager_ordas_al1 managerordas;
+    public manager_ordas_nave_al1 managerordas;
     // Start is called before the first frame update
     void Start()
     {
@@ -111,9 +112,9 @@ public class enemigo3nave_al1: MonoBehaviour
             ondaact = true;
         }
 
-        if((manager_ordas_al1)FindFirstObjectByType(typeof(manager_ordas_al1))!= null)
+        if((manager_ordas_nave_al1)FindFirstObjectByType(typeof(manager_ordas_nave_al1))!= null)
         {
-        	managerordas = (manager_ordas_al1)FindFirstObjectByType(typeof(manager_ordas_al1));
+        	managerordas = (manager_ordas_nave_al1)FindFirstObjectByType(typeof(manager_ordas_nave_al1));
         }
         objetivoa[0] = transform.position + new Vector3(0,0,-5);
         objetivoa[1] = transform.position + new Vector3(0,0,5);
@@ -143,14 +144,10 @@ public class enemigo3nave_al1: MonoBehaviour
         
 
         escudos = escudosmax;
+        escudoact = true;
         
         
-        
-        
-        if(escudosmax >= 1)
-        {
-            vidaescudo1 = vidaescudomax;
-        }
+        vidaescudo1 = vidaescudomax;
 
 
         
@@ -211,18 +208,30 @@ public class enemigo3nave_al1: MonoBehaviour
         }
         else{temprb = 0f;}
         vidaUI = Mathf.Lerp(vidaUI, vida, Time.deltaTime * 2f);
-        if(jugador1.objetivotarget == transform.gameObject )
+        if(jugador1.objetivotarget == transform.gameObject)
         {
             target.SetActive(true);
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
-            jugador1.escudoeneact = true;
+            jugador1.escudoeneact = escudoact;
             jugador1.escudosene = escudos;
             jugador1.vidaeneui = vidaUI;
             jugador1.vidaeneuimax = vidamax;
             jugador1.vidaescudoene1 = vidaescudo1;
             jugador1.vidaescudomaxene = vidaescudomax;
-            rb_.AddForce((jugador1.transform.forward * 110) );
+            temprb = 1;
+            jugador1.niveleneui.text = nivelactual.ToString();
+        }
+        else if(jugador1.objetivotarget2 == transform.gameObject && jugador1.objetivotarget == null)
+        {
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.escudoeneact = escudoact;
+            jugador1.escudosene = escudos;
+            jugador1.vidaeneui = vidaUI;
+            jugador1.vidaeneuimax = vidamax;
+            jugador1.vidaescudoene1 = vidaescudo1;
+            jugador1.vidaescudomaxene = vidaescudomax;
             temprb = 1;
             jugador1.niveleneui.text = nivelactual.ToString();
         }
@@ -279,6 +288,12 @@ public class enemigo3nave_al1: MonoBehaviour
             manager.guardar();
             jugador1.vidaenebarra.SetActive(false);
             jugador1.vidaeneact = false;
+
+            if(jugador1.objetivotarget2 == this.gameObject)
+            {
+                jugador1.objetivotarget2 = null;
+            }
+            
             Destroy(transform.parent.gameObject);
 
         }
@@ -288,6 +303,8 @@ public class enemigo3nave_al1: MonoBehaviour
             escudoact = false;
             if(tempescudo >= 10)
             {
+                escudovis1.SetActive(true);
+                escudovis2.SetActive(false);
                 escudovis.SetActive(true);
                 tempescudo = 0;
                 escudoact = true;
@@ -298,10 +315,13 @@ public class enemigo3nave_al1: MonoBehaviour
             tempescudo += 1 * frenetismo * Time.deltaTime;
 
         }
-        if(escudos >= 1 && tempesc > 1f)
+        if(escudos == 1 && tempesc > 1f)
         {
-            escudovis.GetComponent<Material>().SetColor("_BaseMap",new Color(0.256408f,0.3177064f,0.8113208f,0.3490196f));
+            escudovis1.SetActive(true);
+            escudovis2.SetActive(false);
+            tempesc = 0;
         }
+        tempesc += 1 * frenetismo * Time.deltaTime;
 
 
         if(objetivo == null)
@@ -343,7 +363,7 @@ public class enemigo3nave_al1: MonoBehaviour
                 comprobarene++;
             }
 
-            if(temp > 2 && disparodes == true  && Randomdec == 0 && comprobarene < 2)
+            if(temp > 10 && Randomdec == 0 && comprobarene < 2)
             {
                 GameObject ene1 = Instantiate(prefabene1, transform.position,transform.rotation) as GameObject;
                 for(int i = 0 ;i < 2;  i++ )
@@ -357,7 +377,7 @@ public class enemigo3nave_al1: MonoBehaviour
 
                 temp = 0;
             }
-            else if(temp > 2 && disparodes == true  && Randomdec == 1)
+            else if(temp > 10 && disparodes == true  && Randomdec == 1)
             {
                 GameObject BalaTemporal = Instantiate(balaprefab1, transform.position,transform.rotation) as GameObject;
 
@@ -373,7 +393,7 @@ public class enemigo3nave_al1: MonoBehaviour
 
                 temp = 0;
             }
-            else if(temp > 2 && Randomdec == 2 && comprobarene < 2)
+            else if(temp > 10 && spawn_ovni == true && Randomdec == 2 && comprobarene < 2)
             {
                 GameObject ene2 = Instantiate(prefabene2, transform.position,transform.rotation) as GameObject;
                 for(int i = 0 ;i < 2;  i++ )
@@ -386,7 +406,7 @@ public class enemigo3nave_al1: MonoBehaviour
                 }
                 temp = 0;
             }
-            else if(temp > 2 && ondaact == true  && Randomdec == 3)
+            else if(temp > 10 && ondaact == true  && Randomdec == 3)
             {
 
 
@@ -411,8 +431,7 @@ public class enemigo3nave_al1: MonoBehaviour
             
             
         }
-        if(temp < 15)
-        {temp += 1 * Time.deltaTime;}
+        
         
         
     }
@@ -426,7 +445,8 @@ public class enemigo3nave_al1: MonoBehaviour
             if(escudos == 1)
             {vidaescudo1 -= balajug.danoesc;}
 
-            escudovis.GetComponent<Material>().SetColor("_BaseMap",new Color(1f,0.1207881f,0f,0.3490196f));
+            escudovis1.SetActive(false);
+            escudovis2.SetActive(true);
             tempesc = 0;
 
             danoescudo.Play();
@@ -443,7 +463,10 @@ public class enemigo3nave_al1: MonoBehaviour
                 escudos--;
                 GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
-            }    
+            }
+            jugador1.escudoeneact = escudoact;
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
 		}
         else if (col.gameObject.tag == "danoarma8" && escudoact == false )
 		{
@@ -458,7 +481,10 @@ public class enemigo3nave_al1: MonoBehaviour
             jugador1.vidaeneuimax = vidamax;
             jugador1.vidaescudoene1 = vidaescudo1;
             jugador1.vidaescudomaxene = vidaescudomax;
-            jugador1.niveleneui.text = nivelactual.ToString();  
+            jugador1.niveleneui.text = nivelactual.ToString();
+            jugador1.escudoeneact = escudoact;
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
 		}
 	}
     private void OnCollisionEnter(Collision col)
@@ -469,7 +495,8 @@ public class enemigo3nave_al1: MonoBehaviour
             jugador1.muertesjug.Stop();
             if(escudos == 1)
             {vidaescudo1 -=  balajug.danoesc;}
-            escudovis.GetComponent<Material>().SetColor("_BaseMap",new Color(1f,0.1207881f,0f,0.3490196f));
+            escudovis1.SetActive(false);
+            escudovis2.SetActive(true);
             tempesc = 0;
             danoescudo.Play();
             jugador1.vidaenebarra.SetActive(true);
@@ -485,7 +512,10 @@ public class enemigo3nave_al1: MonoBehaviour
                 escudos--;
                 GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
-            }    
+            }
+            jugador1.escudoeneact = escudoact;
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
 		}
         else if (col.gameObject.tag == "danoarma9" && escudoact == false )
 		{
@@ -500,7 +530,10 @@ public class enemigo3nave_al1: MonoBehaviour
             jugador1.vidaeneuimax = vidamax;
             jugador1.vidaescudoene1 = vidaescudo1;
             jugador1.vidaescudomaxene = vidaescudomax;
-            jugador1.niveleneui.text = nivelactual.ToString();  
+            jugador1.niveleneui.text = nivelactual.ToString();
+            jugador1.escudoeneact = escudoact;
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
 		}
         
 

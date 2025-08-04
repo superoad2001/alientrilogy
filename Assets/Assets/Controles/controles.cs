@@ -548,7 +548,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1d3ee65a-bb7c-406b-ab14-02588bd8f328"",
-                    ""path"": ""<Keyboard>/alt"",
+                    ""path"": ""<Keyboard>/m"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC"",
@@ -829,7 +829,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""5fc9e87a-ee3b-415e-8486-43de0f284314"",
-                    ""path"": ""<Keyboard>/alt"",
+                    ""path"": ""<Keyboard>/m"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC"",
@@ -1137,7 +1137,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""eb3d3e1c-7b8c-4871-b67b-2af236707764"",
-                    ""path"": ""<Keyboard>/v"",
+                    ""path"": ""<Keyboard>/alt"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC"",
@@ -1805,7 +1805,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b16dbdb2-ac69-4144-a528-7ce755b3ef82"",
-                    ""path"": ""<Keyboard>/alt"",
+                    ""path"": ""<Keyboard>/m"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC"",
@@ -2069,7 +2069,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""2692a6f3-6884-4a04-9aec-192fbff19697"",
-                    ""path"": ""<Keyboard>/v"",
+                    ""path"": ""<Keyboard>/alt"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC"",
@@ -2473,7 +2473,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4c78326a-0223-4217-9ac1-5ec8c5203fca"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC;Todo"",
@@ -2517,7 +2517,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""791287f6-695e-473f-9e5d-85afc6530ea2"",
-                    ""path"": ""<Keyboard>/alt"",
+                    ""path"": ""<Keyboard>/m"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC"",
@@ -2539,7 +2539,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9f1b6545-e4f6-42c0-b9f7-76579075c269"",
-                    ""path"": ""<Keyboard>/shift"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC"",
@@ -2649,7 +2649,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3c813245-e709-4d48-909f-674662568734"",
-                    ""path"": ""<Keyboard>/v"",
+                    ""path"": ""<Keyboard>/alt"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC"",
@@ -2671,7 +2671,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""469013b9-d8d6-40ba-8d05-38d65fbb6cd2"",
-                    ""path"": ""<Keyboard>/#(Q)"",
+                    ""path"": ""<Keyboard>/ctrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC"",
@@ -3091,15 +3091,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""UIreducido"",
-                    ""type"": ""Button"",
-                    ""id"": ""00da3393-13a7-45e1-b211-ea7e0e4e7aa3"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""movX"",
                     ""type"": ""Value"",
                     ""id"": ""a9eef491-54c1-4de9-b89f-6756f95bf5ec"",
@@ -3196,33 +3187,11 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""019efa83-6d00-4372-8963-063b2bb4edac"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC;Todo"",
                     ""action"": ""turbo"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f91f0e32-4626-4b9b-8452-860a60f06ea0"",
-                    ""path"": ""<Gamepad>/leftStickPress"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";PAD"",
-                    ""action"": ""UIreducido"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d0d17634-d630-4020-820e-ab1194e89578"",
-                    ""path"": ""<Keyboard>/alt"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";PC"",
-                    ""action"": ""UIreducido"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -3372,7 +3341,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ac30e0fb-0ca0-4485-a2ab-3ce628563a75"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC"",
@@ -3394,7 +3363,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3c1f644d-fc37-4f33-b59d-16a3552ced7c"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC"",
@@ -5203,7 +5172,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         // al1_coche
         m_al1_coche = asset.FindActionMap("al1_coche", throwIfNotFound: true);
         m_al1_coche_turbo = m_al1_coche.FindAction("turbo", throwIfNotFound: true);
-        m_al1_coche_UIreducido = m_al1_coche.FindAction("UIreducido", throwIfNotFound: true);
         m_al1_coche_movX = m_al1_coche.FindAction("movX", throwIfNotFound: true);
         m_al1_coche_movY = m_al1_coche.FindAction("movY", throwIfNotFound: true);
         m_al1_coche_camX = m_al1_coche.FindAction("camX", throwIfNotFound: true);
@@ -6556,7 +6524,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_al1_coche;
     private List<IAl1_cocheActions> m_Al1_cocheActionsCallbackInterfaces = new List<IAl1_cocheActions>();
     private readonly InputAction m_al1_coche_turbo;
-    private readonly InputAction m_al1_coche_UIreducido;
     private readonly InputAction m_al1_coche_movX;
     private readonly InputAction m_al1_coche_movY;
     private readonly InputAction m_al1_coche_camX;
@@ -6581,10 +6548,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "al1_coche/turbo".
         /// </summary>
         public InputAction @turbo => m_Wrapper.m_al1_coche_turbo;
-        /// <summary>
-        /// Provides access to the underlying input action "al1_coche/UIreducido".
-        /// </summary>
-        public InputAction @UIreducido => m_Wrapper.m_al1_coche_UIreducido;
         /// <summary>
         /// Provides access to the underlying input action "al1_coche/movX".
         /// </summary>
@@ -6650,9 +6613,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @turbo.started += instance.OnTurbo;
             @turbo.performed += instance.OnTurbo;
             @turbo.canceled += instance.OnTurbo;
-            @UIreducido.started += instance.OnUIreducido;
-            @UIreducido.performed += instance.OnUIreducido;
-            @UIreducido.canceled += instance.OnUIreducido;
             @movX.started += instance.OnMovX;
             @movX.performed += instance.OnMovX;
             @movX.canceled += instance.OnMovX;
@@ -6694,9 +6654,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @turbo.started -= instance.OnTurbo;
             @turbo.performed -= instance.OnTurbo;
             @turbo.canceled -= instance.OnTurbo;
-            @UIreducido.started -= instance.OnUIreducido;
-            @UIreducido.performed -= instance.OnUIreducido;
-            @UIreducido.canceled -= instance.OnUIreducido;
             @movX.started -= instance.OnMovX;
             @movX.performed -= instance.OnMovX;
             @movX.canceled -= instance.OnMovX;
@@ -8217,13 +8174,6 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTurbo(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "UIreducido" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnUIreducido(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "movX" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

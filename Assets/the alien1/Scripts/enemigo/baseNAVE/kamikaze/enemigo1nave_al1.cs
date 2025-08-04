@@ -58,7 +58,6 @@ public class enemigo1nave_al1: MonoBehaviour
     private Vector3 []objetivoa = new Vector3[4]; 
     private Vector3 objetivon;
     public float[] niveldefensa = new float[20];
-    public manager_ordas_al1 managerordas;
     private float temprb;
     public string modo;
     private float disparos;
@@ -105,11 +104,6 @@ public class enemigo1nave_al1: MonoBehaviour
                 modo = "disparo";
                 disparos = 10;
             }
-        }
-
-        if((manager_ordas_al1)FindFirstObjectByType(typeof(manager_ordas_al1))!= null)
-        {
-        	managerordas = (manager_ordas_al1)FindFirstObjectByType(typeof(manager_ordas_al1));
         }
         objetivoa[0] = transform.position + new Vector3(0,0,-5);
         objetivoa[1] = transform.position + new Vector3(0,0,5);
@@ -202,12 +196,27 @@ public class enemigo1nave_al1: MonoBehaviour
         vidaUI = Mathf.Lerp(vidaUI, vida, Time.deltaTime * 2f);
         if(jugador1.objetivotarget == transform.gameObject )
         {
-            jugador1.escudoeneact = false;
             target.SetActive(true);
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
+            jugador1.escudoeneact = false;
+            jugador1.escudosene = 0;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
+            jugador1.vidaescudoene1 = 0;
+            jugador1.vidaescudomaxene = 0;
+            jugador1.niveleneui.text = nivelactual.ToString();
+        }
+        else if(jugador1.objetivotarget2 == transform.gameObject && jugador1.objetivotarget == null)
+        {
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.escudoeneact = false;
+            jugador1.escudosene = 0;
+            jugador1.vidaeneui = vidaUI;
+            jugador1.vidaeneuimax = vidamax;
+            jugador1.vidaescudoene1 = 0;
+            jugador1.vidaescudomaxene = 0;
             jugador1.niveleneui.text = nivelactual.ToString();
         }
         else
@@ -216,10 +225,6 @@ public class enemigo1nave_al1: MonoBehaviour
         }
         if (vida < 1 && temprb == 0)
         {
-            if(managerordas != null)
-            {
-                managerordas.contadorene--;
-            }
             if(manager.juego == 3 || manager.juego == 4 )
             {
                 jugador1.enemigosEnContacto.Remove(det.gameObject);
@@ -271,11 +276,13 @@ public class enemigo1nave_al1: MonoBehaviour
             Destroy(explosiont, 1f);
             jugador1.vidaenebarra.SetActive(false);
             jugador1.vidaeneact = false;
+            if(jugador1.objetivotarget2 == this.gameObject)
+            {
+                jugador1.objetivotarget2 = null;
+            }
             Destroy(transform.parent.gameObject);
 
         }
-        det.transform.position = this.transform.position;
-        dano.transform.position = this.transform.position;
         if(objetivo == null)
         {
             objetivo = objetivob;
@@ -329,7 +336,9 @@ public class enemigo1nave_al1: MonoBehaviour
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
-            jugador1.niveleneui.text = nivelactual.ToString();  
+            jugador1.niveleneui.text = nivelactual.ToString();
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
 		}
 	}
     private void OnCollisionEnter(Collision col)
@@ -344,7 +353,9 @@ public class enemigo1nave_al1: MonoBehaviour
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
-            jugador1.niveleneui.text = nivelactual.ToString();  
+            jugador1.niveleneui.text = nivelactual.ToString();
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
 		}
         if (col.gameObject.tag == "Player" && temprb == 0 )
 		{
@@ -354,15 +365,10 @@ public class enemigo1nave_al1: MonoBehaviour
             muertes.Play();
             Destroy(explosiont, 1f);
             int RandomM = Random.Range(0,2);
-            if(managerordas != null)
+            if(jugador1.objetivotarget2 == this.gameObject)
             {
-                managerordas.contadorene -= 1;
+                jugador1.objetivotarget2 = null;
             }
-            
-            if (jugador1.enemigosEnContacto.Count == 0)
-            {
-                jugador1.peligro = false;
-            }           
             Destroy(transform.parent.gameObject);
             
         }

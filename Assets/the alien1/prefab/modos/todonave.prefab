@@ -10288,6 +10288,9 @@ MonoBehaviour:
   disjugsave: 0
   planetCenter: {x: 0, y: 0, z: 0}
   enemigosEnContacto: []
+  misilbalas: 0
+  minabalas: 0
+  escopetabalas: 0
   dispF: 0
   tiendaG: {fileID: 0}
   musicajuego: {fileID: 6626362241352161547}
@@ -10311,6 +10314,7 @@ MonoBehaviour:
   tiempodisp: 0
   nivelfuerza: 0
   nivelvida: 0
+  objetivotarget2: {fileID: 0}
   nivelfuerza_a:
   - 0
   - 0
@@ -10538,6 +10542,7 @@ MonoBehaviour:
   - 0
   - 0
   bajar: 0
+  tempretarget: 0
   subir: 0
   moverdelante: 1
   temp10: 0
@@ -10605,14 +10610,14 @@ MonoBehaviour:
   select1: {fileID: 2801030842010537782}
   vidab: {fileID: 4977358691158860675}
   vidaeneimg: {fileID: 2381247120313216825}
-  escudoeneimg1: {fileID: 0}
+  escudoeneimg1: {fileID: 5316767837779735580}
   escudoeneimg2: {fileID: 0}
   escudoeneimg3: {fileID: 0}
   iconodisp: {fileID: 5993070274442266514}
   misionA: {fileID: 611009724071429865}
   manager: {fileID: 2128543842266305913}
   ascensors: {fileID: 0}
-  vidaenebarra: {fileID: 2077934665112990225}
+  vidaenebarra: {fileID: 6610387802215432965}
   escudoenebarra: {fileID: 3645896998323044047}
   boxcam2: {fileID: 2064357219457517914}
   armanvt: {fileID: 1697350105064286709}
@@ -10625,6 +10630,8 @@ MonoBehaviour:
   armanavesel: 1
   vidaobj: 0
   enemigosEnContactonave:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -10649,6 +10656,7 @@ MonoBehaviour:
   temppaparec: 20
   acelerarc: 0
   M_desplacamientoc: 0
+  escudoact: 0
   target:
   - {fileID: 0}
   - {fileID: 0}
@@ -27285,6 +27293,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7164281044022457032}
+  - {fileID: 1849258759075219176}
   - {fileID: 7006027466151571395}
   - {fileID: 719267511509784248}
   - {fileID: 7332036075819170933}
@@ -60680,7 +60689,6 @@ RectTransform:
   m_Children:
   - {fileID: 7515027014627277614}
   - {fileID: 6261551464591685765}
-  - {fileID: 1849258759075219176}
   m_Father: {fileID: 2217216393807179669}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
@@ -94299,7 +94307,7 @@ GameObject:
   - component: {fileID: 8609171892282774937}
   - component: {fileID: 6281922318653296923}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: nivel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94314,16 +94322,16 @@ RectTransform:
   m_GameObject: {fileID: 7851573653053639213}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.4557033, y: 2.4557033, z: 2.4557033}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3979496216387115364}
-  m_Father: {fileID: 719267511509784248}
+  m_Father: {fileID: 2217216393807179669}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -714.3, y: -8.2}
-  m_SizeDelta: {x: 52.7, y: 15.1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 151.69946, y: 30.736526}
+  m_SizeDelta: {x: 52.69995, y: 15.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8609171892282774937
 CanvasRenderer:
@@ -111039,7 +111047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7155335147208632822, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7155335147208632822, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -111125,6 +111133,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2177842620203201166}
     m_Modifications:
+    - target: {fileID: 1585746487357717418, guid: 8fc6212bab72af046a83769c98390d72, type: 3}
+      propertyPath: customSpriteName
+      value: al1_naves
+      objectReference: {fileID: 0}
     - target: {fileID: 5040360049422639709, guid: 8fc6212bab72af046a83769c98390d72, type: 3}
       propertyPath: m_LocalPosition.x
       value: -50.720383
@@ -111910,7 +111922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7155335147208632822, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7155335147208632822, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
       propertyPath: m_StaticEditorFlags
