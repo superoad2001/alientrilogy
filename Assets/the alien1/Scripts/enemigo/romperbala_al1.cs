@@ -24,6 +24,7 @@ public class romperbala_al1: MonoBehaviour
     public bool tele;
     public GameObject objtele;
     public float tempdest;
+    public bool paloact;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,12 +53,21 @@ public class romperbala_al1: MonoBehaviour
         }
         transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,transform.forward.y,transform.rotation.eulerAngles.z),5000f * Time.deltaTime);
     }
+    public void OnTriggerExit(Collider col)
+    {
+        if(col.gameObject.tag == "golpeh")
+        {
+            paloact = false;
+        }
+    }
     public void OnTriggerEnter(Collider col)
     {
     	if(col.gameObject.tag == "golpeh")
         {
+            paloact = true;
             Destroy(this.gameObject);
         }
+
         if(tele == false)
         {
             if (col.gameObject.tag == "Player" && destenter == true && col.gameObject.GetComponent<romperbala_al1>() == null && balaene)

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7332590696845864584}
   - component: {fileID: 7332590696845864586}
   - component: {fileID: 968361879136136941}
-  - component: {fileID: 419452369411613983}
   - component: {fileID: 1652120026510470966}
   m_Layer: 0
   m_Name: zig zag
@@ -161,28 +160,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 0
---- !u!114 &419452369411613983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7332590696845864588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d22120d1e080787479b6a302f501b36e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  danoj: 1
-  dest: {fileID: 0}
-  desto: {fileID: 0}
-  explosion: {fileID: 358637981425055526, guid: 14c1be6914734a14d8d4099c9472d975, type: 3}
-  destb: 0
-  armadef: 0
-  destenter: 0
-  tele: 0
-  objtele: {fileID: 0}
-  balajug: {fileID: 0}
 --- !u!114 &1652120026510470966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,15 +174,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   empujar: 0
   danoj: 1
+  salir: 0
   dest: {fileID: 0}
   desto: {fileID: 0}
-  explosion: {fileID: 0}
+  explosion: {fileID: 358637981425055526, guid: 14c1be6914734a14d8d4099c9472d975, type: 3}
   balaene: 1
   jugador1: {fileID: 0}
+  destenter: 0
   destb: 3
   armadef: 0
   porcentaje: 0
-  danofij: 0
+  danofijo: 0
+  tele: 0
+  objtele: {fileID: 0}
+  tempdest: 0
+  paloact: 0
 --- !u!1 &7332590697502438400
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,15 +363,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   empujar: 0
   danoj: 1
+  salir: 0
   dest: {fileID: 0}
   desto: {fileID: 0}
   explosion: {fileID: 358637981425055526, guid: 14c1be6914734a14d8d4099c9472d975, type: 3}
   balaene: 1
   jugador1: {fileID: 0}
+  destenter: 0
   destb: 3
   armadef: 0
   porcentaje: 0
-  danofij: 0
+  danofijo: 0
+  tele: 0
+  objtele: {fileID: 0}
+  tempdest: 0
+  paloact: 0
 --- !u!1 &7332590698050240100
 GameObject:
   m_ObjectHideFlags: 0

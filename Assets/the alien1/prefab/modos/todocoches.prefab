@@ -3886,6 +3886,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6175597724510230000}
+  - component: {fileID: 7872998908860997222}
   m_Layer: 0
   m_Name: cami
   m_TagString: Untagged
@@ -3909,6 +3910,28 @@ Transform:
   - {fileID: 447441195434454854}
   m_Father: {fileID: 5731573761658181627}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &7872998908860997222
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3280733087168864854}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cc94cac94d2254e4db455752a1d36039, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3302379194227938634
 GameObject:
   m_ObjectHideFlags: 0
@@ -4173,7 +4196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Action: al1_general/lt
+  m_Action: al1_coche/aceleracion_atras
   _setNativeSize: 1
 --- !u!1 &3451181652489882641
 GameObject:
@@ -4600,7 +4623,6 @@ GameObject:
   - component: {fileID: 1044220377380722293}
   - component: {fileID: 585601135097878398}
   - component: {fileID: 6127441733516758048}
-  - component: {fileID: 5749140647370873493}
   - component: {fileID: 9153243320813884161}
   m_Layer: 0
   m_Name: normal
@@ -4889,28 +4911,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!95 &5749140647370873493
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3798924179688810810}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cc94cac94d2254e4db455752a1d36039, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &9153243320813884161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4918,7 +4918,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3798924179688810810}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9908c2c53e299b64f896323680045101, type: 3}
   m_Name: 
@@ -5177,7 +5177,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3893809292889963183}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44d7fbc2180163142bbf29236d5b9b15, type: 3}
   m_Name: 
@@ -6091,8 +6091,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76bdecd4948e49142b9680804802be3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movact: 1
-  controlact: 1
+  movact: 0
+  controlact: 0
   objplaneta: {fileID: 0}
   disjugsave: 0
   planetCenter: {x: 0, y: 0, z: 0}
@@ -7501,7 +7501,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5218611467675912716}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44d7fbc2180163142bbf29236d5b9b15, type: 3}
   m_Name: 
@@ -8969,7 +8969,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6093396390125704151}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44d7fbc2180163142bbf29236d5b9b15, type: 3}
   m_Name: 
@@ -9855,7 +9855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Action: al1_general/a
+  m_Action: al1_coche/turbo
   _setNativeSize: 1
 --- !u!1 &6449757161192625211
 GameObject:
@@ -9945,7 +9945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Action: al1_general/rt
+  m_Action: al1_coche/aceleracion
   _setNativeSize: 1
 --- !u!1 &6631756440879648404
 GameObject:
@@ -11010,7 +11010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708958db37ee4fee958ef9f2ce3f55da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Action: al1_lb/rt
+  m_Action: al1_coche/habilidad
   _setNativeSize: 1
 --- !u!1 &8336195688638888523
 GameObject:
@@ -11375,7 +11375,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -53.29, y: -17.579973}
+  m_AnchoredPosition: {x: -1.63, y: -17.579973}
   m_SizeDelta: {x: 43.1, y: 54.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &216858538443048403
@@ -14498,13 +14498,17 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 5093523161961848433, guid: e2eb5202ea16e2f40b08ff5bdc7de4d7, type: 3}
+      propertyPath: m_IgnoreReversedGraphics
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5336791838225423557, guid: e2eb5202ea16e2f40b08ff5bdc7de4d7, type: 3}
       propertyPath: m_Name
       value: contador
       objectReference: {fileID: 0}
     - target: {fileID: 5336791838225423557, guid: e2eb5202ea16e2f40b08ff5bdc7de4d7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7097347476920960769, guid: e2eb5202ea16e2f40b08ff5bdc7de4d7, type: 3}
       propertyPath: m_Pivot.x
@@ -14587,6 +14591,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8720041088726651685, guid: e2eb5202ea16e2f40b08ff5bdc7de4d7, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 7872998908860997222}
+    - target: {fileID: 8720041088726651685, guid: e2eb5202ea16e2f40b08ff5bdc7de4d7, type: 3}
       propertyPath: enemigo
       value: 
       objectReference: {fileID: 9013088958198903801}
@@ -14606,6 +14614,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8720041088726651685, guid: e2eb5202ea16e2f40b08ff5bdc7de4d7, type: 3}
+      propertyPath: 'eneIA.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6772629021145408222}
+    - target: {fileID: 8720041088726651685, guid: e2eb5202ea16e2f40b08ff5bdc7de4d7, type: 3}
+      propertyPath: 'eneIA.Array.data[1]'
+      value: 
+      objectReference: {fileID: 6795519596379499429}
+    - target: {fileID: 8720041088726651685, guid: e2eb5202ea16e2f40b08ff5bdc7de4d7, type: 3}
+      propertyPath: 'eneIA.Array.data[2]'
+      value: 
+      objectReference: {fileID: 4589740534682583493}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

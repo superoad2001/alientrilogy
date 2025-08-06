@@ -128,15 +128,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   empujar: 0
   danoj: 0
+  salir: 0
   dest: {fileID: 0}
   desto: {fileID: 0}
-  explosion: {fileID: 0}
+  explosion: {fileID: 358637981425055526, guid: d06cbdd4a4218b541a8177f1841fda6e, type: 3}
   balaene: 0
   jugador1: {fileID: 0}
-  destb: 0
+  destenter: 0
+  destb: 4
   armadef: 1
   porcentaje: 0
-  danofij: 1
+  danofijo: 0
+  tele: 0
+  objtele: {fileID: 0}
+  tempdest: 0
+  paloact: 0
 --- !u!114 &149326712238710862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,11 +159,11 @@ MonoBehaviour:
   rb: {fileID: 0}
   dest: {fileID: 0}
   desto: {fileID: 0}
-  explosion: {fileID: 5062577900481011830, guid: 138e7d3231283d748b8e5894a1781961, type: 3}
+  explosion: {fileID: 358637981425055526, guid: d06cbdd4a4218b541a8177f1841fda6e, type: 3}
   destb: 0
   armadef: 0
-  armadefene: 1
-  escala: 10
+  armadefene: 0
+  escala: 40
 --- !u!54 &54741910725831293
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -216,7 +222,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 18198963dd979934a83d10d83e784bdd, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 18198963dd979934a83d10d83e784bdd, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.505

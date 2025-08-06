@@ -17,6 +17,9 @@ public class iniciocarrera_al1 : MonoBehaviour
     public float temp = -2;
     public int intentos;
     public AudioSource pip;
+    public Animator cam;
+    public IAenecoche_al1[] eneIA = new IAenecoche_al1[3];
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -50,7 +53,11 @@ public class iniciocarrera_al1 : MonoBehaviour
             imagen.SetActive(false);
             cont.text = "start";
             jugador.controlact = true;
-            enemigo.enabled = true;
+            cam.enabled = false;
+            for(int i = 0; i < eneIA.Length; i++)
+            {
+                eneIA[i].enabled = true;
+            }
         }
         if(intentos == 4)
         {

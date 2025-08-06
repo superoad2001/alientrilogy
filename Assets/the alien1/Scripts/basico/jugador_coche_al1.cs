@@ -123,10 +123,10 @@ public class jugador_coche_al1 : jugador_al1
 		
 
 
-		if(movact == true)
+		if(movact == 0)
 		{
-			movXc = controles.al1_coche.movX.ReadValue<float>();
-			movYc = controles.al1_coche.movY.ReadValue<float>();	
+			movXc = controles.al1_coche.mov.ReadValue<Vector2>().x;
+			movYc = controles.al1_coche.mov.ReadValue<Vector2>().y;		
 		}
 
 		

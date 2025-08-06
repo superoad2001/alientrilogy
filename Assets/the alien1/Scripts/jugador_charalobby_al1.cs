@@ -178,6 +178,26 @@ public class jugador_charalobby_al1 : jugador_al1
 	// Token: 0x0600001D RID: 29 RVA: 0x000025E8 File Offset: 0x000007E8
 	private void Start()
 	{
+
+		armapalosignv[0] = 80;
+		armadefsignv[0] = 10;
+		armapapasignv[0] = 300;
+		armarelsignv[0] = 20;
+
+		armapalosignv[1] = 100;
+		armadefsignv[1] = 30;
+		armapapasignv[1] = 600;
+		armarelsignv[1] = 30;
+		
+		armapalosignv[2] = 120;
+		armadefsignv[2] = 60;
+		armapapasignv[2] = 1000;
+		armarelsignv[2] = 50;
+
+		armapalosignv[3] = 140;
+		armadefsignv[3] = 90;
+		armapapasignv[3] = 2000;
+		armarelsignv[3] = 80;
 		
 		
 
@@ -355,8 +375,8 @@ public class jugador_charalobby_al1 : jugador_al1
 		
 
 			
-			ruletaXc = controles.al1_3d.movX.ReadValue<float>();
-			ruletaYc = controles.al1_3d.movY.ReadValue<float>();
+			ruletaXc = controles.al1_3d.ruletaPAD.ReadValue<Vector2>().x;
+			ruletaYc = controles.al1_3d.ruletaPAD.ReadValue<Vector2>().y;
 
 
 			camXc = controles.al1_3d.camX.ReadValue<float>();
@@ -368,10 +388,10 @@ public class jugador_charalobby_al1 : jugador_al1
 			
 
 
-			if(movact == true)
+			if(movact == 0)
 			{
-				movXc = controles.al1_3d.movX.ReadValue<float>();
-				movYc = controles.al1_3d.movY.ReadValue<float>();	
+				movXc = controles.al1_3d.mov.ReadValue<Vector2>().x;
+				movYc = controles.al1_3d.mov.ReadValue<Vector2>().y;
 			}
 
 		

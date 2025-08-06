@@ -13,6 +13,7 @@ using System.Linq;
 public class jugador_chara3d_al1 : jugador_al1
 {
 	[Header("Propio 3D")]
+	public AudioSource dest;
 	private float vidaescudoUI1;
 	private float vidaescudoUI2;
 	private float vidaescudoUI3;
@@ -202,6 +203,11 @@ public class jugador_chara3d_al1 : jugador_al1
 	private void Start()
 	{
 		
+
+		fuebasetut = 1;
+		fuebase = 2;
+		fuebasemax = 30;
+		fueplusmax = 120;
 		
 		rotspeed = 100;
 		
@@ -345,25 +351,25 @@ public class jugador_chara3d_al1 : jugador_al1
 			armapapasignv = new float[5];
 			armarelsignv = new float[5];
 
-			armapalosignv[0] = 30;
+			armapalosignv[0] = 80;
 			armadefsignv[0] = 10;
-			armapapasignv[0] = 200;
+			armapapasignv[0] = 300;
 			armarelsignv[0] = 20;
 
-			armapalosignv[1] = 60;
-			armadefsignv[1] = 50;
-			armapapasignv[1] = 500;
+			armapalosignv[1] = 100;
+			armadefsignv[1] = 30;
+			armapapasignv[1] = 600;
 			armarelsignv[1] = 30;
 			
 			armapalosignv[2] = 120;
-			armadefsignv[2] = 80;
+			armadefsignv[2] = 60;
 			armapapasignv[2] = 1000;
 			armarelsignv[2] = 50;
 
-			armapalosignv[3] = 200;
-			armadefsignv[3] = 200;
+			armapalosignv[3] = 140;
+			armadefsignv[3] = 90;
 			armapapasignv[3] = 2000;
-			armarelsignv[3] = 100;
+			armarelsignv[3] = 80;
 
 
 
@@ -375,35 +381,35 @@ public class jugador_chara3d_al1 : jugador_al1
 			balapapamun[0] = 1.2f;
 
 			balapadrevel[1] = 14f;
-			balapadredano[1] = 1.3f;
+			balapadredano[1] = 2f;
 			balapadrecaden[1] = 0.7f;
 			balapapamun[1] = 0.9f;
 
 			balapadrevel[2] = 22f;
-			balapadredano[2] = 1.1f;
+			balapadredano[2] = 2.5f;
 			balapadrecaden[2] = 0.5f;
 			balapapamun[2] = 0.60f;
 
 			balapadrevel[3] = 25f;
-			balapadredano[3] = 0.9f;
+			balapadredano[3] = 2.5f;
 			balapadrecaden[3] = 0.3f;
 			balapapamun[3] = 0.35f;
 
 			balapadrevel[4] = 35f;
-			balapadredano[4] = 0.7f;
+			balapadredano[4] = 2.3f;
 			balapadrecaden[4] = 0.2f;
 			balapapamun[4] = 0.25f;
 
-			baladefdano[0] = 50;
-			baladefdano[1] = 70;
-			baladefdano[2] = 100;
-			baladefdano[3] = 150;
-			baladefdano[4] = 200;
+			baladefdano[0] = 20;
+			baladefdano[1] = 30;
+			baladefdano[2] = 40;
+			baladefdano[3] = 50;
+			baladefdano[4] = 60;
 
 			balareldano [0]= 0;
 			balareldano [1]= 0;
 			balareldano [2]= 0;
-			balareldano [3]= 1;
+			balareldano [3]= 1.2f;
 			balareldano [4]= 2;
 		
 
@@ -512,10 +518,13 @@ public class jugador_chara3d_al1 : jugador_al1
 		
 
 		if(vidaeneact)
-		{vidaeneimg.fillAmount = vidaeneui/vidaeneuimax;}
+		{
+			vidaeneimg.fillAmount = vidaeneui/vidaeneuimax;
+		}
 
 		if(escudoeneact)
 		{
+			escudoenebarra.SetActive(true);
 			if(escudosene >= 1)
 			{
 				vidaescudoUI1 = Mathf.Lerp(vidaescudoUI1,  vidaescudoene1, Time.deltaTime * 2f);
@@ -531,21 +540,21 @@ public class jugador_chara3d_al1 : jugador_al1
 
 			if(escudosene == 1)
 			{
-				escudoeneimg1.fillAmount = vidaescudoUI1/vidaescudomaxene;
+				escudoeneimg3.fillAmount = vidaescudoUI1/vidaescudomaxene;
 				escudoeneimg2.fillAmount = 0;
-				escudoeneimg3.fillAmount = 0;
+				escudoeneimg1.fillAmount = 0;
 			}
 			if(escudosene == 2)
 			{
-				escudoeneimg1.fillAmount = vidaescudoUI1/vidaescudomaxene;
+				escudoeneimg3.fillAmount = vidaescudoUI1/vidaescudomaxene;
 				escudoeneimg2.fillAmount = vidaescudoUI2/vidaescudomaxene;
-				escudoeneimg3.fillAmount = 0;
+				escudoeneimg1.fillAmount = 0;
 			}
 			if(escudosene == 3)
 			{
-				escudoeneimg1.fillAmount = vidaescudoUI1/vidaescudomaxene;
+				escudoeneimg3.fillAmount = vidaescudoUI1/vidaescudomaxene;
 				escudoeneimg2.fillAmount = vidaescudoUI2/vidaescudomaxene;
-				escudoeneimg3.fillAmount = vidaescudoUI3/vidaescudomaxene;
+				escudoeneimg1.fillAmount = vidaescudoUI3/vidaescudomaxene;
 			}
 			
 			
@@ -553,7 +562,7 @@ public class jugador_chara3d_al1 : jugador_al1
 		}
 		else
 		{
-
+			escudoenebarra.SetActive(false);
 			escudoeneimg1.fillAmount = 0;
 			escudoeneimg2.fillAmount = 0;
 			escudoeneimg3.fillAmount = 0;
@@ -625,8 +634,10 @@ public class jugador_chara3d_al1 : jugador_al1
 	{
 
 		
-			ruletaXc = controles.al1_3d.ruletaX.ReadValue<float>();
-			ruletaYc = controles.al1_3d.ruletaY.ReadValue<float>();
+			ruletaXc = controles.al1_3d.ruletaPAD.ReadValue<Vector2>().x;
+			ruletaYc = controles.al1_3d.ruletaPAD.ReadValue<Vector2>().y;
+
+			Debug.Log(ruletaXc);
 
 
 			camXc = controles.al1_3d.camX.ReadValue<float>();
@@ -638,10 +649,10 @@ public class jugador_chara3d_al1 : jugador_al1
 			
 
 
-			if(movact == true)
+			if(movact == 0)
 			{
-				movXc = controles.al1_3d.movX.ReadValue<float>();
-				movYc = controles.al1_3d.movY.ReadValue<float>();	
+				movXc = controles.al1_3d.mov.ReadValue<Vector2>().x;
+				movYc = controles.al1_3d.mov.ReadValue<Vector2>().y;	
 			}
 
 		
@@ -1117,7 +1128,7 @@ public class jugador_chara3d_al1 : jugador_al1
 				cambioruedaact = 1;
 			}
 
-			if(ruletaYc > 0.5f )
+			if(ruletaYc > 0f )
 			{
 				if(manager.datosserial.tengolanzar == true && tiempodisp > 0.2f)
 				{
@@ -1192,7 +1203,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					
 				}
 			}
-			if(ruletaYc < -0.5f )
+			if(ruletaYc < -0f )
 			{
 				
 				if(manager.datosserial.armadef == true && tiempodisp > 0.2f)
@@ -1221,7 +1232,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					
 				}
 			}
-			if(ruletaXc > 0.5f )
+			if(ruletaXc > 0f )
 			{
 				if(manager.datosserial.armapapa == true && tiempodisp > 0.2f)
 				{
@@ -1255,7 +1266,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					pistolabazoka.SetActive(false);
 				}
 			}
-			if(ruletaXc < -0.5f )
+			if(ruletaXc < -0f )
 			{
 				if(manager.datosserial.armarelen == true && tiempodisp > 0.2f)
 				{
@@ -1378,7 +1389,7 @@ public class jugador_chara3d_al1 : jugador_al1
 				cambioruedaact = 0;
 			}
 			numpoct.text = numpociones.ToString();
-			if(ruletaYc > 0.5f )
+			if(ruletaYc > 0f )
 			{
 				if(tiempodisp > 0.5f && numpociones >= 1 &&  vida < vidamax)
 				{
@@ -1392,7 +1403,7 @@ public class jugador_chara3d_al1 : jugador_al1
 				}
 			}
 
-			if(ruletaYc < -0.5f )
+			if(ruletaYc < -0f )
 			{
 				if(tiempodisp > 0.5f && numpociones >= 1)
 				{
@@ -1407,7 +1418,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					}
 				}
 			}
-			if(ruletaXc > 0.5f )
+			if(ruletaXc > 0f )
 			{
 				if(tiempodisp > 0.5f && numpociones >= 3 && tempberserk == 0)
 				{
@@ -1420,7 +1431,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					
 				}
 			}
-			if(ruletaXc < -0.5f )
+			if(ruletaXc < -0f )
 			{
 				if(tiempodisp > 0.5f && numpociones >= 2 && tempvelrec == 0 )
 				{
@@ -1768,7 +1779,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			
 			
 			
-			if(lateralc == 0 || ascensor == true || objplaneta != null)
+			if(lateralc == 0 && controlact == true|| ascensor == true && controlact == true|| objplaneta != null && controlact == true)
             {
 
 				anim.SetBool("movlat",false);
@@ -2076,7 +2087,7 @@ public class jugador_chara3d_al1 : jugador_al1
 				
 
 			}
-			else if(lateralc > 0 && ascensor == false && objplaneta == null)
+			else if(lateralc > 0 && ascensor == false && objplaneta == null && controlact == true)
             {
 				
 				
@@ -2301,7 +2312,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						tiempodisp = 0;
 						temppalo -= 3;
 						toquespalo = 2;
-						palo.GetComponent<golpe_al1>().dano = 3 * danoextra * nivelfuerza;
+						palo.GetComponent<golpe_al1>().dano = 2 * danoextra * nivelfuerza;
 						anim.Play("arma3");
 						anim.SetBool("arma3",true);
 						tempatk = 0; 
@@ -2334,10 +2345,11 @@ public class jugador_chara3d_al1 : jugador_al1
 					{
 						tiempodisp = 0;
 						temppalo -= 40;
-						palo.GetComponent<golpe_al1>().dano = 1.5f * danoextra * nivelfuerza;
+						palo.GetComponent<golpe_al1>().dano = 5f * danoextra * nivelfuerza;
 						toquespalo = 999;
 						anim.Play("escudogiratorio");
 						tempatk = 0; 
+						
 						escudohabaud.Play();
 						if(manager.datosserial.nivelarmapalo < 5)
 						{
@@ -2363,12 +2375,17 @@ public class jugador_chara3d_al1 : jugador_al1
 						}
 						manager.guardar();
 					}
+					if(anim.GetCurrentAnimatorStateInfo(1).IsName("escudogiratorio"))
+					{
+						stamina = 100;
+
+					}
 
 					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3 && temppalo > 5 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && suelo == true && tiempodisp > 0.5f &&  dispararc > 0 && ascensor == false )
 					{
 						tiempodisp = 0;
 						temppalo -= 5 * Time.deltaTime;
-						palo.GetComponent<golpe_al1>().dano = 5 * danoextra * nivelfuerza;
+						palo.GetComponent<golpe_al1>().dano = 2 * danoextra * nivelfuerza;
 						tempatk = 0;
 						toquespalo = 999;
 						transform.position = Vector3.MoveTowards(transform.position,transform.position + mod.transform.forward * 5, 20 * Time.deltaTime);
@@ -2406,7 +2423,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						tiempodisp = 0;
 						temppalo -= 5 * Time.deltaTime;
 						toquespalo = 999;
-						palo.GetComponent<golpe_al1>().dano = 5 * danoextra * nivelfuerza;
+						palo.GetComponent<golpe_al1>().dano = 2 * danoextra * nivelfuerza;
 						tempatk = 0;
 						anim.SetBool("dashtierra",true);
 						transform.position = Vector3.MoveTowards(transform.position,transform.position + mod.transform.forward * 5, 20 * Time.deltaTime);
@@ -2424,7 +2441,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					{
 						tiempodisp = 0;
 						temppalo -= 30;
-						palo.GetComponent<golpe_al1>().dano = 5 * danoextra * nivelfuerza;
+						palo.GetComponent<golpe_al1>().dano = 15 * danoextra * nivelfuerza;
 						tempatk = 0; 
 						toquespalo = 15;
 						anim.Play("espiralarea");
@@ -2871,7 +2888,8 @@ public class jugador_chara3d_al1 : jugador_al1
 			
 			
 				
-				if(dashc > 0 && tempdash > dash && suelo == false && manager.datosserial.tengodash == true && tiempodisp2 > 0.95f && tempaerodash > 2.5f && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f && movdire != new Vector3(0,0,0))
+				if(dashc > 0 && tempdash > dash && suelo == false && manager.datosserial.tengodash == true && tiempodisp2 > 0.95f && tempaerodash > 2.5f && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f && movdire != new Vector3(0,0,0)
+				|| dashc > 0 && tempdash > dash && suelo == false && manager.datosserial.tengodash == true && tiempodisp2 > 0.95f && tempaerodash > 2.5f && anim.GetCurrentAnimatorStateInfo(1).IsName("escudogiratorio") && stamina > 0 && temppause > 0.4f && movdire != new Vector3(0,0,0))
 				{
 					Debug.Log(tempdash);
 					Debug.Log(dash);
@@ -2895,7 +2913,8 @@ public class jugador_chara3d_al1 : jugador_al1
 					staminaact = -2;
 					tempaerodash = 0;
 				}
-				else if(dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
+				else if(dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0)
+				|| dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("escudogiratorio") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
 				{
 					Debug.Log(tempdash);
 					Debug.Log(dash);
@@ -3204,33 +3223,14 @@ public class jugador_chara3d_al1 : jugador_al1
 		{
 			muerte = true;
 		}
-		if (col.gameObject.tag == "enemigo" )
-		{
 
-			
-			if(col.gameObject.GetComponent<enemigo2_al1>() != null)
-			{
-
-				eneempuj = col.gameObject;
-				enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
-				enmovdirectaux = enmovdirectaux.normalized;
-				tempempujon = 0;
-				empujon = true;
-
-				muertesjug.Play();
-				enemigo2_al1 enec = col.gameObject.GetComponent<enemigo2_al1>();
-				vida -= enec.danoj;
-
-
-				
-			}
-			
-
-			
-		}
 		if (col.gameObject.tag == "enemigo")
 		{
 			muertes.Play();
+		}
+		if (col.gameObject.tag == "enemigo")
+		{
+			enetouch = true;
 		}
 	}
 
@@ -3291,6 +3291,10 @@ public class jugador_chara3d_al1 : jugador_al1
 			anim.SetBool("salto",true);
 			suelo = false;
 		}
+		if (col.gameObject.tag == "enemigo")
+		{
+			enetouch = false;
+		}
 	
 	}
 	private void OnTriggerEnter(Collider col)
@@ -3303,44 +3307,62 @@ public class jugador_chara3d_al1 : jugador_al1
 
 		
 		}
-		if (col.gameObject.tag == "enemigo")
-		{
-			enetouch = true;
-			
-		}
-		if (col.gameObject.tag == "dañox10")
+
+		if (col.gameObject.tag == "dañox10" )
 		{
 			if(col.gameObject.GetComponent<romperbala_al1>() != null)
 			{
 				romperbala_al1 enec = col.gameObject.GetComponent<romperbala_al1>();
-				if(enec.salir == false)
+				if(enec.armadef == false)
 				{
-					eneempuj = col.gameObject;
-					enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
-					enmovdirectaux = enmovdirectaux.normalized;
-					tempempujon = 0;
-					empujon = true;
-
-					muertesjug.Play();
-					if(enec.danofijo == true)
+					
+					if(enec.salir == false && enec.paloact == false)
 					{
-						vida -= (vidamax/100) * enec.porcentaje;
+						eneempuj = col.gameObject;
+						enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
+						enmovdirectaux = enmovdirectaux.normalized;
+						tempempujon = 0;
+						empujon = true;
+
+						muertesjug.Play();
+						if(enec.danofijo == true)
+						{
+							vida -= (vidamax/100) * enec.porcentaje;
+						}
+						else
+						{vida -= enec.danoj;}
 					}
-					else
-					{vida -= enec.danoj;}
 				}
 			}
-		}
-		else if (col.gameObject.tag == "pisar" && col.gameObject.tag != "enemigo" && enetouch == false )
-		{
+			if(col.gameObject.GetComponent<baladef_exp_al1>() != null)
+			{
+				baladef_exp_al1 enec = col.gameObject.GetComponent<baladef_exp_al1>();
+
 					
+					if(enec.paloact == false)
+					{
+
+
+						muertesjug.Play();
+
+						vida -= enec.danoj;
+					}
+				
+			}
+		}
+		if (col.gameObject.tag == "pisar" && col.gameObject.tag != "enemigo" && enetouch == false )
+		{
+					Debug.Log("pisar");
 					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 1 )
 					{
 						
 							enemigo1_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo1_al1>();
 							enec.vidapisar = true;
+							Debug.Log("pisar1");
 							if(enec.temprb == 0)
 							{
+								Debug.Log("pisar");
+
 								if(col.gameObject != null)
 								{
 									
@@ -3465,7 +3487,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			if(col.gameObject.GetComponent<golpe_al1>() != null)
 			{
 				golpe_al1 enec = col.gameObject.GetComponent<golpe_al1>();
-				if(enec.toquespalo > 0)
+				if(enec.toquespalo > 0 && enec.paloact == false)
 				{
 					eneempuj = col.gameObject;
 					enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
@@ -3478,19 +3500,19 @@ public class jugador_chara3d_al1 : jugador_al1
 					
 					enec.toquespalo--;
 					vida -= enec.dano;
-					enec.dest.Play();
+					dest.Play();
 				}
 			}
 		}
-		if (col.gameObject.tag == "dañox5")
+		if (col.gameObject.tag == "dañox5" )
 		{
 			if(col.gameObject.GetComponent<golpe_al1>() != null)
 			{
 				golpe_al1 enec = col.gameObject.GetComponent<golpe_al1>();
-				if(enec.toquespalo > 0 && enec.minmun == true)
+				if(enec.toquespalo > 0 && enec.minmun == true  && enec.paloact == false)
 				{
 					eneempuj = col.gameObject;
-					enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
+					enmovdirectaux = transform.TransformDirection((enec.guia.transform.forward *70) + (enec.guia.transform.up * -50));
 					enmovdirectaux = enmovdirectaux.normalized;
 					tempempujon = 0;
 					empujon = true;
@@ -3499,31 +3521,31 @@ public class jugador_chara3d_al1 : jugador_al1
 					temppaparec = 0;
 					tempdefrec = 0;
 					temprelrec = 0;
-					enec.dest.Play();
+					dest.Play();
 				}
-				else if(enec.toquespalo > 0 && enec.ultimo == true)
+				else if(enec.toquespalo > 0 && enec.ultimo == true && enec.paloact == false)
 				{
 					eneempuj = col.gameObject;
-					enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
+					enmovdirectaux = transform.TransformDirection((enec.guia.transform.forward *70) + (enec.guia.transform.up * -50));
 					enmovdirectaux = enmovdirectaux.normalized;
 					tempempujon = 0;
 					empujon = true;
 					enec.toquespalo--;
 					temppalo = 0;
 					vida = 1;
-					enec.dest.Play();
+					dest.Play();
 				}
-				else if(enec.toquespalo > 0 )
+				else if(enec.toquespalo > 0  && enec.paloact == false)
 				{
 					eneempuj = col.gameObject;
-					enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
+					enmovdirectaux = transform.TransformDirection((enec.guia.transform.forward *70) + (enec.guia.transform.up * -50));
 					enmovdirectaux = enmovdirectaux.normalized;
 					tempempujon = 0;
 					empujon = true;
 					enec.toquespalo--;
 					temppalo = 0;
 					vida -= enec.dano;
-					enec.dest.Play();
+					dest.Play();
 				}
 			}
 		}
@@ -3575,36 +3597,39 @@ public class jugador_chara3d_al1 : jugador_al1
 	}
 	public void OnTriggerExit(Collider col)
 	{
+		
 
 		if (col.gameObject.tag == "dañox10")
 		{
 			if(col.gameObject.GetComponent<romperbala_al1>() != null)
 			{
 				romperbala_al1 enec = col.gameObject.GetComponent<romperbala_al1>();
-				if(enec.salir == true)
+				if(enec.armadef == false)
 				{
-					eneempuj = col.gameObject;
-					enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
-					enmovdirectaux = enmovdirectaux.normalized;
-					tempempujon = 0;
-					empujon = true;
-
-					muertesjug.Play();
 					
-					if(enec.danofijo == true)
+					if(enec.salir == true && enec.paloact == false)
 					{
-						vida -= (vidamax/100) * enec.porcentaje;
+						eneempuj = col.gameObject;
+						enmovdirectaux = transform.TransformDirection((eneempuj.transform.forward *70) + (eneempuj.transform.up * -50));
+						enmovdirectaux = enmovdirectaux.normalized;
+						tempempujon = 0;
+						empujon = true;
+
+						muertesjug.Play();
+						
+						if(enec.danofijo == true)
+						{
+							vida -= (vidamax/100) * enec.porcentaje;
+						}
+						else
+						{vida -= enec.danoj;}
 					}
-					else
-					{vida -= enec.danoj;}
 				}
+				
 			}
 		}
 
-		if (col.gameObject.tag == "enemigo")
-		{
-			enetouch = false;
-		}
+		
 
 
 		if (col.gameObject.tag == "npc")
@@ -3700,6 +3725,7 @@ public class jugador_chara3d_al1 : jugador_al1
 	}
 	public void OnTriggerStay(Collider col)
 	{
+		
 		if (col.gameObject.tag == "npc")
 		{
 			if (controles.al1_UI.interactuar.ReadValue<float>() > 0f && dialogueact == false && tiempodialogue > 0.7f)

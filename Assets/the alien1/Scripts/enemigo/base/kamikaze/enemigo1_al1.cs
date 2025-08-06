@@ -17,7 +17,6 @@ public class enemigo1_al1: MonoBehaviour
     public bool destobj;
     public GameObject destruible;
     public GameObject moneda;
-    public int nivel = 1;
     public Rigidbody rb_;
     public float vel = 2;
     public bool desactivar;
@@ -26,6 +25,7 @@ public class enemigo1_al1: MonoBehaviour
     public Animator anim;
     public float gravityForce = 5f;
     public float raycastDistance = 1f;
+    public bool detect;
     public LayerMask groundLayer;
     public GameObject verdepeque;
     public enemigo1_al1 curaobj;
@@ -49,6 +49,7 @@ public class enemigo1_al1: MonoBehaviour
 
     public GameObject vidamenu;
     public int tutorial;
+    public float tempdanodef;
 
     public GameObject target;
     public float valorexp = 1f;
@@ -104,7 +105,7 @@ public class enemigo1_al1: MonoBehaviour
 
         if(programado == false)
         {
-            if(nivel >= 20)
+            if(nivelactual >= 20)
             {
                 int randomini = Random.Range(0,2);
 
@@ -114,13 +115,13 @@ public class enemigo1_al1: MonoBehaviour
                     disparos = 10;
                 }
             }
-            if(nivel >= 60)
+            if(nivelactual >= 60)
             {
                 modo = "disparo";
                 disparos = 10;
             }
         }
-        if(nivel >= 90)
+        if(nivelactual >= 90)
         {
             frenetismo = 1.2f;
         }
@@ -140,21 +141,21 @@ public class enemigo1_al1: MonoBehaviour
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
             rb_ = GetComponent<Rigidbody>();
         }
-        vidabase[0] = 9;
+        vidabase[0] = 30;
         vidabasemax[0] = 300;
-        vidaplusmax[0] = 999;
+        vidaplusmax[0] = 3000;
 
-        vidabase[1] = 99;
+        vidabase[1] = 50;
         vidabasemax[1] = 500;
-        vidaplusmax[1] = 9999;
+        vidaplusmax[1] = 5000;
 
-        vidabase[2] = 99;
-        vidabasemax[2] = 700;
-        vidaplusmax[2] = 9999;
+        vidabase[2] = 100;
+        vidabasemax[2] = 1000;
+        vidaplusmax[2] = 10000;
 
-        vidabase[3] = 99;
-        vidabasemax[3] = 999;
-        vidaplusmax[3] = 9999;
+        vidabase[3] = 200;
+        vidabasemax[3] = 2000;
+        vidaplusmax[3] = 20000;
 
         defensabase[0] = 5f;
         defensabasemax[0] = 50;
@@ -235,14 +236,6 @@ public class enemigo1_al1: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(fuera == false)
-        {
-            escudoin.SetActive(true);
-        }
-        else
-        {
-        	escudoin.SetActive(false);
-        }
 
         if (temprb > 0f)
         {
@@ -250,12 +243,12 @@ public class enemigo1_al1: MonoBehaviour
         }
         else{temprb = 0f;}
 
-        if (temprb == 0f)
+        if (temprb < 0f)
         {
-            
+            temprb = 0;
         }
         vidaUI = Mathf.Lerp(vidaUI, vida, Time.deltaTime * 2f);
-        if(jugador1.objetivotarget == transform.gameObject && detectar == true)
+        if(jugador1.objetivotarget == transform.gameObject)
         {
             target.SetActive(true);
             jugador1.vidaenebarra.SetActive(true);
@@ -271,7 +264,7 @@ public class enemigo1_al1: MonoBehaviour
             jugador1.vidaescudomaxene = 0;
             jugador1.niveleneui.text = nivelactual.ToString();
         }
-        else if(jugador1.objetivotarget2 == transform.gameObject && jugador1.objetivotarget == null && detectar == true)
+        else if(jugador1.objetivotarget2 == transform.gameObject && jugador1.objetivotarget == null )
         {
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
@@ -371,6 +364,7 @@ public class enemigo1_al1: MonoBehaviour
             if(jugador1.objetivotarget2 == this.gameObject)
             {
                 jugador1.objetivotarget2 = null;
+                jugador1.vidaenebarra.SetActive(false);
             }
             Destroy(explosiont, 1f);
             jugador1.vidaenebarra.SetActive(false);
@@ -397,7 +391,7 @@ public class enemigo1_al1: MonoBehaviour
 
                 int randomDec2 = 0;
 
-                if(nivel >= 20)
+                if(nivelactual >= 20)
                 {
                     randomDec2 = Random.Range(0,2);
                 }
@@ -458,7 +452,7 @@ public class enemigo1_al1: MonoBehaviour
                 GameObject medtemp2 = Instantiate(med, transform.position + new Vector3(7,0,0), transform.rotation);
                 
                 int randomDec2 = 0;
-                if(nivel >= 20)
+                if(nivelactual >= 20)
                 {
                     randomDec2 = Random.Range(0,2);
                 }
@@ -505,7 +499,7 @@ public class enemigo1_al1: MonoBehaviour
                 
 
                 int randomDec2 = 0;
-                if(nivel >= 20)
+                if(nivelactual >= 20)
                 {
                     randomDec2 = Random.Range(0,2);
                 }
@@ -520,7 +514,7 @@ public class enemigo1_al1: MonoBehaviour
                     lista1peque[0] = pequetemp;
                     lista1peque[1] = pequetemp3;
                     int randomDec = 0;
-                    if(nivel >= 10)
+                    if(nivelactual >= 10)
                     {
                         randomDec = Random.Range(0,2);
                     }
@@ -546,7 +540,7 @@ public class enemigo1_al1: MonoBehaviour
                     lista2peque[0] = pequetemp5;
                     lista2peque[1] = pequetemp7;
                     int randomDec3 = 0;
-                    if(nivel >= 10)
+                    if(nivelactual >= 10)
                     {
                         randomDec3 = Random.Range(0,2);
                     }
@@ -573,7 +567,7 @@ public class enemigo1_al1: MonoBehaviour
                     }
 
                     int randomDec4 = 0;
-                    if(nivel >= 50)
+                    if(nivelactual >= 50)
                     {
                         randomDec4 = Random.Range(0,2);
                     }
@@ -595,7 +589,7 @@ public class enemigo1_al1: MonoBehaviour
                     }
 
                     int randomDec5 = 0;
-                    if(nivel >= 50)
+                    if(nivelactual >= 50)
                     {
                         randomDec4 = Random.Range(0,2);
                     }
@@ -640,7 +634,7 @@ public class enemigo1_al1: MonoBehaviour
                     lista1peque[0] = pequetemp;
                     lista1peque[1] = pequetemp3;
                     int randomDec = 0;
-                    if(nivel >= 10)
+                    if(nivelactual >= 10)
                     {
                         randomDec = Random.Range(0,2);
                     }
@@ -662,7 +656,7 @@ public class enemigo1_al1: MonoBehaviour
                     }
 
                     int randomDec4 = 0;
-                    if(nivel >= 50)
+                    if(nivelactual >= 50)
                     {
                         randomDec4 = Random.Range(0,2);
                     }
@@ -740,6 +734,7 @@ public class enemigo1_al1: MonoBehaviour
             if(jugador1.objetivotarget2 == this.gameObject)
             {
                 jugador1.objetivotarget2 = null;
+                jugador1.vidaenebarra.SetActive(false);
             }
 			manager.datosserial.asesinatos++;
 			muertes.Play();
@@ -767,6 +762,7 @@ public class enemigo1_al1: MonoBehaviour
             if(jugador1.objetivotarget2 == this.gameObject)
             {
                 jugador1.objetivotarget2 = null;
+                jugador1.vidaenebarra.SetActive(false);
             }
             jugador1.nivel2();
 			muertes.Play();
@@ -828,6 +824,7 @@ public class enemigo1_al1: MonoBehaviour
             if(jugador1.objetivotarget2 == this.gameObject)
             {
                 jugador1.objetivotarget2 = null;
+                jugador1.vidaenebarra.SetActive(false);
             }
 			manager.guardar();
             Destroy(explosiont, 1f);
@@ -858,7 +855,7 @@ public class enemigo1_al1: MonoBehaviour
                     rb_.useGravity = false;
                 }
 
-                if(nivel >= 30)
+                if(nivelactual >= 30)
                 {
                     float disjugene = Vector3.Distance(transform.position, jugador1.transform.position);
                     if(disjugene < 30)
@@ -892,7 +889,7 @@ public class enemigo1_al1: MonoBehaviour
                 if(temp > (1 / frenetismo))
                 {
                     int randomdisp = Random.Range(0,3);
-                    if(nivel >= 80 && randomdisp == 1)
+                    if(nivelactual >= 80 && randomdisp == 1)
                     {
                         GameObject BalaTemporal = Instantiate(balaprefab2, transform.position,transform.rotation) as GameObject;
                         Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
@@ -938,9 +935,9 @@ public class enemigo1_al1: MonoBehaviour
                 {
                     modo = "base";
                 }
-                if(nivel >= 60)
+                if(nivelactual >= 60)
                 {
-                    if(nivel >= 30)
+                    if(nivelactual >= 30)
                     {
                         float disjugene = Vector3.Distance(transform.position, jugador1.transform.position);
                         if(disjugene < 30)
@@ -968,7 +965,7 @@ public class enemigo1_al1: MonoBehaviour
                 if(curaobj != null)
                 {
                     if(curaobj.vida < curaobj.vidamax)
-                    {curaobj.vida +=  (vidamax/100) *  0.5f * Time.deltaTime;}
+                    {curaobj.vida +=  (vidamax/100) *  8f * Time.deltaTime;}
                 }
                 else
                 {
@@ -982,34 +979,45 @@ public class enemigo1_al1: MonoBehaviour
         }
         else if(fuera == false )
         {
-            if(manager.juego != 3)
+            if(detect == true)
             {
-                if(new Vector3(objetivon.x,transform.position.y,objetivon.z) == transform.position)
+                if(manager.juego != 3)
                 {
-                    objetivon = objetivoa[Random.Range(0,4)];
+                    if(new Vector3(objetivon.x,transform.position.y,objetivon.z) == transform.position)
+                    {
+                        objetivon = objetivoa[Random.Range(0,4)];
+                    }
+                    Vector3 direction2 = objetivon - transform.position;
+                    rotation = Quaternion.LookRotation(direction2);
+                    transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivon.x,transform.position.y,objetivon.z),vel * Time.deltaTime);
                 }
-                Vector3 direction2 = objetivon - transform.position;
-                rotation = Quaternion.LookRotation(direction2);
-                transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivon.x,transform.position.y,objetivon.z),vel * Time.deltaTime);
-            }
-            else if(manager.juego == 3)
-            {
-                anim.SetBool("salto",true);
-            }
-            
-            transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),25f * Time.deltaTime);
-            RaycastHit hit;
-            if(Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity,0, QueryTriggerInteraction.Ignore))
-            {
-            	if (hit.distance < 0.1f)
+                else if(manager.juego == 3)
                 {
-                    Destroy (GetComponent<Rigidbody>());
+                    anim.SetBool("salto",true);
                 }
+                
+                transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),25f * Time.deltaTime);
+                RaycastHit hit;
+                if(Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity,0, QueryTriggerInteraction.Ignore))
+                {
+                    if (hit.distance < 0.1f)
+                    {
+                        Destroy (GetComponent<Rigidbody>());
+                    }
+                }
+            }
+            else if(detect == true)
+            {
+                transform.position = Vector3.MoveTowards(transform.position,new Vector3(jugador1.transform.position.x,transform.position.y,jugador1.transform.position.z),vel * Time.deltaTime);
             }
 
             // Aplicar gravedad solo si no está en el suelo
             
         }
+        if(temp < 15)
+        {temp += 1 * Time.deltaTime;}
+        if(tempdanodef < 15)
+        {tempdanodef += 1 * Time.deltaTime;}
 
         
         
@@ -1017,7 +1025,24 @@ public class enemigo1_al1: MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
 	{
-        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0 && fuera == true)
+        if (col.gameObject.tag == "danoarma10" && tempdanodef > 15f)
+		{
+            baladef_exp_al1 balajug = col.gameObject.GetComponent<baladef_exp_al1>();
+            jugador1.muertesjug.Stop();
+            vida -= balajug.danoj;
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+            jugador1.niveleneui.text = nivelactual.ToString();
+            danoene.Play();
+            vidapisar = false;
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
+            detect = true;
+            tempdanodef = 0;
+		}
+        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0 )
 		{
             jugador1.toquespalo--;
             jugador1.muertesjug.Stop();
@@ -1034,8 +1059,9 @@ public class enemigo1_al1: MonoBehaviour
             vidapisar = false;
             if(jugador1.tempretarget > 1)  
             {jugador1.objetivotarget2 = this.gameObject;}
+            detect = true;
 		}
-        if (col.gameObject.tag == "danoarma8" && fuera == true)
+        if (col.gameObject.tag == "danoarma8")
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
@@ -1049,16 +1075,21 @@ public class enemigo1_al1: MonoBehaviour
             vidapisar = false;
             if(jugador1.tempretarget > 1)  
             {jugador1.objetivotarget2 = this.gameObject;}
+            detect = true;
 		}
-        if (col.gameObject.tag == "danoarma9" && fuera == true)
+        if (col.gameObject.tag == "danoarma9")
 		{
             detectar = false;
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
+            detect = true;
 		}
 
 	}
     private void OnTriggerExit(Collider col)
 	{
-        if (col.gameObject.tag == "danoarma10" && fuera == true)
+        
+        if (col.gameObject.tag == "danoarma9" )
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
@@ -1072,21 +1103,7 @@ public class enemigo1_al1: MonoBehaviour
             vidapisar = false;
             if(jugador1.tempretarget > 1)  
             {jugador1.objetivotarget2 = this.gameObject;}
-		}
-        if (col.gameObject.tag == "danoarma9" && fuera == true)
-		{
-            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
-            jugador1.muertesjug.Stop();
-            vida -= balajug.danoj;
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.vidaeneact = true;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            danoene.Play();
-            vidapisar = false;
-            if(jugador1.tempretarget > 1)  
-            {jugador1.objetivotarget2 = this.gameObject;}
+            detect = true;
         }
     }
     private void OnTriggerStay(Collider col)
@@ -1096,10 +1113,12 @@ public class enemigo1_al1: MonoBehaviour
 
             jugador1.muertesjug.Stop();
         }
-        if (col.gameObject.tag == "danoarma9" )
+        if (col.gameObject.tag == "danoarma9")
 		{
+            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+            vida -= (balajug.danoj * Time.deltaTime);
             detectar = false;
-        }
+		}
 
 	}
     private void OnCollisionEnter(Collision col) 
@@ -1141,6 +1160,7 @@ public class enemigo1_al1: MonoBehaviour
             if(jugador1.objetivotarget2 == this.gameObject)
             {
                 jugador1.objetivotarget2 = null;
+                jugador1.vidaenebarra.SetActive(false);
             }
 			Destroy(transform.parent.gameObject);
             
@@ -1162,7 +1182,7 @@ public class enemigo1_al1: MonoBehaviour
             muertes.Play();
             Destroy(explosiont, 1f);
             
-            if(nivel >= 70 )
+            if(nivelactual >= 70 )
             {
                 RandomM = Random.Range(0,2);
             }
@@ -1171,13 +1191,13 @@ public class enemigo1_al1: MonoBehaviour
                 RandomM = 0;
             }
 
-            if(nivel >= 70 && RandomM == 1)
+            if(nivelactual >= 70 && RandomM == 1)
             {
                 vida = vidamax;
                 if(jugador1.tempretarget > 1)  
                 {jugador1.objetivotarget2 = this.gameObject;}
             }
-            else if(nivel >= 40 && RandomM == 0 && vida > 1)
+            else if(nivelactual >= 40 && RandomM == 0 && vida > 1)
             {
                 vida = 1;
                 if(jugador1.tempretarget > 1)  
@@ -1221,6 +1241,8 @@ public class enemigo1_al1: MonoBehaviour
                 if(jugador1.objetivotarget2 == this.gameObject)
                 {
                     jugador1.objetivotarget2 = null;
+                    jugador1.vidaenebarra.SetActive(false);
+                    
                 }
                 Destroy(transform.parent.gameObject);
                 }

@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 904aab8dd539b6339b59bc7bbcce3d9c, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 904aab8dd539b6339b59bc7bbcce3d9c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -520,6 +520,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dano: 0
   dest: {fileID: 6659431366158632866}
+  toquespalo: 0
+  paloene: 0
+  minmun: 0
+  ultimo: 0
+  paloact: 0
+  guia: {fileID: 0}
 --- !u!1 &619080386885059264
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,7 +568,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: c60d168895a9fbb44a0cda8090b4c05e, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: c60d168895a9fbb44a0cda8090b4c05e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -723,7 +729,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 0bfd27bf58fae3440886d9bb2e3a653e, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 0bfd27bf58fae3440886d9bb2e3a653e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2251,7 +2257,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: a967f92e38352bb4291945423de63499, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: a967f92e38352bb4291945423de63499, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2466,7 +2472,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: e5356da6327496a41a8887e48b98bd29, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: e5356da6327496a41a8887e48b98bd29, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2950,7 +2956,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 0eed984838b5357939ca9c36c4d587ec, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 0eed984838b5357939ca9c36c4d587ec, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3144,7 +3150,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: bf52f4294347aa94d9f37b8dcfcfafba, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: bf52f4294347aa94d9f37b8dcfcfafba, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3875,7 +3881,6 @@ GameObject:
   - component: {fileID: 4174150872076526791}
   - component: {fileID: 7690491882814610543}
   - component: {fileID: 4758250725446550345}
-  - component: {fileID: 2886862872444403957}
   - component: {fileID: 4377967673386012797}
   - component: {fileID: 7168403057482902443}
   - component: {fileID: 7580877984826169343}
@@ -3963,541 +3968,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2886862872444403957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2630650128157739852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6010a2de17a11514da18980e669b96f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemigosEnContacto: []
-  enemigosEnContactonave:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  vidanivelesnave: []
-  dispF: 0
-  tiendaG: {fileID: 0}
-  musicajuego: {fileID: 0}
-  musicaC: {fileID: 0}
-  musicanoC: {fileID: 0}
-  combini: {fileID: 0}
-  combfin: {fileID: 0}
-  planetUp: {x: 0, y: 0, z: 0}
-  static_ev: 0
-  toquespalo: 0
-  planetCenter: {x: 0, y: 0, z: 0}
-  eventotut: {fileID: 0}
-  eventosdialogueE: {fileID: 0}
-  eventoini: 0
-  staminaact: 50
-  enmovdirectaux: {x: 0, y: 0, z: 0}
-  temppause: 1
-  actzonaespecial: 0
-  indicetarget: -1
-  r3: 0
-  pistolatiempo: {fileID: 4562435737261752131}
-  pistolabazoka: {fileID: 7452771796521374094}
-  tempempujon: 0
-  tarbossact: 0
-  girodir: 90
-  combo: 0
-  disjugsave: 0
-  camnomov: 0
-  vida: 5
-  dialogueact: 0
-  balavel: 20
-  controlact: 1
-  rotspeed: 180
-  fij: {x: 0, y: 0, z: 0, w: 0}
-  eneempujp: {x: 0, y: 0, z: 0}
-  rotationinput: {x: 0, y: 0, z: 0}
-  speed: 3
-  velact: 0
-  girovalor: 0
-  jugadorEntrando: 0
-  objplaneta: {fileID: 0}
-  lhorizontalc: 0
-  lverticalc: 0
-  rhorizontalc: 0
-  rverticalc: 0
-  rt: 0
-  tempgir: 0
-  tempdefrec: 60
-  temprelrec: 40
-  temppaparec: 20
-  vidabasetut: 9
-  vidabase: 99
-  vidabasemax: 999
-  vidaplusmax: 9999
-  fuebasetut: 1
-  fuebase: 2
-  fuebasemax: 5
-  fueplusmax: 10
-  nivelfuerza: 0
-  nivelvida: 0
-  nivelfuerza_a:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  nivelvida_a:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  armapalosignv:
-  - 30
-  - 80
-  - 200
-  - 350
-  - 600
-  armadefsignv:
-  - 10
-  - 20
-  - 30
-  - 40
-  - 50
-  armapapasignv:
-  - 300
-  - 650
-  - 1000
-  - 1500
-  - 2100
-  armarelsignv:
-  - 5
-  - 15
-  - 30
-  - 40
-  - 50
-  vidamax: 0
-  tposepause: 0
-  jugpos: 0
-  bocaabajo: 0
-  invertirHorizontal: 0
-  horizontalFinal: 0
-  tiempoascensor: 5
-  bajar: 0
-  subir: 0
-  temp10: 0
-  dashaeract: 0
-  ascact: 0
-  muerte: 0
-  cronoact: 0
-  lb: 0
-  vidaeneui: 0
-  vidaeneuimax: 0
-  vidaeneact: 0
-  staminamax: 100
-  stamina: 0
-  vidaescudoene: 0
-  vidaescudomaxene: 0
-  escudoeneact: 0
-  subirnivelaud: {fileID: 3343872681968713247}
-  subirnivelexpl: {fileID: 358637981425055526, guid: a06fb7ec8ff496442a1e2ec73621f1f7, type: 3}
-  velocidad: 7
-  velocidadjet: 2
-  velocidadr: 20
-  _rb: {fileID: 1306674474590770846}
-  jumpforcebase: 0
-  tiemposalto: 0
-  tiempovel: 0
-  tiempovelint: 0
-  velocidadaux: 0
-  rotacion1: {x: 0, y: 0, z: 0, w: 1}
-  dimensiion: 0
-  ascensor: 0
-  dentrotienda: 0
-  eneempuj: {fileID: 0}
-  empujon: 0
-  balapadrevel:
-  - 10
-  - 15
-  - 20
-  - 25
-  - 30
-  balapadredano:
-  - 5
-  - 4
-  - 3
-  - 2
-  - 1
-  balapadrecaden:
-  - 1
-  - 0.7
-  - 0.5
-  - 0.3
-  - 0.1
-  baladefdano:
-  - 20
-  - 35
-  - 50
-  - 70
-  - 100
-  balareldano:
-  - 0
-  - 0
-  - 0
-  - 1
-  - 2
-  balapapamun:
-  - 2
-  - 1.4
-  - 1
-  - 0.7
-  - 0.3
-  niveluit: {fileID: 0}
-  niverlbarra: {fileID: 0}
-  target:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  camarainterna: {fileID: 7632943427873292405}
-  levelexpt: {fileID: 0}
-  levelarmat: {fileID: 0}
-  balaarmat: {fileID: 0}
-  tragar: {fileID: 5370462187811129876}
-  pistolabueno: {fileID: 8783142960687518875}
-  pistolamalo: {fileID: 91342100009134723}
-  grav: {fileID: 0}
-  tarboss: {fileID: 0}
-  objetivotarget: {fileID: 0}
-  slash: {fileID: 3153472991145048103, guid: ca9e834f0484b14438c8c597c7fb0237, type: 3}
-  inbuir: {fileID: 5432175038573793198}
-  dashson: {fileID: 7652427979156910608}
-  espiraloaud: {fileID: 6119534898927180534}
-  escudoaud: {fileID: 8952481893228826862}
-  dashairson: {fileID: 8587422432545246854}
-  golpeson: {fileID: 3295119459534602756}
-  lanzarson: {fileID: 3963651750023727293}
-  balaprefabpapa: {fileID: 1777860533906856, guid: 77bb2721c2adce649a8d69ceacc243d6, type: 3}
-  balaprefabrel: {fileID: 1777860533906856, guid: f2d9515720af17149aaf39ab59f11226, type: 3}
-  balaprefabdef: {fileID: 1777860533906856, guid: c88429f8db450c5478d59252a1a7ccae, type: 3}
-  paloimg: {fileID: 0}
-  pistolaimg: {fileID: 0}
-  relentizarimg: {fileID: 0}
-  armadefimg: {fileID: 0}
-  circulopaloimg: {fileID: 0}
-  circulopistolaimg: {fileID: 0}
-  circulorelentizarimg: {fileID: 0}
-  circuloarmadefimg: {fileID: 0}
-  backpistolaimg: {fileID: 0}
-  backrelentizarimg: {fileID: 0}
-  backarmadefimg: {fileID: 0}
-  pocionvidaimg: {fileID: 21300000, guid: acfa4fa5a27960947a65608be986368d, type: 3}
-  pocionhabrec: {fileID: 21300000, guid: 9f48dd7fa0956194d9e021a3fbd94b8b, type: 3}
-  pocionrecimg: {fileID: 21300000, guid: 8e430054d3be9f449b1fa2acebb1dd55, type: 3}
-  berserkimg: {fileID: 21300000, guid: e29df81b5c4a16146bae28ce73b28434, type: 3}
-  numpoct: {fileID: 0}
-  numpoc1t: {fileID: 0}
-  numpoc2t: {fileID: 0}
-  numpoc3t: {fileID: 0}
-  numpoc4t: {fileID: 0}
-  nopimg: {fileID: 21300000, guid: d5315b2ebc9456e48ac9f4e8d609fd77, type: 3}
-  armapaparueda: {fileID: 21300000, guid: 80b350c2c81e7fb44aa1b41cf91658cc, type: 3}
-  armarelrueda: {fileID: 21300000, guid: f77d897e584106147a60bba7e68bffcf, type: 3}
-  armadefrueda: {fileID: 21300000, guid: f71d313988df6b349b6191ace1ba976a, type: 3}
-  palo: {fileID: 4985577513395211324}
-  npcbase: {fileID: 0}
-  respawn: {fileID: 0}
-  balaprefab: {fileID: 0}
-  textnpc: {fileID: 0}
-  audio1: {fileID: 0}
-  disp: {fileID: 0}
-  disprel: {fileID: 4170526433036600581}
-  dispdef: {fileID: 0}
-  explosion: {fileID: 0}
-  escudohabaud: {fileID: 8941813745629347384}
-  camara: {fileID: 4941750578739391706}
-  tut10: {fileID: 0}
-  mod: {fileID: 6767330262035091346}
-  pistolap: {fileID: 479709597558326519}
-  tactil: {fileID: 0}
-  anim: {fileID: 7580877984826169343}
-  pasosnave: {fileID: 0}
-  pasos1: {fileID: 1782218425069606145}
-  pasos2: {fileID: 5756191118941587412}
-  muertes: {fileID: 0}
-  muertesjug: {fileID: 0}
-  menushow: {fileID: 0}
-  menuoff: {fileID: 0}
-  misionUI: {fileID: 0}
-  eneboss1: {fileID: 0}
-  juego: {fileID: 0}
-  pausa1: {fileID: 0}
-  select1: {fileID: 0}
-  vidab: {fileID: 0}
-  vidaeneimg: {fileID: 0}
-  escudoeneimg: {fileID: 0}
-  iconodisp: {fileID: 0}
-  backpaloimg: {fileID: 0}
-  arma1: {fileID: 21300000, guid: 4d4427ac988e12241a14e2fa5838d5d7, type: 3}
-  arma1_1: {fileID: 21300000, guid: a070adadce5e6c641b3c1985ba2ef3b3, type: 3}
-  arma1_2: {fileID: 21300000, guid: cffb75b5a8be9394d873b5ff4357e899, type: 3}
-  arma1_3: {fileID: 21300000, guid: 28d5738e611065e4c97c1ac452b8f5e0, type: 3}
-  arma1_4: {fileID: 21300000, guid: 600782584213d514895efb978f90d201, type: 3}
-  arma1_5: {fileID: 21300000, guid: 3a616420b0510bf4da71d93f62b56ed9, type: 3}
-  arma2: {fileID: 21300000, guid: 0c5d8525a30ee764bbf3f7133c2ff919, type: 3}
-  arma3: {fileID: 21300000, guid: 17054b53e94e4bd4bad4bcf026388440, type: 3}
-  arma4: {fileID: 21300000, guid: 1a1b6913ccc73034f9114c61db561c3b, type: 3}
-  giro: {fileID: 7214626777995558569}
-  ascensortut: {fileID: 0}
-  ascensortut2: {fileID: 0}
-  prebaladefl:
-  - {fileID: 1777860533906856, guid: c88429f8db450c5478d59252a1a7ccae, type: 3}
-  - {fileID: 1777860533906856, guid: 1543261bd30eba545a6906c6111a77b7, type: 3}
-  - {fileID: 1777860533906856, guid: 60f25766b0d98164a887b5e00f75d692, type: 3}
-  - {fileID: 1777860533906856, guid: 4a595388c8b304841a5f39d607368ef2, type: 3}
-  - {fileID: 1777860533906856, guid: cf4a73275668c17409c604fbdde6f1b3, type: 3}
-  prebalarell:
-  - {fileID: 1777860533906856, guid: 77bb2721c2adce649a8d69ceacc243d6, type: 3}
-  - {fileID: 1777860533906856, guid: a1691bd611eb25c4c8165fb96e7c78f8, type: 3}
-  - {fileID: 1777860533906856, guid: fe9fdb3e469bb5e4db05c1243782045c, type: 3}
-  - {fileID: 1777860533906856, guid: 743bf414015f20245921fbbabd0bac69, type: 3}
-  - {fileID: 1777860533906856, guid: 532a163c594ffe24eb8dc7f26a4ae9e5, type: 3}
-  prebalapapal:
-  - {fileID: 1777860533906856, guid: f2d9515720af17149aaf39ab59f11226, type: 3}
-  - {fileID: 1777860533906856, guid: 4a88d431e7e3aa24597a8653d058a707, type: 3}
-  - {fileID: 1777860533906856, guid: 4f9d777a6602ccd4c9ec8b01cc602205, type: 3}
-  - {fileID: 1777860533906856, guid: 1d8e226777e897449bc9119f48347adc, type: 3}
-  - {fileID: 1777860533906856, guid: 6c7247dfcecdf4e48ac7e13e37a22fc5, type: 3}
-  misionA: {fileID: 0}
-  manager: {fileID: 0}
-  vidat: {fileID: 0}
-  ascensors: {fileID: 0}
-  vidaenebarra: {fileID: 0}
-  escudoenebarra: {fileID: 0}
-  barraarmaimgnv1: {fileID: 0}
-  barraarmaimgnv2: {fileID: 0}
-  barraarmaimgnv3: {fileID: 0}
-  barraarmaimgnv4: {fileID: 0}
-  boxcam2: {fileID: 5834187332820444144}
-  armadefpassC: {fileID: 0}
-  armanvt: {fileID: 0}
-  staminabarra: {fileID: 0}
-  conseguido: {fileID: 0}
-  conseguidoa: {fileID: 0}
-  niveleneui: {fileID: 0}
-  comando: {fileID: 0}
-  camarascript: {fileID: 0}
-  noarmasel: {fileID: 0}
-  vozMeet: {fileID: 0}
-  tiendaMus: {fileID: 0}
-  Gescudo_nave: {fileID: 0}
 --- !u!108 &4377967673386012797
 Light:
   m_ObjectHideFlags: 0
@@ -4573,7 +4043,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: eba68ad7b16369f42a86f3ea4677e300, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: eba68ad7b16369f42a86f3ea4677e300, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.4
@@ -5121,7 +4591,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: f11624858a61f0d4ba1d116457299e50, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: f11624858a61f0d4ba1d116457299e50, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -5346,7 +4816,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 49441022fa9ec074092cba5c89d77c18, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 49441022fa9ec074092cba5c89d77c18, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -6914,7 +6384,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 4138444cab11adba5a93150409032b61, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 4138444cab11adba5a93150409032b61, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -7385,6 +6855,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dano: 0
   dest: {fileID: 6659431366158632866}
+  toquespalo: 0
+  paloene: 0
+  minmun: 0
+  ultimo: 0
+  paloact: 0
+  guia: {fileID: 0}
 --- !u!1 &4986035651140635783
 GameObject:
   m_ObjectHideFlags: 0
@@ -7459,7 +6935,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: e8b078afbb55f2e4dbed5e1e3799ba11, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: e8b078afbb55f2e4dbed5e1e3799ba11, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -7706,7 +7182,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 9a67cf8d0393b31448b7c945593f84fd, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 9a67cf8d0393b31448b7c945593f84fd, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -8089,7 +7565,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 747029eee1e3e97669a8c17882db0f3a, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 747029eee1e3e97669a8c17882db0f3a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -8954,7 +8430,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: ca0f79d92701fd34f83c7953973c2342, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: ca0f79d92701fd34f83c7953973c2342, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -10146,7 +9622,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: f2d396fca083fa3468e06a58d8aa0ce9, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: f2d396fca083fa3468e06a58d8aa0ce9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -10275,7 +9751,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 6aeefb601c305f64487cebdfacae5b6c, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6aeefb601c305f64487cebdfacae5b6c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -11498,7 +10974,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 0eed984838b5357939ca9c36c4d587ec, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 0eed984838b5357939ca9c36c4d587ec, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -11896,7 +11372,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: ecbb06a284ad7ee4fac67b635383ba75, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: ecbb06a284ad7ee4fac67b635383ba75, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -12056,7 +11532,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 072ba030052e9344fa37ed11fbbb605f, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 072ba030052e9344fa37ed11fbbb605f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -12357,7 +11833,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: f9a5a91afb7f2f24aa59ae3b5ce30221, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: f9a5a91afb7f2f24aa59ae3b5ce30221, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

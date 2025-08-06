@@ -12,7 +12,9 @@ public class enemigo2_al1: MonoBehaviour
     public bool muertetemp;
     public float tempM;
     public bool detectar;
+    public bool detect;
     public float temprb;
+    public float tempdanodef;
     public bool destobj;
     public GameObject destruible;
     public GameObject moneda;
@@ -30,7 +32,6 @@ public class enemigo2_al1: MonoBehaviour
     public float temp;
     public Animator anim;
     public GameObject explosion;
-    public int nivel = 1;
     public jugador_al1 jugador1;
     public AudioSource muertes;
     public int enemigo = 1;
@@ -45,6 +46,7 @@ public class enemigo2_al1: MonoBehaviour
     public float vidamax;
     public Image vidab;
     public int nivelactual = 1;
+    private float extraD;
 
     public float valorexp = 1.2f;
     public float vidabasetut = 9;
@@ -85,6 +87,7 @@ public class enemigo2_al1: MonoBehaviour
     public bool mixto;
     public bool programable;
     public bool programable2;
+    public float Randomdec6;
 
     public float defensabase = 5;
     public float defensabasemax = 50;
@@ -95,7 +98,6 @@ public class enemigo2_al1: MonoBehaviour
     public GameObject teleprefab;
     public GameObject zigzagprefab;
 
-    public int curas;
     public bool division;
     public bool division2;
     public AudioSource lanzarson;
@@ -107,6 +109,7 @@ public class enemigo2_al1: MonoBehaviour
     public GameObject eneprefab1;
     public GameObject eneprefab2;
     public float tempcarga;
+    public float tempcargaef;
     public int randomdec5;
     public bool fuera;
     public bool gigante;
@@ -117,7 +120,10 @@ public class enemigo2_al1: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        tempcarga = Random.Range(0,8);
         frenetismo = 1;
+        extraD = 1f;
         if(nivelactual >= 70)
         {
             frenetismo = 1.2f;
@@ -135,89 +141,89 @@ public class enemigo2_al1: MonoBehaviour
         {
             cura = 1;
         }
-
-        if(programable == false)
+        if(nivelactual >= 90 && programable2 == false)
         {
-
-            if(nivelactual >= 90)
+            int Randomdec3 = Random.Range(0,2);
+            if(Randomdec3 == 1)
             {
-                int Randomdec3 = Random.Range(0,1);
-                if(Randomdec3 == 1)
-                {
-                    division2 = true;
-                }
-                else
-                {
-                    int Randomdec4 = Random.Range(0,1);
-                    if(Randomdec4 == 1)
-                    {
-                        division = true;
-                    }
-                }
+                division2 = true;
             }
-            else if(nivelactual >= 60)
+            else
             {
-                int Randomdec4 = Random.Range(0,1);
+                int Randomdec4 = Random.Range(0,2);
                 if(Randomdec4 == 1)
                 {
                     division = true;
                 }
-                
             }
-            if(nivelactual >= 40)
+        }
+        else if(nivelactual >= 60)
+        {
+            int Randomdec4 = Random.Range(0,1);
+            if(Randomdec4 == 1)
             {
-                int Randomdisp = Random.Range(0,4);
-                if(Randomdisp == 0)
-                {
-                    mododisparos = "disparos";
-                }
-                else if(Randomdisp == 1)
-                {
-                    mododisparos = "ondas";
-                }
-                else if(Randomdisp == 2)
-                {
-                    mododisparos = "bomba";
-                }
-                else if(Randomdisp == 3)
-                {
-                    mododisparos = "zigzag";
-                }
-                
+                division = true;
             }
-            else if(nivelactual >= 30)
+            
+        }
+        if(nivelactual >= 40)
+        {
+            int Randomdisp = Random.Range(0,4);
+            if(Randomdisp == 0)
             {
-                int Randomdisp = Random.Range(0,3);
-                if(Randomdisp == 0)
-                {
-                    mododisparos = "disparos";
-                }
-                else if(Randomdisp == 1)
-                {
-                    mododisparos = "ondas";
-                }
-                else if(Randomdisp == 2)
-                {
-                    mododisparos = "bomba";
-                }
+                mododisparos = "disparo";
             }
-            else if(nivelactual >= 10)
+            else if(Randomdisp == 1)
             {
-                int Randomdisp = Random.Range(0,2);
-                if(Randomdisp == 0)
-                {
-                    mododisparos = "disparos";
-                }
-                else if(Randomdisp == 1)
-                {
-                    mododisparos = "ondas";
-                }
+                mododisparos = "ondas";
+            }
+            else if(Randomdisp == 2)
+            {
+                mododisparos = "bomba";
+            }
+            else if(Randomdisp == 3)
+            {
+                mododisparos = "zigzag";
+            }
+            
+        }
+        else if(nivelactual >= 30)
+        {
+            int Randomdisp = Random.Range(0,3);
+            if(Randomdisp == 0)
+            {
+                mododisparos = "disparo";
+            }
+            else if(Randomdisp == 1)
+            {
+                mododisparos = "ondas";
+            }
+            else if(Randomdisp == 2)
+            {
+                mododisparos = "bomba";
+            }
+        }
+        else if(nivelactual >= 10)
+        {
+            int Randomdisp = Random.Range(0,2);
+            if(Randomdisp == 0)
+            {
+                mododisparos = "disparo";
+            }
+            else if(Randomdisp == 1)
+            {
+                mododisparos = "ondas";
+            }
 
-            }
-            else
-            {
-                mododisparos = "disparos";
-            }
+        }
+        else
+        {
+            mododisparos = "disparo";
+        }
+        if(programable == false)
+        {
+
+            
             enemigo3 = Random.Range(1,3);
             if(enemigo3 == 1)
             {
@@ -302,13 +308,9 @@ public class enemigo2_al1: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(fuera == false)
+        if(cancelatk < 0)
         {
-            escudoin.SetActive(true);
-        }
-        else
-        {
-        	escudoin.SetActive(false);
+            cancelatk = 0;
         }
         if (temprb > 0f)
         {
@@ -329,14 +331,15 @@ public class enemigo2_al1: MonoBehaviour
 
         vidaUI = Mathf.Lerp(vidaUI, vida, Time.deltaTime * 2f);
 
-        if(jugador1.objetivotarget == transform.gameObject && detectar == true)
+        if(jugador1.objetivotarget == transform.gameObject )
         {
+            target.SetActive(false);
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.escudoeneact = false;
             jugador1.escudosene = 0;
 
-            jugador1.vidaeneui = vidaUI;
+            jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
             jugador1.vidaescudoene1 = 0;
             jugador1.vidaescudoene2 = 0;
@@ -344,14 +347,14 @@ public class enemigo2_al1: MonoBehaviour
             jugador1.vidaescudomaxene = 0;
             jugador1.niveleneui.text = nivelactual.ToString();
         }
-        else if(jugador1.objetivotarget2 == transform.gameObject && jugador1.objetivotarget == null && detectar == true)
+        else if(jugador1.objetivotarget2 == transform.gameObject && jugador1.objetivotarget == null )
         {
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.escudoeneact = false;
             jugador1.escudosene = 0;
 
-            jugador1.vidaeneui = vidaUI;
+            jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
             jugador1.vidaescudoene1 = 0;
             jugador1.vidaescudoene2 = 0;
@@ -375,6 +378,7 @@ public class enemigo2_al1: MonoBehaviour
                 if(jugador1.objetivotarget2 == this.gameObject)
                 {
                     jugador1.objetivotarget2 = null;
+                    jugador1.vidaenebarra.SetActive(false);
                 }
                 GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
@@ -441,10 +445,13 @@ public class enemigo2_al1: MonoBehaviour
             if(jugador1.objetivotarget2 == this.gameObject)
             {
                 jugador1.objetivotarget2 = null;
+                jugador1.vidaenebarra.SetActive(false);
             }
+
             GameObject monedae = Instantiate(moneda, transform.position , transform.rotation);
             manager.datosserial.asesinatos++;
             manager.guardar();
+
             jugador1.vidaenebarra.SetActive(false);
             jugador1.vidaeneact = false;
             Destroy(transform.parent.gameObject);
@@ -461,7 +468,7 @@ public class enemigo2_al1: MonoBehaviour
         
 
 
-        if(detectar == true && desactivar == false && modo == "fisico" && manager.controlene == true)
+        if(detectar == true && desactivar == false && modo == "fisico" && manager.controlene == true && cancelatk == 0)
         {
                 if(nivelactual >= 80)
                 {
@@ -479,6 +486,10 @@ public class enemigo2_al1: MonoBehaviour
 
                 if(temp > 3f && randomdec5 == 0)
                 {
+                    Vector3 direction = objetivo1.position - transform.position;
+                    rotation = Quaternion.LookRotation(direction);
+                    transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
+
                     paloS.toquespalo = 2;
                     GameObject slasht = Instantiate(slash, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
                     slasht.transform.SetParent(transform);
@@ -489,6 +500,10 @@ public class enemigo2_al1: MonoBehaviour
                 }
                 else if(temp > 3f && randomdec5 == 1)
                 {
+                    Vector3 direction = objetivo1.position - transform.position;
+                    rotation = Quaternion.LookRotation(direction);
+                    transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
+
                     anim.SetBool("eneatk1",true);
                     temp = -5;
                     paloS.toquespalo = 5;
@@ -511,6 +526,9 @@ public class enemigo2_al1: MonoBehaviour
                 }
                 else if(temp > 3f && randomdec5 == 2)
                 {
+                    Vector3 direction = objetivo1.position - transform.position;
+                    rotation = Quaternion.LookRotation(direction);
+                    transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
                     temp = -2;
                     paloS.toquespalo = 2;
                     paloS.dano = danoj;
@@ -522,7 +540,7 @@ public class enemigo2_al1: MonoBehaviour
                 {
                     rb_ = this.GetComponent<Rigidbody>();
                     anim.SetBool("encatk1",true);
-                    this.rb_.AddForce(3000 * transform.TransformDirection(new Vector3 (0,0,1)));
+                    this.rb_.AddForce(1000 * transform.TransformDirection(new Vector3 (0,0,1)));
                     temp = 0;
                     temp = -6;
                     paloS.toquespalo = 1;
@@ -530,6 +548,9 @@ public class enemigo2_al1: MonoBehaviour
                 }
                 else
                 {
+                    Vector3 direction = objetivo1.position - transform.position;
+                    rotation = Quaternion.LookRotation(direction);
+                    transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
                     anim.SetBool("atk",false);
                     anim.SetBool("arma3",false);
                     anim.SetBool("encatk1",false);
@@ -537,9 +558,6 @@ public class enemigo2_al1: MonoBehaviour
             
             
             transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-3),vel * Time.deltaTime);
-            Vector3 direction = objetivo1.position - transform.position;
-            rotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
             temp += 1 * frenetismo * Time.deltaTime;
 
             
@@ -547,7 +565,7 @@ public class enemigo2_al1: MonoBehaviour
             
             
         }
-        if(detectar == true && modo == "disparo" && desactivar == false && manager.controlene == true)
+        if(detectar == true && modo == "disparo" && desactivar == false && manager.controlene == true && cancelatk == 0)
         {
             if(temp > balafrec)
             {
@@ -556,7 +574,7 @@ public class enemigo2_al1: MonoBehaviour
                         Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
                         BalaTemporal.transform.SetParent(juego);
 
-                        BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj * 3;
+                        BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj * 1;
 
                         rb.AddForce(BalaTemporal.transform.forward * 110 * 20);
 
@@ -584,7 +602,7 @@ public class enemigo2_al1: MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
             temp += 1 * frenetismo * Time.deltaTime;
         }
-        if(detectar == true && modo == "ondas" && desactivar == false && manager.controlene == true)
+        if(detectar == true && modo == "ondas" && desactivar == false && manager.controlene == true && cancelatk == 0)
         {
             if(temp > balafrec)
             {
@@ -593,7 +611,7 @@ public class enemigo2_al1: MonoBehaviour
                         Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
                         BalaTemporal.transform.SetParent(juego);
 
-                        BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj * 4;
+                        BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj ;
 
                         rb.AddForce(BalaTemporal.transform.forward * 110 * 5);
 
@@ -621,16 +639,16 @@ public class enemigo2_al1: MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
             temp += 1 * frenetismo * Time.deltaTime;
         }
-        if(detectar == true && modo == "bomba" && desactivar == false && manager.controlene == true)
+        if(detectar == true && modo == "bomba" && desactivar == false && manager.controlene == true && cancelatk == 0)
         {
             if(temp > balafrec)
             {
-                        GameObject BalaTemporal = Instantiate(bombaprefab, pistola.transform.position,transform.rotation) as GameObject;
+                        GameObject BalaTemporal = Instantiate(bombaprefab, pistola.transform.position + (transform.forward * 5),transform.rotation) as GameObject;
 
                         Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
                         BalaTemporal.transform.SetParent(juego);
 
-                        BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj * 4;
+                        BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj ;
 
                         rb.AddForce(new Vector3(0,BalaTemporal.transform.up.y,BalaTemporal.transform.forward.z) * 110 * 5);
 
@@ -658,20 +676,22 @@ public class enemigo2_al1: MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
             temp += 1 * frenetismo * Time.deltaTime;
         }
-        if(detectar == true && modo == "zigzag" && desactivar == false && manager.controlene == true)
+        if(detectar == true && modo == "zigzag" && desactivar == false && manager.controlene == true && cancelatk == 0)
         {
-            if(temp > balafrec)
+            if(temp > 1)
             {
                         GameObject BalaTemporal = Instantiate(zigzagprefab, pistola.transform.position,transform.rotation) as GameObject;
 
                         Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
 
-                        BalaTemporal.transform.GetChild(0).GetComponent<romperbala_al1>().danoj = danoj * 2;
-                        BalaTemporal.transform.GetChild(1).GetComponent<romperbala_al1>().danoj = danoj * 2;
+                        BalaTemporal.transform.GetChild(0).GetComponent<romperbala_al1>().danoj = danoj /2;
+                        BalaTemporal.transform.GetChild(1).GetComponent<romperbala_al1>().danoj = danoj /2;
 
                         rb.AddForce(BalaTemporal.transform.forward * 110 * 5);
 
-                        BalaTemporal.GetComponent<romperbala_al1>().destb = 4f;
+
+                        BalaTemporal.transform.GetChild(0).GetComponent<romperbala_al1>().destb = 4f;
+                        BalaTemporal.transform.GetChild(1).GetComponent<romperbala_al1>().destb = 4f;
 
                         disp.Play();
 
@@ -695,17 +715,18 @@ public class enemigo2_al1: MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
             temp += 1 * frenetismo * Time.deltaTime;
         }
-        if(detectar == true && desactivar == false && manager.controlene == true && gigante == false)
+        if(detectar == true && desactivar == false && manager.controlene == true && gigante == false )
         {
             if(cancelatk > 0)
             {
-                if(tempcarga > 7)
+                if(tempcargaef > 7)
                 {
                     if(modocarga == "vida100")
                     {
                         vida = vidamax;
                         cancelatk = 0;
                         tempcarga = 0;
+                        tempcargaef = 0;
                         modocarga = "";
                         anim.SetBool("Playercarga",false);
                     }
@@ -718,11 +739,13 @@ public class enemigo2_al1: MonoBehaviour
                         }
                         cancelatk = 0;
                         tempcarga = 0;
+                        tempcargaef = 0;
                         modocarga = "";
                         anim.SetBool("Playercarga",false);
                     }
                     if(modocarga == "trivision")
                     {
+                        modocarga = "";
                         if(managerordas != null)
                         {
                             managerordas.contadorene += 2;
@@ -737,31 +760,37 @@ public class enemigo2_al1: MonoBehaviour
                         ene2tempS.nivelactual = nivelactual;
                         ene1tempS.programable = true;
                         ene2tempS.programable = true;
+                        ene1tempS.detectar = true;
+                        ene2tempS.detectar = true;
                         ene1tempS.programable2 = true;
                         ene2tempS.programable2 = true;
                         ene1tempS.vidamax = vidamax/2;
                         ene2tempS.vidamax = vidamax/2;
                         cancelatk = 0;
                         tempcarga = 0;
-                        modocarga = "";
+                        tempcargaef = 0;
+                        
                         anim.SetBool("Playercarga",false);
                     }
-                    if(modocarga == "disvision")
+                    if(modocarga == "division")
                     {
+                        modocarga = "";
                         if(managerordas != null)
                         {
                             managerordas.contadorene += 1;
                         }
                         GameObject enetemp = Instantiate(eneprefab1, transform.position - new Vector3(7,0,0), transform.rotation);
                         enemigo2_al1 ene1tempS = enetemp.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>();
-                        ene1tempS.valorexp = valorexp/2;
+                        ene1tempS.valorexp = valorexp/1.5f;
                         ene1tempS.nivelactual = nivelactual;
                         ene1tempS.programable = true;
                         ene1tempS.programable2 = true;
+                        ene1tempS.detectar = true;
                         ene1tempS.modo = modo;
-                        ene1tempS.vidamax = vidamax/2;
+                        ene1tempS.vidamax = vida;
                         cancelatk = 0;
                         tempcarga = 0;
+                        tempcargaef = 0;
                         modocarga = "";
                         anim.SetBool("Playercarga",false);
                     }
@@ -773,71 +802,81 @@ public class enemigo2_al1: MonoBehaviour
                 modocarga = "";
             }
 
-            if(nivelactual >= 70 && cura == 1)
+
+            if(nivelactual >= 90)
             {
-                
-                if((vidamax/100) * 30 <= vida && tempcarga > 7)
-                {
-                    int randomdec = Random.Range(0,2);
-                    if(randomdec == 1)
-                    {
-                        cancelatk = 20;
-                        anim.SetBool("Playercarga",true);
-                        anim.Play("cargahabene");
-                        tempcarga = 0;
-                        modocarga = "vida100";
-                    }
-                    cura--;
-                    
-                }
+                Randomdec6 = Random.Range(0,5);
+            }
+            else if(nivelactual >= 70)
+            {
+                Randomdec6 = Random.Range(0,4);     
+            }          
+            else if(nivelactual >= 60)
+            {
+                Randomdec6 = Random.Range(0,3);
             }
             else if(nivelactual >= 20)
             {
-                
-                if((vidamax/100) * 50 <= vida && tempcarga > 7)
-                {
-                    int randomdec = Random.Range(0,2);
-                    if(randomdec == 1)
-                    {
-                        cancelatk = 10;
-                        anim.SetBool("Playercarga",true);
-                        anim.Play("cargahabene");
-                        tempcarga = 0;
-                        modocarga = "vida+50";
-                    }
-                    cura--;
-                    
-                }
+                Randomdec6 = Random.Range(0,2);          
             }
-            if(nivelactual >= 60)
+
+
+            if((vidamax/100) * 50 <= vida && tempcarga > 12 && Randomdec6 == 1 && cura > 0)
             {
-                if((vidamax/100) * 20 <= vida && division == true && tempcarga > 7)
+                int randomdec = Random.Range(0,2);
+                if(randomdec == 1)
                 {
                     cancelatk = 10;
                     anim.SetBool("Playercarga",true);
                     anim.Play("cargahabene");
                     tempcarga = 0;
-                    modocarga = "trivision";
-                    division = false;
+                    tempcargaef = 0;
+                    modocarga = "vida+50";
                 }
-            }
-            if(nivelactual >= 90)
-            {
+                cura--;
                 
-                if((vidamax/100) * 50 <= vida && division2 == true && tempcarga > 7)
+            }
+            if((vidamax/100) * 20 <= vida && division == true && tempcarga > 12 && Randomdec6 == 2)
+            {
+                cancelatk = 10;
+                anim.SetBool("Playercarga",true);
+                anim.Play("cargahabene");
+                tempcarga = 0;
+                tempcargaef = 0;
+                modocarga = "trivision";
+                division = false;
+            }
+            if((vidamax/100) * 30 <= vida && tempcarga > 12 && cura == 1 && Randomdec6 == 3)
+            {
+                int randomdec = Random.Range(0,2);
+                if(randomdec == 1)
                 {
-                    cancelatk = 20;
+                    cancelatk = 15;
                     anim.SetBool("Playercarga",true);
                     anim.Play("cargahabene");
                     tempcarga = 0;
-                    modocarga = "division";
-                    division2 = false;
+                    tempcargaef = 0;
+                    modocarga = "vida100";
                 }
+                cura--;
+                
+            }
+            if((vidamax/100) * 50 <= vida && division2 == true && tempcarga > 12 && Randomdec6 == 4)
+            {
+                cancelatk = 20;
+                anim.SetBool("Playercarga",true);
+                anim.Play("cargahabene");
+                tempcarga = 0;
+                tempcargaef = 0;
+                modocarga = "division";
+                division2 = false;
             }
             
 
-            if(tempcarga < 15)
+            if(tempcarga < 15 && cancelatk == 0)
             {tempcarga += 1 * Time.deltaTime;}
+            if(tempcargaef < 15)
+            {tempcargaef += 1 * Time.deltaTime;}
         }
         if(detectar == true && mixto == true && desactivar == false && manager.controlene == true)
         {
@@ -859,30 +898,36 @@ public class enemigo2_al1: MonoBehaviour
         }
         if(fuera == false )
         {
-
-            if(manager.juego != 3)
+            if(detect == false)
             {
-                if(new Vector3(objetivon.x,transform.position.y,objetivon.z) == transform.position)
+                if(manager.juego != 3)
                 {
-                    objetivon = objetivoa[Random.Range(0,4)];
+                    if(new Vector3(objetivon.x,transform.position.y,objetivon.z) == transform.position)
+                    {
+                        objetivon = objetivoa[Random.Range(0,4)];
+                    }
+                    Vector3 direction2 = objetivon - transform.position;
+                    rotation = Quaternion.LookRotation(direction2);
+                    transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivon.x,transform.position.y,objetivon.z),vel * Time.deltaTime);
+                    anim.SetFloat("vely",1);
                 }
-                Vector3 direction2 = objetivon - transform.position;
-                rotation = Quaternion.LookRotation(direction2);
-                transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivon.x,transform.position.y,objetivon.z),vel * Time.deltaTime);
-                anim.SetFloat("vely",1);
-            }
-            else if(manager.juego == 3)
-            {
-                anim.SetBool("Playeract",true);
-            }
-                // Lanzar rayo hacia abajo
-            RaycastHit hit;
-            if(Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity,0, QueryTriggerInteraction.Ignore))
-            {
-            	if (hit.distance < 0.1f)
+                else if(manager.juego == 3)
                 {
-                    Destroy (GetComponent<Rigidbody>());
+                    anim.SetBool("Playeract",true);
                 }
+                    // Lanzar rayo hacia abajo
+                RaycastHit hit;
+                if(Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity,0, QueryTriggerInteraction.Ignore))
+                {
+                    if (hit.distance < 0.1f)
+                    {
+                        Destroy (GetComponent<Rigidbody>());
+                    }
+                }
+            }
+            else if(detect == true)
+            {
+                transform.position = Vector3.MoveTowards(transform.position,new Vector3(jugador1.transform.position.x,transform.position.y,jugador1.transform.position.z),vel * Time.deltaTime);
             }
 
             // Aplicar gravedad solo si no está en el suelo
@@ -892,31 +937,19 @@ public class enemigo2_al1: MonoBehaviour
         {
             anim.SetBool("Playeract",false);
         }
+        if(tempdanodef < 15)
+        {tempdanodef += 1 * Time.deltaTime;}
         
         
     }
     private void OnTriggerExit(Collider col)
 	{
-        if (col.gameObject.tag == "danoarma10" && fuera == true)
+        
+        if (col.gameObject.tag == "danoarma9" )
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
-            vida -= balajug.danoj;
-            cancelatk--;
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.vidaeneact = true;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            danoene.Play();
-            if(jugador1.tempretarget > 1)  
-            {jugador1.objetivotarget2 = this.gameObject;}
-		}
-        if (col.gameObject.tag == "danoarma9" && fuera == true)
-		{
-            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
-            jugador1.muertesjug.Stop();
-            vida -= balajug.danoj;
+            vida -= (balajug.danoj * extraD);
             cancelatk -= 0.2f * Time.deltaTime;
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
@@ -926,18 +959,20 @@ public class enemigo2_al1: MonoBehaviour
             danoene.Play();
             if(jugador1.tempretarget > 1)  
             {jugador1.objetivotarget2 = this.gameObject;}
+            detect = true;
         }
     }
     private void OnTriggerEnter(Collider col)
 	{
-        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0 && fuera == true)
+        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0 )
 		{
             cancelatk--;
             jugador1.toquespalo--;
-            vida -= col.gameObject.GetComponent<golpe_al1>().dano;
+            vida -= (col.gameObject.GetComponent<golpe_al1>().dano * extraD);
             danoene.Play();
             jugador1.vidaeneact = true;
             temprb = 1;
+            //temp = 0;
             rb_.AddForce((jugador1.transform.forward * 110) + (transform.up  * 110 * 1.2f));
             jugador1.vidaeneui = vida;
             jugador1.vidaeneuimax = vidamax;
@@ -945,14 +980,33 @@ public class enemigo2_al1: MonoBehaviour
             jugador1.niveleneui.text = nivelactual.ToString();
             if(jugador1.tempretarget > 1)  
             {jugador1.objetivotarget2 = this.gameObject;}
+            detect = true;
             
 		}
-        if (col.gameObject.tag == "danoarma8" && fuera == true)
+        if (col.gameObject.tag == "danoarma10" && tempdanodef > 15f)
+		{
+            baladef_exp_al1 balajug = col.gameObject.GetComponent<baladef_exp_al1>();
+            jugador1.muertesjug.Stop();
+            vida -= (balajug.danoj * extraD);
+            cancelatk--;
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+            jugador1.niveleneui.text = nivelactual.ToString();
+            danoene.Play();
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
+            detect = true;
+            tempdanodef = 0;
+            
+		}
+        if (col.gameObject.tag == "danoarma8" )
 		{
             cancelatk--;
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
-            vida -= balajug.danoj;
+            vida -= (balajug.danoj* extraD);
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.vidaeneui = vida;
@@ -961,16 +1015,22 @@ public class enemigo2_al1: MonoBehaviour
             jugador1.niveleneui.text = nivelactual.ToString();
             if(jugador1.tempretarget > 1)  
             {jugador1.objetivotarget2 = this.gameObject;}
+            detect = true;
 		}
         if (col.gameObject.tag == "danoarma9")
 		{
             detectar = false;
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
+            detect = true;
 		}
 	}
     private void OnTriggerStay(Collider col)
 	{
         if (col.gameObject.tag == "danoarma9")
 		{
+            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+            vida -= (balajug.danoj * extraD * Time.deltaTime);
             detectar = false;
 		}
     }
@@ -988,6 +1048,7 @@ public class enemigo2_al1: MonoBehaviour
             if(jugador1.objetivotarget2 == this.gameObject)
             {
                 jugador1.objetivotarget2 = null;
+                jugador1.vidaenebarra.SetActive(false);
             }
 			Destroy(transform.parent.gameObject);
 		}

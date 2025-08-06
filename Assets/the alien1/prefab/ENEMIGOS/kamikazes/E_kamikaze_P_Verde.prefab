@@ -277,8 +277,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.274198, y: 0.25240442, z: 0.299046}
-  m_Center: {x: -0.0049713156, y: 0.22274493, z: -0.002475479}
+  m_Size: {x: 0.274198, y: 0.7182619, z: 0.299046}
+  m_Center: {x: -0.0049713156, y: 0.45567366, z: -0.002475479}
 --- !u!114 &6460345537610242255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +302,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 12bc922d591bfa14f97f9456b3a8021b, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 12bc922d591bfa14f97f9456b3a8021b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.733
@@ -431,7 +431,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7e41ebba04479919cbf4850960cd7b28, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 7e41ebba04479919cbf4850960cd7b28, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -666,7 +666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 16783b141ca6b3849a44f686f137cb9d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.442
+      value: 2.23
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 16783b141ca6b3849a44f686f137cb9d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -823,7 +823,6 @@ MonoBehaviour:
   destobj: 0
   destruible: {fileID: 0}
   moneda: {fileID: 2172128802953418307, guid: 54efd5f1cf38aff4a931a38ce3656ad9, type: 3}
-  nivel: 1
   rb_: {fileID: 0}
   vel: 2
   desactivar: 0
@@ -832,13 +831,14 @@ MonoBehaviour:
   anim: {fileID: 8708354709663116779}
   gravityForce: 5
   raycastDistance: 1
+  detect: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
   verdepeque: {fileID: 0}
   curaobj: {fileID: 0}
   disp: {fileID: 1823490963279921843}
-  balaprefab1: {fileID: 1777860533906856, guid: f59d3851d1e91054ba43c8b7755a448e, type: 3}
+  balaprefab1: {fileID: 1777860533906856, guid: 277a9768d20f79f42aa5c9c349972b41, type: 3}
   vida: 1
   vidamax: 5
   vidab: {fileID: 0}
@@ -851,6 +851,7 @@ MonoBehaviour:
   danoene: {fileID: 7985797471134599863}
   vidamenu: {fileID: 0}
   tutorial: 0
+  tempdanodef: 0
   target: {fileID: 8196608426288513265}
   valorexp: 0.25
   vidabasetut: 9
@@ -1096,7 +1097,6 @@ MonoBehaviour:
   - 0
   eventotut: {fileID: 0}
   temp: 0
-  pequevolador: {fileID: 0}
   voladoract: 0
   big: {fileID: 0}
   med: {fileID: 0}
@@ -1210,6 +1210,7 @@ MonoBehaviour:
   programado: 1
   frenetismo: 1
   balaprefab2: {fileID: 1777860533906856, guid: d6663cfb2e7abd54d9522eac23ba1ba2, type: 3}
+  fuera: 0
 --- !u!65 &6009614168232334535
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1229,8 +1230,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3876912, y: 1.4543301, z: 0.39030805}
-  m_Center: {x: -0.0015627359, y: 0.22716534, z: 0.003696755}
+  m_Size: {x: 0.3876912, y: 0.59642494, z: 0.39030805}
+  m_Center: {x: -0.0015627359, y: -0.20178723, z: 0.003696755}
 --- !u!136 &8754867663297603327
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1250,10 +1251,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7362946
-  m_Height: 2.1
+  m_Radius: 0.5102941
+  m_Height: 1.4725893
   m_Direction: 1
-  m_Center: {x: 0, y: 0.5426709, z: 0}
+  m_Center: {x: -0.0027900734, y: 0.22896568, z: 0}
 --- !u!95 &8708354709663116779
 Animator:
   serializedVersion: 7

@@ -25,6 +25,7 @@ public class manager_test_al1 : MonoBehaviour
         {
             testene3.nivelactual = nivelG;
         }
+        jugador.controlact = true;
         manager.datosserial.niveljug= nivelG;
         manager.datosserial.nivelarmapapa = nivelarma;
         manager.datosserial.nivelarmarel = nivelarma;

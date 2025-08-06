@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class enemigo3_al1: MonoBehaviour
 {
 	public manager_al1 manager;
+    public float distancia;
+    public float temp2;
+    public float tempdanodef;
     public bool detectar;
     public GameObject explotar1prefab;
     public GameObject explotar2prefab;
@@ -16,11 +19,13 @@ public class enemigo3_al1: MonoBehaviour
     public Quaternion rotation;
     public Transform objetivo1;
     public Transform objetivo1b;
+    public GameObject escudoV;
     public Rigidbody rb_;
     public bool destobj;
     public GameObject destruible;
     public GameObject moneda;
     public float vel = 2;
+    public bool detect;
     public bool desactivar;
     public enemigodet3_al1 enemigodet;
     public GameObject dano;
@@ -39,17 +44,15 @@ public class enemigo3_al1: MonoBehaviour
     public float vidaUI;
     public float vidamax;
     public Image vidab;
-    private float temprecargafin;
-    private float temp2;
+    public float temprecargafin;
     private  float frenetismo = 1;
     public GameObject explosionP;
     public golpe_al1 paloS;
     public bool cerca;
-    private string modoatk;
+    public string modoatk;
 
     private float frenetismoarmas = 1;
 
-    public int nivel = 1;
 
     public AudioSource danoene;
     public AudioSource danoescudo;
@@ -57,6 +60,10 @@ public class enemigo3_al1: MonoBehaviour
     public float temprb;
 
     public GameObject escudovis;
+    public GameObject escudovis1_1;
+    public GameObject escudovis1_2;
+    public GameObject escudovis1_3;
+    public GameObject escudovis2;
     public bool escudoact;
     public float tempescudo;
     public float tempesc;
@@ -82,8 +89,6 @@ public class enemigo3_al1: MonoBehaviour
     public float fuebasemax = 300;
     public float fueplusmax = 4000;
 
-    public float escudovida_noplus = 30;
-    public float escudovida_plus = 100;
     public float[] niveldefensa = new float[100];
 
     public bool new_game_plus;
@@ -102,10 +107,11 @@ public class enemigo3_al1: MonoBehaviour
     public bool fuera;
     public GameObject bombaprefab;
     private int randomdec;
-    private int randomdec2;
+    public int randomdec2;
     private int randomdec3;
     public int escudos = 1;
     public int escudosmax = 1;
+    private float fre2 = 1;
     public void Awake()
     {
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
@@ -115,6 +121,7 @@ public class enemigo3_al1: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        temp2 = Random.Range(0,18);
         if((manager_ordas_al1)FindFirstObjectByType(typeof(manager_ordas_al1))!= null)
         {
         	managerordas = (manager_ordas_al1)FindFirstObjectByType(typeof(manager_ordas_al1));
@@ -130,16 +137,16 @@ public class enemigo3_al1: MonoBehaviour
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
             rb_ = GetComponent<Rigidbody>();
         }
-        
+        escudoact = true;
         vidaUI = vida;
 
-        if(new_game_plus == true)
+        if(nivelactual > 50)
         {
-            vidaescudomax = escudovida_plus;
+            vidaescudomax = 100;
         }  
         else
         {
-            vidaescudomax = escudovida_noplus;
+            vidaescudomax = 30;
         }
 
         if(nivelactual >= 70)
@@ -240,22 +247,25 @@ public class enemigo3_al1: MonoBehaviour
     void Update()
     {
 
-        
-        if(fuera == false)
+        distancia = Vector3.Distance(jugador1.transform.position, transform.position);
+        if(distancia < 45 && temp2 > 15)
         {
-            escudoin.SetActive(true);
-        }
-        else
-        {
-        	escudoin.SetActive(false);
-        }
-        if(Vector3.Distance(jugador1.transform.position, transform.position) < 5)
-        {
+            escudoV.SetActive(true);
             cerca = true;
         }
         else
         {
+            escudoV.SetActive(false);
             cerca = false;
+        }
+
+        if(temp2 > 12)
+        {
+            fre2 = 1.3f;
+        }
+        else
+        {
+            fre2 = 1;
         }
         if (temprb > 0f)
         {
@@ -263,7 +273,7 @@ public class enemigo3_al1: MonoBehaviour
         }
         else{temprb = 0f;}
         vidaUI = Mathf.Lerp(vidaUI, vida, Time.deltaTime * 2f);
-        if(jugador1.objetivotarget == transform.gameObject && detectar == true)
+        if(jugador1.objetivotarget == transform.gameObject )
         {
             target.SetActive(true);
             jugador1.vidaenebarra.SetActive(true);
@@ -283,12 +293,12 @@ public class enemigo3_al1: MonoBehaviour
             temprb = 1;
             jugador1.niveleneui.text = nivelactual.ToString();
         }
-        else if(jugador1.objetivotarget2 == transform.gameObject && jugador1.objetivotarget == null && detectar == true)
+        else if(jugador1.objetivotarget2 == transform.gameObject && jugador1.objetivotarget == null )
         {
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
-            jugador1.escudoeneact = false;
-            jugador1.escudosene = 0;
+            jugador1.escudoeneact = escudoact;
+            jugador1.escudosene = escudos;
 
             jugador1.vidaeneui = vidaUI;
             jugador1.vidaeneuimax = vidamax;
@@ -296,7 +306,7 @@ public class enemigo3_al1: MonoBehaviour
             jugador1.vidaescudoene2 = vidaescudo2;
             jugador1.vidaescudoene3 = vidaescudo3;
 
-            jugador1.vidaescudomaxene = 0;
+            jugador1.vidaescudomaxene = vidaescudomax;
             temprb = 1;
             jugador1.niveleneui.text = nivelactual.ToString();
         }
@@ -309,6 +319,13 @@ public class enemigo3_al1: MonoBehaviour
         
         if (vida < 1)
         {   
+            if(modoatk == "encerrar")
+            {
+                modoatk = "";
+                escudovis.transform.position = transform.position;
+                jugador1.movact--;
+                temprecargafin = 0;
+            }
             
             GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
@@ -362,6 +379,7 @@ public class enemigo3_al1: MonoBehaviour
             if(jugador1.objetivotarget2 == this.gameObject)
             {
                 jugador1.objetivotarget2 = null;
+                jugador1.vidaenebarra.SetActive(false);
             }
             manager.datosserial.asesinatos++;
             manager.guardar();
@@ -372,14 +390,49 @@ public class enemigo3_al1: MonoBehaviour
         }
         if (escudos == 0)
         {
+            escudovis1_1.SetActive(false);
+            escudovis1_2.SetActive(false);
+            escudovis1_3.SetActive(false);
+            escudovis2.SetActive(false);
             escudovis.SetActive(false);
+            
             escudoact = false;
-            if(tempescudo >= 10)
+            if(tempescudo >= 30)
             {
                 escudovis.SetActive(true);
                 tempescudo = 0;
                 escudoact = true;
                 escudos = escudosmax;
+
+                if(escudos == 1 )
+                {
+                    escudovis.SetActive(true);
+                    escudovis1_1.SetActive(true);
+                    escudovis1_2.SetActive(false);
+                    escudovis1_3.SetActive(false);
+                    escudovis2.SetActive(false);
+                    
+                }
+                else if(escudos == 2)
+                {
+                    escudovis.SetActive(true);
+                    escudovis1_1.SetActive(false);
+                    escudovis1_2.SetActive(true);
+                    escudovis1_3.SetActive(false);
+                    escudovis2.SetActive(false);
+                }
+                else if(escudos == 3)
+                {
+                    escudovis.SetActive(true);
+                    escudovis1_1.SetActive(false);
+                    escudovis1_2.SetActive(false);
+                    escudovis1_3.SetActive(true);
+                    escudovis2.SetActive(false);
+                }
+                
+
+
+
                 if(escudosmax >= 1)
                 {vidaescudo1 = vidaescudomax;}
                 if(escudosmax >= 2)
@@ -390,17 +443,30 @@ public class enemigo3_al1: MonoBehaviour
             tempescudo += 1 * frenetismo * Time.deltaTime;
 
         }
-        if(escudos == 1 && tempesc > 1f)
+        if(escudos == 1 && tempesc > 0.3f)
         {
-            escudovis.GetComponent<Material>().SetColor("_BaseMap",new Color(0.256408f,0.3177064f,0.8113208f,0.3490196f));
+            escudovis.SetActive(true);
+            escudovis1_1.SetActive(true);
+            escudovis1_2.SetActive(false);
+            escudovis1_3.SetActive(false);
+            escudovis2.SetActive(false);
+            
         }
-        else if(escudos == 2 && tempesc > 1f)
+        else if(escudos == 2 && tempesc > 0.3f)
         {
-            escudovis.GetComponent<Material>().SetColor("_BaseMap",new Color(0.6838608f,0.7295597f,0.1284759f,0.3490196f));
+            escudovis.SetActive(true);
+            escudovis1_1.SetActive(false);
+            escudovis1_2.SetActive(true);
+            escudovis1_3.SetActive(false);
+            escudovis2.SetActive(false);
         }
-        else if(escudos == 3 && tempesc > 1f)
+        else if(escudos == 3 && tempesc > 0.3f)
         {
-            escudovis.GetComponent<Material>().SetColor("_BaseMap",new Color(1f,0f,0.8354149f,0.3490196f));
+            escudovis.SetActive(true);
+            escudovis1_1.SetActive(false);
+            escudovis1_2.SetActive(false);
+            escudovis1_3.SetActive(true);
+            escudovis2.SetActive(false);
         }
 
         if(objetivo == null)
@@ -413,7 +479,67 @@ public class enemigo3_al1: MonoBehaviour
         {
             anim.SetBool("salto",false);
         }
+        if( temprecargafin <= 0)
+        {
+            temprecargafin = 0;
+        }
+        else
+        {
+            temprecargafin -= 1 * Time.deltaTime;
+        }
+        if(modoatk == "encerrar" && escudos == 0)
+        {
+            
+            modoatk = "";
+            escudovis.transform.position = transform.position;
+            jugador1.movact--;
+            temprecargafin = 0;
+        } 
+        if(modoatk == "encerrar" && escudos > 0)
+        {
+            
+            escudovis.transform.position = jugador1.transform.position;
+        } 
+        if(modoatk == "explotar1" && escudos == 0 || modoatk == "explotar2" && escudos <= 1)
+        {
+            modoatk = "";
+            temprecargafin = 0;
+            anim.SetBool("habcarga",false);
+        }
 
+        if(modoatk == "explotar1" && escudos > 0 && temprecargafin <= 0)
+        {
+            GameObject BalaTemporal = Instantiate(explotar1prefab, transform.position,transform.rotation) as GameObject;
+
+            Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
+
+            BalaTemporal.GetComponent<romperbala_al1>().danofijo = true;
+            BalaTemporal.GetComponent<romperbala_al1>().salir = true;
+            BalaTemporal.GetComponent<romperbala_al1>().porcentaje = 60;
+
+            BalaTemporal.GetComponent<romperbala_al1>().destb = 4f;
+
+            escudos--;
+            modoatk = "";
+            temprecargafin = 0;
+            anim.SetBool("habcarga",false);
+        }
+        if(modoatk == "explotar2" && escudos > 0 && temprecargafin <= 0)
+        {
+            GameObject BalaTemporal = Instantiate(explotar2prefab, transform.position,transform.rotation) as GameObject;
+
+            Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
+            BalaTemporal.GetComponent<romperbala_al1>().salir = true;
+            BalaTemporal.GetComponent<romperbala_al1>().danofijo = true;
+            BalaTemporal.GetComponent<romperbala_al1>().porcentaje = 80;
+
+            BalaTemporal.GetComponent<romperbala_al1>().destb = 4f;
+
+            escudos = 0;
+            modoatk = "";
+            temprecargafin = 0;
+            anim.SetBool("habcarga",false);
+        }
 
         if(detectar == true  && desactivar == false && manager.controlene == true && temprecargafin <= 0)
         {
@@ -453,7 +579,7 @@ public class enemigo3_al1: MonoBehaviour
             }
             else if(temp > balafrec && randomdec == 2)
             {
-                GameObject BalaTemporal = Instantiate(bombaprefab, pistola.transform.position,transform.rotation) as GameObject;
+                GameObject BalaTemporal = Instantiate(bombaprefab, pistola.transform.position + (transform.forward * 5),transform.rotation) as GameObject;
 
                 Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
                 BalaTemporal.transform.SetParent(juego);
@@ -478,15 +604,16 @@ public class enemigo3_al1: MonoBehaviour
             else if(nivelactual >= 30)
             {randomdec2 = Random.Range(1,2);}
 
-            if(cerca == true && temp2 > 40 && randomdec2 == 1 && escudos >= 1 && modoatk == "")
+            if(cerca == true && temp2 > 20 && randomdec2 == 1 && escudos >= 1 && modoatk == "")
             {
-                jugador1.movact = false;
+                
                 modoatk = "encerrar";
+                jugador1.movact++;
                 temprecargafin = 20;
                 randomdec2 = 0;
                 temp2 = 0;
             }
-            else if(cerca == true && temp2 > 40 && randomdec == 2 && modoatk == "")
+            else if(cerca == true && temp2 > 20 && randomdec == 2 && modoatk == "")
             {
 
                 if(nivelactual >= 80)
@@ -494,7 +621,7 @@ public class enemigo3_al1: MonoBehaviour
 
                 if(randomdec3 == 0 && escudos >= 2)
                 {
-                    modoatk = "expoltar1";
+                    modoatk = "explotar1";
                     anim.Play("cargahabbig");
                     anim.SetBool("habcarga",true);
                     temprecargafin = 5;
@@ -503,7 +630,7 @@ public class enemigo3_al1: MonoBehaviour
                 }
                 else if(randomdec3 == 1 && escudos >= 3)
                 {
-                    modoatk = "expoltar2";
+                    modoatk = "explotar2";
                     anim.Play("cargahabbig");
                     anim.SetBool("habcarga",true);
                     temprecargafin = 10;
@@ -513,7 +640,7 @@ public class enemigo3_al1: MonoBehaviour
                 //explotar
                 randomdec2 = 0;
             }
-            else if(cerca == true && temp2 > 40 && randomdec2 == 3 && modoatk == "")
+            else if(cerca == true && temp2 > 20 && randomdec2 == 3 && modoatk == "")
             {
                 if(nivelactual >= 90)
                 {randomdec3 = Random.Range(0,2);}
@@ -527,6 +654,7 @@ public class enemigo3_al1: MonoBehaviour
                     paloS.ultimo = false;
                     anim.Play("atkgiroene");
                     temp2 = 0;
+                    temp = 0;
                 }
                 else if(randomdec3 == 1 )
                 {
@@ -537,83 +665,28 @@ public class enemigo3_al1: MonoBehaviour
                     modoatk = "agarrar2";
                     anim.Play("atkgiroene");
                     temp2 = 0;
+                    temp = 0;
                 }
                 
                 randomdec2 = 0;
             }
 
 
-            if( temprecargafin <= 0)
-            {
-                temprecargafin = 0;
-            }
-            else
-            {
-                temprecargafin -= 1 * Time.deltaTime;
-            }
+            
 
-            if(modoatk == "explotar1" && escudos == 0 || modoatk == "explotar2" && escudos <= 1)
-            {
-                modoatk = "";
-                temprecargafin = 0;
-                anim.SetBool("habcarga",false);
-            }
-
-            if(modoatk == "explotar1" && escudos > 0 && temprecargafin <= 0)
-            {
-                GameObject BalaTemporal = Instantiate(explotar1prefab, transform.position,transform.rotation) as GameObject;
-
-                Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
-
-                BalaTemporal.GetComponent<romperbala_al1>().danofijo = true;
-                BalaTemporal.GetComponent<romperbala_al1>().salir = true;
-                BalaTemporal.GetComponent<romperbala_al1>().porcentaje = 60;
-
-                BalaTemporal.GetComponent<romperbala_al1>().destb = 4f;
-
-                escudos--;
-                modoatk = "";
-                temprecargafin = 0;
-                anim.SetBool("habcarga",false);
-            }
-            if(modoatk == "explotar2" && escudos > 0 && temprecargafin <= 0)
-            {
-                GameObject BalaTemporal = Instantiate(explotar2prefab, transform.position,transform.rotation) as GameObject;
-
-                Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
-                BalaTemporal.GetComponent<romperbala_al1>().salir = true;
-                BalaTemporal.GetComponent<romperbala_al1>().danofijo = true;
-                BalaTemporal.GetComponent<romperbala_al1>().porcentaje = 80;
-
-                BalaTemporal.GetComponent<romperbala_al1>().destb = 4f;
-
-                escudos = 0;
-                modoatk = "";
-                temprecargafin = 0;
-                anim.SetBool("habcarga",false);
-            }
+            
 
             
 
 
-            if(modoatk == "encerrar" && escudos == 0)
-            {
-                jugador1.movact = true;
-                modoatk = "";
-                escudovis.transform.position = transform.position;
-                temprecargafin = 0;
-            } 
-            if(modoatk == "encerrar" && escudos > 0)
-            {
-                escudovis.transform.position = jugador1.transform.position;
-            }   
+             
             
             //cerca
 
 
 
 
-            transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,-5,-15),vel * frenetismo * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,-5,-15),vel * frenetismo * fre2 * Time.deltaTime);
             if (anim.GetCurrentAnimatorStateInfo(1).IsName("atk"))
             {
                 
@@ -630,91 +703,82 @@ public class enemigo3_al1: MonoBehaviour
             rotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
             
-            if(tempesc < 15)
-            {tempesc += 1 * frenetismoarmas * Time.deltaTime;}
-            if(temp2 < 15)
+            
+            if(temp2 < 25)
             {temp2 += 1 * frenetismoarmas * Time.deltaTime;}
             
         }
+        if(tempesc < 15)
+        {tempesc += 1 * frenetismoarmas * Time.deltaTime;}
 
 
         if(fuera == false )
         {
-
-            if(manager.juego != 3)
+            if(detect == false)
             {
-                if(new Vector3(objetivon.x,transform.position.y,objetivon.z) == transform.position)
+                escudoV.SetActive(false);
+                if(manager.juego != 3)
                 {
-                    objetivon = objetivoa[Random.Range(0,4)];
+                    if(new Vector3(objetivon.x,transform.position.y,objetivon.z) == transform.position)
+                    {
+                        objetivon = objetivoa[Random.Range(0,4)];
+                    }
+                    Vector3 direction2 = objetivon - transform.position;
+                    rotation = Quaternion.LookRotation(direction2);
+                    transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivon.x,transform.position.y,objetivon.z),vel * Time.deltaTime);
+                    anim.SetFloat("vely",1);
                 }
-                Vector3 direction2 = objetivon - transform.position;
-                rotation = Quaternion.LookRotation(direction2);
-                transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivon.x,transform.position.y,objetivon.z),vel * Time.deltaTime);
-                anim.SetFloat("vely",1);
-            }
-            else if(manager.juego == 3)
-            {
-                anim.SetBool("salto",true);
-            }
-                // Lanzar rayo hacia abajo
-            RaycastHit hit;
-            if(Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity,0, QueryTriggerInteraction.Ignore))
-            {
-            	if (hit.distance < 0.1f)
+                else if(manager.juego == 3)
                 {
-                    Destroy (GetComponent<Rigidbody>());
+                    anim.SetBool("salto",true);
+                }
+                    // Lanzar rayo hacia abajo
+                RaycastHit hit;
+                if(Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity,0, QueryTriggerInteraction.Ignore))
+                {
+                    if (hit.distance < 0.1f)
+                    {
+                        Destroy (GetComponent<Rigidbody>());
+                    }
                 }
             }
+            else if(detect == true)
+            {
+                transform.position = Vector3.MoveTowards(transform.position,new Vector3(jugador1.transform.position.x,transform.position.y,jugador1.transform.position.z),vel * Time.deltaTime);
+            }
+            
 
             // Aplicar gravedad solo si no está en el suelo
             
         }
+        if(modoatk == "agarrar1" && temp > 1 || modoatk == "agarrar2" && temp > 1  )
+        {
+            modoatk = "";
+        }
         if(temp < 15)
         {temp += 1 * Time.deltaTime;}
+        if(tempdanodef < 15)
+        {tempdanodef += 1 * Time.deltaTime;}
         
         
     }
     private void OnTriggerStay(Collider col)
 	{
-        if (col.gameObject.tag == "danoarma9" )
-		{
-            detectar = false;
-		}
-    }
-    private void OnTriggerEnter(Collider col)
-	{
-        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0 && escudoact == false && fuera == true)
-		{
-            jugador1.toquespalo--;
-            vida -= col.gameObject.GetComponent<golpe_al1>().dano;
-            danoene.Play();
-            jugador1.vidaeneact = true;
-            jugador1.escudosene = escudos;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.vidaescudoene1 = vidaescudo1;
-            jugador1.vidaescudoene2 = vidaescudo2;
-            jugador1.vidaescudoene3 = vidaescudo3;
-            jugador1.vidaescudomaxene = vidaescudomax;
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.niveleneui.text = nivelactual.ToString();
-            if(jugador1.tempretarget > 1)  
-            {jugador1.objetivotarget2 = this.gameObject;}
-            
-		}
-        if (col.gameObject.tag == "danoarma8" && escudoact == true && fuera == true && modoatk != "encerrar")
+         if (col.gameObject.tag == "danoarma9" && escudoact == true )
 		{
             romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
             jugador1.muertesjug.Stop();
-            
-            if(escudos == 3)
-            {vidaescudo3 -= balajug.danoesc;}
-            else if(escudos == 2)
-            {vidaescudo2 -= balajug.danoesc;}
-            else if(escudos == 1)
-            {vidaescudo1 -= balajug.danoesc;}
 
-            escudovis.GetComponent<Material>().SetColor("_BaseMap",new Color(1f,0.1207881f,0f,0.3490196f));
+            if(escudos == 3)
+            {vidaescudo3 -= (balajug.danoj * Time.deltaTime);}
+            else if(escudos == 2)
+            {vidaescudo2 -= (balajug.danoj * Time.deltaTime);}
+            else if(escudos == 1)
+            {vidaescudo1 -= (balajug.danoj * Time.deltaTime);}
+            escudovis1_1.SetActive(false);
+            escudovis1_2.SetActive(false);
+            escudovis1_3.SetActive(false);
+            escudovis2.SetActive(true);
             tempesc = 0;
 
             danoescudo.Play();
@@ -748,10 +812,142 @@ public class enemigo3_al1: MonoBehaviour
             }
             if(jugador1.tempretarget > 1)  
             {jugador1.objetivotarget2 = this.gameObject;}
+            balajug.danoesc = 0;
+            detect = true;
+        }
+    }
+    private void OnTriggerEnter(Collider col)
+	{
+        if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0 && escudoact == false )
+		{
+            jugador1.toquespalo--;
+            vida -= col.gameObject.GetComponent<golpe_al1>().dano * 1.5f;
+            danoene.Play();
+            //temp = 0;
+            jugador1.vidaeneact = true;
+            jugador1.escudosene = escudos;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+            jugador1.vidaescudoene1 = vidaescudo1;
+            jugador1.vidaescudoene2 = vidaescudo2;
+            jugador1.vidaescudoene3 = vidaescudo3;
+            jugador1.vidaescudomaxene = vidaescudomax;
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.niveleneui.text = nivelactual.ToString();
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
+            detect = true;
+            
 		}
-        if (col.gameObject.tag == "danoarma9" && fuera == true)
+        if (col.gameObject.tag == "danoarma10" && escudoact == true && tempdanodef > 15f)
+		{
+            baladef_exp_al1 balajug = col.gameObject.GetComponent<baladef_exp_al1>();
+            jugador1.muertesjug.Stop();
+            if(escudos == 3)
+            {vidaescudo3 -= balajug.danoesc;}
+            else if(escudos == 2)
+            {vidaescudo2 -= balajug.danoesc;}
+            else if(escudos == 1)
+            {vidaescudo1 -= balajug.danoesc;}
+            escudovis1_1.SetActive(false);
+            escudovis1_2.SetActive(false);
+            escudovis1_3.SetActive(false);
+            escudovis2.SetActive(true);
+            tempesc = 0;
+
+            danoescudo.Play();
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.escudosene = escudos;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+            jugador1.vidaescudoene1 = vidaescudo1;
+            jugador1.vidaescudoene2 = vidaescudo2;
+            jugador1.vidaescudoene3 = vidaescudo3;
+            jugador1.vidaescudomaxene = vidaescudomax;
+            jugador1.niveleneui.text = nivelactual.ToString();
+            if (vidaescudo1 <= 0 && escudos == 1)
+            {
+                escudos--;
+                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+                Destroy(explosiont, 1f);
+            }    
+            else if (vidaescudo2 <= 0 && escudos == 2)
+            {
+                escudos--;
+                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+                Destroy(explosiont, 1f);
+            }
+            else if (vidaescudo3 <= 0 && escudos == 3)
+            {
+                escudos--;
+                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+                Destroy(explosiont, 1f);
+            }
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
+            balajug.danoesc = 0;
+            detect = true;
+            tempdanodef = 0;
+		}
+        if (col.gameObject.tag == "danoarma8" )
+		{
+            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+            jugador1.muertesjug.Stop();
+            
+            if(escudos == 3)
+            {vidaescudo3 -= balajug.danoesc;}
+            else if(escudos == 2)
+            {vidaescudo2 -= balajug.danoesc;}
+            else if(escudos == 1)
+            {vidaescudo1 -= balajug.danoesc;}
+
+            escudovis1_1.SetActive(false);
+            escudovis1_2.SetActive(false);
+            escudovis1_3.SetActive(false);
+            escudovis2.SetActive(true);
+            tempesc = 0;
+
+            danoescudo.Play();
+            jugador1.vidaenebarra.SetActive(true);
+            jugador1.vidaeneact = true;
+            jugador1.escudosene = escudos;
+            jugador1.vidaeneui = vida;
+            jugador1.vidaeneuimax = vidamax;
+            jugador1.vidaescudoene1 = vidaescudo1;
+            jugador1.vidaescudoene2 = vidaescudo2;
+            jugador1.vidaescudoene3 = vidaescudo3;
+            jugador1.vidaescudomaxene = vidaescudomax;
+            jugador1.niveleneui.text = nivelactual.ToString();
+            if (vidaescudo1 <= 0 && escudos == 1)
+            {
+                escudos--;
+                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+                Destroy(explosiont, 1f);
+            }    
+            else if (vidaescudo2 <= 0 && escudos == 2)
+            {
+                escudos--;
+                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+                Destroy(explosiont, 1f);
+            }
+            else if (vidaescudo3 <= 0 && escudos == 3)
+            {
+                escudos--;
+                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+                Destroy(explosiont, 1f);
+            }
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
+            balajug.danoesc = 0;
+            detect = true;
+		}
+        if (col.gameObject.tag == "danoarma9")
 		{
             detectar = false;
+            if(jugador1.tempretarget > 1)  
+            {jugador1.objetivotarget2 = this.gameObject;}
+            detect = true;
 		}
 	}
     private void OnCollisionEnter(Collision col) 
@@ -769,6 +965,14 @@ public class enemigo3_al1: MonoBehaviour
             if(jugador1.objetivotarget2 == this.gameObject)
             {
                 jugador1.objetivotarget2 = null;
+                jugador1.vidaenebarra.SetActive(false);
+            }
+            if(modoatk == "encerrar")
+            {
+                modoatk = "";
+                escudovis.transform.position = transform.position;
+                jugador1.movact--;
+                temprecargafin = 0;
             }
 			Destroy(transform.parent.gameObject);
 		}
@@ -776,97 +980,9 @@ public class enemigo3_al1: MonoBehaviour
     }
     private void OnTriggerExit(Collider col)
 	{
-        if (col.gameObject.tag == "danoarma10" && escudoact == true && fuera == true)
-		{
-            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
-            jugador1.muertesjug.Stop();
-            if(escudos == 3)
-            {vidaescudo3 -= balajug.danoesc;}
-            else if(escudos == 2)
-            {vidaescudo2 -= balajug.danoesc;}
-            else if(escudos == 1)
-            {vidaescudo1 -= balajug.danoesc;}
-            escudovis.GetComponent<Material>().SetColor("_BaseMap",new Color(1f,0.1207881f,0f,0.3490196f));
-            tempesc = 0;
-
-            danoescudo.Play();
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.vidaeneact = true;
-            jugador1.escudosene = escudos;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.vidaescudoene1 = vidaescudo1;
-            jugador1.vidaescudoene2 = vidaescudo2;
-            jugador1.vidaescudoene3 = vidaescudo3;
-            jugador1.vidaescudomaxene = vidaescudomax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            if (vidaescudo1 <= 0 && escudos == 1)
-            {
-                escudos--;
-                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
-                Destroy(explosiont, 1f);
-            }    
-            else if (vidaescudo2 <= 0 && escudos == 2)
-            {
-                escudos--;
-                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
-                Destroy(explosiont, 1f);
-            }
-            else if (vidaescudo3 <= 0 && escudos == 3)
-            {
-                escudos--;
-                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
-                Destroy(explosiont, 1f);
-            }
-            if(jugador1.tempretarget > 1)  
-            {jugador1.objetivotarget2 = this.gameObject;}
-		}
-        if (col.gameObject.tag == "danoarma9" && escudoact == true && fuera == true)
-		{
-            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
-            jugador1.muertesjug.Stop();
-
-            if(escudos == 3)
-            {vidaescudo3 -= balajug.danoesc;}
-            else if(escudos == 2)
-            {vidaescudo2 -= balajug.danoesc;}
-            else if(escudos == 1)
-            {vidaescudo1 -= balajug.danoesc;}
-            escudovis.GetComponent<Material>().SetColor("_BaseMap",new Color(1f,0.1207881f,0f,0.3490196f));
-            tempesc = 0;
-
-            danoescudo.Play();
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.vidaeneact = true;
-            jugador1.escudosene = escudos;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.vidaescudoene1 = vidaescudo1;
-            jugador1.vidaescudoene2 = vidaescudo2;
-            jugador1.vidaescudoene3 = vidaescudo3;
-            jugador1.vidaescudomaxene = vidaescudomax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            if (vidaescudo1 <= 0 && escudos == 1)
-            {
-                escudos--;
-                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
-                Destroy(explosiont, 1f);
-            }    
-            else if (vidaescudo2 <= 0 && escudos == 2)
-            {
-                escudos--;
-                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
-                Destroy(explosiont, 1f);
-            }
-            else if (vidaescudo3 <= 0 && escudos == 3)
-            {
-                escudos--;
-                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
-                Destroy(explosiont, 1f);
-            }
-            if(jugador1.tempretarget > 1)  
-            {jugador1.objetivotarget2 = this.gameObject;}
-        }
+        
+       
+        
 
         if (col.gameObject.tag == "danoarma8" && escudoact == true && modoatk == "encerrar")
 		{
@@ -879,7 +995,10 @@ public class enemigo3_al1: MonoBehaviour
             {vidaescudo2 -= balajug.danoesc;}
             else if(escudos == 1)
             {vidaescudo1 -= balajug.danoesc;}
-            escudovis.GetComponent<Material>().SetColor("_BaseMap",new Color(1f,0.1207881f,0f,0.3490196f));
+            escudovis1_1.SetActive(false);
+            escudovis1_2.SetActive(false);
+            escudovis1_3.SetActive(false);
+            escudovis2.SetActive(true);
             tempesc = 0;
 
             danoescudo.Play();
@@ -913,6 +1032,8 @@ public class enemigo3_al1: MonoBehaviour
             }
             if(jugador1.tempretarget > 1)  
             {jugador1.objetivotarget2 = this.gameObject;}
+            balajug.danoesc = 0;
+            detect = true;
 		}
         
         

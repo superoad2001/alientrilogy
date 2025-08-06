@@ -14,7 +14,7 @@ public abstract class jugador_al1 : MonoBehaviour
 {
 
 	[Header("Posición")]
-	public bool movact = true;
+	public int movact;
     public bool controlact = true;
 	public GameObject objplaneta;
 	public float disjugsave;

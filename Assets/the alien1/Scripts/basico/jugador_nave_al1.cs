@@ -388,8 +388,8 @@ public class jugador_nave_al1 : jugador_al1
 
 			
 
-		ruletaXc = controles.al1_nave.ruletaX.ReadValue<float>();
-		ruletaYc = controles.al1_nave.ruletaY.ReadValue<float>();
+		ruletaXc = controles.al1_nave.ruletaPAD.ReadValue<Vector2>().x;
+		ruletaYc = controles.al1_nave.ruletaPAD.ReadValue<Vector2>().y;
 
 
 		camXc = controles.al1_nave.camX.ReadValue<float>();
@@ -397,10 +397,10 @@ public class jugador_nave_al1 : jugador_al1
 		
 
 
-		if(movact == true)
+		if(movact == 0)
 		{
-			movXc = controles.al1_nave.movX.ReadValue<float>();
-			movYc = controles.al1_nave.movY.ReadValue<float>();	
+			movXc = controles.al1_nave.mov.ReadValue<Vector2>().x;
+			movYc = controles.al1_nave.mov.ReadValue<Vector2>().y;	
 		}
 
 		
@@ -834,7 +834,7 @@ public class jugador_nave_al1 : jugador_al1
             {rotationinput.y = camYc * 100 * Time.deltaTime;}
             else{rotationinput.y = 0;}
 
-			if(objetivotarget != null)
+			if(objetivotarget != null && controlact == true)
 			{
 				if(camXc == 0)
 				{

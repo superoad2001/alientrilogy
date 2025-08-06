@@ -1452,6 +1452,8 @@ MonoBehaviour:
   paloene: 0
   minmun: 0
   ultimo: 0
+  paloact: 0
+  guia: {fileID: 0}
 --- !u!82 &6520121053811574075
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1462,7 +1464,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 95aa01b98be35d04282eee508272e201, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 95aa01b98be35d04282eee508272e201, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1969,7 +1971,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 685ce486d06e8894dbda5b8f9c7cbfba, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 685ce486d06e8894dbda5b8f9c7cbfba, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.61
@@ -2098,7 +2100,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 904aab8dd539b6339b59bc7bbcce3d9c, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 904aab8dd539b6339b59bc7bbcce3d9c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.61
@@ -2389,7 +2391,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 904aab8dd539b6339b59bc7bbcce3d9c, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 904aab8dd539b6339b59bc7bbcce3d9c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.61
@@ -2913,7 +2915,9 @@ MonoBehaviour:
   muertetemp: 0
   tempM: 0
   detectar: 0
+  detect: 0
   temprb: 0
+  tempdanodef: 0
   destobj: 0
   destruible: {fileID: 0}
   moneda: {fileID: 2172128802953418307, guid: 54efd5f1cf38aff4a931a38ce3656ad9, type: 3}
@@ -2931,7 +2935,6 @@ MonoBehaviour:
   temp: 0
   anim: {fileID: 6765210519653001317}
   explosion: {fileID: 358637981425055526, guid: 2b6ef2ab1da759e41baf6157dfc37ebe, type: 3}
-  nivel: 1
   jugador1: {fileID: 0}
   muertes: {fileID: 0}
   enemigo: 3
@@ -3274,6 +3277,7 @@ MonoBehaviour:
   mixto: 0
   programable: 1
   programable2: 0
+  Randomdec6: 0
   defensabase: 5
   defensabasemax: 50
   defensaplusmax: 500
@@ -3281,7 +3285,6 @@ MonoBehaviour:
   bombaprefab: {fileID: 1777860533906856, guid: 83b341ff7c936014990f9cef6e64a9a0, type: 3}
   teleprefab: {fileID: 1777860533906856, guid: d6663cfb2e7abd54d9522eac23ba1ba2, type: 3}
   zigzagprefab: {fileID: 7332590698050240100, guid: 2d4b5038a8dad074182c76e596965f32, type: 3}
-  curas: 0
   division: 0
   division2: 0
   lanzarson: {fileID: 2460574500397974588}
@@ -3292,6 +3295,7 @@ MonoBehaviour:
   eneprefab1: {fileID: 5683604757432126685}
   eneprefab2: {fileID: 5683604757432126685, guid: af0527e05b384c7438d1fd4a1c21e335, type: 3}
   tempcarga: 0
+  tempcargaef: 0
   randomdec5: 0
   fuera: 0
   gigante: 0
@@ -3473,7 +3477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6928458153528979022, guid: 05ce920d629922a4eb4795ef7494ce5c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.36999512
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 6928458153528979022, guid: 05ce920d629922a4eb4795ef7494ce5c, type: 3}
       propertyPath: m_LocalPosition.z

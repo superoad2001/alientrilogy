@@ -130,6 +130,8 @@ MonoBehaviour:
   paloene: 0
   minmun: 0
   ultimo: 0
+  paloact: 0
+  guia: {fileID: 0}
 --- !u!1 &95234234975113061
 GameObject:
   m_ObjectHideFlags: 0
@@ -4444,7 +4446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfbd0f7283b2ff54f8047c7003d092c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movact: 1
+  movact: 0
   controlact: 1
   objplaneta: {fileID: 0}
   disjugsave: 0
@@ -4817,6 +4819,7 @@ MonoBehaviour:
   conseguidoa: {fileID: 5941609529328781238}
   niveleneui: {fileID: 4044944180286877430}
   tiendaMus: {fileID: 6753885041961649283}
+  dest: {fileID: 1412186083543208624}
   invertirHorizontal: 0
   ascensorui: {fileID: 215961835269591604}
   camnomov: 0
@@ -8435,6 +8438,8 @@ MonoBehaviour:
   paloene: 0
   minmun: 0
   ultimo: 0
+  paloact: 0
+  guia: {fileID: 0}
 --- !u!1 &4813195024269395733
 GameObject:
   m_ObjectHideFlags: 0
@@ -9188,7 +9193,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4124961095145688302, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 5a9fc2c9be13e3348b8a5ed26edbdcfd, type: 3}
+  m_Resource: {fileID: 8300000, guid: 5c90d574658e1b84b823732bcdc067da, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.664
   m_Pitch: 1
@@ -9580,7 +9585,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4124961095145688302, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 877b50849b81842468961293250ecb32, type: 3}
+  m_Resource: {fileID: 8300000, guid: e9cb9b6a1e00eb74cbc3c351508c9569, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.648
   m_Pitch: 1
@@ -16202,22 +16207,6 @@ PrefabInstance:
       propertyPath: m_Action
       value: al1_3d/uiarr
       objectReference: {fileID: 0}
-    - target: {fileID: 1066625377668206882, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 431.3476
-      objectReference: {fileID: 0}
-    - target: {fileID: 1066625377668206882, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 67.978
-      objectReference: {fileID: 0}
-    - target: {fileID: 1066625377668206882, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 35.177116
-      objectReference: {fileID: 0}
-    - target: {fileID: 1066625377668206882, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 14.0364
-      objectReference: {fileID: 0}
     - target: {fileID: 2031265985577758593, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
       propertyPath: m_Action
       value: al1_3d/uider
@@ -16302,18 +16291,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4096782584860375478, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: b011419300de17540bd2ce66de7228a7, type: 3}
-    - target: {fileID: 4096782584860375478, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 4096782584860375478, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4106148533966276511, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
@@ -16332,6 +16309,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4361918830311575342, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
       propertyPath: _setNativeSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4891281513508555220, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4908579777492020769, guid: 2bbf291b1b57c754589bfd91f762c848, type: 3}
@@ -18191,6 +18172,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ab83840a0f388641bc7878ae6489bb5, type: 3}
+--- !u!82 &1412186083543208624 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8671360899156426225, guid: 5ab83840a0f388641bc7878ae6489bb5, type: 3}
+  m_PrefabInstance: {fileID: 7768651123014627137}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2727811388435870307 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5626378055577885986, guid: 5ab83840a0f388641bc7878ae6489bb5, type: 3}

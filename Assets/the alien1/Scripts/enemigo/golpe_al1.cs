@@ -8,6 +8,8 @@ public class golpe_al1 : MonoBehaviour
     public bool paloene;
     public bool minmun;
     public bool ultimo;
+    public bool paloact;
+    public GameObject guia;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,5 +20,20 @@ public class golpe_al1 : MonoBehaviour
     void Update()
     {
         
+    }
+    public void OnTriggerExit(Collider col)
+    {
+        if(col.gameObject.tag == "golpeh")
+        {
+            paloact = false;
+        }
+    }
+    public void OnTriggerEnter(Collider col)
+    {
+    	if(col.gameObject.tag == "golpeh")
+        {
+            paloact = true;
+            Destroy(this.gameObject);
+        }
     }
 }
