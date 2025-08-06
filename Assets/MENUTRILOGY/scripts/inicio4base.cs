@@ -11,8 +11,14 @@ public class inicio4base : MonoBehaviour
 {
 	// Token: 0x06000017 RID: 23 RVA: 0x000024DB File Offset: 0x000006DB
 
+	private Controles controles;
+	public Text exp1;
+    public Text exp2;
+	public Text exp3;
 	public int plat;
 	public string idioma;
+	public GameObject Gobj;
+
 
 	public int distancia;
 	public int postpro;
@@ -48,7 +54,7 @@ public class inicio4base : MonoBehaviour
 	public List<string> opcionesR = new List<string>();
 	public List<string> opcionesRdef = new List<string>();
 	public List<int> resRdef = new List<int>();
-
+	public float tempG;
 	public int C;
 
 	public int ind;
@@ -56,9 +62,22 @@ public class inicio4base : MonoBehaviour
 	public int largo;
 	public int altura;
 	public SystemLanguage sysidi;
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
 
 	public void rescheck()
 	{
+		
 		opcionesRdef.Add("720P");
 		opcionesRdef.Add("1080P");
 		opcionesRdef.Add("2K");
@@ -192,6 +211,12 @@ public class inicio4base : MonoBehaviour
 		
 		manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 		manager.guardar();
+
+		if(manager.datosconfig.idioma == "es")
+        {
+			exp1.text = "Guardar";
+			exp2.text = "Atras";
+        }
 		if(menu)
 		{
 		audiomixer.SetFloat ("MusicVolume",manager.datosconfig.musica);
@@ -220,8 +245,10 @@ public class inicio4base : MonoBehaviour
 			manager.datosconfig.idioma = "es";
 			manager.datosconfig.postpro = 0;
 			manager.datosconfig.distancia = 200;
+			sysidi = SystemLanguage.Spanish;
+			manager.datosconfig.lastgame = 0;
 			}
-			manager.datosconfig.lastgame = 1;
+			
 
 		if(manager.datosconfig.primerares == true)
 		{
@@ -251,6 +278,8 @@ public class inicio4base : MonoBehaviour
 	{
 		if (temp < 15)
 		{temp += 1 * Time.deltaTime;}
+		if (tempG < 15)
+		{tempG += 1 * Time.deltaTime;}
 		if(manager.datosconfig.idioma == "es")
 		{
 			conftxtidi.text = "Idioma: Español";
@@ -274,6 +303,25 @@ public class inicio4base : MonoBehaviour
 		conftxtdistancia.text = "distancia: "+distancia;
 		conftxtresolucion.text = "resolucion: " +resolucion[ind].width +" X "+resolucion[ind].height+"P";
 
+		if(controles.menu.saltar.ReadValue<float>()  > 0 && temp > 0.5f)
+		{
+			aplicartodo();
+
+
+		}
+		if(controles.menu.atras.ReadValue<float>() > 0 && temp > 0.5f )
+		{
+			salir();
+
+		}
+
+		if(tempG > 2)
+		{
+			exp3.text = "";
+			Gobj.SetActive(false);
+		}
+
+
 		
 		
 	
@@ -287,6 +335,7 @@ public class inicio4base : MonoBehaviour
 		manager.guardar();
 		idiomam.SetActive(false);
 		eventbase.SetActive(true);
+		icono();
 	}
 	public void idi_es()
     {
@@ -303,6 +352,7 @@ public class inicio4base : MonoBehaviour
 		manager.guardar();
 		resolucionm.SetActive(false);
 		eventbase.SetActive(true);
+		icono();
 	}
 	public void fullScreen_change()
     {
@@ -315,6 +365,7 @@ public class inicio4base : MonoBehaviour
 		manager.guardar();
 		controlesm.SetActive(false);
 		eventbase.SetActive(true);
+		icono();
 	}
 	public void con_fisico()
     {
@@ -330,6 +381,7 @@ public class inicio4base : MonoBehaviour
 		manager.guardar();
 		postm.SetActive(false);
 		eventbase.SetActive(true);
+		icono();
 	}
 	public void post_si()
     {
@@ -345,6 +397,7 @@ public class inicio4base : MonoBehaviour
 		manager.guardar();
 		distanciam.SetActive(false);
 		eventbase.SetActive(true);
+		icono();
 	}
 	public void dist_200()
     {
@@ -387,6 +440,7 @@ public class inicio4base : MonoBehaviour
 		manager.guardar();
 		sonidom.SetActive(false);
 		eventbase.SetActive(true);
+		icono();
 		
     }
 	public void salir()
@@ -418,14 +472,25 @@ public class inicio4base : MonoBehaviour
 	}
 	public void aplicartodo()
 	{
+		
 		aplicaridioma();
-		idi_es();
 		aplicaresolucion();
 		aplicarcontroles();
 		aplicarpost();
 		aplicardistancia();
 		aplicarmusica();
-		salir();
+		icono();
+
+
+	}
+	void icono()
+	{
+		if(manager.datosconfig.idioma == "es")
+        {
+        exp3.text = "Guardado";
+		Gobj.SetActive(true);
+		tempG = 0;
+        }
 	}
 
 

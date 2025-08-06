@@ -9,4 +9,5 @@ public class datosconfigslot
 {
     public int datos1slot = 1;
     public bool newgameplus1 = false;
+    public bool secreto = false;
 }

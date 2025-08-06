@@ -20,6 +20,7 @@ public class logicacin_al1 : MonoBehaviour
 	public string idcin = "0";
 	public string sceneload;
 	public int actevent;
+	private float temp;
 
 
 	public void Awake()
@@ -45,7 +46,10 @@ public class logicacin_al1 : MonoBehaviour
 	// Token: 0x06000039 RID: 57 RVA: 0x00003A96 File Offset: 0x00001C96
 	private void Update()
 	{
-		if (controles.menu.saltar.ReadValue<float>() > 0f)
+		if(temp < 15)
+		{temp += 1 * Time.deltaTime;}
+
+		if (controles.menu.saltar.ReadValue<float>() > 0f && temp > 1)
 		{
 			SceneManager.LoadScene(sceneload);
 		}

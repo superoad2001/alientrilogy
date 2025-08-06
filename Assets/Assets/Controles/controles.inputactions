@@ -132,7 +132,7 @@
                 {
                     "name": "",
                     "id": "b64bce5e-d7cc-4cfa-a563-f06ab2126d8b",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": ";PC",
@@ -286,7 +286,7 @@
                 {
                     "name": "",
                     "id": "cbb66fda-2f03-45aa-a338-b7ac11918ed6",
-                    "path": "<Keyboard>/ctrl",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": ";PC",
@@ -575,7 +575,7 @@
                     "type": "Value",
                     "id": "ca1fada3-21b4-465d-999e-62b832c121d0",
                     "expectedControlType": "Axis",
-                    "processors": "Clamp(min=-1,max=1)",
+                    "processors": "Clamp(min=-4,max=4)",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -584,7 +584,7 @@
                     "type": "Value",
                     "id": "7bd8c1e3-37fb-4fb5-b2e6-42c0ebdd8386",
                     "expectedControlType": "Axis",
-                    "processors": "Clamp(min=-1,max=1)",
+                    "processors": "Clamp(min=-4,max=4)",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -1542,7 +1542,7 @@
                     "id": "8e4ef8f0-d17f-471d-bcde-1821df38ecc4",
                     "path": "<Mouse>/delta/x",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Clamp(min=1,max=-1)",
                     "groups": ";teclado",
                     "action": "camX",
                     "isComposite": false,
@@ -2015,7 +2015,7 @@
                     "id": "b410c3e9-35f4-47ed-94a3-2240520feafb",
                     "path": "<Mouse>/delta/y",
                     "interactions": "",
-                    "processors": "Invert",
+                    "processors": "Invert,Clamp(min=-3,max=3)",
                     "groups": ";teclado",
                     "action": "camY",
                     "isComposite": false,
@@ -2241,7 +2241,7 @@
                     "type": "Value",
                     "id": "7aff5cb1-e658-41f9-8988-5371b3ff4fd0",
                     "expectedControlType": "Axis",
-                    "processors": "Clamp(min=-1,max=1)",
+                    "processors": "Clamp(min=-4,max=4)",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -2250,7 +2250,7 @@
                     "type": "Value",
                     "id": "92be5aa7-365e-4d46-a000-12d9226a9692",
                     "expectedControlType": "Axis",
-                    "processors": "Clamp(min=-1,max=1)",
+                    "processors": "Clamp(min=-4,max=4)",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -4524,6 +4524,69 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "enter",
+                    "type": "Button",
+                    "id": "52cea0aa-9a6c-417d-8c1b-24a4b9d3b6de",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "sel",
+                    "type": "Value",
+                    "id": "4977c001-9bf3-4f04-8dc1-74bf5bf9b798",
+                    "expectedControlType": "Dpad",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "atras",
+                    "type": "Button",
+                    "id": "0110799f-c729-4bf4-b600-51eaa9823ff7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "uider",
+                    "type": "Button",
+                    "id": "ac3cb5bf-fed5-44b2-8e0d-2af2c69156be",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "uiizq",
+                    "type": "Button",
+                    "id": "a79efc6a-027a-4946-aaa2-43ea5457a752",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "uiabj",
+                    "type": "Button",
+                    "id": "9566de9f-b9a0-49e8-be3f-bbfc67c50f40",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "uiarr",
+                    "type": "Button",
+                    "id": "99c05927-704d-474f-90ca-01094938637b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -4574,11 +4637,209 @@
                 {
                     "name": "",
                     "id": "b5d34362-6bfb-41f1-8649-b8a5410f5cd8",
-                    "path": "<Keyboard>/escape",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "saltar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "202e3614-df8a-4a20-a7d0-57da3789818e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "enter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "25d6b958-3e9d-484e-a8db-a6b14c1066f5",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "enter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a5c620ad-66fc-40d2-ae3a-d43791dfe279",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "sel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "079c273d-240f-4632-aa9d-4a8535bfd0f6",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "sel",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "f7a0a717-3b7d-475f-a184-c869a3e2d67d",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "sel",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "0feb68ca-7c56-4b41-b99a-ed99607e4c06",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "sel",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "c5d1713d-2f10-4d0f-8db4-7d4b65827e3c",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "sel",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "dcd6bd62-610f-4ca4-ab53-be995b900bda",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "sel",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "b93c8aba-a614-4ab4-97ae-4deab422461e",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "atras",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d1c4c6a8-a2c6-4aa9-955a-332e1452aa4d",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "atras",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e71a8d04-28a1-447d-9f81-65b8ff932f9e",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "uider",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa81605e-f38b-42c4-8fcd-3a4c2440618f",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "uider",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "740abc17-5627-46c6-bfaf-d32e724e52e6",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "uiizq",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b36d8123-4632-480f-abdb-dd409a2b0c3c",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "uiizq",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "870c2386-37db-463e-8521-93ebd6bd8476",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "uiabj",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f6b69ebe-f194-404a-b104-ef841c4ad804",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "uiabj",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "930b3706-9ad2-429f-8cd9-bfd47879a9cc",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "uiarr",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b510537-e047-47f4-aa63-78cb4d55ab2a",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "uiarr",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

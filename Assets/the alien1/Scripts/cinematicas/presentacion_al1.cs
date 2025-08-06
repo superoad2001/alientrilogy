@@ -3,16 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
 
 public class presentacion_al1 : MonoBehaviour
 {
 
     public float temp = 0;
+    public Text[] botones = new Text[2];
+
+
     public Text pres;
+    public Text ad;
+    public GameObject vistaestados;
+    public Text[] nombres = new Text [9];
+    public InputField input;
+    public List<string> names;
+
+    public GameObject iB1;
+    public GameObject inputB;
+
     // Start is called before the first frame update
     public manager_al1 manager;
     public Animator cam_a;
     public Animator pres_a;
+    public bool sobre_esc;
+
     public Animator menu_a;
     public AudioSource mus_pres;
     public AudioSource mus_menu;
@@ -36,11 +51,32 @@ public class presentacion_al1 : MonoBehaviour
     public GameObject selectmode;
     public GameObject botper;
     public int slotseln;
+    public Text slotinfo1;
+    public Text slotinfo2;
+    public GameObject crearobj;
+    public GameObject menu;
+
+    public int creacion = 0;
+
 	// Token: 0x06000012 RID: 18 RVA: 0x0000243B File Offset: 0x0000063B
 	private void Start()
 	{
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         gemas = manager.datosserial.economia[0];
+        manager.cargarslot();
+        if(manager.datosconfig .idioma == "es")
+        {
+            botones[0].text = "Estas seguro?";
+            botones[1].text = "Borrar";
+            botones[2].text = "Volver";
+            botones[3].text = "nombre...";
+        }
+        
+        
+
+        
+
+
         
     }
     public void slot1p()
@@ -144,28 +180,234 @@ public class presentacion_al1 : MonoBehaviour
             act();
         }
 
+        if(manager.datosserial.datos_llenos == true)
+        {
+            vistaestados.SetActive(true);
+
+            slotinfo1.text = manager.datosserial.nameCH[0].ToString();
+
+            if(manager.datosserial.demoFIN == true)
+            {
+                slotinfo2.text = "Demo terminada : si";
+            }
+            else
+            {
+                slotinfo2.text = "Demo terminada : no";
+            }
+
+        }
+        else
+        {
+            vistaestados.SetActive(false);
+        }
+        if(creacion == 1)
+        {
+            if(manager.datosconfig.idioma == "es")
+            {
+                nombres[0].text = "como te llamas";
+                botones[4].text = "aceptar";
+                botones[5].text = "salir";
+
+
+                nombres[1].text = "";
+                nombres[5].text = "";
+                nombres[2].text = "";
+                nombres[6].text = "";
+                nombres[3].text = "";
+                nombres[7].text = "";
+                nombres[4].text = "";
+                nombres[8].text = "";
+            }
+        }
+        if(creacion == 2)
+        {
+            if(manager.datosconfig.idioma == "es")
+            {
+                nombres[0].text = "como se llama tu hijo";
+                nombres[1].text = "tu nombre es";
+                nombres[5].text = names[0];
+                nombres[2].text = "";
+                nombres[6].text = "";
+                nombres[3].text = "";
+                nombres[7].text = "";
+                nombres[4].text = "";
+                nombres[8].text = "";
+
+            }
+        }
+        if(creacion == 3)
+        {
+            if(manager.datosconfig.idioma == "es")
+            {
+                nombres[0].text = "como se llama tu pareja";
+                nombres[1].text = "tu nombre es";
+                nombres[5].text = names[0];
+                nombres[2].text = "tu hijo se llama";
+                nombres[6].text = names[1];
+                nombres[3].text = "";
+                nombres[7].text = "";
+                nombres[4].text = "";
+                nombres[8].text = "";
+
+            }
+        }
+        if(creacion == 4)
+        {
+            if(manager.datosconfig.idioma == "es")
+            {
+                nombres[0].text = "como se llama tu jefe";
+                nombres[1].text = "tu nombre es";
+                nombres[5].text = names[0];
+
+                nombres[2].text = "tu hijo se llama";
+                nombres[6].text = names[1];
+
+                nombres[3].text = "tu tu pareja se llama";
+                nombres[7].text = names[2];
+                nombres[4].text = "";
+                nombres[8].text = "";
+
+            }
+        }
+        if(creacion == 5)
+        {
+            if(manager.datosconfig.idioma == "es")
+            {
+                nombres[0].text = "entonces esto es todo correcto?";
+                nombres[1].text = "tu nombre es";
+                nombres[5].text = names[0];
+
+                nombres[2].text = "tu hijo se llama";
+                nombres[6].text = names[1];
+
+                nombres[3].text = "tu tu pareja se llama";
+                nombres[7].text = names[2];
+
+                nombres[4].text = "tu jefe se llama";
+                nombres[8].text = names[3];
+
+                botones[4].text = "Esta bien";
+                botones[5].text = "Reinicar";
+
+            }
+            inputB.SetActive(false);
+        }
+        if(creacion == 6)
+        {
+            if(manager.datosconfig.idioma == "es")
+            {
+                nombres[0].text = "";
+                nombres[1].text = "ahora comienza tu aventura";
+                nombres[5].text = names[0]+"...";
+
+                nombres[2].text = "";
+                nombres[6].text = "";
+                nombres[3].text = "";
+                nombres[7].text = "";
+                nombres[4].text = "";
+                nombres[8].text = "";
+            }
+
+
+            iB1.SetActive(false);
+
+
+            if(temp > 3f)
+            {
+                
+                manager.datosserial.datos_llenos = true;
+                manager.guardar();
+                SceneManager.LoadScene("lallegada_enc_al1");
+            }
+        }
+
+        
+
+    }
+    public void continuar_crear()
+    {
+        for(int i = 0; i < names.Count ; i++)
+        {
+            if(input.text == names[i] && creacion < 5)	
+            {
+                input.text = "se mas creativa/o";
+                temp = 0;
+            }
+        }
+
+        if(input.text.Length >= 3 && input.text != "se mas creativa/o" && temp >= 1 && creacion < 5)	
+        {
+            names.Add(input.text);
+            input.text = "";
+            creacion += 1;
+            temp = 0;
+        }
+        else if(temp >= 1 && creacion == 5)	
+        {
+            manager.datosserial.nameCH = names;
+            manager.guardar();
+            creacion += 1;
+            temp = 0;
+        }
+        else if(input.text.Length < 3 && creacion < 5)	
+        {
+            input.text = "se mas creativa/o";
+            temp = 0;
+        }
+    }
+    public void continuar_crear_no()
+    {
+        if(temp >= 1 && creacion == 5)	
+        {
+            names = new List<string>();
+            input.text = "";
+            creacion = 0;
+            temp = 0;
+            inputB.SetActive(true);
+        }
+        else if(temp >= 1)	
+        {
+            names = new List<string>();
+            input.text = "";
+            creacion = 0;
+            temp = 0;
+            inputB.SetActive(true);
+            cam_a.SetInteger("modo",1);
+            menu_a.SetInteger("modo",1);
+            crearobj.SetActive(false);
+            menu.SetActive(true);
+
+            menuv();
+        }
+
     }
     public void continuar()
     {
         if (temp >= 1)
         {
-            if (manager.datosserial.begin == true)
-            {
-                if(manager.datosserial.nivelu != "")
+            if (manager.datosserial.datos_llenos == true)
+            {   if(manager.datosserial.begin == true)
                 {
-                    SceneManager.LoadScene(manager.datosserial.nivelu);
-                    temp = 0;
+                    if(manager.datosserial.nivelu != "")
+                    {
+                        SceneManager.LoadScene(manager.datosserial.nivelu);
+                        temp = 0;
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene("piso1_al1");
+                        temp = 0;
+                    }
                 }
                 else
                 {
-                    SceneManager.LoadScene("piso1_al1");
-                    temp = 0;
+                    SceneManager.LoadScene("la_llegada_enc_al1");
+
                 }
-                
             }
             else
             {
-                SceneManager.LoadScene("lallegada_al1");
+                nuevap();
                 temp = 0;
             }	
         }
@@ -183,7 +425,7 @@ public class presentacion_al1 : MonoBehaviour
     {
         if (temp >= 1)
         {
-            manager.datosconfig.lastgame = 2;
+            manager.datosconfig.lastgame = 1;
             manager.guardarconfig();
             SceneManager.LoadScene("opcionesbase");
             temp = 0;
@@ -204,6 +446,7 @@ public class presentacion_al1 : MonoBehaviour
             cam_a.SetInteger("modo",1);
             menu_a.SetInteger("modo",1);
             temp = -1;
+            manager.cargarslot();
         }
     }
     public void borraract()
@@ -218,7 +461,28 @@ public class presentacion_al1 : MonoBehaviour
             eventbor.SetActive(true);
             cam_a.SetInteger("modo",3);
             menu_a.SetInteger("modo",3);
+            ad.text = "";
             temp = -1;
+            sobre_esc = false;
+            
+        }
+    }
+    public void sobreborraract()
+    {
+        if (temp >= 1)
+        {
+            selectmode.SetActive(false);
+            slot1b.SetActive(true);
+            slot2b.SetActive(true);
+            slot3b.SetActive(true);
+            eventslot.SetActive(false);
+            eventbor.SetActive(true);
+            cam_a.SetInteger("modo",3);
+            menu_a.SetInteger("modo",3);
+            if(manager.datosconfig.idioma == "es")
+            {ad.text = "sobreescribiras una partida existente";}
+            temp = -1;
+            sobre_esc = true;
             
         }
     }
@@ -237,11 +501,27 @@ public class presentacion_al1 : MonoBehaviour
     {
         if (temp >= 1)
         {
+            manager.guardarslot();
             manager.guardar();
-            cam_a.SetInteger("modo",1);
-            menu_a.SetInteger("modo",1);
+            
             manager.borrar_data();
             temp = -1;
+            eventbor.SetActive(false);
+            eventslot.SetActive(true);
+            
+            if(sobre_esc == true)
+            {
+                cam_a.SetInteger("modo",4);
+                menu_a.SetInteger("modo",4);
+                crear();
+            }
+            else
+            {
+                cam_a.SetInteger("modo",1);
+                menu_a.SetInteger("modo",1);
+                menuv();
+            }
+            
         }
     }
     public void nuevap()
@@ -249,20 +529,50 @@ public class presentacion_al1 : MonoBehaviour
          //añadir que cuando le des te de opcion de borrar partida y que no se sobrescriba automaticamente
         if (temp >= 1)
         {
+            manager.GetFilePath();
+            manager.cargar();
             manager.guardar();
-            manager.borrar_data();
-            manager.guardarslot();
-            continuar();
+
+            if(manager.datosserial.datos_llenos == true)
+            {   
+                manager.guardarslot();
+                sobreborraract();
+            }
+            else
+            {
+                manager.guardarslot();
+                manager.guardar();
+                manager.borrar_data();              
+                crear();
+            }
         }
     }
+    public void crear()
+    {
+        eventbor.SetActive(false);
+        eventslot.SetActive(true);
+        cam_a.SetInteger("modo",4);
+        menu_a.SetInteger("modo",4);
+        creacion = 1;
+        
+
+
+    }
+
     public void cargarp()
     {
-        if (temp >= 1)
+        manager.GetFilePath();
+        if (temp >= 1 && File.Exists(manager.repath))
         {
-            manager.guardar();
-            manager.cargar();
             manager.guardarslot();
-            continuar();
+            menuv();
+        }
+        else
+        {
+            manager.guardarslot();
+            manager.guardar();
+            manager.borrar_data();              
+            menuv();
         }
     }
 }

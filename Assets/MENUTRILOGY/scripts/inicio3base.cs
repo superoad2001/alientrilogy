@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class inicio3base : MonoBehaviour
 {
     private Controles controles;
+    public Text exp1;
+    public Text exp2;
+    public Text exp3;
 
     public Text al1;
     public Text log2;
@@ -24,6 +27,7 @@ public class inicio3base : MonoBehaviour
     public GameObject event1;
     public GameObject event2;
 
+    public int lastgame = 0;
     public AudioSource musica1;
     public AudioSource musica2;
     
@@ -60,16 +64,11 @@ public class inicio3base : MonoBehaviour
         {
 
             // para alien 1
-            /*if(juego == 4)
+            if(juego == 5)
             {
                 juego = 1;
                 manager.move();
             }
-            else if(juego > 1)
-            {
-                juego -= 1;
-                manager.move();
-            }*/
             //para alien 2
             /*if(juego == 4)
             {
@@ -84,11 +83,11 @@ public class inicio3base : MonoBehaviour
 
             //para alien 3
 
-            if(juego > 1)
+            /*if(juego > 1)
             {
                 juego -= 1;
                 manager.move();
-            }
+            }*/
         }
     }
     public void der()
@@ -96,16 +95,12 @@ public class inicio3base : MonoBehaviour
         if(presskip == true)
         {
             // para alien 1
-            /*if(juego == 1)
+            if(juego == 1)
             {
-                juego = 4;
+                juego = 5;
                 manager.move();
             }
-            else if(juego < 5)
-            {
-                juego += 1;
-                manager.move();
-            }*/
+
             //para alien 2
             /*if(juego == 2)
             {
@@ -119,11 +114,11 @@ public class inicio3base : MonoBehaviour
             }*/
 
             //para alien 3
-            if(juego < 5)
+            /*if(juego < 5)
             {
                 juego += 1;
                 manager.move();
-            }
+            }*/
         }
     }
     public void salir()
@@ -136,15 +131,15 @@ public class inicio3base : MonoBehaviour
         {
             if(juego == 1)
             {
-                SceneManager.LoadScene("presentacion_al1");
+                SceneManager.LoadScene("menu_de_carga_al1");
             }
             if(juego == 2)
             {
-                SceneManager.LoadScene("presentacion_al2");
+                SceneManager.LoadScene("menu_de_carga_al2");
             }
             if(juego == 3)
             {
-                SceneManager.LoadScene("presentacion_al3");
+                SceneManager.LoadScene("menu_de_carga_al3");
             }
             if(juego == 4)
             {
@@ -152,8 +147,6 @@ public class inicio3base : MonoBehaviour
             }
             if(juego == 5)
             {
-                manager.datosconfig.lastgame = 1;
-                manager.guardar();
                 SceneManager.LoadScene("opcionesbase");
             }
         }
@@ -162,26 +155,46 @@ public class inicio3base : MonoBehaviour
     void Start()
     {
         manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+
+        
+        manager.datosconfig.lastgame = lastgame;
+        manager.guardar();
+        if(manager.datosconfig.idioma == "es")
+        {
+        exp1.text = "Izquierda";
+        exp2.text = "Entrar";
+        exp3.text = "Derecha";
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-            if(controles.al3.horizontalpad.ReadValue<float>() > 0 && temp > 0.5f && presskip)
+            if(controles.menu.sel.ReadValue<Vector2>().x  > 0 && temp > 0.5f && presskip)
             {
                 der();
                 temp = 0;
             }
-            if(controles.al3.horizontalpad.ReadValue<float>() < 0 && temp > 0.5f && presskip)
+            if(controles.menu.sel.ReadValue<Vector2>().x < 0 && temp > 0.5f && presskip)
             {
                 izq();
                 temp = 0;
                 
             }
-            if(controles.al3.pausa.ReadValue<float>() > 0 && temp > 0.5f && presskip == false)
+            if(controles.menu.saltar.ReadValue<float>() > 0 && temp > 0.5f && presskip == false)
             {
                 skip();
             }
+            if(controles.menu.enter.ReadValue<float>() > 0 && temp > 0.5f && presskip == false)
+            {
+                comenzar();
+            }
+            if(controles.menu.atras.ReadValue<float>() > 0 && temp > 0.5f && presskip == false)
+            {
+                salir();
+            }
+
             
             if(juego == 1) 
             {

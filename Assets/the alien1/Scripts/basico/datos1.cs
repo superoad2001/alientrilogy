@@ -7,7 +7,7 @@ using System;
 [Serializable]
 public class datos1
 {
-
+	public bool datos_llenos;
 	public bool[] eventos = new bool[999];
 	public bool newgameplus1;
 	public float puertagir;
@@ -16,6 +16,9 @@ public class datos1
 	public bool puertaposact;
 	public string salirnivelsala;
 	public int nivelnavejug;
+	public List<string> nameCH = new List<string>();
+
+
 
 	public bool[] puertasdesbloqueadas = new bool[100];
 	public int actual_checkpoint;
@@ -155,6 +158,8 @@ public class datos1
 
 
 	public int[] economia = new int[7];
+
+	public bool demoFIN;
 
 
     // Start is called before the first frame update

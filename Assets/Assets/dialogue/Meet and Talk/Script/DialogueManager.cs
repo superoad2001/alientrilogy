@@ -310,7 +310,7 @@ namespace MeetAndTalk
 
             // Doesn't generate buttons
             MakeButtons(new List<DialogueNodePort>());
-
+            dialogueAudioSource.Stop();
             // Play Audio
             if(_nodeData.AudioClips.Find(clip => clip.languageEnum == localizationManager.SelectedLang()).LanguageGenericType != null) dialogueAudioSource.PlayOneShot(_nodeData.AudioClips.Find(clip => clip.languageEnum == localizationManager.SelectedLang()).LanguageGenericType);
 
@@ -579,6 +579,7 @@ StopAllTrackedCoroutines();
             // IF ADVANCED TIMER CHOICE NODE
             if(timer!=0)
             {
+                //audio stop
                 IEnumerator tmp() { yield return new WaitForSeconds(timer); AdvancedTimerNode_NextNode(); }
                 StartTrackedCoroutine(tmp()); ;
             }
