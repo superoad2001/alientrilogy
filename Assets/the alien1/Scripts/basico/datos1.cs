@@ -15,7 +15,6 @@ public class datos1
 	public bool puertagiract;
 	public bool puertaposact;
 	public string salirnivelsala;
-	public int nivelnavejug;
 	public List<string> nameCH = new List<string>();
 
 

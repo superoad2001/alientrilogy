@@ -637,7 +637,6 @@ public class jugador_chara3d_al1 : jugador_al1
 			ruletaXc = controles.al1_3d.ruletaPAD.ReadValue<Vector2>().x;
 			ruletaYc = controles.al1_3d.ruletaPAD.ReadValue<Vector2>().y;
 
-			Debug.Log(ruletaXc);
 
 
 			camXc = controles.al1_3d.camX.ReadValue<float>();
@@ -940,7 +939,7 @@ public class jugador_chara3d_al1 : jugador_al1
 				{
 					paloimg.sprite = nopimg;
 					paloimg.color = new Color(1,1,1,1);
-					backpaloimg.sprite = arma1;
+					backpaloimg.sprite = nopimg;
 				}
 				else
 				{
@@ -951,58 +950,94 @@ public class jugador_chara3d_al1 : jugador_al1
 						backpaloimg.sprite = arma1;
 						if(temppalo < 3)
 						{
-							pistolaimg.sprite = nopimg;
-							pistolaimg.color = new Color(1,1,1,0.1f);
-							backpaloimg.sprite = armapaparueda;
+							paloimg.sprite = arma1;
+							paloimg.color = new Color(1,1,1,0.1f);
+							backpaloimg.sprite = arma1;
 						}
 					}
 					else if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 1)
 					{
-						paloimg.sprite = arma1_2;
-						paloimg.color = new Color(1,1,1,1);
-						backpaloimg.sprite = arma1_2;
+						if(manager.datosserial.nivelarmapalo == 1)
+						{
+							paloimg.sprite = arma1;
+							backpaloimg.sprite = arma1;
+						}
+						else
+						{
+							paloimg.sprite = arma1_2;
+							backpaloimg.sprite = arma1_2;
+							
+						}
+						paloimg.color = new Color(1,1,1,1);						
 						if(temppalo < 40)
 						{
-							pistolaimg.sprite = nopimg;
-							pistolaimg.color = new Color(1,1,1,1);
-							backpaloimg.sprite = armapaparueda;
+							paloimg.sprite = arma1;
+							paloimg.color = new Color(1,1,1,1);
+							backpaloimg.sprite = arma1;
 						}
 					}
 					else if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 2)
 					{
-						paloimg.sprite = arma1_3;
+						if(manager.datosserial.nivelarmapalo == 2)
+						{
+							paloimg.sprite = arma1_1;
+							backpaloimg.sprite = arma1_1;
+						}
+						else
+						{
+							paloimg.sprite = arma1_3;
+							backpaloimg.sprite = arma1_3;
+						}
 						paloimg.color = new Color(1,1,1,1);
-						backpaloimg.sprite = arma1_3;
+						
 						if(temppalo < 5)
 						{
-							pistolaimg.sprite = nopimg;
-							pistolaimg.color = new Color(1,1,1,1);
-							backpaloimg.sprite = armapaparueda;
+							paloimg.sprite = arma1;
+							paloimg.color = new Color(1,1,1,1);
+							backpaloimg.sprite = arma1;
 						}
 						
 					}
 					else if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3)
 					{
-						paloimg.sprite = arma1_4;
+						if(manager.datosserial.nivelarmapalo == 3)
+						{
+							paloimg.sprite = arma1_1;
+							backpaloimg.sprite = arma1_1;
+						}
+						else
+						{
+							paloimg.sprite = arma1_4;
+							backpaloimg.sprite = arma1_4;
+						}
 						paloimg.color = new Color(1,1,1,1);
-						backpaloimg.sprite = arma1_4;
+						
 						if(temppalo < 30)
 						{
-							pistolaimg.sprite = nopimg;
-							pistolaimg.color = new Color(1,1,1,1);
-							backpaloimg.sprite = armapaparueda;
+							paloimg.sprite = arma1;
+							paloimg.color = new Color(1,1,1,1);
+							backpaloimg.sprite = arma1;
 						}
 					}
 					else if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 4)
 					{
-						paloimg.sprite = arma1_5;
+						if(manager.datosserial.nivelarmapalo == 4)
+						{
+							paloimg.sprite = arma1_1;
+							backpaloimg.sprite = arma1_1;
+						}
+						else
+						{
+							paloimg.sprite = arma1_5;
+							backpaloimg.sprite = arma1_5;
+						}
 						paloimg.color = new Color(1,1,1,1);
-						backpaloimg.sprite = arma1_5;
+						
 						if(temppalo < 60)
 						{
-							pistolaimg.sprite = nopimg;
-							pistolaimg.color = new Color(1,1,1,1);
-							backpaloimg.sprite = armapaparueda;
+							paloimg.sprite = arma1;
+							paloimg.color = new Color(1,1,1,1);
+							backpaloimg.sprite = arma1;
 						}
 					}
 					else if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 5)
@@ -1012,9 +1047,9 @@ public class jugador_chara3d_al1 : jugador_al1
 						backpaloimg.sprite = arma1_1;
 						if(temppalo < 3)
 						{
-							pistolaimg.sprite = nopimg;
-							pistolaimg.color = new Color(1,1,1,1);
-							backpaloimg.sprite = armapaparueda;
+							paloimg.sprite = arma1;
+							paloimg.color = new Color(1,1,1,1);
+							backpaloimg.sprite = arma1;
 						}
 					}
 				}
@@ -1023,7 +1058,7 @@ public class jugador_chara3d_al1 : jugador_al1
 				{
 					pistolaimg.sprite = nopimg;
 					pistolaimg.color = new Color(1,1,1,1);
-					backpistolaimg.sprite = armapaparueda;
+					backpistolaimg.sprite = nopimg;
 				}
 				else 
 				{
@@ -1061,7 +1096,7 @@ public class jugador_chara3d_al1 : jugador_al1
 				{
 					relentizarimg.sprite = nopimg;
 					relentizarimg.color = new Color(1,1,1,1);
-					backrelentizarimg.sprite = armarelrueda;
+					backrelentizarimg.sprite = nopimg;
 				}
 				else
 				{
@@ -1072,7 +1107,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						backrelentizarimg.sprite = armarelrueda;
 						if(temprelrec < 40)
 						{
-							relentizarimg.sprite = nopimg;
+							relentizarimg.sprite = armarelrueda;
 							relentizarimg.color = new Color(1,1,1,1);
 							backrelentizarimg.sprite = armarelrueda;
 						}
@@ -1084,7 +1119,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						backrelentizarimg.sprite = armarelrueda;
 						if(temprelrec < 40)
 						{
-							relentizarimg.sprite = nopimg;
+							relentizarimg.sprite =  armarelrueda;
 							relentizarimg.color = new Color(1,1,1,0.1f);
 							backrelentizarimg.sprite = armarelrueda;
 						}
@@ -1095,7 +1130,7 @@ public class jugador_chara3d_al1 : jugador_al1
 				{
 					armadefimg.sprite = nopimg;
 					armadefimg.color = new Color(1,1,1,1);
-					backarmadefimg.sprite = armadefrueda;
+					backarmadefimg.sprite = nopimg;
 					
 				}
 				else
@@ -1107,7 +1142,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						backarmadefimg.sprite = armadefrueda;
 						if(tempdefrec < 60)
 						{
-							armadefimg.sprite = nopimg;
+							armadefimg.sprite = armadefrueda;
 							armadefimg.color = new Color(1,1,1,1);
 							backarmadefimg.sprite = armadefrueda;
 						}
@@ -1119,7 +1154,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						backarmadefimg.sprite = armadefrueda;
 						if(tempdefrec < 60)
 						{
-							armadefimg.sprite = nopimg;
+							armadefimg.sprite = armadefrueda;
 							armadefimg.color = new Color(1,1,1,0.1f);
 							backarmadefimg.sprite = armadefrueda;
 						}
@@ -1133,9 +1168,15 @@ public class jugador_chara3d_al1 : jugador_al1
 				if(manager.datosserial.tengolanzar == true && tiempodisp > 0.2f)
 				{
 					paloimg.color = new Color(1,1,1,1f);
-					pistolaimg.color = new Color(1,1,1,0.1f);
-					relentizarimg.color = new Color(1,1,1,0.1f);
-					armadefimg.color = new Color(1,1,1,0.1f);
+
+					if(manager.datosserial.armadef)
+					{armadefimg.color = new Color(1,1,1,0.1f);}
+					if(manager.datosserial.armarelen)
+					{relentizarimg.color = new Color(1,1,1,0.1f);}
+					if(manager.datosserial.armapapa)
+					{pistolaimg.color = new Color(1,1,1,0.1f);}
+
+					
 					backpaloimg.color = new Color(1,1,1,0f);
 					if(manager.datosserial.armasel != 1 || manager.datosserial.nivelarmapalo == manager.datosserial.palosel)
 					{
@@ -1208,9 +1249,19 @@ public class jugador_chara3d_al1 : jugador_al1
 				
 				if(manager.datosserial.armadef == true && tiempodisp > 0.2f)
 				{
-					paloimg.color = new Color(1,1,1,0.1f);
-					pistolaimg.color = new Color(1,1,1,0.1f);
-					relentizarimg.color = new Color(1,1,1,0.1f);
+					if(manager.datosserial.tengolanzar)
+					{paloimg.color = new Color(1,1,1,0.1f);}
+
+					if(manager.datosserial.armarelen)
+					{relentizarimg.color = new Color(1,1,1,0.1f);}
+
+					if(manager.datosserial.armapapa)
+					{pistolaimg.color = new Color(1,1,1,0.1f);}
+
+
+					
+					
+					
 					armadefimg.color = new Color(1,1,1,1f);
 					backpaloimg.color = new Color(1,1,1,0.3f);
 
@@ -1224,8 +1275,11 @@ public class jugador_chara3d_al1 : jugador_al1
 					if(manager.datosserial.tengolanzar == true)
 					{paloimg.sprite = arma1;}
 					else
-					{paloimg.sprite = nopimg;}
-					backpaloimg.sprite = arma1;
+					{
+						paloimg.sprite = nopimg;
+						backpaloimg.sprite = nopimg;
+					}
+					
 					pistolap.SetActive(false);
 					pistolatiempo.SetActive(false);
 					pistolabazoka.SetActive(true);
@@ -1236,10 +1290,20 @@ public class jugador_chara3d_al1 : jugador_al1
 			{
 				if(manager.datosserial.armapapa == true && tiempodisp > 0.2f)
 				{
-					paloimg.color = new Color(1,1,1,0.1f);
 					pistolaimg.color = new Color(1,1,1,1f);
-					relentizarimg.color = new Color(1,1,1,0.1f);
-					armadefimg.color = new Color(1,1,1,0.1f);
+
+
+					if(manager.datosserial.tengolanzar)
+					{paloimg.color = new Color(1,1,1,0.1f);}
+
+					if(manager.datosserial.armarelen)
+					{relentizarimg.color = new Color(1,1,1,0.1f);}
+
+					if(manager.datosserial.armadef)
+					{armadefimg.color = new Color(1,1,1,0.1f);}
+
+					
+
 					backpaloimg.color = new Color(1,1,1,0.3f);
 
 					balaprefabrel = prebalarell[manager.datosserial.nivelarmarel -1];
@@ -1259,8 +1323,11 @@ public class jugador_chara3d_al1 : jugador_al1
 					if(manager.datosserial.tengolanzar == true)
 					{paloimg.sprite = arma1;}
 					else
-					{paloimg.sprite = nopimg;}
-					backpaloimg.sprite = arma1;
+					{
+						paloimg.sprite = nopimg;
+						backpaloimg.sprite = nopimg;
+					}
+					
 					pistolap.SetActive(true);
 					pistolatiempo.SetActive(false);
 					pistolabazoka.SetActive(false);
@@ -1270,11 +1337,18 @@ public class jugador_chara3d_al1 : jugador_al1
 			{
 				if(manager.datosserial.armarelen == true && tiempodisp > 0.2f)
 				{
+					
+					if(manager.datosserial.tengolanzar)
+					{paloimg.color = new Color(1,1,1,0.1f);}
 
-					paloimg.color = new Color(1,1,1,0.1f);
-					pistolaimg.color = new Color(1,1,1,0.1f);
+					if(manager.datosserial.armapapa)
+					{pistolaimg.color = new Color(1,1,1,0.1f);}
+
+					if(manager.datosserial.armadef)
+					{armadefimg.color = new Color(1,1,1,0.1f);}
+
+
 					relentizarimg.color = new Color(1,1,1,1f);
-					armadefimg.color = new Color(1,1,1,0.1f);
 					backpaloimg.color = new Color(1,1,1,0.3f);
 
 
@@ -1287,8 +1361,11 @@ public class jugador_chara3d_al1 : jugador_al1
 					if(manager.datosserial.tengolanzar == true)
 					{paloimg.sprite = arma1;}
 					else
-					{paloimg.sprite = nopimg;}
-					backpaloimg.sprite = arma1;
+					{
+						paloimg.sprite = nopimg;
+						backpaloimg.sprite = nopimg;
+					}
+					
 					pistolap.SetActive(false);
 					pistolatiempo.SetActive(true);
 					pistolabazoka.SetActive(false);

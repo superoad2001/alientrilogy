@@ -25,7 +25,7 @@ public class manager_test_nave_al1 : MonoBehaviour
         {
             testene3.nivelactual = nivelG;
         }
-        manager.datosserial.nivelnavejug = nivelG;
+        manager.datosserial.niveljugnave = nivelG;
         manager.datosserial.nivelarmanave1 = nivelarma;
         manager.datosserial.nivelarmanave2 = nivelarma;
         manager.datosserial.nivelarmanave3 = nivelarma;

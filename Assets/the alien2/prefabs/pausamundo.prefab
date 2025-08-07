@@ -284,18 +284,17 @@ MonoBehaviour:
   boton7: {fileID: 6710853279018626205}
   boton8: {fileID: 4836389171438894438}
   boton9: {fileID: 6020049707364050582}
+  audiomixer: {fileID: 0}
   datosconfig:
+    primera: 0
+    primerares: 0
     idioma: 
     plat: 0
     distancia: 0
     postpro: 0
     resoluciones: 0
     lastgame: 0
-    aplicarres: 0
-    resolh: 1280
-    resolv: 720
     master: -21
-    masterslider: 0.5
     musica: 0
     musicaslider: 0
     sfx: 9
@@ -304,6 +303,11 @@ MonoBehaviour:
     vozslider: 0.5
     ui: 0
     uislider: 0.5
+    largo: 0
+    altura: 0
+    ind: 0
+    full: 0
+    sysidi: 34
   datostrof:
     completaalien1v: 0
     completaalien1m: 0
@@ -380,7 +384,7 @@ MonoBehaviour:
     alien3primeramejoradevida: 0
     alien3primeraarma: 0
     alien3primeraarmadura: 0
-    alien3entraalmenuextras: 0
+    alien3deidad2: 0
     alien3entraalaguiadelpause: 0
     alien3entraaseleccionrapidaenelpause: 0
     alien3consiguetodaslaspaginas: 0
@@ -1661,7 +1665,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1782419080531085811, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 93ca582b5fc23694db485eeb787ec000, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 93ca582b5fc23694db485eeb787ec000, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2152,6 +2156,9 @@ MonoBehaviour:
   uia: {fileID: 5571134936054893134}
   test: 0
   opciones: 0
+  manager: {fileID: 0}
+  disp: {fileID: 0}
+  dispt: 2
 --- !u!1 &2815195274538422571
 GameObject:
   m_ObjectHideFlags: 0
@@ -3405,20 +3412,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2c34cc56daf4941aeff13dbbf16295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exp1: {fileID: 0}
+  exp2: {fileID: 0}
+  exp3: {fileID: 0}
   plat: 0
   idioma: 
+  Gobj: {fileID: 0}
   distancia: 0
   postpro: 0
   platt: {fileID: 5927660405435807225}
   idiomat: {fileID: 2729855870186072085}
   postt: {fileID: 4196599922650611340}
   distanciat: {fileID: 8500199797683726494}
-  opcionesr: []
   opcres: 0
   resolt: {fileID: 2281846391682316382}
   audiomixer: {fileID: 24100000, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   menu: 0
   manager: {fileID: 0}
+  eventbase: {fileID: 0}
+  idiomam: {fileID: 0}
+  resolucionm: {fileID: 0}
+  controlesm: {fileID: 0}
+  sonidom: {fileID: 0}
+  postm: {fileID: 0}
+  distanciam: {fileID: 0}
+  conftxtidi: {fileID: 0}
+  conftxtresolucion: {fileID: 0}
+  conftxtcontroles: {fileID: 0}
+  conftxtpost: {fileID: 0}
+  conftxtdistancia: {fileID: 0}
+  gameL: 0
+  gameA: 0
+  toggle: {fileID: 0}
+  resoL: {fileID: 0}
+  opcionesR: []
+  opcionesRdef: []
+  resRdef: 
+  tempG: 0
+  C: 0
+  ind: 0
+  full: 0
+  largo: 0
+  altura: 0
+  sysidi: 0
   temp: 0
 --- !u!1 &4347711379551027720
 GameObject:
@@ -3501,7 +3537,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: eba68ad7b16369f42a86f3ea4677e300, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: eba68ad7b16369f42a86f3ea4677e300, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -4737,6 +4773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
+  manager2: {fileID: 0}
   juego: {fileID: 0}
   pausa1: {fileID: 6040329522441632725}
   plat: 0
@@ -4749,6 +4786,10 @@ MonoBehaviour:
   normal: {fileID: 1327615006190695616}
   opciones1: {fileID: 1330799205101722144}
   audiomixer: {fileID: 24100000, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
+  jugador1: {fileID: 0}
+  jugador2: {fileID: 0}
+  hip1: {fileID: 0}
+  hip2: {fileID: 0}
 --- !u!1 &6098721040448559140
 GameObject:
   m_ObjectHideFlags: 0
@@ -6677,7 +6718,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -374572251806119904, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 554c6e89a7e23ff42a0bcae15f116b1b, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 554c6e89a7e23ff42a0bcae15f116b1b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

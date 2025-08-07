@@ -231,7 +231,7 @@ public class jugador_nave_al1 : jugador_al1
 
 
 			
-			
+
 			minabalas = minabalasmax[manager.datosserial.nivelarmanave2 -1];
 			misilbalas = misilbalasmax[manager.datosserial.nivelarmanave3 -1];
 			escopetabalas = escopetabalasmax[manager.datosserial.nivelarmanave4 -1];
@@ -341,7 +341,7 @@ public class jugador_nave_al1 : jugador_al1
 		vidaobj = Mathf.Lerp(vidaobj, vida, Time.deltaTime * 2f);
 		vidab.fillAmount = vidaobj/vidamax; 
 		vidat.text = "VIT:"+(int)vida+"/"+(int)vidamaxN;
-		niveluit.text = "LEVEL "+ manager.datosserial.nivelnavejug;
+		niveluit.text = "LEVEL "+ manager.datosserial.niveljugnave;
 		staminabarra.fillAmount = staminaobj/staminamax;
 		if(staminaobj < 1)
 		{

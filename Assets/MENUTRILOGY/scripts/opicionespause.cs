@@ -12,8 +12,14 @@ public class opcionespause : MonoBehaviour
 {
 	// Token: 0x06000017 RID: 23 RVA: 0x000024DB File Offset: 0x000006DB
 
+	private Controles controles;
+	public float tempG;
 	public int plat;
 	public string idioma;
+	public Text exp1;
+    public Text exp2;
+	public Text exp3;
+	public GameObject Gobj;
 
 	public int distancia;
 	public int postpro;
@@ -56,6 +62,19 @@ public class opcionespause : MonoBehaviour
 	public int largo;
 	public int altura;
 	public SystemLanguage sysidi;
+
+	public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
 
 	public void rescheck()
 	{
@@ -192,6 +211,13 @@ public class opcionespause : MonoBehaviour
 		
 		manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 		manager.guardar();
+
+		if(manager.datosconfig.idioma == "es")
+        {
+			exp1.text = "Guardar";
+			exp2.text = "Atras";
+        }
+		
 		if(menu)
 		{
 		audiomixer.SetFloat ("MusicVolume",manager.datosconfig.musica);
@@ -274,6 +300,25 @@ public class opcionespause : MonoBehaviour
 		conftxtdistancia.text = "Distancia: "+distancia;
 		conftxtresolucion.text = "Resolucion: " +resolucion[ind].width +" X "+resolucion[ind].height+"P";
 
+
+		if(controles.menu.saltar.ReadValue<float>()  > 0 && temp > 0.5f)
+		{
+			aplicartodo();
+
+
+		}
+		if(controles.menu.atras.ReadValue<float>() > 0 && temp > 0.5f )
+		{
+			salir();
+
+		}
+
+		if(tempG > 2)
+		{
+			exp3.text = "";
+			Gobj.SetActive(false);
+		}
+
 		
 		
 	
@@ -288,6 +333,7 @@ public class opcionespause : MonoBehaviour
 		manager.guardar();
 		idiomam.SetActive(false);
 		eventbase.SetActive(true);
+		icono();
 	}
 	public void idi_es()
     {
@@ -304,6 +350,7 @@ public class opcionespause : MonoBehaviour
 		manager.guardar();
 		resolucionm.SetActive(false);
 		eventbase.SetActive(true);
+		icono();
 	}
 	public void fullScreen_change()
     {
@@ -316,6 +363,7 @@ public class opcionespause : MonoBehaviour
 		manager.guardar();
 		controlesm.SetActive(false);
 		eventbase.SetActive(true);
+		icono();
 	}
 	public void con_fisico()
     {
@@ -331,6 +379,7 @@ public class opcionespause : MonoBehaviour
 		manager.guardar();
 		postm.SetActive(false);
 		eventbase.SetActive(true);
+		icono();
 	}
 	public void post_si()
     {
@@ -346,6 +395,7 @@ public class opcionespause : MonoBehaviour
 		manager.guardar();
 		distanciam.SetActive(false);
 		eventbase.SetActive(true);
+		icono();
 	}
 	public void dist_200()
     {
@@ -388,6 +438,7 @@ public class opcionespause : MonoBehaviour
 		manager.guardar();
 		sonidom.SetActive(false);
 		eventbase.SetActive(true);
+		icono();
 		
     }
 	public void salir()
@@ -412,14 +463,24 @@ public class opcionespause : MonoBehaviour
 	public void aplicartodo()
 	{
 		aplicaridioma();
-		idi_es();
 		aplicaresolucion();
 		aplicarcontroles();
 		aplicarpost();
 		aplicardistancia();
 		aplicarmusica();
-		salir();
+		icono();
 	}
+	void icono()
+	{
+		if(manager.datosconfig.idioma == "es")
+        {
+        exp3.text = "Guardado";
+		Gobj.SetActive(true);
+		tempG = 0;
+        }
+	}
+
+	
 
 
 }
