@@ -14,7 +14,8 @@ public class jugador_nave_al1 : jugador_al1
 {
 	
 	[Header("Propio nave")]
-
+	public AudioSource critico;
+	public GameObject Critobj;
 	public jugador_al1 jugador;
 	private float temp9;
 	public GameObject tarboss;
@@ -132,7 +133,7 @@ public class jugador_nave_al1 : jugador_al1
 	// Token: 0x0600001D RID: 29 RVA: 0x000025E8 File Offset: 0x000007E8
 	public void Start()
 	{
-		
+		critico.Pause();
 		
 
 		jugador_al1 jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
@@ -151,23 +152,41 @@ public class jugador_nave_al1 : jugador_al1
 			if(manager.datosserial.tengoarmanave4 == false)
 			{
 				pistolaimg.sprite = nopimg;
+				backpistolaimg.sprite = nopimg;
+				pistolaimg.color = new Color(1,1,1,1f);
+			}
+			else
+			{
+				pistolaimg.color = new Color(1,1,1,0.1f);
 			}
 
 			if(manager.datosserial.tengoarmanave2  == false)
 			{
 				relentizarimg.sprite = nopimg;
+				backrelentizarimg.sprite = nopimg;
+				relentizarimg.color = new Color(1,1,1,1f);
+			}
+			else
+			{
+				relentizarimg.color = new Color(1,1,1,0.1f);
 			}
 			
 			if(manager.datosserial.tengoarmanave3 == false)
 			{
 				armadefimg.sprite = nopimg;
+				backarmadefimg.sprite = nopimg;
+				armadefimg.color = new Color(1,1,1,1f);
+			}
+			else
+			{
+				armadefimg.color = new Color(1,1,1,0.1f);
 			}
 
 			
 			paloimg.color = new Color(1,1,1,1f);
-			pistolaimg.color = new Color(1,1,1,0.1f);
-			relentizarimg.color = new Color(1,1,1,0.1f);
-			armadefimg.color = new Color(1,1,1,0.1f);
+			
+			
+			
 
 			iconodisp.sprite = arma1;
 			
@@ -282,6 +301,17 @@ public class jugador_nave_al1 : jugador_al1
 	public void Update()
 	{
 
+		if(vida < ((vidamax/100)* 15))
+		{
+
+			critico.UnPause();
+				
+		}
+		else
+		{
+			critico.Pause();
+		}
+
 
 	if (minabalas > minabalasmax[manager.datosserial.nivelarmanave2 -1])
 	{minabalas = minabalasmax[manager.datosserial.nivelarmanave2 -1];}
@@ -318,6 +348,7 @@ public class jugador_nave_al1 : jugador_al1
 	{vidaeneimg.fillAmount = vidaeneui/vidaeneuimax;}
 	if(vida < 1)
 	{
+		critico.Pause();
 		vida = 0;
 		muerte = true;
 	}
@@ -518,17 +549,29 @@ public class jugador_nave_al1 : jugador_al1
 			circulorelentizarimg.fillAmount = minabalas/minabalasmax[manager.datosserial.nivelarmanave2 -1];
 			relentizarimg.sprite = arma2;
 		}
+		else
+		{
+			relentizarimg.sprite = nopimg;
+		}
 		if(manager.datosserial.tengoarmanave3 == true)
 		{
 			
 			circuloarmadefimg.fillAmount = misilbalas/misilbalasmax[manager.datosserial.nivelarmanave3 -1];
 			armadefimg.sprite = arma3;
 		}
+		else
+		{
+			armadefimg.sprite = nopimg;
+		}
 		if(manager.datosserial.tengoarmanave4 == true)
 		{
 			
 			circulopistolaimg.fillAmount = escopetabalas/escopetabalasmax[manager.datosserial.nivelarmanave4 -1];
 			pistolaimg.sprite = arma4;
+		}
+		else
+		{
+			pistolaimg.sprite  = nopimg;
 		}
 
 		if(ruletaYc > 0.5f)
@@ -543,7 +586,11 @@ public class jugador_nave_al1 : jugador_al1
 				balaprefabpapa = prebalanave1[manager.datosserial.nivelarmanave1 -1];
 				tiempodisp = 0;
 				armanavesel = 1;
+
+
 				iconodisp.sprite = arma1;
+				paloimg.sprite = arma1;
+				backpaloimg.sprite = arma1;
 				
 			}
 		}
@@ -556,6 +603,10 @@ public class jugador_nave_al1 : jugador_al1
 				pistolaimg.color = new Color(1,1,1,0.1f);
 				relentizarimg.color = new Color(1,1,1,0.1f);
 				armadefimg.color = new Color(1,1,1,1f);
+
+
+				armadefimg.sprite = arma3;
+				backarmadefimg.sprite = arma3;
 
 				balaprefabpapa = prebalanave3[manager.datosserial.nivelarmanave3 -1];
 				tiempodisp = 0;
@@ -574,6 +625,10 @@ public class jugador_nave_al1 : jugador_al1
 				relentizarimg.color = new Color(1,1,1,0.1f);
 				armadefimg.color = new Color(1,1,1,0.1f);
 
+
+				pistolaimg.sprite = arma4;
+
+				backpistolaimg.sprite = arma4;
 				balaprefabpapa = prebalanave4[manager.datosserial.nivelarmanave4 -1];
 				tiempodisp = 0;
 				armanavesel = 4;
@@ -590,12 +645,52 @@ public class jugador_nave_al1 : jugador_al1
 				relentizarimg.color = new Color(1,1,1,1f);
 				armadefimg.color = new Color(1,1,1,0.1f);
 
+				relentizarimg.sprite = arma2;
+				backrelentizarimg.sprite = arma2;
 				balaprefabpapa = prebalanave2[manager.datosserial.nivelarmanave2 -1];
 				tiempodisp = 0;
 				armanavesel = 2;
 				iconodisp.sprite = arma2;
 				
 			}
+		}
+		if(manager.datosserial.tengoarmanave4 == false)
+		{
+			pistolaimg.sprite = nopimg;
+			backpistolaimg.sprite = nopimg;
+			pistolaimg.color = new Color(1,1,1,1f);
+		}
+		else if(manager.datosserial.tengoarmanave4 == true && armanavesel != 4)
+
+		{
+			pistolaimg.color = new Color(1,1,1,0.1f);
+		}
+
+		if(manager.datosserial.tengoarmanave2  == false)
+		{
+			relentizarimg.sprite = nopimg;
+			backrelentizarimg.sprite = nopimg;
+			relentizarimg.color = new Color(1,1,1,1f);
+		}
+		else if(manager.datosserial.tengoarmanave2== true && armanavesel != 2)
+		{
+			relentizarimg.color = new Color(1,1,1,0.1f);
+		}
+		
+		if(manager.datosserial.tengoarmanave3 == false)
+		{
+			armadefimg.sprite = nopimg;
+			backarmadefimg.sprite = nopimg;
+			armadefimg.color = new Color(1,1,1,1f);
+		}
+		else if(manager.datosserial.tengoarmanave3 == true && armanavesel != 3)
+		{
+			armadefimg.color = new Color(1,1,1,0.1f);
+		}
+
+		if(armanavesel != 1)
+		{
+			paloimg.color = new Color(1,1,1,0.1f);
 		}
 
 

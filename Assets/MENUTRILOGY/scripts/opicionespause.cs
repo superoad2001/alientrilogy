@@ -20,6 +20,7 @@ public class opcionespause : MonoBehaviour
     public Text exp2;
 	public Text exp3;
 	public GameObject Gobj;
+	public pausa_al1 pausa;
 
 	public int distancia;
 	public int postpro;
@@ -217,7 +218,7 @@ public class opcionespause : MonoBehaviour
 			exp1.text = "Guardar";
 			exp2.text = "Atras";
         }
-		
+
 		if(menu)
 		{
 		audiomixer.SetFloat ("MusicVolume",manager.datosconfig.musica);
@@ -275,8 +276,13 @@ public class opcionespause : MonoBehaviour
 	public float temp;
 	private void Update()
 	{
+
 		if (temp < 15)
-		{temp += 1 * Time.deltaTime;}
+		{temp += 1 * Time.unscaledDeltaTime;}
+
+		if (tempG < 15)
+		{tempG += 1 * Time.unscaledDeltaTime;}
+
 		if(manager.datosconfig.idioma == "es")
 		{
 			conftxtidi.text = "Idioma: Español";
@@ -458,6 +464,7 @@ public class opcionespause : MonoBehaviour
 		manager.datosconfig.primera = true;
 		manager.datosconfig.primerares = true;
 		manager.guardar();
+		pausa.no_aplicar();
 
 	}
 	public void aplicartodo()

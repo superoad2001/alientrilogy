@@ -1176,10 +1176,8 @@ public class enemigo1_al1: MonoBehaviour
             jugador1.enmovdirectaux = jugador1.enmovdirectaux.normalized;
             jugador1.tempempujon = 0;
             jugador1.empujon = true;
-            jugador1.muertesjug.Play();
             jugador1.vida -= danoj;
             GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
-            muertes.Play();
             Destroy(explosiont, 1f);
             
             if(nivelactual >= 70 )

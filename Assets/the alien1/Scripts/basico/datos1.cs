@@ -43,6 +43,12 @@ public class datos1
 	public bool tengoarmanave3;
 	public bool tengoarmanave4;
 	
+	public bool tengollave0;
+	public bool tengollave1;
+	public bool tengollave2;
+	public bool tengollave3;
+	public bool tengollave4;
+	
 	public bool[] licenciaarmapalo = new bool[5];
 	public bool[] licenciaarmapapa = new bool[5];
 	public bool[] licenciaarmarel = new bool[5];
@@ -53,7 +59,6 @@ public class datos1
 	public int[] misiones = new int[200];
 
 	public int[] LlaveT = new int[100];
-	public bool[] llaveC = new bool[99];
 	public bool[] pociones = new bool[9];
 	public bool armadefdesbloqueada;
 	public int MisionesCumplidas;
@@ -131,9 +136,10 @@ public class datos1
 
 	public bool alien1muere;
 
-	public int tengonave;	
+	public bool tengonave;	
 	public int ArmasNaveObtenidas;
 	public int ArmasAlienObtenidas;
+	public bool ascensoract;
 
 
 	public int cinematicaf;

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 public class misionA_al1 : MonoBehaviour
 {
+    public Text[] botonestrad = new Text[10];
     public Text mision;
     public Text misiondesc;
     public GameObject misionG;
@@ -17,6 +18,7 @@ public class misionA_al1 : MonoBehaviour
     public float temp;
     public int npcid;
     public int misionID;
+    public int misionS;
     public int modo;
     public GameObject finM;
     public GameObject aceptarM;
@@ -32,7 +34,7 @@ public class misionA_al1 : MonoBehaviour
     {
         manager.datosserial.misiones[manager.misionS] = 3;
         manager.datosserial.npcF[npcid]++;
-        manager.datosserial.economia[tipoC] += premiocant;
+        manager.datosserial.economia[7] += premiocant;
         manager.guardar();
 
         plataforma = manager.datosconfig.plat;
@@ -126,24 +128,32 @@ public class misionA_al1 : MonoBehaviour
     {
         jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
-        mision.text = misionesDB.misiones[manager.misionS];
-        misiondesc.text = misionesDB.misionesdesc[manager.misionS];
+        if(manager.datosconfig.idioma == "es" )
+        {
+            botonestrad[0].text = "Aceptar";
+            botonestrad[1].text = "Declinar";
+            botonestrad[2].text = "Obtener";
+        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (modo == 1)
         {
             finM.SetActive(false);
             aceptarM.SetActive(true);
+            mision.text = misionesDB.misiones[manager.misionS];
+            misiondesc.text = misionesDB.misionesdesc[manager.misionS];
         }
         if (modo == 2)
         {
             aceptarM.SetActive(false);
             finM.SetActive(true);
-            premio.sprite = tipoI[tipoC];
-            premio.color = colores[tipoC];
+            premio.sprite = tipoI[7];
+            premio.color = colores[7];
             titulopremio.text = "completada";
             menpremio.text = "obtuviste"+premiocant+"de estos";
 

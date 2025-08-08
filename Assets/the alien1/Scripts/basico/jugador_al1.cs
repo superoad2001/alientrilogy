@@ -19,6 +19,7 @@ public abstract class jugador_al1 : MonoBehaviour
 	public GameObject objplaneta;
 	public float disjugsave;
 	public Vector3 planetCenter;
+	public float jugpos;
     public List<GameObject> enemigosEnContacto = new List<GameObject>();
 	[HideInInspector]public float misilbalas;
 	[HideInInspector]public float minabalas;
@@ -38,7 +39,7 @@ public abstract class jugador_al1 : MonoBehaviour
 	[HideInInspector]public float tempempujon;
 	[HideInInspector]public bool tarbossact;
 	[HideInInspector]public int combo;
-	[HideInInspector]public float vida = 9;
+	public float vida = 9;
 	[HideInInspector]public bool dialogueact;
 	[HideInInspector]public float speed = 3;
 	[HideInInspector]public bool suelo;
@@ -72,7 +73,7 @@ public abstract class jugador_al1 : MonoBehaviour
 	[HideInInspector]public float vidaescudomaxene;
 	[HideInInspector]public bool escudoeneact;
 	[HideInInspector]public bool _peligro;
-	[HideInInspector]public float vidamax;
+	public float vidamax;
 	[HideInInspector]public AudioSource subirnivelaud;
 	public GameObject subirnivelexpl;
 	[HideInInspector]public float velocidad = 8;

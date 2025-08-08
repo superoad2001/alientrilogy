@@ -56,7 +56,8 @@ public class iniciocarrera_al1 : MonoBehaviour
             cam.enabled = false;
             for(int i = 0; i < eneIA.Length; i++)
             {
-                eneIA[i].enabled = true;
+                eneIA[i].controlact = true;
+
             }
         }
         if(intentos == 4)

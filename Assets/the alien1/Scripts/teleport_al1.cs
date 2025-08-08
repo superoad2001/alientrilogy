@@ -26,6 +26,14 @@ public class teleport_al1 : MonoBehaviour
     public bool obertura;
     public bool req_gemas;
     public int cantgemas;
+    public AudioSource sonidoTP;
+    public AudioSource nopson;
+    public GameObject expTP;
+    public jugador_al1 jugador;
+    public bool bloqueadanave;
+
+    
+
 
 	private readonly Dictionary<string, string> languageTexts = new Dictionary<string, string>
     {
@@ -47,17 +55,23 @@ public class teleport_al1 : MonoBehaviour
     };
 	private void Start()
 	{
+        jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 
-        if(manager.datosserial.puertasdesbloqueadas[puertasdesbloqueable] == true && puertasdesbloqueable != 0)
+        if(manager.datosserial.puertasdesbloqueadas[puertasdesbloqueable] == true && puertasdesbloqueable != 0 && obertura == false)
         {
             bloqueada = false;
             
         }
-        else if(manager.datosserial.puertasdesbloqueadas[puertasdesbloqueable] == false && puertasdesbloqueable != 0)
+        else if(manager.datosserial.puertasdesbloqueadas[puertasdesbloqueable] == false && puertasdesbloqueable != 0 && obertura == false)
         {
             bloqueada = true;
             lugar = "???";
+        }
+
+        if(manager.datosserial.tengonave == true)
+        {
+            bloqueadanave = false;   
         }
 	}
 	public void Awake()
@@ -100,6 +114,22 @@ public class teleport_al1 : MonoBehaviour
                     {
                         tutfinala.text = "Falta energia necesitas "+ cantgemas +" gemas";
                     }
+                }
+            }
+            else if(bloqueada == true)
+            {
+
+                if (manager.datosconfig.idioma == "es")
+                {
+                    tutfinala.text = "puerta bloqueada desde el otro lado";
+                }
+            }
+            else if(bloqueadanave == true)
+            {
+
+                if (manager.datosconfig.idioma == "es")
+                {
+                    tutfinala.text = "bloqueada: se requiere una nave";
                 }
             }
             else
@@ -163,7 +193,7 @@ public class teleport_al1 : MonoBehaviour
                     manager.datosserial.actual_checkpoint = 0;
                 }
                 manager.guardar();
-                if(req_gemas == true)
+               if(req_gemas == true && bloqueada == false )
                 {
                     if(manager.datosserial.economia[0] >= cantgemas)
                     {
@@ -171,20 +201,25 @@ public class teleport_al1 : MonoBehaviour
                     }
                     else
                     {
-
+                        nopson.Play();
                     }
+                }
+                else if (bloqueada == false && bloqueadanave == false && manager.datosserial.economia[0] >= cantgemas)
+                {           
+                    SceneManager.LoadScene(ubi);
                 }
                 else
                 {
-
-                    
-                    SceneManager.LoadScene(ubi);
+                    nopson.Play();
                 }
 				
 			}
             else if (controles.al1_3d.interactuar.ReadValue<float>() > 0f && tipoTP2 == 1 && bloqueada == false)
 			{
 				col.gameObject.transform.position = objetoTP.transform.position + new Vector3(0, 1.5f, 0);
+                sonidoTP.Play();
+                GameObject exptemp = Instantiate(expTP, jugador.transform.position,jugador.transform.rotation) as GameObject;
+                Destroy(exptemp,5f);
 			}
 		}
 	}
@@ -197,23 +232,59 @@ public class teleport_al1 : MonoBehaviour
 	}
     private void OnTriggerStay(Collider col)
 	{
-		if (col.gameObject.tag == "Player")
+		if (col.gameObject.tag == "Player" )
 		{
 	    	anim.SetBool("show",true);
-			if (languageTexts.TryGetValue(manager.datosconfig.idioma, out string text) && tipoTP == 0)
+            if(bloqueadanave == true)
             {
-                tutfinala.text = text;
+
+                if (manager.datosconfig.idioma == "es")
+                {
+                    tutfinala.text = "bloqueada: se requiere una nave";
+                }
             }
-            else if (languageTexts2.TryGetValue(manager.datosconfig.idioma, out string text1) && tipoTP == 1)
+			else if(req_gemas == true)
             {
-                tutfinala.text = text1;
+                if(manager.datosserial.economia[0] >= cantgemas)
+                {
+                    if (languageTexts3.TryGetValue(manager.datosconfig.idioma, out string text2) )
+                    {
+                        tutfinala.text = text2+lugar;
+                    }
+                }
+                else
+                {
+                    if (manager.datosconfig.idioma == "es")
+                    {
+                        tutfinala.text = "Falta energia necesitas "+ cantgemas +" gemas";
+                    }
+                }
             }
-            else if (languageTexts3.TryGetValue(manager.datosconfig.idioma, out string text2) && tipoTP == 2)
+            else if(bloqueada == true)
             {
-                tutfinala.text = text2+lugar;
+
+                if (manager.datosconfig.idioma == "es")
+                {
+                    tutfinala.text = "puerta bloqueada desde el otro lado";
+                }
+            }
+            else
+            {
+                if (languageTexts.TryGetValue(manager.datosconfig.idioma, out string text) && tipoTP == 0)
+                {
+                    tutfinala.text = text;
+                }
+                else if (languageTexts2.TryGetValue(manager.datosconfig.idioma, out string text1) && tipoTP == 1)
+                {
+                    tutfinala.text = text1;
+                }
+                else if (languageTexts3.TryGetValue(manager.datosconfig.idioma, out string text2) && tipoTP == 2)
+                {
+                    tutfinala.text = text2+lugar;
+                }
             }
 
-			if (controles.al1_3d.interactuar.ReadValue<float>() > 0f && tipoTP2 == 0 && bloqueada == false )
+			if (controles.al1_3d.interactuar.ReadValue<float>() > 0f && tipoTP2 == 0 )
 			{
                 if(puertagiract == true)
                 {
@@ -261,13 +332,33 @@ public class teleport_al1 : MonoBehaviour
                 }
                 
                 manager.guardar();
-				SceneManager.LoadScene(ubi);
+				if(req_gemas == true && bloqueada == false  )
+                {
+                    if(manager.datosserial.economia[0] >= cantgemas)
+                    {
+                        SceneManager.LoadScene(ubi);
+                    }
+                    else
+                    {
+                        nopson.Play();
+                    }
+                }
+                else if (bloqueada == false && bloqueadanave == false && manager.datosserial.economia[0] >= cantgemas)
+                {           
+                    SceneManager.LoadScene(ubi);
+                }
+                else
+                {
+                    nopson.Play();
+                }
 			}
             else if (controles.al1_3d.interactuar.ReadValue<float>() > 0f && tipoTP2 == 1)
 			{
 				col.gameObject.transform.position = objetoTP.transform.position + new Vector3(0, 1.5f, 0);
 			}
+            
 		}
+
 	}
     private void OnTriggerExit(Collider col)
 	{

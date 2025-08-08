@@ -13,11 +13,12 @@ using System.Linq;
 public class jugador_chara2d_al1 : jugador_al1
 {
 	[Header("Propio 2D")]
+	public AudioSource critico;
+	public GameObject Critobj;
 	public GameObject armadefpassC;
 	private float vidaescudoUI1;
 	private float vidaescudoUI2;
 	private float vidaescudoUI3;
-	public AudioSource saltoson;
 	private bool enetouch;
 	public float girodir = -90;
 	public Vector3 rotationinput;
@@ -94,8 +95,10 @@ public class jugador_chara2d_al1 : jugador_al1
 	private bool girotd_der = false;
 	private bool girotd_izq = false;
 	private float temppaso = 1;
-	public float jugpos;
-	public GameObject noarmasel;
+	public Animator animcam;
+	public bool carga;
+	public AudioSource sonidoTP;
+    public GameObject expTP;
 	public GameObject tarboss;
 	public GameObject slash;
 	public Sprite arma1;
@@ -202,8 +205,16 @@ public class jugador_chara2d_al1 : jugador_al1
 	// Token: 0x0600001D RID: 29 RVA: 0x000025E8 File Offset: 0x000007E8
 	public void Start()
 	{
-		
-		
+		critico.Pause();
+
+		if(manager.nivelact)
+		{
+			controlact = false;
+			animcam.Play("comenzarnivel");
+			sonidoTP.Play();
+			GameObject exptemp = Instantiate(expTP, transform.position,transform.rotation) as GameObject;
+			Destroy(exptemp,1);
+		}
 
 		this._rb = base.GetComponent<Rigidbody>();
 		if(camara != null)
@@ -431,6 +442,7 @@ public class jugador_chara2d_al1 : jugador_al1
 			velocidadmaxima = 13;
 			jumpforce = 600;
 			camara.transform.rotation = Quaternion.Euler(0,180,0);
+			
 		
 
 		
@@ -496,26 +508,41 @@ public class jugador_chara2d_al1 : jugador_al1
 	}
 	public void Update()
 	{
+		
+		if(vida < ((vidamax/100)* 15))
+		{
+
+			critico.UnPause();
+				
+		}
+		else
+		{
+			critico.Pause();
+		}
+
+		if(animcam.GetCurrentAnimatorStateInfo(0).IsName("staticcam") && carga == false)
+		{
+			controlact = true;
+			carga = true;
+		}
+
+
 		if(cargainicial == false)	
 		{
 			if(dimensiion == true)
 			{
-				jugpos = transform.localPosition.x;
+				//jugpos = transform.localPosition.x;
 			}
 			else if(dimensiion == false)
 			{
-				jugpos = transform.localPosition.z;
+				//jugpos = transform.localPosition.z;
 			}
 			cargainicial = true;
 		}
 
 	
 
-		noarmasel.SetActive(false);
-		if(manager.datosserial.tengolanzar == true || manager.datosserial.armapapa == true || manager.datosserial.armarelen == true || manager.datosserial.armadef == true)
-		{
-			noarmasel.SetActive(true);
-		}
+
 	
 		
 	
@@ -567,6 +594,7 @@ public class jugador_chara2d_al1 : jugador_al1
 	
 	if(vida < 1)
 	{
+		critico.Pause();
 		vida = 0;
 		muerte = true;
 	}
@@ -597,7 +625,11 @@ public class jugador_chara2d_al1 : jugador_al1
 	niverlbarra.fillAmount = manager.datosserial.nivelexp/manager.datosserial.signivelexp; 
 	niveluit.text = "LEVEL "+ manager.datosserial.niveljug;
 	staminabarra.fillAmount = staminaobj/staminamax;
-
+	if(controlact == false)
+	{
+		anim.SetFloat("velx",0);
+		anim.SetFloat("vely",0);
+	}
 
 	if(controlact == true)
 	{
@@ -1334,7 +1366,7 @@ public class jugador_chara2d_al1 : jugador_al1
 				}
 			}
 		}
-		if(ruletac > 0 && manager.datosserial.tengolanzar == true)
+		if(ruletac > 0 && manager.datosserial.pocionesmax > 0)
 		{
 
 			circulopaloimg.fillAmount = 1;
@@ -1581,9 +1613,9 @@ public class jugador_chara2d_al1 : jugador_al1
 		}
 			this.tiempogiro2 += Time.deltaTime;
 
-		if (this.dimensiion )
+		if (this.dimensiion && controlact == true)
 		{
-			transform.localPosition = new Vector3(jugpos,transform.localPosition.y,transform.localPosition.z);
+			//transform.localPosition = new Vector3(jugpos,transform.localPosition.y,transform.localPosition.z);
 			
 			
 
@@ -1756,10 +1788,10 @@ public class jugador_chara2d_al1 : jugador_al1
 			
 			
 		}
-		if (!this.dimensiion )
+		if (!this.dimensiion  && controlact == true)
 		{
 			
-			transform.localPosition = new Vector3(transform.localPosition.x,transform.localPosition.y,jugpos);
+			//transform.localPosition = new Vector3(transform.localPosition.x,transform.localPosition.y,jugpos);
 			anim.SetFloat("velx",movXc);
 			Vector3 movdirnow = transform.TransformDirection(new Vector3 (-movXc,0, 0)).normalized;
 				if (objplaneta != null && tiempogiro2 > 1.5f)
@@ -2928,7 +2960,8 @@ public class jugador_chara2d_al1 : jugador_al1
 		
 		Debug.DrawRay(transform.position + new Vector3(0,3,0),movdirectaux * 300, Color.green);
 
-			if(correrc > 0 && velact != true && stamina > 0)
+			if(correrc > 0 && velact != true && stamina > 0 && movYc != 0 && controlact == true
+			|| correrc > 0 && velact != true && stamina > 0 && movXc != 0 && controlact == true)
 			{
 				stamina -= 7 * Time.deltaTime;
 				staminaact = 0;
@@ -3025,7 +3058,10 @@ public class jugador_chara2d_al1 : jugador_al1
 			{
 				staminaact += 1 * Time.deltaTime;
 			}
-		
+		if(controlact == false)
+		{
+			anim.SetBool("stat",true);
+		}
 
 		movXc = 0;
 		movYc = 0;
@@ -3062,25 +3098,6 @@ public class jugador_chara2d_al1 : jugador_al1
 		
 	}
 
-	// Token: 0x06000020 RID: 32 RVA: 0x00003169 File Offset: 0x00001369
-	public void saltoalto()
-	{
-			this._rb.AddRelativeForce(this.jumpforce * 0.2f * Vector3.up);
-			saltoson.Play();
-	}
-    public void saltoalto2()
-	{
-			this._rb.AddRelativeForce(this.jumpforce * 1f * Vector3.up);
-			saltoson.Play();
-		
-	}
-	public void saltoalto3()
-	{
-
-			this._rb.AddRelativeForce(this.jumpforce * 3f * Vector3.up);
-			saltoson.Play();
-
-	}
 
 	// Token: 0x06000021 RID: 33 RVA: 0x0000318C File Offset: 0x0000138C
 	public void OnCollisionEnter(Collision col)

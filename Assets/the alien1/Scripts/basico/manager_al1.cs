@@ -11,6 +11,7 @@ using MeetAndTalk.Localization;
 public class manager_al1 : MonoBehaviour
 {
 	public manager_al1 manager;
+	public manager_nivel_al1 managerN;
 	public bool nivelact;
 	public bool puertasgiract;
 	public bool puertasposact;
@@ -92,6 +93,9 @@ public class manager_al1 : MonoBehaviour
 
 	public bool tutorialintro;
 	public int misionS;
+
+	public bool hierronivel;
+	public int IDhierronivel;
 	
 
 	// Token: 0x06000025 RID: 37 RVA: 0x0000334C File Offset: 0x0000154C
@@ -350,7 +354,7 @@ public class manager_al1 : MonoBehaviour
 
 		Debug.Log(LocalizationManager.Instance.SelectedLang());
 		
-
+		IDhierronivel = -100;
 		
 
 		
@@ -362,7 +366,9 @@ public class manager_al1 : MonoBehaviour
 
 		jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+		
 		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
+
 
 		if(actguardarub == true)
 		{
@@ -375,6 +381,14 @@ public class manager_al1 : MonoBehaviour
 		if (puertasgiract == true && datosserial.puertagiract == true)
 		{
 			jugador.transform.eulerAngles = new Vector3(jugador.transform.eulerAngles.x,datosserial.puertagir,jugador.transform.eulerAngles.z);
+		}
+		if((manager_nivel_al1)FindFirstObjectByType(typeof(manager_nivel_al1)) != null)
+		{
+			managerN = (manager_nivel_al1)FindFirstObjectByType(typeof(manager_nivel_al1));
+			if(nivelact)
+			{
+				managerN.ubi = datosserial.actual_checkpoint;
+			}
 		}
 		
 		

@@ -24,10 +24,11 @@ public class meta1_al1 : MonoBehaviour
 	public jugador_al1 jugador;
 	public Animator conseguidoa;
 	public AudioSource fanfarria;
-	public GameObject rotoe;
+	public GameObject exp;
 	public GameObject rotoobj;
 
 	public AudioSource musica;
+	public AudioSource coger;
 
 	public int LlaveID;
 	// Token: 0x06000012 RID: 18 RVA: 0x0000243B File Offset: 0x0000063B
@@ -35,6 +36,11 @@ public class meta1_al1 : MonoBehaviour
 	{
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+		if (manager.datosserial.LlaveT[LlaveID] == 1)
+		{
+			
+			Destroy(rotoobj);
+		}
 
 	}
 
@@ -42,17 +48,11 @@ public class meta1_al1 : MonoBehaviour
 	private void Update()
 	{
 		
-		if(Temp >= 10 )
-		{
-
-			SceneManager.LoadScene(manager.datosserial.salirnivelsala);
-			
-		}
-		if(Temp > 5 )
+		if(Temp >= 5 && Temp < 6)
 		{	
 			aparece.SetActive(true);
 		}
-		if(Temp > 5 && pasos < 1)
+		if(Temp >= 5 && Temp < 6 && pasos < 1)
 		{	pasos++;
 			conseguidoa.SetBool("act",true);
 			aparece.SetActive(true);
@@ -69,7 +69,7 @@ public class meta1_al1 : MonoBehaviour
 				conseguido.text = "o has aconseguit";
 			}
 		}
-		if(Temp > 6 && fake == true  && pasos < 2)
+		if(Temp >= 6 && Temp < 7 && fake == true  && pasos < 2)
 		{
 			pasos++;
 			if(manager.datosconfig.idioma == "es")
@@ -84,14 +84,15 @@ public class meta1_al1 : MonoBehaviour
 			{
 				conseguido.text = "o no?";
 			}
-			
+			GameObject expT = Instantiate(exp, transform.position,transform.rotation) as GameObject;
+			Destroy(expT,1f);
 			fakes.Play();
 			
 		}
-		if(Temp > 7 && fake == true  && pasos < 3)
+		if(Temp >= 7  && Temp < 10 && fake == true  && pasos < 3)
 		{
 			pasos++;
-			GameObject roto = Instantiate(rotoe, transform.position,transform.rotation) as GameObject;
+			GameObject roto = Instantiate(exp, transform.position,transform.rotation) as GameObject;
 			Destroy(roto, 1.0f);
 			rotoson.Play();
 			if(rotoobj != null)
@@ -100,7 +101,7 @@ public class meta1_al1 : MonoBehaviour
 			}	
 			this.gameObject.GetComponent<MeshRenderer>().enabled = false;
 		}
-		if(Temp > 10 )
+		if(Temp >= 10 && fake == true)
 		{
 			jugador.musicajuego.Play();
 			fanfarria.Stop();
@@ -109,9 +110,29 @@ public class meta1_al1 : MonoBehaviour
 			conseguidoa.SetBool("act",false);
 			cam.SetBool("act",false);
 			jugador.controlact = true;
-			Destroy(this.gameObject);
 			fin = false;
-			Temp = 0;
+			Destroy(this.gameObject, 1.0f);
+
+		}
+		if(Temp >= 10 && Temp < 12 && fake == false )
+		{
+			jugador.musicajuego.Play();
+			fanfarria.Stop();
+			aparece.SetActive(false);
+			conseguido.text = "";
+			conseguidoa.SetBool("act",false);
+			cam.SetBool("act",false);
+			jugador.controlact = true;
+			Destroy(rotoobj, 1.0f);
+			coger.Play();
+			GameObject expT = Instantiate(exp, transform.position,transform.rotation) as GameObject;
+			Destroy(expT,1f);			
+		}
+		if(Temp >= 12  && fake == false )
+		{
+			fin = false;
+			Destroy(this.gameObject, 1.0f);
+			
 		}
 		if(fin == true)
 		{
@@ -136,18 +157,8 @@ public class meta1_al1 : MonoBehaviour
 			}
 			else if (manager.datosserial.LlaveT[LlaveID] == 0)
 			{
-				manager.datosserial.economia[2]++;
-				manager.datosserial.LlaveT[LlaveID] = 1;
-				manager.guardar();
-				jugador.musicajuego.Stop();
-				fanfarria.Play();
-				fin = true;
-				cam.SetBool("act",true);
-				jugador.controlact = false;
-				
-			}
-			else
-			{
+				manager.hierronivel = true;
+				manager.IDhierronivel = LlaveID;
 				jugador.musicajuego.Stop();
 				fanfarria.Play();
 				fin = true;

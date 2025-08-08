@@ -19,6 +19,7 @@ public class inventarioUI_al1 : MonoBehaviour
     public Text monedar;
     public Text llave;
     public Text llaver;
+    public Text licencias;
     public Text misionN;
     public Text mision;
     // Update is called once per frame
@@ -32,5 +33,6 @@ public class inventarioUI_al1 : MonoBehaviour
                 monedar.text = manager.datosserial.economia[3]+"";
                 monedam.text = manager.datosserial.economia[4]+"";
                 monedaa.text = manager.datosserial.economia[5]+"";
+                licencias.text = manager.datosserial.economia[6]+"";
     }
 }

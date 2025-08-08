@@ -9,6 +9,9 @@ public class enemigo2_al1: MonoBehaviour
     public GameObject slash;
     public GameObject escudoin;
 	public manager_al1 manager;
+    public AudioSource divson;
+    public AudioSource curason;
+    public AudioSource cargason;
     public bool muertetemp;
     public float tempM;
     public bool detectar;
@@ -41,6 +44,7 @@ public class enemigo2_al1: MonoBehaviour
     public AudioSource disp;
     public Transform juego;
     public GameObject pistola;
+    public AudioSource golpeson;
     public float tempe3;
     public float vida;
     public float vidamax;
@@ -497,6 +501,7 @@ public class enemigo2_al1: MonoBehaviour
                     anim.SetBool("atk",true);
                     temp = 0;
                     paloS.dano = danoj * 2;
+                    golpeson.Play();
                 }
                 else if(temp > 3f && randomdec5 == 1)
                 {
@@ -523,6 +528,7 @@ public class enemigo2_al1: MonoBehaviour
                     disp.Play();
 
                     temp = 0;
+                    disp.Play();
                 }
                 else if(temp > 3f && randomdec5 == 2)
                 {
@@ -545,6 +551,7 @@ public class enemigo2_al1: MonoBehaviour
                     temp = -6;
                     paloS.toquespalo = 1;
                     paloS.dano = danoj*2.2f;
+                    lanzarson.Play();
                 }
                 else
                 {
@@ -729,6 +736,7 @@ public class enemigo2_al1: MonoBehaviour
                         tempcargaef = 0;
                         modocarga = "";
                         anim.SetBool("Playercarga",false);
+                        curason.Play();
                     }
                     if(modocarga == "vida+50")
                     {
@@ -742,6 +750,7 @@ public class enemigo2_al1: MonoBehaviour
                         tempcargaef = 0;
                         modocarga = "";
                         anim.SetBool("Playercarga",false);
+                        curason.Play();
                     }
                     if(modocarga == "trivision")
                     {
@@ -769,6 +778,7 @@ public class enemigo2_al1: MonoBehaviour
                         cancelatk = 0;
                         tempcarga = 0;
                         tempcargaef = 0;
+                        divson.Play();
                         
                         anim.SetBool("Playercarga",false);
                     }
@@ -793,6 +803,7 @@ public class enemigo2_al1: MonoBehaviour
                         tempcargaef = 0;
                         modocarga = "";
                         anim.SetBool("Playercarga",false);
+                        divson.Play();
                     }
                 }
             }
@@ -800,6 +811,7 @@ public class enemigo2_al1: MonoBehaviour
             {
                 anim.SetBool("Playercarga",false);
                 modocarga = "";
+                cargason.Stop();
             }
 
 
@@ -832,6 +844,7 @@ public class enemigo2_al1: MonoBehaviour
                     tempcarga = 0;
                     tempcargaef = 0;
                     modocarga = "vida+50";
+                    cargason.Play();
                 }
                 cura--;
                 
@@ -845,6 +858,7 @@ public class enemigo2_al1: MonoBehaviour
                 tempcargaef = 0;
                 modocarga = "trivision";
                 division = false;
+                cargason.Play();
             }
             if((vidamax/100) * 30 <= vida && tempcarga > 12 && cura == 1 && Randomdec6 == 3)
             {
@@ -857,6 +871,7 @@ public class enemigo2_al1: MonoBehaviour
                     tempcarga = 0;
                     tempcargaef = 0;
                     modocarga = "vida100";
+                    cargason.Play();
                 }
                 cura--;
                 
@@ -870,6 +885,7 @@ public class enemigo2_al1: MonoBehaviour
                 tempcargaef = 0;
                 modocarga = "division";
                 division2 = false;
+                cargason.Play();
             }
             
 
@@ -878,7 +894,7 @@ public class enemigo2_al1: MonoBehaviour
             if(tempcargaef < 15)
             {tempcargaef += 1 * Time.deltaTime;}
         }
-        if(detectar == true && mixto == true && desactivar == false && manager.controlene == true)
+        if(detectar == true && mixto == true && desactivar == false && manager.controlene == true && programable == false)
         {
 
             if (tempe3 > 10f)

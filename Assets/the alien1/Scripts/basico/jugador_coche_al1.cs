@@ -101,6 +101,9 @@ public class jugador_coche_al1 : jugador_al1
 
 	public void Update()
 	{
+		pasosnave.Pause();
+		turboson.Pause();
+		derrapeson.Pause(); 
 
 
 		anim.SetBool("act2",true);
@@ -468,25 +471,7 @@ public class jugador_coche_al1 : jugador_al1
 		
 	}
 
-	// Token: 0x06000020 RID: 32 RVA: 0x00003169 File Offset: 0x00001369
-	public void saltoalto()
-	{
-			this._rb.AddRelativeForce(400 * 0.2f * Vector3.up);
-			saltoson.Play();
-	}
-    public void saltoalto2()
-	{
-			this._rb.AddRelativeForce(400 * 1f * Vector3.up);
-			saltoson.Play();
-		
-	}
-	public void saltoalto3()
-	{
-
-			this._rb.AddRelativeForce(400 * 3f * Vector3.up);
-			saltoson.Play();
-
-	}
+	// Token: 0x06000020 RID: 32 RVA: 0x00003169 File Offset: 0x000013
 
 	// Token: 0x06000021 RID: 33 RVA: 0x0000318C File Offset: 0x0000138C
 	public void OnCollisionEnter(Collision col)
@@ -592,6 +577,5 @@ public class jugador_coche_al1 : jugador_al1
 	public AudioSource derrapeson;
 	public AudioSource turboson;
 	public AudioSource habson;
-	public AudioSource saltoson;
 	
 }

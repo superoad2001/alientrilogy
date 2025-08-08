@@ -51,6 +51,10 @@ public class enemigo3_al1: MonoBehaviour
     public bool cerca;
     public string modoatk;
 
+    public AudioSource expson;
+    public AudioSource golpeson;
+    public AudioSource habcargason;
+
     private float frenetismoarmas = 1;
 
 
@@ -499,12 +503,14 @@ public class enemigo3_al1: MonoBehaviour
         {
             
             escudovis.transform.position = jugador1.transform.position;
+            
         } 
         if(modoatk == "explotar1" && escudos == 0 || modoatk == "explotar2" && escudos <= 1)
         {
             modoatk = "";
             temprecargafin = 0;
             anim.SetBool("habcarga",false);
+            habcargason.Stop();
         }
 
         if(modoatk == "explotar1" && escudos > 0 && temprecargafin <= 0)
@@ -523,6 +529,8 @@ public class enemigo3_al1: MonoBehaviour
             modoatk = "";
             temprecargafin = 0;
             anim.SetBool("habcarga",false);
+            expson.Play();
+            habcargason.Stop();
         }
         if(modoatk == "explotar2" && escudos > 0 && temprecargafin <= 0)
         {
@@ -539,6 +547,8 @@ public class enemigo3_al1: MonoBehaviour
             modoatk = "";
             temprecargafin = 0;
             anim.SetBool("habcarga",false);
+            expson.Play();
+            habcargason.Stop();
         }
 
         if(detectar == true  && desactivar == false && manager.controlene == true && temprecargafin <= 0)
@@ -576,6 +586,7 @@ public class enemigo3_al1: MonoBehaviour
                 paloS.minmun = false;
                 paloS.ultimo = false;
                 paloS.dano = danoj/2;
+                golpeson.Play();
             }
             else if(temp > balafrec && randomdec == 2)
             {
@@ -612,6 +623,7 @@ public class enemigo3_al1: MonoBehaviour
                 temprecargafin = 20;
                 randomdec2 = 0;
                 temp2 = 0;
+                danoescudo.Play();
             }
             else if(cerca == true && temp2 > 20 && randomdec == 2 && modoatk == "")
             {
@@ -626,6 +638,7 @@ public class enemigo3_al1: MonoBehaviour
                     anim.SetBool("habcarga",true);
                     temprecargafin = 5;
                     temp2 = 0;
+                    habcargason.Play();
                     //explotar 60%
                 }
                 else if(randomdec3 == 1 && escudos >= 3)
@@ -636,6 +649,7 @@ public class enemigo3_al1: MonoBehaviour
                     temprecargafin = 10;
                     temp2 = 0;
                     //explotar 2 80%
+                    habcargason.Play();
                 }
                 //explotar
                 randomdec2 = 0;
@@ -655,6 +669,7 @@ public class enemigo3_al1: MonoBehaviour
                     anim.Play("atkgiroene");
                     temp2 = 0;
                     temp = 0;
+                    golpeson.Play();
                 }
                 else if(randomdec3 == 1 )
                 {
@@ -666,6 +681,7 @@ public class enemigo3_al1: MonoBehaviour
                     anim.Play("atkgiroene");
                     temp2 = 0;
                     temp = 0;
+                    golpeson.Play();
                 }
                 
                 randomdec2 = 0;
@@ -795,18 +811,21 @@ public class enemigo3_al1: MonoBehaviour
             if (vidaescudo1 <= 0 && escudos == 1)
             {
                 escudos--;
+                expson.Play();
                 GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
             }    
             else if (vidaescudo2 <= 0 && escudos == 2)
             {
                 escudos--;
+                expson.Play();
                 GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
             }
             else if (vidaescudo3 <= 0 && escudos == 3)
             {
                 escudos--;
+                expson.Play();
                 GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
             }
@@ -869,18 +888,21 @@ public class enemigo3_al1: MonoBehaviour
             if (vidaescudo1 <= 0 && escudos == 1)
             {
                 escudos--;
+                expson.Play();
                 GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
             }    
             else if (vidaescudo2 <= 0 && escudos == 2)
             {
                 escudos--;
+                expson.Play();
                 GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
             }
             else if (vidaescudo3 <= 0 && escudos == 3)
             {
                 escudos--;
+                expson.Play();
                 GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
             }
@@ -922,18 +944,21 @@ public class enemigo3_al1: MonoBehaviour
             if (vidaescudo1 <= 0 && escudos == 1)
             {
                 escudos--;
+                expson.Play();
                 GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
             }    
             else if (vidaescudo2 <= 0 && escudos == 2)
             {
                 escudos--;
+                expson.Play();
                 GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
             }
             else if (vidaescudo3 <= 0 && escudos == 3)
             {
                 escudos--;
+                expson.Play();
                 GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
             }
@@ -1015,18 +1040,21 @@ public class enemigo3_al1: MonoBehaviour
             if (vidaescudo1 <= 0 && escudos == 1)
             {
                 escudos--;
+                expson.Play();
                 GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
             }    
             else if (vidaescudo2 <= 0 && escudos == 2)
             {
                 escudos--;
+                expson.Play();
                 GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
             }
             else if (vidaescudo3 <= 0 && escudos == 3)
             {
                 escudos--;
+                expson.Play();
                 GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
                 Destroy(explosiont, 1f);
             }

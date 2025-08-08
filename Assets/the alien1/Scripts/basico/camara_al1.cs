@@ -62,17 +62,19 @@ public class camara_al1 : MonoBehaviour
 
 		if(manager.juego == 4 || manager.juego == 3  || manager.juego == 0 )
 		{
-			transform.position = boxcam2.transform.position + direction * distancia;
+			transform.position = Vector3.MoveTowards(transform.position,  boxcam2.transform.position + direction * distancia, Time.deltaTime * 120f);
 			transform.rotation = Quaternion.LookRotation(boxcam2.transform.position - transform.position);
-		}
+		}	
 		else if(manager.juego == 6 )
 		{
-			transform.position = jugador.transform.position + direction * distancia;
-			transform.position = transform.position + transform.TransformDirection(new Vector3(0,5.920013f,0));
+			
+			Vector3 var = jugador.transform.position + direction * distancia;
+			var = var + transform.TransformDirection(new Vector3(0,5.920013f,0));
+			transform.position = Vector3.MoveTowards(transform.position, var, Time.deltaTime * 120f);
 		}
 		else if(manager.juego == 1)
 		{
-			transform.position = boxcam2.transform.position + direction * distancia;
+			transform.position = Vector3.MoveTowards(transform.position,  boxcam2.transform.position + direction * distancia, Time.deltaTime * 120f);
 
 		}
 

@@ -641,6 +641,7 @@ MonoBehaviour:
   repath: 
   repathconfig: 
   datosserial:
+    datos_llenos: 0
     eventos: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     newgameplus1: 0
     puertagir: 0
@@ -648,7 +649,7 @@ MonoBehaviour:
     puertagiract: 0
     puertaposact: 0
     salirnivelsala: 
-    nivelnavejug: 0
+    nameCH: []
     puertasdesbloqueadas: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     actual_checkpoint: 0
     npcF: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
@@ -734,6 +735,7 @@ MonoBehaviour:
     misionS: 
     misiondescS: 
     economia: 00000000000000000000000000000000000000000000000000000000
+    demoFIN: 0
   datosconfig:
     primera: 0
     primerares: 0
@@ -864,6 +866,7 @@ MonoBehaviour:
   datosslot:
     datos1slot: 1
     newgameplus1: 0
+    secreto: 0
   repathtro: 
   repathslot: 
   moveson: {fileID: 0}
@@ -3190,6 +3193,135 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &2017688748774482284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4515191238353681295}
+  - component: {fileID: 2427792870604955547}
+  m_Layer: 2
+  m_Name: saltoson
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4515191238353681295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017688748774482284}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.42143148, z: -0, w: 0.9068603}
+  m_LocalPosition: {x: 358.86594, y: 1345.6575, z: 502.77576}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6220954172098161761}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2427792870604955547
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017688748774482284}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 334a81cfbaeb14d36ac82d2eba6d1886, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2121543348216169075
 GameObject:
   m_ObjectHideFlags: 0
@@ -3340,6 +3472,7 @@ Transform:
   m_Children:
   - {fileID: 2838092860837484738}
   - {fileID: 8927715564460561136}
+  - {fileID: 4515191238353681295}
   - {fileID: 6534241144777029526}
   - {fileID: 4418814390683563011}
   m_Father: {fileID: 23726799364712121}
@@ -4918,7 +5051,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3798924179688810810}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9908c2c53e299b64f896323680045101, type: 3}
   m_Name: 
@@ -5177,7 +5310,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3893809292889963183}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44d7fbc2180163142bbf29236d5b9b15, type: 3}
   m_Name: 
@@ -5196,6 +5329,7 @@ MonoBehaviour:
   cortoson: {fileID: 50858994777956257}
   derrapeson: {fileID: 8410615923278307507}
   turboson: {fileID: 6601754001003795805}
+  controlact: 0
 --- !u!135 &9074775088192390761
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6403,7 +6537,7 @@ MonoBehaviour:
   nopimg: {fileID: 0}
   respawn: {fileID: 8005259946181050333}
   balaprefab: {fileID: 0}
-  saltadorson: {fileID: 0}
+  saltadorson: {fileID: 2427792870604955547}
   explosion: {fileID: 0}
   escudohabaud: {fileID: 0}
   camara: {fileID: 4144849826280599955}
@@ -6452,7 +6586,6 @@ MonoBehaviour:
   derrapeson: {fileID: 5062196753218986955}
   turboson: {fileID: 1867223892287482477}
   habson: {fileID: 5536189543604880352}
-  saltoson: {fileID: 0}
 --- !u!108 &6626815341590534731
 Light:
   m_ObjectHideFlags: 0
@@ -7501,7 +7634,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5218611467675912716}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44d7fbc2180163142bbf29236d5b9b15, type: 3}
   m_Name: 
@@ -7520,6 +7653,7 @@ MonoBehaviour:
   cortoson: {fileID: 415593149263783202}
   derrapeson: {fileID: 6051502124708595249}
   turboson: {fileID: 4672671626011619813}
+  controlact: 0
 --- !u!135 &4663565481370820229
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8969,7 +9103,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6093396390125704151}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44d7fbc2180163142bbf29236d5b9b15, type: 3}
   m_Name: 
@@ -8988,6 +9122,7 @@ MonoBehaviour:
   cortoson: {fileID: 6234633597452456655}
   derrapeson: {fileID: 9129487079228480979}
   turboson: {fileID: 5912122645487904361}
+  controlact: 0
 --- !u!135 &5958085049244553364
 SphereCollider:
   m_ObjectHideFlags: 0

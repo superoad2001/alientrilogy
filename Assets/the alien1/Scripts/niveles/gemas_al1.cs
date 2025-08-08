@@ -24,10 +24,11 @@ public class gemas_al1 : MonoBehaviour
 	public jugador_al1 jugador;
 	public Animator conseguidoa;
 	public AudioSource fanfarria;
-	public GameObject rotoe;
+	public GameObject exp;
 	public GameObject rotoobj;
 
 	public AudioSource musica;
+	public AudioSource coger;
 
 	public int GemaID;
 	// Token: 0x06000012 RID: 18 RVA: 0x0000243B File Offset: 0x0000063B
@@ -52,17 +53,12 @@ public class gemas_al1 : MonoBehaviour
 	private void Update()
 	{
 		
-		if(Temp >= 10 )
-		{
 
-			jugador.controlact = true;
-			
-		}
-		if(Temp > 5 )
+		if(Temp >= 5 && Temp < 6)
 		{	
 			aparece.SetActive(true);
 		}
-		if(Temp > 5 && pasos < 1)
+		if(Temp >= 5  && Temp < 6 && pasos < 1)
 		{	pasos++;
 			conseguidoa.SetBool("act",true);
 			
@@ -79,7 +75,7 @@ public class gemas_al1 : MonoBehaviour
 				conseguido.text = "o has aconseguit";
 			}
 		}
-		if(Temp > 6 && fake == true && pasos < 2)
+		if(Temp >= 6 && Temp < 10  && fake == true && pasos < 2)
 		{
 			pasos++;
 			if(manager.datosconfig.idioma == "es")
@@ -95,11 +91,13 @@ public class gemas_al1 : MonoBehaviour
 				conseguido.text = "o no?";
 			}
 			fakes.Play();
+			GameObject expT = Instantiate(exp, transform.position,transform.rotation) as GameObject;
+			Destroy(expT,1f);
 		}
-		if(Temp > 7 && fake == true && pasos < 3)
+		if(Temp >= 7 && Temp < 10 && fake == true  && pasos < 3)
 		{
 			pasos++;
-			GameObject roto = Instantiate(rotoe, transform.position,transform.rotation) as GameObject;
+			GameObject roto = Instantiate(exp, transform.position,transform.rotation) as GameObject;
 			rotoson.Play();
 			Destroy(roto, 1.0f);
 			
@@ -108,6 +106,19 @@ public class gemas_al1 : MonoBehaviour
 				Destroy(rotoobj);
 			}	
 			this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+		}
+		if(Temp >= 10 && fake == true)
+		{
+			jugador.musicajuego.Play();
+			fanfarria.Stop();
+			aparece.SetActive(false);
+			conseguido.text = "";
+			conseguidoa.SetBool("act",false);
+			cam.SetBool("act",false);
+			jugador.controlact = true;
+			fin = false;
+			Destroy(this.gameObject, 1.0f);
+
 		}
 		if(Temp > 10 )
 		{
@@ -118,9 +129,12 @@ public class gemas_al1 : MonoBehaviour
 			conseguidoa.SetBool("act",false);
 			cam.SetBool("act",false);
 			jugador.controlact = true;
-			Destroy(this.gameObject);
+			Destroy(rotoobj, 1.0f);
 			fin = false;
 			Temp = 0;
+			coger.Play();
+			GameObject expT = Instantiate(exp, transform.position,transform.rotation) as GameObject;
+			Destroy(expT,1f);
 		}
 		if(fin == true)
 		{

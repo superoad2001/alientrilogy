@@ -34,7 +34,7 @@ public class subirnave_al1 : MonoBehaviour
 
 	private void OnTriggerStay(Collider col)
 	{
-		if (col.gameObject.tag == "Player" && manager.datosserial.tengonave == 1)
+		if (col.gameObject.tag == "Player" && manager.datosserial.tengonave == true)
 		{
 	    	anim.SetBool("show",true);
 			if(manager.datosconfig.idioma == "es")

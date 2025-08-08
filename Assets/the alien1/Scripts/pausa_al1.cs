@@ -124,6 +124,7 @@ public class pausa_al1 : MonoBehaviour
     public AudioSource nop;
     public Text notasT;
     public Text notasdescT;
+    public bool controlact;
     
 
 
@@ -145,6 +146,7 @@ public class pausa_al1 : MonoBehaviour
 	}
     void Start()
     {
+        controlact = true;
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         if(modo == 1)
@@ -421,7 +423,7 @@ public class pausa_al1 : MonoBehaviour
             }
             
         }
-        if(modo == 0)
+        if(modo == 0 && controlact == true)
         {
             boton = controles.al1_UI.menu1.ReadValue<float>();
         }
@@ -434,8 +436,10 @@ public class pausa_al1 : MonoBehaviour
             boton = controles.al1_UI.menu1.ReadValue<float>();
         }
         
-
+    	if(controlact == true)
+        {
         botonb = controles.al1_UI.atras.ReadValue<float>();
+        }
         
         if(manager.datosconfig.idioma == "es")
         {
@@ -716,6 +720,7 @@ public class pausa_al1 : MonoBehaviour
     }
     public void opciones()
     {
+        controlact = false;
         normal.SetActive(false);
         opciones1.SetActive(true);
     }
@@ -739,6 +744,8 @@ public class pausa_al1 : MonoBehaviour
     }
     public void no_aplicar()
     {
+        temp = 0;
+        controlact = true;
         opciones1.SetActive(false);
         normal.SetActive(true);
         

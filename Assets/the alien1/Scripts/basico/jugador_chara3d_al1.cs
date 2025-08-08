@@ -14,13 +14,14 @@ public class jugador_chara3d_al1 : jugador_al1
 {
 	[Header("Propio 3D")]
 	public AudioSource dest;
+	public AudioSource critico;
+	public GameObject Critobj;
 	private float vidaescudoUI1;
 	private float vidaescudoUI2;
 	private float vidaescudoUI3;
 	public bool invertirHorizontal = false;
 	public GameObject ascensorui;
 	public bool camnomov;
-	public AudioSource saltoson;
 	private bool controlActivo = false; 
 	public float horizontalFinal;
 	public GameObject armadefpassC;
@@ -91,12 +92,14 @@ public class jugador_chara3d_al1 : jugador_al1
 	private int randompaso;
 	public AudioSource pasos1;
 	public AudioSource pasos2;
+	public AudioSource sonidoTP;
+    public GameObject expTP;
+	public bool carga;
 	public bool eventoini;
 	private float angulomod;
 	private float pasotiempo;
 	private float temppaso = 1;
 	public float jugpos;
-	public GameObject noarmasel;
 	public GameObject tarboss;
 	public GameObject slash;
 	public Sprite arma1;
@@ -163,6 +166,7 @@ public class jugador_chara3d_al1 : jugador_al1
 	public npc_al1 npcbase;
 	private float jumpforcebase = 0f;
 	public eventosdialogue eventosdialogueE;
+	public Animator animcam;
 	public AudioSource vozMeet;
 	private float tempdash = 12;
 	private float tempdash2 = 12;
@@ -202,7 +206,7 @@ public class jugador_chara3d_al1 : jugador_al1
 	// Token: 0x0600001D RID: 29 RVA: 0x000025E8 File Offset: 0x000007E8
 	private void Start()
 	{
-		
+		critico.Pause();
 
 		fuebasetut = 1;
 		fuebase = 2;
@@ -216,6 +220,15 @@ public class jugador_chara3d_al1 : jugador_al1
 		if(GameObject.Find("muerteaudio") == true)
 		{muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();}
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+
+		if(manager.nivelact)
+		{
+			controlact = false;
+			animcam.Play("comenzarnivel");
+			sonidoTP.Play();
+			GameObject exptemp = Instantiate(expTP, transform.position,transform.rotation) as GameObject;
+			Destroy(exptemp,1);
+		}
 
 		camarascript = (camara_al1)FindFirstObjectByType(typeof(camara_al1));
 
@@ -505,14 +518,20 @@ public class jugador_chara3d_al1 : jugador_al1
 	}
 	private void Update()
 	{
-
-
-	
-
-		noarmasel.SetActive(false);
-		if(manager.datosserial.tengolanzar == true || manager.datosserial.armapapa == true || manager.datosserial.armarelen == true || manager.datosserial.armadef == true)
+		if(animcam.GetCurrentAnimatorStateInfo(0).IsName("staticcam") && carga == false && temp10 > 1)
 		{
-			noarmasel.SetActive(true);
+			controlact = true;
+			carga = true;
+		}
+		if(vida < ((vidamax/100)* 15))
+		{
+
+			critico.UnPause();
+				
+		}
+		else
+		{
+			critico.Pause();
 		}
 	
 		
@@ -572,6 +591,7 @@ public class jugador_chara3d_al1 : jugador_al1
 	
 	if(vida < 1)
 	{
+		critico.Pause();
 		vida = 0;
 		muerte = true;
 	}
@@ -629,7 +649,10 @@ public class jugador_chara3d_al1 : jugador_al1
 	
 	if(tiempoascensor < 15)	
 	{tiempoascensor += Time.deltaTime;}
-
+	if(controlact == false)
+	{
+		anim.SetBool("stat",true);
+	}
 	if(controlact == true)
 	{
 
@@ -1372,7 +1395,7 @@ public class jugador_chara3d_al1 : jugador_al1
 				}
 			}
 		}
-		if(ruletac > 0 && manager.datosserial.tengolanzar == true)
+		if(ruletac > 0 && manager.datosserial.pocionesmax > 0)
 		{
 
 			circulopaloimg.fillAmount = 1;
@@ -1856,7 +1879,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			
 			
 			
-			if(lateralc == 0 && controlact == true|| ascensor == true && controlact == true|| objplaneta != null && controlact == true)
+			if(lateralc == 0 && controlact == true|| ascensor == true && controlact == true|| objplaneta != null && controlact == true )
             {
 
 				anim.SetBool("movlat",false);
@@ -3125,7 +3148,8 @@ public class jugador_chara3d_al1 : jugador_al1
 		
 		Debug.DrawRay(transform.position + new Vector3(0,3,0),movdirectaux * 300, Color.green);
 	
-			if(correrc > 0 && velact != true && stamina > 0)
+			if(correrc > 0 && velact != true && stamina > 0 && movYc != 0 && controlact == true
+			|| correrc > 0 && velact != true && stamina > 0 && movXc != 0 && controlact == true)
 			{
 				stamina -= 7 * Time.deltaTime;
 				staminaact = 0;
@@ -3264,25 +3288,6 @@ public class jugador_chara3d_al1 : jugador_al1
 		
 	}
 
-	// Token: 0x06000020 RID: 32 RVA: 0x00003169 File Offset: 0x00001369
-	public void saltoalto()
-	{
-			this._rb.AddRelativeForce(this.jumpforce * 0.2f * Vector3.up);
-			saltoson.Play();
-	}
-    public void saltoalto2()
-	{
-			this._rb.AddRelativeForce(this.jumpforce * 1f * Vector3.up);
-			saltoson.Play();
-		
-	}
-	public void saltoalto3()
-	{
-
-			this._rb.AddRelativeForce(this.jumpforce * 3f * Vector3.up);
-			saltoson.Play();
-
-	}
 
 	// Token: 0x06000021 RID: 33 RVA: 0x0000318C File Offset: 0x0000138C
 	public void OnCollisionEnter(Collision col)
@@ -3812,9 +3817,11 @@ public class jugador_chara3d_al1 : jugador_al1
 				if((DialogueManager)FindFirstObjectByType(typeof(DialogueManager)) != null)
 				{menuoff = (DialogueManager)FindFirstObjectByType(typeof(DialogueManager));}
 				
-				manager.misionS = col.gameObject.GetComponent<npc_al1>().mision;
+				
 				if(misionA.tiendaact == false)
 				{
+				manager.misionS = col.gameObject.GetComponent<npc_al1>().mision;
+				misionA.misionS = col.gameObject.GetComponent<npc_al1>().mision;
 				misionA.npcid = col.gameObject.GetComponent<npc_al1>().managernpc.npcID;
 				misionA.premiocant = col.gameObject.GetComponent<npc_al1>().npc_precio;
 				}

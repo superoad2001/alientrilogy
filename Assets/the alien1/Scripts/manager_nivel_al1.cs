@@ -16,14 +16,14 @@ public class manager_nivel_al1 : MonoBehaviour
 
 
 
-	private void Start()
+	private void Awake()
 	{
 		
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
 		if (manager.nivelact == true)
 		{
-			if (manager.datosserial.actual_checkpoint == 1)
+			if (ubi == 1)
 			{
 				jugador.transform.position = posch1.transform.position + new Vector3(0, 4, 0);
 				if(manager.juego == 4)
@@ -36,11 +36,14 @@ public class manager_nivel_al1 : MonoBehaviour
 					if(posch1.transform.eulerAngles.y == 90f)
 					{
 						jugador.dimensiion = true;
+						jugador.jugpos = jugador.transform.position.x;
 					}
 					else
 					{
 						jugador.dimensiion = false;
+						jugador.jugpos = jugador.transform.position.z;
 					}
+
 				}
 			}
 			if (manager.datosserial.actual_checkpoint == 2)
@@ -52,13 +55,15 @@ public class manager_nivel_al1 : MonoBehaviour
 				}
 				if(manager.juego == 3)
 				{
-					if(posch2.transform.eulerAngles.y == 90f)
+					if(posch1.transform.eulerAngles.y == 90f)
 					{
 						jugador.dimensiion = true;
+						jugador.jugpos = jugador.transform.position.x;
 					}
 					else
 					{
 						jugador.dimensiion = false;
+						jugador.jugpos = jugador.transform.position.z;
 					}
 				}
 			}
