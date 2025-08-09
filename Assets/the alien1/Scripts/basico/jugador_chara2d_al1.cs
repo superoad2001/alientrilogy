@@ -13,6 +13,7 @@ using System.Linq;
 public class jugador_chara2d_al1 : jugador_al1
 {
 	[Header("Propio 2D")]
+	private float tiempogiro2;
 	public AudioSource critico;
 	public GameObject Critobj;
 	public GameObject armadefpassC;
@@ -25,7 +26,7 @@ public class jugador_chara2d_al1 : jugador_al1
 	public float rotspeed = 3;
 	public float tempgir = 0;
 	private float tiempogiro;
-	private float tiempogiro2;
+	
 	public bool invertirHorizontal = false;
 	public float horizontalFinal;
 	private bool controlActivo = false; 
@@ -3212,7 +3213,7 @@ public class jugador_chara2d_al1 : jugador_al1
 				
 			}
 		}
-		else if (col.gameObject.tag == "pisar" && col.gameObject.tag != "enemigo" && enetouch == false )
+		else if (col.gameObject.tag == "pisar" && enetouch == false )
 		{
 					
 					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 1 )
@@ -3228,7 +3229,7 @@ public class jugador_chara2d_al1 : jugador_al1
 								
 									enec.rb_.AddRelativeForce(transform.forward * 110 * 2 * (enec.tamano + 1));
 									enec.danoene.Play();
-									enec.temprb = 1;
+									enec.temprb = 3;
 								}
 								if(enec.tamano == 0)
 								{enec.vida -= enec.vidamax;}
@@ -3238,7 +3239,7 @@ public class jugador_chara2d_al1 : jugador_al1
 								{enec.vida -= enec.vidamax/6;}
 								else if(enec.tamano == 3)
 								{enec.vida -= enec.vidamax/9;}
-								_rb.AddRelativeForce(transform.up * 110 * 3);
+								_rb.AddRelativeForce(transform.up * 110 * 7);
 								vidaeneact = true;			
 								vidaeneui = enec.vida;
 								vidaeneuimax = enec.vidamax;
@@ -3246,6 +3247,8 @@ public class jugador_chara2d_al1 : jugador_al1
 								vidaenebarra.SetActive(true);
 								if(eventotut != null)
 								{eventotut.evento();}
+								if(enec.vida < 1)
+								{enec.temprb = 0;}
 							}
 						
 						
@@ -3270,6 +3273,8 @@ public class jugador_chara2d_al1 : jugador_al1
 							vidaeneuimax = enec.vidamax;
 							niveleneui.text = enec.nivelactual.ToString();
 							vidaenebarra.SetActive(true);
+							if(enec.vida < 1)
+							{enec.temprb = 0;}
 							}
 						
 				}

@@ -31,6 +31,7 @@ public class teleport_al1 : MonoBehaviour
     public GameObject expTP;
     public jugador_al1 jugador;
     public bool bloqueadanave;
+    public bool ascensor;
 
     
 
@@ -95,7 +96,51 @@ public class teleport_al1 : MonoBehaviour
     }
     private void OnCollisionStay(Collision col)
 	{
-		if (col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player" && ascensor == true)
+		{
+
+            if (manager.datosconfig.idioma == "es")
+            {
+                tutfinala.text = "Usar Llave";
+            }
+            
+            if (manager.datosserial.tengollave1 == true && manager.piso == 1 && manager.datosserial.jefeV[0] == false)
+			{
+                anim.SetBool("show",true);
+                
+                if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
+                {
+                    SceneManager.LoadScene(ubi);
+                }
+                
+            }
+            if (manager.datosserial.tengollave2 == true && manager.piso == 2 && manager.datosserial.jefeV[1] == false)
+			{
+                anim.SetBool("show",true);
+                if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
+                {
+                    SceneManager.LoadScene(ubi);
+                }
+            }
+            if (manager.datosserial.tengollave3 == true && manager.piso == 3 && manager.datosserial.jefeV[2] == false)
+			{
+                anim.SetBool("show",true);
+                if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
+                {
+                    SceneManager.LoadScene(ubi);
+                }
+            }
+            if (manager.datosserial.tengollave4 == true && manager.piso == 4 && manager.datosserial.jefeV[3] == false)
+			{
+                anim.SetBool("show",true);
+                if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
+                {
+                    SceneManager.LoadScene(ubi);
+                }
+            }
+            
+        }
+		if (col.gameObject.tag == "Player" && ascensor == false)
 		{
 
             anim.SetBool("show",true);
@@ -198,14 +243,21 @@ public class teleport_al1 : MonoBehaviour
                     if(manager.datosserial.economia[0] >= cantgemas)
                     {
                         SceneManager.LoadScene(ubi);
+                        
                     }
                     else
                     {
                         nopson.Play();
                     }
+                    
                 }
                 else if (bloqueada == false && bloqueadanave == false && manager.datosserial.economia[0] >= cantgemas)
-                {           
+                {     
+                    if(manager.nivelact == true && manager.hierronivel == true)
+                    {
+                        manager.datosserial.LlaveT[manager.IDhierronivel] = true;
+                        manager.datosserial.economia[2]++;
+                    }      
                     SceneManager.LoadScene(ubi);
                 }
                 else
@@ -232,7 +284,51 @@ public class teleport_al1 : MonoBehaviour
 	}
     private void OnTriggerStay(Collider col)
 	{
-		if (col.gameObject.tag == "Player" )
+        if (col.gameObject.tag == "Player" && ascensor == true)
+		{
+
+            if (manager.datosconfig.idioma == "es")
+            {
+                tutfinala.text = "Usar Llave";
+            }
+            
+            if (manager.datosserial.tengollave1 == true && manager.piso == 1 && manager.datosserial.jefeV[0] == false)
+			{
+                anim.SetBool("show",true);
+                
+                if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
+                {
+                    SceneManager.LoadScene(ubi);
+                }
+                
+            }
+            if (manager.datosserial.tengollave2 == true && manager.piso == 2 && manager.datosserial.jefeV[1] == false)
+			{
+                anim.SetBool("show",true);
+                if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
+                {
+                    SceneManager.LoadScene(ubi);
+                }
+            }
+            if (manager.datosserial.tengollave3 == true && manager.piso == 3 && manager.datosserial.jefeV[2] == false)
+			{
+                anim.SetBool("show",true);
+                if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
+                {
+                    SceneManager.LoadScene(ubi);
+                }
+            }
+            if (manager.datosserial.tengollave4 == true && manager.piso == 4 && manager.datosserial.jefeV[3] == false)
+			{
+                anim.SetBool("show",true);
+                if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
+                {
+                    SceneManager.LoadScene(ubi);
+                }
+            }
+            
+        }
+		if (col.gameObject.tag == "Player" && ascensor == false)
 		{
 	    	anim.SetBool("show",true);
             if(bloqueadanave == true)
@@ -345,6 +441,11 @@ public class teleport_al1 : MonoBehaviour
                 }
                 else if (bloqueada == false && bloqueadanave == false && manager.datosserial.economia[0] >= cantgemas)
                 {           
+                    if(manager.nivelact == true && manager.hierronivel == true)
+                    {
+                        manager.datosserial.LlaveT[manager.IDhierronivel] = true;
+                        manager.datosserial.economia[2]++;
+                    }
                     SceneManager.LoadScene(ubi);
                 }
                 else

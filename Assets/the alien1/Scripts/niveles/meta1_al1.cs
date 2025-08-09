@@ -31,15 +31,17 @@ public class meta1_al1 : MonoBehaviour
 	public AudioSource coger;
 
 	public int LlaveID;
+	public bool muerte;
+	public GameObject respawn;
 	// Token: 0x06000012 RID: 18 RVA: 0x0000243B File Offset: 0x0000063B
 	private void Start()
 	{
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
-		if (manager.datosserial.LlaveT[LlaveID] == 1)
+		if (manager.datosserial.LlaveT[LlaveID] == true)
 		{
 			
-			Destroy(rotoobj);
+			Destroy(this.gameObject);
 		}
 
 	}
@@ -47,6 +49,15 @@ public class meta1_al1 : MonoBehaviour
 	// Token: 0x0600005B RID: 91 RVA: 0x00003C7F File Offset: 0x00001E7F
 	private void Update()
 	{
+		if(respawn != null)
+		{
+			if(respawn.activeSelf)
+			{
+				coger.Stop();
+				fanfarria.Stop();
+			}
+		}
+		
 		
 		if(Temp >= 5 && Temp < 6)
 		{	
@@ -101,7 +112,7 @@ public class meta1_al1 : MonoBehaviour
 			}	
 			this.gameObject.GetComponent<MeshRenderer>().enabled = false;
 		}
-		if(Temp >= 10 && fake == true)
+		if(Temp >= 10 && fake == true && pasos < 4)
 		{
 			jugador.musicajuego.Play();
 			fanfarria.Stop();
@@ -114,8 +125,9 @@ public class meta1_al1 : MonoBehaviour
 			Destroy(this.gameObject, 1.0f);
 
 		}
-		if(Temp >= 10 && Temp < 12 && fake == false )
+		if(Temp >= 10 && Temp < 12 && fake == false && pasos < 2 )
 		{
+			pasos++;
 			jugador.musicajuego.Play();
 			fanfarria.Stop();
 			aparece.SetActive(false);
@@ -128,7 +140,7 @@ public class meta1_al1 : MonoBehaviour
 			GameObject expT = Instantiate(exp, transform.position,transform.rotation) as GameObject;
 			Destroy(expT,1f);			
 		}
-		if(Temp >= 12  && fake == false )
+		if(Temp >= 12  && fake == false && pasos < 3)
 		{
 			fin = false;
 			Destroy(this.gameObject, 1.0f);
@@ -136,7 +148,12 @@ public class meta1_al1 : MonoBehaviour
 		}
 		if(fin == true)
 		{
+			jugador.controlact = false;
 			Temp += 1 * Time.deltaTime;
+			if(jugador.modo == "nave")
+			{
+				//cam.enabled = false;
+			}
 		}
 
 	}
@@ -155,8 +172,12 @@ public class meta1_al1 : MonoBehaviour
 				cam.SetBool("act",true);
 				jugador.controlact = false;
 			}
-			else if (manager.datosserial.LlaveT[LlaveID] == 0)
+			else if (manager.datosserial.LlaveT[LlaveID] == false)
 			{
+				if(jugador.modo == "nave")
+				{
+					cam.enabled = true;
+				}
 				manager.hierronivel = true;
 				manager.IDhierronivel = LlaveID;
 				jugador.musicajuego.Stop();
@@ -164,6 +185,7 @@ public class meta1_al1 : MonoBehaviour
 				fin = true;
 				cam.SetBool("act",true);
 				jugador.controlact = false;
+				
 				
 			}
 			

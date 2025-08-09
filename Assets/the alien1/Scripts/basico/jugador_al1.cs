@@ -15,6 +15,7 @@ public abstract class jugador_al1 : MonoBehaviour
 
 	[Header("Posición")]
 	public int movact;
+	public string modo;
     public bool controlact = true;
 	public GameObject objplaneta;
 	public float disjugsave;

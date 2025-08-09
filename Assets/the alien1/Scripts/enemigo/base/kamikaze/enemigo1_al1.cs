@@ -1172,7 +1172,15 @@ public class enemigo1_al1: MonoBehaviour
                 jugador1.muerte = true;
             }
             jugador1.eneempuj = this.gameObject;
-            jugador1.enmovdirectaux = transform.TransformDirection((jugador1.eneempuj.transform.forward *70) + (jugador1.eneempuj.transform.up * -50));
+            if(manager.juego != 3)
+            {
+                jugador1.enmovdirectaux = transform.TransformDirection((jugador1.eneempuj.transform.forward *70) + (jugador1.eneempuj.transform.up * -50));
+            }
+            else
+            {
+                jugador1.enmovdirectaux = transform.TransformDirection((jugador1.eneempuj.transform.up * -70));
+            }
+            
             jugador1.enmovdirectaux = jugador1.enmovdirectaux.normalized;
             jugador1.tempempujon = 0;
             jugador1.empujon = true;

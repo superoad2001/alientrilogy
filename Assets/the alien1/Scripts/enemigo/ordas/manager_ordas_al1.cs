@@ -34,6 +34,8 @@ public class manager_ordas_al1 : MonoBehaviour
     public GameObject explosion;
     public bool actinironda;
     public float temp;
+    public GameObject portal;
+    public GameObject hierro;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -203,7 +205,8 @@ public class manager_ordas_al1 : MonoBehaviour
             rondaText.text = "consegido";
             rondaAnim.Play("ordasanim1");
             contadorene = 1;
-            //si obstuviste llave dira llave obtenida si no dira conseguido
+            hierro.SetActive(true);
+            portal.SetActive(true);
         }
         else
         {

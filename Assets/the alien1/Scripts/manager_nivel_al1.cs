@@ -16,7 +16,7 @@ public class manager_nivel_al1 : MonoBehaviour
 
 
 
-	private void Awake()
+	public void carga()
 	{
 		
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
@@ -32,14 +32,16 @@ public class manager_nivel_al1 : MonoBehaviour
 				}
 				if(manager.juego == 3)
 				{
-					//jugador.camara.transform.eulerAngles = jugador.transform.eulerAngles + new Vector3(0, 90, 0);
+					
 					if(posch1.transform.eulerAngles.y == 90f)
 					{
+						jugador.transform.eulerAngles = posch1.transform.eulerAngles;
 						jugador.dimensiion = true;
 						jugador.jugpos = jugador.transform.position.x;
 					}
 					else
 					{
+						jugador.transform.eulerAngles = posch1.transform.eulerAngles;
 						jugador.dimensiion = false;
 						jugador.jugpos = jugador.transform.position.z;
 					}
@@ -53,15 +55,19 @@ public class manager_nivel_al1 : MonoBehaviour
 				{
 					jugador.transform.eulerAngles = posch2.transform.eulerAngles;
 				}
+
+
 				if(manager.juego == 3)
 				{
 					if(posch1.transform.eulerAngles.y == 90f)
 					{
+						jugador.transform.eulerAngles = posch2.transform.eulerAngles;
 						jugador.dimensiion = true;
 						jugador.jugpos = jugador.transform.position.x;
 					}
 					else
 					{
+						jugador.transform.eulerAngles = posch2.transform.eulerAngles;
 						jugador.dimensiion = false;
 						jugador.jugpos = jugador.transform.position.z;
 					}

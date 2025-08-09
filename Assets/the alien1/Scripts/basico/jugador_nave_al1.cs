@@ -134,7 +134,7 @@ public class jugador_nave_al1 : jugador_al1
 	public void Start()
 	{
 		critico.Pause();
-		
+		modo = "nave";
 
 		jugador_al1 jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
 		if(camara != null)
@@ -142,6 +142,7 @@ public class jugador_nave_al1 : jugador_al1
 		if(GameObject.Find("muerteaudio") == true)
 		{muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();}
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+
 
 		
 
@@ -723,6 +724,10 @@ public class jugador_nave_al1 : jugador_al1
 
 
 		Vector3 movdirnow = new Vector3(0,0,0);
+		
+		
+	if(controlact == true)
+	{
 
 
 				
@@ -1335,6 +1340,20 @@ public class jugador_nave_al1 : jugador_al1
 
 				}
 			}
+	}
+	else
+	{
+		slash.SetActive(false);
+		pasos1.Pause();
+		pasos2.Pause();
+		_rb.linearVelocity = transform.TransformDirection(new Vector3 (0,0,0));
+		movnave = false;
+		movnave2 = false;
+		viento_nave.SetActive(false);
+		escudoact = false;
+		Gescudo_nave.SetActive(false);
+
+	}
 
 		if(temp10 < 15)
         {temp10 += 1 * Time.deltaTime;}

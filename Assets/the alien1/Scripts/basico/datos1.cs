@@ -58,7 +58,7 @@ public class datos1
 
 	public int[] misiones = new int[200];
 
-	public int[] LlaveT = new int[100];
+	public bool[] LlaveT = new bool[100];
 	public bool[] pociones = new bool[9];
 	public bool armadefdesbloqueada;
 	public int MisionesCumplidas;

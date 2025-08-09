@@ -20,6 +20,8 @@ public class manager_ordas_nave_al1 : MonoBehaviour
     public bool actinironda;
     public float temp;
     private bool ganar;
+    public GameObject TP;
+    public GameObject hierro;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -49,9 +51,9 @@ public class manager_ordas_nave_al1 : MonoBehaviour
             {
                 if(ganar == true)
                 {
-                    SceneManager.LoadScene("piso1_al1");
-                }
-                jugador.controlact = true;           
+                    hierro.SetActive(true);
+                    TP.SetActive(true);
+                }      
                 temp = 0;
                 actinironda = false;
             }
@@ -74,7 +76,6 @@ public class manager_ordas_nave_al1 : MonoBehaviour
             rondaText.text = "Carga OVNI";
             rondaAnim.Play("ordasanim1");
         }
-        jugador.controlact = false;
         actinironda = true;
         temp = 0;
         

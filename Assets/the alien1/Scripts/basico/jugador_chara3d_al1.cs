@@ -99,7 +99,6 @@ public class jugador_chara3d_al1 : jugador_al1
 	private float angulomod;
 	private float pasotiempo;
 	private float temppaso = 1;
-	public float jugpos;
 	public GameObject tarboss;
 	public GameObject slash;
 	public Sprite arma1;
@@ -478,14 +477,6 @@ public class jugador_chara3d_al1 : jugador_al1
 		
 		vidaenebarra.SetActive(false);
 		
-		if(dimensiion == true)
-		{
-			jugpos = transform.localPosition.x;
-		}
-		else if(dimensiion == false)
-		{
-			jugpos = transform.localPosition.z;
-		}
 
 			camara.transform.eulerAngles = new Vector3(camara.transform.eulerAngles.x,transform.eulerAngles.y,camara.transform.eulerAngles.z);
 		
@@ -3432,7 +3423,7 @@ public class jugador_chara3d_al1 : jugador_al1
 				
 			}
 		}
-		if (col.gameObject.tag == "pisar" && col.gameObject.tag != "enemigo" && enetouch == false )
+		if (col.gameObject.tag == "pisar" && enetouch == false )
 		{
 					Debug.Log("pisar");
 					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 1 )
@@ -3451,7 +3442,7 @@ public class jugador_chara3d_al1 : jugador_al1
 								
 									enec.rb_.AddRelativeForce(transform.forward * 110 * 2 * (enec.tamano + 1));
 									enec.danoene.Play();
-									enec.temprb = 1;
+									enec.temprb = 3;
 								}
 								if(enec.tamano == 0)
 								{enec.vida -= enec.vidamax;}
@@ -3461,7 +3452,7 @@ public class jugador_chara3d_al1 : jugador_al1
 								{enec.vida -= enec.vidamax/6;}
 								else if(enec.tamano == 3)
 								{enec.vida -= enec.vidamax/9;}
-								_rb.AddRelativeForce(transform.up * 110 * 3);
+								_rb.AddRelativeForce(transform.up * 110 * 7);
 								vidaeneact = true;			
 								vidaeneui = enec.vida;
 								vidaeneuimax = enec.vidamax;

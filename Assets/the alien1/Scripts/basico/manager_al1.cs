@@ -376,7 +376,7 @@ public class manager_al1 : MonoBehaviour
 		}
 		if (puertasposact == true && datosserial.puertaposact == true)
 		{
-			jugador.transform.position = datosserial.puertapos;
+			//jugador.transform.position = datosserial.puertapos;
 		}
 		if (puertasgiract == true && datosserial.puertagiract == true)
 		{
@@ -385,9 +385,11 @@ public class manager_al1 : MonoBehaviour
 		if((manager_nivel_al1)FindFirstObjectByType(typeof(manager_nivel_al1)) != null)
 		{
 			managerN = (manager_nivel_al1)FindFirstObjectByType(typeof(manager_nivel_al1));
-			if(nivelact)
+			if(nivelact && (manager_ordas_al1)FindFirstObjectByType(typeof(manager_ordas_al1)) == null )
 			{
 				managerN.ubi = datosserial.actual_checkpoint;
+				managerN.carga();
+
 			}
 		}
 		
