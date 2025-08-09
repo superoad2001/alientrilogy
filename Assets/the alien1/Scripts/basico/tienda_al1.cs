@@ -206,28 +206,51 @@ public class tienda_al1 : MonoBehaviour
                 if(productoid == 1)
                 {
                     manager.datosserial.tengodash = true;
+                    manager.datosserial.HabilidadesObtenidas++;
+                    manager.datosserial.eventos[3] = true;
+                    manager.guardar();
+                    Atrastienda();
+                    salir();
                 }
                 else if(productoid == 2)
                 {
                     manager.datosserial.tengollave1 = true;
+                    manager.datosserial.economia[1]++;
+                    manager.datosserial.eventos[5] = true;
+                    manager.guardar();
+                    Atrastienda();
+                    salir();
+
                 }
                 else if(productoid == 3)
                 {
                     manager.datosserial.pociones[0] = true;
+                    manager.datosserial.pocionesmax++;
+                    manager.datosserial.misiones[5] = 2;
+                    manager.guardar();
                 }
                 else if(productoid == 4)
                 {
                     manager.datosserial.tengollave0 = true;
+                    manager.datosserial.economia[1]++;
+                    manager.guardar();
                 }
                 else if(productoid == 5)
                 {
                     manager.datosserial.armadef = true;
+                    manager.datosserial.ArmasAlienObtenidas++;
+                    manager.guardar();
                 }
                  else if(productoid == 6)
                 {
                     manager.datosserial.tengonave = true;
+                    manager.datosserial.ArmasNaveObtenidas++;                 
+                    manager.datosserial.eventos[4] = true;
+                    manager.guardar();
+                    Atrastienda();
+                    salir();
                 }
-                manager.guardar();
+                
                 
                 
             }

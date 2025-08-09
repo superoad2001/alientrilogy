@@ -10,48 +10,23 @@ public class final_al1 : MonoBehaviour
 	public manager_al1 manager;
 	public bool botonm = false;
 	public Text score;
-	public string res;
+	public Text tit;
 
 	// Token: 0x0600000C RID: 12 RVA: 0x00002397 File Offset: 0x00000597
 	private void Start()
 	{
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+		manager.datosserial.demoFIN = true;
+		manager.guardar();
 
 		if(manager.datosconfig.idioma == "es")
         {
-			if(manager.datosserial.salasecreta)
-			{
-				res = "si";
-			}
-			if(!manager.datosserial.salasecreta)
-			{
-				res = "no";
-			}
-			score.text = "enemigos muertos : "+manager.datosserial.asesinatos+"                                muertes sufridas : "+manager.datosserial.muertes+ "                              sala secreta : "+ res;
-		}
-		if(manager.datosconfig.idioma == "en")
-        {
-			if(manager.datosserial.salasecreta)
-			{
-				res = "yes";
-			}
-			if(!manager.datosserial.salasecreta)
-			{
-				res = "no";
-			}
-			score.text = "enemies defeated : "+manager.datosserial.asesinatos+"                                deaths suffered : "+manager.datosserial.muertes+ "                            secret room : "+ res;
-		}
-		if(manager.datosconfig.idioma == "cat")
-        {
-			if(manager.datosserial.salasecreta)
-			{
-				res = "si";
-			}
-			if(!manager.datosserial.salasecreta)
-			{
-				res = "no";
-			}
-			score.text = "enemics morts : "+manager.datosserial.asesinatos+"                                                  morts: "+manager.datosserial.muertes+ "                                sala secreta : "+ res;
+			
+			tit.text = "fin";
+			score.text = "enemigos vencidos: "+manager.datosserial.asesinatos+"\n"+
+			"Muertes sufridas: "+manager.datosserial.muertes+"\n"+
+			"Nivel Alien : "+manager.datosserial.niveljug+"\n"+
+			"Misiones Completadas : "+manager.MisionesCumplidas;
 		}
 	}
 

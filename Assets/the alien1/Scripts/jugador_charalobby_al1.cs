@@ -470,19 +470,19 @@ public class jugador_charalobby_al1 : jugador_al1
 		
 	}
 	
-	if(manager.datosserial.jefeV[0] == false && manager.datosserial.economia[1] >= 1 && manager.piso == 1 && tiempoascensor > 2f )
+	if(manager.datosserial.jefeV[0] == false && manager.datosserial.tengollave1 == true && manager.piso == 1 && tiempoascensor > 2f )
 	{
 		manager.portalg.SetActive(true);
 	}
-	if(manager.datosserial.jefeV[1] == false && manager.datosserial.economia[1] >= 2 && manager.piso == 2 && tiempoascensor > 2f)
+	if(manager.datosserial.jefeV[1] == false && manager.datosserial.tengollave2 == true && manager.piso == 2 && tiempoascensor > 2f)
 	{
 		manager.portalg.SetActive(true);
 	}
-	if(manager.datosserial.jefeV[2] == false && manager.datosserial.economia[1]  >= 3 && manager.piso == 3 && tiempoascensor > 2f )
+	if(manager.datosserial.jefeV[2] == false&& manager.datosserial.tengollave3 == true && manager.piso == 3 && tiempoascensor > 2f )
 	{
 		manager.portalg.SetActive(true);
 	}
-	if(manager.datosserial.jefeV[3] == false && manager.datosserial.economia[1]  >= 4 && manager.piso == 4 && tiempoascensor > 2f )
+	if(manager.datosserial.jefeV[3] == false && manager.datosserial.tengollave4 == true && manager.piso == 4 && tiempoascensor > 2f )
 	{
 		manager.portalg.SetActive(true);
 	}
@@ -1969,10 +1969,13 @@ public class jugador_charalobby_al1 : jugador_al1
 	{
 		if (col.gameObject.tag == "ascensor" )
 		{
+			if(manager.datosserial.tengollave0 == true || manager.datosserial.jefeV[0] == true)
+			{
 			ascensorui.SetActive(true);
 			this.ascensor = true;
 			tempaerodash = 9;
-			suelo = true;			
+			}	
+			suelo = true;		
 			
 		}
 		if (col.gameObject.tag == "suelo")

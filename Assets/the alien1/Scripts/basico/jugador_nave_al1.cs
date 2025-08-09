@@ -221,21 +221,21 @@ public class jugador_nave_al1 : jugador_al1
 		
 
 
-			balaarmanave1dano[0]  = 3;
-			balaarmanave1dano[1]  = 15;
-			balaarmanave1dano[2]  = 30;
+			balaarmanave1dano[0]  = 100;
+			balaarmanave1dano[1]  = 300;
+			balaarmanave1dano[2]  = 2000;
 
-			balaarmanave2dano[0]  = 200;
-			balaarmanave2dano[1]  = 500;
-			balaarmanave2dano[2]  = 1200;
+			balaarmanave2dano[0]  = 1000;
+			balaarmanave2dano[1]  = 4000;
+			balaarmanave2dano[2]  = 20000;
 
-			balaarmanave3dano[0]  = 50;
-			balaarmanave3dano[1]  = 100f;
-			balaarmanave3dano[2]  = 200;
+			balaarmanave3dano[0]  = 1000;
+			balaarmanave3dano[1]  = 2000f;
+			balaarmanave3dano[2]  = 10000;
 			
-			balaarmanave4dano[0]  = 100;
-			balaarmanave4dano[1]  = 300;
-			balaarmanave4dano[2]  = 600;
+			balaarmanave4dano[0]  = 1500;
+			balaarmanave4dano[1]  = 3000;
+			balaarmanave4dano[2]  = 15000;
 
 			minabalasmax[0] = 3;
 			minabalasmax[1] = 5;
@@ -942,7 +942,7 @@ public class jugador_nave_al1 : jugador_al1
 				}
 				Vector3 directiontt = objetivotarget.transform.position - transform.position;
 				Quaternion rotation = Quaternion.LookRotation(directiontt);
-				transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(rotation.eulerAngles.x,rotation.eulerAngles.y,rotation.eulerAngles.z),1.5f * Time.deltaTime);
+				transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(rotation.eulerAngles.x,rotation.eulerAngles.y,rotation.eulerAngles.z),2f * Time.deltaTime);
 			}
             
             transform.Rotate(Vector3.up * rotationinput.x);

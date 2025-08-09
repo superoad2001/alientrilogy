@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class enemigo2_al1: MonoBehaviour
 {
+    public int nivelactual = 1;
     public GameObject slash;
     public GameObject escudoin;
 	public manager_al1 manager;
@@ -49,7 +50,7 @@ public class enemigo2_al1: MonoBehaviour
     public float vida;
     public float vidamax;
     public Image vidab;
-    public int nivelactual = 1;
+
     private float extraD;
 
     public float valorexp = 1.2f;
@@ -963,7 +964,7 @@ public class enemigo2_al1: MonoBehaviour
         
         if (col.gameObject.tag == "danoarma9" )
 		{
-            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+            romperbala_al1 balajug = col.gameObject.GetComponent<romperbala_al1>();
             jugador1.muertesjug.Stop();
             vida -= (balajug.danoj * extraD);
             cancelatk -= 0.2f * Time.deltaTime;
@@ -1020,7 +1021,7 @@ public class enemigo2_al1: MonoBehaviour
         if (col.gameObject.tag == "danoarma8" )
 		{
             cancelatk--;
-            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+            romperbala_al1 balajug = col.gameObject.GetComponent<romperbala_al1>();
             jugador1.muertesjug.Stop();
             vida -= (balajug.danoj* extraD);
             jugador1.vidaenebarra.SetActive(true);
@@ -1045,7 +1046,7 @@ public class enemigo2_al1: MonoBehaviour
 	{
         if (col.gameObject.tag == "danoarma9")
 		{
-            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+            romperbala_al1 balajug = col.gameObject.GetComponent<romperbala_al1>();
             vida -= (balajug.danoj * extraD * Time.deltaTime);
             detectar = false;
 		}

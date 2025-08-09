@@ -12,7 +12,6 @@ public class enemigo1nave_al1: MonoBehaviour
     public bool destobj;
     public GameObject destruible;
     public GameObject moneda;
-    public int nivel = 1;
     public Rigidbody rb_;
     public float vel = 2;
     public float raycastDistance = 1f;
@@ -84,12 +83,15 @@ public class enemigo1nave_al1: MonoBehaviour
         {
             disparodes = true;
         }
+        vidabase = 999;
+        vidabasemax = 9999;
+        vidaplusmax = 99999;
         
         
 
         if(programado == false)
         {
-            if(nivel >= 20)
+            if(nivelactual >= 20)
             {
                 int randomini = Random.Range(0,2);
 
@@ -99,7 +101,7 @@ public class enemigo1nave_al1: MonoBehaviour
                     disparos = 10;
                 }
             }
-            if(nivel >= 60)
+            if(nivelactual >= 60)
             {
                 modo = "disparo";
                 disparos = 10;

@@ -401,7 +401,7 @@ public class presentacion_al1 : MonoBehaviour
                 }
                 else
                 {
-                    SceneManager.LoadScene("la_llegada_enc_al1");
+                    SceneManager.LoadScene("lallegada_enc_al1");
 
                 }
             }

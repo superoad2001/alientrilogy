@@ -772,6 +772,33 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ubi"",
+                    ""type"": ""Button"",
+                    ""id"": ""17ba32c2-652a-419f-9dca-82fb42b8ebcf"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UIX"",
+                    ""type"": ""Value"",
+                    ""id"": ""07e02543-5d07-4ee2-ab19-b9fc32b2afb1"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""UIY"",
+                    ""type"": ""Value"",
+                    ""id"": ""9343b026-2d2d-481f-8e70-1df80bd26479"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -1302,6 +1329,116 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""action"": ""uiarr"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""375fbe7e-e1c0-4627-a9f8-26da449b10c2"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";PAD"",
+                    ""action"": ""ubi"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d23a239a-383c-4e1a-9372-33113d2835b7"",
+                    ""path"": ""<Keyboard>/alt"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";PC"",
+                    ""action"": ""ubi"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c70973ad-19e5-4c78-9e34-da644ecbda75"",
+                    ""path"": ""<Gamepad>/leftStick/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";PAD"",
+                    ""action"": ""UIX"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""61b6c95d-8e64-4e3b-9845-267be4d324ed"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UIX"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""5ddab204-845c-46d6-aae2-933d934e47b4"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UIX"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""f2d8c9a5-b7d9-468f-9284-1f1954a0905d"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UIX"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e99e85cf-1e17-46ed-bfef-5711e089908a"",
+                    ""path"": ""<Gamepad>/leftStick/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";PAD"",
+                    ""action"": ""UIY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""83a8c7f3-978c-4781-8a24-b8b1ab11270f"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UIY"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""1cc4a759-926f-4ab4-9d47-807a000b029b"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UIY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""950637a6-e552-4944-a8ff-11fcdab1f44a"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UIY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""joy1"",
@@ -5332,6 +5469,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         m_al1_3d_uiizq = m_al1_3d.FindAction("uiizq", throwIfNotFound: true);
         m_al1_3d_uiabj = m_al1_3d.FindAction("uiabj", throwIfNotFound: true);
         m_al1_3d_uiarr = m_al1_3d.FindAction("uiarr", throwIfNotFound: true);
+        m_al1_3d_ubi = m_al1_3d.FindAction("ubi", throwIfNotFound: true);
+        m_al1_3d_UIX = m_al1_3d.FindAction("UIX", throwIfNotFound: true);
+        m_al1_3d_UIY = m_al1_3d.FindAction("UIY", throwIfNotFound: true);
         // al1_2d
         m_al1_2d = asset.FindActionMap("al1_2d", throwIfNotFound: true);
         m_al1_2d_saltar = m_al1_2d.FindAction("saltar", throwIfNotFound: true);
@@ -5763,6 +5903,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     private readonly InputAction m_al1_3d_uiizq;
     private readonly InputAction m_al1_3d_uiabj;
     private readonly InputAction m_al1_3d_uiarr;
+    private readonly InputAction m_al1_3d_ubi;
+    private readonly InputAction m_al1_3d_UIX;
+    private readonly InputAction m_al1_3d_UIY;
     /// <summary>
     /// Provides access to input actions defined in input action map "al1_3d".
     /// </summary>
@@ -5859,6 +6002,18 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @uiarr => m_Wrapper.m_al1_3d_uiarr;
         /// <summary>
+        /// Provides access to the underlying input action "al1_3d/ubi".
+        /// </summary>
+        public InputAction @ubi => m_Wrapper.m_al1_3d_ubi;
+        /// <summary>
+        /// Provides access to the underlying input action "al1_3d/UIX".
+        /// </summary>
+        public InputAction @UIX => m_Wrapper.m_al1_3d_UIX;
+        /// <summary>
+        /// Provides access to the underlying input action "al1_3d/UIY".
+        /// </summary>
+        public InputAction @UIY => m_Wrapper.m_al1_3d_UIY;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_al1_3d; }
@@ -5947,6 +6102,15 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @uiarr.started += instance.OnUiarr;
             @uiarr.performed += instance.OnUiarr;
             @uiarr.canceled += instance.OnUiarr;
+            @ubi.started += instance.OnUbi;
+            @ubi.performed += instance.OnUbi;
+            @ubi.canceled += instance.OnUbi;
+            @UIX.started += instance.OnUIX;
+            @UIX.performed += instance.OnUIX;
+            @UIX.canceled += instance.OnUIX;
+            @UIY.started += instance.OnUIY;
+            @UIY.performed += instance.OnUIY;
+            @UIY.canceled += instance.OnUIY;
         }
 
         /// <summary>
@@ -6021,6 +6185,15 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @uiarr.started -= instance.OnUiarr;
             @uiarr.performed -= instance.OnUiarr;
             @uiarr.canceled -= instance.OnUiarr;
+            @ubi.started -= instance.OnUbi;
+            @ubi.performed -= instance.OnUbi;
+            @ubi.canceled -= instance.OnUbi;
+            @UIX.started -= instance.OnUIX;
+            @UIX.performed -= instance.OnUIX;
+            @UIX.canceled -= instance.OnUIX;
+            @UIY.started -= instance.OnUIY;
+            @UIY.performed -= instance.OnUIY;
+            @UIY.canceled -= instance.OnUIY;
         }
 
         /// <summary>
@@ -8036,6 +8209,27 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnUiarr(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ubi" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnUbi(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "UIX" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnUIX(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "UIY" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnUIY(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "al1_2d" which allows adding and removing callbacks.

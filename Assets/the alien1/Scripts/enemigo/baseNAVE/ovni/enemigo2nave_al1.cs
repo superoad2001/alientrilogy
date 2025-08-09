@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class enemigo2nave_al1: MonoBehaviour
 {
+    public int nivelactual = 1;
 	public manager_al1 manager;
     public bool muertetemp;
     public GameObject moneda;
@@ -20,8 +21,8 @@ public class enemigo2nave_al1: MonoBehaviour
     public float vel = 1;
     public bool desactivar;
     public float temp;
+    public float temponda;
     public GameObject explosion;
-    public int nivel = 1;
     public jugador_al1 jugador1;
     public AudioSource muertes;
     public float balafrec = 1.5f;
@@ -30,7 +31,7 @@ public class enemigo2nave_al1: MonoBehaviour
     public AudioSource disp;
     public float vida;
     public float vidamax;
-    public int nivelactual = 1;
+    
 
     public float vidabase = 99;
     public float vidabasemax = 999;
@@ -66,6 +67,7 @@ public class enemigo2nave_al1: MonoBehaviour
     public bool disparomina;
     public float frenetismoarmas;
     public float Randomdec;
+    public bool programado;
     //tendra siempre la mitad de stats que el enemigo actual excepto si su vitalidad baja de 2 lo hara al bajar de 10%
 
 
@@ -86,7 +88,9 @@ public class enemigo2nave_al1: MonoBehaviour
         {
             disparomina = true;
         }
-
+        vidabase = 999;
+        vidabasemax = 9999;
+        vidaplusmax = 99999;
 
         if((manager_ordas_nave_al1)FindFirstObjectByType(typeof(manager_ordas_nave_al1))!= null)
         {
@@ -212,7 +216,7 @@ public class enemigo2nave_al1: MonoBehaviour
             GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
             muertes.Play();
-            if(managerordas != null)
+            if(managerordas != null && programado == false)
             {
                 managerordas.contadorene--;
             }
@@ -251,7 +255,7 @@ public class enemigo2nave_al1: MonoBehaviour
 
                 BalaTemporal.GetComponent<romperbala_al1>().danoj = nivelfuerza;
 
-                rb.AddForce(BalaTemporal.transform.forward * 110 * 20);
+                rb.AddForce(BalaTemporal.transform.forward * 110 * 30);
 
                 BalaTemporal.GetComponent<romperbala_al1>().destb = 4f;
 
@@ -259,23 +263,25 @@ public class enemigo2nave_al1: MonoBehaviour
 
                 temp = 0;
             }
-            if(temp > 3 && disparomina == true && Randomdec == 1)
+            if(temp > 3 && disparomina == true && Randomdec == 1 && temponda > 8)
             {
 
                 GameObject BalaTemporal = Instantiate(balaprefabonda, transform.position,transform.rotation) as GameObject;
 
                 Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 
-                rbb.AddForce(transform.forward * 110 * 20);
+                rbb.AddForce(transform.forward * 110 * 40);
 
-                BalaTemporal.GetComponent<romperbalajug_al1>().destb = 60f;
-                BalaTemporal.GetComponent<romperbalajug_al1>().danoj = nivelfuerza * 2;
-                
+                BalaTemporal.GetComponent<romperbala_al1>().destb = 60f;
+                BalaTemporal.GetComponent<romperbala_al1>().danoj = nivelfuerza * 2;
+                temponda = 0;
 
                 disp.Play();
             }
             if(temp < 15)
             {temp += 1 * frenetismoarmas * Time.deltaTime;}
+            if(temponda < 15)
+            {temponda += 1 * frenetismoarmas * Time.deltaTime;}
 
             
 

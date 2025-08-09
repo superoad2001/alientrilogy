@@ -104,13 +104,23 @@ public class teleport_al1 : MonoBehaviour
                 tutfinala.text = "Usar Llave";
             }
             
-            if (manager.datosserial.tengollave1 == true && manager.piso == 1 && manager.datosserial.jefeV[0] == false)
+            if (manager.datosserial.tengollave1 == true && manager.piso == 1 && manager.datosserial.jefeV[0] == false && manager.datosserial.misiones[10] == 1)
 			{
                 anim.SetBool("show",true);
                 
                 if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
                 {
-                    SceneManager.LoadScene(ubi);
+                    SceneManager.LoadScene("cin_presboss1_al1");
+                }
+                
+            }
+            if (manager.datosserial.tengollave1 == true && manager.piso == 1 && manager.datosserial.jefeV[0] == false && manager.datosserial.misiones[10] == 2)
+			{
+                anim.SetBool("show",true);
+                
+                if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
+                {
+                    SceneManager.LoadScene("prebosss1_al1");
                 }
                 
             }

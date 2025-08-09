@@ -653,9 +653,9 @@ public class jugador_chara3d_al1 : jugador_al1
 
 
 
+			
 			camXc = controles.al1_3d.camX.ReadValue<float>();
 			camYc = controles.al1_3d.camY.ReadValue<float>();
-
 			
 
 
@@ -665,7 +665,8 @@ public class jugador_chara3d_al1 : jugador_al1
 			if(movact == 0)
 			{
 				movXc = controles.al1_3d.mov.ReadValue<Vector2>().x;
-				movYc = controles.al1_3d.mov.ReadValue<Vector2>().y;	
+				movYc = controles.al1_3d.mov.ReadValue<Vector2>().y;
+				saltarc = controles.al1_3d.saltar.ReadValue<float>();
 			}
 
 		
@@ -673,12 +674,12 @@ public class jugador_chara3d_al1 : jugador_al1
 		lateralc = controles.al1_3d.lateral.ReadValue<float>();
 		UIXc = controles.al1_UI.UIX.ReadValue<float>();
 		UIYc = controles.al1_UI.UIY.ReadValue<float>();	
-		saltarc = controles.al1_3d.saltar.ReadValue<float>();
+		
 		dashc = controles.al1_3d.dash.ReadValue<float>();
 		golpearc = controles.al1_3d.golpear.ReadValue<float>();
 		golpearMc = controles.al1_3d.golpearM.ReadValue<float>();
 		interactuarc = controles.al1_3d.interactuar.ReadValue<float>();		
-		dispararc = controles.al1_3d.disparar.ReadValue<float>();
+		
 		ruletac = controles.al1_3d.ruleta.ReadValue<float>();	
 		UIreducidoc = controles.al1_3d.UIreducido.ReadValue<float>();
 		marcarc = controles.al1_3d.marcar.ReadValue<float>();
@@ -2029,7 +2030,7 @@ public class jugador_chara3d_al1 : jugador_al1
 								boxcam2.transform.localRotation = Quaternion.Euler(0.35f, 0, 0);
 								this.jugadorEntrando = false;
 						}				
-						camarascript.maxdis = 30;
+						
 						if(movXc != 0 || movYc != 0)
 						{
 							// Movimiento normal cuando no está en modo planeta
@@ -2110,6 +2111,7 @@ public class jugador_chara3d_al1 : jugador_al1
 							if(temppaso < 15)
 							{temppaso += 1 * Time.deltaTime;}
 						}
+
 						if(objetivotarget == null)
 						{
 						if(camXc != 0)
@@ -2120,6 +2122,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						if(camYc != 0)
 						{rotationinput.y = camYc * rotspeed * Time.deltaTime;}
 						else{rotationinput.y = 0;}
+						Debug.Log("camara");
 						
 
 							Vector3 horcam = Vector3.up * rotationinput.x;
@@ -2367,6 +2370,66 @@ public class jugador_chara3d_al1 : jugador_al1
 				
                 
             }
+			else if(controlact == false)
+			{
+				camarascript.maxdis = 30;
+
+				
+				if(objetivotarget == null)
+				{
+				if(camXc != 0)
+				{rotationinput.x = camXc * rotspeed * Time.deltaTime;}
+				else{rotationinput.x = 0;}
+				}
+
+				if(camYc != 0)
+				{rotationinput.y = camYc * rotspeed * Time.deltaTime;}
+				else{rotationinput.y = 0;}
+				
+
+					Vector3 horcam = Vector3.up * rotationinput.x;
+					Vector3 vercam = new Vector3(0,0,0);
+
+					
+					vercam = Vector3.right * -rotationinput.y;
+
+				
+					camara.transform.localEulerAngles += vercam + horcam;
+
+				Quaternion xRotationx = Quaternion.Euler(camara.transform.localEulerAngles.x,0,0);
+				float angle_f = Quaternion.Angle(Quaternion.identity, xRotationx);
+				float fixedAngle_f = angle_f;
+				if (xRotationx.eulerAngles.x>180)
+				{
+					fixedAngle_f *= -1;
+				}
+				float clampedX = Mathf.Clamp(fixedAngle_f, -20, 30);
+				camara.transform.localRotation = Quaternion.Euler(clampedX, camara.transform.localEulerAngles.y, camara.transform.localEulerAngles.z);
+				
+
+				if(objetivotarget != null)
+				{
+					Vector3 directiontt = objetivotarget.transform.position - transform.position;
+					Quaternion rotation = Quaternion.LookRotation(directiontt);
+					transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),30f * Time.deltaTime);
+					camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.y,camara.transform.localEulerAngles.z),30f* Time.deltaTime);	
+				}
+
+
+				camaux = camara.transform.eulerAngles.y;
+				if(objetivotarget == null)
+				{
+
+					if (movXc != 0f && camXc != 0f|| movYc != 0 && camXc != 0f || movXc != 0f || movYc != 0)
+					{
+						transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.Euler(transform.eulerAngles.x,camaux,transform.eulerAngles.z),30f* Time.deltaTime);
+						camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.y,camara.transform.localEulerAngles.z),30f* Time.deltaTime);	
+					}
+						
+
+
+				}
+			}
             
 		
 
@@ -3431,10 +3494,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						
 							enemigo1_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo1_al1>();
 							enec.vidapisar = true;
-							Debug.Log("pisar1");
-							if(enec.temprb == 0)
-							{
-								Debug.Log("pisar");
+
 
 								if(col.gameObject != null)
 								{
@@ -3460,17 +3520,17 @@ public class jugador_chara3d_al1 : jugador_al1
 								vidaenebarra.SetActive(true);
 								if(eventotut != null)
 								{eventotut.evento();}
-							}
+								if(enec.vida < 1)
+								{enec.temprb = 0;}
+							
 						
 						
 						
 					}
-					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 2 )
+					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 2 && manager.datosserial.niveljug > 1)
 					{
 						
 							enemigo2_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo2_al1>();
-							if(enec.temprb == 0)
-							{
 							enec.vida -= 1;
 							if(col.gameObject != null)
 							{
@@ -3484,7 +3544,9 @@ public class jugador_chara3d_al1 : jugador_al1
 							vidaeneuimax = enec.vidamax;
 							niveleneui.text = enec.nivelactual.ToString();
 							vidaenebarra.SetActive(true);
-							}
+							if(enec.vida < 1)
+							{enec.temprb = 0;}
+							
 						
 				}
 			
@@ -3889,6 +3951,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						dialogueact = false;
 						manager.controlene = true;
 						controlact = true;
+						tiemposalto = 0.7f;
 						Destroy(eventosdialogueE.gameObject);
 					}
 				}

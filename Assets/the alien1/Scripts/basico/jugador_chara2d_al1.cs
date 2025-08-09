@@ -3221,8 +3221,7 @@ public class jugador_chara2d_al1 : jugador_al1
 						
 							enemigo1_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo1_al1>();
 							enec.vidapisar = true;
-							if(enec.temprb == 0)
-							{
+							
 								if(col.gameObject != null)
 								{
 									
@@ -3249,7 +3248,7 @@ public class jugador_chara2d_al1 : jugador_al1
 								{eventotut.evento();}
 								if(enec.vida < 1)
 								{enec.temprb = 0;}
-							}
+							
 						
 						
 						
@@ -3258,8 +3257,7 @@ public class jugador_chara2d_al1 : jugador_al1
 					{
 						
 							enemigo2_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo2_al1>();
-							if(enec.temprb == 0)
-							{
+							
 							enec.vida -= 1;
 							if(col.gameObject != null)
 							{
@@ -3275,7 +3273,7 @@ public class jugador_chara2d_al1 : jugador_al1
 							vidaenebarra.SetActive(true);
 							if(enec.vida < 1)
 							{enec.temprb = 0;}
-							}
+							
 						
 				}
 			
@@ -3663,6 +3661,7 @@ public class jugador_chara2d_al1 : jugador_al1
 						dialogueact = false;
 						manager.controlene = true;
 						controlact = true;
+						tiemposalto = 0.7f;
 						Destroy(eventosdialogueE.gameObject);
 					}
 				}

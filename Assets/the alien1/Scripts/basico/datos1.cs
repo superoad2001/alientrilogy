@@ -61,7 +61,6 @@ public class datos1
 	public bool[] LlaveT = new bool[100];
 	public bool[] pociones = new bool[9];
 	public bool armadefdesbloqueada;
-	public int MisionesCumplidas;
 
 
 	
@@ -75,7 +74,7 @@ public class datos1
 	public int niveljug = 1;
 	public float nivelexp = 0;
 
-	public float signivelexp = 20;
+	public float signivelexp = 3;
 
 	public int ObjetosEnTienda = 99;
 	public int CochesObtenidos;
@@ -138,7 +137,7 @@ public class datos1
 
 	public bool tengonave;	
 	public int ArmasNaveObtenidas;
-	public int ArmasAlienObtenidas;
+	public int ArmasAlienObtenidas = 1;
 	public bool ascensoract;
 
 

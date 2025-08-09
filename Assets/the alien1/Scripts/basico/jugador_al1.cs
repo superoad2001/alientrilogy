@@ -75,7 +75,7 @@ public abstract class jugador_al1 : MonoBehaviour
 	[HideInInspector]public bool escudoeneact;
 	[HideInInspector]public bool _peligro;
 	public float vidamax;
-	[HideInInspector]public AudioSource subirnivelaud;
+	public AudioSource subirnivelaud;
 	public GameObject subirnivelexpl;
 	[HideInInspector]public float velocidad = 8;
 	[HideInInspector]public Rigidbody _rb;

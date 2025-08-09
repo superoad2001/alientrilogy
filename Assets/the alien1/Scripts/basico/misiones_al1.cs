@@ -19,7 +19,12 @@ public class misiones_al1 : MonoBehaviour
         misiones[4] = "agilizado";
         misiones[5] = "pocimero";
         misiones[6] = "el control";
-        misiones[7] = "si hay llave hay salida";
+        misiones[7] = "una nave";
+        misiones[8] = "una nave con energia";
+        misiones[9] = "si hay llave hay salida";
+        misiones[10] = "sala de mantenimiento";
+        misiones[11] = "energia";
+        misiones[12] = "entidad antigua";
 
 
 
@@ -30,7 +35,12 @@ public class misiones_al1 : MonoBehaviour
         misionesdesc[4] = "consigue el dash en la tienda";
         misionesdesc[5] = "conigue una pocion en la tienda";
         misionesdesc[6] = "consigue todas las notas";
-        misionesdesc[7] = "consigue hierro en los portales y fabrica una llave";
+        misionesdesc[7] = "conisgue la nave de la tienda";
+        misionesdesc[8] = "conisgue 2 gemas para poder utilizar la nave";
+        misionesdesc[9] = "consigue hierro en los portales y fabrica una llave";
+        misionesdesc[10] = "usa la llave para entrar al portal";
+        misionesdesc[11] = "consigue 3 gemas para enfrentar a la entidad";
+        misionesdesc[12] = "vence a la entidad";
 
 
     }

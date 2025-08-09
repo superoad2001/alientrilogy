@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class enemigo1_al1: MonoBehaviour
 {
+    public int nivelactual = 1;
 	public manager_al1 manager;
     public bool detectar;
     public GameObject objetivo;
@@ -62,7 +63,7 @@ public class enemigo1_al1: MonoBehaviour
     public float []defensabasemax = new float[4];
     public float []defensaplusmax = new float[4];
     public int tamano;
-    public int nivelactual = 1;
+    
 
     public float fuebasetut = 1.5f;
     public float fuebase = 15;
@@ -745,7 +746,7 @@ public class enemigo1_al1: MonoBehaviour
             Destroy(transform.parent.gameObject);
 
         }
-        else if (vida < 1 && tutorial == 1  && manager.datosserial.niveljug == 1 && temprb == 0)
+        else if (vida < 1 && tutorial == 1  && manager.datosserial.niveljug == 1 )
         {
             if(manager.juego == 3 || manager.juego == 4 )
             {
@@ -773,7 +774,7 @@ public class enemigo1_al1: MonoBehaviour
             eventotut.eventoene();
             Destroy(transform.parent.gameObject);
         }
-        else if (vida < 1 && tutorial == 2 || vida < 1 && manager.datosserial.niveljug > 1 && tutorial == 1 && temprb == 0)
+        else if (vida < 1 && tutorial == 2 || vida < 1 && manager.datosserial.niveljug > 1 && tutorial == 1 )
         {
             if(manager.juego == 3 || manager.juego == 4 )
             {
@@ -1167,10 +1168,6 @@ public class enemigo1_al1: MonoBehaviour
 		}
         if (col.gameObject.tag == "Player" && col.gameObject.tag != "golpeh" && temprb == 0 )
 		{
-            if(tutorial == 1)
-            {
-                jugador1.muerte = true;
-            }
             jugador1.eneempuj = this.gameObject;
             if(manager.juego != 3)
             {
@@ -1252,6 +1249,15 @@ public class enemigo1_al1: MonoBehaviour
                 }
                 Destroy(transform.parent.gameObject);
                 }
+                
+            
+        }
+        if (col.gameObject.tag == "Player" && col.gameObject.tag != "golpeh" && temprb == 0 )
+		{
+            if(tutorial == 1 || tutorial == 2)
+            {
+                jugador1.muerte = true;
+            }
                 
             
         }

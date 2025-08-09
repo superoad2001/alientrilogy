@@ -317,7 +317,7 @@ public class pausa_al1 : MonoBehaviour
         "Logros : "+manager.datosserial.Logros+"\n"+
         "Jefes Ven : "+manager.datosserial.JefesVen+"\n"+
         "Kart Points : "+manager.datosserial.puntoskarting+"\n"+
-        "Misiones Completadas : "+manager.datosserial.MisionesCumplidas;
+        "Misiones Completadas : "+manager.MisionesCumplidas;
         Objetos_panel1.text =
         "Armas Alien : "+manager.datosserial.ArmasAlienObtenidas +"\n"+
         "Armas Nave : "+manager.datosserial.ArmasNaveObtenidas +"\n"+ 
@@ -329,7 +329,7 @@ public class pausa_al1 : MonoBehaviour
         "NV PX4000 : "+manager.datosserial.nivelarmadef+"\n"+
         "NV RataTaPUM V2 : "+manager.datosserial.nivelarmanave1+"\n"+
         "NV REYNOVES : "+manager.datosserial.nivelarmanave3+"\n"+
-        "NV GuardaSueños : "+manager.datosserial.nivelarmanave2+"\n"+
+        "NV Mina Guardian : "+manager.datosserial.nivelarmanave2+"\n"+
         "NV InSitu: "+manager.datosserial.nivelarmanave4;
         }
         if(mapaact == true)
@@ -339,8 +339,8 @@ public class pausa_al1 : MonoBehaviour
                 ubicar();
             }
 
-            xmapC = controles.al1_UI.movX.ReadValue<float>();
-            ymapC = controles.al1_UI.movY.ReadValue<float>();
+            xmapC = controles.al1_3d.UIX.ReadValue<float>();
+            ymapC = controles.al1_3d.UIY.ReadValue<float>();
 
             
 

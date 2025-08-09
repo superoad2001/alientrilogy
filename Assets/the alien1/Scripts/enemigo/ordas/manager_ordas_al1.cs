@@ -36,6 +36,7 @@ public class manager_ordas_al1 : MonoBehaviour
     public float temp;
     public GameObject portal;
     public GameObject hierro;
+    public int nivelactual;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -90,6 +91,14 @@ public class manager_ordas_al1 : MonoBehaviour
                         }
                         GameObject enemigos1 = Instantiate(enemigos[0], posiciones[pos].transform.position, posiciones[pos].transform.rotation);
                         GameObject explosion1 = Instantiate(explosion, posiciones[pos].transform.position, posiciones[pos].transform.rotation);
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>() == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;}
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>().nivelactual = nivelactual;}
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>() == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>().nivelactual = nivelactual;}
+                        
+                        
                         Destroy(explosion1, 0.5f);
                         posicionesG.Add(pos);
                         
@@ -114,6 +123,12 @@ public class manager_ordas_al1 : MonoBehaviour
                         }
                         GameObject enemigos1 = Instantiate(enemigos[1], posiciones[pos].transform.position, posiciones[pos].transform.rotation);
                         GameObject explosion2 = Instantiate(explosion, posiciones[pos].transform.position, posiciones[pos].transform.rotation);
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>() == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;}
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>().nivelactual = nivelactual;}
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>() == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>().nivelactual = nivelactual;}
                         Destroy(explosion2, 0.5f);
                         posicionesG.Add(pos);
                     }
@@ -137,6 +152,12 @@ public class manager_ordas_al1 : MonoBehaviour
                         }
                         GameObject enemigos1 = Instantiate(enemigos[2], posiciones[pos].transform.position, posiciones[pos].transform.rotation);
                         GameObject explosion3 = Instantiate(explosion, posiciones[pos].transform.position, posiciones[pos].transform.rotation);
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>() == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;}
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>().nivelactual = nivelactual;}
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>() == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>().nivelactual = nivelactual;}
                         Destroy(explosion3, 0.5f);
                         posicionesG.Add(pos);
                     }
@@ -160,6 +181,12 @@ public class manager_ordas_al1 : MonoBehaviour
                         }
                         GameObject enemigos1 = Instantiate(enemigos[3], posiciones[pos].transform.position, posiciones[pos].transform.rotation);
                         GameObject explosion4 = Instantiate(explosion, posiciones[pos].transform.position, posiciones[pos].transform.rotation);
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>() == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;}
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>().nivelactual = nivelactual;}
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>() == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>().nivelactual = nivelactual;}
                         Destroy(explosion4, 0.5f);
                         posicionesG.Add(pos);
                     }
@@ -183,6 +210,12 @@ public class manager_ordas_al1 : MonoBehaviour
                         }
                         GameObject enemigos1 = Instantiate(enemigos[4], posiciones[pos].transform.position, posiciones[pos].transform.rotation);
                         GameObject explosion5 = Instantiate(explosion, posiciones[pos].transform.position, posiciones[pos].transform.rotation);
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>() == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;}
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>().nivelactual = nivelactual;}
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>() == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>().nivelactual = nivelactual;}
                         Destroy(explosion5, 0.5f);
                         posicionesG.Add(pos);
                     }

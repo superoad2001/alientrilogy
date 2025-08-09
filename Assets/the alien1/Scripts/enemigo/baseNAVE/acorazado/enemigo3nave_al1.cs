@@ -29,7 +29,6 @@ public class enemigo3nave_al1: MonoBehaviour
 
     private  float frenetismo = 1;
 
-    public int nivel = 1;
 
     public AudioSource danoene;
     public AudioSource danoescudo;
@@ -111,7 +110,9 @@ public class enemigo3nave_al1: MonoBehaviour
         {
             ondaact = true;
         }
-
+        vidabase = 999;
+        vidabasemax = 9999;
+        vidaplusmax = 99999;
         if((manager_ordas_nave_al1)FindFirstObjectByType(typeof(manager_ordas_nave_al1))!= null)
         {
         	managerordas = (manager_ordas_nave_al1)FindFirstObjectByType(typeof(manager_ordas_nave_al1));
@@ -337,15 +338,15 @@ public class enemigo3nave_al1: MonoBehaviour
         {
 
 
-            if(nivel >= 15)
+            if(nivelactual >= 15)
             {
                 Randomdec = Random.Range(0,4);
             }
-            else if(nivel >= 8)
+            else if(nivelactual >= 8)
             {
                 Randomdec = Random.Range(0,3);
             }
-            else if(nivel >= 5)
+            else if(nivelactual >= 5)
             {
                 Randomdec = Random.Range(0,2);
             }
@@ -366,6 +367,8 @@ public class enemigo3nave_al1: MonoBehaviour
             if(temp > 10 && Randomdec == 0 && comprobarene < 2)
             {
                 GameObject ene1 = Instantiate(prefabene1, transform.position,transform.rotation) as GameObject;
+                enemigo1nave_al1 ene1tempS  = ene1.transform.Find("enemigo").gameObject.GetComponent<enemigo1nave_al1>();
+                ene1tempS.nivelactual = nivelactual;
                 for(int i = 0 ;i < 2;  i++ )
                 {
                     if(enelist[i] == null)
@@ -396,6 +399,9 @@ public class enemigo3nave_al1: MonoBehaviour
             else if(temp > 10 && spawn_ovni == true && Randomdec == 2 && comprobarene < 2)
             {
                 GameObject ene2 = Instantiate(prefabene2, transform.position,transform.rotation) as GameObject;
+                enemigo2nave_al1 ene1tempS  = ene2.transform.Find("enemigo").gameObject.GetComponent<enemigo2nave_al1>();
+                ene1tempS.nivelactual = nivelactual;
+                ene1tempS.programado = true;
                 for(int i = 0 ;i < 2;  i++ )
                 {
                     if(enelist[i] == null)
@@ -417,8 +423,8 @@ public class enemigo3nave_al1: MonoBehaviour
                 rbb.AddForce(transform.forward * 110 * 40);
                 
 
-                BalaTemporal.GetComponent<romperbalajug_al1>().destb = 0.4f;
-                BalaTemporal.GetComponent<romperbalajug_al1>().danoj = 2 * nivelfuerza;
+                BalaTemporal.GetComponent<romperbala_al1>().destb = 0.4f;
+                BalaTemporal.GetComponent<romperbala_al1>().danoj = 2 * nivelfuerza;
                 
 
                 disp.Play();

@@ -15,6 +15,16 @@ public class modeventolista_al1 : MonoBehaviour
             manager.datosserial.eventos[2] = true;
             manager.guardar();
         }
+        if(evento == 1)
+        {
+            manager.datosserial.eventos[3] = false;
+            manager.guardar();
+        }
+        if(evento == 2)
+        {
+            manager.datosserial.eventos[4] = false;
+            manager.guardar();
+        }
     }
 
     // Update is called once per frame

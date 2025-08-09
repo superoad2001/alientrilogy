@@ -22,6 +22,9 @@ public class manualtut_al1 : MonoBehaviour
     public manager_al1 manager;
     public jugador_al1 jugador;
     public int manual = 0;
+    public GameObject TP;
+    public  bool controlact = true;
+    public bool nivel1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,33 +34,54 @@ public class manualtut_al1 : MonoBehaviour
         pos = player.transform.position;
         rot = player.transform.eulerAngles;
         comenzar_evento();
+        if(nivel1 == true)
+        {
+            manager.datosserial.niveljug = 1;
+            manager.datosserial.signivelexp = 3;
+            manager.datosserial.nivelexp = 0;
+            
+        }
+        
   
+    }
+    void Awake()
+    {
+        
     }
     public void terminar_evento()
     {
         jugador.controlact = true;
+        controlact = true;
         manager.controlene = true;
         index++;
           
         if(eventos[index-1] != null)
-        {eventos[index-1].SetActive(true);}
-        else
         {
-            SceneManager.LoadScene("tienda_al1");
+            eventos[index-1].SetActive(true);
+            comenzar_evento();
+
         }
-        comenzar_evento();
+        
         
         
         
     }
     public void comenzar_evento()
     {
+        if(nivel1 == true)
+        {
+            manager.datosserial.niveljug = 1;
+            manager.datosserial.signivelexp = 3;
+            manager.datosserial.nivelexp = 0;
+        }
         player.transform.position = pos;
         player.transform.eulerAngles = rot;
+        jugador._rb.linearVelocity = Vector3.zero;
         jugador.static_ev = true;
         if(tutev[index-1]!= null)
         {jugador.eventotut = tutev[index-1].GetComponent<tutorialbase_al1>();}
         jugador.controlact = false;
+        controlact = false;
         manager.controlene = false;
         if(objetivo[index-1] != null)
         {objetivo[index-1].SetActive(true);}
@@ -77,14 +101,18 @@ public class manualtut_al1 : MonoBehaviour
             {   
                 if(manual == 0)
                 {
+                    jugador.controlact = nostaticjugev[index-1];
+                    controlact = nostaticjugev[index-1];
                     manager.datosserial.eventos[0] = false;
                     manager.datosserial.eventos[1] = true;
                     manager.guardar();
-                    SceneManager.LoadScene("tienda1_al1");
+                    index = 99;
+                    TP.SetActive(true);
                 }
 
             }
             jugador.controlact = nostaticjugev[index-1];
+            controlact = nostaticjugev[index-1];
             manager.controlene = nostaticeneev[index-1];          
             
         
@@ -93,5 +121,16 @@ public class manualtut_al1 : MonoBehaviour
     public void Update()
     {
         DialogueManager.Instance.EndDialogueEvent.AddListener(fin_dialogue);
+        if(controlact == false)
+        {
+            jugador.controlact = false;
+            
+        }
+        if(nivel1 == true)
+        {
+            manager.datosserial.niveljug = 1;
+            manager.datosserial.signivelexp = 3;
+            manager.datosserial.nivelexp = 0;
+        }
     }
 }

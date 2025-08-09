@@ -12,6 +12,8 @@ public class manager_al1 : MonoBehaviour
 {
 	public manager_al1 manager;
 	public manager_nivel_al1 managerN;
+	public bool cin;
+	public int MisionesCumplidas;
 	public bool nivelact;
 	public bool puertasgiract;
 	public bool puertasposact;
@@ -339,7 +341,13 @@ public class manager_al1 : MonoBehaviour
 	}
 	public void Start()
 	{
+		
 		cargarslot();
+
+
+
+		datosserial.signivelexp = 3;
+
 		cargar();
 		cargarconfig();
 		cargartro();
@@ -355,6 +363,15 @@ public class manager_al1 : MonoBehaviour
 		Debug.Log(LocalizationManager.Instance.SelectedLang());
 		
 		IDhierronivel = -100;
+
+		if(datosserial.economia[0] >= 2)
+		{
+			datosserial.misiones[8] = 2;
+		}
+		if(datosserial.economia[0] >= 3)
+		{
+			datosserial.misiones[11] = 2;
+		}
 		
 
 		
@@ -370,9 +387,11 @@ public class manager_al1 : MonoBehaviour
 		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
 
 
-		if(actguardarub == true)
+		if(nivelact == false && cin == false)
 		{
-			datosserial.nivelu = nivelu;
+
+			datosserial.nivelu = SceneManager.GetActiveScene().name;
+			manager.guardar();
 		}
 		if (puertasposact == true && datosserial.puertaposact == true)
 		{
@@ -391,6 +410,13 @@ public class manager_al1 : MonoBehaviour
 				managerN.carga();
 
 			}
+		}
+
+
+		for(int p = 0; p < datosserial.misiones.Length; p++)
+		{
+			if(datosserial.misiones[p] == 2)
+			{MisionesCumplidas++;}
 		}
 		
 		
@@ -454,6 +480,7 @@ public class manager_al1 : MonoBehaviour
 	// Token: 0x06000026 RID: 38 RVA: 0x000037BC File Offset: 0x000019BC
 	private void Update()
 	{
+
 		if(actG)
 		{
 			guardar();

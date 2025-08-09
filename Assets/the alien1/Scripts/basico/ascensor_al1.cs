@@ -11,6 +11,9 @@ public class ascensor_al1 : MonoBehaviour
 {
 	public manager_al1 manager;
     public jugador_al1 jugador;
+    public GameObject arr;
+    public GameObject abj;
+    public string TP;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,27 @@ public class ascensor_al1 : MonoBehaviour
         if(jugador.bajar == true)
         {
             base.transform.Translate(Vector3.up * -4f * Time.deltaTime);
+        }
+
+        if(manager.piso == 1)
+        {
+            if(manager.datosserial.jefeV[0] == false)
+            {
+                arr.SetActive(false);
+            }
+            else
+            {
+                arr.SetActive(true);
+            }
+
+            if(manager.datosserial.tengollave0 == false)
+            {
+                abj.SetActive(false);
+            }
+            else
+            {
+                abj.SetActive(true);
+            }
         }
     }
 }
