@@ -20,7 +20,8 @@ public class logicacin_al1 : MonoBehaviour
 	public string idcin = "0";
 	public string sceneload;
 	public int actevent;
-	private float temp;
+	public float temp;
+	public bool evact;
 
 
 	public void Awake()
@@ -38,7 +39,11 @@ public class logicacin_al1 : MonoBehaviour
 	// Token: 0x06000038 RID: 56 RVA: 0x00003A94 File Offset: 0x00001C94
 	private void Start()
 	{
-		manager.datosserial.eventos[actevent] = true;
+		if(evact)
+		{
+			manager.datosserial.eventos[actevent] = true;
+		}
+		
 		manager.guardar();
 		menuoff.StartDialogue(DialogueSO,idcin);
 	}

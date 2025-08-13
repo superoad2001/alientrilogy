@@ -25,6 +25,7 @@ public class manualtut_al1 : MonoBehaviour
     public GameObject TP;
     public  bool controlact = true;
     public bool nivel1;
+    public int indexmax;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -54,12 +55,14 @@ public class manualtut_al1 : MonoBehaviour
         controlact = true;
         manager.controlene = true;
         index++;
-          
-        if(eventos[index-1] != null)
+        if((index-1) <= indexmax)
         {
-            eventos[index-1].SetActive(true);
-            comenzar_evento();
+            if(eventos[index-1] != null)
+            {
+                eventos[index-1].SetActive(true);
+                comenzar_evento();
 
+            }
         }
         
         
@@ -78,13 +81,17 @@ public class manualtut_al1 : MonoBehaviour
         player.transform.eulerAngles = rot;
         jugador._rb.linearVelocity = Vector3.zero;
         jugador.static_ev = true;
-        if(tutev[index-1]!= null)
+        if((index-1) <= indexmax)
+        {
+        if(tutev[index-1]!= null )
         {jugador.eventotut = tutev[index-1].GetComponent<tutorialbase_al1>();}
+        if(objetivo[index-1] != null)
+        {objetivo[index-1].SetActive(true);}
+        }
         jugador.controlact = false;
         controlact = false;
         manager.controlene = false;
-        if(objetivo[index-1] != null)
-        {objetivo[index-1].SetActive(true);}
+        
         if((DialogueManager)FindFirstObjectByType(typeof(DialogueManager)) != null)
 		{
             menuoff = (DialogueManager)FindFirstObjectByType(typeof(DialogueManager));
@@ -95,25 +102,38 @@ public class manualtut_al1 : MonoBehaviour
     }
     public void fin_dialogue()
     {
-            if(tutev[index-1] != null)
-            {tutev[index-1].SetActive(true);}
-            else
-            {   
-                if(manual == 0)
-                {
-                    jugador.controlact = nostaticjugev[index-1];
-                    controlact = nostaticjugev[index-1];
-                    manager.datosserial.eventos[0] = false;
-                    manager.datosserial.eventos[1] = true;
-                    manager.guardar();
-                    index = 99;
-                    TP.SetActive(true);
-                }
+            if((index-1) <= indexmax)
+            {
+                if(tutev[index-1] != null)
+                {tutev[index-1].SetActive(true);}
+                else
+                {   
+                    if(manual == 0)
+                    {
+                        jugador.controlact = nostaticjugev[index-1];
+                        controlact = nostaticjugev[index-1];
+                        manager.datosserial.eventos[0] = false;
+                        manager.datosserial.eventos[1] = true;
+                        manager.guardar();
+                        index = 99;
+                        TP.SetActive(true);
+                    }
 
+                }
             }
-            jugador.controlact = nostaticjugev[index-1];
-            controlact = nostaticjugev[index-1];
-            manager.controlene = nostaticeneev[index-1];          
+            
+            if((index-1) > indexmax)
+            {
+                jugador.controlact = true;
+                controlact = true;
+            }
+            else
+            {
+                jugador.controlact = nostaticjugev[index-1];
+                controlact = nostaticjugev[index-1];
+                manager.controlene = nostaticeneev[index-1]; 
+            }
+                     
             
         
         
@@ -125,6 +145,10 @@ public class manualtut_al1 : MonoBehaviour
         {
             jugador.controlact = false;
             
+        }
+        else
+        {
+            jugador.controlact = true;
         }
         if(nivel1 == true)
         {

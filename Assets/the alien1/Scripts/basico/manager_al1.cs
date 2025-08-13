@@ -11,6 +11,8 @@ using MeetAndTalk.Localization;
 public class manager_al1 : MonoBehaviour
 {
 	public manager_al1 manager;
+	public bool tutorial;
+	public bool desarmadef;
 	public manager_nivel_al1 managerN;
 	public bool cin;
 	public int MisionesCumplidas;
@@ -372,6 +374,12 @@ public class manager_al1 : MonoBehaviour
 		{
 			datosserial.misiones[11] = 2;
 		}
+		if(desarmadef == true)
+		{
+			datosserial.armadef = false;
+			datosserial.armasel = 0;
+			guardar();
+		}
 		
 
 		
@@ -442,8 +450,6 @@ public class manager_al1 : MonoBehaviour
 	// Token: 0x04000026 RID: 38
 	public int juego;
 
-	// Token: 0x04000027 RID: 39
-	public bool tutorial;
 	public int mundo;
 
 	// Token: 0x04000028 RID: 40

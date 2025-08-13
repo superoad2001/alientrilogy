@@ -2082,7 +2082,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6683211759016078778, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: eba68ad7b16369f42a86f3ea4677e300, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: eba68ad7b16369f42a86f3ea4677e300, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3008,7 +3008,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1782419080531085811, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 93ca582b5fc23694db485eeb787ec000, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 93ca582b5fc23694db485eeb787ec000, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -4367,6 +4367,8 @@ MonoBehaviour:
   test: 0
   opciones: 0
   manager: {fileID: 0}
+  disp: {fileID: 0}
+  dispt: 2
 --- !u!1 &5261682773305153991
 GameObject:
   m_ObjectHideFlags: 0
@@ -4779,20 +4781,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2c34cc56daf4941aeff13dbbf16295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exp1: {fileID: 0}
+  exp2: {fileID: 0}
+  exp3: {fileID: 0}
   plat: 0
   idioma: 
+  Gobj: {fileID: 0}
+  botones: []
   distancia: 0
   postpro: 0
   platt: {fileID: 9010271376326521904}
   idiomat: {fileID: 7276566263062699563}
   postt: {fileID: 1410476232866122869}
   distanciat: {fileID: 5876868325365510666}
-  opcionesr: []
   opcres: 0
   resolt: {fileID: 5772130202616221015}
   audiomixer: {fileID: 24100000, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
   menu: 0
   manager: {fileID: 0}
+  eventbase: {fileID: 0}
+  idiomam: {fileID: 0}
+  resolucionm: {fileID: 0}
+  controlesm: {fileID: 0}
+  sonidom: {fileID: 0}
+  postm: {fileID: 0}
+  distanciam: {fileID: 0}
+  conftxtidi: {fileID: 0}
+  conftxtresolucion: {fileID: 0}
+  conftxtcontroles: {fileID: 0}
+  conftxtpost: {fileID: 0}
+  conftxtdistancia: {fileID: 0}
+  gameL: 0
+  gameA: 0
+  toggle: {fileID: 0}
+  resoL: {fileID: 0}
+  opcionesR: []
+  opcionesRdef: []
+  resRdef: 
+  tempG: 0
+  C: 0
+  ind: 0
+  full: 0
+  largo: 0
+  altura: 0
+  sysidi: 0
   temp: 0
 --- !u!1 &5631800887475587050
 GameObject:
@@ -5452,7 +5484,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -374572251806119904, guid: 93bea86c8df7a7c48aa3c1514f6ba772, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 554c6e89a7e23ff42a0bcae15f116b1b, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 554c6e89a7e23ff42a0bcae15f116b1b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -8131,7 +8163,10 @@ MonoBehaviour:
   boton7: {fileID: 5918403210710251712}
   boton8: {fileID: 5884532254206604195}
   boton9: {fileID: 8395131674766975020}
+  audiomixer: {fileID: 0}
   datosconfig:
+    primera: 0
+    primerares: 0
     idioma: 
     plat: 0
     distancia: 0
@@ -8139,7 +8174,6 @@ MonoBehaviour:
     resoluciones: 0
     lastgame: 0
     master: -21
-    masterslider: 0.5
     musica: 0
     musicaslider: 0
     sfx: 9
@@ -8148,6 +8182,11 @@ MonoBehaviour:
     vozslider: 0.5
     ui: 0
     uislider: 0.5
+    largo: 0
+    altura: 0
+    ind: 0
+    full: 0
+    sysidi: 34
   datostrof:
     completaalien1v: 0
     completaalien1m: 0
@@ -8721,7 +8760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8437011086532779198
 Transform:
   m_ObjectHideFlags: 0
@@ -8754,14 +8793,83 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166b4e3ee4443a04bbdf2f6f75ae2472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positive: {fileID: 0}
+  negative: {fileID: 0}
   juego: {fileID: 0}
   pausa1: {fileID: 9046580109153306902}
   plataforma: 0
+  expmu: 0
+  controlobj: {fileID: 0}
+  mapa_b: {fileID: 0}
+  misiones_b: {fileID: 0}
+  notas_b: {fileID: 0}
+  estad_b: {fileID: 0}
+  objetos_b: {fileID: 0}
+  misT:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  notT:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  misB:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  contadormispag: 0
+  oppau: {fileID: 0}
+  dmisiones: {fileID: 0}
+  dnotas:
+    notas:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    notasdesc:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  inputModule: {fileID: 0}
+  largomision: 0
   boton1: {fileID: 7733398750601115494}
   boton2: {fileID: 4497021530951798548}
   boton3: {fileID: 114187174819227183}
   boton4: {fileID: 121649330829048191}
   boton5: {fileID: 7142334411491345213}
+  boton6: {fileID: 0}
+  boton7: {fileID: 0}
+  gemas: {fileID: 0}
+  monedam: {fileID: 0}
+  monedaa: {fileID: 0}
+  monedar: {fileID: 0}
+  llave: {fileID: 0}
+  llaver: {fileID: 0}
+  licencia: {fileID: 0}
+  mision1: {fileID: 0}
+  mision2: {fileID: 0}
+  inText: {fileID: 0}
+  Estadisitcas_panel1: {fileID: 0}
+  Objetos_panel1: {fileID: 0}
   temp: 0
   piso: 3
   normal: {fileID: 5870440795763323751}
@@ -8770,8 +8878,29 @@ MonoBehaviour:
   manager: {fileID: 0}
   manager2: {fileID: 0}
   jugador: {fileID: 0}
+  modo: 0
   moveson: {fileID: 6330998386179531877}
   hip: {fileID: 0}
+  boton: 0
+  botonb: 0
+  mapaact: 0
+  xmapC: 0
+  ymapC: 0
+  xmapme: 0
+  ymapme: 0
+  xmapma: 0
+  ymapma: 0
+  inicio: 0
+  camaramapa: {fileID: 0}
+  paginasM: 0
+  misionT: {fileID: 0}
+  misiondescT: {fileID: 0}
+  botizqM: {fileID: 0}
+  botderM: {fileID: 0}
+  nop: {fileID: 0}
+  notasT: {fileID: 0}
+  notasdescT: {fileID: 0}
+  controlact: 0
 --- !u!1 &9138451333061271253
 GameObject:
   m_ObjectHideFlags: 0

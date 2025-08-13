@@ -16,14 +16,19 @@ public class eventosdialogue : MonoBehaviour
     public string dialogueid;
     public DialogueContainerSO DialogueSO;
     public bool jug;
+    public jugador_al1 jugador;
     public void Start()
     {
+        jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         this.gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
     public void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Player")
         {
+            jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+            jugador._rb.linearVelocity = Vector3.zero;
+            jugador.controlact = false;
             jug = true;
         }
     }
@@ -31,6 +36,7 @@ public class eventosdialogue : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
+            jugador.controlact = true;
             jug = false;
         }
     }

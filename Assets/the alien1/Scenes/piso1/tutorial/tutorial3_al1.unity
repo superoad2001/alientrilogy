@@ -476,6 +476,17 @@ Transform:
   - {fileID: 1115802844}
   m_Father: {fileID: 966690958}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &395403289 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2170086848107800613, guid: e4cd9e774c2359149adb809c59c57a91, type: 3}
+  m_PrefabInstance: {fileID: 1751829497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &403925603
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +543,7 @@ MonoBehaviour:
   dialogueid: 8
   DialogueSO: {fileID: 11400000, guid: c44e4820e40399d4d87ad25fa0098e76, type: 2}
   jug: 0
+  jugador: {fileID: 0}
 --- !u!23 &403925606
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -883,7 +895,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1429987437484693835, guid: a1be23fe5d42aee429f7ab2884c7f23d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.494
+      value: -0.408
       objectReference: {fileID: 0}
     - target: {fileID: 2373954659342451930, guid: a1be23fe5d42aee429f7ab2884c7f23d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1529,7 +1541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6751491197651644307, guid: 7956a52b1f426be489d722e287dc429c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 427.14
+      value: 427.12
       objectReference: {fileID: 0}
     - target: {fileID: 6751491197651644307, guid: 7956a52b1f426be489d722e287dc429c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1569,7 +1581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8172447055980204033, guid: 7956a52b1f426be489d722e287dc429c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8646868080922074457, guid: 7956a52b1f426be489d722e287dc429c, type: 3}
       propertyPath: ubi
@@ -1578,10 +1590,14 @@ PrefabInstance:
     - target: {fileID: 8646868080922074457, guid: 7956a52b1f426be489d722e287dc429c, type: 3}
       propertyPath: anim
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 265246223}
     - target: {fileID: 8646868080922074457, guid: 7956a52b1f426be489d722e287dc429c, type: 3}
       propertyPath: lugar
       value: tienda
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646868080922074457, guid: 7956a52b1f426be489d722e287dc429c, type: 3}
+      propertyPath: tipoTP
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8646868080922074457, guid: 7956a52b1f426be489d722e287dc429c, type: 3}
       propertyPath: manager
@@ -1590,7 +1606,7 @@ PrefabInstance:
     - target: {fileID: 8646868080922074457, guid: 7956a52b1f426be489d722e287dc429c, type: 3}
       propertyPath: tutfinala
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 395403289}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1722,6 +1738,7 @@ MonoBehaviour:
   dialogueid: 5
   DialogueSO: {fileID: 11400000, guid: c44e4820e40399d4d87ad25fa0098e76, type: 2}
   jug: 0
+  jugador: {fileID: 0}
 --- !u!23 &1257379228
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1914,6 +1931,7 @@ MonoBehaviour:
   dialogueid: 6
   DialogueSO: {fileID: 11400000, guid: c44e4820e40399d4d87ad25fa0098e76, type: 2}
   jug: 0
+  jugador: {fileID: 0}
 --- !u!23 &1357502511
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2038,6 +2056,7 @@ MonoBehaviour:
   dialogueid: 7
   DialogueSO: {fileID: 11400000, guid: c44e4820e40399d4d87ad25fa0098e76, type: 2}
   jug: 0
+  jugador: {fileID: 0}
 --- !u!23 &1366092611
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3574,7 +3593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5900179073133971298, guid: e4cd9e774c2359149adb809c59c57a91, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6552155417432579733, guid: e4cd9e774c2359149adb809c59c57a91, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3839,6 +3858,7 @@ MonoBehaviour:
   TP: {fileID: 1747974488}
   controlact: 1
   nivel1: 1
+  indexmax: 4
 --- !u!4 &1793435120
 Transform:
   m_ObjectHideFlags: 0

@@ -212,6 +212,7 @@ public class bossencorbado_al1: MonoBehaviour
                 {anim.SetBool("atkg",true);}
                 temp = 0;
                 palo.GetComponent<golpe_al1>().dano =  ((nivelfuerza / 2) * 1) + nivelfuerza;
+                palo.GetComponent<golpe_al1>().toquespalo = 5;
                 GameObject slasht = Instantiate(slash, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
                 slasht.transform.SetParent(transform);
 				Destroy(slasht,1f);
@@ -247,6 +248,7 @@ public class bossencorbado_al1: MonoBehaviour
             {
                 if(temp > 1f)
             {
+                palo.GetComponent<golpe_al1>().toquespalo = 1;
                 anim.SetBool("arma4",true);
                 temp = 0;
                 palo.GetComponent<golpe_al1>().dano =  ((nivelfuerza / 2) * 1) + nivelfuerza;
@@ -281,6 +283,7 @@ public class bossencorbado_al1: MonoBehaviour
             {
                 if(temp > 3f)
             {
+                palo.GetComponent<golpe_al1>().toquespalo = 2;
                 rb_ = this.GetComponent<Rigidbody>();
                 anim.SetBool("encatk1",true);
                 palo.GetComponent<golpe_al1>().dano =  ((nivelfuerza / 2) * 2) + nivelfuerza;

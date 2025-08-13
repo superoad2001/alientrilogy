@@ -674,7 +674,7 @@ public class jugador_chara3d_al1 : jugador_al1
 		lateralc = controles.al1_3d.lateral.ReadValue<float>();
 		UIXc = controles.al1_UI.UIX.ReadValue<float>();
 		UIYc = controles.al1_UI.UIY.ReadValue<float>();	
-		
+		dispararc = controles.al1_3d.disparar.ReadValue<float>();	
 		dashc = controles.al1_3d.dash.ReadValue<float>();
 		golpearc = controles.al1_3d.golpear.ReadValue<float>();
 		golpearMc = controles.al1_3d.golpearM.ReadValue<float>();

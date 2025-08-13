@@ -18,6 +18,7 @@ public class inicio4base : MonoBehaviour
 	public int plat;
 	public string idioma;
 	public GameObject Gobj;
+	public Text[] botones;
 
 
 	public int distancia;
@@ -215,7 +216,10 @@ public class inicio4base : MonoBehaviour
 		if(manager.datosconfig.idioma == "es")
         {
 			exp1.text = "Guardar";
-			exp2.text = "Atras";
+			exp2.text = "Ir al menu";
+			botones[0].text = "Guardar";
+			botones[1].text = "Ir al menu";
+			botones[2].text = "Guardado";
         }
 		if(menu)
 		{

@@ -2200,7 +2200,10 @@ public class jugador_charalobby_al1 : jugador_al1
 						dialogueact = false;
 						manager.controlene = true;
 						controlact = true;
+						if(eventosdialogueE != null)
+						{
 						Destroy(eventosdialogueE.gameObject);
+						}
 					}
 				}
 			}

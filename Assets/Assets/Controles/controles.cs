@@ -4852,7 +4852,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";mando"",
                     ""action"": ""saltar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -4863,7 +4863,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";teclado"",
                     ""action"": ""saltar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

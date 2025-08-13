@@ -11,7 +11,7 @@ public class presentacion_al1 : MonoBehaviour
     public float temp = 0;
     public Text[] botones = new Text[2];
 
-
+    public AudioSource st;
     public Text pres;
     public Text ad;
     public GameObject vistaestados;
@@ -55,6 +55,7 @@ public class presentacion_al1 : MonoBehaviour
     public Text slotinfo2;
     public GameObject crearobj;
     public GameObject menu;
+    public bool actN;
 
     public int creacion = 0;
 
@@ -158,6 +159,11 @@ public class presentacion_al1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(actN == true && temp > 3)
+        {
+            SceneManager.LoadScene("lallegada_enc_al1");
+        }
         if(controles.al1_UI.menu1.ReadValue<float>() > 0 && inicio == false)
         {
             act();
@@ -315,9 +321,14 @@ public class presentacion_al1 : MonoBehaviour
             if(temp > 3f)
             {
                 
-                manager.datosserial.datos_llenos = true;
+                manager.datosserial.datos_llenos = true;        
                 manager.guardar();
-                SceneManager.LoadScene("lallegada_enc_al1");
+                mus_menu.Stop();
+                st.Play();
+                actN = true;
+                temp = 0;
+                
+
             }
         }
 
@@ -401,7 +412,10 @@ public class presentacion_al1 : MonoBehaviour
                 }
                 else
                 {
-                    SceneManager.LoadScene("lallegada_enc_al1");
+                    mus_menu.Stop();
+                    st.Play();
+                    actN = true;
+                    temp = 0;
 
                 }
             }

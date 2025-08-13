@@ -161,7 +161,7 @@ public class pausa_al1 : MonoBehaviour
             {
             boton2.text = "Salir";
             boton1.text = "Continuar";
-            if(manager.nivel >= 1 && manager.nivel <= 15)
+            if(manager.nivel >= 1 && manager.nivel <= 15 || manager.tutorial == true)
             {boton3.text = "Salir del nivel";}
             boton4.text = "Pausa";
             boton5.text = "Opciones";
