@@ -35,7 +35,9 @@ public class final_al1 : MonoBehaviour
 	{
 		if (botonm == true)
 		{
-			SceneManager.LoadScene("menu_de_carga_al1");
+			manager.datosconfig.carga = "menu_de_carga_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 	}
 		public void boton_m()

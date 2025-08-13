@@ -29,35 +29,47 @@ public class inicio5base : MonoBehaviour
 		{
 			manager.datosconfig.distancia = 200;
 			manager.guardar();
-			SceneManager.LoadScene("mejorabase");
+			manager.datosconfig.carga = "mejorabase";
+			manager.guardar();
+            SceneManager.LoadScene("carga");
 		}
 		if (this.botonn == true && temp >= 1)
 		{
 			manager.datosconfig.distancia = 500;
 			manager.guardar();
-			SceneManager.LoadScene("mejoraesbase");
-		}
+            manager.datosconfig.carga = "mejoraesbase";
+			manager.guardar();
+            SceneManager.LoadScene("carga");
+        }
 		if (this.botonc == true && temp >= 1)
 		{
 			manager.datosconfig.distancia = 1000;
 			manager.guardar();
-			SceneManager.LoadScene("mejorabase");
+			manager.datosconfig.carga = "mejorabase";
+			manager.guardar();
+            SceneManager.LoadScene("carga");
 		}
 		if (this.botont == true && temp >= 1)
 		{
 			manager.datosconfig.distancia = 2000;
 			manager.guardar();
-			SceneManager.LoadScene("mejorabase");
+			manager.datosconfig.carga = "mejorabase";
+			manager.guardar();
+            SceneManager.LoadScene("carga");
 		}
 		if (this.botony == true && temp >= 1)
 		{
 			manager.datosconfig.distancia = 3000;
 			manager.guardar();
-			SceneManager.LoadScene("mejorabase");
+			manager.datosconfig.carga = "mejorabase";
+			manager.guardar();
+            SceneManager.LoadScene("carga");
 		}
 		if(manager.datosconfig.distancia == 200 || manager.datosconfig.distancia == 500 || manager.datosconfig.distancia == 1000 || manager.datosconfig.distancia == 2000 || manager.datosconfig.distancia == 3000)
 		{
-			SceneManager.LoadScene("mejorabase");
+			manager.datosconfig.carga = "mejorabase";
+			manager.guardar();
+            SceneManager.LoadScene("carga");
 		}
 	}
 	public void boton_m()

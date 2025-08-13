@@ -44,28 +44,18 @@ public class inicio_al1 : MonoBehaviour
 				}
 				else
 				{
-					SceneManager.LoadScene("piso1_al1");
+					manager.datosconfig.carga = "piso1_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 				}
 				
 			}
 			else
 			{
-				SceneManager.LoadScene("lallegada_al1");
+				manager.datosconfig.carga = "lallegada_al1";
+				manager.guardarconfig();
+				SceneManager.LoadScene("carga");
 			}	
-		}
-		if (this.botonn == true && temp >= 1)
-		{
-			SceneManager.LoadScene("borrar_partida_al1");
-		}
-		if (this.botonc == true && temp >= 1)
-		{
-			manager.datosconfig.lastgame = 2;
-            manager.guardarconfig();
-			SceneManager.LoadScene("opcionesbase");
-		}
-		if (this.botond == true && temp >= 1)
-		{
-			SceneManager.LoadScene("menutrilogy");
 		}
 	
 

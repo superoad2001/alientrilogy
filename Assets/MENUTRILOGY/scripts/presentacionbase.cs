@@ -61,7 +61,9 @@ public class presentacionbase : MonoBehaviour
         temp += 1 * Time.deltaTime;
         if(temp >= 14)
         {
-            SceneManager.LoadScene("menutrilogy");
+            manager.datosconfig.carga = "menutrilogy";
+            manager.guardar();
+            SceneManager.LoadScene("carga");
         }
     }
 }

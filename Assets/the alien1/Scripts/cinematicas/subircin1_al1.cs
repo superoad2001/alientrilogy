@@ -44,7 +44,9 @@ public class subircin1_al1 : MonoBehaviour
 		{
 			manager.datosserial.begin = true;
 			manager.guardar();
-			SceneManager.LoadScene("piso1_al1");
+			manager.datosconfig.carga = "piso1_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 	}
 	public void boton_m()

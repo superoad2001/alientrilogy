@@ -31,7 +31,9 @@ public class lasalidas_al1 : MonoBehaviour
 	{
 		if (controles.menu.saltar.ReadValue<float>() > 0f)
 		{
-			SceneManager.LoadScene("final_al1");
+			manager.datosconfig.carga = "final_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 		
 	}
@@ -40,7 +42,9 @@ public class lasalidas_al1 : MonoBehaviour
 		if (col.gameObject.tag == "Player" )
 		{
 			Debug.Log("Hello: ");
-			SceneManager.LoadScene("final_al1");
+			manager.datosconfig.carga = "final_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 	}
 

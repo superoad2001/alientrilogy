@@ -660,7 +660,9 @@ public class pausa_al1 : MonoBehaviour
     }
     public void salir(){
 
-        SceneManager.LoadScene("menu_de_carga_al1");
+        manager.datosconfig.carga = "menu_de_carga_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
     }
     public void mapa_()
     {

@@ -110,7 +110,9 @@ public class teleport_al1 : MonoBehaviour
                 
                 if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
                 {
-                    SceneManager.LoadScene("cin_presboss1_al1");
+                    manager.datosconfig.carga = "cin_presboss1_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
                 }
                 
             }
@@ -120,7 +122,9 @@ public class teleport_al1 : MonoBehaviour
                 
                 if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
                 {
-                    SceneManager.LoadScene("prebosss1_al1");
+                    manager.datosconfig.carga = "prebosss1_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
                 }
                 
             }

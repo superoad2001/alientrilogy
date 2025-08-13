@@ -53,7 +53,9 @@ public class introcarga_al1 : MonoBehaviour
         temp += 1 * Time.deltaTime;
         if(audio.isPlaying == false || controles.menu.saltar.ReadValue<float>() > 0)
         {
-            SceneManager.LoadScene("menu_de_carga_al1");
+            manager.datosconfig.carga = "menu_de_carga_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
         }
     }
 }

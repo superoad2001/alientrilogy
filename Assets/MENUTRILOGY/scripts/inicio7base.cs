@@ -69,7 +69,9 @@ public class inicio7base : MonoBehaviour
     }
     public void salir()
     {
-        SceneManager.LoadScene("menutrilogy");
+        manager.datosconfig.carga = "menutrilogy";
+        manager.guardar();
+        SceneManager.LoadScene("carga");
     }
     public void alt()
     {

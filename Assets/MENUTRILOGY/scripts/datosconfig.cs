@@ -16,6 +16,8 @@ public class datosconfig
     public int resoluciones;
     public int lastgame = 0;
 
+    public string carga;
+
     public float master = -28;
 
     public float musica = 14;

@@ -129,25 +129,43 @@ public class menures_al1 : MonoBehaviour
 
     public void salir()
     {
-        SceneManager.LoadScene("menu_de_carga_al1");
+        manager.datosconfig.carga = "menu_de_carga_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
     }
 
     public void salirnivel(){
         if(manager.piso_carga == 1)
-        {SceneManager.LoadScene("piso1_al1");}
+        {manager.datosconfig.carga = "piso1_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");}
         if(manager.piso_carga == 2)
-        {SceneManager.LoadScene("piso2_al1");}
+        {manager.datosconfig.carga = "piso2_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");}
         if(manager.piso_carga == 3)
-        {SceneManager.LoadScene("piso3_al1");}
+        {manager.datosconfig.carga = "piso3_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");}
         if(manager.piso_carga == 4)
-        {SceneManager.LoadScene("piso4_al1");}
+        {manager.datosconfig.carga = "piso4_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");}
         if(manager.piso_carga == -1)
-        {SceneManager.LoadScene("piso1t_al1");}
+        {manager.datosconfig.carga = "piso1t_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");}
         if(manager.piso_carga == -2)
-        {SceneManager.LoadScene("piso2t_al1");}
+        {manager.datosconfig.carga = "piso2t_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");}
         if(manager.piso_carga == -3)
-        {SceneManager.LoadScene("piso3t_al1");}
+        {manager.datosconfig.carga = "piso3t_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");}
         if(manager.piso_carga == -4)
-        {SceneManager.LoadScene("piso4t_al1");}
+        {manager.datosconfig.carga = "piso4t_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");}
     }
 }

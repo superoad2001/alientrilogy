@@ -232,7 +232,9 @@ public class enemigo1boss_al1: MonoBehaviour
                     manager.datosserial.asesinatos++;
                     manager.datosserial.jefeV[0] = true;
                     manager.guardar();
-                    SceneManager.LoadScene("cin_postboss1_al1");
+                    manager.datosconfig.carga = "cin_postboss1_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 
                 }
                 if(Temp > 5 )

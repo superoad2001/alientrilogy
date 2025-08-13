@@ -131,23 +131,33 @@ public class inicio3base : MonoBehaviour
         {
             if(juego == 1)
             {
-                SceneManager.LoadScene("menu_de_carga_al1");
+                manager.datosconfig.carga = "menu_de_carga_al1";
+                manager.guardar();
+                SceneManager.LoadScene("carga");
             }
             if(juego == 2)
             {
-                SceneManager.LoadScene("menu_de_carga_al2");
+                manager.datosconfig.carga = "menu_de_carga_al2";
+                manager.guardar();
+                SceneManager.LoadScene("carga");
             }
             if(juego == 3)
             {
-                SceneManager.LoadScene("menu_de_carga_al3");
+                manager.datosconfig.carga = "menu_de_carga_al3";
+                manager.guardar();
+                SceneManager.LoadScene("carga");
             }
             if(juego == 4)
             {
-                SceneManager.LoadScene("trofeos");
+                manager.datosconfig.carga = "trofeos";
+                manager.guardar();
+                SceneManager.LoadScene("carga");
             }
             if(juego == 5)
             {
-                SceneManager.LoadScene("opcionesbase");
+                manager.datosconfig.carga = "opcionesbase";
+                manager.guardar();
+                SceneManager.LoadScene("carga");
             }
         }
     }

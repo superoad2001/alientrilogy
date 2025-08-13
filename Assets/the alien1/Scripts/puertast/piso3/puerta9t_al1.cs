@@ -23,7 +23,9 @@ public class puerta9t_al1 : MonoBehaviour
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		if (col.gameObject.tag == "Player" )
 		{
-			SceneManager.LoadScene("nivel7t_al1");
+			manager.datosconfig.carga = "nivel7t_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 	}
 }

@@ -22,7 +22,9 @@ public class puerta0t_al1 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			SceneManager.LoadScene("piso1t_al1");
+			manager.datosconfig.carga = "piso1t_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 	}
 }

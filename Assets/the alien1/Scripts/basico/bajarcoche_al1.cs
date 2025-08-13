@@ -22,7 +22,9 @@ public class bajarcoche_al1 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			SceneManager.LoadScene("mundoc2_al1");
+			manager.datosconfig.carga = "mundoc2_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 	}
 }

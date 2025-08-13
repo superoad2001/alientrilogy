@@ -221,7 +221,9 @@ public class manager_ordas_al1 : MonoBehaviour
                     }
                 }
                 else if(ronda == maxronda)
-                {SceneManager.LoadScene("piso1_al1");}
+                {manager.datosconfig.carga = "piso1_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");}
                 temp = 0;
                 actinironda = false;
             }

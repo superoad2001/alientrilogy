@@ -53,7 +53,9 @@ public class mundo1_al1 : MonoBehaviour
 			{this.tutfinala.text = "per visitar aquest lloc pren";}
 			if (controles.al1_nave.interactuar.ReadValue<float>() > 0f )
 			{
-				SceneManager.LoadScene("mundo1_al1");
+				manager.datosconfig.carga = "mundo1_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 			}
 		}
 	}

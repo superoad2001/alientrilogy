@@ -27,18 +27,22 @@ public class inicio6base : MonoBehaviour
 		if (this.botonm == true && temp >= 1)
 		{
 			manager.datosconfig.postpro = 1;
+			manager.datosconfig.carga = "presentacionbase";
 			manager.guardar();
-			SceneManager.LoadScene("presentacionbase");
+            SceneManager.LoadScene("carga");
 		}
 		if (this.botonn == true && temp >= 1)
 		{
 			manager.datosconfig.postpro = 2;
+			manager.datosconfig.carga = "presentacionbase";
 			manager.guardar();
-			SceneManager.LoadScene("presentacionbase");
+            SceneManager.LoadScene("carga");
 		}
 		if(manager.datosconfig.postpro == 1 || manager.datosconfig.postpro == 2)
 		{
-			SceneManager.LoadScene("presentacionbase");
+			manager.datosconfig.carga = "presentacionbase";
+			manager.guardar();
+            SceneManager.LoadScene("carga");
 		}
 	}
 	public void boton_m()

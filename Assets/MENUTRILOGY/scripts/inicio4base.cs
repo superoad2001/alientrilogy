@@ -466,13 +466,29 @@ public class inicio4base : MonoBehaviour
 		manager.guardar();
 		
 		if(manager.datosconfig.lastgame == 0)
-		{SceneManager.LoadScene("menutrilogy");}
+		{
+			manager.datosconfig.carga = "menutrilogy";
+			manager.guardar();
+            SceneManager.LoadScene("carga");
+		}
 		if(manager.datosconfig.lastgame == 1)
-		{SceneManager.LoadScene("menu_de_carga_al1");}
+		{
+			manager.datosconfig.carga = "menu_de_carga_al1";
+			manager.guardar();
+            SceneManager.LoadScene("carga");
+		}
 		if(manager.datosconfig.lastgame == 2)
-		{SceneManager.LoadScene("menu_de_carga_al2");}
+		{
+			manager.datosconfig.carga = "menu_de_carga_al2";
+			manager.guardar();
+            SceneManager.LoadScene("carga");
+		}
 		if(manager.datosconfig.lastgame == 3)
-		{SceneManager.LoadScene("carga_al3");}
+		{
+			manager.datosconfig.carga = "carga_al3";
+			manager.guardar();
+            SceneManager.LoadScene("carga");
+		}
 	}
 	public void aplicartodo()
 	{

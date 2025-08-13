@@ -48,7 +48,9 @@ public class mejora1_al1 : MonoBehaviour
     {
         if(!audio.isPlaying || controles.menu.saltar.ReadValue<float>() > 0)
 		{
-			SceneManager.LoadScene("tienda_al1");
+			manager.datosconfig.carga = "tienda_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
     }
 }

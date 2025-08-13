@@ -44,7 +44,9 @@ public class subircoche_al1 : MonoBehaviour
 			{this.tutfinala.text = "per pujar al cotxe pren";}
 			if (controles.al1_3d.interactuar.ReadValue<float>() > 0f )
 			{
-				SceneManager.LoadScene("mundoc_al1");
+				manager.datosconfig.carga = "mundoc_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 			}
 		}
 	}

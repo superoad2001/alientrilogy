@@ -23,12 +23,16 @@ public class inicio1_al1 : MonoBehaviour
 		{temp += 1 * Time.deltaTime;}
 		if (this.botonm == true && temp >= 1)
 		{
-			SceneManager.LoadScene("menu_de_carga_al1");
+			manager.datosconfig.carga = "menu_de_carga_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 		if (this.botonn == true && temp >= 1)
 		{
 			manager.borrar_data();
-			SceneManager.LoadScene("presentacion_al1");
+			manager.datosconfig.carga = "presentacion_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 	}
 		public void boton_m()

@@ -29,16 +29,22 @@ public class inicio0base : MonoBehaviour
 			Screen.SetResolution(manager.datosconfig.largo,manager.datosconfig.altura,manager.datosconfig.full);
 			if(manager.datosconfig.primera == false)
 			{
-				SceneManager.LoadScene("opcionesbase");
-			}
+                manager.datosconfig.carga = "opcionesbase";
+                manager.guardar();
+                SceneManager.LoadScene("carga");
+            }
 			else
 			{
-				SceneManager.LoadScene("menutrilogy");
+				manager.datosconfig.carga = "menutrilogy";
+				manager.guardar();
+                SceneManager.LoadScene("carga");
 			}
 		}
 		else
 		{
-			SceneManager.LoadScene("opcionesbase");
+			manager.datosconfig.carga = "opcionesbase";
+			manager.guardar();
+            SceneManager.LoadScene("carga");
 		}
 	
 

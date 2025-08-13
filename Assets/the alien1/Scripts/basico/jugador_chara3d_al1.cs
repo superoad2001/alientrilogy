@@ -607,7 +607,9 @@ public class jugador_chara3d_al1 : jugador_al1
 		{
 			manager.datosserial.eventos[0] = true;
 			manager.guardar();
-			SceneManager.LoadScene("tutorialcin2enc_al1");
+			manager.datosconfig.carga = "tutorialcin2enc_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 		
 	}
@@ -1603,7 +1605,9 @@ public class jugador_chara3d_al1 : jugador_al1
 			
 		}
 		
-		if(subir0 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso1_al1");}
+		if(subir0 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "piso1_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");}
 
 
 

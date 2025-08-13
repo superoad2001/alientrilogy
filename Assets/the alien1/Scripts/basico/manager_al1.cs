@@ -26,6 +26,7 @@ public class manager_al1 : MonoBehaviour
 	public float tempshow;
 	public bool actguardarub;
 	public string nivelu;
+	public bool cargando;
 	public jugador_al1 jugador;
 	public GameObject portalg;
 	public int nivel = 0;

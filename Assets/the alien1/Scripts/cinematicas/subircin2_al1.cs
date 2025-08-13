@@ -40,7 +40,9 @@ public class subircin2_al1 : MonoBehaviour
 	{
 		if (controles.al1_UI.interactuar.ReadValue<float>() > 0f || botonm == true)
 		{
-			SceneManager.LoadScene("espacio_al1");
+			manager.datosconfig.carga = "espacio_al1";
+			manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 	}
 	public void boton_m()

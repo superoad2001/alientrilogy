@@ -45,7 +45,9 @@ public class subirnave_al1 : MonoBehaviour
 			{this.tutfinala.text = "per pujar a la nau pren";}
 			if (controles.al1_3d.interactuar.ReadValue<float>() > 0f )
 			{
-				SceneManager.LoadScene("espacio_al1");
+				manager.datosconfig.carga = "espacio_al1";
+				manager.guardarconfig();
+				SceneManager.LoadScene("carga");
 			}
 		}
 	}

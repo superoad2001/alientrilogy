@@ -22,7 +22,9 @@ public class volver_al1 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			SceneManager.LoadScene("mundo_al1");
+			manager.datosconfig.carga = "mundo_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 	}
 }

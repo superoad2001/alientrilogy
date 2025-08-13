@@ -28,17 +28,23 @@ public class inicio4_al1 : MonoBehaviour
 		{
 			manager.datosconfig.plat = 1;
 			manager.guardar();
-			SceneManager.LoadScene("presentacion_al1_al1");
+			manager.datosconfig.carga = "presentacion_al1_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 		if (this.botonn == true && temp >= 1)
 		{
 			manager.datosconfig.plat = 2;
 			manager.guardar();
-			SceneManager.LoadScene("presentacion_al1_al1");
+			manager.datosconfig.carga = "presentacion_al1_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 		if(plataforma != 0)
 		{
-			SceneManager.LoadScene("presentacion_al1_al1");
+			manager.datosconfig.carga = "presentacion_al1_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 	}
 		public void boton_m()

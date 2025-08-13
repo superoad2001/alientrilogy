@@ -26,24 +26,29 @@ public class inicio1base : MonoBehaviour
 		if (this.botonm == true && temp >= 1)
 		{
 			manager.datosconfig.idioma = "es";
+			manager.datosconfig.carga = "controlesbase";
 			manager.guardar();
-			SceneManager.LoadScene("controlesbase");
+            SceneManager.LoadScene("carga");
 		}
 		if (this.botonn == true && temp >= 1)
 		{
 			manager.datosconfig.idioma = "en";
+			manager.datosconfig.carga = "controlesbase";
 			manager.guardar();
-			SceneManager.LoadScene("controlesbase");
+            SceneManager.LoadScene("carga");
 		}
 		if (this.botonc == true && temp >= 1)
 		{
 			manager.datosconfig.idioma = "cat";
+			manager.datosconfig.carga = "controlesbase";
 			manager.guardar();
-			SceneManager.LoadScene("controlesbase");
+            SceneManager.LoadScene("carga");
 		}
 		if (manager.datosconfig.idioma == "es" || manager.datosconfig.idioma == "en" || manager.datosconfig.idioma == "cat")
 		{
-			SceneManager.LoadScene("controlesbase");
+			manager.datosconfig.carga = "controlesbase";
+			manager.guardar();
+            SceneManager.LoadScene("carga");
 		}
 	}
 	public void boton_m()

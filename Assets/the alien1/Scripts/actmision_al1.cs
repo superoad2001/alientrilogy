@@ -19,8 +19,9 @@ public class actmision_al1 : MonoBehaviour
         {
             manager.datosserial.misiones[ID] = 2;
         }
-        
-        
+        manager.guardar();
+
+
     }
 
     // Update is called once per frame

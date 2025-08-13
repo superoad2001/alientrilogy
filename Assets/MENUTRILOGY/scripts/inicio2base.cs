@@ -27,17 +27,23 @@ public class inicio2base : MonoBehaviour
 		{
 			manager.datosconfig.plat = 1;
 			manager.guardar();
-			SceneManager.LoadScene("distanciabase");
+			manager.datosconfig.carga = "distanciabase";
+			manager.guardar();
+            SceneManager.LoadScene("carga");
 		}
 		if (this.botonn == true && temp >= 1)
 		{
 			manager.datosconfig.plat = 2;
 			manager.guardar();
-			SceneManager.LoadScene("distanciabase");
+			manager.datosconfig.carga = "distanciabase";
+			manager.guardar();
+            SceneManager.LoadScene("carga");
 		}
 		if(manager.datosconfig.plat == 1 || manager.datosconfig.plat == 2)
 		{
-			SceneManager.LoadScene("distanciabase");
+			manager.datosconfig.carga = "distanciabase";
+			manager.guardar();
+            SceneManager.LoadScene("carga");
 		}
 	}
 		public void boton_m()

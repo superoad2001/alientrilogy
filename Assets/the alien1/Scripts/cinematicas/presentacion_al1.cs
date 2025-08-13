@@ -159,10 +159,13 @@ public class presentacion_al1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        temp += 1 * Time.deltaTime;
 
         if(actN == true && temp > 3)
         {
-            SceneManager.LoadScene("lallegada_enc_al1");
+            manager.datosconfig.carga = "lallegada_enc_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
         }
         if(controles.al1_UI.menu1.ReadValue<float>() > 0 && inicio == false)
         {
@@ -180,7 +183,7 @@ public class presentacion_al1 : MonoBehaviour
         {
             pres.text = "presenta";
         }
-        temp += 1 * Time.deltaTime;
+        
         if(temp > 8 && inicio == false)
         {
             act();
@@ -401,12 +404,16 @@ public class presentacion_al1 : MonoBehaviour
                 {
                     if(manager.datosserial.nivelu != "")
                     {
-                        SceneManager.LoadScene(manager.datosserial.nivelu);
+                        manager.datosconfig.carga = manager.datosserial.nivelu;
+                        manager.guardarconfig();
+                        SceneManager.LoadScene("carga");
                         temp = 0;
                     }
                     else
                     {
-                        SceneManager.LoadScene("piso1_al1");
+                        manager.datosconfig.carga = "piso1_al1";
+                        manager.guardarconfig();
+                        SceneManager.LoadScene("carga");
                         temp = 0;
                     }
                 }
@@ -441,7 +448,7 @@ public class presentacion_al1 : MonoBehaviour
         {
             manager.datosconfig.lastgame = 1;
             manager.guardarconfig();
-            SceneManager.LoadScene("opcionesbase");
+            manager.datosconfig.carga = "opcionesbase";
             temp = 0;
         }
     }
@@ -449,7 +456,7 @@ public class presentacion_al1 : MonoBehaviour
     {
         if (temp >= 1)
         {
-            SceneManager.LoadScene("menutrilogy");
+            manager.datosconfig.carga = "menutrilogy";
             temp = 0;
         }
     }

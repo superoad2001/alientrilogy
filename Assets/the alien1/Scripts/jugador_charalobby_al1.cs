@@ -343,7 +343,9 @@ public class jugador_charalobby_al1 : jugador_al1
 		{
 			manager.datosserial.eventos[0] = true;
 			manager.guardar();
-			SceneManager.LoadScene("tutorialcin2enc_al1");
+			manager.datosconfig.carga = "tutorialcin2enc_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 		
 	}
@@ -615,44 +617,71 @@ public class jugador_charalobby_al1 : jugador_al1
 		
 	
 		
-		if(subir0 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso1_al1");}
+		if(subir0 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "piso1_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");}
 		
 		
 
-		//if(subir1 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso2_al1");}
-		if(subir1 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("fin_demo_al1");}
+		//if(subir1 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "piso2_al1";manager.guardarconfig();SceneManager.LoadScene("carga");}
+            
+		if(subir1 == true && tiempoascensor > 0.9f)
+		{
+			manager.datosconfig.carga = "fin_demo_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
+		}
 
 
-		if(subir2 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso3_al1");}
+		if(subir2 == true && tiempoascensor > 0.9f)
+		{
+			manager.datosconfig.carga = "piso3_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
+		}
 
 
 
-		if(subir3 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso4_al1");}
+		if(subir3 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "piso4_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");}
 
 
 
-		if(subir4 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso5_al1");}
+		if(subir4 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "piso5_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");}
 
 
 		
 
-		if(bajar1 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("mundo_al1");}
+		if(bajar1 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "mundo_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");}
 
 
 
-		if(bajar2 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso1_al1");}
+		if(bajar2 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "piso1_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");}
 
 
 
-		if(bajar3 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso2_al1");}
+		if(bajar3 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "piso2_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");}
 
 
 
-		if(bajar4 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso3_al1");}
+		if(bajar4 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "piso3_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");}
 
 
 
-		if(bajar5 == true && tiempoascensor > 0.9f){SceneManager.LoadScene("piso4_al1");}
+		if(bajar5 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "piso4_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");}
 
 
 

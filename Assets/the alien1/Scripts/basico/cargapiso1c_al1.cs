@@ -9,12 +9,16 @@ public class cargapiso1c_al1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.LoadScene("piso1_al1");
+        manager.datosconfig.carga = "piso1_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
     }
 
     // Update is called once per frame
     void Update()
     {
-        SceneManager.LoadScene("piso1_al1");
+        manager.datosconfig.carga = "piso1_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
     }
 }

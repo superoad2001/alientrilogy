@@ -29,23 +29,31 @@ public class inicio3_al1 : MonoBehaviour
 		{
 			manager.datosconfig.idioma = "es";
 			manager.guardar();
-			SceneManager.LoadScene("controles_al1");
+			manager.datosconfig.carga = "controles_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 		if (this.botonn == true && temp >= 1)
 		{
 			manager.datosconfig.idioma = "en";
 			manager.guardar();
-			SceneManager.LoadScene("controles_al1");
+			manager.datosconfig.carga = "controles_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 		if (this.botonc == true && temp >= 1)
 		{
 			manager.datosconfig.idioma = "cat";
 			manager.guardar();
-			SceneManager.LoadScene("controles_al1");
+			manager.datosconfig.carga = "controles_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 		if(idioma != "no")
 		{
-			SceneManager.LoadScene("controles_al1");
+			manager.datosconfig.carga = "controles_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 		}
 	}
 	public void boton_m()

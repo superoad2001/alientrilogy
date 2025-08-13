@@ -57,7 +57,9 @@ public class hiper_al1 : MonoBehaviour
 			{this.tutfinala.text = "per tornar a casa pren";}
 			if (controles.al1_nave.interactuar.ReadValue<float>() > 0f || botonm == true)
 			{
-				SceneManager.LoadScene("lasalida_al1");
+				manager.datosconfig.carga = "lasalida_al1";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
 			}
 		}
 	}
