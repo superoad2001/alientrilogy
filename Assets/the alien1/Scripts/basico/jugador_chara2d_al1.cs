@@ -442,7 +442,6 @@ public class jugador_chara2d_al1 : jugador_al1
 			velocidadaux = 8;
 			velocidadmaxima = 13;
 			jumpforce = 600;
-			camara.transform.rotation = Quaternion.Euler(0,180,0);
 			
 		
 
@@ -532,11 +531,11 @@ public class jugador_chara2d_al1 : jugador_al1
 		{
 			if(dimensiion == true)
 			{
-				//jugpos = transform.localPosition.x;
+				jugpos = transform.localPosition.x;
 			}
 			else if(dimensiion == false)
 			{
-				//jugpos = transform.localPosition.z;
+				jugpos = transform.localPosition.z;
 			}
 			cargainicial = true;
 		}
@@ -1616,7 +1615,7 @@ public class jugador_chara2d_al1 : jugador_al1
 
 		if (this.dimensiion && controlact == true)
 		{
-			//transform.localPosition = new Vector3(jugpos,transform.localPosition.y,transform.localPosition.z);
+			transform.localPosition = new Vector3(jugpos,transform.localPosition.y,transform.localPosition.z);
 			
 			
 
@@ -1792,7 +1791,7 @@ public class jugador_chara2d_al1 : jugador_al1
 		if (!this.dimensiion  && controlact == true)
 		{
 			
-			//transform.localPosition = new Vector3(transform.localPosition.x,transform.localPosition.y,jugpos);
+			transform.localPosition = new Vector3(transform.localPosition.x,transform.localPosition.y,jugpos);
 			anim.SetFloat("velx",movXc);
 			Vector3 movdirnow = transform.TransformDirection(new Vector3 (-movXc,0, 0)).normalized;
 				if (objplaneta != null && tiempogiro2 > 1.5f)

@@ -25,7 +25,6 @@ public class colecM_al1 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			manager.datosserial.misiones[misionID] = 2;
             manager.datosserial.npcF[npcid]++;
             manager.guardar();
             UnityEngine.Object.Destroy(base.gameObject);

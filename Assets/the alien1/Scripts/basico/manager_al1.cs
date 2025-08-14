@@ -340,6 +340,8 @@ public class manager_al1 : MonoBehaviour
 			hidemenu_al1 hide = (hidemenu_al1)FindFirstObjectByType(typeof(hidemenu_al1));
 			hide.anim.SetBool("show2",true);
 		}
+
+		
 	}
 	}
 	public void Start()
@@ -402,14 +404,7 @@ public class manager_al1 : MonoBehaviour
 			datosserial.nivelu = SceneManager.GetActiveScene().name;
 			manager.guardar();
 		}
-		if (puertasposact == true && datosserial.puertaposact == true)
-		{
-			//jugador.transform.position = datosserial.puertapos;
-		}
-		if (puertasgiract == true && datosserial.puertagiract == true)
-		{
-			jugador.transform.eulerAngles = new Vector3(jugador.transform.eulerAngles.x,datosserial.puertagir,jugador.transform.eulerAngles.z);
-		}
+		
 		if((manager_nivel_al1)FindFirstObjectByType(typeof(manager_nivel_al1)) != null)
 		{
 			managerN = (manager_nivel_al1)FindFirstObjectByType(typeof(manager_nivel_al1));
@@ -427,11 +422,25 @@ public class manager_al1 : MonoBehaviour
 			if(datosserial.misiones[p] == 2)
 			{MisionesCumplidas++;}
 		}
+
+		if (puertasposact == true && datosserial.puertaposact == true)
+		{
+			jugador.transform.position = datosserial.puertapos;
+		}
+		if (puertasgiract == true && datosserial.puertagiract == true)
+		{
+			jugador.transform.eulerAngles = new Vector3(jugador.transform.eulerAngles.x,datosserial.puertagir,jugador.transform.eulerAngles.z);
+			jugador.camara.transform.eulerAngles = jugador.transform.eulerAngles;
+		}
 		
 		
 
 		
 
+	}
+	public void fixedStart()
+	{
+		
 	}
 	public bool mundos = false;
 		// Token: 0x04000021 RID: 33

@@ -1308,7 +1308,7 @@ MonoBehaviour:
   ubi: piso1_al1
   lugar: 
   objetoTP: {fileID: 0}
-  puertagir: 3
+  puertagir: 1
   puertagiract: 1
   puertapos: {x: 0, y: 0, z: 0}
   puertaposact: 0
@@ -46388,6 +46388,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989701913}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2089680908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2089680910}
+  - component: {fileID: 2089680909}
+  m_Layer: 0
+  m_Name: actpart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2089680909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089680908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a8ba734d10e0d438dad73dca7bbad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+--- !u!4 &2089680910
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089680908}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1439.8907, y: 472.98334, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2139811398 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8304594020483050458, guid: cc483c0c9765ef44cad7d381c990be0b, type: 3}
@@ -67645,3 +67690,4 @@ SceneRoots:
   - {fileID: 252187961}
   - {fileID: 475259701}
   - {fileID: 890114390}
+  - {fileID: 2089680910}

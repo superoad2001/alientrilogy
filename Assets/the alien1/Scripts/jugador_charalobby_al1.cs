@@ -179,6 +179,16 @@ public class jugador_charalobby_al1 : jugador_al1
 	private void Start()
 	{
 
+		if(camara != null)
+        {
+			cameraverticalangle2 = camara.transform.eulerAngles.y;
+		}
+
+
+		camarascript = (camara_al1)FindFirstObjectByType(typeof(camara_al1));
+		
+		rotspeed = 150;
+
 		if(manager.datosserial.ascensoract == false)
 		{
 			tiempoascensor = 5;
@@ -211,13 +221,7 @@ public class jugador_charalobby_al1 : jugador_al1
 		
 
 		
-		if(camara != null)
-        {cameraverticalangle2 = camara.transform.eulerAngles.y;}
-
-
-		camarascript = (camara_al1)FindFirstObjectByType(typeof(camara_al1));
 		
-		rotspeed = 150;
 
 
 		
@@ -248,8 +252,6 @@ public class jugador_charalobby_al1 : jugador_al1
 		staminaobj = stamina;
 
 
-
-		camara.transform.eulerAngles = new Vector3(0,0,0);
 		
 
 
@@ -275,7 +277,6 @@ public class jugador_charalobby_al1 : jugador_al1
 			velocidadaux = 4;
 			velocidadmaxima = 6;
 			jumpforce = 200;
-			camara.transform.rotation = Quaternion.Euler(0,180,0);
 		
 		this._rb = base.GetComponent<Rigidbody>();
 		velocidadaux = velocidad;

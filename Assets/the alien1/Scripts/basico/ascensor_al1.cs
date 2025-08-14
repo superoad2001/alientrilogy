@@ -18,6 +18,7 @@ public class ascensor_al1 : MonoBehaviour
     void Start()
     {
         jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+        manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
     }
 
     // Update is called once per frame

@@ -258,7 +258,6 @@ public class jugador_chara3d_al1 : jugador_al1
 
 
 
-			camara.transform.eulerAngles = new Vector3(0,0,0);
 		
 
 			if(manager.datosserial.tengopalo == false)
@@ -450,7 +449,6 @@ public class jugador_chara3d_al1 : jugador_al1
 			velocidadaux = 8;
 			velocidadmaxima = 13;
 			jumpforce = 700;
-			camara.transform.rotation = Quaternion.Euler(0,180,0);
 		
 
 		this._rb = base.GetComponent<Rigidbody>();
@@ -1605,7 +1603,9 @@ public class jugador_chara3d_al1 : jugador_al1
 			
 		}
 		
-		if(subir0 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "piso1_al1";
+		if(subir0 == true && tiempoascensor > 0.9f)
+		{
+			manager.datosconfig.carga = "piso1_al1";
             manager.guardarconfig();
             SceneManager.LoadScene("carga");}
 

@@ -32,7 +32,7 @@ public class pausa_al1 : MonoBehaviour
     List<string>  misionesdesc = new List<string>();
 
 
-    private Controles controles;
+    public Controles controles;
 
     public opcionespause oppau;
 
@@ -445,10 +445,14 @@ public class pausa_al1 : MonoBehaviour
         {
             if(modo == 0)
             {
-            boton2.text = "Salir";
+            
             boton1.text = "Continuar";
-            if(manager.nivel >= 1 && manager.nivel <= 15)
-            {boton3.text = "Salir del nivel";}
+            if(manager.nivelact)
+            {boton2.text = "Salir del nivel";}
+            else
+            {
+                boton2.text = "Salir del juego";
+            }
             boton4.text = "Pausa";
             boton5.text = "Opciones";
             boton6.text = "Controles";
@@ -659,10 +663,10 @@ public class pausa_al1 : MonoBehaviour
         }
     }
     public void salir(){
-
+        Time.timeScale = 1;
         manager.datosconfig.carga = "menu_de_carga_al1";
-            manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+        manager.guardarconfig();
+        SceneManager.LoadScene("carga");
     }
     public void mapa_()
     {
@@ -715,9 +719,12 @@ public class pausa_al1 : MonoBehaviour
     }
 
     public void salirnivel(){
+        Time.timeScale = 1;
         manager.datosserial.actual_checkpoint = 0;
         manager.guardar();
-        SceneManager.LoadScene(manager.datosserial.salirnivelsala);
+        manager.datosconfig.carga = manager.datosserial.nivelu;
+        manager.guardarconfig();
+        SceneManager.LoadScene("carga");
 
     }
     public void opciones()

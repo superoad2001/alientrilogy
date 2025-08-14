@@ -32,9 +32,9 @@ public class misionA_al1 : MonoBehaviour
     public bool tiendaact;
     public void obtener()
     {
-        manager.datosserial.misiones[manager.misionS] = 3;
+        manager.datosserial.misiones[manager.misionS] = 2;
         manager.datosserial.npcF[npcid]++;
-        manager.datosserial.economia[7] += premiocant;
+        manager.datosserial.economia[6] += premiocant;
         manager.guardar();
 
         plataforma = manager.datosconfig.plat;
@@ -152,8 +152,8 @@ public class misionA_al1 : MonoBehaviour
         {
             aceptarM.SetActive(false);
             finM.SetActive(true);
-            premio.sprite = tipoI[7];
-            premio.color = colores[7];
+            premio.sprite = tipoI[6];
+            premio.color = colores[6];
             titulopremio.text = "completada";
             menpremio.text = "obtuviste"+premiocant+"de estos";
 

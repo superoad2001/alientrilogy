@@ -38,7 +38,7 @@ public abstract class jugador_al1 : MonoBehaviour
 	public Vector3 enmovdirectaux;
 	[HideInInspector]public float temppause;
 	[HideInInspector]public float tempempujon;
-	[HideInInspector]public bool tarbossact;
+	public bool tarbossact;
 	[HideInInspector]public int combo;
 	public float vida = 9;
 	[HideInInspector]public bool dialogueact;
