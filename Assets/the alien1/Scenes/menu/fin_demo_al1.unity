@@ -842,6 +842,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
+  tutorial: 0
+  desarmadef: 0
   managerN: {fileID: 0}
   cin: 1
   MisionesCumplidas: 0
@@ -855,6 +857,7 @@ MonoBehaviour:
   tempshow: 0
   actguardarub: 0
   nivelu: 
+  cargando: 0
   jugador: {fileID: 0}
   portalg: {fileID: 0}
   nivel: 0
@@ -1010,6 +1013,7 @@ MonoBehaviour:
     postpro: 0
     resoluciones: 0
     lastgame: 0
+    carga: 
     master: -21
     musica: -6
     musicaslider: 0.5
@@ -1150,7 +1154,6 @@ MonoBehaviour:
   normal: {fileID: 0}
   tiement: 0
   juego: 0
-  tutorial: 0
   mundo: 0
   espacio: 0
   mision1t: {fileID: 0}
@@ -2957,6 +2960,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b89cbf47db49d96489a2e0d10a54c0ab, type: 3}
+--- !u!1 &1909839852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1909839854}
+  - component: {fileID: 1909839853}
+  m_Layer: 0
+  m_Name: actmision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1909839853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909839852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adea022e53bdabb4f8ef757bcff4b3a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activador: 0
+  fin: 1
+  manager: {fileID: 0}
+  ID: 12
+--- !u!4 &1909839854
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909839852}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1439.8907, y: 472.98334, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1933655546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3258,3 +3309,4 @@ SceneRoots:
   - {fileID: 685674462}
   - {fileID: 178794463}
   - {fileID: 998330094}
+  - {fileID: 1909839854}

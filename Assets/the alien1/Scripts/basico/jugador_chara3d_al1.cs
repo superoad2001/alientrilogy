@@ -1984,7 +1984,7 @@ public class jugador_chara3d_al1 : jugador_al1
 								dashefect = false;
 								_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
 							}
-							else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity,0,QueryTriggerInteraction.Ignore))
+							else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity,0,QueryTriggerInteraction.Ignore) && dashefect == true)
 							{
 								if(hit.distance < 1f)
 								{
@@ -2075,7 +2075,7 @@ public class jugador_chara3d_al1 : jugador_al1
 							dashefect = false;
 							_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
 						}
-						else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity,0,QueryTriggerInteraction.Ignore))
+						else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity,0,QueryTriggerInteraction.Ignore)&& dashefect == true)
 						{
 							if(hit.distance < 1f)
 							{
@@ -2234,7 +2234,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						dashefect = false;
 						_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
 					}
-					else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity,0,QueryTriggerInteraction.Ignore))
+					else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity,0,QueryTriggerInteraction.Ignore)&& dashefect == true)
 					{
 						if(hit.distance < 1f)
 						{

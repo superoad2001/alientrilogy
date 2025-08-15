@@ -141,6 +141,9 @@ public abstract class jugador_al1 : MonoBehaviour
 	public Animator conseguidoa;
 	public Text niveleneui;
 	public AudioSource tiendaMus;
+
+	private bool musicaCombateActiva = false;
+	private bool musicaNormalActiva = false;
 	
 	[Header("resto")]
 	public Controles controles;
@@ -177,30 +180,33 @@ public abstract class jugador_al1 : MonoBehaviour
 			if (_peligro != value)
 			{
 				_peligro = value;
-				fixedActualizarMusica();
+				ActualizarMusica();
 			}
 		}
 	}
+
 	// Token: 0x0600001E RID: 30 RVA: 0x00002604 File Offset: 0x00000804
-	public void fixedActualizarMusica()
+	public void ActualizarMusica()
 	{
 		if(peligro && manager.juego == 3 && tarbossact == false || peligro && manager.juego == 4 && tarbossact == false)
 		{
-			musicajuego.Stop();
+			musicanoC.Pause();
+			musicaC.UnPause();
 			musicajuego = musicaC;
-			musicajuego.Play();
 			combini.Play();
 			musicajuego.time = Random.Range(0,20);
 		}
 		if( peligro == false && manager.juego == 3 && tarbossact == false || peligro == false && manager.juego == 4 && tarbossact == false)
 		{
-			combini.Stop();
-			musicajuego.Stop();
+			
+			musicaC.Pause();
+			musicanoC.UnPause();
 			musicajuego = musicanoC;
-			musicajuego.Play();
+			combini.Stop();
 			musicajuego.time = Random.Range(0,20);
 		}
 	}
+	
 
 
 
@@ -229,7 +235,7 @@ public abstract class jugador_al1 : MonoBehaviour
 		conseguidoa.Play("nivelsub2");
 
 	}
-
+	
 	public void tiendaact()
 	{
 		Time.timeScale = 0;

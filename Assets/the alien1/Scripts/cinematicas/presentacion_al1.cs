@@ -439,6 +439,7 @@ public class presentacion_al1 : MonoBehaviour
         {
             cam_a.SetInteger("modo",2);
             menu_a.SetInteger("modo",2);
+            eventslot.SetActive(true);
             temp = -1;
         }
     }
@@ -534,12 +535,14 @@ public class presentacion_al1 : MonoBehaviour
             {
                 cam_a.SetInteger("modo",4);
                 menu_a.SetInteger("modo",4);
+                borraractvol();
                 crear();
             }
             else
             {
                 cam_a.SetInteger("modo",1);
                 menu_a.SetInteger("modo",1);
+                borraractvol();
                 menuv();
             }
             

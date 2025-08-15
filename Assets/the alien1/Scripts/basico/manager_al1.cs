@@ -71,7 +71,8 @@ public class manager_al1 : MonoBehaviour
 	public int menu = 0;
 	public int estados = 0;
 	public int tuto = 0;
-
+	public AudioSource musicaC;
+	public AudioSource musicanoC;
 	public bool pauseact = false;
 
 	public string repath;
@@ -325,24 +326,29 @@ public class manager_al1 : MonoBehaviour
     }
 
 
-
+	
 
 
 	public AudioMixer audiomixer;
-	public void Awake() {
-	{
-
-		cargar();
-		cargarconfig();
-		cargartro();
-		if (juego == 6 && datosserial.tengomejora == 1)
+		public void Awake() {
 		{
-			hidemenu_al1 hide = (hidemenu_al1)FindFirstObjectByType(typeof(hidemenu_al1));
-			hide.anim.SetBool("show2",true);
-		}
 
-		
-	}
+			cargar();
+			cargarconfig();
+			cargartro();
+			if (juego == 6 && datosserial.tengomejora == 1)
+			{
+				hidemenu_al1 hide = (hidemenu_al1)FindFirstObjectByType(typeof(hidemenu_al1));
+				hide.anim.SetBool("show2",true);
+			}
+			if(juego != 0)
+			{
+				musicaC.Pause();
+				musicanoC.UnPause();
+			}
+
+			
+		}
 	}
 	public void Start()
 	{

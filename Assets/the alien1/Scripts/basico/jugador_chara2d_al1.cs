@@ -1711,7 +1711,19 @@ public class jugador_chara2d_al1 : jugador_al1
 
 					jugadorEntrando = true;
 					// Mantener el movimiento horizontal y la velocidad vertical
-					_rb.linearVelocity = new Vector3(0f, _rb.linearVelocity.y, movXc * velocidad);
+					
+
+					RaycastHit hit3;
+
+					Vector3 moveDir = new Vector3(0, 0, movXc );
+
+					if (Physics.Raycast(transform.position, Vector3.down, out hit3, 1.1f))
+					{
+						// Proyecta el movimiento sobre el plano de la pendiente
+						moveDir = Vector3.ProjectOnPlane(moveDir, hit3.normal);
+					}
+
+					_rb.linearVelocity = moveDir * velocidad + new Vector3(0f, _rb.linearVelocity.y,0);
 					
 					// Volver gradualmente a la rotación normal (gravedad hacia abajo)
 					Quaternion rotacionNormal = Quaternion.Euler(0, 90, 0);
@@ -1725,7 +1737,7 @@ public class jugador_chara2d_al1 : jugador_al1
             float distaxe = movdire.magnitude * Time.fixedDeltaTime;
             movdire.Normalize();
             RaycastHit hit;
-            if(movXc == 0f || _rb.SweepTest(movdire,out hit,distaxe,QueryTriggerInteraction.Ignore))
+            if(movXc == 0f || _rb.SweepTest(movdire,out hit,distaxe,QueryTriggerInteraction.Ignore)&& dashefect == true)
             {
 				dashefect = false;
                 _rb.linearVelocity = new Vector3 (0, _rb.linearVelocity.y, 0);
@@ -1872,8 +1884,18 @@ public class jugador_chara2d_al1 : jugador_al1
 				}
 				else if (tiempogiro2 > 1.5f)
 				{
-					// Mantener el movimiento horizontal y la velocidad vertical
-					_rb.linearVelocity = new Vector3(-movXc * velocidad, _rb.linearVelocity.y, 0);
+
+					RaycastHit hit3;
+
+					Vector3 moveDir = new Vector3(-movXc ,0,0);
+
+					if (Physics.Raycast(transform.position, Vector3.down, out hit3, 1.1f))
+					{
+						// Proyecta el movimiento sobre el plano de la pendiente
+						moveDir = Vector3.ProjectOnPlane(moveDir, hit3.normal);
+					}
+
+					_rb.linearVelocity = moveDir * velocidad + new Vector3(0f, _rb.linearVelocity.y,0);
 
 					if (movXc > 0f )
 					{
@@ -1898,7 +1920,7 @@ public class jugador_chara2d_al1 : jugador_al1
             float distaxe = movdire.magnitude * Time.fixedDeltaTime;
             movdire.Normalize();
             RaycastHit hit;
-            if(movXc == 0f || _rb.SweepTest(movdire,out hit,distaxe,QueryTriggerInteraction.Ignore))
+            if(movXc == 0f || _rb.SweepTest(movdire,out hit,distaxe,QueryTriggerInteraction.Ignore)&& dashefect == true)
             {
 				dashefect = false;
                 _rb.linearVelocity = new Vector3 (0, _rb.linearVelocity.y, 0);

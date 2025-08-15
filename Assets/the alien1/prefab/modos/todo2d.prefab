@@ -1,54 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &654744267866500306
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5929770790027908420}
-  - component: {fileID: 8846686777384852534}
-  m_Layer: 0
-  m_Name: managernivel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5929770790027908420
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654744267866500306}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -50.12447, y: -301.98746, z: -398.76016}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8638491108204786086}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8846686777384852534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654744267866500306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bec2ac42099252b4283e9ba7f4086a72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  ubi: 0
-  posch1: {fileID: 0}
-  posch2: {fileID: 0}
-  jugador: {fileID: 0}
 --- !u!1 &848438868433491643
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,7 +36,6 @@ Transform:
   - {fileID: 1730775923921403674}
   - {fileID: 3782780273137512778}
   - {fileID: 1781050053498053760}
-  - {fileID: 5929770790027908420}
   - {fileID: 2557028328073007091}
   - {fileID: 4313791558918267804}
   - {fileID: 6563969370218054879}
@@ -692,7 +642,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
+  tutorial: 0
+  desarmadef: 0
   managerN: {fileID: 0}
+  cin: 0
+  MisionesCumplidas: 0
   nivelact: 1
   puertasgiract: 0
   puertasposact: 0
@@ -703,6 +657,7 @@ MonoBehaviour:
   tempshow: 0
   actguardarub: 1
   nivelu: mundo1_al1
+  cargando: 0
   jugador: {fileID: 0}
   portalg: {fileID: 0}
   nivel: 0
@@ -746,6 +701,8 @@ MonoBehaviour:
   menu: 0
   estados: 0
   tuto: 0
+  musicaC: {fileID: 8708310058650145280}
+  musicanoC: {fileID: 8894351962122896655}
   pauseact: 0
   repath: 
   repathconfig: 
@@ -792,7 +749,6 @@ MonoBehaviour:
     LlaveT: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     pociones: 000000000000000000
     armadefdesbloqueada: 0
-    MisionesCumplidas: 0
     nivelarmapapaexp: 0
     nivelarmarelexp: 0
     nivelarmadefexp: 0
@@ -859,6 +815,7 @@ MonoBehaviour:
     postpro: 0
     resoluciones: 0
     lastgame: 0
+    carga: 
     master: -21
     musica: -6
     musicaslider: 0.5
@@ -999,7 +956,6 @@ MonoBehaviour:
   normal: {fileID: 0}
   tiement: 0
   juego: 3
-  tutorial: 0
   mundo: 3
   espacio: 0
   mision1t: {fileID: 0}
@@ -3790,6 +3746,18 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 6925274697524484938}
+    - target: {fileID: 1306674474590770846, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306674474590770846, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
+      propertyPath: m_LinearDamping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306674474590770846, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
+      propertyPath: m_AngularDamping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2009646483194018365, guid: 06d646006f11c1f469b6e4dd0ffb593f, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0

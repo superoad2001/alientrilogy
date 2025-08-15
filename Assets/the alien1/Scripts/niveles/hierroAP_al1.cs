@@ -21,6 +21,10 @@ public class hierroAP_al1 : MonoBehaviour
 		{
 			hierro.SetActive(true);			
 		}
+		else
+		{
+			hierro.SetActive(false);	
+		}
 
 	}
 
