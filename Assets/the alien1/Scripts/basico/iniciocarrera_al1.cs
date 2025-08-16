@@ -12,7 +12,6 @@ public class iniciocarrera_al1 : MonoBehaviour
     public GameObject interfaz;
     public GameObject imagen;
     public jugador_al1 jugador;
-    public bola1_al1 enemigo;
     public Text cont;
     public float temp = -2;
     public int intentos;

@@ -314,7 +314,7 @@ public class enemigo1_al1: MonoBehaviour
                     managerordas.contadorene -= 1;
                 }
             }
-            if(manager.juego == 3 || manager.juego == 4 )
+            if(jugador1.modo == "2D" || jugador1.modo == "3D" )
             {
                 jugador1.enemigosEnContacto.Remove(det.gameObject);
             }
@@ -378,7 +378,7 @@ public class enemigo1_al1: MonoBehaviour
             {
                 managerordas.contadorene--;
             }
-            if(manager.juego == 3 || manager.juego == 4 )
+            if(jugador1.modo == "2D" || jugador1.modo == "3D" )
             {
                 jugador1.enemigosEnContacto.Remove(det.gameObject);
             }
@@ -748,7 +748,7 @@ public class enemigo1_al1: MonoBehaviour
         }
         else if (vida < 1 && tutorial == 1  && manager.datosserial.niveljug == 1 )
         {
-            if(manager.juego == 3 || manager.juego == 4 )
+            if(jugador1.modo == "2D" || jugador1.modo == "3D" )
             {
                 jugador1.enemigosEnContacto.Remove(det.gameObject);
             }
@@ -776,7 +776,7 @@ public class enemigo1_al1: MonoBehaviour
         }
         else if (vida < 1 && tutorial == 2 || vida < 1 && manager.datosserial.niveljug > 1 && tutorial == 1 )
         {
-            if(manager.juego == 3 || manager.juego == 4 )
+            if(jugador1.modo == "2D" || jugador1.modo == "3D" )
             {
                 jugador1.enemigosEnContacto.Remove(det.gameObject);
             }
@@ -982,7 +982,7 @@ public class enemigo1_al1: MonoBehaviour
         {
             if(detect == true)
             {
-                if(manager.juego != 3)
+                if(jugador1.modo != "2D" )
                 {
                     if(new Vector3(objetivon.x,transform.position.y,objetivon.z) == transform.position)
                     {
@@ -992,7 +992,7 @@ public class enemigo1_al1: MonoBehaviour
                     rotation = Quaternion.LookRotation(direction2);
                     transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivon.x,transform.position.y,objetivon.z),vel * Time.deltaTime);
                 }
-                else if(manager.juego == 3)
+                else if(jugador1.modo == "2D"  )
                 {
                     anim.SetBool("salto",true);
                 }
@@ -1169,7 +1169,7 @@ public class enemigo1_al1: MonoBehaviour
         if (col.gameObject.tag == "Player" && col.gameObject.tag != "golpeh" && temprb == 0 )
 		{
             jugador1.eneempuj = this.gameObject;
-            if(manager.juego != 3)
+            if(jugador1.modo != "2D" )
             {
                 jugador1.enmovdirectaux = transform.TransformDirection((jugador1.eneempuj.transform.forward *70) + (jugador1.eneempuj.transform.up * -50));
             }

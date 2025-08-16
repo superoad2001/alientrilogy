@@ -26,11 +26,11 @@ public class manager_nivel_al1 : MonoBehaviour
 			if (ubi == 1)
 			{
 				jugador.transform.position = posch1.transform.position + new Vector3(0, 4, 0);
-				if(manager.juego == 4)
+				if( jugador.modo == "3D" )
 				{
 					jugador.transform.eulerAngles = posch1.transform.eulerAngles;
 				}
-				if(manager.juego == 3)
+				if(jugador.modo == "2D")
 				{
 					
 					if(posch1.transform.eulerAngles.y == 90f)
@@ -51,13 +51,13 @@ public class manager_nivel_al1 : MonoBehaviour
 			if (manager.datosserial.actual_checkpoint == 2)
 			{
 				jugador.transform.position = posch2.transform.position + new Vector3(0, 4, 0);
-				if(manager.juego == 4)
+				if(jugador.modo == "3D" )
 				{
 					jugador.transform.eulerAngles = posch2.transform.eulerAngles;
 				}
 
 
-				if(manager.juego == 3)
+				if(jugador.modo == "2D")
 				{
 					if(posch1.transform.eulerAngles.y == 90f)
 					{

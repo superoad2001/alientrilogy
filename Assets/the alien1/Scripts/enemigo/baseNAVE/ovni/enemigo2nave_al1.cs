@@ -92,6 +92,10 @@ public class enemigo2nave_al1: MonoBehaviour
         vidabasemax = 9999;
         vidaplusmax = 99999;
 
+        fuebase = 70;
+        fuebasemax = 700;
+        fueplusmax = 14000;
+
         if((manager_ordas_nave_al1)FindFirstObjectByType(typeof(manager_ordas_nave_al1))!= null)
         {
         	managerordas = (manager_ordas_nave_al1)FindFirstObjectByType(typeof(manager_ordas_nave_al1));
@@ -247,7 +251,7 @@ public class enemigo2nave_al1: MonoBehaviour
                 Randomdec = Random.Range(0,2);
             }
 
-            if(temp > 3 && Randomdec == 0)
+            if(temp > 0.3f && Randomdec == 0)
             {
                 GameObject BalaTemporal = Instantiate(balaprefab, transform.position,transform.rotation) as GameObject;
 
@@ -263,7 +267,8 @@ public class enemigo2nave_al1: MonoBehaviour
 
                 temp = 0;
             }
-            if(temp > 3 && disparomina == true && Randomdec == 1 && temponda > 8)
+            
+            if(temponda > 3 && disparomina == true && Randomdec == 1 && temponda > 8)
             {
 
                 GameObject BalaTemporal = Instantiate(balaprefabonda, transform.position,transform.rotation) as GameObject;

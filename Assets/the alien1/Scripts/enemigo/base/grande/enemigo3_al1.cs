@@ -371,7 +371,7 @@ public class enemigo3_al1: MonoBehaviour
             {
                 managerordas.contadorene--;
             }
-            if(manager.juego == 3 || manager.juego == 4 )
+            if(jugador1.modo == "2D" || jugador1.modo == "3D" )
             {
                 jugador1.enemigosEnContacto.Remove(det.gameObject);
             }
@@ -733,7 +733,7 @@ public class enemigo3_al1: MonoBehaviour
             if(detect == false)
             {
                 escudoV.SetActive(false);
-                if(manager.juego != 3)
+                if(jugador1.modo != "2D" )
                 {
                     if(new Vector3(objetivon.x,transform.position.y,objetivon.z) == transform.position)
                     {
@@ -744,7 +744,7 @@ public class enemigo3_al1: MonoBehaviour
                     transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivon.x,transform.position.y,objetivon.z),vel * Time.deltaTime);
                     anim.SetFloat("vely",1);
                 }
-                else if(manager.juego == 3)
+                else if(jugador1.modo == "2D"  )
                 {
                     anim.SetBool("salto",true);
                 }

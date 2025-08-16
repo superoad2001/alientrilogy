@@ -86,6 +86,10 @@ public class enemigo1nave_al1: MonoBehaviour
         vidabase = 999;
         vidabasemax = 9999;
         vidaplusmax = 99999;
+
+        fuebase = 150;
+        fuebasemax = 1500;
+        fueplusmax = 30000;
         
         
 
@@ -227,45 +231,12 @@ public class enemigo1nave_al1: MonoBehaviour
         }
         if (vida < 1 && temprb == 0)
         {
-            if(manager.juego == 3 || manager.juego == 4 )
+            if(jugador1.modo == "2D" || jugador1.modo == "3D" )
             {
                 jugador1.enemigosEnContacto.Remove(det.gameObject);
             }
             GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
             explosiont.transform.localScale = transform.localScale;
-            if(nivelactual == manager.datosserial.niveljug )
-            {
-                manager.datosserial.nivelexp += valorexp;
-            }
-            else if(nivelactual < manager.datosserial.niveljug && nivelactual  >= (manager.datosserial.niveljug -10) )
-            {
-                int diferencianivel = manager.datosserial.niveljug - nivelactual;
-                manager.datosserial.nivelexp += (valorexp / (((diferencianivel) + 1)/2));
-            }
-            else if(nivelactual > manager.datosserial.niveljug && nivelactual  <= (manager.datosserial.niveljug + 10) )
-            {
-                int diferencianivel =  nivelactual - manager.datosserial.niveljug ;
-                manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
-            }
-            else if(nivelactual > manager.datosserial.niveljug && nivelactual  > (manager.datosserial.niveljug + 10) )
-            {
-                int diferencianivel =  10;
-                manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
-            }
-            if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 50 )
-            {
-                manager.datosserial.nivelexp = 0;
-                manager.datosserial.niveljug++;
-                manager.datosserial.signivelexp += 7;
-                jugador1.subirnivel();
-            }
-            else if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 100 && manager.datosserial.niveljug >= 2 && manager.datosserial.newgameplus1 == true)
-            {
-                manager.datosserial.nivelexp = 0;
-                manager.datosserial.niveljug++;
-                manager.datosserial.signivelexp += 7;
-                jugador1.subirnivel();
-            }
 
             GameObject monedae = Instantiate(moneda, transform.position , transform.rotation);
             if(destobj == true)

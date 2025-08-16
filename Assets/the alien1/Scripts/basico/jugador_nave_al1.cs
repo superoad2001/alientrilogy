@@ -16,6 +16,10 @@ public class jugador_nave_al1 : jugador_al1
 	[Header("Propio nave")]
 	public AudioSource critico;
 	public GameObject Critobj;
+	public int target1 = 0;
+	public int target2 = 1;
+	public int target3 = 2;
+	public int targetmax = 10;
 	public jugador_al1 jugador;
 	private float temp9;
 	public GameObject tarboss;
@@ -379,30 +383,132 @@ public class jugador_nave_al1 : jugador_al1
 		{
 			staminaobj = 0;
 		}
-		
-		if(temprelectura > 8)
-		{
 			
-			if(enemigosEnContactonave[0] != null)
-			{
-				target[0] = enemigosEnContactonave[0]; 
-			}
-			if(enemigosEnContactonave[1] != null)
-			{
-				target[1] = enemigosEnContactonave[1]; 
-			}
-			if(enemigosEnContactonave[2] != null)
-			{
-				target[2] = enemigosEnContactonave[2]; 
-			}
-			temprelectura = 0;
-			Debug.Log("1");
-		}
-		else
+		if(target[0] == null && target1 < targetmax)
 		{
-			Debug.Log("2");
-			temprelectura += 1 * Time.deltaTime;
+			if(objetivotarget == target[0])
+			{objetivotarget = null;}
+			if(objetivotarget2 == target[0])
+			{objetivotarget2 = null;}
+			
+			target1++;
+			for(int i = 0;i >= targetmax ;i++)
+			{
+				if(enemigosEnContactonave[i] != null)
+				{
+					target1 = i;
+					i = 99;
+				}
+				
+			}
+
+			if(target1 >= targetmax)
+			{
+				target[0] = null;
+				target1 = targetmax;
+			}
+			else
+			{
+				target[0] = enemigosEnContactonave[target1];
+			}
+
+			target2 = target1 + 1 ;
+			target3 = target1 + 2;
+
+			if(target2 >= targetmax)
+			{
+				target[1] = null;
+				target2 = targetmax;
+			}
+			else
+			{
+				target[1] = enemigosEnContactonave[target2];
+			}
+			if(target3 >= targetmax)
+			{
+				target[2] = null;
+				target3 = targetmax;
+			}
+			else
+			{
+				target[2] = enemigosEnContactonave[target3];
+			}
+
+			
 		}
+		if(target[1]  == null && target2 < targetmax)
+		{
+			if(objetivotarget == target[1])
+			{objetivotarget = null;}
+			if(objetivotarget2 == target[1])
+			{objetivotarget2 = null;}
+
+
+			target2++;
+			for(int i = target2; i >= targetmax ;i++)
+			{
+				if(enemigosEnContactonave[i] != null  && enemigosEnContactonave[i] != target[0] )
+				{
+					target2 = i;
+					i = 99;
+				}
+				
+			}
+
+			if(target2 >= targetmax)
+			{
+				target[1] = null;
+				target2 = targetmax;
+			}
+			else
+			{
+				target[1] = enemigosEnContactonave[target2];
+			}
+			target3 = target2 + 1;
+
+			if(target3 >= targetmax)
+			{
+				target[2] = null;
+				target3 = targetmax;
+			}
+			else
+			{
+				target[2] = enemigosEnContactonave[target3];
+			}
+
+			
+		}
+		if(target[2] == null && target3 < targetmax)
+		{
+			if(objetivotarget == target[2])
+			{objetivotarget = null;}
+			if(objetivotarget2 == target[2])
+			{objetivotarget2 = null;}
+
+			target3++;
+			for(int i = target3; i >= targetmax ;i++)
+			{
+				if(enemigosEnContactonave[i] != null && enemigosEnContactonave[i] != target[0]  && enemigosEnContactonave[i] != target[1] )
+				{
+					target3 = i;
+					i = 99;
+				}
+			}
+
+			if(target3 >= targetmax)
+			{
+				target[2] = null;
+				target3 = targetmax;
+			}
+			else
+			{
+				target[2] = enemigosEnContactonave[target3];  
+			}
+
+			
+		}
+		
+
 
 
 
@@ -844,8 +950,8 @@ public class jugador_nave_al1 : jugador_al1
 
 
 			
-			if(dashc > 0f && dialogueact == false && tempdash > 1f && tiempodisp > 1.2f && stamina >= 50 && movXc != 0 && temp9 > 1
-			|| dashc > 0f && dialogueact == false && tempdash > 1f && tiempodisp > 1.2f && stamina >= 50 && movYc != 0 && temp9 > 1)
+			if(dashc > 0f && dialogueact == false && tempdash > 1f && tiempodisp > 1.2f && stamina >= 15 && movXc != 0 && temp9 > 1
+			|| dashc > 0f && dialogueact == false && tempdash > 1f && tiempodisp > 1.2f && stamina >= 15 && movYc != 0 && temp9 > 1)
 			{
 				
 				slash.SetActive(false);
@@ -855,7 +961,7 @@ public class jugador_nave_al1 : jugador_al1
 				tempdash = 0;
 				dashaeract = true;
 				tiempodisp = 0;
-				stamina -= 50;
+				stamina -= 25;
 				speednave = 25;
 				staminaact = -2;
 				anim.Play("mov");
@@ -871,6 +977,7 @@ public class jugador_nave_al1 : jugador_al1
 
 
 		}
+		
 			
 
 

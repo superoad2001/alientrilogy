@@ -113,6 +113,10 @@ public class enemigo3nave_al1: MonoBehaviour
         vidabase = 999;
         vidabasemax = 9999;
         vidaplusmax = 99999;
+
+        fuebase = 70;
+        fuebasemax = 700;
+        fueplusmax = 14000;
         if((manager_ordas_nave_al1)FindFirstObjectByType(typeof(manager_ordas_nave_al1))!= null)
         {
         	managerordas = (manager_ordas_nave_al1)FindFirstObjectByType(typeof(manager_ordas_nave_al1));
@@ -247,39 +251,6 @@ public class enemigo3nave_al1: MonoBehaviour
             GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
             muertes.Play();
-            if(nivelactual == manager.datosserial.niveljug)
-            {
-                manager.datosserial.nivelexp += valorexp;
-            }
-            else if(nivelactual < manager.datosserial.niveljug && nivelactual  >= (manager.datosserial.niveljug -10))
-            {
-                int diferencianivel = manager.datosserial.niveljug - nivelactual;
-                manager.datosserial.nivelexp += (valorexp / (((diferencianivel) + 1)/2));
-            }
-            else if(nivelactual > manager.datosserial.niveljug && nivelactual  <= (manager.datosserial.niveljug + 10))
-            {
-                int diferencianivel =  nivelactual - manager.datosserial.niveljug ;
-                manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
-            }
-            else if(nivelactual > manager.datosserial.niveljug && nivelactual  > (manager.datosserial.niveljug + 10))
-            {
-                int diferencianivel =  10;
-                manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
-            }
-            if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 50 )
-            {
-                manager.datosserial.nivelexp = 0;
-                manager.datosserial.niveljug++;
-                manager.datosserial.signivelexp += 7;
-                jugador1.subirnivel();
-            }
-            else if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 100 && manager.datosserial.niveljug >= 2 && manager.datosserial.newgameplus1 == true)
-            {
-                manager.datosserial.nivelexp = 0;
-                manager.datosserial.niveljug++;
-                manager.datosserial.signivelexp += 7;
-                jugador1.subirnivel();
-            }
             if(managerordas != null)
             {
                 managerordas.contadorene--;

@@ -431,19 +431,6 @@ public class jugador_chara3d_al1 : jugador_al1
 		}
 		numpociones = manager.datosserial.pocionesmax;
 		
-		if(manager.juego != -1)
-		{
-			if(manager.datosconfig.plat == 1)
-			{
-				tactil.SetActive(false);
-				Cursor.visible = false;
-				Cursor.lockState = CursorLockMode.Locked;
-			}
-			if(manager.datosconfig.plat == 2)
-			{
-				tactil.SetActive(true);
-			}
-		}
 
 			velocidad = 8;
 			velocidadaux = 8;
@@ -483,10 +470,9 @@ public class jugador_chara3d_al1 : jugador_al1
 		musicajuego.Play();
 		musicajuego.time = Random.Range(0,20);
 		
-		if(manager.juego != 1)
-		{
-			stamina = staminamax;
-		}
+
+		stamina = staminamax;
+		
 		tiempovelint = 3;
 		vidaobj = vida;
 		staminaobj = stamina;
@@ -507,6 +493,8 @@ public class jugador_chara3d_al1 : jugador_al1
 	}
 	private void Update()
 	{
+
+		
 		if(animcam.GetCurrentAnimatorStateInfo(0).IsName("staticcam") && carga == false && temp10 > 1)
 		{
 			controlact = true;
@@ -528,6 +516,18 @@ public class jugador_chara3d_al1 : jugador_al1
 		if(vidaeneact)
 		{
 			vidaeneimg.fillAmount = vidaeneui/vidaeneuimax;
+		}
+
+		if(peligro && modo == "2D" && tarbossact == false || peligro && modo == "3D" && tarbossact == false)
+		{
+			musicanoC.Pause();
+			musicaC.UnPause();
+		}
+		if( peligro == false &&  modo == "2D" && tarbossact == false || peligro == false && modo == "3D" && tarbossact == false)
+		{
+			
+			musicaC.Pause();
+			musicanoC.UnPause();
 		}
 
 		if(escudoeneact)
@@ -3393,7 +3393,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			tempaerodash = 9;
 		
 		}
-		if (col.gameObject.tag == "suelo"  && manager.juego != 1 || col.gameObject.tag == "ascensor"  && manager.juego != 1)
+		if (col.gameObject.tag == "suelo"  || col.gameObject.tag == "ascensor" )
 		{
 			anim.SetBool("salto",false);
 			
@@ -3426,7 +3426,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			this.ascensor = false;
 			anim.SetBool("salto",true);
 		}
-		if (col.gameObject.tag == "suelo"  && manager.juego != 1)
+		if (col.gameObject.tag == "suelo" )
 		{
 			anim.SetBool("salto",true);
 			suelo = false;
@@ -3439,7 +3439,7 @@ public class jugador_chara3d_al1 : jugador_al1
 	}
 	private void OnTriggerEnter(Collider col)
 	{
-		if (col.gameObject.tag == "suelo"  && manager.juego != 1 || col.gameObject.tag == "ascensor" && manager.juego != 1)
+		if (col.gameObject.tag == "suelo"   || col.gameObject.tag == "ascensor")
 		{
 			jumpforce = jumpforcebase;
 			anim.SetBool("salto",false);

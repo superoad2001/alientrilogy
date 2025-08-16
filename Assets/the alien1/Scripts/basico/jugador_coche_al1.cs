@@ -481,6 +481,7 @@ public class jugador_coche_al1 : jugador_al1
 		if (col.gameObject.tag == "respawn")
 		{
 			muerte = true;
+			
 		}
 
 

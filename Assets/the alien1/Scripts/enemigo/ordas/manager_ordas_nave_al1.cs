@@ -34,7 +34,7 @@ public class manager_ordas_nave_al1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(contadorene <= 0)
+        if(contadorene <= 0 && ganar == false)
         {
             rondaC();
             ganar = true; 

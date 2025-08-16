@@ -483,7 +483,7 @@ public class jugador_chara2d_al1 : jugador_al1
 		musicajuego.Play();
 		musicajuego.time = Random.Range(0,20);
 		
-		if(manager.juego != 1)
+		if(modo != "Lobby")
 		{
 			stamina = staminamax;
 		}
@@ -525,7 +525,17 @@ public class jugador_chara2d_al1 : jugador_al1
 			controlact = true;
 			carga = true;
 		}
-
+		if(peligro && modo == "2D" && tarbossact == false || peligro && modo == "3D" && tarbossact == false)
+		{
+			musicanoC.Pause();
+			musicaC.UnPause();
+		}
+		if( peligro == false &&  modo == "2D" && tarbossact == false || peligro == false && modo == "3D" && tarbossact == false)
+		{
+			
+			musicaC.Pause();
+			musicanoC.UnPause();
+		}
 
 		if(cargainicial == false)	
 		{

@@ -336,12 +336,15 @@ public class manager_al1 : MonoBehaviour
 			cargar();
 			cargarconfig();
 			cargartro();
-			if (juego == 6 && datosserial.tengomejora == 1)
+
+			jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+
+			if (jugador.modo == "Nave" && datosserial.tengomejora == 1)
 			{
 				hidemenu_al1 hide = (hidemenu_al1)FindFirstObjectByType(typeof(hidemenu_al1));
 				hide.anim.SetBool("show2",true);
 			}
-			if(juego != 0)
+			if(jugador.modo == "2D" || jugador.modo == "3D" )
 			{
 				musicaC.Pause();
 				musicanoC.UnPause();
@@ -392,7 +395,7 @@ public class manager_al1 : MonoBehaviour
 		
 
 		
-		if (juego == 6 && datosserial.tengomejora == 1)
+		if (jugador.modo == "Nave" && datosserial.tengomejora == 1)
 		{
 			hidemenu_al1 hide = (hidemenu_al1)FindFirstObjectByType(typeof(hidemenu_al1));
 			hide.anim.SetBool("show2",true);
@@ -462,9 +465,6 @@ public class manager_al1 : MonoBehaviour
 
 	// Token: 0x04000025 RID: 37
 	public float tiement;
-
-	// Token: 0x04000026 RID: 38
-	public int juego;
 
 	public int mundo;
 
@@ -605,7 +605,7 @@ public class manager_al1 : MonoBehaviour
 			guardartro();
 		}*/
 		
-		if(tempshow > 1f && juego == 6 && datosserial.tengomejora == 1)
+		if(tempshow > 1f && jugador.modo == "Nave" && datosserial.tengomejora == 1)
 		{
 			hidemenu_al1 hide = (hidemenu_al1)FindFirstObjectByType(typeof(hidemenu_al1));
         	hide.anim.SetBool("show2",false);

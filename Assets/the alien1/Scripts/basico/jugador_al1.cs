@@ -15,7 +15,6 @@ public abstract class jugador_al1 : MonoBehaviour
 
 	[Header("Posición")]
 	public int movact;
-	public string modo;
     public bool controlact = true;
 	public GameObject objplaneta;
 	public float disjugsave;
@@ -130,7 +129,7 @@ public abstract class jugador_al1 : MonoBehaviour
 	public Image escudoeneimg3;
 	public Image iconodisp;
 	public misionA_al1 misionA;
-	
+	public string modo;
 	public manager_al1 manager;
 	public Animator ascensors;
 	public GameObject vidaenebarra;
@@ -188,7 +187,7 @@ public abstract class jugador_al1 : MonoBehaviour
 	// Token: 0x0600001E RID: 30 RVA: 0x00002604 File Offset: 0x00000804
 	public void ActualizarMusica()
 	{
-		if(peligro && manager.juego == 3 && tarbossact == false || peligro && manager.juego == 4 && tarbossact == false)
+		if(peligro && modo == "2D" && tarbossact == false || peligro && modo == "3D" && tarbossact == false)
 		{
 			musicanoC.Pause();
 			musicaC.UnPause();
@@ -196,7 +195,7 @@ public abstract class jugador_al1 : MonoBehaviour
 			combini.Play();
 			musicajuego.time = Random.Range(0,20);
 		}
-		if( peligro == false && manager.juego == 3 && tarbossact == false || peligro == false && manager.juego == 4 && tarbossact == false)
+		if( peligro == false &&  modo == "2D" && tarbossact == false || peligro == false && modo == "3D" && tarbossact == false)
 		{
 			
 			musicaC.Pause();
@@ -245,11 +244,11 @@ public abstract class jugador_al1 : MonoBehaviour
 		tiendaMus.Play();
 		controlact = false;
 		combo = 0;
-		if(manager.juego == 1)
+		if(modo == "Coche")
 		{
 			anim.SetBool("act2",true);
 		}
-		if(manager.juego == 2)
+		if(modo == "Nave")
 		{
 			anim.SetBool("act",true);
 		}
@@ -270,11 +269,11 @@ public abstract class jugador_al1 : MonoBehaviour
 		misionA.modo = 1;
 		controlact = false;
 		combo = 0;
-		if(manager.juego == 1)
+		if(modo == "Coche")
 		{
 			anim.SetBool("act2",true);
 		}
-		if(manager.juego == 2)
+		if(modo == "Nave")
 		{
 			anim.SetBool("act",true);
 		}
@@ -295,11 +294,11 @@ public abstract class jugador_al1 : MonoBehaviour
 		misionA.modo = 2;
 		controlact = false;
 		combo = 0;
-		if(manager.juego == 1)
+		if(modo == "Coche")
 		{
 			anim.SetBool("act2",true);
 		}
-		if(manager.juego == 2)
+		if(modo == "Nave")
 		{
 			anim.SetBool("act",true);
 		}

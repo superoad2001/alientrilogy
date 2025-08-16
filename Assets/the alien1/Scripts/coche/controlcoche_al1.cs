@@ -48,6 +48,7 @@ public class controlcoche_al1 : MonoBehaviour
     private int maxdecpos4 = 4;
     public controlmeta_al1 controlmeta;
     public IAenecoche_al1[] enemigos;
+    public GameObject exp;
 
 
     
@@ -144,13 +145,19 @@ public class controlcoche_al1 : MonoBehaviour
                     decpos = Random.Range(0,4);
                     jug[i].transform.position = checkpointsprin[checkprinmax].GetComponent<controlmeta_al1>().pos1.pos[decpos].transform.position;
                     jug[i].transform.rotation = checkpointsprin[checkprinmax].GetComponent<controlmeta_al1>().pos1.pos[decpos].transform.rotation;
+
                 }
                 else
                 {
                     decpos = Random.Range(0,4);
                     jug[i].transform.position = checkpointsprin[IDsigprin[i]-1].GetComponent<controlcheck_al1>().pos1.pos[decpos].transform.position;
                     jug[i].transform.rotation = checkpointsprin[IDsigprin[i]-1].GetComponent<controlcheck_al1>().pos1.pos[decpos].transform.rotation;
+
+                    
                 }
+
+                GameObject exptemp = Instantiate(exp, jug[i].transform.position,jug[i].transform.rotation) as GameObject;
+                Destroy(exptemp,1);
                 
                 muerte[i] = false;
             }

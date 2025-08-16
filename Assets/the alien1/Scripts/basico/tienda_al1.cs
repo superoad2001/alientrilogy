@@ -515,11 +515,11 @@ public class tienda_al1 : MonoBehaviour
 			jugador.tactil.SetActive(true);
 		}
         manager.pauseact = false;    
-        if(manager.juego == 1)
+        if(jugador.modo == "Coche")
         {
             jugador.anim.SetBool("act2",true);
         }
-        if(manager.juego == 2)
+        if(jugador.modo == "Nave")
         {
             jugador.anim.SetBool("act",true);
         }

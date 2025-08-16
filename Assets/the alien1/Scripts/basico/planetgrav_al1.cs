@@ -74,7 +74,7 @@ public class _al1 : MonoBehaviour
                 
                 // Aplicar fuerza de gravedad hacia el centro del planeta
                 this.jugadorRb.AddForce(-direccionNormalizada * fuerzaGravedad, ForceMode.Acceleration);
-                if(manager.juego == 3)
+                if(scriptJugador.modo == "2D")
                 {
 
                 
@@ -94,7 +94,7 @@ public class _al1 : MonoBehaviour
                     
                     jugador.transform.rotation = Quaternion.Slerp(jugador.transform.rotation, rotacionDeseada, Time.fixedDeltaTime * velocidadRotacion);
                 }
-                if(manager.juego == 4)
+                if(scriptJugador.modo == "3D")
                 {
 
                     
