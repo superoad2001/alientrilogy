@@ -113,6 +113,7 @@ public class gemas_al1 : MonoBehaviour
 			fanfarria.Stop();
 			aparece.SetActive(false);
 			conseguido.text = "";
+
 			conseguidoa.SetBool("act",false);
 			cam.SetBool("act",false);
 			jugador.controlact = true;
@@ -126,13 +127,18 @@ public class gemas_al1 : MonoBehaviour
 			fanfarria.Stop();
 			aparece.SetActive(false);
 			conseguido.text = "";
-			conseguidoa.SetBool("act",false);
+			
+
 			cam.SetBool("act",false);
+			conseguidoa.SetBool("act",false);
+
 			jugador.controlact = true;
 			Destroy(rotoobj, 1.0f);
+
 			fin = false;
 			Temp = 0;
 			coger.Play();
+
 			GameObject expT = Instantiate(exp, transform.position,transform.rotation) as GameObject;
 			Destroy(expT,1f);
 		}
@@ -154,21 +160,26 @@ public class gemas_al1 : MonoBehaviour
 				jugador.musicajuego.Stop();
 				fanfarria.Play();
 				fin = true;
+
 				cam.SetBool("act",true);
 				jugador.controlact = false;
+				jugador._rb.linearVelocity = Vector3.zero;
 			}
 			else
 			{
 				if (manager.datosserial.gemaT[GemaID] == 0)
 				{
+					
 				manager.datosserial.economia[0]++;
 				manager.datosserial.gemaT[GemaID] = 1;
 				manager.guardar();
 				jugador.musicajuego.Stop();
+
 				fanfarria.Play();
 				fin = true;
 				cam.SetBool("act",true);
 				jugador.controlact = false;
+				jugador._rb.linearVelocity = Vector3.zero;
 				
 				
 				}

@@ -39,6 +39,7 @@ public class enemigo1_al1: MonoBehaviour
     public float vida;
     public float vidamax;
     public Image vidab;
+    public bool staticene;
 
     public float danoj = 3;
     public GameObject dano;
@@ -136,12 +137,7 @@ public class enemigo1_al1: MonoBehaviour
         objetivoa[2] = transform.position + new Vector3(-5,0,0);
         objetivoa[3] = transform.position + new Vector3(5,0,0);
         objetivon = objetivoa[Random.Range(0,4)];
-        if(GetComponent<Rigidbody>() == null)
-        {
-            gameObject.AddComponent<Rigidbody>();
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-            rb_ = GetComponent<Rigidbody>();
-        }
+        
         vidabase[0] = 30;
         vidabasemax[0] = 300;
         vidaplusmax[0] = 3000;
@@ -220,6 +216,13 @@ public class enemigo1_al1: MonoBehaviour
         }
         if(voladoract)
         {
+
+            if(GetComponent<Rigidbody>() == null)
+            {
+                gameObject.AddComponent<Rigidbody>();
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                rb_ = GetComponent<Rigidbody>();
+            }
             vidamax = vidamax * 1.5f;
             if(vidamax > 9999)
             {vidamax = 9999;}
@@ -320,33 +323,33 @@ public class enemigo1_al1: MonoBehaviour
             }
             GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
             explosiont.transform.localScale = this.gameObject.transform.localScale;
-            if(nivelactual == manager.datosserial.niveljug && tamano == 0)
+            if(nivelactual == manager.datosserial.niveljug )
             {
-                manager.datosserial.nivelexp += valorexp;
+                manager.datosserial.nivelexp += valorexppisado;
             }
-            else if(nivelactual < manager.datosserial.niveljug && nivelactual  >= (manager.datosserial.niveljug -10) && tamano == 0)
+            else if(nivelactual < manager.datosserial.niveljug && nivelactual  >= (manager.datosserial.niveljug -10) )
             {
                 int diferencianivel = manager.datosserial.niveljug - nivelactual;
-                manager.datosserial.nivelexp += (valorexp / (((diferencianivel) + 1)/2));
+                manager.datosserial.nivelexp += (valorexppisado / (((diferencianivel) + 1)/2));
             }
-            else if(nivelactual > manager.datosserial.niveljug && nivelactual  <= (manager.datosserial.niveljug + 10) && tamano == 0)
+            else if(nivelactual > manager.datosserial.niveljug && nivelactual  <= (manager.datosserial.niveljug + 10) )
             {
                 int diferencianivel =  nivelactual - manager.datosserial.niveljug ;
-                manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
+                manager.datosserial.nivelexp += (valorexppisado * (((diferencianivel) + 2) / 3 ));
             }
-            else if(nivelactual > manager.datosserial.niveljug && nivelactual  > (manager.datosserial.niveljug + 10) && tamano == 0)
+            else if(nivelactual > manager.datosserial.niveljug && nivelactual  > (manager.datosserial.niveljug + 10) )
             {
                 int diferencianivel =  10;
-                manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
+                manager.datosserial.nivelexp += (valorexppisado * (((diferencianivel) + 2) / 3 ));
             }
-            if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 50 && tamano == 0)
+            if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 50 && manager.datosserial.niveljug >= 2 && manager.datosserial.newgameplus1 == false)
             {
                 manager.datosserial.nivelexp = 0;
                 manager.datosserial.niveljug++;
                 manager.datosserial.signivelexp += 7;
                 jugador1.subirnivel();
             }
-            else if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 100 && manager.datosserial.niveljug >= 2 && manager.datosserial.newgameplus1 == true)
+            else if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 100 && manager.datosserial.niveljug >= 2 && manager.datosserial.newgameplus1 == true )
             {
                 manager.datosserial.nivelexp = 0;
                 manager.datosserial.niveljug++;
@@ -712,14 +715,14 @@ public class enemigo1_al1: MonoBehaviour
                 int diferencianivel =  10;
                 manager.datosserial.nivelexp += (valorexp * (((diferencianivel) + 2) / 3 ));
             }
-            if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 50 && tamano == 0)
+            if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 50 && manager.datosserial.niveljug >= 2 && manager.datosserial.newgameplus1 == false && tamano == 0)
             {
                 manager.datosserial.nivelexp = 0;
                 manager.datosserial.niveljug++;
                 manager.datosserial.signivelexp += 7;
                 jugador1.subirnivel();
             }
-            else if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 100 && manager.datosserial.niveljug >= 2 && manager.datosserial.newgameplus1 == true)
+            else if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 100 && manager.datosserial.niveljug >= 2 && manager.datosserial.newgameplus1 == true && tamano == 0)
             {
                 manager.datosserial.nivelexp = 0;
                 manager.datosserial.niveljug++;
@@ -801,7 +804,7 @@ public class enemigo1_al1: MonoBehaviour
                 int diferencianivel =  10;
                 manager.datosserial.nivelexp += (valorexppisado * (((diferencianivel) + 2) / 3 ));
             }
-            if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 50 )
+            if(manager.datosserial.nivelexp >= manager.datosserial.signivelexp && manager.datosserial.niveljug < 50 && manager.datosserial.niveljug >= 2 && manager.datosserial.newgameplus1 == false)
             {
                 manager.datosserial.nivelexp = 0;
                 manager.datosserial.niveljug++;
@@ -980,9 +983,9 @@ public class enemigo1_al1: MonoBehaviour
         }
         else if(fuera == false )
         {
-            if(detect == true)
+            if(detect == false)
             {
-                if(jugador1.modo != "2D" )
+                if(jugador1.modo == "3D"  && staticene == false)
                 {
                     if(new Vector3(objetivon.x,transform.position.y,objetivon.z) == transform.position)
                     {
@@ -992,7 +995,7 @@ public class enemigo1_al1: MonoBehaviour
                     rotation = Quaternion.LookRotation(direction2);
                     transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivon.x,transform.position.y,objetivon.z),vel * Time.deltaTime);
                 }
-                else if(jugador1.modo == "2D"  )
+                else if(jugador1.modo == "2D"  || staticene == true )
                 {
                     anim.SetBool("salto",true);
                 }

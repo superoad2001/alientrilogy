@@ -336,18 +336,20 @@ public class manager_al1 : MonoBehaviour
 			cargar();
 			cargarconfig();
 			cargartro();
-
-			jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
-
-			if (jugador.modo == "Nave" && datosserial.tengomejora == 1)
+			if((jugador_al1)FindFirstObjectByType(typeof(jugador_al1)) != null)
 			{
-				hidemenu_al1 hide = (hidemenu_al1)FindFirstObjectByType(typeof(hidemenu_al1));
-				hide.anim.SetBool("show2",true);
-			}
-			if(jugador.modo == "2D" || jugador.modo == "3D" )
-			{
-				musicaC.Pause();
-				musicanoC.UnPause();
+				jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+
+				if (jugador.modo == "Nave" && datosserial.tengomejora == 1)
+				{
+					hidemenu_al1 hide = (hidemenu_al1)FindFirstObjectByType(typeof(hidemenu_al1));
+					hide.anim.SetBool("show2",true);
+				}
+				if(jugador.modo == "2D" || jugador.modo == "3D" )
+				{
+					musicaC.Pause();
+					musicanoC.UnPause();
+				}
 			}
 
 			
@@ -394,14 +396,20 @@ public class manager_al1 : MonoBehaviour
 		}
 		
 
-		
-		if (jugador.modo == "Nave" && datosserial.tengomejora == 1)
+		if((jugador_al1)FindFirstObjectByType(typeof(jugador_al1)) != null)
 		{
-			hidemenu_al1 hide = (hidemenu_al1)FindFirstObjectByType(typeof(hidemenu_al1));
-			hide.anim.SetBool("show2",true);
-		}
 
-		jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+			jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+
+			if (jugador.modo == "Nave" && datosserial.tengomejora == 1)
+			{
+				hidemenu_al1 hide = (hidemenu_al1)FindFirstObjectByType(typeof(hidemenu_al1));
+				hide.anim.SetBool("show2",true);
+			}
+		}
+		
+
+		
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 		
 		pushup push = (pushup)FindFirstObjectByType(typeof(pushup));
@@ -605,12 +613,20 @@ public class manager_al1 : MonoBehaviour
 			guardartro();
 		}*/
 		
-		if(tempshow > 1f && jugador.modo == "Nave" && datosserial.tengomejora == 1)
+		
+
+		if(jugador != null)
 		{
-			hidemenu_al1 hide = (hidemenu_al1)FindFirstObjectByType(typeof(hidemenu_al1));
-        	hide.anim.SetBool("show2",false);
+
+			
+
+			if(tempshow > 1f && jugador.modo == "Nave" && datosserial.tengomejora == 1)
+			{
+				hidemenu_al1 hide = (hidemenu_al1)FindFirstObjectByType(typeof(hidemenu_al1));
+				hide.anim.SetBool("show2",false);
+			}
+			tempshow += 1f * Time.deltaTime;
 		}
-		tempshow += 1f * Time.deltaTime;
 		
 
 

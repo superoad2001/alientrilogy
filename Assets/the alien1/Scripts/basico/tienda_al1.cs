@@ -64,7 +64,7 @@ public class tienda_al1 : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        manager = GameObject.Find("manager").GetComponent<manager_al1>();
+        manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         loreN.text = "Tienda";
         loredesc.text = "Bienvenido a la tienda, aqui podras comprar cosas para mejorar tu experiencia";
         if(tiendanum == 0)

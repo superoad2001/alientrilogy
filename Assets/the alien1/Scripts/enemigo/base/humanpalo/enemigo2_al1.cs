@@ -27,6 +27,8 @@ public class enemigo2_al1: MonoBehaviour
     public Quaternion rotation;
     public Transform objetivo1;
     public Transform objetivo1b;
+    public bool staticene;
+    public bool staticene2;
     public Rigidbody rb_;
     public float vel = 2;
     public bool desactivar;
@@ -592,7 +594,8 @@ public class enemigo2_al1: MonoBehaviour
 
                         temp = 0;
             }
-            transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-15),vel * Time.deltaTime);
+            if(staticene2 == false)
+            {transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-15),vel * Time.deltaTime);}
             if (anim.GetCurrentAnimatorStateInfo(1).IsName("atk"))
             {
                 
@@ -629,7 +632,8 @@ public class enemigo2_al1: MonoBehaviour
 
                         temp = 0;
             }
-            transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-15),vel * Time.deltaTime);
+            if(staticene2 == false)
+            {transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-15),vel * Time.deltaTime);}
             if (anim.GetCurrentAnimatorStateInfo(1).IsName("atk"))
             {
                 
@@ -666,7 +670,8 @@ public class enemigo2_al1: MonoBehaviour
 
                         temp = 0;
             }
-            transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-15),vel * Time.deltaTime);
+            if(staticene2 == false)
+            {transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-15),vel * Time.deltaTime);}
             if (anim.GetCurrentAnimatorStateInfo(1).IsName("atk"))
             {
                 
@@ -705,7 +710,8 @@ public class enemigo2_al1: MonoBehaviour
 
                         temp = 0;
             }
-            transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-15),vel * Time.deltaTime);
+            if(staticene2 == false)
+            {transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-15),vel * Time.deltaTime);}
             if (anim.GetCurrentAnimatorStateInfo(1).IsName("atk"))
             {
                 
@@ -917,7 +923,7 @@ public class enemigo2_al1: MonoBehaviour
         {
             if(detect == false)
             {
-                if(jugador1.modo != "2D" )
+                if(jugador1.modo == "3D"  && staticene == false)
                 {
                     if(new Vector3(objetivon.x,transform.position.y,objetivon.z) == transform.position)
                     {
@@ -928,7 +934,7 @@ public class enemigo2_al1: MonoBehaviour
                     transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivon.x,transform.position.y,objetivon.z),vel * Time.deltaTime);
                     anim.SetFloat("vely",1);
                 }
-                else if(jugador1.modo == "2D"  )
+                else if(jugador1.modo == "2D"   || staticene == true)
                 {
                     anim.SetBool("Playeract",true);
                 }
@@ -942,7 +948,7 @@ public class enemigo2_al1: MonoBehaviour
                     }
                 }
             }
-            else if(detect == true)
+            else if(detect == true && staticene2 == false)
             {
                 transform.position = Vector3.MoveTowards(transform.position,new Vector3(jugador1.transform.position.x,transform.position.y,jugador1.transform.position.z),vel * Time.deltaTime);
             }

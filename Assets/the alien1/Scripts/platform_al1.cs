@@ -31,8 +31,6 @@ public class platform_al1 : MonoBehaviour
     {
         pos = transform.position;
         posini = transform.position;
-        InvDir = false;
-        speedP = speed;
     }
     public void Update()
     {   

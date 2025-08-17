@@ -525,12 +525,12 @@ public class jugador_chara2d_al1 : jugador_al1
 			controlact = true;
 			carga = true;
 		}
-		if(peligro && modo == "2D" && tarbossact == false || peligro && modo == "3D" && tarbossact == false)
+		if(peligro && modo == "2D" && tarbossact == false || peligro && modo == "3D" && tarbossact == false && desactivarmusicacombate == false)
 		{
 			musicanoC.Pause();
 			musicaC.UnPause();
 		}
-		if( peligro == false &&  modo == "2D" && tarbossact == false || peligro == false && modo == "3D" && tarbossact == false)
+		if( peligro == false &&  modo == "2D" && tarbossact == false || peligro == false && modo == "3D" && tarbossact == false && desactivarmusicacombate == false)
 		{
 			
 			musicaC.Pause();

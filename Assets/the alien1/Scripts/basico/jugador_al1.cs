@@ -140,6 +140,7 @@ public abstract class jugador_al1 : MonoBehaviour
 	public Animator conseguidoa;
 	public Text niveleneui;
 	public AudioSource tiendaMus;
+	public bool desactivarmusicacombate;
 
 	private bool musicaCombateActiva = false;
 	private bool musicaNormalActiva = false;
@@ -187,7 +188,7 @@ public abstract class jugador_al1 : MonoBehaviour
 	// Token: 0x0600001E RID: 30 RVA: 0x00002604 File Offset: 0x00000804
 	public void ActualizarMusica()
 	{
-		if(peligro && modo == "2D" && tarbossact == false || peligro && modo == "3D" && tarbossact == false)
+		if(peligro && modo == "2D" && tarbossact == false || peligro && modo == "3D" && tarbossact == false && desactivarmusicacombate == false)
 		{
 			musicanoC.Pause();
 			musicaC.UnPause();
@@ -195,7 +196,7 @@ public abstract class jugador_al1 : MonoBehaviour
 			combini.Play();
 			musicajuego.time = Random.Range(0,20);
 		}
-		if( peligro == false &&  modo == "2D" && tarbossact == false || peligro == false && modo == "3D" && tarbossact == false)
+		if( peligro == false &&  modo == "2D" && tarbossact == false || peligro == false && modo == "3D" && tarbossact == false && desactivarmusicacombate == false)
 		{
 			
 			musicaC.Pause();

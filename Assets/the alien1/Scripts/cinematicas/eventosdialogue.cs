@@ -26,7 +26,15 @@ public class eventosdialogue : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+            jugador._rb.linearVelocity = Vector3.zero;
+            jugador.controlact = false;
+            jug = true;
+        }
+    }
+    public void OnTriggerStay(Collider col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
             jugador._rb.linearVelocity = Vector3.zero;
             jugador.controlact = false;
             jug = true;

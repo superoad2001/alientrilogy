@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class enemigo3_al1: MonoBehaviour
 {
 	public manager_al1 manager;
+    public bool staticene;
     public float distancia;
     public float temp2;
     public float tempdanodef;
@@ -733,7 +734,7 @@ public class enemigo3_al1: MonoBehaviour
             if(detect == false)
             {
                 escudoV.SetActive(false);
-                if(jugador1.modo != "2D" )
+                if(jugador1.modo == "3D"  && staticene == false)
                 {
                     if(new Vector3(objetivon.x,transform.position.y,objetivon.z) == transform.position)
                     {
@@ -744,7 +745,7 @@ public class enemigo3_al1: MonoBehaviour
                     transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivon.x,transform.position.y,objetivon.z),vel * Time.deltaTime);
                     anim.SetFloat("vely",1);
                 }
-                else if(jugador1.modo == "2D"  )
+                else if(jugador1.modo == "2D"  || staticene == true)
                 {
                     anim.SetBool("salto",true);
                 }

@@ -66,7 +66,6 @@ public class meta1_al1 : MonoBehaviour
 		if(Temp >= 5 && Temp < 6 && pasos < 1)
 		{	pasos++;
 			conseguidoa.SetBool("act",true);
-			aparece.SetActive(true);
 			if(manager.datosconfig.idioma == "es")
 			{
 				conseguido.text = "lo conseguiste";
@@ -80,7 +79,7 @@ public class meta1_al1 : MonoBehaviour
 				conseguido.text = "o has aconseguit";
 			}
 		}
-		if(Temp >= 6 && Temp < 7 && fake == true  && pasos < 2)
+		if(Temp >= 6 && Temp < 10 && fake == true  && pasos < 2)
 		{
 			pasos++;
 			if(manager.datosconfig.idioma == "es")
@@ -106,18 +105,20 @@ public class meta1_al1 : MonoBehaviour
 			GameObject roto = Instantiate(exp, transform.position,transform.rotation) as GameObject;
 			Destroy(roto, 1.0f);
 			rotoson.Play();
+
 			if(rotoobj != null)
 			{
 				Destroy(rotoobj);
 			}	
 			this.gameObject.GetComponent<MeshRenderer>().enabled = false;
 		}
-		if(Temp >= 10 && fake == true && pasos < 4)
+		if(Temp >= 10 && fake == true)
 		{
 			jugador.musicajuego.Play();
 			fanfarria.Stop();
 			aparece.SetActive(false);
 			conseguido.text = "";
+
 			conseguidoa.SetBool("act",false);
 			cam.SetBool("act",false);
 			jugador.controlact = true;
@@ -125,35 +126,29 @@ public class meta1_al1 : MonoBehaviour
 			Destroy(this.gameObject, 1.0f);
 
 		}
-		if(Temp >= 10 && Temp < 12 && fake == false && pasos < 2 )
+		if(Temp >= 10)
 		{
-			pasos++;
 			jugador.musicajuego.Play();
 			fanfarria.Stop();
 			aparece.SetActive(false);
 			conseguido.text = "";
+
 			conseguidoa.SetBool("act",false);
 			cam.SetBool("act",false);
+
 			jugador.controlact = true;
 			Destroy(rotoobj, 1.0f);
+			fin = false;
+			Temp = 0;
 			coger.Play();
+			
+
 			GameObject expT = Instantiate(exp, transform.position,transform.rotation) as GameObject;
 			Destroy(expT,1f);			
 		}
-		if(Temp >= 12  && fake == false && pasos < 3)
-		{
-			fin = false;
-			Destroy(this.gameObject, 1.0f);
-			
-		}
 		if(fin == true)
 		{
-			jugador.controlact = false;
 			Temp += 1 * Time.deltaTime;
-			if(jugador.modo == "nave")
-			{
-				//cam.enabled = false;
-			}
 		}
 
 	}
@@ -169,8 +164,10 @@ public class meta1_al1 : MonoBehaviour
 				jugador.musicajuego.Stop();
 				fanfarria.Play();
 				fin = true;
+
 				cam.SetBool("act",true);
 				jugador.controlact = false;
+				jugador._rb.linearVelocity = Vector3.zero;
 			}
 			else if (manager.datosserial.LlaveT[LlaveID] == false)
 			{
@@ -181,10 +178,12 @@ public class meta1_al1 : MonoBehaviour
 				manager.hierronivel = true;
 				manager.IDhierronivel = LlaveID;
 				jugador.musicajuego.Stop();
+				
 				fanfarria.Play();
 				fin = true;
 				cam.SetBool("act",true);
 				jugador.controlact = false;
+				jugador._rb.linearVelocity = Vector3.zero;
 				
 				
 			}

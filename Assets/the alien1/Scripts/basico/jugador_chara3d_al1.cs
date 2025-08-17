@@ -518,12 +518,12 @@ public class jugador_chara3d_al1 : jugador_al1
 			vidaeneimg.fillAmount = vidaeneui/vidaeneuimax;
 		}
 
-		if(peligro && modo == "2D" && tarbossact == false || peligro && modo == "3D" && tarbossact == false)
+		if(peligro && modo == "2D" && tarbossact == false || peligro && modo == "3D" && tarbossact == false && desactivarmusicacombate == false)
 		{
 			musicanoC.Pause();
 			musicaC.UnPause();
 		}
-		if( peligro == false &&  modo == "2D" && tarbossact == false || peligro == false && modo == "3D" && tarbossact == false)
+		if( peligro == false &&  modo == "2D" && tarbossact == false || peligro == false && modo == "3D" && tarbossact == false && desactivarmusicacombate == false)
 		{
 			
 			musicaC.Pause();
@@ -734,6 +734,8 @@ public class jugador_chara3d_al1 : jugador_al1
 		
 		camXc = controles.al1_3d.camX.ReadValue<float>();
 		camYc = controles.al1_3d.camY.ReadValue<float>();
+		marcarc = controles.al1_3d.marcar.ReadValue<float>();
+		dispararc = controles.al1_3d.disparar.ReadValue<float>();
 		
 		
 	}
@@ -2465,7 +2467,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			if(manager.datosserial.tengolanzar == true )
 			{
 
-					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 1 && temppalo > 3  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  dispararc > 0 && ascensor == false )
+					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 1 && temppalo > 3  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  dispararc > 0 && ascensor == false && controlact == true)
 					{
 						tiempodisp = 0;
 						temppalo -= 3;
@@ -2499,7 +2501,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						}
 						manager.guardar();
 					}
-					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 2 && temppalo > 40 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  dispararc > 0 && ascensor == false )
+					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 2 && temppalo > 40 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  dispararc > 0 && ascensor == false && controlact == true )
 					{
 						tiempodisp = 0;
 						temppalo -= 40;
@@ -2539,7 +2541,7 @@ public class jugador_chara3d_al1 : jugador_al1
 
 					}
 
-					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3 && temppalo > 5 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && suelo == true && tiempodisp > 0.5f &&  dispararc > 0 && ascensor == false )
+					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3 && temppalo > 5 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && suelo == true && tiempodisp > 0.5f &&  dispararc > 0 && ascensor == false && controlact == true )
 					{
 						tiempodisp = 0;
 						temppalo -= 5 * Time.deltaTime;
@@ -2576,7 +2578,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						}
 						manager.guardar();
 					}
-					else if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3 && temppalo > 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("dashtierra") && suelo == true &&  dispararc > 0 && ascensor == false )
+					else if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3 && temppalo > 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("dashtierra") && suelo == true &&  dispararc > 0 && ascensor == false && controlact == true )
 					{
 						tiempodisp = 0;
 						temppalo -= 5 * Time.deltaTime;
@@ -2595,7 +2597,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						anim.SetBool("dashtierra",false);
 					}
 
-					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 4 && temppalo > 30 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  dispararc > 0 && ascensor == false )
+					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 4 && temppalo > 30 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  dispararc > 0 && ascensor == false && controlact == true)
 					{
 						tiempodisp = 0;
 						temppalo -= 30;
@@ -2628,7 +2630,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						}
 						manager.guardar();
 					}
-					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 5 && temppalo >= 60 && inbuiract == false && tempinbuir  == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  dispararc > 0 && ascensor == false )
+					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 5 && temppalo >= 60 && inbuiract == false && tempinbuir  == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  dispararc > 0 && ascensor == false && controlact == true)
 					{
 						tiempodisp = 0;
 						temppalo = 0;
@@ -2844,7 +2846,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			}
 			if(manager.datosserial.armapapa == true && manager.datosserial.armasel == 2)
 			{
-				if(dispararc > 0 && ascensor == false && temppaparec >= balapapamun[manager.datosserial.nivelarmapapa -1] && tiempodisp > balapadrecaden[manager.datosserial.nivelarmapapa-1] && papaagotada == false)
+				if(dispararc > 0 && ascensor == false && temppaparec >= balapapamun[manager.datosserial.nivelarmapapa -1] && tiempodisp > balapadrecaden[manager.datosserial.nivelarmapapa-1] && papaagotada == false && controlact == true)
 				{
 					if(manager.datosserial.nivelarmapapa < 5)
 					{
@@ -2911,7 +2913,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			}
 			if(manager.datosserial.armarelen == true  && manager.datosserial.armasel == 4)
 			{
-				if(dispararc > 0 && ascensor == false && tiempodisp > 0.5f && temprelrec >= 40f)
+				if(dispararc > 0 && ascensor == false && tiempodisp > 0.5f && temprelrec >= 40f && controlact == true)
 				{
 					
 
@@ -2974,7 +2976,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			}
 			if(manager.datosserial.armadef == true  && manager.datosserial.armasel == 3)
 			{
-				if(dispararc > 0 && ascensor == false && tiempodisp > 0.5f && tempdefrec >= 60f && manager.datosserial.armadefdesbloqueada == true || dispF == true)
+				if(dispararc > 0 && ascensor == false && tiempodisp > 0.5f && tempdefrec >= 60f && manager.datosserial.armadefdesbloqueada == true && controlact == true || dispF == true && controlact == true)
 				{
 
 					
@@ -3026,7 +3028,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					dispdef.Play();
 
 				}
-				else if(dispararc > 0 && ascensor == false && tiempodisp > 0.5f && tempdefrec >= 60f && manager.datosserial.armadefdesbloqueada == false)
+				else if(dispararc > 0 && ascensor == false && tiempodisp > 0.5f && tempdefrec >= 60f && manager.datosserial.armadefdesbloqueada == false && controlact == true)
 				{
 					armadefpass();
 
@@ -3538,7 +3540,7 @@ public class jugador_chara3d_al1 : jugador_al1
 							enec.vida -= 1;
 							if(col.gameObject != null)
 							{
-								_rb.AddRelativeForce(transform.up * 110 * 2);
+								_rb.AddRelativeForce(transform.up * 110 * 7);
 								enec.danoene.Play();
 								enec.temprb = 1;
 								

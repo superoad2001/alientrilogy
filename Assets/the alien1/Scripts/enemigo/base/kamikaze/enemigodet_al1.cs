@@ -59,12 +59,13 @@ public class enemigodet_al1: MonoBehaviour
 	}
       private void OnTriggerExit(Collider col)
 	{
-		if (col.gameObject.tag == "Player")
+		if (col.gameObject.tag == "Player" && enemigo.voladoract == false)
 		{
                   enemigo.detectar = false;
                   enemigo.fuera = false;
                   enemigo.detect = false;
 		}
+            
             
 
 
