@@ -11,6 +11,7 @@ public class final_al1 : MonoBehaviour
 	public bool botonm = false;
 	public Text score;
 	public Text tit;
+	public Text boton;
 
 	// Token: 0x0600000C RID: 12 RVA: 0x00002397 File Offset: 0x00000597
 	private void Start()
@@ -21,7 +22,7 @@ public class final_al1 : MonoBehaviour
 
 		if(manager.datosconfig.idioma == "es")
         {
-			
+			tit.text = "volver al menu";
 			tit.text = "fin";
 			score.text = "enemigos vencidos: "+manager.datosserial.asesinatos+"\n"+
 			"Muertes sufridas: "+manager.datosserial.muertes+"\n"+

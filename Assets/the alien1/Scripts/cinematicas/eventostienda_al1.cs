@@ -49,8 +49,7 @@ public class eventostienda_al1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(tiendaUI.activeSelf == false)
-        {
+
             if(manager.datosserial.eventos[3] == true)
             {
                 eventos[3].SetActive(true);
@@ -74,10 +73,9 @@ public class eventostienda_al1 : MonoBehaviour
                 eventos[5].SetActive(true);
                 paret.SetActive(true);
                 puerta.SetActive(true);
-                manager.datosserial.eventos[5] = false;
                 manager.guardar();
 
             }
-        }
+        
     }
 }

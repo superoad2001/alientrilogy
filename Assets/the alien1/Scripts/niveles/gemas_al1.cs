@@ -107,6 +107,19 @@ public class gemas_al1 : MonoBehaviour
 			}	
 			this.gameObject.GetComponent<MeshRenderer>().enabled = false;
 		}
+		if(Temp >= 7 && Temp < 10 && fake == false  && pasos < 2)
+		{
+			pasos++;
+			GameObject roto = Instantiate(exp, transform.position,transform.rotation) as GameObject;
+			rotoson.Play();
+			Destroy(roto, 1.0f);
+			
+			if(rotoobj != null)
+			{
+				Destroy(rotoobj);
+			}	
+			this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+		}
 		if(Temp >= 10 && fake == true)
 		{
 			jugador.musicajuego.Play();
@@ -121,7 +134,7 @@ public class gemas_al1 : MonoBehaviour
 			Destroy(this.gameObject, 1.0f);
 
 		}
-		if(Temp > 10 )
+		if(Temp > 10 && fake == false )
 		{
 			jugador.musicajuego.Play();
 			fanfarria.Stop();
@@ -141,6 +154,7 @@ public class gemas_al1 : MonoBehaviour
 
 			GameObject expT = Instantiate(exp, transform.position,transform.rotation) as GameObject;
 			Destroy(expT,1f);
+			Destroy(this.gameObject, 1.0f);
 		}
 		if(fin == true)
 		{

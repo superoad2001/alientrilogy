@@ -99,7 +99,7 @@ public class tienda_al1 : MonoBehaviour
             }
             if(manager.datosserial.tengonave == true)
             {
-                prod[4].text = "No disponible";
+                prod[5].text = "No disponible";
             }
 
 
@@ -133,6 +133,44 @@ public class tienda_al1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(tiendanum == 0)
+        {
+            prod[0].text = "Hab. dash";
+            prod[1].text = "Llave P2";
+            prod[2].text = "Pocion+1";
+            prod[3].text = "Llave P.zero";
+            prod[4].text = "PX4000";
+            prod[5].text = "Nave";
+
+            stock = 6;
+            if(manager.datosserial.tengodash == true)
+            {
+                prod[0].text = "No disponible";
+            }
+            if(manager.datosserial.tengollave1 == true)
+            {
+                prod[1].text = "No disponible";
+            }
+            if(manager.datosserial.pociones[0] == true)
+            {
+                prod[2].text = "No disponible";
+            }
+            if(manager.datosserial.tengollave0 == true)
+            {
+                prod[3].text = "No disponible";
+            }
+            if(manager.datosserial.armadef == true)
+            {
+                prod[4].text = "No disponible";
+            }
+            if(manager.datosserial.tengonave == true)
+            {
+                prod[5].text = "No disponible";
+            }
+
+
+
+        }
         boton = controles.al1_UI.menu1.ReadValue<float>();
         botonb = controles.al1_UI.atras.ReadValue<float>();
         if(boton > 0 && temp > 0.7f )
@@ -209,8 +247,7 @@ public class tienda_al1 : MonoBehaviour
                     manager.datosserial.HabilidadesObtenidas++;
                     manager.datosserial.eventos[3] = true;
                     manager.guardar();
-                    Atrastienda();
-                    salir();
+                    salirforzado();
                 }
                 else if(productoid == 2)
                 {
@@ -218,8 +255,7 @@ public class tienda_al1 : MonoBehaviour
                     manager.datosserial.economia[1]++;
                     manager.datosserial.eventos[5] = true;
                     manager.guardar();
-                    Atrastienda();
-                    salir();
+                    salirforzado();
 
                 }
                 else if(productoid == 3)
@@ -247,8 +283,8 @@ public class tienda_al1 : MonoBehaviour
                     manager.datosserial.ArmasNaveObtenidas++;                 
                     manager.datosserial.eventos[4] = true;
                     manager.guardar();
-                    Atrastienda();
-                    salir();
+                    salirforzado();
+                    
                 }
                 
                 
@@ -267,7 +303,7 @@ public class tienda_al1 : MonoBehaviour
             variedad = 2;
             int[] _precio = new int[variedad];
             int[] _tipomoneda = new int[variedad];
-            _precio[0] = 20;
+            _precio[0] = 100;
             _tipomoneda[0] = 5;
             
             _precio[1] = 4;
@@ -283,7 +319,7 @@ public class tienda_al1 : MonoBehaviour
             _precio[0] = 4;
             _tipomoneda[0] = 2;
 
-            _precio[1] = 100;
+            _precio[1] = 50;
             _tipomoneda[1] = 5;
 
             prodcutoCL(2,_precio,_tipomoneda,variedad,"Llave P2","esta llave permite abirir el panel del ascensor para permitirte llegar a la segunda planta");
@@ -343,7 +379,7 @@ public class tienda_al1 : MonoBehaviour
             _precio[0] = 120;
             _tipomoneda[0] = 5;
 
-            prodcutoCL(5,_precio,_tipomoneda,variedad,"Nave","esta era mi nave te la vendere pues si me alejo mucho de aqui nos la jugamos una par de gemas serian suficiente para usarla en minimos");
+            prodcutoCL(6,_precio,_tipomoneda,variedad,"Nave","esta era mi nave te la vendere pues si me alejo mucho de aqui nos la jugamos una par de gemas serian suficiente para usarla en minimos");
         }
         else
         {
@@ -352,7 +388,7 @@ public class tienda_al1 : MonoBehaviour
     }
     public void prodcutoCL(int productoid_ ,int[] precio_,int[] tipomoneda_,int variedad, string nombre_, string descripcion_)
     {
-        productoid = 1;
+        productoid = productoid_;
         rew.SetActive(false);
         comp.SetActive(true);
         prodname.text = nombre_;
@@ -483,6 +519,12 @@ public class tienda_al1 : MonoBehaviour
             prodimg2[5].color = colores[9];
         }
         
+    }
+    public void salirforzado()
+    {
+        Atrastienda();
+        salir();
+        jugador.menushow.SetBool("show",false);
     }
 
 

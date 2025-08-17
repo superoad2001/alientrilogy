@@ -214,15 +214,16 @@ public class enemigo1_al1: MonoBehaviour
             vida = vidamax;
             vidaUI = vida;
         }
-        if(voladoract)
-        {
-
-            if(GetComponent<Rigidbody>() == null)
+        if(GetComponent<Rigidbody>() == null)
             {
                 gameObject.AddComponent<Rigidbody>();
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                 rb_ = GetComponent<Rigidbody>();
             }
+        if(voladoract)
+        {
+
+            
             vidamax = vidamax * 1.5f;
             if(vidamax > 9999)
             {vidamax = 9999;}
@@ -898,7 +899,9 @@ public class enemigo1_al1: MonoBehaviour
                         GameObject BalaTemporal = Instantiate(balaprefab2, transform.position,transform.rotation) as GameObject;
                         Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
 
-                        BalaTemporal.GetComponent<bala_tele_al1>().objetivo = objetivo.gameObject;
+                        BalaTemporal.GetComponent<romperbala_al1>().objtele = objetivo.gameObject;
+                        
+                        BalaTemporal.GetComponent<romperbala_al1>().vel = 8;
 
                         BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj/2;
 
@@ -1166,6 +1169,10 @@ public class enemigo1_al1: MonoBehaviour
                 jugador1.objetivotarget2 = null;
                 jugador1.vidaenebarra.SetActive(false);
             }
+            if(destobj == true)
+            {
+                Destroy(destruible);
+            }
 			Destroy(transform.parent.gameObject);
             
 		}
@@ -1185,6 +1192,7 @@ public class enemigo1_al1: MonoBehaviour
             jugador1.tempempujon = 0;
             jugador1.empujon = true;
             jugador1.vida -= danoj;
+            jugador1.enetouch = false;
             GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
             

@@ -155,7 +155,7 @@ public class misionA_al1 : MonoBehaviour
             premio.sprite = tipoI[6];
             premio.color = colores[6];
             titulopremio.text = "completada";
-            menpremio.text = "obtuviste"+premiocant+"de estos";
+            menpremio.text = "obtuviste una licencia";
 
         }
         if(temp < 15)

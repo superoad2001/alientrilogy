@@ -84,17 +84,21 @@ public abstract class jugador_al1 : MonoBehaviour
 	[HideInInspector]public float tiempovelint;
 	[HideInInspector]public float velocidadaux;
 	[HideInInspector]public bool dimensiion;
+	[HideInInspector]public float girodir = -90;
 	public bool dentrotienda;
 	[HideInInspector]public bool dashefect;
 	[HideInInspector]public GameObject eneempuj;
 	[HideInInspector]public bool empujon;
 	[HideInInspector]public float disdash = 10;
 	[HideInInspector]public float veldash = 30;
+	[HideInInspector]public float vidamaxN;
+	public bool noene;
 	[HideInInspector]public Vector3 movdire;
 	[HideInInspector]public Vector3 movdirect;
 	[HideInInspector]public Vector3 movdirectaux;
 	[HideInInspector]public RaycastHit hit;
 	[HideInInspector]public float marcarc;
+	[HideInInspector]public bool enetouch;
 	public float[] balapadrevel = new float[5];
 	public float[] balapadredano = new float[5];
 	public float[] balapadrecaden = new float[5];
@@ -144,9 +148,16 @@ public abstract class jugador_al1 : MonoBehaviour
 
 	private bool musicaCombateActiva = false;
 	private bool musicaNormalActiva = false;
+
+	
 	
 	[Header("resto")]
 	public Controles controles;
+
+	public void Update()
+	{
+		
+	}
 	
 	public void saltoalto()
 	{

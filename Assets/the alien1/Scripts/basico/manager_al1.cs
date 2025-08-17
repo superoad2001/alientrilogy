@@ -102,6 +102,8 @@ public class manager_al1 : MonoBehaviour
 
 	public bool hierronivel;
 	public int IDhierronivel;
+
+	public bool findemo;
 	
 
 	// Token: 0x06000025 RID: 37 RVA: 0x0000334C File Offset: 0x0000154C
@@ -419,6 +421,12 @@ public class manager_al1 : MonoBehaviour
 		{
 
 			datosserial.nivelu = SceneManager.GetActiveScene().name;
+			manager.guardar();
+		}
+		if(findemo == true)
+		{
+
+			datosserial.nivelu = nivelu;
 			manager.guardar();
 		}
 		

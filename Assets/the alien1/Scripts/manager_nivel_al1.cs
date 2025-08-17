@@ -11,6 +11,7 @@ public class manager_nivel_al1 : MonoBehaviour
     public int ubi;
 	public GameObject posch1;
 	public GameObject posch2;
+	public GameObject model;
 
 	public jugador_al1 jugador;
 
@@ -33,18 +34,40 @@ public class manager_nivel_al1 : MonoBehaviour
 				if(jugador.modo == "2D")
 				{
 					
-					if(posch1.transform.eulerAngles.y == 90f)
+					if(posch1.transform.eulerAngles.y == 0f)
 					{
-						jugador.transform.eulerAngles = posch1.transform.eulerAngles;
+						jugador.transform.eulerAngles = new Vector3(0,90,0);
 						jugador.dimensiion = true;
 						jugador.jugpos = jugador.transform.position.x;
+						jugador.girodir = 270;
+						model.transform.localEulerAngles = new Vector3(0,270,0);
 					}
-					else
+					else if(posch1.transform.eulerAngles.y == 180)
 					{
-						jugador.transform.eulerAngles = posch1.transform.eulerAngles;
+						jugador.transform.eulerAngles = new Vector3(0,90,0);
+						jugador.dimensiion = true;
+						jugador.jugpos = jugador.transform.position.x;
+						jugador.girodir = 90;
+						model.transform.localEulerAngles = new Vector3(0,90,0);
+					}
+					else if(posch1.transform.eulerAngles.y == 90)
+					{
+						jugador.transform.eulerAngles = new Vector3(0,0,0);
 						jugador.dimensiion = false;
 						jugador.jugpos = jugador.transform.position.z;
+						jugador.girodir = 90;
+						model.transform.localEulerAngles = new Vector3(0,90,0);
 					}
+					else if(posch1.transform.eulerAngles.y == 270)
+					{
+						jugador.transform.eulerAngles = new Vector3(0,0,0);
+						jugador.dimensiion = false;
+						jugador.jugpos = jugador.transform.position.z;
+						jugador.girodir = 270;
+						model.transform.localEulerAngles = new Vector3(0,270,0);
+					}
+					
+					
 
 				}
 			}
@@ -59,17 +82,37 @@ public class manager_nivel_al1 : MonoBehaviour
 
 				if(jugador.modo == "2D")
 				{
-					if(posch1.transform.eulerAngles.y == 90f)
+					if(posch2.transform.eulerAngles.y == 0f)
 					{
-						jugador.transform.eulerAngles = posch2.transform.eulerAngles;
+						jugador.transform.eulerAngles = new Vector3(0,90,0);
 						jugador.dimensiion = true;
 						jugador.jugpos = jugador.transform.position.x;
+						jugador.girodir = 270;
+						model.transform.localEulerAngles = new Vector3(0,270,0);
 					}
-					else
+					else if(posch2.transform.eulerAngles.y == 180)
 					{
-						jugador.transform.eulerAngles = posch2.transform.eulerAngles;
+						jugador.transform.eulerAngles = new Vector3(0,90,0);
+						jugador.dimensiion = true;
+						jugador.jugpos = jugador.transform.position.x;
+						jugador.girodir = 90;
+						model.transform.localEulerAngles = new Vector3(0,90,0);
+					}
+					else if(posch2.transform.eulerAngles.y == 90)
+					{
+						jugador.transform.eulerAngles = new Vector3(0,0,0);
 						jugador.dimensiion = false;
 						jugador.jugpos = jugador.transform.position.z;
+						jugador.girodir = 90;
+						model.transform.localEulerAngles = new Vector3(0,90,0);
+					}
+					else if(posch2.transform.eulerAngles.y == 270)
+					{
+						jugador.transform.eulerAngles = new Vector3(0,0,0);
+						jugador.dimensiion = false;
+						jugador.jugpos = jugador.transform.position.z;
+						jugador.girodir = 270;
+						model.transform.localEulerAngles = new Vector3(0,270,0);
 					}
 				}
 			}

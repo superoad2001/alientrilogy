@@ -27,7 +27,9 @@ public class teleportautom_al1 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			SceneManager.LoadScene(ubi);
+			manager.datosconfig.carga = ubi;
+                manager.guardarconfig();
+                SceneManager.LoadScene("carga");
 		}
 	}
 

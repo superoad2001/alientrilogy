@@ -56,13 +56,17 @@ public class logicacin_al1 : MonoBehaviour
 
 		if (controles.menu.saltar.ReadValue<float>() > 0f && temp > 1)
 		{
-			SceneManager.LoadScene(sceneload);
+			manager.datosconfig.carga = sceneload;
+                manager.guardarconfig();
+                SceneManager.LoadScene("carga");
 		}
 		if(menuoff != null)
 		{
 			if(menuoff.dialogueUIManager.dialogueCanvas.activeSelf == false )
 			{
-				SceneManager.LoadScene(sceneload);
+				manager.datosconfig.carga = sceneload;
+                manager.guardarconfig();
+                SceneManager.LoadScene("carga");
 			}
 		}
 		

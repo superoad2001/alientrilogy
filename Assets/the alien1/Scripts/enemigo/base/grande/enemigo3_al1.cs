@@ -1000,6 +1000,10 @@ public class enemigo3_al1: MonoBehaviour
                 jugador1.movact--;
                 temprecargafin = 0;
             }
+            if(destobj == true)
+            {
+                Destroy(destruible);
+            }
 			Destroy(transform.parent.gameObject);
 		}
         

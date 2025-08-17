@@ -9,9 +9,11 @@ public class tutorial_salir : MonoBehaviour
     public GameObject evento;
     public Controles controles;
     public string escena;
+    public manager_al1 manager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Awake()
     {
+        manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         controles = new Controles();
     }
     private void OnEnable() 
@@ -26,11 +28,14 @@ public class tutorial_salir : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(evento != null)
+        if(evento == null)
         {
-            if (controles.al1_3d.interactuar.ReadValue<float>() > 0f)
+            
+            if (controles.al1_UI.interactuar.ReadValue<float>() > 0f )
 			{
-                SceneManager.LoadScene(escena);
+                manager.datosconfig.carga = escena;
+                manager.guardarconfig();
+                SceneManager.LoadScene("carga");
             }
         }
     }

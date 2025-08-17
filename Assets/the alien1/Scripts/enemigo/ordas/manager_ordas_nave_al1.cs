@@ -36,8 +36,9 @@ public class manager_ordas_nave_al1 : MonoBehaviour
     {
         if(contadorene <= 0 && ganar == false)
         {
-            rondaC();
             ganar = true; 
+            rondaC();
+            
         }
 
 
@@ -69,7 +70,8 @@ public class manager_ordas_nave_al1 : MonoBehaviour
         {
             rondaText.text = "consegido";
             rondaAnim.Play("ordasanim1");
-            
+            jugador.noene = true;
+
         }
         else
         {

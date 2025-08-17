@@ -25,6 +25,7 @@ public class romperbala_al1: MonoBehaviour
     public GameObject objtele;
     public float tempdest;
     public bool paloact;
+    public float vel = 25;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,14 +42,14 @@ public class romperbala_al1: MonoBehaviour
         if(objtele != null)
         {
             tempdest += 1 * Time.deltaTime;
-            if (tempdest >= 12)
+            if (tempdest >= destb)
             {
                 Destroy(this.gameObject);
             }
         }
         if(tele == true && objtele != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position,objtele.transform.position,25 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position,objtele.transform.position,vel * Time.deltaTime);
 
         }
         transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,transform.forward.y,transform.rotation.eulerAngles.z),5000f * Time.deltaTime);
@@ -111,9 +112,6 @@ public class romperbala_al1: MonoBehaviour
             }
             
         }
-    }
-    public void OnCollisionEnter(Collision col)
-    {
         if (tele == true )
         {
       
@@ -128,6 +126,10 @@ public class romperbala_al1: MonoBehaviour
             }
             
         }
+    }
+    public void OnCollisionEnter(Collision col)
+    {
+        
     }
     public void OnDestroy()
     {

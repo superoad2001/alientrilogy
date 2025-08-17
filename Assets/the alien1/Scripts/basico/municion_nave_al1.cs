@@ -1,9 +1,10 @@
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Buffers;
+using System;
 
 public class municion_nave_al1 : MonoBehaviour
 {
@@ -14,17 +15,36 @@ public class municion_nave_al1 : MonoBehaviour
     public GameObject[] munmod = new GameObject[4];
     public string[] names = new string[4];
     private bool _R;
+    public List<int> numbers = new List<int>();
+    public manager_al1 manager;
     void Start()
     {
+        manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 
-        jugador_al1 jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+        jug = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         names[0] = "mina";
         names[1] = "misil";
         names[2] = "escopeta";
         names[3] = "cura";
-        
-        munT = names[Random.Range(0,4)];
 
+
+        numbers.Add(3);
+
+        if (manager.datosserial.tengoarmanave2 == true)
+        { 
+            numbers.Add(0);
+        }
+        if (manager.datosserial.tengoarmanave3 == true)
+        { 
+            numbers.Add(1);
+        }
+        if (manager.datosserial.tengoarmanave4 == true)
+        { 
+            numbers.Add(3);
+        }
+
+
+        munT = names[numbers[UnityEngine.Random.Range(0,numbers.Count)]];
         if(munT == "mina")
         {
             munmod[0].SetActive(true);
@@ -110,10 +130,11 @@ public class municion_nave_al1 : MonoBehaviour
             }
             if(munT == "cura")
             {
-                jug.vida += (jug.vidamax/100) * 30;
-                if(jug.vida > jug.vidamax)
-                {jug.vida = jug.vidamax;}
+                jug.vida += ((jug.vidamaxN/100) * 30);
+                if(jug.vida > jug.vidamaxN)
+                {jug.vida = jug.vidamaxN;}
                 Destroy(this.gameObject);
+
             }
         }
     }

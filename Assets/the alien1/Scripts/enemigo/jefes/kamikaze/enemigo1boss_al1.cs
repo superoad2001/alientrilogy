@@ -11,12 +11,10 @@ public class enemigo1boss_al1: MonoBehaviour
     public float vidamax;
     public manager_al1 manager;
     public Text vidat2;
-    public int nivel = 1;
     public GameObject objetivo;
+    public GameObject objetivoa;
     public GameObject objetivob;
     public Quaternion rotation;
-    public Transform objetivo1;
-    public Transform objetivo1b;
     public Rigidbody rb_;
     public float vel = 2;
     public bool desactivar;
@@ -72,11 +70,27 @@ public class enemigo1boss_al1: MonoBehaviour
     public float []nivelvida_a = new float[100];
     public float vidacabezamax = 4;
     private int vidacabeza;
-
+    public Vector3 tamano;
+    public GameObject plat1;
+    public GameObject plat2;
+    public GameObject plat3;
+    public float recdano;
+    public float tempmov;
 
     // Start is called before the first frame update
     void Start()
     {
+        objetivo = objetivoa;
+        fuebase = 10;
+        fuebasemax = 100;
+        fueplusmax = 2000;
+
+        tempmov = 5;
+
+        if(manager.datosserial.newgameplus1 == false)
+        {valorexp = 30;}
+        else
+        {valorexp = 100;}
         
         vidaUI = vida;
         nivelvida_a[0] = vidabasetut;
@@ -112,6 +126,47 @@ public class enemigo1boss_al1: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(vida > (vidamax/4) * 3)
+        {
+            tamano = new Vector3(4.14f,4.14f,4.14f);
+        }
+        else if(vida > (vidamax/4) * 2)
+        {
+            tamano = new Vector3(6,6,6);
+            if(manager.datosserial.newgameplus1 == false)
+            {plat1.SetActive(true);}
+        }
+        else if(vida > (vidamax/4) * 1)
+        {
+            tamano = new Vector3(10,10,10);
+            if(manager.datosserial.newgameplus1 == false)
+            {plat2.SetActive(true);}
+            
+        }
+        else if(vida > (vidamax/4) * 0)
+        {
+            tamano = new Vector3(12,12,12);
+            if(manager.datosserial.newgameplus1 == false)
+            {plat3.SetActive(true);}
+        }
+        if(recdano <= 0 && tempmov >= 2)
+        {
+            objetivo = objetivoa;
+        }
+        else if(recdano <= 0 && tempmov < 2)
+        {
+            vel = 5;
+            objetivo = objetivob;
+        }
+        else
+        {
+            vel = 30;
+            objetivo = objetivob;
+        }
+        float veltam = 0.02f;
+        transform.localScale = new Vector3(Mathf.Lerp(transform.localScale.x, tamano.x, veltam * Time.deltaTime), Mathf.Lerp(transform.localScale.y, tamano.y, veltam * Time.deltaTime), Mathf.Lerp(transform.localScale.z, tamano.z, veltam * Time.deltaTime));
+        dano.transform.localScale = transform.localScale;
+        
         vidaUI = Mathf.Lerp(vidaUI, vida, Time.deltaTime * 2f);
         niveltxt.text = nivelactual.ToString();
         vidab.fillAmount = vidaUI/vidamax;
@@ -134,16 +189,12 @@ public class enemigo1boss_al1: MonoBehaviour
         vidat2.text = (int)(vidacabeza)+"/"+(int)vidacabezamax;
 
         dano.transform.position = this.transform.position;
-        if(objetivo == null)
-        {
-            objetivo = objetivob;
-            objetivo1 = objetivo1b;
-        }
         
         if(detectar == true && desactivar == false && manager.controlene == true && vida >= 1)
         {
+            
             transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivo.transform.position.x,transform.position.y,objetivo.transform.position.z),vel * Time.deltaTime);
-            Vector3 direction = objetivo1.position - transform.position;
+            Vector3 direction = objetivo.transform.position - transform.position;
             rotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
         
@@ -154,25 +205,18 @@ public class enemigo1boss_al1: MonoBehaviour
                             GameObject BalaTemporal = Instantiate(balaprefab,transform.position,transform.rotation) as GameObject;
 
                             Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
-                            BalaTemporal.transform.SetParent(juego);
 
-                            BalaTemporal.GetComponent<romperbala_al1>().danoj = ((nivelfuerza / 2) * 2) + nivelfuerza;
+                            BalaTemporal.GetComponent<romperbala_al1>().danoj = nivelfuerza;
 
-                            BalaTemporal.GetComponent<bala_tele_al1>().objetivo = objetivo;
-
-                            Destroy(BalaTemporal, 20f);
+                            BalaTemporal.GetComponent<romperbala_al1>().objtele = objetivo;
 
                             disp.Play();
 
                             temp = 0;
             }
-            temp += 1 * Time.deltaTime;   
+            if(temp < 15)
+            {temp += 1 * Time.deltaTime;}
         }
-        else
-        {
-            transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivo.transform.position.x,transform.position.y,objetivo.transform.position.z),vel / 3 * Time.deltaTime);
-        }
-        detectar = true;
             if (vida < 1)
             {
                 plataformas.SetActive(false);
@@ -233,8 +277,8 @@ public class enemigo1boss_al1: MonoBehaviour
                     manager.datosserial.jefeV[0] = true;
                     manager.guardar();
                     manager.datosconfig.carga = "cin_postboss1_al1";
-            manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+                    manager.guardarconfig();
+                    SceneManager.LoadScene("carga");
 
                 }
                 if(Temp > 5 )
@@ -278,7 +322,11 @@ public class enemigo1boss_al1: MonoBehaviour
             else
             {
                 temp = 0;
-            }    
+            } 
+            if(recdano > 0)
+            {recdano -= 1 * Time.deltaTime;}   
+            if(tempmov < 15)
+            {tempmov += 1 * Time.deltaTime;}   
         
         
     }
@@ -303,6 +351,10 @@ public class enemigo1boss_al1: MonoBehaviour
     }
     private void OnTriggerStay(Collider col)
 	{
+        if (col.gameObject.tag == "back" )
+		{
+            tempmov = 0;
+		}
         if (col.gameObject.tag == "danoarma9")
 		{
             detectar = false;
@@ -310,6 +362,7 @@ public class enemigo1boss_al1: MonoBehaviour
 	}
     private void OnTriggerEnter(Collider col)
 	{
+        
         if (col.gameObject.tag == "golpeh" && jugador1.toquespalo > 0)
 		{
             jugador1.toquespalo--;
@@ -344,6 +397,14 @@ public class enemigo1boss_al1: MonoBehaviour
             danoene.Play();
             detectar = false;
         }
+
+    }
+    private void OnCollisionEnter(Collision col)
+	{
+        if (col.gameObject.tag == "Player")
+		{
+            jugador1.muerte = true;
+		}
 
     }
 }

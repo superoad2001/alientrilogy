@@ -29,7 +29,6 @@ public class jugador_chara3d_al1 : jugador_al1
 	public GameObject giro;
 	private bool subir0 = false;
 	public Vector3 planetUp;
-	private bool enetouch;
 	public float tiempoascensor = 0;
 	public bool ascensor ;
 	public Vector3 rotationinput;
@@ -476,6 +475,14 @@ public class jugador_chara3d_al1 : jugador_al1
 		tiempovelint = 3;
 		vidaobj = vida;
 		staminaobj = stamina;
+
+		Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        if(manager.datosconfig.plat == 2)
+        {
+            tactil.SetActive(true);
+
+        }
 		
 		
 	}
@@ -3355,6 +3362,7 @@ public class jugador_chara3d_al1 : jugador_al1
 		
 		if (col.gameObject.tag == "suelo" || col.gameObject.tag == "ascensor" )
 		{
+			tempempujon = 5;
 			jumpforce = jumpforcebase;
 			anim.SetBool("salto",false);
 			dashaeract = false;
@@ -3370,10 +3378,7 @@ public class jugador_chara3d_al1 : jugador_al1
 		{
 			muertes.Play();
 		}
-		if (col.gameObject.tag == "enemigo")
-		{
-			enetouch = true;
-		}
+
 	}
 
 	// Token: 0x06000022 RID: 34 RVA: 0x000031C0 File Offset: 0x000013C0
@@ -3432,10 +3437,6 @@ public class jugador_chara3d_al1 : jugador_al1
 		{
 			anim.SetBool("salto",true);
 			suelo = false;
-		}
-		if (col.gameObject.tag == "enemigo")
-		{
-			enetouch = false;
 		}
 	
 	}
@@ -3506,7 +3507,11 @@ public class jugador_chara3d_al1 : jugador_al1
 								{
 									
 								
-									enec.rb_.AddRelativeForce(transform.forward * 110 * 2 * (enec.tamano + 1));
+									if(enec.rb_ != null)
+									{
+										enec.rb_.AddRelativeForce(transform.forward * 110 * 2 * (enec.tamano + 1));
+									}
+									
 									enec.danoene.Play();
 									enec.temprb = 3;
 								}
@@ -3690,14 +3695,22 @@ public class jugador_chara3d_al1 : jugador_al1
 				}
 			}
 		}
-		if (col.gameObject.tag == "pisarboss")
+		if (col.gameObject.tag == "pisarboss" )
 		{
+			if(eneboss1.recdano <= 0)
+			{
 			GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
 			muertes.Play();
             Destroy(explosiont, 1f);
 			eneboss1.vida -= eneboss1.vidamax/4;
-			eneboss1.rb_.AddRelativeForce(transform.forward * 110 * 20);
-			_rb.AddRelativeForce(transform.up * 110 * 10);
+			eneboss1.rb_.AddRelativeForce(transform.forward * 110 * -50);
+			eneboss1.recdano = 5;
+			transform.position = new Vector3(34.4f,510.2672f,417.3754f);
+			transform.eulerAngles = new Vector3(0,0,0);
+			camara.transform.eulerAngles = new Vector3(0,0,0);
+			GameObject explosiont2 = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
+			Destroy(explosiont2, 1f);
+			}
 		}
 		if (col.gameObject.tag == "npc")
 		{
@@ -4005,32 +4018,6 @@ public class jugador_chara3d_al1 : jugador_al1
 			}
 		}
 	}
-	public void nivel2()
-	{
-			manager.datosserial.nivelexp = 0;
-			manager.datosserial.niveljug = 2;
-			manager.datosserial.signivelexp += 7;
-			subirnivel();
-	}
-	public void subirnivel()
-	{
-		subirnivelaud.Play();
-		
-		GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
-
-        expltemp.transform.SetParent(this.gameObject.transform);
-
-		nivelfuerza = nivelfuerza_a[manager.datosserial.niveljug - 1];
-        nivelvida = nivelvida_a[manager.datosserial.niveljug -1];
-        vidamax = nivelvida;
-		vida = vidamax;
-
-        Destroy(expltemp,5f);
-		conseguido.text = "subiste al nivel "+manager.datosserial.niveljug;
-		conseguidoa.Play("nivelsub2");
-
-	}
-
 	public void armadefpass()
 	{
 
@@ -4048,57 +4035,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			Cursor.visible = true;
 			Cursor.lockState = CursorLockMode.None;
 	}
-	public void tiendaact()
-	{
-		Time.timeScale = 0;
-		manager.pauseact = true;
-		musicajuego.Stop();
-		tiendaG.SetActive(true);
-		tiendaMus.Play();
-		controlact = false;
-		combo = 0;
-		temp10 = 0;
-		if(manager.datosconfig.plat == 2)
-		{
-			tactil.SetActive(false);
-		}
-		Cursor.visible = true;
-		Cursor.lockState = CursorLockMode.None;
-	}
-	public void mision_aceptar()
-	{
-		
-		Time.timeScale = 0;
-		manager.pauseact = true;
-		misionUI.SetActive(true);
-		misionA.modo = 1;
-		controlact = false;
-		combo = 0;
-		temp10 = 0;
-		if(manager.datosconfig.plat == 2)
-		{
-			tactil.SetActive(false);
-		}
-		Cursor.visible = true;
-		Cursor.lockState = CursorLockMode.None;
-	}
-	public void mision_fin()
-	{
-		
-		Time.timeScale = 0;
-		manager.pauseact = true;
-		misionUI.SetActive(true);
-		misionA.modo = 2;
-		controlact = false;
-		combo = 0;
-		temp10 = 0;
-		if(manager.datosconfig.plat == 2)
-		{
-			tactil.SetActive(false);
-		}
-		Cursor.visible = true;
-		Cursor.lockState = CursorLockMode.None;
-	}
+
 	
 	
 }

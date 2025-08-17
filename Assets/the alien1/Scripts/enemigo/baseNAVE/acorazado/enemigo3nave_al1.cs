@@ -16,6 +16,8 @@ public class enemigo3nave_al1: MonoBehaviour
     public float vel = 2;
     public bool desactivar;
     public float temp;
+    public float temp1;
+    public float temp2;
     public GameObject explosion;
     public jugador_al1 jugador1;
     public AudioSource muertes;
@@ -97,6 +99,9 @@ public class enemigo3nave_al1: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        temp = 0;
+        temp1 = -2;
+        temp2 = -2;
 
         if(nivelactual >= 5)
         {
@@ -114,9 +119,9 @@ public class enemigo3nave_al1: MonoBehaviour
         vidabasemax = 9999;
         vidaplusmax = 99999;
 
-        fuebase = 70;
-        fuebasemax = 700;
-        fueplusmax = 14000;
+        fuebase = 120;
+        fuebasemax = 1200;
+        fueplusmax = 24000;
         if((manager_ordas_nave_al1)FindFirstObjectByType(typeof(manager_ordas_nave_al1))!= null)
         {
         	managerordas = (manager_ordas_nave_al1)FindFirstObjectByType(typeof(manager_ordas_nave_al1));
@@ -351,7 +356,7 @@ public class enemigo3nave_al1: MonoBehaviour
 
                 temp = 0;
             }
-            else if(temp > 10 && disparodes == true  && Randomdec == 1)
+            else if(temp1 > 2 && disparodes == true  && Randomdec == 1)
             {
                 GameObject BalaTemporal = Instantiate(balaprefab1, transform.position,transform.rotation) as GameObject;
 
@@ -365,7 +370,7 @@ public class enemigo3nave_al1: MonoBehaviour
 
                 disp.Play();
 
-                temp = 0;
+                temp1 = 0;
             }
             else if(temp > 10 && spawn_ovni == true && Randomdec == 2 && comprobarene < 2)
             {
@@ -383,7 +388,7 @@ public class enemigo3nave_al1: MonoBehaviour
                 }
                 temp = 0;
             }
-            else if(temp > 10 && ondaact == true  && Randomdec == 3)
+            else if(temp2 > 4 && ondaact == true  && Randomdec == 3)
             {
 
 
@@ -399,10 +404,14 @@ public class enemigo3nave_al1: MonoBehaviour
                 
 
                 disp.Play();
+                temp2 = 0;
             }
             if(temp < 15)
             {temp += 1 * Time.deltaTime;}
-           
+           if(temp1 < 15)
+            {temp1 += 1 * Time.deltaTime;}
+            if(temp2 < 15)
+            {temp2 += 1 * Time.deltaTime;}
         
 
             

@@ -13,6 +13,7 @@ public class manager_ordas_al1 : MonoBehaviour
 {
 
     public int ronda;
+    public bool nivel1;
     public int maxronda;
     public int maxposiciones;
     public int[] maxenemigo1rondas;
@@ -93,8 +94,11 @@ public class manager_ordas_al1 : MonoBehaviour
                         GameObject explosion1 = Instantiate(explosion, posiciones[pos].transform.position, posiciones[pos].transform.rotation);
                         if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>() == true)
                         {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;}
-                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true)
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true && nivel1 == false)
                         {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>().nivelactual = nivelactual;}
+                        else if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true && nivel1 == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>().nivelactual = 1;}
+
                         if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>() == true)
                         {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>().nivelactual = nivelactual;}
                         
@@ -125,8 +129,10 @@ public class manager_ordas_al1 : MonoBehaviour
                         GameObject explosion2 = Instantiate(explosion, posiciones[pos].transform.position, posiciones[pos].transform.rotation);
                         if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>() == true)
                         {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;}
-                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true)
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true && nivel1 == false)
                         {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>().nivelactual = nivelactual;}
+                        else if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true && nivel1 == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>().nivelactual = 1;}
                         if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>() == true)
                         {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>().nivelactual = nivelactual;}
                         Destroy(explosion2, 0.5f);
@@ -154,8 +160,10 @@ public class manager_ordas_al1 : MonoBehaviour
                         GameObject explosion3 = Instantiate(explosion, posiciones[pos].transform.position, posiciones[pos].transform.rotation);
                         if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>() == true)
                         {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;}
-                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true)
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true && nivel1 == false)
                         {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>().nivelactual = nivelactual;}
+                        else if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true && nivel1 == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>().nivelactual = 1;}
                         if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>() == true)
                         {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>().nivelactual = nivelactual;}
                         Destroy(explosion3, 0.5f);
@@ -183,8 +191,10 @@ public class manager_ordas_al1 : MonoBehaviour
                         GameObject explosion4 = Instantiate(explosion, posiciones[pos].transform.position, posiciones[pos].transform.rotation);
                         if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>() == true)
                         {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;}
-                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true)
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true && nivel1 == false)
                         {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>().nivelactual = nivelactual;}
+                        else if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true && nivel1 == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>().nivelactual = 1;}
                         if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>() == true)
                         {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>().nivelactual = nivelactual;}
                         Destroy(explosion4, 0.5f);
@@ -212,8 +222,10 @@ public class manager_ordas_al1 : MonoBehaviour
                         GameObject explosion5 = Instantiate(explosion, posiciones[pos].transform.position, posiciones[pos].transform.rotation);
                         if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>() == true)
                         {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo1_al1>().nivelactual = nivelactual;}
-                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true)
+                        if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true && nivel1 == false)
                         {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>().nivelactual = nivelactual;}
+                        else if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>() == true && nivel1 == true)
+                        {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>().nivelactual = 1;}
                         if(enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>() == true)
                         {enemigos1.transform.Find("enemigo").gameObject.GetComponent<enemigo3_al1>().nivelactual = nivelactual;}
                         Destroy(explosion5, 0.5f);
@@ -252,6 +264,7 @@ public class manager_ordas_al1 : MonoBehaviour
         }
         jugador.transform.position = posjugador;
         jugador.transform.eulerAngles = jugrotation;
+        jugador._rb.linearVelocity = new Vector3 (0,0,0);
         jugador.camara.transform.localEulerAngles = new Vector3(0, 0, 0);
         jugador.controlact = false;
         actinironda = true;

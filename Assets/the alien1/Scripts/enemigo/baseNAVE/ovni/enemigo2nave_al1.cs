@@ -75,6 +75,7 @@ public class enemigo2nave_al1: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        temp = -2;
         frenetismoarmas = 1;
          if(nivelactual >= 5)
         {
@@ -92,9 +93,9 @@ public class enemigo2nave_al1: MonoBehaviour
         vidabasemax = 9999;
         vidaplusmax = 99999;
 
-        fuebase = 70;
-        fuebasemax = 700;
-        fueplusmax = 14000;
+        fuebase = 120;
+        fuebasemax = 1200;
+        fueplusmax = 24000;
 
         if((manager_ordas_nave_al1)FindFirstObjectByType(typeof(manager_ordas_nave_al1))!= null)
         {
@@ -251,7 +252,7 @@ public class enemigo2nave_al1: MonoBehaviour
                 Randomdec = Random.Range(0,2);
             }
 
-            if(temp > 0.3f && Randomdec == 0)
+            if(temp > 0.5f && Randomdec == 0)
             {
                 GameObject BalaTemporal = Instantiate(balaprefab, transform.position,transform.rotation) as GameObject;
 

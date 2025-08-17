@@ -110,9 +110,9 @@ public class teleport_al1 : MonoBehaviour
                 
                 if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
                 {
-                    manager.datosconfig.carga = "cin_presboss1_al1";
-            manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+                    manager.datosconfig.carga = "cin_preboss1_al1";
+                    manager.guardarconfig();
+                    SceneManager.LoadScene("carga");
                 }
                 
             }
@@ -122,9 +122,9 @@ public class teleport_al1 : MonoBehaviour
                 
                 if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
                 {
-                    manager.datosconfig.carga = "prebosss1_al1";
-            manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+                    manager.datosconfig.carga = "salapreboss1_al1";
+                    manager.guardarconfig();
+                    SceneManager.LoadScene("carga");
                 }
                 
             }
@@ -133,7 +133,9 @@ public class teleport_al1 : MonoBehaviour
                 anim.SetBool("show",true);
                 if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
                 {
-                    SceneManager.LoadScene(ubi);
+                    manager.datosconfig.carga = ubi;
+                manager.guardarconfig();
+                SceneManager.LoadScene("carga");
                 }
             }
             if (manager.datosserial.tengollave3 == true && manager.piso == 3 && manager.datosserial.jefeV[2] == false)
@@ -141,7 +143,9 @@ public class teleport_al1 : MonoBehaviour
                 anim.SetBool("show",true);
                 if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
                 {
-                    SceneManager.LoadScene(ubi);
+                    manager.datosconfig.carga = ubi;
+                manager.guardarconfig();
+                SceneManager.LoadScene("carga");
                 }
             }
             if (manager.datosserial.tengollave4 == true && manager.piso == 4 && manager.datosserial.jefeV[3] == false)
@@ -149,7 +153,9 @@ public class teleport_al1 : MonoBehaviour
                 anim.SetBool("show",true);
                 if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
                 {
-                    SceneManager.LoadScene(ubi);
+                    manager.datosconfig.carga = ubi;
+                manager.guardarconfig();
+                SceneManager.LoadScene("carga");
                 }
             }
             
@@ -256,7 +262,9 @@ public class teleport_al1 : MonoBehaviour
                 {
                     if(manager.datosserial.economia[0] >= cantgemas)
                     {
-                        SceneManager.LoadScene(ubi);
+                        manager.datosconfig.carga = ubi;
+                manager.guardarconfig();
+                SceneManager.LoadScene("carga");
                         
                     }
                     else
@@ -272,7 +280,9 @@ public class teleport_al1 : MonoBehaviour
                         manager.datosserial.LlaveT[manager.IDhierronivel] = true;
                         manager.datosserial.economia[2]++;
                     }      
-                    SceneManager.LoadScene(ubi);
+                    manager.datosconfig.carga = ubi;
+                    manager.guardarconfig();
+                    SceneManager.LoadScene("carga");
                 }
                 else
                 {
@@ -312,7 +322,9 @@ public class teleport_al1 : MonoBehaviour
                 
                 if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
                 {
-                    SceneManager.LoadScene(ubi);
+                    manager.datosconfig.carga = ubi;
+                manager.guardarconfig();
+                SceneManager.LoadScene("carga");
                 }
                 
             }
@@ -321,7 +333,9 @@ public class teleport_al1 : MonoBehaviour
                 anim.SetBool("show",true);
                 if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
                 {
-                    SceneManager.LoadScene(ubi);
+                    manager.datosconfig.carga = ubi;
+                manager.guardarconfig();
+                SceneManager.LoadScene("carga");
                 }
             }
             if (manager.datosserial.tengollave3 == true && manager.piso == 3 && manager.datosserial.jefeV[2] == false)
@@ -329,7 +343,9 @@ public class teleport_al1 : MonoBehaviour
                 anim.SetBool("show",true);
                 if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
                 {
-                    SceneManager.LoadScene(ubi);
+                    manager.datosconfig.carga = ubi;
+                manager.guardarconfig();
+                SceneManager.LoadScene("carga");
                 }
             }
             if (manager.datosserial.tengollave4 == true && manager.piso == 4 && manager.datosserial.jefeV[3] == false)
@@ -337,7 +353,9 @@ public class teleport_al1 : MonoBehaviour
                 anim.SetBool("show",true);
                 if(controles.al1_3d.interactuar.ReadValue<float>() > 0f )
                 {
-                    SceneManager.LoadScene(ubi);
+                    manager.datosconfig.carga = ubi;
+                manager.guardarconfig();
+                SceneManager.LoadScene("carga");
                 }
             }
             
@@ -446,7 +464,9 @@ public class teleport_al1 : MonoBehaviour
                 {
                     if(manager.datosserial.economia[0] >= cantgemas)
                     {
-                        SceneManager.LoadScene(ubi);
+                        manager.datosconfig.carga = ubi;
+                    manager.guardarconfig();
+                    SceneManager.LoadScene("carga");
                     }
                     else
                     {
@@ -460,7 +480,9 @@ public class teleport_al1 : MonoBehaviour
                         manager.datosserial.LlaveT[manager.IDhierronivel] = true;
                         manager.datosserial.economia[2]++;
                     }
-                    SceneManager.LoadScene(ubi);
+                    manager.datosconfig.carga = ubi;
+                    manager.guardarconfig();
+                    SceneManager.LoadScene("carga");
                 }
                 else
                 {

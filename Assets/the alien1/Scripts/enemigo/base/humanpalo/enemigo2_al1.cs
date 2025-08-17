@@ -477,6 +477,23 @@ public class enemigo2_al1: MonoBehaviour
 
         if(detectar == true && desactivar == false && modo == "fisico" && manager.controlene == true && cancelatk == 0)
         {
+
+
+                if(temp > 3f && randomdec5 == 0 && gigante == true)
+                {
+                    Vector3 direction = objetivo1.position - transform.position;
+                    rotation = Quaternion.LookRotation(direction);
+                    transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
+
+                    paloS.toquespalo = 2;
+                    GameObject slasht = Instantiate(slash, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
+                    slasht.transform.SetParent(transform);
+                    Destroy(slasht,1f);
+                    anim.Play("atkgig");
+                    temp = 0;
+                    paloS.dano = danoj * 3;
+                    golpeson.Play();
+                }
                 if(nivelactual >= 80)
                 {
                     randomdec5 = Random.Range(0,4);
@@ -491,7 +508,7 @@ public class enemigo2_al1: MonoBehaviour
                 }
                 
 
-                if(temp > 3f && randomdec5 == 0)
+                if(temp > 3f && randomdec5 == 0 && gigante == false)
                 {
                     Vector3 direction = objetivo1.position - transform.position;
                     rotation = Quaternion.LookRotation(direction);
@@ -506,7 +523,7 @@ public class enemigo2_al1: MonoBehaviour
                     paloS.dano = danoj * 2;
                     golpeson.Play();
                 }
-                else if(temp > 3f && randomdec5 == 1)
+                else if(temp > 3f && randomdec5 == 1 && gigante == false)
                 {
                     Vector3 direction = objetivo1.position - transform.position;
                     rotation = Quaternion.LookRotation(direction);
@@ -522,7 +539,9 @@ public class enemigo2_al1: MonoBehaviour
 
                     Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
 
-                    BalaTemporal.GetComponent<bala_tele_al1>().objetivo = objetivo.gameObject;
+                    BalaTemporal.GetComponent<romperbala_al1>().objtele = objetivo.gameObject;
+
+                    BalaTemporal.GetComponent<romperbala_al1>().vel = 8;
 
                     BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj/2;
 
@@ -533,7 +552,7 @@ public class enemigo2_al1: MonoBehaviour
                     temp = 0;
                     disp.Play();
                 }
-                else if(temp > 3f && randomdec5 == 2)
+                else if(temp > 3f && randomdec5 == 2 && gigante == false)
                 {
                     Vector3 direction = objetivo1.position - transform.position;
                     rotation = Quaternion.LookRotation(direction);
@@ -545,7 +564,7 @@ public class enemigo2_al1: MonoBehaviour
                     anim.SetBool("arma4",true);
                     lanzarson.Play();
                 }
-                else if(temp > 3f && randomdec5 == 3)
+                else if(temp > 3f && randomdec5 == 3 && gigante == false)
                 {
                     rb_ = this.GetComponent<Rigidbody>();
                     anim.SetBool("encatk1",true);
@@ -1072,6 +1091,10 @@ public class enemigo2_al1: MonoBehaviour
             {
                 jugador1.objetivotarget2 = null;
                 jugador1.vidaenebarra.SetActive(false);
+            }
+            if(destobj == true)
+            {
+                Destroy(destruible);
             }
 			Destroy(transform.parent.gameObject);
 		}

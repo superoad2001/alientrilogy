@@ -122,7 +122,9 @@ public class menures_al1 : MonoBehaviour
     }
     public void continuar()
     {
-        SceneManager.LoadScene(escena.name);
+        manager.datosconfig.carga = escena.name;
+        manager.guardarconfig();
+        SceneManager.LoadScene("carga");
 
     }
 

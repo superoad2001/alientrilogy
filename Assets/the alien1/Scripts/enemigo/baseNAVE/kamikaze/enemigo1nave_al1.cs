@@ -44,9 +44,9 @@ public class enemigo1nave_al1: MonoBehaviour
     public float defensaplusmax = 30000;
     public int nivelactual = 1;
 
-    public float fuebase = 150;
-    public float fuebasemax = 1500;
-    public float fueplusmax = 30000;
+    public float fuebase = 300;
+    public float fuebasemax = 3000;
+    public float fueplusmax = 50000;
     public float nivelfuerza;
     public float nivelvida;
     public float[] nivelfuerza_a = new float[20];
@@ -87,11 +87,12 @@ public class enemigo1nave_al1: MonoBehaviour
         vidabasemax = 9999;
         vidaplusmax = 99999;
 
-        fuebase = 150;
-        fuebasemax = 1500;
-        fueplusmax = 30000;
-        
-        
+        fuebase = 300;
+        fuebasemax = 3000;
+        fueplusmax = 50000;
+
+
+        vel = 30;
 
         if(programado == false)
         {
@@ -265,7 +266,7 @@ public class enemigo1nave_al1: MonoBehaviour
         if( desactivar == false && manager.controlene == true)
         {
 
-            if(temp > 3 && disparodes == true  )
+            if(temp > 1 && disparodes == true  )
             {
                 GameObject BalaTemporal = Instantiate(balaprefab1, transform.position,transform.rotation) as GameObject;
 
@@ -284,7 +285,7 @@ public class enemigo1nave_al1: MonoBehaviour
             if(temp < 15)
             {temp += 1 * frenetismo *Time.deltaTime;}
 
-            transform.position = Vector3.MoveTowards(transform.position,jugador1.transform.position,10 * frenetismo * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position,jugador1.transform.position,vel * frenetismo * Time.deltaTime);
 
 
 

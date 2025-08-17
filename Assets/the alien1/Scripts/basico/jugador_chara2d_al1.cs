@@ -20,8 +20,6 @@ public class jugador_chara2d_al1 : jugador_al1
 	private float vidaescudoUI1;
 	private float vidaescudoUI2;
 	private float vidaescudoUI3;
-	private bool enetouch;
-	public float girodir = -90;
 	public Vector3 rotationinput;
 	public float rotspeed = 3;
 	public float tempgir = 0;
@@ -520,7 +518,7 @@ public class jugador_chara2d_al1 : jugador_al1
 			critico.Pause();
 		}
 
-		if(animcam.GetCurrentAnimatorStateInfo(0).IsName("staticcam") && carga == false)
+		if(animcam.GetCurrentAnimatorStateInfo(0).IsName("staticcam") && carga == false && temp10 > 1)
 		{
 			controlact = true;
 			carga = true;
@@ -1777,6 +1775,7 @@ public class jugador_chara2d_al1 : jugador_al1
 				{temppaso += 1 * Time.deltaTime;}
 				}
 				this.tiempogiro2 += Time.deltaTime;
+
 				if(camYc != 0)
 				{rotationinput.y = camYc * rotspeed * Time.deltaTime;}
 				else{rotationinput.y = 0;}
@@ -1791,9 +1790,9 @@ public class jugador_chara2d_al1 : jugador_al1
 					vercam = Vector3.right * rotationinput.y;
 
 				
-					camara.transform.localEulerAngles += vercam;
+					boxcam2.transform.localEulerAngles += vercam;
 
-				Quaternion xRotationx = Quaternion.Euler(camara.transform.localEulerAngles.x,0,0);
+				Quaternion xRotationx = Quaternion.Euler(boxcam2.transform.localEulerAngles.x,0,0);
 				float angle_f = Quaternion.Angle(Quaternion.identity, xRotationx);
 				float fixedAngle_f = angle_f;
 				if (xRotationx.eulerAngles.x>180)
@@ -1801,9 +1800,9 @@ public class jugador_chara2d_al1 : jugador_al1
 					fixedAngle_f *= -1;
 				}
 				float clampedX = Mathf.Clamp(fixedAngle_f, -10, 30);
-				camara.transform.localRotation = Quaternion.Euler(clampedX, camara.transform.localEulerAngles.y, camara.transform.localEulerAngles.z);
+				boxcam2.transform.localRotation = Quaternion.Euler(clampedX, boxcam2.transform.localEulerAngles.y, boxcam2.transform.localEulerAngles.z);
 				
-				camaux = camara.transform.eulerAngles.y;
+				camaux = boxcam2.transform.eulerAngles.y;
 		
 			
 			
@@ -1978,9 +1977,9 @@ public class jugador_chara2d_al1 : jugador_al1
 				
 
 				
-				camara.transform.localEulerAngles += vercam;
+				boxcam2.transform.localEulerAngles += vercam;
 
-				Quaternion xRotationx = Quaternion.Euler(camara.transform.localEulerAngles.x,0,0);
+				Quaternion xRotationx = Quaternion.Euler(boxcam2.transform.localEulerAngles.x,0,0);
 				float angle_f = Quaternion.Angle(Quaternion.identity, xRotationx);
 				float fixedAngle_f = angle_f;
 				if (xRotationx.eulerAngles.x>180)
@@ -1988,9 +1987,9 @@ public class jugador_chara2d_al1 : jugador_al1
 					fixedAngle_f *= -1;
 				}
 				float clampedX = Mathf.Clamp(fixedAngle_f, -10, 30);
-				camara.transform.localRotation = Quaternion.Euler(clampedX, camara.transform.localEulerAngles.y, camara.transform.localEulerAngles.z);
+				boxcam2.transform.localRotation = Quaternion.Euler(clampedX, boxcam2.transform.localEulerAngles.y, boxcam2.transform.localEulerAngles.z);
 
-				camaux = camara.transform.eulerAngles.y;
+				camaux = boxcam2.transform.eulerAngles.y;
 				
 				
 		}
@@ -2355,7 +2354,7 @@ public class jugador_chara2d_al1 : jugador_al1
 						anim.SetBool("dashtierra",true);
 						dashairson.loop = true;
 						dashairson.Play();
-						mod.transform.rotation = Quaternion.Lerp(mod.transform.rotation,Quaternion.Euler(mod.transform.eulerAngles.x,camara.transform.eulerAngles.y,mod.transform.eulerAngles.z),10* Time.deltaTime);
+						mod.transform.rotation = Quaternion.Lerp(mod.transform.rotation,Quaternion.Euler(mod.transform.eulerAngles.x,boxcam2.transform.eulerAngles.y,mod.transform.eulerAngles.z),10* Time.deltaTime);
 						if(manager.datosserial.nivelarmapalo < 5)
 						{
 						if(manager.datosserial.licenciaarmapalo[manager.datosserial.nivelarmapalo-1] == true )
@@ -2389,7 +2388,7 @@ public class jugador_chara2d_al1 : jugador_al1
 						tempatk = 0;
 						anim.SetBool("dashtierra",true);
 						transform.position = Vector3.MoveTowards(transform.position,transform.position + mod.transform.forward * 5, 20 * Time.deltaTime);
-						mod.transform.rotation = Quaternion.Lerp(mod.transform.rotation,Quaternion.Euler(mod.transform.eulerAngles.x,camara.transform.eulerAngles.y,mod.transform.eulerAngles.z),10* Time.deltaTime);
+						mod.transform.rotation = Quaternion.Lerp(mod.transform.rotation,Quaternion.Euler(mod.transform.eulerAngles.x,boxcam2.transform.eulerAngles.y,mod.transform.eulerAngles.z),10* Time.deltaTime);
 					}
 					else if(anim.GetCurrentAnimatorStateInfo(1).IsName("dashtierra"))
 					{
@@ -2953,7 +2952,7 @@ public class jugador_chara2d_al1 : jugador_al1
 				}
 
 
-				if(tempempujon > 0.3f)
+				if(tempempujon > 0.3f )
 				{
 					empujon = false;
 				}
@@ -3137,6 +3136,7 @@ public class jugador_chara2d_al1 : jugador_al1
 		
 		if (col.gameObject.tag == "suelo" )
 		{
+			tempempujon = 5;
 			jumpforce = jumpforcebase;
 			anim.SetBool("salto",false);
 			dashaeract = false;
@@ -3205,7 +3205,6 @@ public class jugador_chara2d_al1 : jugador_al1
 		}
 		if (col.gameObject.tag == "enemigo")
 		{
-			enetouch = true;
 		}
 		if (col.gameObject.tag == "dañox10")
 		{
@@ -3256,8 +3255,10 @@ public class jugador_chara2d_al1 : jugador_al1
 								if(col.gameObject != null)
 								{
 									
-								
-									enec.rb_.AddRelativeForce(transform.forward * 110 * 2 * (enec.tamano + 1));
+									if(enec.rb_ != null)
+									{
+										enec.rb_.AddRelativeForce(transform.forward * 110 * 2 * (enec.tamano + 1));
+									}
 									enec.danoene.Play();
 									enec.temprb = 3;
 								}
@@ -3504,7 +3505,6 @@ public class jugador_chara2d_al1 : jugador_al1
 
 		if (col.gameObject.tag == "enemigo")
 		{
-			enetouch = false;
 		}
 
 		if (col.gameObject.tag == "npc")
@@ -3740,31 +3740,6 @@ public class jugador_chara2d_al1 : jugador_al1
 			}
 		}
 	}
-	public void nivel2()
-	{
-			manager.datosserial.nivelexp = 0;
-			manager.datosserial.niveljug = 2;
-			manager.datosserial.signivelexp += 7;
-			subirnivel();
-	}
-	public void subirnivel()
-	{
-		subirnivelaud.Play();
-		
-		GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
-
-        expltemp.transform.SetParent(this.gameObject.transform);
-
-		nivelfuerza = nivelfuerza_a[manager.datosserial.niveljug - 1];
-        nivelvida = nivelvida_a[manager.datosserial.niveljug -1];
-        vidamax = nivelvida;
-		vida = vidamax;
-
-        Destroy(expltemp,5f);
-		conseguido.text = "subiste al nivel "+manager.datosserial.niveljug;
-		conseguidoa.Play("nivelsub2");
-
-	}
 	public void giro2D()
 	{
 		if (controles.al1_UI.interactuar.ReadValue<float>() > 0f )
@@ -3817,57 +3792,7 @@ public class jugador_chara2d_al1 : jugador_al1
 			Cursor.visible = true;
 			Cursor.lockState = CursorLockMode.None;
 	}
-	public void tiendaact()
-	{
-		Time.timeScale = 0;
-		manager.pauseact = true;
-		musicajuego.Stop();
-		tiendaG.SetActive(true);
-		tiendaMus.Play();
-		controlact = false;
-		combo = 0;
-		temp10 = 0;
-		if(manager.datosconfig.plat == 2)
-		{
-			tactil.SetActive(false);
-		}
-		Cursor.visible = true;
-		Cursor.lockState = CursorLockMode.None;
-	}
-	public void mision_aceptar()
-	{
-		
-		Time.timeScale = 0;
-		manager.pauseact = true;
-		misionUI.SetActive(true);
-		misionA.modo = 1;
-		controlact = false;
-		combo = 0;
-		temp10 = 0;
-		if(manager.datosconfig.plat == 2)
-		{
-			tactil.SetActive(false);
-		}
-		Cursor.visible = true;
-		Cursor.lockState = CursorLockMode.None;
-	}
-	public void mision_fin()
-	{
-		
-		Time.timeScale = 0;
-		manager.pauseact = true;
-		misionUI.SetActive(true);
-		misionA.modo = 2;
-		controlact = false;
-		combo = 0;
-		temp10 = 0;
-		if(manager.datosconfig.plat == 2)
-		{
-			tactil.SetActive(false);
-		}
-		Cursor.visible = true;
-		Cursor.lockState = CursorLockMode.None;
-	}
+
 	
 	
 }

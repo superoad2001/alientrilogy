@@ -8,18 +8,24 @@ using MeetAndTalk.Localization;
 using MeetAndTalk;
 using UnityEngine.Events;
 using System.Linq;
+using Microsoft.Win32.SafeHandles;
 
 // Token: 0x0200000A RID: 10
 public class jugador_nave_al1 : jugador_al1
 {
-	
-	[Header("Propio nave")]
+
+    [Header("Propio nave")]
+
+    public AudioSource munson;
+    public eventosdialogue eventosdialogueE;
 	public AudioSource critico;
 	public GameObject Critobj;
 	public int target1 = 0;
 	public int target2 = 1;
 	public int target3 = 2;
 	public int targetmax = 10;
+	public bool eventoini;
+	public AudioSource vozMeet;
 	public jugador_al1 jugador;
 	private float temp9;
 	public GameObject tarboss;
@@ -27,6 +33,7 @@ public class jugador_nave_al1 : jugador_al1
 	public int armanavesel = 1;
 	public float vidaobj;
 	private float tempparry = 8;
+	private float interactuarc;
 	private float[] minabalasmax = new float[3];
 	private float[] misilbalasmax = new float[3];
 	private float[] escopetabalasmax = new float[3];
@@ -37,7 +44,6 @@ public class jugador_nave_al1 : jugador_al1
 	public GameObject[] enemigosEnContactonave = new GameObject[20];
 	private float temprelectura = 8;
 	private float staminaobj;
-	private float vidamaxN;
 	private float speednave;
 	public List<float> vidanivelesnave = new List<float>();
 	private bool movnave2;
@@ -65,7 +71,6 @@ public class jugador_nave_al1 : jugador_al1
 	private int palosel;
 	private bool papaagotada;
 	private bool actTarget;
-	public float girodir = -90;
 	private float temppalo = 60;
 	private float tempatk;
 	private int numpociones;
@@ -106,7 +111,6 @@ public class jugador_nave_al1 : jugador_al1
 	private float UIYc;	
 	private float turboc;
 	private float giro180c;
-	private float interactuarc;
 	private float dispararc;
 	private float escudoc;
 	private float UIreducidoc;
@@ -306,7 +310,7 @@ public class jugador_nave_al1 : jugador_al1
 	public void Update()
 	{
 
-		if(vida < ((vidamax/100)* 15))
+		if(vida < ((vidamaxN/100)* 15))
 		{
 
 			critico.UnPause();
@@ -375,7 +379,7 @@ public class jugador_nave_al1 : jugador_al1
 	}
 		staminaobj = Mathf.Lerp(staminaobj, stamina, Time.deltaTime * 4f);
 		vidaobj = Mathf.Lerp(vidaobj, vida, Time.deltaTime * 2f);
-		vidab.fillAmount = vidaobj/vidamax; 
+		vidab.fillAmount = vidaobj/vidamaxN; 
 		vidat.text = "VIT:"+(int)vida+"/"+(int)vidamaxN;
 		niveluit.text = "LEVEL "+ manager.datosserial.niveljugnave;
 		staminabarra.fillAmount = staminaobj/staminamax;
@@ -383,7 +387,8 @@ public class jugador_nave_al1 : jugador_al1
 		{
 			staminaobj = 0;
 		}
-			
+		if(noene == false)
+		{
 		if(target[0] == null && target1 < targetmax)
 		{
 			if(objetivotarget == target[0])
@@ -447,13 +452,16 @@ public class jugador_nave_al1 : jugador_al1
 			target2++;
 			for(int i = target2; i >= targetmax ;i++)
 			{
-				if(enemigosEnContactonave[i] != null  && enemigosEnContactonave[i] != target[0] )
-				{
-					target2 = i;
-					i = 99;
-				}
-				
-			}
+                    if (enemigosEnContactonave.Length > i)
+                    {
+                        if (enemigosEnContactonave[i] != null && enemigosEnContactonave[i] != target[0])
+                        {
+                            target2 = i;
+                            i = 99;
+                        }
+                    }
+
+            }
 
 			if(target2 >= targetmax)
 			{
@@ -488,12 +496,15 @@ public class jugador_nave_al1 : jugador_al1
 			target3++;
 			for(int i = target3; i >= targetmax ;i++)
 			{
-				if(enemigosEnContactonave[i] != null && enemigosEnContactonave[i] != target[0]  && enemigosEnContactonave[i] != target[1] )
-				{
-					target3 = i;
-					i = 99;
-				}
-			}
+                    if (enemigosEnContactonave.Length > i)
+                    {
+                        if (enemigosEnContactonave[i] != null && enemigosEnContactonave[i] != target[0] && enemigosEnContactonave[i] != target[1])
+                        {
+                            target3 = i;
+                            i = 99;
+                        }
+                    }
+                }
 
 			if(target3 >= targetmax)
 			{
@@ -507,11 +518,12 @@ public class jugador_nave_al1 : jugador_al1
 
 			
 		}
+		}
 		
 
 
 
-
+	interactuarc = 0;
 	if(controlact == true)
 	{
 
@@ -999,13 +1011,12 @@ public class jugador_nave_al1 : jugador_al1
 		}
 		if(tempgir > 0)
 		{	
-			transform.rotation = Quaternion.RotateTowards(transform.rotation, fij,180 * Time.deltaTime);
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, fij,360 * Time.deltaTime);
 		}
 
-		if (giro180c > 0f && tiempodisp > 1 && tempgir <= 0 && stamina >= 30)
+		if (giro180c > 0f && tiempodisp > 0.5f && tempgir <= 0 && stamina >= 30)
 		{
-			tempgir = 1;
-			tiempodisp = 0;
+			tempgir = 0.5f;
 			fij.SetLookRotation(-transform.forward,transform.up);
 			stamina -= 30;
 			staminaact = 0;
@@ -1576,7 +1587,7 @@ public class jugador_nave_al1 : jugador_al1
 		ruletaXc = 0;
 		ruletaYc = 0;
 
-		interactuarc = 0;
+		
 
 		
 		dispararc = 0;
@@ -1600,7 +1611,7 @@ public class jugador_nave_al1 : jugador_al1
 	// Token: 0x06000022 RID: 34 RVA: 0x000031C0 File Offset: 0x000013C0
 	public void OnCollisionStay(Collision col)
 	{
-
+		
 		
 
 	}
@@ -1614,7 +1625,11 @@ public class jugador_nave_al1 : jugador_al1
 	}
 	public void OnTriggerEnter(Collider col)
 	{
-		if (col.gameObject.tag == "dañox10")
+        if (col.gameObject.tag == "vidarec")
+        {
+           munson.Play();
+        }
+        if (col.gameObject.tag == "dañox10")
 		{
 			if(col.gameObject.GetComponent<romperbala_al1>() != null && escudoact == false)
 			{
@@ -1625,30 +1640,54 @@ public class jugador_nave_al1 : jugador_al1
 					
 					if(enec.danofijo == true)
 					{
-						vida -= (vidamax/100) * enec.porcentaje;
+						vida -= (vidamaxN/100) * enec.porcentaje;
 					}
 					else
 					{vida -= enec.danoj;}
 				}
 			}
-		}
-		if(col.gameObject.GetComponent<romperbala_al1>() != null && escudoact == true  && tempparry > 8)
-		{
-			romperbala_al1 enec = col.gameObject.GetComponent<romperbala_al1>();
-			if(enec.salir == true)
+			if(col.gameObject.GetComponent<romperbala_al1>() != null && escudoact == true  && tempparry > 8)
 			{
-				int Randomun = Random.Range(0,3);
+				romperbala_al1 enec = col.gameObject.GetComponent<romperbala_al1>();
+				if(enec.salir == true)
+				{
+					int Randomun = Random.Range(0,3);
 
-				if(Randomun == 0)
-				{minabalas++;}
-				if(Randomun == 1)
-				{misilbalas += 5;}
-				if(Randomun == 2)
-				{escopetabalas += 3;}
-				tempparry = 0;
+					if(Randomun == 0)
+					{minabalas++;}
+					if(Randomun == 1)
+					{misilbalas += 5;}
+					if(Randomun == 2)
+					{escopetabalas += 3;}
+					tempparry = 0;
 
+				}
 			}
 		}
+		if (col.gameObject.tag == "evento")
+		{
+			eventosdialogueE = col.GetComponent<eventosdialogue>();
+			if(eventosdialogueE.jug == true)
+			{
+				dialogueact = false;
+
+				if (dialogueact == false && tiempodialogue > 0.7f)
+				{
+					menushow.SetBool("show",false);
+					if((DialogueManager)FindFirstObjectByType(typeof(DialogueManager)) != null)
+					{menuoff = (DialogueManager)FindFirstObjectByType(typeof(DialogueManager));}
+					menuoff.StartDialogue(eventosdialogueE.DialogueSO,eventosdialogueE.dialogueid);
+					dialogueact = true;
+					tiempodialogue = 0;
+					controlact = false;
+					manager.controlene = false;
+					
+				}
+			}
+
+		}
+		
+		
 
 	}
 	public void OnTriggerExit(Collider col)
@@ -1665,7 +1704,7 @@ public class jugador_nave_al1 : jugador_al1
 					
 					if(enec.danofijo == true)
 					{
-						vida -= (vidamax/100) * enec.porcentaje;
+						vida -= (vidamaxN/100) * enec.porcentaje;
 					}
 					else
 					{vida -= enec.danoj;}
@@ -1689,12 +1728,89 @@ public class jugador_nave_al1 : jugador_al1
 				}
 			}
 		}
+		if (col.gameObject.tag == "evento" && static_ev && eventosdialogueE != null)
+		{
+			if(eventosdialogueE.jug == true)
+			{
+				menushow.SetBool("show",false);
+				if(menuoff != null)
+				{
+				menuoff.MainUI.gameObject.SetActive(false);
+				}
+				dialogueact = false;
+			}
+		}
+		else if (col.gameObject.tag == "evento" && eventosdialogueE != null)
+		{
+			if(eventosdialogueE.jug == true)
+			{
+				menushow.SetBool("show",false);
+				if(menuoff != null)
+				{
+				menuoff.MainUI.gameObject.SetActive(false);
+				controlact = true;
+				manager.controlene = true;
+				}
+				dialogueact = false;
+			}
+		}
 		
 	}
 	public void OnTriggerStay(Collider col)
 	{
 		
-		
+		if (col.gameObject.tag == "evento" && eventoini == true)
+		{
+			eventosdialogueE = col.GetComponent<eventosdialogue>();
+			if(eventosdialogueE.jug == true)
+			{
+				dialogueact = false;
+				controlact = false;
+				manager.controlene = false;
+
+				if (dialogueact == false && tiempodialogue > 0.7f)
+				{
+					menushow.SetBool("show",false);
+					if((DialogueManager)FindFirstObjectByType(typeof(DialogueManager)) != null)
+					{menuoff = (DialogueManager)FindFirstObjectByType(typeof(DialogueManager));}
+					menuoff.StartDialogue(eventosdialogueE.DialogueSO,eventosdialogueE.dialogueid);
+					dialogueact = true;
+					tiempodialogue = 0;
+					eventoini = false;
+					
+					
+				}
+			}
+
+		}
+		if (col.gameObject.tag == "evento")
+		{	
+			if(eventosdialogueE.jug == true)
+			{
+				if (controles.al1_UI.cinnext.ReadValue<float>() > 0f && tiempodialogue > 0.3f && menuoff != null)
+				{
+					if(menuoff.dialogueUIManager.dialogueCanvas.activeSelf == true)
+					{
+						vozMeet.Stop();
+						menuoff.SkipDialogue();
+						tiempodialogue = 0;
+						tiemposalto = 0.7f;
+					}
+					
+				}
+				if(menuoff != null)
+				{
+					if(menuoff.dialogueUIManager.dialogueCanvas.activeSelf == false && eventoini == false)
+					{
+						dialogueact = false;
+						manager.controlene = true;
+						controlact = true;
+						tiemposalto = 0.7f;
+						Destroy(eventosdialogueE.gameObject);
+					}
+				}
+			}
+		}
 		
 		
 		

@@ -299,6 +299,74 @@ public class jugador_charalobby_al1 : jugador_al1
 
 
 		stamina = staminamax;
+
+		if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 1)
+			{
+				iconodisp.sprite = arma1_1;
+				pistolap.SetActive(false);
+				pistolatiempo.SetActive(false);
+				pistolabazoka.SetActive(false);
+
+			}
+			if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 2)
+			{
+				iconodisp.sprite = arma1_2;
+				pistolap.SetActive(false);
+				pistolatiempo.SetActive(false);
+				pistolabazoka.SetActive(false);
+			}
+			if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 3)
+			{
+				iconodisp.sprite = arma1_3;
+				pistolap.SetActive(false);
+				pistolatiempo.SetActive(false);
+				pistolabazoka.SetActive(false);
+			}
+			if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 4)
+			{
+				iconodisp.sprite = arma1_4;
+				pistolap.SetActive(false);
+				pistolatiempo.SetActive(false);
+				pistolabazoka.SetActive(false);
+			}
+			if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 5)
+			{
+				iconodisp.sprite = arma1_5;
+				pistolap.SetActive(false);
+				pistolatiempo.SetActive(false);
+				pistolabazoka.SetActive(false);
+			}
+
+
+
+			if(manager.datosserial.armasel == 3)
+			{
+				iconodisp.sprite = arma3;
+				pistolap.SetActive(false);
+				pistolatiempo.SetActive(false);
+				pistolabazoka.SetActive(true);
+			}
+			if(manager.datosserial.armasel == 2)
+			{
+				iconodisp.sprite = arma2;
+				pistolap.SetActive(true);
+				pistolatiempo.SetActive(false);
+				pistolabazoka.SetActive(false);
+			}
+			if(manager.datosserial.armasel == 4)
+			{
+				iconodisp.sprite = arma4;
+				pistolap.SetActive(false);
+				pistolatiempo.SetActive(true);
+				pistolabazoka.SetActive(false);
+			}
+			if(manager.datosserial.armasel == 0)
+			{
+				iconodisp.sprite = nopimg;
+				pistolap.SetActive(false);
+				pistolatiempo.SetActive(false);
+				pistolabazoka.SetActive(false);
+			}
 		
 		
 		

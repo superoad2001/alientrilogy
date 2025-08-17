@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 23205025096520461}
   - component: {fileID: 135647712422348886}
   - component: {fileID: 54741910725831293}
-  - component: {fileID: 5540504162131385024}
   - component: {fileID: -6106560405276500469}
   m_Layer: 0
   m_Name: bala_tele
@@ -139,20 +138,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5540504162131385024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1777860533906856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eca25a5706e26dc45b5f3a8e8c98a1fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objetivo: {fileID: 0}
-  vel: 8
 --- !u!114 &-6106560405276500469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,15 +152,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   empujar: 1
   danoj: 0
+  salir: 0
   dest: {fileID: 0}
   desto: {fileID: 0}
   explosion: {fileID: 358637981425055526, guid: 14c1be6914734a14d8d4099c9472d975, type: 3}
   balaene: 1
   jugador1: {fileID: 0}
+  destenter: 1
   destb: 3
   armadef: 0
   porcentaje: 0
-  danofij: 0
+  danofijo: 0
+  tele: 1
+  objtele: {fileID: 0}
+  tempdest: 0
+  paloact: 0
+  vel: 8
 --- !u!1001 &7624152966056186047
 PrefabInstance:
   m_ObjectHideFlags: 0
