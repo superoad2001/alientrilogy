@@ -62,6 +62,9 @@ public class presentacion_al1 : MonoBehaviour
 	// Token: 0x06000012 RID: 18 RVA: 0x0000243B File Offset: 0x0000063B
 	private void Start()
 	{
+        Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.None;
+        
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         gemas = manager.datosserial.economia[0];
         manager.cargarslot();
@@ -165,7 +168,8 @@ public class presentacion_al1 : MonoBehaviour
         {
             manager.datosconfig.carga = "lallegada_enc_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
         }
         if(controles.al1_UI.menu1.ReadValue<float>() > 0 && inicio == false)
         {
@@ -194,14 +198,21 @@ public class presentacion_al1 : MonoBehaviour
             vistaestados.SetActive(true);
 
             slotinfo1.text = manager.datosserial.nameCH[0].ToString();
-
-            if(manager.datosserial.demoFIN == true)
+            if (manager.datosconfig.idioma == "es")
             {
-                slotinfo2.text = "Demo terminada : si";
-            }
-            else
-            {
-                slotinfo2.text = "Demo terminada : no";
+                string resp;
+                if (manager.datosserial.demoFIN == true)
+                {
+                    resp = "si";
+                }
+                else
+                {
+                    resp = "no";
+                }
+                slotinfo2.text = "Tiempo de Juego : " + manager.datosserial.horas + ":" + manager.datosserial.minutos.ToString("D2")+ ":"+ manager.datosserial.segundos.ToString("00") + "\n" +
+                "Nivel Alien : "+manager.datosserial.niveljug+"\n"+
+                "Misiones Completadas : "+manager.MisionesCumplidas +"/12"+"\n"+
+                "Demo terminada : "+resp;
             }
 
         }
@@ -406,14 +417,16 @@ public class presentacion_al1 : MonoBehaviour
                     {
                         manager.datosconfig.carga = manager.datosserial.nivelu;
                         manager.guardarconfig();
-                        SceneManager.LoadScene("carga");
+                        manager.guardar();
+				SceneManager.LoadScene("carga");
                         temp = 0;
                     }
                     else
                     {
                         manager.datosconfig.carga = "piso1_al1";
                         manager.guardarconfig();
-                        SceneManager.LoadScene("carga");
+                        manager.guardar();
+				SceneManager.LoadScene("carga");
                         temp = 0;
                     }
                 }

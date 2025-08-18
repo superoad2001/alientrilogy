@@ -24,19 +24,22 @@ public class inicio5_al1 : MonoBehaviour
 		{
 			manager.datosconfig.carga = "idioma_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 		else if(plataforma == 0)
 		{
 			manager.datosconfig.carga = "controles_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 		else
 		{
 			manager.datosconfig.carga = "presentacion_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 	}
 }

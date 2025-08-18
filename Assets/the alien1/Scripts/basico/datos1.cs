@@ -57,8 +57,11 @@ public class datos1
 	public bool[] notas = new bool[7];
 
 	public int[] misiones = new int[200];
+    public int horas;
+	public int minutos;
+	public float segundos;
 
-	public bool[] LlaveT = new bool[100];
+    public bool[] LlaveT = new bool[100];
 	public bool[] pociones = new bool[9];
 	public bool armadefdesbloqueada;
 

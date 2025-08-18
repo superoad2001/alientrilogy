@@ -47,6 +47,7 @@ public class subirnave_al1 : MonoBehaviour
 			{
 				manager.datosconfig.carga = "espacio_al1";
 				manager.guardarconfig();
+				manager.guardar();
 				SceneManager.LoadScene("carga");
 			}
 		}

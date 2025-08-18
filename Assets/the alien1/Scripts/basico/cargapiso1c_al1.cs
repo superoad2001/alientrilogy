@@ -11,7 +11,8 @@ public class cargapiso1c_al1 : MonoBehaviour
     {
         manager.datosconfig.carga = "piso1_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
     }
 
     // Update is called once per frame
@@ -19,6 +20,7 @@ public class cargapiso1c_al1 : MonoBehaviour
     {
         manager.datosconfig.carga = "piso1_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
     }
 }

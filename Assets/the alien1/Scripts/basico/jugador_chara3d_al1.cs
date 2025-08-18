@@ -8,15 +8,19 @@ using MeetAndTalk.Localization;
 using MeetAndTalk;
 using UnityEngine.Events;
 using System.Linq;
+using System;
 
 // Token: 0x0200000A RID: 10
 public class jugador_chara3d_al1 : jugador_al1
 {
+	
 	[Header("Propio 3D")]
+	private float temprebote;
 	public AudioSource dest;
 	public AudioSource critico;
-	public GameObject Critobj;
-	private float vidaescudoUI1;
+	public Image Critobj;
+    public float colorC;
+    private float vidaescudoUI1;
 	private float vidaescudoUI2;
 	private float vidaescudoUI3;
 	public bool invertirHorizontal = false;
@@ -467,7 +471,7 @@ public class jugador_chara3d_al1 : jugador_al1
 
 		musicajuego = musicanoC;
 		musicajuego.Play();
-		musicajuego.time = Random.Range(0,20);
+		musicajuego.time = UnityEngine.Random.Range(0,20);
 		
 
 		stamina = staminamax;
@@ -507,7 +511,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			controlact = true;
 			carga = true;
 		}
-		if(vida < ((vidamax/100)* 15))
+		if(vida < ((vidamax/100)* 25))
 		{
 
 			critico.UnPause();
@@ -517,10 +521,20 @@ public class jugador_chara3d_al1 : jugador_al1
 		{
 			critico.Pause();
 		}
-	
-		
 
-		if(vidaeneact)
+		if(vida < ((vidamax/100)* 30))
+		{
+            colorC = ((((vidamax/100)* 30) - (((vidabase/vidamax))) * 100))/300*4;
+        }
+        else
+        {
+            colorC = 0;
+        }
+		Critobj.color = new Color(Critobj.color.r,Critobj.color.g,Critobj.color.b,Mathf.Lerp(Critobj.color.a,colorC, Time.deltaTime * 2f));
+
+
+
+        if(vidaeneact)
 		{
 			vidaeneimg.fillAmount = vidaeneui/vidaeneuimax;
 		}
@@ -614,7 +628,8 @@ public class jugador_chara3d_al1 : jugador_al1
 			manager.guardar();
 			manager.datosconfig.carga = "tutorialcin2enc_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 		
 	}
@@ -627,26 +642,6 @@ public class jugador_chara3d_al1 : jugador_al1
 		niveluit.text = "LEVEL "+ manager.datosserial.niveljug;
 		staminabarra.fillAmount = staminaobj/staminamax;
 	
-	if(ascensors != null && ascact == true)
-	{
-		ascensors.SetFloat("asc",0);
-		ascensors.SetFloat("asc2",0);
-	}
-	else if(ascensors != null && ascact == false)
-	{
-		if(manager.datosserial.asc == 0)
-		{
-			tiempoascensor = 3;
-		}
-		ascensors.SetFloat("asc",manager.datosserial.asc);
-		manager.datosserial.asc = 0;
-		manager.guardar();
-		ascact = true;
-
-	}
-	
-	if(tiempoascensor < 15)	
-	{tiempoascensor += Time.deltaTime;}
 	if(controlact == false)
 	{
 		anim.SetBool("stat",true);
@@ -1573,17 +1568,6 @@ public class jugador_chara3d_al1 : jugador_al1
 	
 	
 
-
-
-
-		if (this.ascensor && manager.piso == 0 && dispararc > 0f && tiempoascensor > 2f)
-		{
-			subir0 = true;
-			subir = true;
-			tiempoascensor = 0;
-			manager.datosserial.asc = 1;
-			manager.guardar();
-		}
 		
 		
 		
@@ -1612,11 +1596,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			
 		}
 		
-		if(subir0 == true && tiempoascensor > 0.9f)
-		{
-			manager.datosconfig.carga = "piso1_al1";
-            manager.guardarconfig();
-            SceneManager.LoadScene("carga");}
+
 
 
 
@@ -2015,7 +1995,7 @@ public class jugador_chara3d_al1 : jugador_al1
 							{
 								if(temppaso > pasotiempo)
 								{
-									randompaso = Random.Range(1,3);
+									randompaso = UnityEngine.Random.Range(1,3);
 									if(randompaso == 1)
 									{
 										pasos1.Play();
@@ -2025,7 +2005,7 @@ public class jugador_chara3d_al1 : jugador_al1
 										pasos2.Play();
 									}
 									temppaso = 0;
-									pasotiempo = Random.Range(0.4f,0.6f);
+									pasotiempo = UnityEngine.Random.Range(0.4f,0.6f);
 								}
 								if(temppaso < 15)
 								{temppaso += 1 * Time.deltaTime;}
@@ -2109,7 +2089,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						{
 							if(temppaso > pasotiempo)
 							{
-								randompaso = Random.Range(1,3);
+								randompaso = UnityEngine.Random.Range(1,3);
 								if(randompaso == 1)
 								{
 									pasos1.Play();
@@ -2119,7 +2099,7 @@ public class jugador_chara3d_al1 : jugador_al1
 									pasos2.Play();
 								}
 								temppaso = 0;
-								pasotiempo = Random.Range(0.4f,0.6f);
+								pasotiempo = UnityEngine.Random.Range(0.4f,0.6f);
 							}
 							if(temppaso < 15)
 							{temppaso += 1 * Time.deltaTime;}
@@ -2154,7 +2134,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						{
 							fixedAngle_f *= -1;
 						}
-						float clampedX = Mathf.Clamp(fixedAngle_f, -20, 30);
+						float clampedX = Mathf.Clamp(fixedAngle_f, -20, 50);
 						camara.transform.localRotation = Quaternion.Euler(clampedX, camara.transform.localEulerAngles.y, camara.transform.localEulerAngles.z);
 						
 
@@ -2302,7 +2282,7 @@ public class jugador_chara3d_al1 : jugador_al1
                 {
                     if(temppaso > pasotiempo)
                     {
-                        randompaso = Random.Range(1,3);
+                        randompaso = UnityEngine.Random.Range(1,3);
                         if(randompaso == 1)
                         {
                             pasos1.Play();
@@ -2312,7 +2292,7 @@ public class jugador_chara3d_al1 : jugador_al1
                             pasos2.Play();
                         }
                         temppaso = 0;
-                        pasotiempo = Random.Range(0.4f,0.6f);
+                        pasotiempo = UnityEngine.Random.Range(0.4f,0.6f);
                     }
                     if(temppaso < 15)
                     {temppaso += 1 * Time.deltaTime;}
@@ -3301,6 +3281,8 @@ public class jugador_chara3d_al1 : jugador_al1
 
 		if(tempatk < 15)
         {tempatk += 1 * Time.deltaTime;}
+		if(temprebote < 15)
+		{temprebote += 1 * Time.deltaTime;}
 
 
 			if(staminaact > 0.7f)
@@ -3385,13 +3367,6 @@ public class jugador_chara3d_al1 : jugador_al1
 	private void OnCollisionStay(Collision col)
 	{
 
-		if (col.gameObject.tag == "ascensor" )
-		{
-			ascensorui.SetActive(true);
-			this.ascensor = true;
-			suelo = true;
-			tempaerodash = 9;
-		}
 		if (col.gameObject.tag == "suelo")
 		{
 			
@@ -3412,27 +3387,6 @@ public class jugador_chara3d_al1 : jugador_al1
 	// Token: 0x06000023 RID: 35 RVA: 0x00003284 File Offset: 0x00001484
 	private void OnCollisionExit(Collision col)
 	{
-		if (col.gameObject.tag == "ascensor" )
-		{
-			if (!this.dentrotienda)
-			{
-				ascensorui.SetActive(false);
-			}
-			this.ascensor = false;
-			anim.SetBool("salto",true);
-			suelo = false;
-			
-
-		}
-		if (col.gameObject.tag == "ascensor" )
-		{
-			if (!this.dentrotienda)
-			{
-				ascensorui.SetActive(false);
-			}
-			this.ascensor = false;
-			anim.SetBool("salto",true);
-		}
 		if (col.gameObject.tag == "suelo" )
 		{
 			anim.SetBool("salto",true);
@@ -3493,11 +3447,12 @@ public class jugador_chara3d_al1 : jugador_al1
 				
 			}
 		}
-		if (col.gameObject.tag == "pisar" && enetouch == false )
+		if (col.gameObject.tag == "pisar" )
 		{
 					Debug.Log("pisar");
 					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 1 )
 					{
+						
 						
 							enemigo1_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo1_al1>();
 							enec.vidapisar = true;
@@ -3533,11 +3488,12 @@ public class jugador_chara3d_al1 : jugador_al1
 								{eventotut.evento();}
 								if(enec.vida < 1)
 								{enec.temprb = 0;}
-							
-						
-						
-						
-					}
+                				temprebote = 0;
+
+
+
+
+            }
 					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 2 && manager.datosserial.niveljug > 1)
 					{
 						
@@ -3879,6 +3835,78 @@ public class jugador_chara3d_al1 : jugador_al1
 	}
 	public void OnTriggerStay(Collider col)
 	{
+
+		if (col.gameObject.tag == "pisar" && temprebote > 0.5f)
+		{
+					Debug.Log("pisar");
+					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 1 )
+					{
+						
+						
+							enemigo1_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo1_al1>();
+							enec.vidapisar = true;
+
+
+								if(col.gameObject != null)
+								{
+									
+								
+									if(enec.rb_ != null)
+									{
+										enec.rb_.AddRelativeForce(transform.forward * 110 * 2 * (enec.tamano + 1));
+									}
+									
+									enec.danoene.Play();
+									enec.temprb = 3;
+								}
+								if(enec.tamano == 0)
+								{enec.vida -= enec.vidamax;}
+								else if(enec.tamano == 1)
+								{enec.vida -= enec.vidamax/3;}
+								else if(enec.tamano == 2)
+								{enec.vida -= enec.vidamax/6;}
+								else if(enec.tamano == 3)
+								{enec.vida -= enec.vidamax/9;}
+								_rb.AddRelativeForce(transform.up * 110 * 7);
+								vidaeneact = true;			
+								vidaeneui = enec.vida;
+								vidaeneuimax = enec.vidamax;
+								niveleneui.text = enec.nivelactual.ToString();
+								vidaenebarra.SetActive(true);
+								if(eventotut != null)
+								{eventotut.evento();}
+								if(enec.vida < 1)
+								{enec.temprb = 0;}
+                				temprebote = 0;
+
+
+
+
+            }
+					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 2 && manager.datosserial.niveljug > 1)
+					{
+						
+							enemigo2_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo2_al1>();
+							enec.vida -= 1;
+							if(col.gameObject != null)
+							{
+								_rb.AddRelativeForce(transform.up * 110 * 7);
+								enec.danoene.Play();
+								enec.temprb = 1;
+								
+							}
+							vidaeneact = true;			
+							vidaeneui = enec.vida;
+							vidaeneuimax = enec.vidamax;
+							niveleneui.text = enec.nivelactual.ToString();
+							vidaenebarra.SetActive(true);
+							if(enec.vida < 1)
+							{enec.temprb = 0;}
+							
+						
+				}
+			
+		}
 		
 		if (col.gameObject.tag == "npc")
 		{

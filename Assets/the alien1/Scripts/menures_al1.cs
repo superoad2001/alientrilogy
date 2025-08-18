@@ -124,7 +124,8 @@ public class menures_al1 : MonoBehaviour
     {
         manager.datosconfig.carga = escena.name;
         manager.guardarconfig();
-        SceneManager.LoadScene("carga");
+        manager.guardar();
+				SceneManager.LoadScene("carga");
 
     }
 
@@ -133,41 +134,50 @@ public class menures_al1 : MonoBehaviour
     {
         manager.datosconfig.carga = "menu_de_carga_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
     }
 
     public void salirnivel(){
         if(manager.piso_carga == 1)
         {manager.datosconfig.carga = "piso1_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");}
+            manager.guardar();
+				SceneManager.LoadScene("carga");}
         if(manager.piso_carga == 2)
         {manager.datosconfig.carga = "piso2_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");}
+            manager.guardar();
+				SceneManager.LoadScene("carga");}
         if(manager.piso_carga == 3)
         {manager.datosconfig.carga = "piso3_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");}
+            manager.guardar();
+				SceneManager.LoadScene("carga");}
         if(manager.piso_carga == 4)
         {manager.datosconfig.carga = "piso4_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");}
+            manager.guardar();
+				SceneManager.LoadScene("carga");}
         if(manager.piso_carga == -1)
         {manager.datosconfig.carga = "piso1t_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");}
+            manager.guardar();
+				SceneManager.LoadScene("carga");}
         if(manager.piso_carga == -2)
         {manager.datosconfig.carga = "piso2t_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");}
+            manager.guardar();
+				SceneManager.LoadScene("carga");}
         if(manager.piso_carga == -3)
         {manager.datosconfig.carga = "piso3t_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");}
+            manager.guardar();
+				SceneManager.LoadScene("carga");}
         if(manager.piso_carga == -4)
         {manager.datosconfig.carga = "piso4t_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");}
+            manager.guardar();
+				SceneManager.LoadScene("carga");}
     }
 }

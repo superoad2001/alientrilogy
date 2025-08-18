@@ -21,7 +21,8 @@ public class lasalidaS_al1 : MonoBehaviour
 			Debug.Log("Hello: ");
 			manager.datosconfig.carga = "final_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 
         }
 	}
@@ -45,7 +46,8 @@ public class lasalidaS_al1 : MonoBehaviour
 			Debug.Log("Hello: ");
 			manager.datosconfig.carga = "final_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 	}
 

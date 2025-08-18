@@ -24,7 +24,8 @@ public class bajarcoche_al1 : MonoBehaviour
 		{
 			manager.datosconfig.carga = "mundoc2_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 	}
 }

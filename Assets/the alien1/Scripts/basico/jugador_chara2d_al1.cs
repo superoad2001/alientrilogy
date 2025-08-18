@@ -12,10 +12,12 @@ using System.Linq;
 // Token: 0x0200000A RID: 10
 public class jugador_chara2d_al1 : jugador_al1
 {
-	[Header("Propio 2D")]
-	private float tiempogiro2;
+    [Header("Propio 2D")]
+    private float temprebote;
+    private float tiempogiro2;
 	public AudioSource critico;
-	public GameObject Critobj;
+	public Image Critobj;
+    public float colorC;
 	public GameObject armadefpassC;
 	private float vidaescudoUI1;
 	private float vidaescudoUI2;
@@ -507,7 +509,7 @@ public class jugador_chara2d_al1 : jugador_al1
 	public void Update()
 	{
 		
-		if(vida < ((vidamax/100)* 15))
+		if(vida < ((vidamax/100)* 25))
 		{
 
 			critico.UnPause();
@@ -517,6 +519,16 @@ public class jugador_chara2d_al1 : jugador_al1
 		{
 			critico.Pause();
 		}
+
+		if(vida < ((vidamax/100)* 30))
+		{
+            colorC = ((((vidamax/100)* 30) - (((vidabase/vidamax))) * 100))/300*4;
+        }
+        else
+        {
+            colorC = 0;
+        }
+		Critobj.color = new Color(Critobj.color.r,Critobj.color.g,Critobj.color.b,Mathf.Lerp(Critobj.color.a,colorC, Time.deltaTime * 2f));
 
 		if(animcam.GetCurrentAnimatorStateInfo(0).IsName("staticcam") && carga == false && temp10 > 1)
 		{
@@ -3002,6 +3014,8 @@ public class jugador_chara2d_al1 : jugador_al1
 		
 		if(temp10 < 15)
         {temp10 += 1 * Time.deltaTime;}
+		if(temprebote < 15)
+		{temprebote += 1 * Time.deltaTime;}
 		if(tempaerodash < 15)
         {tempaerodash  += 1 * Time.deltaTime;}
 		if(tiempovelint < 15)
@@ -3243,7 +3257,7 @@ public class jugador_chara2d_al1 : jugador_al1
 				
 			}
 		}
-		else if (col.gameObject.tag == "pisar" && enetouch == false )
+		else if (col.gameObject.tag == "pisar" )
 		{
 					
 					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 1 )
@@ -3280,6 +3294,7 @@ public class jugador_chara2d_al1 : jugador_al1
 								{eventotut.evento();}
 								if(enec.vida < 1)
 								{enec.temprb = 0;}
+								temprebote = 0;
 							
 						
 						
@@ -3600,6 +3615,78 @@ public class jugador_chara2d_al1 : jugador_al1
 	}
 	public void OnTriggerStay(Collider col)
 	{
+
+		if (col.gameObject.tag == "pisar" && temprebote > 0.5f)
+		{
+					Debug.Log("pisar");
+					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 1 )
+					{
+						
+						
+							enemigo1_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo1_al1>();
+							enec.vidapisar = true;
+
+
+								if(col.gameObject != null)
+								{
+									
+								
+									if(enec.rb_ != null)
+									{
+										enec.rb_.AddRelativeForce(transform.forward * 110 * 2 * (enec.tamano + 1));
+									}
+									
+									enec.danoene.Play();
+									enec.temprb = 3;
+								}
+								if(enec.tamano == 0)
+								{enec.vida -= enec.vidamax;}
+								else if(enec.tamano == 1)
+								{enec.vida -= enec.vidamax/3;}
+								else if(enec.tamano == 2)
+								{enec.vida -= enec.vidamax/6;}
+								else if(enec.tamano == 3)
+								{enec.vida -= enec.vidamax/9;}
+								_rb.AddRelativeForce(transform.up * 110 * 7);
+								vidaeneact = true;			
+								vidaeneui = enec.vida;
+								vidaeneuimax = enec.vidamax;
+								niveleneui.text = enec.nivelactual.ToString();
+								vidaenebarra.SetActive(true);
+								if(eventotut != null)
+								{eventotut.evento();}
+								if(enec.vida < 1)
+								{enec.temprb = 0;}
+                				temprebote = 0;
+
+
+
+
+            }
+					if(col.gameObject.GetComponent<pisar_al1>().enemigo == 2 && manager.datosserial.niveljug > 1)
+					{
+						
+							enemigo2_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo2_al1>();
+							enec.vida -= 1;
+							if(col.gameObject != null)
+							{
+								_rb.AddRelativeForce(transform.up * 110 * 7);
+								enec.danoene.Play();
+								enec.temprb = 1;
+								
+							}
+							vidaeneact = true;			
+							vidaeneui = enec.vida;
+							vidaeneuimax = enec.vidamax;
+							niveleneui.text = enec.nivelactual.ToString();
+							vidaenebarra.SetActive(true);
+							if(enec.vida < 1)
+							{enec.temprb = 0;}
+							
+						
+				}
+			
+		}
 		if (col.gameObject.tag == "npc")
 		{
 			if (controles.al1_UI.interactuar.ReadValue<float>() > 0f && dialogueact == false && tiempodialogue > 0.7f)

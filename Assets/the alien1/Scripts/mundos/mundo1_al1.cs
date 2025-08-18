@@ -54,9 +54,11 @@ public class mundo1_al1 : MonoBehaviour
 			if (controles.al1_nave.interactuar.ReadValue<float>() > 0f )
 			{
 				manager.datosconfig.carga = "mundo1_al1";
-            manager.guardarconfig();
-            SceneManager.LoadScene("carga");
-			}
+				manager.guardarconfig();
+				manager.guardar();
+				SceneManager.LoadScene("carga");
+                
+            }
 		}
 	}
 	private void OnTriggerExit(Collider col)

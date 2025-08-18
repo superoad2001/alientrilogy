@@ -58,7 +58,8 @@ public class logicacin_al1 : MonoBehaviour
 		{
 			manager.datosconfig.carga = sceneload;
                 manager.guardarconfig();
-                SceneManager.LoadScene("carga");
+                manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 		if(menuoff != null)
 		{
@@ -66,7 +67,8 @@ public class logicacin_al1 : MonoBehaviour
 			{
 				manager.datosconfig.carga = sceneload;
                 manager.guardarconfig();
-                SceneManager.LoadScene("carga");
+                manager.guardar();
+				SceneManager.LoadScene("carga");
 			}
 		}
 		

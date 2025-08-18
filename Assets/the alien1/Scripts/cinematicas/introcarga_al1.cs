@@ -55,7 +55,8 @@ public class introcarga_al1 : MonoBehaviour
         {
             manager.datosconfig.carga = "menu_de_carga_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
         }
     }
 }

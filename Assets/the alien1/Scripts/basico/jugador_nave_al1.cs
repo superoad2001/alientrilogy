@@ -8,7 +8,6 @@ using MeetAndTalk.Localization;
 using MeetAndTalk;
 using UnityEngine.Events;
 using System.Linq;
-using Microsoft.Win32.SafeHandles;
 
 // Token: 0x0200000A RID: 10
 public class jugador_nave_al1 : jugador_al1
@@ -19,7 +18,8 @@ public class jugador_nave_al1 : jugador_al1
     public AudioSource munson;
     public eventosdialogue eventosdialogueE;
 	public AudioSource critico;
-	public GameObject Critobj;
+	public Image Critobj;
+    public float colorC;
 	public int target1 = 0;
 	public int target2 = 1;
 	public int target3 = 2;
@@ -310,7 +310,7 @@ public class jugador_nave_al1 : jugador_al1
 	public void Update()
 	{
 
-		if(vida < ((vidamaxN/100)* 15))
+		if(vida < ((vidamaxN/100)* 25))
 		{
 
 			critico.UnPause();
@@ -320,6 +320,18 @@ public class jugador_nave_al1 : jugador_al1
 		{
 			critico.Pause();
 		}
+
+		if(vida < ((vidamaxN/100)* 30))
+		{
+            colorC = ((((vidamaxN/100)* 30) - (((vidabase/vidamaxN))) * 100))/300*4;
+        }
+        else
+        {
+            colorC = 0;
+        }
+		Critobj.color = new Color(Critobj.color.r,Critobj.color.g,Critobj.color.b,Mathf.Lerp(Critobj.color.a,colorC, Time.deltaTime * 2f));
+
+		
 
 
 	if (minabalas > minabalasmax[manager.datosserial.nivelarmanave2 -1])

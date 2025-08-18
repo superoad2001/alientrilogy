@@ -35,7 +35,8 @@ public class tutorial_salir : MonoBehaviour
 			{
                 manager.datosconfig.carga = escena;
                 manager.guardarconfig();
-                SceneManager.LoadScene("carga");
+                manager.guardar();
+				SceneManager.LoadScene("carga");
             }
         }
     }

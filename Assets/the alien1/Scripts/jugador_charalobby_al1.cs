@@ -12,10 +12,16 @@ using System.Linq;
 // Token: 0x0200000A RID: 10
 public class jugador_charalobby_al1 : jugador_al1
 {
-	[Header("Propio Lobby")]
-	public GameObject armadefpassC;
+    [Header("Propio Lobby")]
+
+    public GameObject punto;
+	public GameObject punto2;
+	public GameObject punto3;
+    public GameObject armadefpassC;
 	public Text balaarmat;
-	private int cambioruedaact;
+
+    public bool carga;
+    private int cambioruedaact;
 	public float staminaobj;
 	public GameObject pistolatiempo;
 	public GameObject pistolabazoka;
@@ -73,25 +79,6 @@ public class jugador_charalobby_al1 : jugador_al1
 	private float tempaerodash = 9;
 	public AudioSource dashson;
 	public AudioSource dashairson;
-	private bool subir0 = false;
-	private bool bajar1 = false;
-	private bool subir1 = false;
-	private bool bajar2 = false; 
-	private bool subir2 = false;
-	private bool bajar3 = false;
-	private bool subir3 = false;
-	private bool bajar4 = false;
-	private bool subir4 = false;
-	private bool bajar5 = false;
-	private bool subir5 = false;
-	private bool bajart1 = false;
-	private bool subirt1 = false;
-	private bool bajart2 = false;
-	private bool subirt2 = false;
-	private bool bajart3 = false;
-	private bool subirt3 = false;
-	private bool bajart4 = false;
-	private bool subirt4 = false;
 	private float dash = 0.3f;
 	private float dash2 = 0.3f;
 	public Image barraarmaimgnv1;
@@ -165,6 +152,8 @@ public class jugador_charalobby_al1 : jugador_al1
 	public void Awake()
     {
         controles = new Controles();
+
+		
 		
     }
     private void OnEnable() 
@@ -189,7 +178,7 @@ public class jugador_charalobby_al1 : jugador_al1
 		
 		rotspeed = 150;
 
-		if(manager.datosserial.ascensoract == false)
+		if(manager.datosserial.asc == 0)
 		{
 			tiempoascensor = 5;
 		}
@@ -367,13 +356,32 @@ public class jugador_charalobby_al1 : jugador_al1
 				pistolatiempo.SetActive(false);
 				pistolabazoka.SetActive(false);
 			}
+			if(manager.datosserial.asc == 1 && carga == false)
+			{
+				camara.transform.SetParent(punto.transform);
+				transform.position = punto3.transform.position;
+				transform.SetParent(punto2.transform);
+			}
+			if(manager.datosserial.asc == -1 && carga == false)
+			{
+				camara.transform.SetParent(punto.transform);
+				transform.position = punto3.transform.position;
+				transform.SetParent(punto2.transform);
+			}
 		
 		
 		
 	}
 	public void fixedStart()
 	{
-		
+		if(manager.datosserial.asc == 1 && carga == false)
+		{
+			ascensors.Play("ascent1");
+		}
+		if(manager.datosserial.asc == -1 && carga == false)
+		{
+			ascensors.Play("ascent2");
+		}
 	}
 	
 	private void fixedUpdate()
@@ -386,7 +394,39 @@ public class jugador_charalobby_al1 : jugador_al1
 	public void Update()
 	{
 
-	if(vida < 1)
+	if(manager.datosserial.asc == 1 && carga == false)
+	{
+		ascensors.Play("ascent1");
+	}
+	if(manager.datosserial.asc == -1 && carga == false)
+	{
+		ascensors.Play("ascent2");
+	}
+
+	if(manager.datosserial.asc == 1 && carga == false && ascensors.GetCurrentAnimatorStateInfo(0).IsName("ascent1"))
+	{
+		
+        transform.position = punto2.transform.position;
+        manager.datosserial.asc = 0;
+        manager.guardar();
+		carga = true;
+	}
+	else if(manager.datosserial.asc == -1 && carga == false && ascensors.GetCurrentAnimatorStateInfo(0).IsName("ascent2"))
+	{
+		transform.position = punto2.transform.position;
+        manager.datosserial.asc = 0;
+        manager.guardar();
+		carga = true;
+    }
+    else if(manager.datosserial.asc == 0)
+	{carga = true;}
+
+
+        //activa esto para que no se active el ascensor en este nivel si no es al inicio
+
+
+
+        if(vida < 1)
 	{
 		vida = 0;
 		muerte = true;
@@ -414,26 +454,10 @@ public class jugador_charalobby_al1 : jugador_al1
 			manager.guardar();
 			manager.datosconfig.carga = "tutorialcin2enc_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 		
-	}
-	if(ascensors != null && ascact == true)
-	{
-		ascensors.SetFloat("asc",0);
-		ascensors.SetFloat("asc2",0);
-	}
-	else if(ascensors != null && ascact == false)
-	{
-		if(manager.datosserial.asc == 0)
-		{
-			tiempoascensor = 3;
-		}
-		ascensors.SetFloat("asc",manager.datosserial.asc);
-		manager.datosserial.asc = 0;
-		manager.guardar();
-		ascact = true;
-
 	}
 	
 	if(tiempoascensor < 15)	
@@ -540,7 +564,11 @@ public class jugador_charalobby_al1 : jugador_al1
 		camYc = controles.al1_3d.camY.ReadValue<float>();
 		
 	}
-	
+	if(tiempoascensor > 1.7f && punto != null)
+	{
+		camara.transform.SetParent(this.transform);
+		transform.SetParent(punto.transform);
+	}
 	if(manager.datosserial.jefeV[0] == false && manager.datosserial.tengollave1 == true && manager.piso == 1 && tiempoascensor > 2f )
 	{
 		manager.portalg.SetActive(true);
@@ -562,195 +590,177 @@ public class jugador_charalobby_al1 : jugador_al1
 		if (this.ascensor && manager.piso == 1)
 		{
 			
-			if (dispararc > 0f && manager.datosserial.jefeV[0] == true && bajar1 == false && bajar1esp == false && tiempoascensor > 2f)
+			if (dispararc > 0f && manager.datosserial.jefeV[0] == true && bajar == false && tiempoascensor > 2f)
 			{
-				subir1 = true;
 				subir = true;
 				tiempoascensor = 0;
-				manager.datosserial.asc = 1;
-				manager.guardar();
-				
-				
-			}
-			else if (lateralc > 0f && manager.datosserial.tengollave0 == true && subir1 == false && tiempoascensor > 2f)
-			{
-				bajar1 = true;
-				bajar = true;
 				manager.portalg.SetActive(false);
-				tiempoascensor = 0;
-				manager.datosserial.asc = -1;
-				manager.guardar();
+
+				camara.transform.SetParent(punto.transform);
+				transform.SetParent(punto.transform);
+				//en la demo viajara a la pantalla final
+
+				//manager.datosconfig.carga = "piso2_al1";
+				manager.datosconfig.carga = "fin_demo_al1";
+            	manager.guardarconfig();
+				
 				
 			}
-			if (bajar1 == true){ascensors.SetFloat("asc2",-1);}
-			if (subir1 == true){ascensors.SetFloat("asc2",1);}
+			else if (lateralc > 0f && manager.datosserial.tengollave0 == true && subir == false && tiempoascensor > 2f)
+			{
+				bajar = true;
+				tiempoascensor = 0;
+				manager.portalg.SetActive(false);
+
+				camara.transform.SetParent(punto.transform);
+				transform.SetParent(punto.transform);
+
+				manager.datosconfig.carga = "mundo_al1";
+            	manager.guardarconfig();
+				
+			}
+			if (bajar == true){ascensors.Play("asc1");}
+			if (subir == true){ascensors.Play("asc2");}
 			
 			
 			
 		}
 		
-		if (subir0 == true){ascensors.SetFloat("asc2",1);}
+		if (subir == true){ascensors.Play("asc2");}
 		if (this.ascensor && manager.piso == 2 && tiempoascensor > 2f)
 		{
-			if (dispararc > 0f && manager.datosserial.jefeV[1] == true && bajar2 == false)
+			if (dispararc > 0f && manager.datosserial.jefeV[1] == true && bajar == false)
 			{
-				subir2 = true;
 				subir = true;
 				tiempoascensor = 0;
-				manager.datosserial.asc = 1;
-				manager.guardar();
+				manager.portalg.SetActive(false);
+
+				camara.transform.SetParent(punto.transform);
+				transform.SetParent(punto2.transform);
+
+				manager.datosconfig.carga = "piso3_al1";
+            	manager.guardarconfig();
 				
 			}
-			if (lateralc > 0f && subir2 == false)
+			if (lateralc > 0f && subir == false)
 			{
-				bajar2 = true;
 				bajar = true;
 				manager.portalg.SetActive(false);
+
+
+				camara.transform.SetParent(punto.transform);
+				transform.SetParent(punto2.transform);
+
 				tiempoascensor = 0;
-				manager.datosserial.asc = -1;
-				manager.guardar();
+				manager.datosconfig.carga = "piso1_al1";
+            	manager.guardarconfig();
 				
 			}
-			if (bajar2 == true){ascensors.SetFloat("asc2",-1);}
-			if (subir2 == true){ascensors.SetFloat("asc2",1);}
+			if (bajar == true){ascensors.Play("asc1");}
+			if (subir == true){ascensors.Play("asc2");}
 			
 		}
 		if (this.ascensor && manager.piso == 3 && tiempoascensor > 2f)
 		{
-			if (dispararc > 0f && manager.datosserial.jefeV[2] == true && bajar3 == false )
+			if (dispararc > 0f && manager.datosserial.jefeV[2] == true && bajar == false )
 			{
-				subir3 = true;
 				subir = true;
 				tiempoascensor = 0;
-				manager.datosserial.asc = 1;
-				manager.guardar();
+				manager.portalg.SetActive(false);
+
+				camara.transform.SetParent(punto.transform);
+				transform.SetParent(punto2.transform);
+
+				manager.datosconfig.carga = "piso4_al1";
+            	manager.guardarconfig();
 			}
-			if (lateralc > 0f && subir3 == false )
+			if (lateralc > 0f && subir == false )
 			{
-				bajar3 = true;
 				bajar = true;
 				tiempoascensor = 0;
 				manager.portalg.SetActive(false);
-				manager.datosserial.asc = -1;
-				manager.guardar();
+
+				camarascript.transform.SetParent(punto.transform);
+				transform.SetParent(punto2.transform);
+
+				manager.datosconfig.carga = "piso2_al1";
+            	manager.guardarconfig();
 			}
-			if (bajar3 == true){ascensors.SetFloat("asc2",-1);}
-			if (subir3 == true){ascensors.SetFloat("asc2",1);}
+			if (bajar == true){ascensors.Play("asc1");}
+			if (subir == true){ascensors.Play("asc2");}
 			
 		}
-		if (this.ascensor && manager.piso == 5 && lateralc > 0f && subir5 == false && tiempoascensor > 2f)
+
+
+		if (this.ascensor && manager.piso == 5 && lateralc > 0f && subir == false && tiempoascensor > 2f)
 		{
-				bajar5 = true;
 				bajar = true;
 				tiempoascensor = 0;
-				manager.datosserial.asc = -1;
-				manager.guardar();
+				manager.portalg.SetActive(false);
+
+				camara.transform.SetParent(punto.transform);
+				transform.SetParent(punto2.transform);
+
+				manager.datosconfig.carga = "piso4_al1";
+            	manager.guardarconfig();
 		}
 		
 
-		if (bajar5 == true){ascensors.SetFloat("asc2",-1);}
+		if (bajar == true){ascensors.Play("asc1");}
 
-		if (subir5 == true){ascensors.SetFloat("asc2",1);}
 		if (this.ascensor && manager.piso == 4 && tiempoascensor > 2f)
 		{
-			if (dispararc > 0f && manager.datosserial.jefeV[3] == true && bajar4 == false)
+			if (dispararc > 0f && manager.datosserial.jefeV[3] == true && bajar == false)
 			{
-				subir4 = true;
 				subir = true;
 				tiempoascensor = 0;
-				manager.datosserial.asc = 1;
-				manager.guardar();
+				manager.portalg.SetActive(false);
+
+				camara.transform.SetParent(punto.transform);
+				transform.SetParent(punto2.transform);
+
+				manager.datosconfig.carga = "piso5_al1";
+            	manager.guardarconfig();
 				
 			}
-			if (lateralc > 0f && subir4 == false ) 
+			if (lateralc > 0f && subir == false ) 
 			{
-				bajar4 = true;
 				bajar = true;
 				tiempoascensor = 0;
-				manager.datosserial.asc = -1;
-				manager.guardar();
+				manager.portalg.SetActive(false);
+
+				camara.transform.SetParent(punto.transform);
+				transform.SetParent(punto2.transform);
+
+				manager.datosconfig.carga = "piso3_al1";
+            	manager.guardarconfig();
 				
 			}
-			if (bajar4 == true){ascensors.SetFloat("asc2",-1);}
-			if (subir4 == true){ascensors.SetFloat("asc2",1);}
+			if (bajar == true){ascensors.Play("asc1");}
+			if (subir == true){ascensors.Play("asc2");}
 			
 		}
 
 	
 		
-		
-			
-		
-			
-			
-		
-	
-		
-		if(subir0 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "piso1_al1";
-            manager.guardarconfig();
-            SceneManager.LoadScene("carga");}
-		
-		
 
-		//if(subir1 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "piso2_al1";manager.guardarconfig();SceneManager.LoadScene("carga");}
             
-		if(subir1 == true && tiempoascensor > 0.9f)
+		if(subir == true && tiempoascensor > 0.9f)
 		{
-			manager.datosconfig.carga = "fin_demo_al1";
-            manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+			manager.datosserial.asc = 1;
+			manager.guardar();
+            manager.guardar();
+				SceneManager.LoadScene("carga");
+		}	
+
+		if(bajar == true && tiempoascensor > 0.9f)
+		{
+			manager.datosserial.asc = -1;
+			manager.guardar();
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 
-
-		if(subir2 == true && tiempoascensor > 0.9f)
-		{
-			manager.datosconfig.carga = "piso3_al1";
-            manager.guardarconfig();
-            SceneManager.LoadScene("carga");
-		}
-
-
-
-		if(subir3 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "piso4_al1";
-            manager.guardarconfig();
-            SceneManager.LoadScene("carga");}
-
-
-
-		if(subir4 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "piso5_al1";
-            manager.guardarconfig();
-            SceneManager.LoadScene("carga");}
-
-
-		
-
-		if(bajar1 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "mundo_al1";
-            manager.guardarconfig();
-            SceneManager.LoadScene("carga");}
-
-
-
-		if(bajar2 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "piso1_al1";
-            manager.guardarconfig();
-            SceneManager.LoadScene("carga");}
-
-
-
-		if(bajar3 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "piso2_al1";
-            manager.guardarconfig();
-            SceneManager.LoadScene("carga");}
-
-
-
-		if(bajar4 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "piso3_al1";
-            manager.guardarconfig();
-            SceneManager.LoadScene("carga");}
-
-
-
-		if(bajar5 == true && tiempoascensor > 0.9f){manager.datosconfig.carga = "piso4_al1";
-            manager.guardarconfig();
-            SceneManager.LoadScene("carga");}
 
 
 

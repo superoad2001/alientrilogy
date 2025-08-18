@@ -59,7 +59,8 @@ public class hiper_al1 : MonoBehaviour
 			{
 				manager.datosconfig.carga = "lasalida_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 			}
 		}
 	}

@@ -29,7 +29,8 @@ public class teleportautom_al1 : MonoBehaviour
 		{
 			manager.datosconfig.carga = ubi;
                 manager.guardarconfig();
-                SceneManager.LoadScene("carga");
+                manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 	}
 

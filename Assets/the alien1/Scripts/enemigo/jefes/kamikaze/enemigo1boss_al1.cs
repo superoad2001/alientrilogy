@@ -81,9 +81,9 @@ public class enemigo1boss_al1: MonoBehaviour
     void Start()
     {
         objetivo = objetivoa;
-        fuebase = 10;
-        fuebasemax = 100;
-        fueplusmax = 2000;
+        fuebase = 30;
+        fuebasemax = 300;
+        fueplusmax = 4000;
 
         tempmov = 5;
 
@@ -138,14 +138,14 @@ public class enemigo1boss_al1: MonoBehaviour
         }
         else if(vida > (vidamax/4) * 1)
         {
-            tamano = new Vector3(10,10,10);
+            tamano = new Vector3(8,8,8);
             if(manager.datosserial.newgameplus1 == false)
             {plat2.SetActive(true);}
             
         }
         else if(vida > (vidamax/4) * 0)
         {
-            tamano = new Vector3(12,12,12);
+            tamano = new Vector3(10,10,10);
             if(manager.datosserial.newgameplus1 == false)
             {plat3.SetActive(true);}
         }
@@ -278,7 +278,8 @@ public class enemigo1boss_al1: MonoBehaviour
                     manager.guardar();
                     manager.datosconfig.carga = "cin_postboss1_al1";
                     manager.guardarconfig();
-                    SceneManager.LoadScene("carga");
+                    manager.guardar();
+				SceneManager.LoadScene("carga");
 
                 }
                 if(Temp > 5 )
@@ -307,7 +308,7 @@ public class enemigo1boss_al1: MonoBehaviour
             else if(vidacabeza <= 1)
             {
                 balafrec = 2;
-                vel = 18;
+                vel = 16;
             }   
             else if(vidacabeza <= 2)
             {

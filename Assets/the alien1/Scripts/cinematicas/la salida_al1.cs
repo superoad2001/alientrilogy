@@ -33,7 +33,8 @@ public class lasalidas_al1 : MonoBehaviour
 		{
 			manager.datosconfig.carga = "final_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 		
 	}
@@ -44,7 +45,8 @@ public class lasalidas_al1 : MonoBehaviour
 			Debug.Log("Hello: ");
 			manager.datosconfig.carga = "final_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 	}
 

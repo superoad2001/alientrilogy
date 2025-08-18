@@ -42,13 +42,15 @@ public class inicio_al1 : MonoBehaviour
 				{
 					manager.datosconfig.carga = manager.datosserial.nivelu;
 					manager.guardarconfig();
-					SceneManager.LoadScene("carga");
+					manager.guardar();
+				SceneManager.LoadScene("carga");
 				}
 				else
 				{
 					manager.datosconfig.carga = "piso1_al1";
 					manager.guardarconfig();
-					SceneManager.LoadScene("carga");
+					manager.guardar();
+				SceneManager.LoadScene("carga");
 				}
 				
 			}
@@ -56,6 +58,7 @@ public class inicio_al1 : MonoBehaviour
 			{
 				manager.datosconfig.carga = "lallegada_al1";
 				manager.guardarconfig();
+				manager.guardar();
 				SceneManager.LoadScene("carga");
 			}	
 		}

@@ -30,7 +30,8 @@ public class inicio4_al1 : MonoBehaviour
 			manager.guardar();
 			manager.datosconfig.carga = "presentacion_al1_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 		if (this.botonn == true && temp >= 1)
 		{
@@ -38,13 +39,15 @@ public class inicio4_al1 : MonoBehaviour
 			manager.guardar();
 			manager.datosconfig.carga = "presentacion_al1_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 		if(plataforma != 0)
 		{
 			manager.datosconfig.carga = "presentacion_al1_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 	}
 		public void boton_m()

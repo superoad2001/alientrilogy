@@ -6,7 +6,10 @@ using UnityEngine;
 public class romperbala_al1: MonoBehaviour
 {
 	public bool empujar;
-	public float danoj = 1;
+
+    public bool boss1;
+    public enemigo1boss_al1 boss1S;
+    public float danoj = 1;
     public bool salir;
 
 	public AudioSource dest;
@@ -29,6 +32,11 @@ public class romperbala_al1: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if ((enemigo1boss_al1)FindFirstObjectByType(typeof(enemigo1boss_al1)))
+        {
+            boss1S = (enemigo1boss_al1)FindFirstObjectByType(typeof(enemigo1boss_al1));
+            boss1 = true;
+        }
         jugador1 = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
         desto = GameObject.Find("rompersonido");
         dest = desto.GetComponent<AudioSource>();
@@ -39,6 +47,13 @@ public class romperbala_al1: MonoBehaviour
     void Update()
     {
 
+        if (boss1 == true)
+        {
+            if (boss1S == null)
+            { 
+                Destroy(this.gameObject);
+            }
+        }
         if(objtele != null)
         {
             tempdest += 1 * Time.deltaTime;

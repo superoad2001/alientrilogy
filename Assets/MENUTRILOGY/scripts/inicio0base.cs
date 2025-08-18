@@ -17,7 +17,12 @@ public class inicio0base : MonoBehaviour
 	// Token: 0x0600001A RID: 26 RVA: 0x00002523 File Offset: 0x00000723
 	public void Start()
 	{
+		
 		manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+
+
+		manager.datosconfig.carga = "";
+        manager.guardar();
 
 		audiomixer.SetFloat ("MusicVolume",manager.datosconfig.musica);
 		audiomixer.SetFloat ("EnvironmentVolume",manager.datosconfig.voz);

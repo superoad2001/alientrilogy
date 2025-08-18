@@ -31,7 +31,8 @@ public class inicio3_al1 : MonoBehaviour
 			manager.guardar();
 			manager.datosconfig.carga = "controles_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 		if (this.botonn == true && temp >= 1)
 		{
@@ -39,7 +40,8 @@ public class inicio3_al1 : MonoBehaviour
 			manager.guardar();
 			manager.datosconfig.carga = "controles_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 		if (this.botonc == true && temp >= 1)
 		{
@@ -47,13 +49,15 @@ public class inicio3_al1 : MonoBehaviour
 			manager.guardar();
 			manager.datosconfig.carga = "controles_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 		if(idioma != "no")
 		{
 			manager.datosconfig.carga = "controles_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
 	}
 	public void boton_m()

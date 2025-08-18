@@ -320,7 +320,8 @@ public class pausa_al1 : MonoBehaviour
         "Logros : "+manager.datosserial.Logros+"\n"+
         "Jefes Ven : "+manager.datosserial.JefesVen+"\n"+
         "Kart Points : "+manager.datosserial.puntoskarting+"\n"+
-        "Misiones Completadas : "+manager.MisionesCumplidas;
+        "Misiones Completadas : "+manager.MisionesCumplidas+"/12"+"\n"+
+        "Tiempo de Juego : "+manager.datosserial.horas+":"+manager.datosserial.minutos.ToString("D2")+":"+manager.datosserial.segundos.ToString("00");
         Objetos_panel1.text =
         "Armas Alien : "+manager.datosserial.ArmasAlienObtenidas +"\n"+
         "Armas Nave : "+manager.datosserial.ArmasNaveObtenidas +"\n"+ 
@@ -669,7 +670,8 @@ public class pausa_al1 : MonoBehaviour
         Time.timeScale = 1;
         manager.datosconfig.carga = "menu_de_carga_al1";
         manager.guardarconfig();
-        SceneManager.LoadScene("carga");
+        manager.guardar();
+				SceneManager.LoadScene("carga");
     }
     public void mapa_()
     {
@@ -727,7 +729,8 @@ public class pausa_al1 : MonoBehaviour
         manager.guardar();
         manager.datosconfig.carga = manager.datosserial.nivelu;
         manager.guardarconfig();
-        SceneManager.LoadScene("carga");
+        manager.guardar();
+				SceneManager.LoadScene("carga");
 
     }
     public void opciones()

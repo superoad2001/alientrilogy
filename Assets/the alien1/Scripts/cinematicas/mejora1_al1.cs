@@ -50,7 +50,8 @@ public class mejora1_al1 : MonoBehaviour
 		{
 			manager.datosconfig.carga = "tienda_al1";
             manager.guardarconfig();
-            SceneManager.LoadScene("carga");
+            manager.guardar();
+				SceneManager.LoadScene("carga");
 		}
     }
 }
