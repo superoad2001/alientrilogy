@@ -323,7 +323,7 @@ public class jugador_nave_al1 : jugador_al1
 
 		if(vida < ((vidamaxN/100)* 30))
 		{
-            colorC = ((((vidamaxN/100)* 30) - (((vidabase/vidamaxN))) * 100))/300*4;
+            colorC = ((((vidamaxN/100)* 30) - (((vida/vidamaxN))) * 100))/300*4;
         }
         else
         {

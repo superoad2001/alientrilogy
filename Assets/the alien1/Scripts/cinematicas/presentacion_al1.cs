@@ -243,8 +243,8 @@ public class presentacion_al1 : MonoBehaviour
         {
             if(manager.datosconfig.idioma == "es")
             {
-                nombres[0].text = "como se llama tu hijo";
-                nombres[1].text = "tu nombre es";
+                nombres[0].text = "Como se llama tu hijo";
+                nombres[1].text = "Tu nombre es";
                 nombres[5].text = names[0];
                 nombres[2].text = "";
                 nombres[6].text = "";
@@ -259,10 +259,10 @@ public class presentacion_al1 : MonoBehaviour
         {
             if(manager.datosconfig.idioma == "es")
             {
-                nombres[0].text = "como se llama tu pareja";
-                nombres[1].text = "tu nombre es";
+                nombres[0].text = "Como se llama tu pareja";
+                nombres[1].text = "Tu nombre es";
                 nombres[5].text = names[0];
-                nombres[2].text = "tu hijo se llama";
+                nombres[2].text = "Tu hijo se llama";
                 nombres[6].text = names[1];
                 nombres[3].text = "";
                 nombres[7].text = "";
@@ -275,14 +275,14 @@ public class presentacion_al1 : MonoBehaviour
         {
             if(manager.datosconfig.idioma == "es")
             {
-                nombres[0].text = "como se llama tu jefe";
-                nombres[1].text = "tu nombre es";
+                nombres[0].text = "Como se llama tu jefe";
+                nombres[1].text = "Tu nombre es";
                 nombres[5].text = names[0];
 
-                nombres[2].text = "tu hijo se llama";
+                nombres[2].text = "Tu hijo se llama";
                 nombres[6].text = names[1];
 
-                nombres[3].text = "tu tu pareja se llama";
+                nombres[3].text = "Tu pareja se llama";
                 nombres[7].text = names[2];
                 nombres[4].text = "";
                 nombres[8].text = "";
@@ -293,17 +293,17 @@ public class presentacion_al1 : MonoBehaviour
         {
             if(manager.datosconfig.idioma == "es")
             {
-                nombres[0].text = "entonces esto es todo correcto?";
-                nombres[1].text = "tu nombre es";
+                nombres[0].text = "Entonces esto es todo correcto?";
+                nombres[1].text = "Tu nombre es";
                 nombres[5].text = names[0];
 
-                nombres[2].text = "tu hijo se llama";
+                nombres[2].text = "Tu hijo se llama";
                 nombres[6].text = names[1];
 
-                nombres[3].text = "tu tu pareja se llama";
+                nombres[3].text = "Tu pareja se llama";
                 nombres[7].text = names[2];
 
-                nombres[4].text = "tu jefe se llama";
+                nombres[4].text = "Tu jefe se llama";
                 nombres[8].text = names[3];
 
                 botones[4].text = "Esta bien";
@@ -317,7 +317,7 @@ public class presentacion_al1 : MonoBehaviour
             if(manager.datosconfig.idioma == "es")
             {
                 nombres[0].text = "";
-                nombres[1].text = "ahora comienza tu aventura";
+                nombres[1].text = "Ahora comienza tu aventura";
                 nombres[5].text = names[0]+"...";
 
                 nombres[2].text = "";

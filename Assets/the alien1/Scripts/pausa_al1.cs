@@ -86,8 +86,8 @@ public class pausa_al1 : MonoBehaviour
     public Text mision2;
     public Text inText;
 
-    public TextMeshProUGUI Estadisitcas_panel1;
-    public TextMeshProUGUI Objetos_panel1;
+    public Text Estadisitcas_panel1;
+    public Text Objetos_panel1;
     public float temp;
     public int piso = 1;
     public GameObject normal;

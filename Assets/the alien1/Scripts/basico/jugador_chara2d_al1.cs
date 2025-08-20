@@ -522,7 +522,7 @@ public class jugador_chara2d_al1 : jugador_al1
 
 		if(vida < ((vidamax/100)* 30))
 		{
-            colorC = ((((vidamax/100)* 30) - (((vidabase/vidamax))) * 100))/300*4;
+            colorC = ((((vidamax/100)* 30) - (((vida/vidamax))) * 100))/300*4;
         }
         else
         {

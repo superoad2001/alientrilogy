@@ -262,7 +262,7 @@ public class opcionespause : MonoBehaviour
 			}
 			if(Screen.width >= largo && Screen.height >= altura)
 			{
-				Screen.SetResolution(largo,altura,full);
+				//Screen.SetResolution(largo,altura,full);
 			}
 		}
 		rescheck();
@@ -458,7 +458,7 @@ public class opcionespause : MonoBehaviour
 			manager.datosconfig.altura = Screen.height;
 			manager.datosconfig.largo = Screen.width;
 			manager.datosconfig.ind = ind;
-			Screen.SetResolution(manager.datosconfig.largo,manager.datosconfig.altura,manager.datosconfig.full);
+			//Screen.SetResolution(manager.datosconfig.largo,manager.datosconfig.altura,manager.datosconfig.full);
 		}
 
 		manager.datosconfig.primera = true;
@@ -470,8 +470,6 @@ public class opcionespause : MonoBehaviour
 	public void aplicartodo()
 	{
 		aplicaridioma();
-		aplicaresolucion();
-		aplicarcontroles();
 		aplicarpost();
 		aplicardistancia();
 		aplicarmusica();

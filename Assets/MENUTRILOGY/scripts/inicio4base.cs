@@ -211,6 +211,7 @@ public class inicio4base : MonoBehaviour
 	{
 		
 		manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+		manager.cargar();
 		manager.guardar();
 
 		if(manager.datosconfig.idioma == "es")
@@ -233,10 +234,10 @@ public class inicio4base : MonoBehaviour
 		idioma = manager.datosconfig.idioma;
 		postpro = manager.datosconfig.postpro;
 		distancia = manager.datosconfig.distancia;
-		largo = manager.datosconfig.largo;
-    	altura = manager.datosconfig.altura;
+		//largo = manager.datosconfig.largo;
+    	//altura = manager.datosconfig.altura;
    		ind = manager.datosconfig.ind;
-    	full = manager.datosconfig.full;
+    	//full = manager.datosconfig.full;
 
 			if(manager.datosconfig.primera == false)
 			{
@@ -247,14 +248,14 @@ public class inicio4base : MonoBehaviour
 			#endif
 
 			manager.datosconfig.idioma = "es";
-			manager.datosconfig.postpro = 0;
-			manager.datosconfig.distancia = 200;
+			manager.datosconfig.postpro = 1;
+			manager.datosconfig.distancia = 3000;
 			sysidi = SystemLanguage.Spanish;
 			manager.datosconfig.lastgame = 0;
 			}
 			
 
-		if(manager.datosconfig.primerares == true)
+		/*if(manager.datosconfig.primerares == true)
 		{
 			if(full)
 			{
@@ -268,7 +269,7 @@ public class inicio4base : MonoBehaviour
 			{
 				Screen.SetResolution(largo,altura,full);
 			}
-		}
+		}*/
 		rescheck();
 		resoL.value = ind;
 
@@ -458,7 +459,7 @@ public class inicio4base : MonoBehaviour
 			manager.datosconfig.altura = Screen.height;
 			manager.datosconfig.largo = Screen.width;
 			manager.datosconfig.ind = ind;
-			Screen.SetResolution(manager.datosconfig.largo,manager.datosconfig.altura,manager.datosconfig.full);
+			//Screen.SetResolution(manager.datosconfig.largo,manager.datosconfig.altura,manager.datosconfig.full);
 		}
 
 		manager.datosconfig.primera = true;
@@ -494,8 +495,6 @@ public class inicio4base : MonoBehaviour
 	{
 		
 		aplicaridioma();
-		aplicaresolucion();
-		aplicarcontroles();
 		aplicarpost();
 		aplicardistancia();
 		aplicarmusica();

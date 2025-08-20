@@ -375,7 +375,7 @@ public class manager_al1 : MonoBehaviour
 		audiomixer.SetFloat ("SFXVolume",datosconfig.sfx);
 		audiomixer.SetFloat ("UIVolume",datosconfig.ui);
 
-		LocalizationManager.Instance.selectedLang = datosconfig.sysidi;
+		LocalizationManager.Instance.selectedLang = SystemLanguage.English;
 		Debug.Log(LocalizationManager.Instance);
 
 		Debug.Log(LocalizationManager.Instance.SelectedLang());

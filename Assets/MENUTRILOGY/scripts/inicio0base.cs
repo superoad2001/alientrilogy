@@ -17,10 +17,13 @@ public class inicio0base : MonoBehaviour
 	// Token: 0x0600001A RID: 26 RVA: 0x00002523 File Offset: 0x00000723
 	public void Start()
 	{
+
+		Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+        Screen.fullScreen = true;
 		
 		manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 
-
+		manager.datosconfig.sysidi = SystemLanguage.Spanish;
 		manager.datosconfig.carga = "";
         manager.guardar();
 
@@ -29,28 +32,20 @@ public class inicio0base : MonoBehaviour
 		audiomixer.SetFloat ("SFXVolume",manager.datosconfig.sfx);
 		audiomixer.SetFloat ("UIVolume",manager.datosconfig.ui);
 		Debug.Log(Screen.width+" "+manager.datosconfig.largo);
-		if(Screen.width >= manager.datosconfig.largo && Screen.height >= manager.datosconfig.altura)
-		{
-			Screen.SetResolution(manager.datosconfig.largo,manager.datosconfig.altura,manager.datosconfig.full);
-			if(manager.datosconfig.primera == false)
-			{
-                manager.datosconfig.carga = "opcionesbase";
-                manager.guardar();
-                SceneManager.LoadScene("carga");
-            }
-			else
-			{
-				manager.datosconfig.carga = "menutrilogy";
-				manager.guardar();
-                SceneManager.LoadScene("carga");
-			}
-		}
-		else
+
+		if(manager.datosconfig.primera == false)
 		{
 			manager.datosconfig.carga = "opcionesbase";
 			manager.guardar();
-            SceneManager.LoadScene("carga");
+			SceneManager.LoadScene("carga");
 		}
+		else
+		{
+			manager.datosconfig.carga = "menutrilogy";
+			manager.guardar();
+			SceneManager.LoadScene("carga");
+		}
+		
 	
 
 		

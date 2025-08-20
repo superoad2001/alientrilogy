@@ -158,7 +158,7 @@ public class managerBASE : MonoBehaviour
 		cargar();
         cargartro();
 
-        LocalizationManager.Instance.selectedLang = datosconfig.sysidi;
+        LocalizationManager.Instance.selectedLang = SystemLanguage.English;
 
         audiomixer.SetFloat ("MusicVolume",datosconfig.musica);
 		audiomixer.SetFloat ("EnvironmentVolume",datosconfig.voz);

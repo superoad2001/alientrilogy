@@ -196,11 +196,11 @@ public class inicio3base : MonoBehaviour
             {
                 skip();
             }
-            if(controles.menu.enter.ReadValue<float>() > 0 && temp > 0.5f && presskip == false)
+            if(controles.menu.enter.ReadValue<float>() > 0 && temp > 0.5f && presskip)
             {
                 comenzar();
             }
-            if(controles.menu.atras.ReadValue<float>() > 0 && temp > 0.5f && presskip == false)
+            if(controles.menu.atras.ReadValue<float>() > 0 && temp > 0.5f && presskip)
             {
                 salir();
             }
