@@ -169,7 +169,7 @@ public class presentacion_al1 : MonoBehaviour
             manager.datosconfig.carga = "lallegada_enc_al1";
             manager.guardarconfig();
             manager.guardar();
-				SceneManager.LoadScene("carga");
+			SceneManager.LoadScene("carga");
         }
         if(controles.al1_UI.menu1.ReadValue<float>() > 0 && inicio == false)
         {
@@ -426,7 +426,7 @@ public class presentacion_al1 : MonoBehaviour
                         manager.datosconfig.carga = "piso1_al1";
                         manager.guardarconfig();
                         manager.guardar();
-				SceneManager.LoadScene("carga");
+				        SceneManager.LoadScene("carga");
                         temp = 0;
                     }
                 }
@@ -461,8 +461,10 @@ public class presentacion_al1 : MonoBehaviour
         if (temp >= 1)
         {
             manager.datosconfig.lastgame = 1;
-            manager.guardarconfig();
             manager.datosconfig.carga = "opcionesbase";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
+            
             temp = 0;
         }
     }
@@ -471,6 +473,8 @@ public class presentacion_al1 : MonoBehaviour
         if (temp >= 1)
         {
             manager.datosconfig.carga = "menutrilogy";
+            manager.guardarconfig();
+            SceneManager.LoadScene("carga");
             temp = 0;
         }
     }
