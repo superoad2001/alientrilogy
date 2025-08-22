@@ -166,27 +166,7 @@ public class inicio_al3: MonoBehaviour
 
 		if (this.botonm == true && temp >= 1)
 		{
-			manager.datosserial.com = 1;
-			manager.guardar();
-			com = 1;
-			player.GetComponent<jugador1_al3>().enabled = true;
-			if(manager.juego == 1)
-			{
-			cam.GetComponent<movcam_al3>().enabled = true;
-			}
-			menum.Stop();
-			juegom.Play();
-			obj.SetActive(true);
-			canvas.SetActive(false);
-			if(mundo == 0)
-			{
-				audio1.Play();
-			}
-			if(manager.datosconfig.plat == 2)
-			{
-				
-				tactil.SetActive(true);
-			}
+			
 		}
 		if (this.botonn == true && temp >= 1)
 		{

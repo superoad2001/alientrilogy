@@ -64,11 +64,11 @@ public class inicio3base : MonoBehaviour
         {
 
             // para alien 1
-            if(juego == 5)
+            /*if(juego == 5)
             {
                 juego = 1;
                 manager.move();
-            }
+            }*/
             //para alien 2
             /*if(juego == 4)
             {
@@ -83,11 +83,11 @@ public class inicio3base : MonoBehaviour
 
             //para alien 3
 
-            /*if(juego > 1)
+            if(juego > 1)
             {
                 juego -= 1;
                 manager.move();
-            }*/
+            }
         }
     }
     public void der()
@@ -95,11 +95,11 @@ public class inicio3base : MonoBehaviour
         if(presskip == true)
         {
             // para alien 1
-            if(juego == 1)
+            /*if(juego == 1)
             {
                 juego = 5;
                 manager.move();
-            }
+            }*/
 
             //para alien 2
             /*if(juego == 2)
@@ -114,11 +114,11 @@ public class inicio3base : MonoBehaviour
             }*/
 
             //para alien 3
-            /*if(juego < 5)
+            if(juego < 5)
             {
                 juego += 1;
                 manager.move();
-            }*/
+            }
         }
     }
     public void salir()

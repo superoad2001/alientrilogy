@@ -93,15 +93,66 @@ public class manager_al3: MonoBehaviour
 	public datosconfig datosconfig;
 	[SerializeField]
 	public datosextra datostrof;
+	[SerializeField]
+	public datosconfigslot datosslot;
+
+	public string repathslot;
 
 	public string repathtro;
 	public AudioSource moevson;
 	public AudioMixer audiomixer;
+	public int MisionesCumplidas;
 	public void move()
 	{
 		moevson.Play();
 	}
-	
+
+	public void GetFilePathslot()
+    {
+        string result;
+
+    	result = Path.Combine(Application.persistentDataPath,"AlienData");
+        result = Path.Combine(result, $"datosslot2.data");
+
+		#if UNITY_EDITOR
+    	result = Path.Combine(Application.persistentDataPath,"AlienDatadev");
+        result = Path.Combine(result, $"datosslot2.data");
+		#endif
+ 
+        repathslot = result;
+    }
+	public void guardarslot()
+    {
+        GetFilePathslot();
+        string path = repathslot;
+        if(File.Exists(path))
+        {
+            string datosconfigslot1 = JsonUtility.ToJson(datosslot);
+            File.WriteAllText(path,datosconfigslot1);
+            //Debug.Log(datosconfig2);
+        }
+        else if(!File.Exists(path))
+        {
+            System.IO.FileInfo file = new System.IO.FileInfo(path);
+            file.Directory.Create();
+            string datosconfigslot1 = JsonUtility.ToJson(datosslot);
+            File.WriteAllText(path,datosconfigslot1);
+            //Debug.Log(datosconfig2);
+        }
+        
+    }
+	public void cargarslot()
+    {
+        GetFilePathslot();
+        string path = repathslot;
+        if(File.Exists(path))
+        {
+            string datosconfigslot1 = File.ReadAllText(path);
+            datosslot = JsonUtility.FromJson<datosconfigslot>(datosconfigslot1);
+            //Debug.Log(datosinventario);
+        }
+        
+    }
 
 	public void GetFilePath()
     {

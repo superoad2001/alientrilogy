@@ -126,11 +126,11 @@ public class manager_al1 : MonoBehaviour
         string result;
 
     	result = Path.Combine(Application.persistentDataPath,"AlienData");
-        result = Path.Combine(result, $"datosslot.data");
+        result = Path.Combine(result, $"datosslot1.data");
 
 		#if UNITY_EDITOR
     	result = Path.Combine(Application.persistentDataPath,"AlienDatadev");
-        result = Path.Combine(result, $"datosslot.data");
+        result = Path.Combine(result, $"datosslot1.data");
 		#endif
  
         repathslot = result;

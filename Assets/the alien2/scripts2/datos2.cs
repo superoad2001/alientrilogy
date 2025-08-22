@@ -9,6 +9,52 @@ using System;
 public class datos2
 {
 
+	public bool datos_llenos;
+	public bool begin;
+	public string nivelu;
+
+	public List<string> nameCH = new List<string>();
+
+	public int[] nivelarmasjug = new int [9];
+	public int[] nivelarmasnave = new int [8];
+
+	public bool[] armasjug = new bool [9];
+	public bool[] armasnave = new bool [8];
+
+	public int[] misiones = new int[200];
+    public int horas;
+	public int minutos;
+	public float segundos;
+
+	public int[] npcF = new int[100];
+	public int niveljugnave = 1;
+
+	public int actual_checkpoint;
+	public int niveljug = 1;
+	public float nivelexp = 0;
+	public float signivelexp = 3;
+	
+
+
+
+	public int pocionesmax;
+
+	public int[] monedaM= new int[150]; 
+	public int[] monedaR= new int[150]; 
+
+	public string misionS = "";
+	public string misiondescS = "";
+	
+
+	public int ArmasNaveObtenidas;
+	public int ArmasAlienObtenidas;
+
+
+
+	public int[] economia = new int[7];
+
+	public bool demoFIN;
+
 
 
     public int plat = 0;
