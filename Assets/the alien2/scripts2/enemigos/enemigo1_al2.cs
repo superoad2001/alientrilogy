@@ -20,13 +20,13 @@ public class enemigo1_al2: MonoBehaviour
     public GameObject dano;
     public GameObject det;
     public GameObject explosion;
-    public jugador1_al2 jugador1;
+    public jugador_al2 jugador1;
     public AudioSource muertes;
     public GameObject muertesaudio;
     // Start is called before the first frame update
     void Start()
     {
-        jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
+        jugador1 = (jugador_al2)FindFirstObjectByType(typeof(jugador_al2));
         manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         jugador1.explosion = explosion;
         if(GameObject.Find("muerteaudio") == true)

@@ -10,7 +10,7 @@ public class presentacion_al1 : MonoBehaviour
 
     public float temp = 0;
     public Text[] botones = new Text[2];
-
+    public Text[] slotname = new Text[6];
     public AudioSource st;
     public Text pres;
     public Text ad;
@@ -74,6 +74,7 @@ public class presentacion_al1 : MonoBehaviour
             botones[1].text = "Borrar";
             botones[2].text = "Volver";
             botones[3].text = "nombre...";
+            
         }
         
         
@@ -454,6 +455,26 @@ public class presentacion_al1 : MonoBehaviour
             menu_a.SetInteger("modo",2);
             eventslot.SetActive(true);
             temp = -1;
+
+            slotname[0].text = "vacio";
+            slotname[1].text = "vacio";
+            slotname[2].text = "vacio";
+            slotname[3].text = "vacio";
+            slotname[4].text = "vacio";
+            slotname[5].text = "vacio";
+            manager.cargarallslots();
+            if(manager.datosserialallslots[0].datos_llenos == true)
+            {
+                slotname[0].text = manager.datosserialallslots[0].nameCH[0];
+            }
+            if(manager.datosserialallslots[1].datos_llenos == true)
+            {
+                slotname[1].text = manager.datosserialallslots[1].nameCH[1];
+            }
+            if(manager.datosserialallslots[2].datos_llenos == true)
+            {
+                slotname[2].text = manager.datosserialallslots[2].nameCH[2];
+            }
         }
     }
 	public void opciones()

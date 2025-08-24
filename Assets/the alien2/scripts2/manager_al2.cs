@@ -69,9 +69,44 @@ public class manager_al2 : MonoBehaviour
 	public string repathtro;
 	public string repathslot;
 
-	public jugador1_al2 jugador1;
+	public datos2[] datosserialallslots = new datos2[6];
+	public string[] repathallslots = new string[6];
+
+	public jugador_al2 jugador1;
 	public jugador2_al2 jugador2;
 	public AudioMixer audiomixer;
+
+
+		public void GetFilePathallslots(int slot)
+    {
+        string result;
+
+    	result = Path.Combine(Application.persistentDataPath,"AlienData");
+        repathallslots[slot] = Path.Combine(result, $"alien2data"+(slot-1).ToString()+".data");
+
+		#if UNITY_EDITOR
+    	result = Path.Combine(Application.persistentDataPath,"AlienDatadev");
+       	repathallslots[slot] = Path.Combine(result, $"alien2data"+(slot-1).ToString()+".data");
+		#endif
+ 
+        if(File.Exists(repathallslots[slot]))
+        {
+            string datosall = File.ReadAllText(repathallslots[slot]);
+            datosserialallslots[slot] = JsonUtility.FromJson<datos2>(datosall);
+        }
+    }
+
+	public void cargarallslots()
+    {
+        GetFilePathallslots(0);
+		GetFilePathallslots(1);
+		GetFilePathallslots(2);
+		GetFilePathallslots(3);
+		GetFilePathallslots(4);
+		GetFilePathallslots(5);       
+    }
+
+
 	public void move()
 	{
 		moveson.Play();
@@ -128,10 +163,10 @@ public class manager_al2 : MonoBehaviour
         string result;
  
 		result = Path.Combine(Application.persistentDataPath,"AlienData");
-        result = Path.Combine(result, $"alien2data.data");
+        result = Path.Combine(result, $"alien2data"+datosslot.datos2slot+".data");
 		#if UNITY_EDITOR
     	result = Path.Combine(Application.persistentDataPath,"AlienDatadev");
-        result = Path.Combine(result, $"alien2data.data");
+        result = Path.Combine(result, $"alien2data"+datosslot.datos2slot+".data");
 		#endif	
  
         repath = result;
@@ -293,7 +328,7 @@ public class manager_al2 : MonoBehaviour
 		audiomixer.SetFloat ("SFXVolume",datosconfig.sfx);
 		audiomixer.SetFloat ("UIVolume",datosconfig.ui);
 
-		jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
+		jugador1 = (jugador_al2)FindFirstObjectByType(typeof(jugador_al2));
 		jugador2 = (jugador2_al2)FindFirstObjectByType(typeof(jugador2_al2));
 
 		if(datosserial.mejora1c == 0 && datosserial.llaves == 4 && datosserial.tengosaltod == 0)

@@ -23,7 +23,7 @@ public class inicio0base : MonoBehaviour
 		
 		manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
 
-		manager.datosconfig.sysidi = SystemLanguage.Spanish;
+		manager.datosconfig.sysidi = SystemLanguage.English;
 		manager.datosconfig.carga = "";
         manager.guardar();
 

@@ -39,14 +39,14 @@ public class menures_al2 : MonoBehaviour
     public bool torre;
     public GameObject respawnp;
     public GameObject interfaz;
-    public jugador1_al2 jugador;
+    public jugador_al2 jugador;
     public AudioSource musica_muerte; 
     public AudioSource ambiente_muerte; 
     public AudioSource musica; 
     // Start is called before the first frame update
     void Start()
     {
-        jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
+        jugador = (jugador_al2)FindFirstObjectByType(typeof(jugador_al2));
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));

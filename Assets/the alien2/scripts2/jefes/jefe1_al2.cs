@@ -52,7 +52,7 @@ public class jefe1_al2 : MonoBehaviour
         }
 		if (col.gameObject.tag == "portal")
         {
-			jugador1_al2 jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
+			jugador_al2 jugador = (jugador_al2)FindFirstObjectByType(typeof(jugador_al2));
          	jugador.muerte = true;
 			
         }

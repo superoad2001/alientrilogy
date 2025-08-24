@@ -34,7 +34,7 @@ public class pausa_al2 : MonoBehaviour
     public GameObject normal;
     public GameObject opciones1;
     public AudioMixer audiomixer;
-    public jugador1_al2 jugador1;
+    public jugador_al2 jugador1;
     public jugador2_al2 jugador2;
     public Transform hip1;
     public Transform hip2;
@@ -42,7 +42,7 @@ public class pausa_al2 : MonoBehaviour
     void Start()
     {
         manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
-        jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
+        jugador1 = (jugador_al2)FindFirstObjectByType(typeof(jugador_al2));
         jugador2 = (jugador2_al2)FindFirstObjectByType(typeof(jugador2_al2));
     }
 

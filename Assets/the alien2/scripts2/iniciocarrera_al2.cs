@@ -11,7 +11,7 @@ public class iniciocarrera_al2 : MonoBehaviour
 	public manager_al2 manager;
     public GameObject interfaz;
     public GameObject imagen;
-    public jugador1_al2 jugador;
+    public jugador_al2 jugador;
     public jefe4_al2 enemigo;
     public Text cont;
     public float temp;

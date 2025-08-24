@@ -81,8 +81,7 @@ public class jugador2_al2 : MonoBehaviour
     public float rbc;
     public float lbc;
     public manager_al2 manager;
-    public jugador1_al2 jugador1;
-    public jugador1_al2 jugador;
+    public jugador_al2 jugador;
     public GameObject muertesaudio;
     public AudioSource muertes;
     // Start is called before the first frame update
@@ -91,7 +90,7 @@ public class jugador2_al2 : MonoBehaviour
         if(camara != null)
         {cameraverticalangle2 = camara.transform.eulerAngles.y;}
         manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
-        jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
+        jugador = (jugador_al2)FindFirstObjectByType(typeof(jugador_al2));
         if(GameObject.Find("muerteaudio") == true)
 		{muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();}
 
@@ -245,7 +244,7 @@ public class jugador2_al2 : MonoBehaviour
                 }
                 if(nc > 0f && tempboton > 0.5f)
                 {
-                    jugador1.tempboton = 0;
+                    jugador.tempboton = 0;
                     tempboton = 0;
                     manager.personaje = 1;
                 }
@@ -475,7 +474,7 @@ public class jugador2_al2 : MonoBehaviour
 
         if (col.gameObject.tag == "pisar")
 		{
-            GameObject explosiont = Instantiate(jugador1.explosion, col.transform.position,col.transform.rotation) as GameObject;
+            GameObject explosiont = Instantiate(jugador.explosion, col.transform.position,col.transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
             Destroy(col.transform.parent.gameObject);
             manager.datosserial.enemigos_muertos++;
@@ -484,7 +483,7 @@ public class jugador2_al2 : MonoBehaviour
 		}
         if (col.gameObject.tag == "pisar2")
 		{
-            GameObject explosiont = Instantiate(jugador1.explosion, col.transform.position,col.transform.rotation) as GameObject;
+            GameObject explosiont = Instantiate(jugador.explosion, col.transform.position,col.transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
             Destroy(transform.parent.gameObject);
             manager.datosserial.enemigos_muertos++;
@@ -493,7 +492,7 @@ public class jugador2_al2 : MonoBehaviour
 		}
         if (col.gameObject.tag == "enemigo")
 		{
-            GameObject explosiont = Instantiate(jugador1.explosion, col.transform.position,col.transform.rotation) as GameObject;
+            GameObject explosiont = Instantiate(jugador.explosion, col.transform.position,col.transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
             audio2.Play();
             Destroy(col.gameObject);
@@ -528,7 +527,7 @@ public class jugador2_al2 : MonoBehaviour
 		}
         if (col.gameObject.tag == "enemigo")
 		{
-            GameObject explosiont = Instantiate(jugador1.explosion, col.transform.position,col.transform.rotation) as GameObject;
+            GameObject explosiont = Instantiate(jugador.explosion, col.transform.position,col.transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
             audio2.Play();
             Destroy(col.gameObject);

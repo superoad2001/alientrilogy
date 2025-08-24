@@ -22,7 +22,7 @@ public class mon_velocidad_al2 : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			jugador1_al2 jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
+			jugador_al2 jugador = (jugador_al2)FindFirstObjectByType(typeof(jugador_al2));
 			jugador.velocidad = jugador.velocidadaux;
 			jugador.velozidad();
 			jugador.velocidad = this.velocidadmaxima;

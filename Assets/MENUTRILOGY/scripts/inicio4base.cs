@@ -250,7 +250,7 @@ public class inicio4base : MonoBehaviour
 			manager.datosconfig.idioma = "es";
 			manager.datosconfig.postpro = 1;
 			manager.datosconfig.distancia = 3000;
-			sysidi = SystemLanguage.Spanish;
+			sysidi = SystemLanguage.English;
 			manager.datosconfig.lastgame = 0;
 			}
 			
@@ -345,7 +345,7 @@ public class inicio4base : MonoBehaviour
 	public void idi_es()
     {
 		idioma = "es";
-		sysidi = SystemLanguage.Spanish;
+		sysidi = SystemLanguage.English;
 	}
 	public void aplicaresolucion()
     {

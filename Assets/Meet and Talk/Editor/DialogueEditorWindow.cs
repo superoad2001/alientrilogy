@@ -17,7 +17,7 @@ namespace MeetAndTalk.Editor
         private DialogueGraphView graphView;
         private DialogueSaveAndLoad saveAndLoad;
 
-        private LocalizationEnum languageEnum = LocalizationEnum.Spanish;
+        private LocalizationEnum languageEnum = LocalizationEnum.English;
         private Label nameOfDialogueContainer;
         private ToolbarMenu toolbarMenu;
         private ToolbarMenu toolbarTheme;
@@ -474,7 +474,7 @@ namespace MeetAndTalk.Editor
         {
             if (currentDialogueContainer != null && !Application.isPlaying)
             {
-                Language(LocalizationEnum.Spanish, toolbarMenu);
+                Language(LocalizationEnum.English, toolbarMenu);
                 ChangeTheme(Resources.Load<MeetAndTalkSettings>("MeetAndTalkSettings").Theme, toolbarTheme);
                 nameOfDialogueContainer.text = "" + currentDialogueContainer.name;
                 saveAndLoad.Load(currentDialogueContainer);

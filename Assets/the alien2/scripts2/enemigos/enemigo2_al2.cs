@@ -22,13 +22,13 @@ public class enemigo2_al2: MonoBehaviour
     public float temp;
     public Animator anim;
     public GameObject explosion;
-    public jugador1_al2 jugador1;
+    public jugador_al2 jugador1;
     public AudioSource muertes;
     public GameObject muertesaudio;
     // Start is called before the first frame update
     void Start()
     {
-        jugador1 = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
+        jugador1 = (jugador_al2)FindFirstObjectByType(typeof(jugador_al2));
         jugador1.explosion = explosion;
         muertesaudio = GameObject.Find("muerteaudio");
         muertes = muertesaudio.GetComponent<AudioSource>();

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class jugador1_al2 : MonoBehaviour
+public class jugador1aa_al2 : MonoBehaviour
 {
     private Controles controles;
     public GameObject respawnm;

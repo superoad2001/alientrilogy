@@ -89,6 +89,9 @@ public class manager_al1 : MonoBehaviour
 	public string repathtro;
 	public string repathslot;
 
+	public datos1[] datosserialallslots;
+	public string[] repathallslots = new string[6];
+
 	public AudioSource moveson;
 	public string mision;
 	public string mision2;
@@ -168,7 +171,34 @@ public class manager_al1 : MonoBehaviour
         
     }
 
+	public void GetFilePathallslots(int slot)
+    {
+        string result;
 
+    	result = Path.Combine(Application.persistentDataPath,"AlienData");
+        repathallslots[slot] = Path.Combine(result, $"alien1data"+(slot-1).ToString()+".data");
+
+		#if UNITY_EDITOR
+    	result = Path.Combine(Application.persistentDataPath,"AlienDatadev");
+       	repathallslots[slot] = Path.Combine(result, $"alien1data"+(slot-1).ToString()+".data");
+		#endif
+ 
+        if(File.Exists(repathallslots[slot]))
+        {
+            string datosall = File.ReadAllText(repathallslots[slot]);
+            datosserialallslots[slot] = JsonUtility.FromJson<datos1>(datosall);
+        }
+    }
+
+	public void cargarallslots()
+    {
+        GetFilePathallslots(0);
+		GetFilePathallslots(1);
+		GetFilePathallslots(2);
+		GetFilePathallslots(3);
+		GetFilePathallslots(4);
+		GetFilePathallslots(5);       
+    }
 
 
 

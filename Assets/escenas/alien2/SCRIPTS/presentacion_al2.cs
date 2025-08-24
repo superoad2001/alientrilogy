@@ -27,7 +27,7 @@ public class presentacion_al2 : MonoBehaviour
     public Animator cam_a;
     public Animator pres_a;
     public bool sobre_esc;
-
+     public Text[] slotname = new Text[6];
     public Animator menu_a;
     public AudioSource mus_pres;
     public AudioSource mus_menu;
@@ -142,6 +142,8 @@ public class presentacion_al2 : MonoBehaviour
         pres_ui.SetActive(false);
         pres_ui2.SetActive(false);
         menu_ui.SetActive(true);
+        mus_pres.Stop();
+        mus_menu.Play();
         temp = 0;
 
     }
@@ -454,6 +456,27 @@ public class presentacion_al2 : MonoBehaviour
             menu_a.SetInteger("modo",2);
             eventslot.SetActive(true);
             temp = -1;
+
+
+            slotname[0].text = "vacio";
+            slotname[1].text = "vacio";
+            slotname[2].text = "vacio";
+            slotname[3].text = "vacio";
+            slotname[4].text = "vacio";
+            slotname[5].text = "vacio";
+            manager.cargarallslots();
+            if(manager.datosserialallslots[0].datos_llenos == true)
+            {
+                slotname[0].text = manager.datosserialallslots[0].nameCH[0];
+            }
+            if(manager.datosserialallslots[1].datos_llenos == true)
+            {
+                slotname[1].text = manager.datosserialallslots[1].nameCH[1];
+            }
+            if(manager.datosserialallslots[2].datos_llenos == true)
+            {
+                slotname[2].text = manager.datosserialallslots[2].nameCH[2];
+            }
         }
     }
 	public void opciones()

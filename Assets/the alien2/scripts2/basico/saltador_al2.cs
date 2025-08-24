@@ -5,12 +5,12 @@ using UnityEngine;
 public class saltador_al2 : MonoBehaviour
 {
 	public manager_al2 manager;
-	public jugador1_al2 jugador;
+	public jugador_al2 jugador;
 	public pushup push;
 	// Token: 0x06000034 RID: 52 RVA: 0x00003A23 File Offset: 0x00001C23
 	private void Start()
 	{
-		jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
+		jugador = (jugador_al2)FindFirstObjectByType(typeof(jugador_al2));
 		push = (pushup)FindFirstObjectByType(typeof(pushup));
 		manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 	}
@@ -40,7 +40,6 @@ public class saltador_al2 : MonoBehaviour
 	}
 	private void OnTriggerExit(Collider col)
 	{
-		jugador1_al2 jugador = (jugador1_al2)FindFirstObjectByType(typeof(jugador1_al2));
 		if (col.gameObject.tag == "Player")
 		{
 				jugador.saltador = false;

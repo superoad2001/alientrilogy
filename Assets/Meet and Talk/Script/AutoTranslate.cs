@@ -50,7 +50,7 @@ public class AutoTranslate : MonoBehaviour
     private static void TranslateTextList(List<LanguageGeneric<string>> textList, string apiKey, bool isGoogle)
     {
         // Znajd� tekst angielski
-        var englishText = textList.Find(t => t.languageEnum == LocalizationEnum.Spanish)?.LanguageGenericType;
+        var englishText = textList.Find(t => t.languageEnum == LocalizationEnum.English)?.LanguageGenericType;
         if (string.IsNullOrEmpty(englishText))
         {
             Debug.LogWarning("No English text found for translation.");
@@ -60,7 +60,7 @@ public class AutoTranslate : MonoBehaviour
         foreach (var text in textList)
         {
             // Je�li pole w innym j�zyku jest ju� wype�nione, pomi� t�umaczenie
-            if (text.languageEnum != LocalizationEnum.Spanish && string.IsNullOrEmpty(text.LanguageGenericType))
+            if (text.languageEnum != LocalizationEnum.English && string.IsNullOrEmpty(text.LanguageGenericType))
             {
                 if (isGoogle) text.LanguageGenericType = TranslateTextWithGoogle(englishText, text.languageEnum.ToString(), apiKey);
                 else text.LanguageGenericType = TranslateTextWithDeepL(englishText, text.languageEnum.ToString(), apiKey);
