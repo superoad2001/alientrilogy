@@ -31,6 +31,7 @@ public class manualtut_al1 : MonoBehaviour
     {
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         jugador = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+        eventos[0].SetActive(true);
         index = 1;
         pos = player.transform.position;
         rot = player.transform.eulerAngles;
@@ -157,4 +158,5 @@ public class manualtut_al1 : MonoBehaviour
             manager.datosserial.nivelexp = 0;
         }
     }
+
 }

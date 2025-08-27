@@ -31,11 +31,10 @@ public class eventosdialogue : MonoBehaviour
             jug = true;
         }
     }
-    public void OnTriggerStay(Collider col)
+    public void LateOnTriggerStay(Collider col)
     {
         if (col.gameObject.tag == "Player")
         {
-            jugador._rb.linearVelocity = Vector3.zero;
             jugador.controlact = false;
             jug = true;
         }

@@ -24,9 +24,7 @@ public class cambia_nombre : MonoBehaviour
             manager3 = (manager_al3)FindFirstObjectByType(typeof(manager_al3));
         }
     }
-
-    // Update is called once per frame
-    void Update()
+    public void cambio()
     {
         if(manager1 != null)
         {
@@ -43,6 +41,12 @@ public class cambia_nombre : MonoBehaviour
         {   
 
         }
+    }
+
+    // Update is called once per frame
+    void LateUpdate()
+    {
+        cambio();
         
 
     }

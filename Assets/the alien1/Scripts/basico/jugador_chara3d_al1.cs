@@ -3753,7 +3753,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			dialogueact = false;
 			manager.controlene = true;
 		}
-		if (col.gameObject.tag == "evento" && static_ev && eventosdialogueE != null)
+		if (col.gameObject.tag == "evento" && eventosdialogueE != null)
 		{
 			if(eventosdialogueE.jug == true)
 			{
@@ -3761,20 +3761,6 @@ public class jugador_chara3d_al1 : jugador_al1
 				if(menuoff != null)
 				{
 				menuoff.MainUI.gameObject.SetActive(false);
-				}
-				dialogueact = false;
-			}
-		}
-		else if (col.gameObject.tag == "evento" && eventosdialogueE != null)
-		{
-			if(eventosdialogueE.jug == true)
-			{
-				menushow.SetBool("show",false);
-				if(menuoff != null)
-				{
-				menuoff.MainUI.gameObject.SetActive(false);
-				controlact = true;
-				manager.controlene = true;
 				}
 				dialogueact = false;
 			}

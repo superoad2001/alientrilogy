@@ -30,7 +30,7 @@ public abstract class jugador_al1 : MonoBehaviour
 	public AudioSource musicaC;
 	public AudioSource musicanoC;
 	public AudioSource combini;
-	[HideInInspector]public bool static_ev = false;
+	public bool static_ev = false;
 	[HideInInspector]public int toquespalo;
 	public tutorialbase_al1 eventotut;
 	[HideInInspector]public float velrecextra = 1;
