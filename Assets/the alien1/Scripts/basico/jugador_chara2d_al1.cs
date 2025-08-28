@@ -119,6 +119,7 @@ public class jugador_chara2d_al1 : jugador_al1
 	public AudioSource disp;
 	public AudioSource disprel;
 	public AudioSource dispdef;
+	public bool movPH;
 	public GameObject giro;
 	public Image barraarmaimgnv1;
 	public Image barraarmaimgnv2;
@@ -499,12 +500,67 @@ public class jugador_chara2d_al1 : jugador_al1
 		
 	}
 	
-	private void fixedUpdate()
+	private void FixedUpdate()
 	{
 		if (enemigosEnContacto.Count == 0)
 		{
 			peligro = false;
 		}
+
+		if(movact == 0 && controlact == true && movPH == true)
+		{
+			float verticalVel = _rb.linearVelocity.y;
+
+			Vector3 movdirnow = (transform.TransformDirection(new Vector3 (-movXc,0,0).normalized)) * velocidad;
+			
+
+			Vector3 moveDir =  movdirnow;
+
+            // Raycast para detectar colisión en la dirección del movimiento
+            if (Physics.Raycast(transform.position + new Vector3(0,1.5f,0),moveDir, out RaycastHit hit,Mathf.Infinity))
+            {
+				Debug.DrawRay(transform.position + new Vector3(0,1.5f,0),moveDir * 300, Color.yellow);
+				if(hit.distance < 2)
+                {moveDir = new Vector3(0,0,0);}
+               
+            }
+			else
+			{
+				Debug.DrawRay(transform.position + new Vector3(0,1.5f,0),moveDir * 300, Color.red);
+			}
+			if (Physics.Raycast(transform.position + new Vector3(0,-1.5f,0),moveDir, out RaycastHit hit2, Mathf.Infinity))
+            {
+				Debug.DrawRay(transform.position + new Vector3(0,-1.5f,0),moveDir * 300, Color.yellow);
+				if(hit2.distance < 2)
+                {moveDir = new Vector3(0,0,0);}
+            }
+			else
+			{
+				Debug.DrawRay(transform.position + new Vector3(0,-1.5f,0),moveDir * 300, Color.red);
+			}
+			if (Physics.Raycast(transform.position,moveDir, out RaycastHit hit3,Mathf.Infinity))
+            {
+				Debug.DrawRay(transform.position + new Vector3(0,0,0),moveDir * 300, Color.yellow);
+				if(hit3.distance < 2)
+                {moveDir = new Vector3(0,0,0);}
+            }
+			else
+			{
+				Debug.DrawRay(transform.position + new Vector3(0,0,0),moveDir * 300, Color.red);
+			}
+
+			
+			
+			
+			
+
+
+			_rb.linearVelocity = new Vector3(moveDir.x, verticalVel,moveDir.z);
+
+			
+
+		}
+
 	}
 	public void Update()
 	{
@@ -674,6 +730,11 @@ public class jugador_chara2d_al1 : jugador_al1
 				movYc = controles.al1_2d.mov.ReadValue<Vector2>().y;
 
 			}
+			else
+			{
+				movXc = 0;
+				movYc = 0;
+			}
 
 		
 
@@ -739,6 +800,9 @@ public class jugador_chara2d_al1 : jugador_al1
 		
 		camXc = controles.al1_2d.camX.ReadValue<float>();
 		camYc = controles.al1_2d.camY.ReadValue<float>();
+		movXc = 0;
+		movYc = 0;
+			
 
 	}
 			if(papaagotada == true && temppaparec > 10)
@@ -1644,6 +1708,7 @@ public class jugador_chara2d_al1 : jugador_al1
 
 				if (objplaneta != null && tiempogiro2 > 1.5f)
 				{
+					movPH = false;
 					transform.eulerAngles = new Vector3(transform.eulerAngles.x,90,transform.eulerAngles.z);					
 					// Calcular la dirección de movimiento basada en la orientación del jugador
 					Vector3 direccionDerecha = Vector3.Cross(transform.up, transform.forward).normalized;
@@ -1731,23 +1796,18 @@ public class jugador_chara2d_al1 : jugador_al1
 
 					jugadorEntrando = true;
 					// Mantener el movimiento horizontal y la velocidad vertical
+					movPH = true;
+
 					
 
-					RaycastHit hit3;
-
-					Vector3 moveDir = new Vector3(0, 0, movXc );
-
-					if (Physics.Raycast(transform.position, Vector3.down, out hit3, 1.1f))
-					{
-						// Proyecta el movimiento sobre el plano de la pendiente
-						moveDir = Vector3.ProjectOnPlane(moveDir, hit3.normal);
-					}
-
-					_rb.linearVelocity = moveDir * velocidad + new Vector3(0f, _rb.linearVelocity.y,0);
 					
 					// Volver gradualmente a la rotación normal (gravedad hacia abajo)
 					Quaternion rotacionNormal = Quaternion.Euler(0, 90, 0);
 					transform.rotation = Quaternion.Slerp(transform.rotation, rotacionNormal, Time.fixedDeltaTime * 3f);
+				}
+				else
+				{
+					movPH = false;
 				}
 
 			
@@ -1829,6 +1889,7 @@ public class jugador_chara2d_al1 : jugador_al1
 			Vector3 movdirnow = transform.TransformDirection(new Vector3 (-movXc,0, 0)).normalized;
 				if (objplaneta != null && tiempogiro2 > 1.5f)
 				{
+					movPH = false;
 					transform.eulerAngles = new Vector3(transform.eulerAngles.x,0,transform.eulerAngles.z);		
 					// Calcular la dirección de movimiento basada en la orientación del jugador
 					Vector3 direccionDerecha = Vector3.Cross(transform.up, transform.forward).normalized;
@@ -1905,18 +1966,7 @@ public class jugador_chara2d_al1 : jugador_al1
 				}
 				else if (tiempogiro2 > 1.5f)
 				{
-
-					RaycastHit hit3;
-
-					Vector3 moveDir = new Vector3(-movXc ,0,0);
-
-					if (Physics.Raycast(transform.position, Vector3.down, out hit3, 1.1f))
-					{
-						// Proyecta el movimiento sobre el plano de la pendiente
-						moveDir = Vector3.ProjectOnPlane(moveDir, hit3.normal);
-					}
-
-					_rb.linearVelocity = moveDir * velocidad + new Vector3(0f, _rb.linearVelocity.y,0);
+					movPH = true;
 
 					if (movXc > 0f )
 					{
@@ -1930,6 +1980,10 @@ public class jugador_chara2d_al1 : jugador_al1
 					// Volver gradualmente a la rotación normal (gravedad hacia abajo)
 					Quaternion rotacionNormal = Quaternion.Euler(0, 0, 0);
 					transform.rotation = Quaternion.Slerp(transform.rotation, rotacionNormal, Time.fixedDeltaTime * 3f);
+				}
+				else
+				{
+					movPH = false;
 				}
 				
 
@@ -3108,8 +3162,7 @@ public class jugador_chara2d_al1 : jugador_al1
 			anim.SetBool("stat",true);
 		}
 
-		movXc = 0;
-		movYc = 0;
+		
 
 
 		camXc = 0;

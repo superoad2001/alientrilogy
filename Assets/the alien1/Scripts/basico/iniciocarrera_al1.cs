@@ -4,7 +4,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEditor;
 using System.IO;
-using System;
 
 public class iniciocarrera_al1 : MonoBehaviour
 {

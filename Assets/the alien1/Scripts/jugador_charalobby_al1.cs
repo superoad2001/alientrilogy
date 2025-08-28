@@ -59,6 +59,7 @@ public class jugador_charalobby_al1 : jugador_al1
 	public AudioSource golpeson;
 	public AudioSource lanzarson;
 	private bool papaagotada;
+	public bool movPH;
 	public bool ascact;
 	public Text comando;
 	private int randompaso;
@@ -384,11 +385,64 @@ public class jugador_charalobby_al1 : jugador_al1
 		}
 	}
 	
-	private void fixedUpdate()
+	private void FixedUpdate()
 	{
 		if (enemigosEnContacto.Count == 0)
 		{
 			peligro = false;
+		}
+
+		if(movact == 0 && controlact == true && movPH == true)
+		{
+			float verticalVel = _rb.linearVelocity.y;
+
+			Vector3 movdirnow = (transform.TransformDirection(new Vector3 (movXc,0, movYc).normalized)) * velocidad;
+
+			Vector3 moveDir =  movdirnow;
+
+            // Raycast para detectar colisión en la dirección del movimiento
+            if (Physics.Raycast(transform.position + new Vector3(0,1.5f,0),moveDir, out RaycastHit hit,Mathf.Infinity))
+            {
+				Debug.DrawRay(transform.position + new Vector3(0,1.5f,0),moveDir * 300, Color.yellow);
+				if(hit.distance < 1)
+                {moveDir = new Vector3(0,0,0);}
+               
+            }
+			else
+			{
+				Debug.DrawRay(transform.position + new Vector3(0,1.5f,0),moveDir * 300, Color.red);
+			}
+			if (Physics.Raycast(transform.position + new Vector3(0,-1.5f,0),moveDir, out RaycastHit hit2, Mathf.Infinity))
+            {
+				Debug.DrawRay(transform.position + new Vector3(0,-1.5f,0),moveDir * 300, Color.yellow);
+				if(hit2.distance < 1)
+                {moveDir = new Vector3(0,0,0);}
+            }
+			else
+			{
+				Debug.DrawRay(transform.position + new Vector3(0,-1.5f,0),moveDir * 300, Color.red);
+			}
+			if (Physics.Raycast(transform.position,moveDir, out RaycastHit hit3,Mathf.Infinity))
+            {
+				Debug.DrawRay(transform.position + new Vector3(0,0,0),moveDir * 300, Color.yellow);
+				if(hit3.distance < 1)
+                {moveDir = new Vector3(0,0,0);}
+            }
+			else
+			{
+				Debug.DrawRay(transform.position + new Vector3(0,0,0),moveDir * 300, Color.red);
+			}
+
+			
+			
+			
+			
+
+
+			_rb.linearVelocity = new Vector3(moveDir.x, verticalVel,moveDir.z);
+
+			
+
 		}
 	}
 	public void Update()
@@ -497,6 +551,11 @@ public class jugador_charalobby_al1 : jugador_al1
 				movXc = controles.al1_3d.mov.ReadValue<Vector2>().x;
 				movYc = controles.al1_3d.mov.ReadValue<Vector2>().y;
 			}
+			else
+			{
+				movXc = 0;
+				movYc = 0;
+			}
 
 		
 
@@ -562,6 +621,8 @@ public class jugador_charalobby_al1 : jugador_al1
 		
 		camXc = controles.al1_3d.camX.ReadValue<float>();
 		camYc = controles.al1_3d.camY.ReadValue<float>();
+		movXc = 0;
+		movYc = 0;
 		
 	}
 	if(tiempoascensor > 1.7f && punto != null)
@@ -785,7 +846,7 @@ public class jugador_charalobby_al1 : jugador_al1
 				if(movXc != 0 || movYc != 0)
 				{
 					
-					_rb.linearVelocity = transform.TransformDirection(new Vector3(movdirnow.x * velocidad, _rb.linearVelocity.y, movdirnow.z * velocidad));
+					movPH = true;
 					
 					angulomod = Mathf.Atan2(movXc, movYc) * Mathf.Rad2Deg;
 					mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation, 
@@ -797,6 +858,10 @@ public class jugador_charalobby_al1 : jugador_al1
 					transform.rotation = Quaternion.Slerp(transform.rotation, 
 														Quaternion.Euler(0, camaraYRotation, 0),
 														1 * Time.deltaTime);
+				}
+				else
+				{
+					movPH = false;
 				}
 					
 				
@@ -2025,8 +2090,7 @@ public class jugador_charalobby_al1 : jugador_al1
 
 
 
-		movXc = 0;
-		movYc = 0;
+		
 
 
 		camXc = 0;

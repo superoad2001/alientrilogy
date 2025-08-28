@@ -6,10 +6,6 @@ using UnityEngine.SceneManagement;
 public class introcarga_al1 : MonoBehaviour
 {
     private Controles controles;
-    public AudioSource audio;
-    public AudioSource audioesp;
-    public AudioSource audioen;
-    public AudioSource audiocat;
 	public void Awake()
     {
         controles = new Controles();
@@ -29,19 +25,6 @@ public class introcarga_al1 : MonoBehaviour
     void Start()
     {
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
-        if(manager.datosconfig.idioma == "es")
-        {
-            audio = audioesp;
-        }
-        if(manager.datosconfig.idioma == "en")
-        {
-            audio = audioen;
-        }
-        if(manager.datosconfig.idioma == "cat")
-        {
-            audio = audiocat;
-        }
-        audio.Play();
     }
     public void act()
     {
@@ -51,12 +34,12 @@ public class introcarga_al1 : MonoBehaviour
     void Update()
     {
         temp += 1 * Time.deltaTime;
-        if(audio.isPlaying == false || controles.menu.saltar.ReadValue<float>() > 0)
+        if(GetComponent<AudioSource>().isPlaying == false || controles.menu.saltar.ReadValue<float>() > 0)
         {
             manager.datosconfig.carga = "menu_de_carga_al1";
             manager.guardarconfig();
             manager.guardar();
-				SceneManager.LoadScene("carga");
+			SceneManager.LoadScene("carga");
         }
     }
 }

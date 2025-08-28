@@ -11,7 +11,7 @@ using System.Linq;
 using System;
 
 // Token: 0x0200000A RID: 10
-public class jugador_chara3d_al2 : jugador_al1
+public class jugador_chara3d_al2 : jugador_al2
 {
 	
 	[Header("Propio 3D")]
@@ -638,7 +638,7 @@ public class jugador_chara3d_al2 : jugador_al1
 		vidaobj = Mathf.Lerp(vidaobj, vida, Time.deltaTime * 2f);
 		vidab.fillAmount = vidaobj/vidamax; 
 		vidat.text = "VIT:"+(int)vida+"/"+(int)vidamax;
-		niverlbarra.fillAmount = manager.datosserial.nivelexp/manager.datosserial.signivelexp; 
+		nivelbarra.fillAmount = manager.datosserial.nivelexp/manager.datosserial.signivelexp; 
 		niveluit.text = "LEVEL "+ manager.datosserial.niveljug;
 		staminabarra.fillAmount = staminaobj/staminamax;
 	

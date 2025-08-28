@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using MeetAndTalk.GlobalValue;
@@ -113,7 +112,7 @@ public abstract class jugador_al2 : MonoBehaviour
 	public float[] balareldano = new float[5];
 	public float tiempodisp2;
 	public Text niveluit;
-	public Image niverlbarra;
+	public Image nivelbarra;
 	public GameObject objetivotarget;
 	public Sprite nopimg;
 	public GameObject respawn;

@@ -76,6 +76,7 @@ public class jugador_chara3d_al1 : jugador_al1
 	public float tempdefrec = 60f; 
 	public float temprelrec = 40f; 
 	public float temppaparec = 20f; 
+	private float verticalVelocity;
 
 	public AudioSource pistolabueno;
 	public AudioSource pistolamalo;
@@ -86,7 +87,7 @@ public class jugador_chara3d_al1 : jugador_al1
 	public Text numpoc2t;
 	public Text numpoc3t;
 	public Text numpoc4t;
-
+	public bool movPH;
 
 	public Text vidat;
 	public Text comando;
@@ -495,12 +496,67 @@ public class jugador_chara3d_al1 : jugador_al1
 		
 	}
 	
-	private void fixedUpdate()
+	private void FixedUpdate()
 	{
 		if (enemigosEnContacto.Count == 0)
 		{
 			peligro = false;
 		}
+
+		if(movact == 0 && controlact == true && movPH == true)
+		{
+			float verticalVel = _rb.linearVelocity.y;
+
+			Vector3 movdirnow = (transform.TransformDirection(new Vector3 (movXc,0, movYc).normalized)) * velocidad;
+
+			Vector3 moveDir =  movdirnow;
+
+            // Raycast para detectar colisión en la dirección del movimiento
+            if (Physics.Raycast(transform.position + new Vector3(0,1.5f,0),moveDir, out RaycastHit hit,Mathf.Infinity))
+            {
+				Debug.DrawRay(transform.position + new Vector3(0,1.5f,0),moveDir * 300, Color.yellow);
+				if(hit.distance < 2)
+                {moveDir = new Vector3(0,0,0);}
+               
+            }
+			else
+			{
+				Debug.DrawRay(transform.position + new Vector3(0,1.5f,0),moveDir * 300, Color.red);
+			}
+			if (Physics.Raycast(transform.position + new Vector3(0,-1.5f,0),moveDir, out RaycastHit hit2, Mathf.Infinity))
+            {
+				Debug.DrawRay(transform.position + new Vector3(0,-1.5f,0),moveDir * 300, Color.yellow);
+				if(hit2.distance < 2)
+                {moveDir = new Vector3(0,0,0);}
+            }
+			else
+			{
+				Debug.DrawRay(transform.position + new Vector3(0,-1.5f,0),moveDir * 300, Color.red);
+			}
+			if (Physics.Raycast(transform.position,moveDir, out RaycastHit hit3,Mathf.Infinity))
+            {
+				Debug.DrawRay(transform.position + new Vector3(0,0,0),moveDir * 300, Color.yellow);
+				if(hit3.distance < 2)
+                {moveDir = new Vector3(0,0,0);}
+            }
+			else
+			{
+				Debug.DrawRay(transform.position + new Vector3(0,0,0),moveDir * 300, Color.red);
+			}
+
+			
+			
+			
+			
+
+
+			_rb.linearVelocity = new Vector3(moveDir.x, verticalVel,moveDir.z);
+
+			
+
+		}
+
+		
 	}
 	private void Update()
 	{
@@ -521,11 +577,16 @@ public class jugador_chara3d_al1 : jugador_al1
 		{
 			critico.Pause();
 		}
-
-		if(vida < ((vidamax/100)* 30))
+		float porcentaje = (vida * 100.0f) / vidamax;
+		if (porcentaje <= 30)
 		{
-            colorC = ((((vidamax/100)* 30) - (((vida/vidamax))) * 100))/300*4;
-        }
+			float x_min = 5.0f;
+			float x_max = 30.0f;
+			float y_min = 0.5f;
+			float y_max = 0.1f;
+
+			colorC = y_min + ((porcentaje - x_min) / (x_max - x_min)) * (y_max - y_min);
+		}
         else
         {
             colorC = 0;
@@ -670,6 +731,12 @@ public class jugador_chara3d_al1 : jugador_al1
 				movYc = controles.al1_3d.mov.ReadValue<Vector2>().y;
 				saltarc = controles.al1_3d.saltar.ReadValue<float>();
 			}
+			else
+			{
+				movXc = 0;
+				movYc = 0;
+
+			}
 
 		
 
@@ -738,6 +805,9 @@ public class jugador_chara3d_al1 : jugador_al1
 		camYc = controles.al1_3d.camY.ReadValue<float>();
 		marcarc = controles.al1_3d.marcar.ReadValue<float>();
 		dispararc = controles.al1_3d.disparar.ReadValue<float>();
+		movXc = 0;
+		movYc = 0;
+
 		
 		
 	}
@@ -1889,6 +1959,7 @@ public class jugador_chara3d_al1 : jugador_al1
 
 					if (objplaneta != null)
 					{
+						movPH = false;
 						jugadorEntrando = true;
 						camarascript.maxdis = 40;
 						
@@ -2027,7 +2098,7 @@ public class jugador_chara3d_al1 : jugador_al1
 						if(movXc != 0 || movYc != 0)
 						{
 							// Movimiento normal cuando no está en modo planeta
-							_rb.linearVelocity = transform.TransformDirection(new Vector3(movdirnow.x * velocidad, _rb.linearVelocity.y, movdirnow.z * velocidad));
+							movPH = true;
 							
 							// Rotar el modelo en la dirección del movimiento
 							angulomod = Mathf.Atan2(movXc, movYc) * Mathf.Rad2Deg;
@@ -2040,6 +2111,10 @@ public class jugador_chara3d_al1 : jugador_al1
 							transform.rotation = Quaternion.Slerp(transform.rotation, 
 																Quaternion.Euler(0, camaraYRotation, 0),
 																1 * Time.deltaTime);
+						}
+						else
+						{
+							movPH = false;
 						}
 						
 						// Gradualmente volver a la rotación normal cuando no está en modo planeta
@@ -2195,7 +2270,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					if(movXc != 0 || movYc != 0)
 					{
 
-						_rb.linearVelocity = transform.TransformDirection(new Vector3 (movdirnow.x * velocidad,_rb.linearVelocity.y,movdirnow.z * velocidad));
+						movPH = true;
 
 						angulomod =  Mathf.Atan2(movXc,movYc)* Mathf.Rad2Deg;
 
@@ -2208,9 +2283,14 @@ public class jugador_chara3d_al1 : jugador_al1
 						{
 							mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(mod.transform.localEulerAngles.x,0,mod.transform.localEulerAngles.z),10* Time.deltaTime);
 						}
+						
 
 						
 						
+					}
+					else
+					{
+						movPH = false;
 					}
 					movdire = transform.TransformDirection(movdirnow * velocidad);
 					float distaxe = movdire.magnitude * Time.fixedDeltaTime;
@@ -3302,9 +3382,7 @@ public class jugador_chara3d_al1 : jugador_al1
 
 
 
-		movXc = 0;
-		movYc = 0;
-
+		
 
 		camXc = 0;
 		camYc = 0;
@@ -3366,6 +3444,9 @@ public class jugador_chara3d_al1 : jugador_al1
 	// Token: 0x06000022 RID: 34 RVA: 0x000031C0 File Offset: 0x000013C0
 	private void OnCollisionStay(Collision col)
 	{
+
+		
+
 
 		if (col.gameObject.tag == "suelo")
 		{

@@ -99,6 +99,7 @@ public class jugador_coche_al1 : jugador_al1
 
 
 
+
 	public void Update()
 	{
 		pasosnave.Pause();
