@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 // Token: 0x0200000F RID: 15
-public class saltador_al2 : MonoBehaviour
+public class saltador1_al2 : MonoBehaviour
 {
 	public manager_al2 manager;
 	public jugador_al2 jugador;

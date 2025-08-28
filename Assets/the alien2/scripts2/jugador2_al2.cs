@@ -456,7 +456,7 @@ public class jugador2_al2 : MonoBehaviour
         {tiempovel += 1 * Time.deltaTime;}
         if (muerte == true)
         {
-            manager.datosserial.alien2muere = 1;
+            manager.datosserial.alien2muere = true;
             manager.guardar();
             manager.pause = true;
             respawnm.SetActive(true);
@@ -472,24 +472,6 @@ public class jugador2_al2 : MonoBehaviour
     private void OnTriggerEnter(Collider col)
 	{
 
-        if (col.gameObject.tag == "pisar")
-		{
-            GameObject explosiont = Instantiate(jugador.explosion, col.transform.position,col.transform.rotation) as GameObject;
-            Destroy(explosiont, 1f);
-            Destroy(col.transform.parent.gameObject);
-            manager.datosserial.enemigos_muertos++;
-            manager.guardar();
-            muertes.Play();
-		}
-        if (col.gameObject.tag == "pisar2")
-		{
-            GameObject explosiont = Instantiate(jugador.explosion, col.transform.position,col.transform.rotation) as GameObject;
-            Destroy(explosiont, 1f);
-            Destroy(transform.parent.gameObject);
-            manager.datosserial.enemigos_muertos++;
-            manager.guardar();
-            muertes.Play();
-		}
         if (col.gameObject.tag == "enemigo")
 		{
             GameObject explosiont = Instantiate(jugador.explosion, col.transform.position,col.transform.rotation) as GameObject;

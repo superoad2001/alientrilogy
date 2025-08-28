@@ -18,7 +18,11 @@ public class manager_al2 : MonoBehaviour
 	public int tuto = 0;
 	public int estado = 0;
 	public int menu = 0;
+	public bool pauseact;
+	public bool nivelact;
 	public int paginas;
+	public bool controlene;
+	public int misionS;
 
 	public AudioSource audio0;
 

@@ -2508,8 +2508,8 @@ public class jugador_chara3d_al1 : jugador_al1
 
 
 		
-		
-			this.tiemposalto -= Time.deltaTime;
+			if(tiemposalto > -15 && tiemposalto < 15 )
+			{this.tiemposalto -= Time.deltaTime;}
 			if (this.tiemposalto <= 0f && saltarc > 0f && dialogueact == false && temppause > 0.4f && objplaneta == null && tiempodialogue > 0.7f)
 			{
 					if(jumpforce == jumpforcebase)

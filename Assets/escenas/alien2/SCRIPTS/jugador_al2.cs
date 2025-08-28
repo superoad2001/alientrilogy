@@ -139,7 +139,7 @@ public abstract class jugador_al2 : MonoBehaviour
 	public Image iconodisp;
 	public misionA_al1 misionA;
 	public string modo;
-	public manager_al1 manager;
+	public manager_al2 manager;
 	public Animator ascensors;
 	public GameObject vidaenebarra;
 	public GameObject escudoenebarra;

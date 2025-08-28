@@ -23,13 +23,13 @@ public class respawn_al2 : MonoBehaviour
 		manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
 		if (col.gameObject.tag == "Player")
 		{
-			manager.datosserial.alien2muere = 1;
+			manager.datosserial.alien2muere = true;
             manager.guardar();
 			SceneManager.LoadScene("mundo_abierto_al2");
 		}
 		if (col.gameObject.tag == "Player2")
 		{
-			manager.datosserial.alien2muere = 1;
+			manager.datosserial.alien2muere = true;
             manager.guardar();
 			SceneManager.LoadScene("mundo_abierto_al2");
 		}

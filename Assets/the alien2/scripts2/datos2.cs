@@ -11,15 +11,19 @@ public class datos2
 
 	public bool datos_llenos;
 	public bool begin;
+	public int palosel;
 	public string nivelu;
-
+	public int armasel;
+	public int HabilidadesObtenidas;
 	public List<string> nameCH = new List<string>();
 
 	public int[] nivelarmasjug = new int [9];
+	public int[] nivelarmasexpjug = new int [9];
 	public int[] nivelarmasnave = new int [8];
 
 	public bool[] armasjug = new bool [9];
 	public bool[] armasnave = new bool [8];
+	public bool[] eventos = new bool[999];
 
 	public int[] misiones = new int[200];
     public int horas;
@@ -33,6 +37,10 @@ public class datos2
 	public int niveljug = 1;
 	public float nivelexp = 0;
 	public float signivelexp = 3;
+
+	public int[] licenciaarmas = new int[9];
+
+	public bool[] notas = new bool[20];
 	
 
 
@@ -59,13 +67,14 @@ public class datos2
 
     public int plat = 0;
 	public int inicio;
-
-	public int enemigos_muertos;
+	public int Logros;
+	public int asesinatos;
 	public int muertes;
 	public bool sala_secreta;
 	public bool final_alt;
 
 	public int tuto = 0;
+	public int JefesVen;
 	public int estado = 0;
 	public int menu = 0;
 
@@ -81,7 +90,7 @@ public class datos2
 	public int block5;
 	public int checkpoints;
 
-	public int alien2muere;
+	public bool alien2muere;
 
 	public int llaveN1;
 

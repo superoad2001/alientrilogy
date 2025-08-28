@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
-public class pausa_al2 : MonoBehaviour
+public class pausa2_al2 : MonoBehaviour
 {
 	public manager_al2 manager;
     public managerBASE manager2;

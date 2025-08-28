@@ -410,7 +410,7 @@ public class jugador1aa_al2 : MonoBehaviour
     {
         if(respawn == true)
         {
-            manager.datosserial.alien2muere = 1;
+            manager.datosserial.alien2muere = true;
             manager.guardar();
             if(manager.datosserial.respawntipo == 1 && manager.nivel == 0)
             {
@@ -3571,7 +3571,7 @@ public class jugador1aa_al2 : MonoBehaviour
         {invulc -= 1 * Time.deltaTime;}
         if (muerte == true)
         {
-            manager.datosserial.alien2muere = 1;
+            manager.datosserial.alien2muere = true;
             manager.guardar();
             if(manager.nivel == 26)
             {
@@ -3753,7 +3753,9 @@ public class jugador1aa_al2 : MonoBehaviour
             objeto = 1;
             anim.SetBool("salto",false);
 		}
-        if (col.gameObject.tag == "respawn" && manager.nivel != 0)
+
+        
+      /*  if (col.gameObject.tag == "respawn" && manager.nivel != 0)
 		{
 			muerte = true;
             manager.datosserial.muertes++;
@@ -3770,7 +3772,7 @@ public class jugador1aa_al2 : MonoBehaviour
 			muerte = true;
             manager.datosserial.muertes++;
             manager.guardar();
-		}
+		}*/
         if (col.gameObject.tag == "enemigo")
 		{
             GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
@@ -3958,24 +3960,6 @@ public class jugador1aa_al2 : MonoBehaviour
 		{
 			control = true;
             objeto = 1;
-		}
-        if (col.gameObject.tag == "pisar")
-		{
-            GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
-            Destroy(explosiont, 1f);
-            Destroy(col.transform.parent.gameObject);
-            manager.datosserial.enemigos_muertos++;
-            manager.guardar();
-            muertes.Play();
-		}
-        if (col.gameObject.tag == "pisar2")
-		{
-            GameObject explosiont = Instantiate(explosion, col.transform.position,col.transform.rotation) as GameObject;
-            Destroy(explosiont, 1f);
-            Destroy(transform.parent.gameObject);
-            manager.datosserial.enemigos_muertos++;
-            manager.guardar();
-            muertes.Play();
 		}
         if (col.gameObject.tag == "enemigo")
 		{

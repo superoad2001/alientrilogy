@@ -5,13 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
-public class menures2_al2 : MonoBehaviour
+public class menures_al2 : MonoBehaviour
 {
-    public AudioSource moves;
-    public void move()
-	{
-		moves.Play();
-	}
     public int plataforma;
     private Controles controles;
 	public void Awake()
@@ -36,13 +31,21 @@ public class menures2_al2 : MonoBehaviour
     public AudioMixer audiomixer;
     public manager_al2 manager;
     public Scene escena;
-    public bool torre;
-    public GameObject respawnp;
-    public GameObject interfaz;
+    public AudioSource moveson;
     public jugador_al2 jugador;
     public AudioSource musica_muerte; 
     public AudioSource ambiente_muerte; 
-    public AudioSource musica; 
+    public AudioSource musica;
+
+	// Token: 0x06000025 RID: 37 RVA: 0x0000334C File Offset: 0x0000154C
+
+	public void move()
+	{
+		moveson.Play();
+	}
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +53,6 @@ public class menures2_al2 : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
-        manager.pause = true;
         if (manager.nivel != 0)
         {salirnivelb = true;}
         escena = SceneManager.GetActiveScene();
@@ -62,6 +64,9 @@ public class menures2_al2 : MonoBehaviour
         {
             salirnivelo.SetActive(false);
         }
+        musica.Stop();
+        musica_muerte.Play();
+        ambiente_muerte.Play();
     }
 
     // Update is called once per frame
@@ -70,17 +75,17 @@ public class menures2_al2 : MonoBehaviour
         
         if(manager.datosconfig.idioma == "es")
         {
-            boton2.text = "salir del juego";
-            boton1.text = "reaparecer";
+            boton2.text = "Salir del juego";
+            boton1.text = "Reaparecer";
             if(salirnivelo)
-            {boton3.text = "salir del nivel";}
+            {boton3.text = "Salir del nivel";}
             if(perder == true)
             {
-                boton4.text = "perdiste";
+                boton4.text = "Perdiste";
             }
             else
             {
-                boton4.text = "has muerto";
+                boton4.text = "Has muerto";
             }
             
         }
@@ -117,26 +122,29 @@ public class menures2_al2 : MonoBehaviour
     }
     public void continuar()
     {
-        SceneManager.LoadScene(escena.name);
+        manager.datosconfig.carga = escena.name;
+        manager.guardarconfig();
+        manager.guardar();
+				SceneManager.LoadScene("carga");
 
     }
 
 
     public void salir()
     {
-        SceneManager.LoadScene("menu_de_carga_al2");
+        manager.datosconfig.carga = "menu_de_carga_al2";
+            manager.guardarconfig();
+            manager.guardar();
+				SceneManager.LoadScene("carga");
     }
 
     public void salirnivel()
     {
-        if(torre == false)
-        {
-            SceneManager.LoadScene("mundo_abierto_al2");
-        }
-        else
-        {
-            SceneManager.LoadScene("torre_del_tiempo_al2");
-        }
-    }
 
+        manager.datosconfig.carga = "mundo_abierto";
+        manager.guardarconfig();
+        manager.guardar();
+		SceneManager.LoadScene("carga");
+        
+    }
 }

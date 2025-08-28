@@ -11,7 +11,7 @@ using System.Linq;
 using System;
 
 // Token: 0x0200000A RID: 10
-public class jugador_chara3d_al3 : jugador_al2
+public class jugador_chara3d_al3 : jugador_al3
 {
 	
 	[Header("Propio 3D")]
