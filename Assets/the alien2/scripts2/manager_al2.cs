@@ -750,9 +750,41 @@ public class manager_al2 : MonoBehaviour
 	private void Update()
 	{
 
+		if(actG)
+		{
+            datosserial.armasjug[0] = true;
+            datosserial.armasjug[1] = true;
+            datosserial.armasjug[2] = true;
+            datosserial.armasjug[3] = true;
 
+			datosserial.armasjug[4] = true;
+            datosserial.armasjug[5] = true;
+            datosserial.armasjug[6] = true;
+            datosserial.armasjug[7] = true;
+
+			datosserial.armasjug[8] = true;
+            datosserial.armasjug[9] = true;
+            datosserial.armasjug[10] = true;
+            datosserial.armasjug[11] = true;
+			
+
+			datosserial.artilugiosjug[0] = true;
+			datosserial.artilugiosjug[1] = true;
+			datosserial.artilugiosjug[2] = true;
+			datosserial.artilugiosjug[3] = true;
+
+			datosserial.artilugiosjug[4] = true;
+			datosserial.artilugiosjug[5] = true;
+			datosserial.artilugiosjug[6] = true;
+			datosserial.artilugiosjug[7] = true;
+
+			datosserial.pocionesmax = 9;
+			guardar();
+			actG = false;
+		}
 		
 	}
+	public bool actG;
 		
 		
 

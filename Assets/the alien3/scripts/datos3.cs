@@ -7,6 +7,9 @@ using System;
 [Serializable]
 public class datos3
 {
+
+	//[System.NonSerialized] usar para reiniciar datos
+	
 	public bool datos_llenos;
 	public bool begin;
 	public string nivelu;

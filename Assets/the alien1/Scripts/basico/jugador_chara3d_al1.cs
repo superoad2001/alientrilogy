@@ -1354,8 +1354,7 @@ public class jugador_chara3d_al1 : jugador_al1
 					armadefimg.color = new Color(1,1,1,1f);
 					backpaloimg.color = new Color(1,1,1,0.3f);
 
-
-					balaprefabpapa = prebalapapal[manager.datosserial.nivelarmapapa -1];
+					balaprefabdef = prebaladefl[manager.datosserial.nivelarmadef -1];
 					tiempodisp = 0;
 					manager.datosserial.armasel = 3;
 					manager.datosserial.palosel = 1;
@@ -1395,7 +1394,9 @@ public class jugador_chara3d_al1 : jugador_al1
 
 					backpaloimg.color = new Color(1,1,1,0.3f);
 
-					balaprefabrel = prebalarell[manager.datosserial.nivelarmarel -1];
+
+					balaprefabpapa = prebalapapal[manager.datosserial.nivelarmapapa -1];
+					
 					tiempodisp = 0;
 					manager.datosserial.armasel = 2;
 					manager.datosserial.palosel = 1;
@@ -1441,10 +1442,13 @@ public class jugador_chara3d_al1 : jugador_al1
 					backpaloimg.color = new Color(1,1,1,0.3f);
 
 
-					balaprefabdef = prebaladefl[manager.datosserial.nivelarmadef -1];
+					
 					tiempodisp = 0;
 					manager.datosserial.armasel = 4;
 					manager.datosserial.palosel = 1;
+
+					balaprefabrel = prebalarell[manager.datosserial.nivelarmarel -1];
+					
 					manager.guardar();
 					iconodisp.sprite = arma4;
 					if(manager.datosserial.tengolanzar == true)

@@ -8,6 +8,7 @@ using MeetAndTalk.Localization;
 using MeetAndTalk;
 using UnityEngine.Events;
 using System.Linq;
+using System;
 
 public abstract class jugador_al2 : MonoBehaviour
 {
@@ -53,12 +54,12 @@ public abstract class jugador_al2 : MonoBehaviour
     [HideInInspector]public float nivelfuerza;
     [HideInInspector]public float nivelvida;
 	[HideInInspector]public GameObject objetivotarget2;
-    [HideInInspector]public float []nivelfuerza_a = new float[100];
-    [HideInInspector]public float []nivelvida_a = new float[100];
-	public float []armapalosignv;
-	public float []armadefsignv;
-	public float []armapapasignv;
-	public float []armarelsignv;
+    [HideInInspector]public float[] nivelfuerza_a = new float[100];
+    [HideInInspector]public float[] nivelvida_a = new float[100];
+	[NonSerialized] public float[] armapalosignv = new float[10];
+	[NonSerialized] public float[] armadefsignv = new float[10];
+	[NonSerialized] public float[] armapapasignv = new float[10];
+	[NonSerialized] public float[] armarelsignv = new float[10];
 	[HideInInspector]public bool bajar = false;
 	public float tempretarget;
 	[HideInInspector]public bool subir = false;
@@ -104,12 +105,12 @@ public abstract class jugador_al2 : MonoBehaviour
 	[HideInInspector]public RaycastHit hit;
 	[HideInInspector]public float marcarc;
 	[HideInInspector]public bool enetouch;
-	public float[] balapadrevel = new float[5];
-	public float[] balapadredano = new float[5];
-	public float[] balapadrecaden = new float[5];
-	public float[] balapapamun = new float[5];
-	public float[] baladefdano = new float[5];
-	public float[] balareldano = new float[5];
+	[NonSerialized] public float[] balapadrevel = new float[10];
+	[NonSerialized] public float[] balapadredano = new float[10];
+	[NonSerialized] public float[] balapadrecaden = new float[10];
+	[NonSerialized] public float[] balapapamun = new float[10];
+	[NonSerialized] public float[] baladefdano = new float[10];
+	[NonSerialized] public float[] balareldano = new float[10];
 	public float tiempodisp2;
 	public Text niveluit;
 	public Image nivelbarra;
@@ -210,7 +211,7 @@ public abstract class jugador_al2 : MonoBehaviour
 			musicaC.UnPause();
 			musicajuego = musicaC;
 			combini.Play();
-			musicajuego.time = Random.Range(0,20);
+			musicajuego.time = UnityEngine.Random.Range(0,20);
 		}
 		if( peligro == false &&  modo == "2D" && tarbossact == false || peligro == false && modo == "3D" && tarbossact == false && desactivarmusicacombate == false)
 		{
@@ -219,7 +220,7 @@ public abstract class jugador_al2 : MonoBehaviour
 			musicanoC.UnPause();
 			musicajuego = musicanoC;
 			combini.Stop();
-			musicajuego.time = Random.Range(0,20);
+			musicajuego.time = UnityEngine.Random.Range(0,20);
 		}
 	}
 	

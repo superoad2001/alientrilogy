@@ -4083,6 +4083,15 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""ruletapress"",
+                    ""type"": ""Button"",
+                    ""id"": ""509aa9b6-212e-4a65-8ade-e9e2ac842a84"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""menu2"",
                     ""type"": ""Button"",
                     ""id"": ""76f76b27-0238-4544-9080-4fb011ff58ea"",
@@ -4431,7 +4440,18 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c6f603c3-0678-403b-a338-63c67401f3b0"",
+                    ""id"": ""32497837-c886-4642-8d16-8f2fc13b11ae"",
+                    ""path"": ""<Keyboard>/#(Q)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";PC"",
+                    ""action"": ""ruleta"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fdcf5400-8ef1-4aaf-a71f-ca0a88f68b85"",
                     ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -4442,12 +4462,23 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""32497837-c886-4642-8d16-8f2fc13b11ae"",
+                    ""id"": ""25cd202e-f97b-480b-8626-d65081eb8648"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";PAD"",
+                    ""action"": ""ruletapress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a54a6b36-332e-4cef-b25a-99908a054fd0"",
                     ""path"": ""<Keyboard>/#(Q)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC"",
-                    ""action"": ""ruleta"",
+                    ""action"": ""ruletapress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -6997,6 +7028,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         m_al2_3d_disparar = m_al2_3d.FindAction("disparar", throwIfNotFound: true);
         m_al2_3d_marcar = m_al2_3d.FindAction("marcar", throwIfNotFound: true);
         m_al2_3d_ruleta = m_al2_3d.FindAction("ruleta", throwIfNotFound: true);
+        m_al2_3d_ruletapress = m_al2_3d.FindAction("ruletapress", throwIfNotFound: true);
         m_al2_3d_menu2 = m_al2_3d.FindAction("menu2", throwIfNotFound: true);
         m_al2_3d_saltar = m_al2_3d.FindAction("saltar", throwIfNotFound: true);
         m_al2_3d_uider = m_al2_3d.FindAction("uider", throwIfNotFound: true);
@@ -8707,6 +8739,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     private readonly InputAction m_al2_3d_disparar;
     private readonly InputAction m_al2_3d_marcar;
     private readonly InputAction m_al2_3d_ruleta;
+    private readonly InputAction m_al2_3d_ruletapress;
     private readonly InputAction m_al2_3d_menu2;
     private readonly InputAction m_al2_3d_saltar;
     private readonly InputAction m_al2_3d_uider;
@@ -8787,6 +8820,10 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "al2_3d/ruleta".
         /// </summary>
         public InputAction @ruleta => m_Wrapper.m_al2_3d_ruleta;
+        /// <summary>
+        /// Provides access to the underlying input action "al2_3d/ruletapress".
+        /// </summary>
+        public InputAction @ruletapress => m_Wrapper.m_al2_3d_ruletapress;
         /// <summary>
         /// Provides access to the underlying input action "al2_3d/menu2".
         /// </summary>
@@ -8894,6 +8931,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @ruleta.started += instance.OnRuleta;
             @ruleta.performed += instance.OnRuleta;
             @ruleta.canceled += instance.OnRuleta;
+            @ruletapress.started += instance.OnRuletapress;
+            @ruletapress.performed += instance.OnRuletapress;
+            @ruletapress.canceled += instance.OnRuletapress;
             @menu2.started += instance.OnMenu2;
             @menu2.performed += instance.OnMenu2;
             @menu2.canceled += instance.OnMenu2;
@@ -8977,6 +9017,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
             @ruleta.started -= instance.OnRuleta;
             @ruleta.performed -= instance.OnRuleta;
             @ruleta.canceled -= instance.OnRuleta;
+            @ruletapress.started -= instance.OnRuletapress;
+            @ruletapress.performed -= instance.OnRuletapress;
+            @ruletapress.canceled -= instance.OnRuletapress;
             @menu2.started -= instance.OnMenu2;
             @menu2.performed -= instance.OnMenu2;
             @menu2.canceled -= instance.OnMenu2;
@@ -10819,6 +10862,13 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRuleta(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ruletapress" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRuletapress(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "menu2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

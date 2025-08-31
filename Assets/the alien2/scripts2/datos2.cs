@@ -8,22 +8,33 @@ using System;
 [Serializable]
 public class datos2
 {
+	//[System.NonSerialized] usar para reiniciar datos
+
 
 	public bool datos_llenos;
 	public bool begin;
 	public int palosel;
 	public string nivelu;
+	public int ruletainterior_armas;
+	public int ruletainterior_artilugios;
+	public int ruletatipo_armas;
 	public int armasel;
 	public int HabilidadesObtenidas;
 	public List<string> nameCH = new List<string>();
 
-	public int[] nivelarmasjug = new int [9];
-	public int[] nivelarmasexpjug = new int [9];
+	public int[] nivelarmasjug = new int [12] {1,1,1,1,1,1,1,1,1,1,1,1};
+	public int[] nivelarmasexpjug = new int [12]{0,0,0,0,0,0,0,0,0,0,0,0};
 	public int[] nivelarmasnave = new int [8];
-
-	public bool[] armasjug = new bool [9];
-	public bool[] armasnave = new bool [8];
+	public bool[] artilugiosjug = new bool [8]{false,false,false,false,false,false,false,false};
+	public bool[] armasjug = new bool [12]{false,false,false,false,false,false,false,false,false,false,false,false};
+	public bool[] armasnave = new bool [8]{false,false,false,false,false,false,false,false};
 	public bool[] eventos = new bool[999];
+
+	public float[] armasmun_max = new float[12]{25,50,10,2,2,8,150,12,6,5,4,1};
+	public float[] armasmun = new float[12]{25,50,10,2,2,8,150,12,6,5,4,1};
+
+	public float[] artilugiosmun = new float[8]{0,0,0,0,5,5,0,0};
+	public float[] artilugiosmun_max = new float[8]{0,0,0,0,5,5,0,0};
 
 	public int[] misiones = new int[200];
     public int horas;
@@ -38,7 +49,7 @@ public class datos2
 	public float nivelexp = 0;
 	public float signivelexp = 3;
 
-	public int[] licenciaarmas = new int[9];
+	public int[] licenciaarmas = new int[12]{0,0,0,0,0,0,0,0,0,0,0,0};
 
 	public bool[] notas = new bool[20];
 	

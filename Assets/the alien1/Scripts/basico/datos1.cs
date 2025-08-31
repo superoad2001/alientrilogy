@@ -7,6 +7,9 @@ using System;
 [Serializable]
 public class datos1
 {
+
+	//[System.NonSerialized] usar para reiniciar datos 
+	
 	public bool datos_llenos;
 	public bool[] eventos = new bool[999];
 	public bool newgameplus1;

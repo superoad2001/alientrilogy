@@ -12831,6 +12831,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5641520300585831335}
   - component: {fileID: 999073101267456604}
+  - component: {fileID: 2577741812619548105}
   - component: {fileID: 2505722802579584400}
   - component: {fileID: 1674293329734949728}
   - component: {fileID: 3607550513505557875}
@@ -12876,6 +12877,498 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710215140162228406}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2577741812619548105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710215140162228406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1756ef40cf1f5441a75e75b0ffa76d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::jugador_chara3d_al3
+  movact: 0
+  controlact: 1
+  objplaneta: {fileID: 0}
+  disjugsave: 0
+  planetCenter: {x: 0, y: 0, z: 0}
+  jugpos: 0
+  enemigosEnContacto: []
+  misilbalas: 0
+  minabalas: 0
+  escopetabalas: 0
+  dispF: 0
+  tempdano: 0
+  blanco: 0
+  audio2: {fileID: 0}
+  objeto: 0
+  saltador: 0
+  tempboton: 0
+  tiendaG: {fileID: 0}
+  musicajuego: {fileID: 0}
+  musicaC: {fileID: 3419847954593758767}
+  musicanoC: {fileID: 7955850590976219476}
+  combini: {fileID: 882345935980282470}
+  static_ev: 0
+  toquespalo: 0
+  eventotut: {fileID: 0}
+  velrecextra: 1
+  enmovdirectaux: {x: 0, y: 0, z: 0}
+  temppause: 0
+  tempempujon: 0
+  tarbossact: 0
+  combo: 0
+  vida: 9
+  dialogueact: 0
+  speed: 3
+  suelo: 0
+  velact: 0
+  tiempodisp: 0
+  nivelfuerza: 0
+  nivelvida: 0
+  objetivotarget2: {fileID: 0}
+  nivelfuerza_a:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  nivelvida_a:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  armapalosignv: []
+  armadefsignv: []
+  armapapasignv: []
+  armarelsignv: []
+  bajar: 0
+  tempretarget: 0
+  subir: 0
+  moverdelante: 1
+  temp10: 0
+  dashaeract: 0
+  muerte: 0
+  vidaeneui: 0
+  vidaeneuimax: 0
+  vidaeneact: 0
+  staminamax: 100
+  stamina: 0
+  escudosene: 0
+  vidaescudoene1: 0
+  vidaescudoene2: 0
+  vidaescudoene3: 0
+  vidaescudomaxene: 0
+  escudoeneact: 0
+  _peligro: 0
+  vidamax: 0
+  subirnivelaud: {fileID: 8332951009993582976}
+  subirnivelexpl: {fileID: 7557042106978131085}
+  velocidad: 8
+  _rb: {fileID: 0}
+  jumpforce: 500
+  tiemposalto: 0
+  tiempovel: 0
+  tiempovelint: 0
+  velocidadaux: 0
+  dimensiion: 0
+  girodir: -90
+  dentrotienda: 0
+  dashefect: 0
+  eneempuj: {fileID: 0}
+  empujon: 0
+  disdash: 10
+  veldash: 30
+  vidamaxN: 0
+  noene: 0
+  movdire: {x: 0, y: 0, z: 0}
+  movdirect: {x: 0, y: 0, z: 0}
+  movdirectaux: {x: 0, y: 0, z: 0}
+  marcarc: 0
+  enetouch: 0
+  balapadrevel:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  balapadredano:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  balapadrecaden:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  balapapamun:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  baladefdano:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  balareldano:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  tiempodisp2: 0
+  niveluit: {fileID: 4775519585029539409}
+  nivelbarra: {fileID: 8024142025132899031}
+  objetivotarget: {fileID: 0}
+  nopimg: {fileID: 21300000, guid: d5315b2ebc9456e48ac9f4e8d609fd77, type: 3}
+  respawn: {fileID: 754062623415415302}
+  balaprefab: {fileID: 0}
+  saltadorson: {fileID: 0}
+  explosion: {fileID: 358637981425055526, guid: fb2e19e5403afb04bb925b1c962eeaa9, type: 3}
+  escudohabaud: {fileID: 4962413822552856704}
+  camara: {fileID: 1010737398015545462}
+  tactil: {fileID: 6635969175290632417}
+  anim: {fileID: 3728831540247267014}
+  muertes: {fileID: 8816042928226701702}
+  muertesjug: {fileID: 5246356733918585526}
+  menushow: {fileID: 3143306913511051438}
+  menuoff: {fileID: 2600132550735616214}
+  misionUI: {fileID: 4692585392619811872}
+  eneboss1: {fileID: 0}
+  pausa1: {fileID: 754062623415415302}
+  select1: {fileID: 5278868435435131000}
+  vidab: {fileID: 200842216252403675}
+  vidaeneimg: {fileID: 5744063267536755335}
+  escudoeneimg1: {fileID: 3420216503061861734}
+  escudoeneimg2: {fileID: 8235222121160042019}
+  escudoeneimg3: {fileID: 3797638324191585805}
+  iconodisp: {fileID: 7071835599409240458}
+  misionA: {fileID: 0}
+  modo: 
+  manager: {fileID: 0}
+  ascensors: {fileID: 0}
+  vidaenebarra: {fileID: 441155593055928522}
+  escudoenebarra: {fileID: 7573865580692162853}
+  boxcam2: {fileID: 5269110047117531638}
+  armanvt: {fileID: 2144550709355730966}
+  conseguido: {fileID: 2895745868814554425}
+  conseguidoa: {fileID: 5205177588455611934}
+  niveleneui: {fileID: 4729624707555982677}
+  tiendaMus: {fileID: 0}
+  desactivarmusicacombate: 0
+  dest: {fileID: 6970844277751646810}
+  critico: {fileID: 3225304864223212464}
+  Critobj: {fileID: 7785946046839000354}
+  colorC: 0
+  invertirHorizontal: 0
+  ascensorui: {fileID: 0}
+  camnomov: 0
+  horizontalFinal: 0
+  armadefpassC: {fileID: 0}
+  giro: {fileID: 3729339893020206951}
+  planetUp: {x: 0, y: 0, z: 0}
+  tiempoascensor: 0
+  ascensor: 0
+  rotationinput: {x: 0, y: 0, z: 0}
+  rotspeed: 3
+  tempgir: 0
+  indicetarget: -1
+  target:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ascact: 0
+  inbuir: {fileID: 5327218436416786245}
+  staminabarra: {fileID: 0}
+  balaprefabpapa: {fileID: 0}
+  balaprefabrel: {fileID: 0}
+  balaprefabdef: {fileID: 0}
+  tragar: {fileID: 0}
+  espiraloaud: {fileID: 809634143554412201}
+  escudoaud: {fileID: 4881034078060081405}
+  golpeson: {fileID: 2725154998601188335}
+  lanzarson: {fileID: 8542762826550169653}
+  armapaparueda: {fileID: 21300000, guid: 80b350c2c81e7fb44aa1b41cf91658cc, type: 3}
+  armarelrueda: {fileID: 21300000, guid: f77d897e584106147a60bba7e68bffcf, type: 3}
+  armadefrueda: {fileID: 21300000, guid: f71d313988df6b349b6191ace1ba976a, type: 3}
+  prebaladefl: []
+  prebalarell: []
+  prebalapapal: []
+  tempdefrec: 60
+  temprelrec: 40
+  temppaparec: 20
+  pistolabueno: {fileID: 2083713059835050920}
+  pistolamalo: {fileID: 5889179820679444131}
+  balaarmat: {fileID: 4389274068202848958}
+  numpoct: {fileID: 2756559361161216655}
+  numpoc1t: {fileID: 6784898559695651342}
+  numpoc2t: {fileID: 8537619960577141338}
+  numpoc3t: {fileID: 5309491829977986804}
+  numpoc4t: {fileID: 3835418906855342794}
+  vidat: {fileID: 2164014451985927567}
+  comando: {fileID: 2736467948389710572}
+  jugadorEntrando: 0
+  pasos1: {fileID: 1421560940822506872}
+  pasos2: {fileID: 959981226443368162}
+  sonidoTP: {fileID: 8549625092163795396}
+  expTP: {fileID: 0}
+  carga: 0
+  eventoini: 0
+  tarboss: {fileID: 0}
+  slash: {fileID: 3153472991145048103, guid: ca9e834f0484b14438c8c597c7fb0237, type: 3}
+  arma1: {fileID: 21300000, guid: 4d4427ac988e12241a14e2fa5838d5d7, type: 3}
+  arma2: {fileID: 21300000, guid: 0c5d8525a30ee764bbf3f7133c2ff919, type: 3}
+  arma3: {fileID: 21300000, guid: 17054b53e94e4bd4bad4bcf026388440, type: 3}
+  arma4: {fileID: 21300000, guid: 1a1b6913ccc73034f9114c61db561c3b, type: 3}
+  pistolatiempo: {fileID: 3587114727137890507}
+  pistolabazoka: {fileID: 8785093850801345688}
+  staminaact: 50
+  camarascript: {fileID: 0}
+  dashson: {fileID: 1598033425592178034}
+  dashairson: {fileID: 8725836872179122545}
+  disp: {fileID: 2560098869100829289}
+  disprel: {fileID: 6391317612764895524}
+  dispdef: {fileID: 9079850513841561928}
+  barraarmaimgnv1: {fileID: 280027540181637252}
+  barraarmaimgnv2: {fileID: 3338137949097520551}
+  barraarmaimgnv3: {fileID: 5076270817176456327}
+  barraarmaimgnv4: {fileID: 6659279962646452658}
+  arma1_1: {fileID: 21300000, guid: a070adadce5e6c641b3c1985ba2ef3b3, type: 3}
+  arma1_2: {fileID: 21300000, guid: cffb75b5a8be9394d873b5ff4357e899, type: 3}
+  arma1_3: {fileID: 21300000, guid: 28d5738e611065e4c97c1ac452b8f5e0, type: 3}
+  arma1_4: {fileID: 21300000, guid: 600782584213d514895efb978f90d201, type: 3}
+  arma1_5: {fileID: 21300000, guid: 3a616420b0510bf4da71d93f62b56ed9, type: 3}
+  pistolap: {fileID: 5791733082614579736}
+  backpaloimg: {fileID: 2414368955643278081}
+  paloimg: {fileID: 6512745789229289970}
+  pistolaimg: {fileID: 8660254001412211464}
+  relentizarimg: {fileID: 9110641323683622847}
+  armadefimg: {fileID: 5987184436570249652}
+  circulopaloimg: {fileID: 1903615129967411285}
+  circulopistolaimg: {fileID: 1468166368401852190}
+  circulorelentizarimg: {fileID: 7369087761644029874}
+  circuloarmadefimg: {fileID: 2008449590449582165}
+  backpistolaimg: {fileID: 6212356550991347679}
+  backrelentizarimg: {fileID: 9110641323683622847}
+  backarmadefimg: {fileID: 8434629226946272886}
+  pocionvidaimg: {fileID: 21300000, guid: acfa4fa5a27960947a65608be986368d, type: 3}
+  pocionhabrec: {fileID: 21300000, guid: 9f48dd7fa0956194d9e021a3fbd94b8b, type: 3}
+  pocionrecimg: {fileID: 21300000, guid: 8e430054d3be9f449b1fa2acebb1dd55, type: 3}
+  berserkimg: {fileID: 21300000, guid: e29df81b5c4a16146bae28ce73b28434, type: 3}
+  vidabasetut: 9
+  vidabase: 99
+  vidabasemax: 999
+  vidaplusmax: 9999
+  fuebasetut: 1
+  fuebase: 2
+  fuebasemax: 5
+  fueplusmax: 10
+  mod: {fileID: 2099957554308933111}
+  palo: {fileID: 3567133496265026193}
+  npcbase: {fileID: 0}
+  eventosdialogueE: {fileID: 0}
+  animcam: {fileID: 3966719034997539717}
+  vozMeet: {fileID: 2600132550735616234}
+  lateralc: 0
 --- !u!114 &2505722802579584400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13332,6 +13825,7 @@ MonoBehaviour:
   numpoc2t: {fileID: 8537619960577141338}
   numpoc3t: {fileID: 5309491829977986804}
   numpoc4t: {fileID: 3835418906855342794}
+  movPH: 0
   vidat: {fileID: 2164014451985927567}
   comando: {fileID: 2736467948389710572}
   jugadorEntrando: 0
