@@ -15,9 +15,10 @@ public class jugador_chara3d_al2 : jugador_al2
 {
 	
 	[Header("Propio 3D")]
+	public BoxCollider skatecol;
+	public SphereCollider skatecol2;
 	private float temprebote;
 	private int ruletainterior;
-	public bool saltop = true;
 	private bool salto2;
 	public AudioSource dest;
 	public AudioSource critico;
@@ -26,6 +27,8 @@ public class jugador_chara3d_al2 : jugador_al2
     private float vidaescudoUI1;
 	private float vidaescudoUI2;
 	public bool movPH;
+	public bool viento;
+	public float verticalVel;
 	private float vidaescudoUI3;
 	public bool invertirHorizontal = false;
 	public GameObject ascensorui;
@@ -64,7 +67,7 @@ public class jugador_chara3d_al2 : jugador_al2
 	public AudioSource golpeson;
 	public AudioSource lanzarson;
 	public Sprite[] armasspriterueda = new Sprite[12];
-
+	private float VelSkate;
 	public Sprite[] artilugiosrueda = new Sprite[8];
 	public Sprite[] artilugiosequipados = new Sprite[8];
 
@@ -93,6 +96,7 @@ public class jugador_chara3d_al2 : jugador_al2
 	public AudioSource pasos2;
 	public AudioSource sonidoTP;
     public GameObject expTP;
+	public GameObject skateobj;
 	public bool carga;
 	public bool eventoini;
 	private float angulomod;
@@ -142,7 +146,6 @@ public class jugador_chara3d_al2 : jugador_al2
     public float fuebase = 2;
     public float fuebasemax = 5;
     public float fueplusmax = 10;
-	public GameObject mod;
 	public GameObject palo;
 	public npc_al2 npcbase;
 	private float jumpforcebase = 0f;
@@ -163,7 +166,6 @@ public class jugador_chara3d_al2 : jugador_al2
 	private float saltarc;
 	private float dashc;
 	private float golpearc;
-	private float golpearMc;
 	private float interactuarc;
 	private float dispararc;
 	private float ruletac;
@@ -178,6 +180,7 @@ public class jugador_chara3d_al2 : jugador_al2
 	private float teh2; 
     private bool peh;
     private bool fired;
+	private Vector3 moveDirSK;
 	public void Awake()
     {
         controles = new Controles();
@@ -397,6 +400,7 @@ public class jugador_chara3d_al2 : jugador_al2
 	
 	private void FixedUpdate()
 	{
+
 		if (enemigosEnContacto.Count == 0)
 		{
 			peligro = false;
@@ -404,7 +408,7 @@ public class jugador_chara3d_al2 : jugador_al2
 
 		if(movact == 0 && controlact == true && movPH == true)
 		{
-			float verticalVel = _rb.linearVelocity.y;
+			
 
 			Vector3 movdirnow = (transform.TransformDirection(new Vector3 (movXc,0, movYc).normalized)) * velocidad;
 
@@ -454,10 +458,104 @@ public class jugador_chara3d_al2 : jugador_al2
 			
 
 		}
+		if(movact == 0 && controlact == true && movskate == true)
+		{
+			
+
+			Vector3 movdirnow = (transform.TransformDirection(new Vector3 (movXc,0, movYc).normalized)) ;
+
+			moveDirSK =  movdirnow;
+			VelSkate = 17;
+
+            // Raycast para detectar colisión en la dirección del movimiento
+            if (Physics.Raycast(transform.position + new Vector3(0,1.5f,0),moveDirSK, out RaycastHit hit,Mathf.Infinity))
+            {
+				Debug.DrawRay(transform.position + new Vector3(0,1.5f,0),moveDirSK * 300, Color.yellow);
+				if(hit.distance < 2)
+                {moveDirSK = new Vector3(0,0,0);}
+               
+            }
+			else
+			{
+				Debug.DrawRay(transform.position + new Vector3(0,1.5f,0),moveDirSK * 300, Color.red);
+			}
+			if (Physics.Raycast(transform.position + new Vector3(0,-1.5f,0),moveDirSK, out RaycastHit hit2, Mathf.Infinity))
+            {
+				Debug.DrawRay(transform.position + new Vector3(0,-1.5f,0),moveDirSK * 300, Color.yellow);
+				if(hit2.distance < 2)
+                {moveDirSK = new Vector3(0,0,0);}
+            }
+			else
+			{
+				Debug.DrawRay(transform.position + new Vector3(0,-1.5f,0),moveDirSK * 300, Color.red);
+			}
+			if (Physics.Raycast(transform.position,moveDirSK, out RaycastHit hit3,Mathf.Infinity))
+            {
+				Debug.DrawRay(transform.position + new Vector3(0,0,0),moveDirSK * 300, Color.yellow);
+				if(hit3.distance < 2)
+                {moveDirSK = new Vector3(0,0,0);}
+            }
+			else
+			{
+				Debug.DrawRay(transform.position + new Vector3(0,0,0),moveDirSK * 300, Color.red);
+			}
+
+			if(viento == false)
+			{
+				verticalVel = _rb.linearVelocity.y;
+				
+			}
+			if(movact == 0 && controlact == true && skate == true && grind == false)
+			{
+		
+				_rb.linearVelocity = new Vector3(moveDirSK.x* VelSkate, verticalVel,moveDirSK.z* VelSkate) ;
+
+				
+
+			}
+
+			
+			
+			
+			
+
+
+			
+
+		}
 	}
 	private void Update()
 	{
+		if(skate == true)
+		{
+			skatecol2.enabled = true;
+		}
+		else if(skate == false )
+		{
+			
+			skatecol2.enabled = false;
+		}
 
+		if(anim.GetCurrentAnimatorStateInfo(1).IsName("skate"))
+		{
+			skateobj.SetActive(true);
+		}
+		else if(anim.GetCurrentAnimatorStateInfo(1).IsName("staticar"))
+		{
+			skateobj.SetActive(false);
+		}
+		
+		if(viento == false)
+		{
+			verticalVel = _rb.linearVelocity.y;
+			
+		}
+
+		VelSkate -= 20 * Time.deltaTime;
+		if(VelSkate < 0)
+		{
+			VelSkate = 0;
+		}
 		
 		if(animcam.GetCurrentAnimatorStateInfo(0).IsName("staticcam") && carga == false && temp10 > 1)
 		{
@@ -804,8 +902,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				barraarmaimgnv3.fillAmount = 0;
 				barraarmaimgnv4.fillAmount = 0;
 			}
-
-		if(ruletapressc > 0 && tiempodisp > 0.2f)
+		if(ruletapressc > 0 && tiempodisp > 0.2  && skate == false)
 		{
 			ruletas++;
 			if(ruletas >= 3)
@@ -1973,7 +2070,7 @@ public class jugador_chara3d_al2 : jugador_al2
 					
 					cambioruedaact = 1;
 				}
-				if(ruletaYc > 0f )
+				if(ruletaYc > 0f  && skate == false)
 				{
 					if(manager.datosserial.artilugiosjug[0] == true && tiempodisp > 0.2f)
 					{
@@ -2005,7 +2102,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						
 					}
 				}	
-				if(ruletaXc > 0f )
+				if(ruletaXc > 0f  && skate == false)
 				{
 					if(manager.datosserial.artilugiosjug[0] == true && tiempodisp > 0.2f)
 					{
@@ -2041,7 +2138,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						pistolamodels[13].SetActive(true);
 					}
 				}
-				if(ruletaYc < 0f )
+				if(ruletaYc < 0f  && skate == false)
 				{
 					
 					if(manager.datosserial.artilugiosjug[2] == true && tiempodisp > 0.2f)
@@ -2077,7 +2174,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						
 					}
 				}
-				if(ruletaXc < -0f )
+				if(ruletaXc < -0f  && skate == false)
 				{
 					if(manager.datosserial.artilugiosjug[3] == true && tiempodisp > 0.2f)
 					{
@@ -2218,7 +2315,7 @@ public class jugador_chara3d_al2 : jugador_al2
 
 						}
 					}
-					if(manager.datosserial.artilugiosjug[7] == false)
+					if(manager.datosserial.artilugiosjug[7] == false )
 					{
 						armaimg[3].sprite = nopimg;
 						armaimg[3].color = new Color(1,1,1,1);
@@ -2243,7 +2340,7 @@ public class jugador_chara3d_al2 : jugador_al2
 					
 					cambioruedaact = 1;
 				}
-				if(ruletaYc > 0f )
+				if(ruletaYc > 0f  && skate == false)
 				{
 					if(manager.datosserial.artilugiosjug[4] == true && tiempodisp > 0.2f)
 					{
@@ -2276,7 +2373,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						
 					}
 				}	
-				if(ruletaXc > 0f )
+				if(ruletaXc > 0f  && skate == false)
 				{
 					if(manager.datosserial.artilugiosjug[5] == true && tiempodisp > 0.2f)
 					{
@@ -2312,7 +2409,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						pistolamodels[17].SetActive(true);
 					}
 				}
-				if(ruletaYc < 0f )
+				if(ruletaYc < 0f  && skate == false)
 				{
 					
 					if(manager.datosserial.artilugiosjug[6] == true && tiempodisp > 0.2f)
@@ -2347,7 +2444,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						
 					}
 				}
-				if(ruletaXc < -0f )
+				if(ruletaXc < -0f  && skate == false)
 				{
 					if(manager.datosserial.artilugiosjug[7] == true && tiempodisp > 0.2f)
 					{
@@ -2844,7 +2941,11 @@ public class jugador_chara3d_al2 : jugador_al2
 			camarascript.maxdis = 20;
 			
 			
+		if(skate == false)	
+		{
 			
+
+			movskate = false;
 			if(lateralc == 0 && controlact == true)
             {
 
@@ -3285,6 +3386,125 @@ public class jugador_chara3d_al2 : jugador_al2
 
 				}
 			}
+		}
+		if(skate == true)
+		{
+
+			if(viento == true)
+			{
+				if(_rb.linearVelocity.y < 8)
+				{
+					verticalVel += 3f * Time.deltaTime;
+				}
+				_rb.linearVelocity = new Vector3(_rb.linearVelocity.x, verticalVel,_rb.linearVelocity.z);
+			}
+			
+			movPH = false;
+			anim.SetFloat("velx",0);
+			anim.SetFloat("vely",0);
+			anim.SetBool("stat",true);
+			
+
+			Vector3 movdirnow = new Vector3 (movXc,0, movYc).normalized;
+
+
+
+
+			if(movXc != 0  && grind == false || movYc != 0 && grind == false)
+			{
+
+				movskate = true;
+				
+				// Rotar el modelo en la dirección del movimiento
+				angulomod = Mathf.Atan2(movXc, movYc) * Mathf.Rad2Deg;
+				mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation, 
+															Quaternion.Euler(mod.transform.localEulerAngles.x, angulomod, mod.transform.localEulerAngles.z),
+															10f * Time.deltaTime);
+				
+				// Rotar el personaje para que mire en la dirección de la cámara
+				float camaraYRotation = camara.transform.eulerAngles.y;
+				transform.rotation = Quaternion.Slerp(transform.rotation, 
+													Quaternion.Euler(0, camaraYRotation, 0),
+													1 * Time.deltaTime);
+			}
+			else
+			{
+				movskate = false;
+			}
+
+			if(movYc == 0f && movXc == 0f)
+			{
+				anim.SetBool("stat",true);
+				dashefect = false;
+			}
+			else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity,0,QueryTriggerInteraction.Ignore)&& dashefect == true)
+			{
+				if(hit.distance < 1f)
+				{
+				anim.SetBool("stat",true);
+				dashefect = false;
+				_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
+				}
+				else
+				{
+					anim.SetBool("stat",true);
+				}
+				Debug.Log(hit.distance);
+			}
+			else
+			{
+				anim.SetBool("stat",true);
+			}
+
+			if(objetivotarget == null)
+			{
+			if(camXc != 0)
+			{rotationinput.x = camXc * rotspeed * Time.deltaTime;}
+			else{rotationinput.x = 0;}
+			}
+
+			if(camYc != 0)
+			{rotationinput.y = camYc * rotspeed * Time.deltaTime;}
+			else{rotationinput.y = 0;}
+			Debug.Log("camara");
+			
+
+				Vector3 horcam = Vector3.up * rotationinput.x;
+				Vector3 vercam = new Vector3(0,0,0);
+
+				
+				vercam = Vector3.right * -rotationinput.y;
+
+			
+				camara.transform.localEulerAngles += vercam + horcam;
+
+			Quaternion xRotationx = Quaternion.Euler(camara.transform.localEulerAngles.x,0,0);
+			float angle_f = Quaternion.Angle(Quaternion.identity, xRotationx);
+			float fixedAngle_f = angle_f;
+			if (xRotationx.eulerAngles.x>180)
+			{
+				fixedAngle_f *= -1;
+			}
+			float clampedX = Mathf.Clamp(fixedAngle_f, -20, 50);
+			camara.transform.localRotation = Quaternion.Euler(clampedX, camara.transform.localEulerAngles.y, camara.transform.localEulerAngles.z);
+						
+
+
+			camaux = camara.transform.eulerAngles.y;
+			if(objetivotarget == null)
+			{
+
+				if (movXc != 0f && camXc != 0f && grind == false|| movYc != 0 && camXc != 0f && grind == false|| movXc != 0f && grind == false || movYc != 0 && grind == false)
+				{
+					transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.Euler(transform.eulerAngles.x,camaux,transform.eulerAngles.z),30f* Time.deltaTime);
+					camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.y,camara.transform.localEulerAngles.z),30f* Time.deltaTime);	
+				}
+					
+
+
+			}
+					
+		}
             
 		
 
@@ -3514,7 +3734,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						manager.guardar();
 					}
 				
-				if(golpearMc > 0 && suelo == true && tiempodisp > 0.7f  && combo == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") &&  dispararc == 0 && stamina > 10 )
+				if(golpearMc > 0 && suelo == true && tiempodisp > 0.7f  && combo == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") &&  dispararc == 0 && stamina > 10 && skate == false)
 				{
 					anim.SetBool("atk",true);
 					tiempodisp = 0;
@@ -3529,7 +3749,7 @@ public class jugador_chara3d_al2 : jugador_al2
 					stamina -= 10;
 					staminaact = -2;
 				}
-				else if(golpearMc > 0 && suelo == true && tiempodisp > 0.2f && combo == 1 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk") &&  dispararc == 0 && stamina > 10 )
+				else if(golpearMc > 0 && suelo == true && tiempodisp > 0.2f && combo == 1 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk") &&  dispararc == 0 && stamina > 10  && skate == false)
 				{
 					anim.SetBool("atk2",true);
 					combo = 2;
@@ -3549,7 +3769,7 @@ public class jugador_chara3d_al2 : jugador_al2
 					golpeson.Play();
 					combo = 3;
 				}
-				else if(golpearMc > 0 && suelo == true && tiempodisp > 0.3f && combo == 3 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk2") &&  dispararc == 0  && stamina > 10)
+				else if(golpearMc > 0 && suelo == true && tiempodisp > 0.3f && combo == 3 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk2") &&  dispararc == 0  && stamina > 10  && skate == false)
 				{
 					anim.SetBool("atk3",true);
 					combo = 4;
@@ -3571,7 +3791,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 
 
-				else if(golpearMc > 0 && suelo == true && combo == 5 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk3") &&  dispararc == 0 && stamina > 10 )
+				else if(golpearMc > 0 && suelo == true && combo == 5 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk3") &&  dispararc == 0 && stamina > 10  && skate == false)
 				{
 					anim.SetBool("atk4",true);
 					combo = 6;
@@ -3591,7 +3811,7 @@ public class jugador_chara3d_al2 : jugador_al2
 					golpeson.Play();
 					combo = 7;
 				}
-				else if(golpearMc > 0 && suelo == true && tiempodisp > 0.2f && combo == 7 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk4") &&  dispararc == 0 && stamina > 10)
+				else if(golpearMc > 0 && suelo == true && tiempodisp > 0.2f && combo == 7 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk4") &&  dispararc == 0 && stamina > 10  && skate == false)
 				{
 					anim.SetBool("atk5",true);
 					combo = 8;
@@ -3599,7 +3819,7 @@ public class jugador_chara3d_al2 : jugador_al2
 					staminaact = -2;
 					
 				}
-				else if(suelo == true && combo == 8 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk5"))
+				else if(suelo == true && combo == 8 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk5")  && skate == false)
 				{
 					tiempodisp = 0;
 					tempatk = 0; 
@@ -3613,7 +3833,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 
 
-				else if(golpearMc > 0 && suelo == false &&  dispararc == 0  && stamina > 20)
+				else if(golpearMc > 0 && suelo == false &&  dispararc == 0  && stamina > 20  && skate == false)
 				{
 					anim.SetBool("atks",true);
 					tiempodisp = 0;
@@ -3844,6 +4064,24 @@ public class jugador_chara3d_al2 : jugador_al2
 					dispF = false;
 					dispdef.Play();
 
+				}
+	
+			}
+
+
+
+
+			//artilugios
+			if(manager.datosserial.artilugiosjug[0] == true  && manager.datosserial.armasel == 101)
+			{
+				if(dispararc > 0 && tiempodisp > 0.5f && controlact == true )
+				{
+					if(skate == false)
+					{anim.SetBool("skate", true);}
+					else if (skate == true) 
+					{anim.SetBool("skate", false);}
+					skate = !skate;
+					tiempodisp = 0;
 				}
 			}
 			
@@ -4123,6 +4361,7 @@ public class jugador_chara3d_al2 : jugador_al2
 		UIreducidoc = 0;
 		marcarc = 0;
 		
+		
 	}
 
 	// Token: 0x0600001F RID: 31 RVA: 0x00003149 File Offset: 0x00001349
@@ -4200,6 +4439,17 @@ public class jugador_chara3d_al2 : jugador_al2
 			dashaeract = false;
 
 		
+		}
+		if (col.gameObject.tag == "lava" && skate == false)
+		{
+
+
+		
+		}
+		if (col.gameObject.tag == "viento")
+		{
+			anim.SetBool("salto",false);
+			viento = true;
 		}
 
 		if (col.gameObject.tag == "dañox10" )
@@ -4416,7 +4666,10 @@ public class jugador_chara3d_al2 : jugador_al2
 	}
 	public void OnTriggerExit(Collider col)
 	{
-		
+		if (col.gameObject.tag == "viento")
+		{
+			viento = false;
+		}
 
 		if (col.gameObject.tag == "dañox10")
 		{
@@ -4544,6 +4797,11 @@ public class jugador_chara3d_al2 : jugador_al2
 	}
 	public void OnTriggerStay(Collider col)
 	{
+		if (col.gameObject.tag == "viento")
+		{
+			anim.SetBool("salto",false);
+			viento = true;
+		}
 
 		if (col.gameObject.tag == "npc")
 		{

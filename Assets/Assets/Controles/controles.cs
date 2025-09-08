@@ -1432,9 +1432,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""joy1"",
                     ""id"": ""2cef31ff-ff8f-4a8b-9bb7-480c3f738c16"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone,NormalizeVector2"",
                     ""groups"": """",
                     ""action"": ""mov"",
                     ""isComposite"": true,
@@ -4837,7 +4837,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""joy1"",
                     ""id"": ""dbf45be6-f724-4dd0-8cf1-f30def87b937"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

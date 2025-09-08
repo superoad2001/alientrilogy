@@ -15,11 +15,16 @@ public abstract class jugador_al2 : MonoBehaviour
 
 	[Header("Posición")]
 	public int movact;
+	public bool saltop = true;
+	public bool movskate;
+	[HideInInspector]public bool grind;
+	[HideInInspector]public float golpearMc;
     public bool controlact = true;
 	public GameObject objplaneta;
 	public float disjugsave;
 	public Vector3 planetCenter;
 	public float jugpos;
+	public GameObject mod;
     public List<GameObject> enemigosEnContacto = new List<GameObject>();
 	[HideInInspector]public float misilbalas;
 	[HideInInspector]public float minabalas;
@@ -105,6 +110,7 @@ public abstract class jugador_al2 : MonoBehaviour
 	[HideInInspector]public RaycastHit hit;
 	[HideInInspector]public float marcarc;
 	[HideInInspector]public bool enetouch;
+	
 	[NonSerialized] public float[] balapadrevel = new float[10];
 	[NonSerialized] public float[] balapadredano = new float[10];
 	[NonSerialized] public float[] balapadrecaden = new float[10];
@@ -151,6 +157,7 @@ public abstract class jugador_al2 : MonoBehaviour
 	public Text niveleneui;
 	public AudioSource tiendaMus;
 	public bool desactivarmusicacombate;
+	public bool skate;
 
 	private bool musicaCombateActiva = false;
 	private bool musicaNormalActiva = false;
