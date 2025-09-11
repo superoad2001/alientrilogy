@@ -36,6 +36,7 @@ public class menures_al1 : MonoBehaviour
     public AudioSource musica_muerte; 
     public AudioSource ambiente_muerte; 
     public AudioSource musica;
+    public AudioSource musicaC;
 
 	// Token: 0x06000025 RID: 37 RVA: 0x0000334C File Offset: 0x0000154C
 
@@ -65,6 +66,10 @@ public class menures_al1 : MonoBehaviour
             salirnivelo.SetActive(false);
         }
         musica.Stop();
+        if(musicaC != null)
+        {
+            musicaC.Stop();
+        }
         musica_muerte.Play();
         ambiente_muerte.Play();
     }
@@ -125,7 +130,7 @@ public class menures_al1 : MonoBehaviour
         manager.datosconfig.carga = escena.name;
         manager.guardarconfig();
         manager.guardar();
-				SceneManager.LoadScene("carga");
+		SceneManager.LoadScene("carga");
 
     }
 

@@ -36,7 +36,7 @@ public class menures_al2 : MonoBehaviour
     public AudioSource musica_muerte; 
     public AudioSource ambiente_muerte; 
     public AudioSource musica;
-
+    public AudioSource musicaC;
 	// Token: 0x06000025 RID: 37 RVA: 0x0000334C File Offset: 0x0000154C
 
 	public void move()
@@ -65,6 +65,10 @@ public class menures_al2 : MonoBehaviour
             salirnivelo.SetActive(false);
         }
         musica.Stop();
+        if(musicaC != null)
+        {
+            musicaC.Stop();
+        }
         musica_muerte.Play();
         ambiente_muerte.Play();
     }
