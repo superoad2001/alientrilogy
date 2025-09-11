@@ -2,7 +2,7 @@
 using UnityEngine;
 
 // Token: 0x02000004 RID: 4
-public class camara_al2 : MonoBehaviour
+public class camara2_al2 : MonoBehaviour
 {
 	public manager_al2 manager;
 	public float distancia;
@@ -10,7 +10,7 @@ public class camara_al2 : MonoBehaviour
 	public GameObject boxcam1;
 	public GameObject boxcam2;
 	private Vector3 poscam;
-	public jugador_al2  jugador;
+	public jugador2_al2  jugador;
 	public float maxdis = 16;
 	public Vector2 newPlaneSize;
 	public Camera camara;
@@ -19,7 +19,7 @@ public class camara_al2 : MonoBehaviour
 	{
 		
 		manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
-		jugador = (jugador_al2)FindFirstObjectByType(typeof(jugador_al2));
+		jugador = (jugador2_al2)FindFirstObjectByType(typeof(jugador2_al2));
 		boxcam1 = jugador.camara;
 		boxcam2 = jugador.boxcam2;
 		if(GetComponent<Camera>() != null)
@@ -60,12 +60,12 @@ public class camara_al2 : MonoBehaviour
 			}
 		}
 
-		if(jugador.modo == "3D"|| jugador.modo == "2D" || jugador.modo == "Lobby" )
+		if(jugador.jugador.modo == "3D"||jugador.jugador.modo == "2D" || jugador.jugador.modo == "Lobby" )
 		{
 			transform.position = Vector3.MoveTowards(transform.position,  boxcam2.transform.position + direction * distancia, Time.deltaTime * 120f);
 			transform.rotation = Quaternion.LookRotation(boxcam2.transform.position - transform.position);
 		}	
-		else if(jugador.modo == "Nave" )
+		else if(jugador.jugador.modo == "Nave" )
 		{
 			
 			Vector3 var = jugador.transform.position + direction * distancia;

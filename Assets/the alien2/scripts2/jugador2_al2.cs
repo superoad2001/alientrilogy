@@ -24,13 +24,8 @@ public class jugador2_al2 : MonoBehaviour
         controles.Disable();
     }
 
-	public AudioSource audio1;
     private float cameraverticalangle2;
-    public AudioSource audio2;
-    public float vida = 3;
     public bool muerte;
-    public Text vidas;
-    public float vidaaux;
     public bool dimensiion;
     public float rotspeed = 180;
 	public GameObject camara;
@@ -40,16 +35,9 @@ public class jugador2_al2 : MonoBehaviour
     public float girovalor;
 	private bool girotd_der = false;
 	private bool girotd_izq = false;
-    public int objeto;
     public float tempdano;
-    public bool salto2;
-    public AudioSource saltodo;
-    public int blanco;
     public float tiempodisp;
-    public GameObject balaprefab;
     public float tempboton;
-	public float balavel = 20;
-    public Animator anim;
     public GameObject mod;
 
 	public AudioSource disp;
@@ -61,6 +49,7 @@ public class jugador2_al2 : MonoBehaviour
 
 	public float jumpforce = 300f;
     public Text objetotext;
+    public GameObject explosion;
 
 
 	public float tiemposalto;
@@ -70,30 +59,61 @@ public class jugador2_al2 : MonoBehaviour
 
 	public int velocidadaux;
 
-    public int dir = 1;
-	public float lhorizontalc;
-	public float lverticalc;
-	public float rhorizontalc;
-	public float rverticalc;
-	public float jumpc;
-	public float mc;
-	public float nc;
-    public float rbc;
-    public float lbc;
     public manager_al2 manager;
     public jugador_al2 jugador;
-    public GameObject muertesaudio;
-    public AudioSource muertes;
+    private Camera camaracom;
+    public camara2_al2 camarascript; 
+    public GameObject boxcam2;
+    public GameObject giro;
+    private float camaux = 0;
+    private float camXc;
+	private float camYc;
+	private float movXc;
+	private float movYc;
+    private float UIXc;
+	private float UIYc;	
+	private float saltarc;
+	private float dashc;
+	private float interactuarc;
+	private float dispararc;
+	private float ruletac;
+	private float ruletapressc;
+	private float UIreducidoc;
+	private float correrc;
+	private float menu1c;
+	private float menu2c;
+	public float lateralc;
+    public bool controlact;
+    private float temp10;
+    public GameObject pausa1;
+    public GameObject select1;
+    public GameObject tactil;
+    public bool jugadorEntrando;
+    public bool movPH;
+    public float angulomod;
+    private Vector3 movdire;
+    private Vector3 posicionbase;
+    public bool dest;
+
     // Start is called before the first frame update
     void Start()
     {
+        posicionbase = transform.position;
         if(camara != null)
         {cameraverticalangle2 = camara.transform.eulerAngles.y;}
-        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
-        jugador = (jugador_al2)FindFirstObjectByType(typeof(jugador_al2));
-        if(GameObject.Find("muerteaudio") == true)
-		{muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();}
 
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+
+        jugador = (jugador_al2)FindFirstObjectByType(typeof(jugador_al2));
+
+
+
+        camarascript = (camara2_al2)FindFirstObjectByType(typeof(camara2_al2));
+
+		camaracom = camarascript.transform.GetComponent<Camera>();
+
+
+        velocidad = 6;
 
         
 
@@ -109,343 +129,340 @@ public class jugador2_al2 : MonoBehaviour
 
         }
         this._rb = base.GetComponent<Rigidbody>();
-        vidaaux = vida;
     }
-    public void cA()
+    private void FixedUpdate()
 	{
-		jumpc = 1;
-	}
-	public void cB()
-	{
-		mc = 1;
-	}
-	public void cX()
-	{
-		nc = 1;
-	}
-    public void crb()
-	{
-		lbc = 1;
-	}
-    public void clb()
-	{
-		rbc = 1;
-	}
-    public void detA()
-	{
-		jumpc = 0;
+
+		
+		if(controlact == true && movPH == true && manager.personaje == 2)
+		{
+			
+
+
+			Vector3 movdirnow = (transform.TransformDirection(new Vector3 (movXc,0, movYc).normalized)) * velocidad;
+
+			Vector3 moveDir =  movdirnow;
+
+            // Raycast para detectar colisión en la dirección del movimiento
+            if (Physics.Raycast(transform.position + new Vector3(0,1.5f,0),moveDir, out RaycastHit hit,Mathf.Infinity))
+            {
+				Debug.DrawRay(transform.position + new Vector3(0,1.5f,0),moveDir * 300, Color.yellow);
+				if(hit.distance < 2)
+                {moveDir = new Vector3(0,0,0);}
+               
+            }
+			else
+			{
+				Debug.DrawRay(transform.position + new Vector3(0,1.5f,0),moveDir * 300, Color.red);
+			}
+			if (Physics.Raycast(transform.position + new Vector3(0,-1.5f,0),moveDir, out RaycastHit hit2, Mathf.Infinity))
+            {
+				Debug.DrawRay(transform.position + new Vector3(0,-1.5f,0),moveDir * 300, Color.yellow);
+				if(hit2.distance < 2)
+                {moveDir = new Vector3(0,0,0);}
+            }
+			else
+			{
+				Debug.DrawRay(transform.position + new Vector3(0,-1.5f,0),moveDir * 300, Color.red);
+			}
+			if (Physics.Raycast(transform.position,moveDir, out RaycastHit hit3,Mathf.Infinity))
+            {
+				Debug.DrawRay(transform.position + new Vector3(0,0,0),moveDir * 300, Color.yellow);
+				if(hit3.distance < 2)
+                {moveDir = new Vector3(0,0,0);}
+            }
+			else
+			{
+				Debug.DrawRay(transform.position + new Vector3(0,0,0),moveDir * 300, Color.red);
+			}
+
+			
+			
+			
+			
+
+
+			_rb.linearVelocity = new Vector3(moveDir.x,_rb.linearVelocity.y,moveDir.z);
+
+			
+
+		}
 	}
     // Update is called once per frame
     void Update()
     {
+
+    if(manager.personaje == 2)
+    {
         
-        lhorizontalc = controles.al2.lhorizontal.ReadValue<float>();
-        lverticalc = controles.al2.lvertical.ReadValue<float>();
-        rhorizontalc = controles.al2.rhorizontal.ReadValue<float>();
-        rverticalc = controles.al2.rvertical.ReadValue<float>();
-        jumpc = controles.al2.a.ReadValue<float>();
-        mc = controles.al2.b.ReadValue<float>();
-        nc = controles.al2.x.ReadValue<float>();
-        rbc = controles.al2.rb.ReadValue<float>();
-        lbc = controles.al2.lb.ReadValue<float>();
+        camaracom.enabled = true;
+    }
+    else
+    {
+        camaracom.enabled = false;
+    }
+        
+    if(manager.personaje == 2)
+    {
+		if(controlact == true)
+		{
+
+			
+
+
+				
+				camXc = controles.al2_3d.camX.ReadValue<float>();
+				camYc = controles.al2_3d.camY.ReadValue<float>();
+				
+
+
+				
+
+
+
+					movXc = controles.al2_3d.mov.ReadValue<Vector2>().x;
+					movYc = controles.al2_3d.mov.ReadValue<Vector2>().y;
+					saltarc = controles.al2_3d.saltar.ReadValue<float>();
+
+
+			
+
+			lateralc = controles.al2_3d.lateral.ReadValue<float>();
+			UIXc = controles.al2_UI.UIX.ReadValue<float>();
+			UIYc = controles.al2_UI.UIY.ReadValue<float>();	
+			dispararc = controles.al2_3d.disparar.ReadValue<float>();	
+			dashc = controles.al2_3d.dash.ReadValue<float>();
+			interactuarc = controles.al2_3d.interactuar.ReadValue<float>();		
+			
+			
+			UIreducidoc = controles.al2_3d.UIreducido.ReadValue<float>();
+			menu1c = controles.al2_3d.menu1.ReadValue<float>();
+			menu2c = controles.al2_3d.menu2.ReadValue<float>();
+
+
+			
+			
+
+			if (menu1c > 0 && temp10 > 0.7f)
+			{
+				Time.timeScale = 0;
+				manager.pauseact = true;
+				pausa1.SetActive(true);
+				controlact = false;
+				menu1c = 0;
+				temp10 = 0;
+				if(manager.datosconfig.plat == 2)
+				{
+					tactil.SetActive(false);
+				}
+				Cursor.visible = true;
+				Cursor.lockState = CursorLockMode.None;
+			}
+
+			else if (menu2c > 0 && temp10 > 0.7f)
+			{
+				Time.timeScale = 0;
+				manager.pauseact = true;
+				select1.SetActive(true);
+				var pausatemp = select1.GetComponent<pausa_al2>();
+				pausatemp.mapa_();
+				pausatemp.RestoreOriginalControls();
+				controlact = false;
+				menu2c = 0;
+				temp10 = 0;
+				if(manager.datosconfig.plat == 2)
+				{
+					tactil.SetActive(false);
+				}
+				Cursor.visible = true;
+				Cursor.lockState = CursorLockMode.None;
+			}
+			
+
+			
+		}
+		else
+		{
+			
+			camXc = controles.al2_3d.camX.ReadValue<float>();
+			camYc = controles.al2_3d.camY.ReadValue<float>();
+			dispararc = controles.al2_3d.disparar.ReadValue<float>();
+			
+			movXc = 0;
+			movYc = 0;
+			
+			
+		}
+	}
         if(manager.personaje == 2)
         {
-        if (jumpc > 0f && saltop == true && tiemposalto > 1.4f)
+        if (saltarc > 0f && saltop == true && tiemposalto > 1.4f)
         {
-                this._rb.AddForce(this.jumpforce * Vector3.up);
+                this._rb.AddForce(800 * Vector3.up);
                 saltop = false;
                 tiemposalto = 0;
-                anim.SetBool("salto",true);
 
         }
-        else{anim.SetBool("salto",false);}
-        if(blanco == 0)
+
+
+
+        if(dispararc > 0  && tiempodisp > 0.5f)
         {
-            if(manager.datosconfig.idioma == "es")
-            {
-            objetotext.text = "DISPAROS";
-            }
-            if(manager.datosconfig.idioma == "en")
-            {
-            objetotext.text = "weapon";
-            }
-            if(manager.datosconfig.idioma == "cat")
-            {
-            objetotext.text = "balas";
-            }
-            if (nc > 0f &&  tiempodisp > 1 )
-            {
-                    if(manager.juego == 1)
-                    {
-                        GameObject BalaTemporal = Instantiate(balaprefab, transform.position,transform.rotation) as GameObject;
-
-                        Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
-
-                        rb.AddForce(transform.forward * 110 * balavel);
-
-                        Destroy(BalaTemporal, 1.0f);
-
-                        disp.Play();
-
-                        tiempodisp = 0;
-                    }
-                    if(manager.juego == 2)
-                    {
-                        GameObject BalaTemporal = Instantiate(balaprefab, transform.position,transform.rotation) as GameObject;
-
-                        Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
-                        
-                        if (dir == 1)
-                        {rb.AddForce(transform.forward * 110 * balavel);}
-                        if (dir == 2)
-                        {rb.AddForce(transform.forward * -110 * balavel);}
-                        if (dir == 3)
-                        {rb.AddForce(transform.right * 110 * balavel);}
-                        if (dir == 4)
-                        {rb.AddForce(transform.right * -110 * balavel);}
-
-                        Destroy(BalaTemporal, 1.0f);
-
-                        disp.Play();
-
-                        tiempodisp = 0;
-                    }
-                    if(manager.juego == 3)
-                    {
-                        GameObject BalaTemporal = Instantiate(balaprefab, transform.position,transform.rotation) as GameObject;
-
-                        Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
-                        
-                        if (dir == 1)
-                        {rb.AddForce(transform.right * -110 * balavel);}
-                        if (dir == 2)
-                        {rb.AddForce(transform.right * 110 * balavel);}
-
-                        Destroy(BalaTemporal, 1.0f);
-
-                        disp.Play();
-
-                        tiempodisp = 0;
-                    }
-            }
-            if(objeto == 1)
-            {
-                if(manager.datosconfig.idioma == "es")
-                {
-                objetotext.text = "VOLVER";
-                }
-                if(manager.datosconfig.idioma == "en")
-                {
-                objetotext.text = "RETURN";
-                }
-                if(manager.datosconfig.idioma == "cat")
-                {
-                objetotext.text = "TORNAR";
-                }
-                if(nc > 0f && tempboton > 0.5f)
-                {
-                    jugador.tempboton = 0;
-                    tempboton = 0;
-                    manager.personaje = 1;
-                }
-            }
-            if(objeto == 1 && lbc > 0f && tempboton > 0.5f)
-            {
-                objeto--;
-                tempboton = 0;
-            }
-            if(objeto == 0 && rbc > 0f && tempboton > 0.5f) 
-            {
-                objeto++;
-                tempboton = 0;
-            }
-
+            muerte = true;
         }
-        if(manager.juego == 1)
+        if(interactuarc > 0 && tiempodisp > 0.5f)
         {
-            anim.SetFloat("velx",lhorizontalc);
-            anim.SetFloat("vely",lverticalc);
-            if (lhorizontalc > 0f )
-            {
-                dir = 3;
-                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,90,0),5* Time.deltaTime);
-            }
-            if (lhorizontalc < 0f)
-            {
-                dir = 4;
-                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,-90,0),5* Time.deltaTime);
-            }
-            if (lverticalc > 0f)
-            {
-                dir = 1;
-                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
-            }
-            if (lverticalc < 0f )
-            {
-                dir = 2;
-                _rb.linearVelocity = transform.TransformDirection(new Vector3 (lhorizontalc * velocidad, _rb.linearVelocity.y, lverticalc * velocidad));
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,180,0),5* Time.deltaTime);
-            }
-
-            if(rhorizontalc != 0)
-            {rotationinput.x = rhorizontalc * rotspeed * Time.deltaTime;}
-            else{rotationinput.x = 0;}
-            
-            rotationinput.y = rverticalc * rotspeed * Time.deltaTime;
-
-            cameraverticalangle +=  rotationinput.y/3;
-            cameraverticalangle = Mathf.Clamp(cameraverticalangle, -20 , 20);
-
-			cameraverticalangle2 +=  rotationinput.x;
-
-            camara.transform.localRotation = Quaternion.Euler(-cameraverticalangle,cameraverticalangle2,0);
-			if (lhorizontalc != 0f && rhorizontalc != 0f|| lverticalc != 0 && rhorizontalc != 0f)
-			{
-				transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),2.5f* Time.deltaTime);
-			}
-			else if (lhorizontalc != 0f || lverticalc != 0)
-			{
-				transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.Euler(0,camara.transform.eulerAngles.y,0),90f* Time.deltaTime);
-			}
-            camara.transform.position = new Vector3 (transform.position.x,transform.position.y,transform.position.z);
+            _rb.linearVelocity = Vector3.zero;
+            tiempodisp = 0;
+            jugador.tiempodisp = 0;
+            manager.personaje = 1;
+		    
         }
-        if(manager.juego == 2)
+        if(controlact == true && jugador.modo == "3D")
         {
-           anim.SetFloat("velx",lhorizontalc);
-            anim.SetFloat("vely",lverticalc);
-           if (lhorizontalc > 0f )
-			{
-                dir = 3;
-				base.transform.Translate (-1 * Time.deltaTime * Vector3.left* velocidad);
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,90,0),5* Time.deltaTime);
-			}
-			if (lhorizontalc < 0f)
-			{
-                dir = 4;
-				base.transform.Translate (1 * Time.deltaTime * Vector3.left* velocidad);
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,-90,0),5* Time.deltaTime);
-			}
-			if (lverticalc > 0f)
-			{
-                dir = 1;
-				base.transform.Translate  (-1 * Time.deltaTime * Vector3.back * velocidad);
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,0,0),5* Time.deltaTime);
-			}
-			if (lverticalc < 0f )
-			{
-                dir = 2;
-				base.transform.Translate (1  * Time.deltaTime * Vector3.back* velocidad);
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,180,0),5* Time.deltaTime);
-			}
+
+					
+
+					Vector3 movdirnow = new Vector3 (movXc,0, movYc).normalized;
+
+
+
+
+						if (jugadorEntrando == true)
+						{
+								
+								boxcam2.transform.localRotation = Quaternion.Euler(0.35f, 0, 0);
+								this.jugadorEntrando = false;
+						}				
+						
+						if(movXc != 0 || movYc != 0)
+						{
+
+							movPH = true;
+							
+							// Rotar el modelo en la dirección del movimiento
+							angulomod = Mathf.Atan2(movXc, movYc) * Mathf.Rad2Deg;
+							mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation, 
+																		Quaternion.Euler(mod.transform.localEulerAngles.x, angulomod, mod.transform.localEulerAngles.z),
+																		10 * Time.deltaTime);
+							
+							// Rotar el personaje para que mire en la dirección de la cámara
+							float camaraYRotation = camara.transform.eulerAngles.y;
+							transform.rotation = Quaternion.Slerp(transform.rotation, 
+																Quaternion.Euler(0, camaraYRotation, 0),
+																1 * Time.deltaTime);
+						}
+						else
+						{
+							movPH = false;
+						}
+						
+						// Gradualmente volver a la rotación normal cuando no está en modo planeta
+						Quaternion rotacionNormal = Quaternion.Euler(0, transform.eulerAngles.y, 0);
+						transform.rotation = Quaternion.Slerp(transform.rotation, rotacionNormal, Time.fixedDeltaTime * 3f);
+
+						
+						
+						
+						
+						movdire = transform.TransformDirection(movdirnow * velocidad);
+						float distaxe = movdire.magnitude * Time.fixedDeltaTime;
+						movdire.Normalize();
+						RaycastHit hit;
+						Vector3 moveDirection = new Vector3(movXc, 0, movYc).normalized;
+
+						
+						
+						if(movYc == 0f && movXc == 0f)
+						{
+							_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
+						}
+						
+						
+
+	
+
+						if(camXc != 0)
+						{rotationinput.x = camXc * rotspeed * Time.deltaTime;}
+						else{rotationinput.x = 0;}
+						
+
+						if(camYc != 0)
+						{rotationinput.y = camYc * rotspeed * Time.deltaTime;}
+						else{rotationinput.y = 0;}
+						Debug.Log("camara");
+						
+
+							Vector3 horcam = Vector3.up * rotationinput.x;
+							Vector3 vercam = new Vector3(0,0,0);
+
+							
+							vercam = Vector3.right * -rotationinput.y;
+
+						
+							camara.transform.localEulerAngles += vercam + horcam;
+
+						Quaternion xRotationx = Quaternion.Euler(camara.transform.localEulerAngles.x,0,0);
+						float angle_f = Quaternion.Angle(Quaternion.identity, xRotationx);
+						float fixedAngle_f = angle_f;
+						if (xRotationx.eulerAngles.x>180)
+						{
+							fixedAngle_f *= -1;
+						}
+						float clampedX = Mathf.Clamp(fixedAngle_f, -20, 50);
+						camara.transform.localRotation = Quaternion.Euler(clampedX, camara.transform.localEulerAngles.y, camara.transform.localEulerAngles.z);
+						
+
+
+
+						camaux = camara.transform.eulerAngles.y;
+
+							if (movXc != 0f && camXc != 0f|| movYc != 0 && camXc != 0f || movXc != 0f || movYc != 0)
+							{
+								transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.Euler(transform.eulerAngles.x,camaux,transform.eulerAngles.z),30f* Time.deltaTime);
+								camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.y,camara.transform.localEulerAngles.z),30f* Time.deltaTime);	
+							}
+								
+
+
+						
+					
+
+					
+
+						
+
+				
+					
+				
+
+
+				
+
+		}
+		
+        if(controlact == true && jugador.modo == "Cenital")
+        {
+           
         }
-        if (manager.juego == 3 && this.dimensiion)
+
+        if (controlact == true && jugador.modo == "2D" && this.dimensiion)
 		{
-            anim.SetFloat("velx",lhorizontalc);
-            anim.SetFloat("vely",lverticalc);
-			
-			if (lhorizontalc > 0f)
-			{
-                dir = 1;
-				base.transform.position -= +1 * (float)this.velocidad * Time.deltaTime * Vector3.back;
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,-90,0),5* Time.deltaTime);
-			}
-			if (lhorizontalc < 0f )
-			{
-                dir = 2;
-				base.transform.position -= -1 * (float)this.velocidad * Time.deltaTime * Vector3.back;
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,90,0),5* Time.deltaTime);
-			}
-			this.tiempogiro2 += Time.deltaTime;
+            
 		
 			
 			
 			
 			
 		}
-		if (manager.juego == 3 && !this.dimensiion)
+		if (controlact == true && jugador.modo == "2D" && !this.dimensiion)
 		{
-            anim.SetFloat("velx",lhorizontalc);
-            anim.SetFloat("vely",lverticalc);
-			if (lhorizontalc < 0f )
-			{
-                dir = 2;
-				base.transform.position -= -1 * (float)this.velocidad * Time.deltaTime * Vector3.right;
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,90,0),5* Time.deltaTime);
-			}
-			if (lhorizontalc > 0f)
-			{
-                dir = 1;
-				base.transform.position -= +1 * (float)this.velocidad * Time.deltaTime * Vector3.right;
-                mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(0,-90,0),5* Time.deltaTime);
-			}
-			this.tiempogiro2 += Time.deltaTime;
+            
 		}
-        if (manager.juego == 3 && mc > 0f)
-		{
-			if (!this.dimensiion && this.tiempogiro2 > 1.5f)
-			{
-				this.dimensiion = true;
-				this.tiempogiro2 = 0f;
-				girovalor = base.transform.eulerAngles.y;
-				girotd_der = true;
-			}
-			else if (this.dimensiion && this.tiempogiro2 > 1.5f)
-			{
-				this.tiempogiro2 = 0f;
-				this.dimensiion = false;
-				girovalor = base.transform.eulerAngles.y;
-				girotd_izq = true;
-			}
-						
-		}
-        if (tiempogiro2 > 1f)
-		{
-			if (girotd_izq == true)
-			{
-				transform.rotation = Quaternion.Euler(0,0,0);
-
-				 
-
-			}
-			if (girotd_der == true)
-			{
-
-				transform.rotation = Quaternion.Euler(0,90,0);
-			}
-			girotd_der = false;
-			girotd_izq = false;
-		}
-		if (girotd_izq == true)
-		{
-			if (base.transform.eulerAngles.y >= girovalor - 180f)
-			{
-				transform.Rotate(Vector3.up,-180f * Time.deltaTime);
-			}
-
-		}
-		if (girotd_der == true)
-		{
-			if (base.transform.eulerAngles.y <= girovalor + 180f)
-			{
-				transform.Rotate(Vector3.up,180f * Time.deltaTime);
-			}
-
-		}
-			this.tiempogiro2 += Time.deltaTime;
     
         }
-        if(vida <= 0 && muerte == false)
-        {
-            muerte = true;
-            vida = 0;
-            manager.datosserial.muertes++;
-            manager.guardar();
-        }
-        if(tempboton < 15)
-        {tempboton += 1 * Time.deltaTime;}
+        if(temp10 < 15)
+        {temp10 += 1 * Time.deltaTime;}
         if(tiemposalto < 15)
         {tiemposalto += 1 * Time.deltaTime;}
         if(tempdano < 15)
@@ -456,17 +473,40 @@ public class jugador2_al2 : MonoBehaviour
         {tiempovel += 1 * Time.deltaTime;}
         if (muerte == true)
         {
-            manager.datosserial.alien2muere = true;
-            manager.guardar();
-            manager.pause = true;
-            respawnm.SetActive(true);
-            juego.SetActive(false);
+
+            GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
+            explosiont.transform.localScale = this.gameObject.transform.localScale;
+            Destroy(explosiont, 1f);
+            dest = true;
+            muerte = false;
+            //ahora en on trigger stay si detecan que explosion player 2 tiene dest activo ejecutara el daño o evento
+
 
         }
-        mc = 0;
-        nc = 0;
-        lbc = 0;
-        rbc = 0;
+        else if(dest == true)
+        {
+            transform.position = posicionbase;
+
+            _rb.linearVelocity = Vector3.zero;
+            tiempodisp = 0;
+            jugador.tiempodisp = 0;
+            manager.personaje = 1;
+            dest = false;
+        }
+
+        camXc = 0;
+		camYc = 0;
+
+
+		saltarc = 0;
+		dashc = 0;
+		interactuarc = 0;
+
+		
+		dispararc = 0;
+		lateralc = 0;
+		correrc = 0;
+		UIreducidoc = 0;
         
     }
     private void OnTriggerEnter(Collider col)
@@ -476,16 +516,13 @@ public class jugador2_al2 : MonoBehaviour
 		{
             GameObject explosiont = Instantiate(jugador.explosion, col.transform.position,col.transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
-            audio2.Play();
             Destroy(col.gameObject);
-			vida--;
-            muertes.Play();
+			muerte = true;
         }
         if (col.gameObject.tag == "dañox2" && tempdano > 3)
 		{
             tempdano = 0;
-            audio2.Play();
-			vida--;
+            muerte = true;
         }
 
 	}
@@ -501,7 +538,6 @@ public class jugador2_al2 : MonoBehaviour
         if (col.gameObject.tag == "lava")
 		{
 			saltop = true;
-            salto2 = false;
 		}
         if (col.gameObject.tag == "respawn")
 		{
@@ -511,24 +547,20 @@ public class jugador2_al2 : MonoBehaviour
 		{
             GameObject explosiont = Instantiate(jugador.explosion, col.transform.position,col.transform.rotation) as GameObject;
             Destroy(explosiont, 1f);
-            audio2.Play();
             Destroy(col.gameObject);
-			vida--;
+			muerte = true;
         }
         if (col.gameObject.tag == "dañox2")
 		{
-            audio2.Play();
-			vida--;
+			muerte = true;
             
         }
 
 	}
     private void OnCollisionStay(Collision col)
 	{
-        if (col.gameObject.tag == "suelo" || col.gameObject.tag == "lava" || col.gameObject.tag == "control" || col.gameObject.tag == "nivel1" || col.gameObject.tag == "nivel2" || col.gameObject.tag == "nivel3" || col.gameObject.tag == "nivel4" || col.gameObject.tag == "nivel5" || col.gameObject.tag == "nivel6" || col.gameObject.tag == "nivel7" || col.gameObject.tag == "nivel8" || col.gameObject.tag == "nivel9" || col.gameObject.tag == "nivel10"
-        || col.gameObject.tag == "nivel11" || col.gameObject.tag == "nivel12" || col.gameObject.tag == "nivel13" || col.gameObject.tag == "nivel14" || col.gameObject.tag == "nivel15" || col.gameObject.tag == "nivel16" || col.gameObject.tag == "nivel17" || col.gameObject.tag == "nivel18" || col.gameObject.tag == "nivel19" || col.gameObject.tag == "nivel20")
+        if (col.gameObject.tag == "suelo" || col.gameObject.tag == "lava" || col.gameObject.tag == "control" )
         {
-			anim.SetBool("salto",false);
             saltop = true;
 		}
 	}
@@ -539,11 +571,9 @@ public class jugador2_al2 : MonoBehaviour
         {
 
         }
-        if (col.gameObject.tag == "suelo" || col.gameObject.tag == "lava" || col.gameObject.tag == "control" || col.gameObject.tag == "nivel1" || col.gameObject.tag == "nivel2" || col.gameObject.tag == "nivel3" || col.gameObject.tag == "nivel4" || col.gameObject.tag == "nivel5" || col.gameObject.tag == "nivel6" || col.gameObject.tag == "nivel7" || col.gameObject.tag == "nivel8" || col.gameObject.tag == "nivel9" || col.gameObject.tag == "nivel10"
-        || col.gameObject.tag == "nivel11" || col.gameObject.tag == "nivel12" || col.gameObject.tag == "nivel13" || col.gameObject.tag == "nivel14" || col.gameObject.tag == "nivel15" || col.gameObject.tag == "nivel16" || col.gameObject.tag == "nivel17" || col.gameObject.tag == "nivel18" || col.gameObject.tag == "nivel19" || col.gameObject.tag == "nivel20")
+        if (col.gameObject.tag == "suelo" || col.gameObject.tag == "lava" || col.gameObject.tag == "control" )
 		{
 			saltop = false;
-			anim.SetBool("salto",true);
 		}
         
 

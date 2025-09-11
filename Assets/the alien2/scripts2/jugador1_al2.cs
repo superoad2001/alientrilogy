@@ -3596,8 +3596,6 @@ public class jugador1aa_al2 : MonoBehaviour
 		{
 			pausa1.SetActive(true);
             anim.Play("tpose");
-            if(jugador2 != null)
-            {jugador2.anim.Play("tpose");}
 			pausac = 0;
 			temp9 = 0;
             manager.pause = true;
