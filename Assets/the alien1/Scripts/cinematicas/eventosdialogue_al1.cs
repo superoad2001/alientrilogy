@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 
 // Token: 0x02000010 RID: 16
-public class eventosdialogue : MonoBehaviour
+public class eventosdialogue_al1 : MonoBehaviour
 {
 
     public string dialogueid;

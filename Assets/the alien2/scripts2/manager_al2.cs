@@ -23,6 +23,8 @@ public class manager_al2 : MonoBehaviour
 	public int paginas;
 	public bool controlene;
 	public int misionS;
+	public int IDhierronivel;
+	public bool hierronivel;
 
 	public AudioSource audio0;
 

@@ -7,6 +7,9 @@ public class hidemenu_al2 : MonoBehaviour
 	public manager_al2 manager;
 
     private Controles controles;
+    public Animator anim;
+    public bool act = true;
+    public bool act2;
 	public void Awake()
     {
         controles = new Controles();
@@ -28,11 +31,14 @@ public class hidemenu_al2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Animator anim = GetComponent<Animator>();
-        if(controles.al2.lt.ReadValue<float>() > 0)
-	    {anim.SetBool("show",true);}
-        else if(controles.al2.lt.ReadValue<float>() == 0)
-	    {anim.SetBool("show",false);}
+            anim = GetComponent<Animator>();
+            if(controles.al1_UI.UIreducido.ReadValue<float>() > 0 || act2 == true)
+            {
+                anim.SetBool("show",true);
+                act2 = false;
+            }
+            else if(controles.al1_UI.UIreducido.ReadValue<float>() == 0)
+            {anim.SetBool("show",false);}
 
     }
 }

@@ -16,7 +16,7 @@ public class jugador_nave_al1 : jugador_al1
     [Header("Propio nave")]
 
     public AudioSource munson;
-    public eventosdialogue eventosdialogueE;
+    public eventosdialogue_al1 eventosdialogueE;
 	public AudioSource critico;
 	public Image Critobj;
 	public Text armaname;
@@ -1683,7 +1683,7 @@ public class jugador_nave_al1 : jugador_al1
 		}
 		if (col.gameObject.tag == "evento")
 		{
-			eventosdialogueE = col.GetComponent<eventosdialogue>();
+			eventosdialogueE = col.GetComponent<eventosdialogue_al1>();
 			if(eventosdialogueE.jug == true)
 			{
 				dialogueact = false;
@@ -1778,7 +1778,7 @@ public class jugador_nave_al1 : jugador_al1
 		
 		if (col.gameObject.tag == "evento" && eventoini == true)
 		{
-			eventosdialogueE = col.GetComponent<eventosdialogue>();
+			eventosdialogueE = col.GetComponent<eventosdialogue_al1>();
 			if(eventosdialogueE.jug == true)
 			{
 				dialogueact = false;

@@ -169,7 +169,7 @@ public class jugador_chara2d_al1 : jugador_al1
 	public GameObject palo;
 	public npc_al1 npcbase;
 	private float jumpforcebase = 0f;
-	public eventosdialogue eventosdialogueE;
+	public eventosdialogue_al1 eventosdialogueE;
 	public AudioSource vozMeet;
 	private float tempdash = 12;
 	private float tempdash2 = 12;
@@ -3533,7 +3533,7 @@ public class jugador_chara2d_al1 : jugador_al1
 		}
 		if (col.gameObject.tag == "evento")
 		{
-			eventosdialogueE = col.GetComponent<eventosdialogue>();
+			eventosdialogueE = col.GetComponent<eventosdialogue_al1>();
 			if(eventosdialogueE.jug == true)
 			{
 				dialogueact = false;
@@ -3805,7 +3805,7 @@ public class jugador_chara2d_al1 : jugador_al1
         }
 		if (col.gameObject.tag == "evento" && eventoini == true)
 		{
-			eventosdialogueE = col.GetComponent<eventosdialogue>();
+			eventosdialogueE = col.GetComponent<eventosdialogue_al1>();
 			if(eventosdialogueE.jug == true)
 			{
 				dialogueact = false;

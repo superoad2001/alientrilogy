@@ -160,7 +160,7 @@ public class jugador_chara3d_al2 : jugador_al2
 	public GameObject palo;
 	public npc_al2 npcbase;
 	private float jumpforcebase = 0f;
-	public eventosdialogue eventosdialogueE;
+	public eventosdialogue_al2 eventosdialogueE;
 	public Animator animcam;
 	public AudioSource vozMeet;
 	public AudioSource saltodo;
@@ -4987,7 +4987,7 @@ public class jugador_chara3d_al2 : jugador_al2
 		}
 		if (col.gameObject.tag == "evento")
 		{
-			eventosdialogueE = col.GetComponent<eventosdialogue>();
+			eventosdialogueE = col.GetComponent<eventosdialogue_al2>();
 			if(eventosdialogueE.jug == true)
 			{
 				dialogueact = false;
@@ -5203,13 +5203,11 @@ public class jugador_chara3d_al2 : jugador_al2
 				{menuoff = (DialogueManager)FindFirstObjectByType(typeof(DialogueManager));}
 				
 				
-				if(misionA.tiendaact == false)
-				{
 				manager.misionS = col.gameObject.GetComponent<npc_al2>().mision;
 				misionA.misionS = col.gameObject.GetComponent<npc_al2>().mision;
 				misionA.npcid = col.gameObject.GetComponent<npc_al2>().managernpc.npcID;
 				misionA.premiocant = col.gameObject.GetComponent<npc_al2>().npc_precio;
-				}
+				
 
 				menuoff.StartDialogue(npcbase.DialogueSO,npcbase.dialogueid);
 				dialogueact = true;
@@ -5239,7 +5237,7 @@ public class jugador_chara3d_al2 : jugador_al2
 		}
 		if (col.gameObject.tag == "evento" && eventoini == true)
 		{
-			eventosdialogueE = col.GetComponent<eventosdialogue>();
+			eventosdialogueE = col.GetComponent<eventosdialogue_al2>();
 			if(eventosdialogueE.jug == true)
 			{
 				dialogueact = false;

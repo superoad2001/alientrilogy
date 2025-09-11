@@ -52,6 +52,8 @@ public class datos2
 	public int[] licenciaarmas = new int[12]{0,0,0,0,0,0,0,0,0,0,0,0};
 
 	public bool[] notas = new bool[20];
+	public bool[] gemaT = new bool[100];
+	public bool[] LlaveT = new bool[100];
 	
 
 
@@ -67,6 +69,14 @@ public class datos2
 
 	public int ArmasNaveObtenidas;
 	public int ArmasAlienObtenidas;
+
+
+	public string salirnivelsala;
+	public Vector3 puertapos;
+	public bool puertaposact;
+	public int puertagir;
+	public bool puertagiract;
+	public bool[] puertasdesbloqueadas = new bool [20];
 
 
 
