@@ -18,9 +18,11 @@ public abstract class jugador_al2 : MonoBehaviour
 	public bool saltop = true;
 	public bool movskate;
 	[HideInInspector]public bool grind;
+	[HideInInspector]public bool control;
 	[HideInInspector]public float golpearMc;
     public bool controlact = true;
 	public GameObject objplaneta;
+	[HideInInspector]public float tempdash3 = 12;
 	public float disjugsave;
 	public Vector3 planetCenter;
 	public float jugpos;
@@ -98,6 +100,7 @@ public abstract class jugador_al2 : MonoBehaviour
 	[HideInInspector]public float girodir = -90;
 	public bool dentrotienda;
 	[HideInInspector]public bool dashefect;
+	[HideInInspector]public bool dashefect2;
 	[HideInInspector]public GameObject eneempuj;
 	[HideInInspector]public bool empujon;
 	[HideInInspector]public float disdash = 10;

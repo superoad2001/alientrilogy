@@ -333,7 +333,7 @@ public class pausa_al1 : MonoBehaviour
         "NV PX4000 : "+manager.datosserial.nivelarmadef+"\n"+
         "NV RataTaPUM V2 : "+manager.datosserial.nivelarmanave1+"\n"+
         "NV REYNOVES : "+manager.datosserial.nivelarmanave3+"\n"+
-        "NV Mina Guardian : "+manager.datosserial.nivelarmanave2+"\n"+
+        "NV Mina Guardian V2 : "+manager.datosserial.nivelarmanave2+"\n"+
         "NV InSitu: "+manager.datosserial.nivelarmanave4;
         }
         if(mapaact == true)

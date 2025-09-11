@@ -18,6 +18,7 @@ public class jugador_chara3d_al1 : jugador_al1
 	private float temprebote;
 	public AudioSource dest;
 	public AudioSource critico;
+	public Text armaname;
 	public Image Critobj;
     public float colorC;
     private float vidaescudoUI1;
@@ -325,8 +326,13 @@ public class jugador_chara3d_al1 : jugador_al1
 
 
 
+			if(manager.datosserial.armasel == 1 )
+			{
+				armaname.text = "ParteCraneos";
+			}
 			if(manager.datosserial.armasel == 3)
 			{
+				armaname.text = "EL Gatillonizador";
 				iconodisp.sprite = arma3;
 				pistolap.SetActive(false);
 				pistolatiempo.SetActive(false);
@@ -334,6 +340,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			}
 			if(manager.datosserial.armasel == 2)
 			{
+				armaname.text = "HARMONIZADORA";
 				iconodisp.sprite = arma2;
 				pistolap.SetActive(true);
 				pistolatiempo.SetActive(false);
@@ -341,6 +348,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			}
 			if(manager.datosserial.armasel == 4)
 			{
+				armaname.text = "PX4000";
 				iconodisp.sprite = arma4;
 				pistolap.SetActive(false);
 				pistolatiempo.SetActive(true);
@@ -1256,6 +1264,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			{
 				if(manager.datosserial.tengolanzar == true && tiempodisp > 0.2f)
 				{
+					armaname.text = "ParteCraneos";
 					paloimg.color = new Color(1,1,1,1f);
 
 					if(manager.datosserial.armadef)
@@ -1338,6 +1347,7 @@ public class jugador_chara3d_al1 : jugador_al1
 				
 				if(manager.datosserial.armadef == true && tiempodisp > 0.2f)
 				{
+					armaname.text = "PX4000";
 					if(manager.datosserial.tengolanzar)
 					{paloimg.color = new Color(1,1,1,0.1f);}
 
@@ -1378,6 +1388,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			{
 				if(manager.datosserial.armapapa == true && tiempodisp > 0.2f)
 				{
+					armaname.text = "EL Gatillonizador";
 					pistolaimg.color = new Color(1,1,1,1f);
 
 
@@ -1427,7 +1438,7 @@ public class jugador_chara3d_al1 : jugador_al1
 			{
 				if(manager.datosserial.armarelen == true && tiempodisp > 0.2f)
 				{
-					
+					armaname.text = "HARMONIZADORA";
 					if(manager.datosserial.tengolanzar)
 					{paloimg.color = new Color(1,1,1,0.1f);}
 
@@ -3143,6 +3154,8 @@ public class jugador_chara3d_al1 : jugador_al1
 					stamina -= 15;
 					staminaact = -2;
 					tempaerodash = 0;
+					palo.GetComponent<golpe_al1>().dano = 0.1f * danoextra * nivelfuerza;
+					toquespalo = 999;
 				}
 				else if(dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0)
 				|| dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("escudogiratorio") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
@@ -3279,14 +3292,14 @@ public class jugador_chara3d_al1 : jugador_al1
 		
 		Debug.DrawRay(transform.position + new Vector3(0,3,0),movdirectaux * 300, Color.green);
 	
-			if(correrc > 0 && velact != true && stamina > 0 && movYc != 0 && controlact == true
-			|| correrc > 0 && velact != true && stamina > 0 && movXc != 0 && controlact == true)
+			if(correrc > 0 && velact != true && stamina > 0 && movYc != 0 && controlact == true && suelo == true
+			|| correrc > 0 && velact != true && stamina > 0 && movXc != 0 && controlact == true && suelo == true)
 			{
 				stamina -= 7 * Time.deltaTime;
 				staminaact = 0;
 				velocidad = velocidadmaxima;
 			}
-			else if (velact != true){velocidad = velocidadaux;}
+			else if (velact != true && suelo == true){velocidad = velocidadaux;}
 		
 		if(temp10 < 15)
         {temp10 += 1 * Time.deltaTime;}

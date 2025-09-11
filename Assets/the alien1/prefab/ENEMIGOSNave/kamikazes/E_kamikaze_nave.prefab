@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6031840571141148488}
   - component: {fileID: 5138020439302579622}
   - component: {fileID: 407013028382297538}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4835,6 +4835,8 @@ ParticleSystemRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4856,6 +4858,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -5034,7 +5037,7 @@ GameObject:
   - component: {fileID: 1586806259182308060}
   - component: {fileID: 6525900281364606451}
   - component: {fileID: 5370027853714316585}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: enemigo
   m_TagString: enemigo
   m_Icon: {fileID: 0}
@@ -5411,7 +5414,7 @@ GameObject:
   - component: {fileID: 8327483273830918175}
   - component: {fileID: 8093552962290101912}
   - component: {fileID: 5960544931477251152}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: selectar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10257,6 +10260,8 @@ ParticleSystemRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -10278,6 +10283,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -10360,7 +10366,7 @@ GameObject:
   - component: {fileID: 1646991761791847370}
   - component: {fileID: 8432797457009552613}
   - component: {fileID: 8906643604821791433}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15247,6 +15253,8 @@ ParticleSystemRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -15268,6 +15276,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -15380,17 +15389,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Version: 3
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1001 &676015686465849967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15454,6 +15469,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f306b3bdc1cad3642b1cfe4cf5d27a44, type: 3}
       propertyPath: m_Name
       value: kaminave
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f306b3bdc1cad3642b1cfe4cf5d27a44, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192378413368313096, guid: f306b3bdc1cad3642b1cfe4cf5d27a44, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713229007928684088, guid: f306b3bdc1cad3642b1cfe4cf5d27a44, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

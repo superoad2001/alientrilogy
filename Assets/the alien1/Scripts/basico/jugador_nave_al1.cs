@@ -19,6 +19,7 @@ public class jugador_nave_al1 : jugador_al1
     public eventosdialogue eventosdialogueE;
 	public AudioSource critico;
 	public Image Critobj;
+	public Text armaname;
     public float colorC;
 	public int target1 = 0;
 	public int target2 = 1;
@@ -709,6 +710,7 @@ public class jugador_nave_al1 : jugador_al1
 		{
 			if(tiempodisp > 0.2f)
 			{
+				armaname.text = "RataTaPUM V2";
 				paloimg.color = new Color(1,1,1,1f);
 				pistolaimg.color = new Color(1,1,1,0.1f);
 				relentizarimg.color = new Color(1,1,1,0.1f);
@@ -730,6 +732,7 @@ public class jugador_nave_al1 : jugador_al1
 
 			if(manager.datosserial.tengoarmanave3 == true && tiempodisp > 0.2f)
 			{
+				armaname.text = "REYNOVES";
 				paloimg.color = new Color(1,1,1,0.1f);
 				pistolaimg.color = new Color(1,1,1,0.1f);
 				relentizarimg.color = new Color(1,1,1,0.1f);
@@ -751,6 +754,7 @@ public class jugador_nave_al1 : jugador_al1
 		{
 			if(manager.datosserial.tengoarmanave4 == true && tiempodisp > 0.2f)
 			{
+				armaname.text = "InSitu";
 				paloimg.color = new Color(1,1,1,0.1f);
 				pistolaimg.color = new Color(1,1,1,1f);
 				relentizarimg.color = new Color(1,1,1,0.1f);
@@ -771,6 +775,7 @@ public class jugador_nave_al1 : jugador_al1
 		{
 			if(manager.datosserial.tengoarmanave2 == true && tiempodisp > 0.2f)
 			{
+				armaname.text = "Mina Guardian V2";
 				paloimg.color = new Color(1,1,1,0.1f);
 				pistolaimg.color = new Color(1,1,1,0.1f);
 				relentizarimg.color = new Color(1,1,1,1f);

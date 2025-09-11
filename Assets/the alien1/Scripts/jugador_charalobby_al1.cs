@@ -23,6 +23,7 @@ public class jugador_charalobby_al1 : jugador_al1
     public bool carga;
     private int cambioruedaact;
 	public float staminaobj;
+	public Text armaname;
 	public GameObject pistolatiempo;
 	public GameObject pistolabazoka;
 	private float vidaobj;
@@ -329,8 +330,13 @@ public class jugador_charalobby_al1 : jugador_al1
 
 
 
+			if(manager.datosserial.armasel == 1 )
+			{
+				armaname.text = "ParteCraneos";
+			}
 			if(manager.datosserial.armasel == 3)
 			{
+				armaname.text = "EL Gatillonizador";
 				iconodisp.sprite = arma3;
 				pistolap.SetActive(false);
 				pistolatiempo.SetActive(false);
@@ -338,6 +344,7 @@ public class jugador_charalobby_al1 : jugador_al1
 			}
 			if(manager.datosserial.armasel == 2)
 			{
+				armaname.text = "HARMONIZADORA";
 				iconodisp.sprite = arma2;
 				pistolap.SetActive(true);
 				pistolatiempo.SetActive(false);
@@ -345,6 +352,7 @@ public class jugador_charalobby_al1 : jugador_al1
 			}
 			if(manager.datosserial.armasel == 4)
 			{
+				armaname.text = "PX4000";
 				iconodisp.sprite = arma4;
 				pistolap.SetActive(false);
 				pistolatiempo.SetActive(true);
@@ -1413,6 +1421,7 @@ public class jugador_charalobby_al1 : jugador_al1
 					{
 						if(manager.datosserial.tengolanzar == true && tiempodisp > 0.2f)
 						{
+							armaname.text = "ParteCraneos";
 							paloimg.color = new Color(1,1,1,1f);
 
 							if(manager.datosserial.armadef)
@@ -1427,6 +1436,7 @@ public class jugador_charalobby_al1 : jugador_al1
 							if(manager.datosserial.armasel != 1 || manager.datosserial.nivelarmapalo == manager.datosserial.palosel)
 							{
 								tiempodisp = 0;
+								
 								manager.datosserial.armasel = 1;
 								manager.datosserial.palosel = 1;
 								manager.guardar();
@@ -1495,6 +1505,7 @@ public class jugador_charalobby_al1 : jugador_al1
 						
 						if(manager.datosserial.armadef == true && tiempodisp > 0.2f)
 						{
+							armaname.text = "PX4000";
 							if(manager.datosserial.tengolanzar)
 							{paloimg.color = new Color(1,1,1,0.1f);}
 
@@ -1532,8 +1543,10 @@ public class jugador_charalobby_al1 : jugador_al1
 					}
 					if(ruletaXc > 0f )
 					{
+						
 						if(manager.datosserial.armapapa == true && tiempodisp > 0.2f)
 						{
+							armaname.text = "EL Gatillonizador";
 							pistolaimg.color = new Color(1,1,1,1f);
 
 
@@ -1578,9 +1591,10 @@ public class jugador_charalobby_al1 : jugador_al1
 					}
 					if(ruletaXc < -0f )
 					{
+						
 						if(manager.datosserial.armarelen == true && tiempodisp > 0.2f)
 						{
-							
+							armaname.text = "HARMONIZADORA";
 							if(manager.datosserial.tengolanzar)
 							{paloimg.color = new Color(1,1,1,0.1f);}
 

@@ -15,6 +15,7 @@ public class barragrindeo_al2 : MonoBehaviour
     void Start()
     {
         dest = dest2;
+        player = (jugador_al2)FindFirstObjectByType(typeof(jugador_al2));
     }
     public void OnTriggerEnter(Collider col)
     {

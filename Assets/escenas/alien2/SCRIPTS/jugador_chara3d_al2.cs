@@ -15,6 +15,11 @@ public class jugador_chara3d_al2 : jugador_al2
 {
 	
 	[Header("Propio 3D")]
+	private GameObject balasaltadorR;
+	public GameObject balasaltador;
+	private GameObject balavelR;
+	public GameObject balavel;
+	private GameObject pared;
 	public BoxCollider skatecol;
 	public SphereCollider skatecol2;
 	private float temprebote;
@@ -66,6 +71,7 @@ public class jugador_chara3d_al2 : jugador_al2
 	public AudioSource escudoaud;
 	public AudioSource golpeson;
 	public AudioSource lanzarson;
+	public Text armaname;
 	public Sprite[] armasspriterueda = new Sprite[12];
 	private float VelSkate;
 	public Sprite[] artilugiosrueda = new Sprite[8];
@@ -112,6 +118,7 @@ public class jugador_chara3d_al2 : jugador_al2
 	public AudioSource dashairson;
 	private float dash = 0.3f;
 	private float dash2 = 0.3f;
+	private float dash3 = 0.3f;
 	public AudioSource disp;
 	public AudioSource disprel;
 	public AudioSource dispdef;
@@ -134,6 +141,7 @@ public class jugador_chara3d_al2 : jugador_al2
 
 	private float temppalo = 60;
 	private float tempatk;
+	public bool escalar;
 	private int numpociones;
 	private float velocidadmaxima = 13;
 	public float vidabasetut = 9;
@@ -181,6 +189,7 @@ public class jugador_chara3d_al2 : jugador_al2
     private bool peh;
     private bool fired;
 	private Vector3 moveDirSK;
+	public GameObject skatevis;
 	public void Awake()
     {
         controles = new Controles();
@@ -273,7 +282,16 @@ public class jugador_chara3d_al2 : jugador_al2
 				armaimg[2].sprite = nopimg;
 			}
 
-			
+			ruletas = manager.datosserial.ruletatipo_armas;
+			if(ruletas == 0)
+			{
+				ruletainterior = manager.datosserial.ruletainterior_armas;
+			}
+			if(ruletas == 1)
+			{
+				ruletainterior = manager.datosserial.ruletainterior_artilugios;
+			}
+
 			if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 1)
 			{
 				iconodisp.sprite = arma1_1;
@@ -302,24 +320,153 @@ public class jugador_chara3d_al2 : jugador_al2
 
 
 
-			if(manager.datosserial.armasel == 3)
+			if(manager.datosserial.armasel == 1 )
 			{
-				iconodisp.sprite = armasspriteequipada[2];
-				cambiar_modelo_arma();
-				pistolamodels[3].SetActive(true);
+				armaname.text = "ParteCraneos";
 			}
 			if(manager.datosserial.armasel == 2)
 			{
+				armaname.text = "EL Gatillonizador";
 				iconodisp.sprite = armasspriteequipada[1];
 				cambiar_modelo_arma();
 				pistolamodels[1].SetActive(true);
 			}
+			if(manager.datosserial.armasel == 3)
+			{
+				armaname.text = "HARMONIZADORA";
+				iconodisp.sprite = armasspriteequipada[2];
+				cambiar_modelo_arma();
+				pistolamodels[3].SetActive(true);
+			}
 			if(manager.datosserial.armasel == 4)
 			{
+				armaname.text = "PX4000 Quebrada";
 				iconodisp.sprite = armasspriteequipada[3];
 				cambiar_modelo_arma();
 				pistolamodels[2].SetActive(true);
 			}
+
+
+			if(manager.datosserial.armasel == 5)
+			{
+				armaname.text = "VendeMotos";
+				iconodisp.sprite = armasspriteequipada[4];
+				cambiar_modelo_arma();
+				pistolamodels[4].SetActive(true);
+			}
+			if(manager.datosserial.armasel == 6)
+			{
+				armaname.text = "Generador de Pulsos";
+				iconodisp.sprite = armasspriteequipada[5];
+				cambiar_modelo_arma();
+				pistolamodels[5].SetActive(true);
+			}
+			if(manager.datosserial.armasel == 7)
+			{
+				armaname.text = "RataTaPUM V1";
+				iconodisp.sprite = armasspriteequipada[6];
+				cambiar_modelo_arma();
+				pistolamodels[6].SetActive(true);
+			}
+			if(manager.datosserial.armasel == 8)
+			{
+				armaname.text = "Carnicera";
+				iconodisp.sprite = armasspriteequipada[7];
+				cambiar_modelo_arma();
+				pistolamodels[7].SetActive(true);
+			}
+
+
+
+
+			if(manager.datosserial.armasel == 9)
+			{
+				armaname.text = "Matasuegras";
+				iconodisp.sprite = armasspriteequipada[8];
+				cambiar_modelo_arma();
+				pistolamodels[8].SetActive(true);
+			}
+			if(manager.datosserial.armasel == 10)
+			{
+				armaname.text = "S/C egadora";
+				iconodisp.sprite = armasspriteequipada[9];
+				cambiar_modelo_arma();
+				pistolamodels[9].SetActive(true);
+			}
+			if(manager.datosserial.armasel == 11)
+			{
+				armaname.text = "SantosCielos";
+				iconodisp.sprite = armasspriteequipada[10];
+				cambiar_modelo_arma();
+				pistolamodels[10].SetActive(true);
+			}
+			if(manager.datosserial.armasel == 12)
+			{
+				armaname.text = "Mina Guardian V1";
+				iconodisp.sprite = armasspriteequipada[11];
+				cambiar_modelo_arma();
+				pistolamodels[11].SetActive(true);
+			}
+
+
+
+			if(manager.datosserial.armasel == 101)
+			{
+				armaname.text = "Hypertabla";
+				iconodisp.sprite = artilugiosequipados[0];
+				cambiar_modelo_arma();
+			}
+			if(manager.datosserial.armasel == 102)
+			{
+				armaname.text = "Caña de Pesca";
+				iconodisp.sprite = artilugiosequipados[1];
+				cambiar_modelo_arma();
+				pistolamodels[13].SetActive(true);
+			}
+			if(manager.datosserial.armasel == 103)
+			{
+				armaname.text = "CortaReflejos";
+				iconodisp.sprite = artilugiosequipados[2];
+				cambiar_modelo_arma();
+				pistolamodels[14].SetActive(true);
+			}
+			if(manager.datosserial.armasel == 104)
+			{
+				armaname.text = "Mano Obrera";
+				iconodisp.sprite = artilugiosequipados[3];
+				cambiar_modelo_arma();
+				pistolamodels[15].SetActive(true);
+			}
+
+
+			if(manager.datosserial.armasel == 105)
+			{
+				armaname.text = "Arcana Modo 1";
+				iconodisp.sprite = artilugiosequipados[4];
+				cambiar_modelo_arma();
+				pistolamodels[16].SetActive(true);
+			}
+			if(manager.datosserial.armasel == 106)
+			{
+				armaname.text = "Arcana Modo 2";
+				iconodisp.sprite = artilugiosequipados[5];
+				cambiar_modelo_arma();
+				pistolamodels[17].SetActive(true);
+			}
+			if(manager.datosserial.armasel == 107)
+			{
+				armaname.text = "Mando de la Nave";
+				iconodisp.sprite = artilugiosequipados[6];
+				cambiar_modelo_arma();
+			}
+			if(manager.datosserial.armasel == 108)
+			{
+				armaname.text = "Persuasora";
+				iconodisp.sprite = artilugiosequipados[7];
+				cambiar_modelo_arma();
+				pistolamodels[18].SetActive(true);
+			}
+
 			if(manager.datosserial.armasel == 1)
 			{
 				cambiar_modelo_arma();
@@ -405,10 +552,14 @@ public class jugador_chara3d_al2 : jugador_al2
 		{
 			peligro = false;
 		}
-
+		
 		if(movact == 0 && controlact == true && movPH == true)
 		{
 			
+			if(escalar == true && movYc > 0)
+			{
+				movYc = 0;
+			}
 
 			Vector3 movdirnow = (transform.TransformDirection(new Vector3 (movXc,0, movYc).normalized)) * velocidad;
 
@@ -453,13 +604,14 @@ public class jugador_chara3d_al2 : jugador_al2
 			
 
 
-			_rb.linearVelocity = new Vector3(moveDir.x, verticalVel,moveDir.z);
+			_rb.linearVelocity = new Vector3(moveDir.x,_rb.linearVelocity.y,moveDir.z);
 
 			
 
 		}
 		if(movact == 0 && controlact == true && movskate == true)
 		{
+			
 			
 
 			Vector3 movdirnow = (transform.TransformDirection(new Vector3 (movXc,0, movYc).normalized)) ;
@@ -505,14 +657,16 @@ public class jugador_chara3d_al2 : jugador_al2
 				verticalVel = _rb.linearVelocity.y;
 				
 			}
+
 			if(movact == 0 && controlact == true && skate == true && grind == false)
 			{
 		
-				_rb.linearVelocity = new Vector3(moveDirSK.x* VelSkate, verticalVel,moveDirSK.z* VelSkate) ;
+				_rb.linearVelocity = new Vector3(moveDirSK.x* VelSkate, _rb.linearVelocity.y,moveDirSK.z* VelSkate) ;
 
 				
 
 			}
+			
 
 			
 			
@@ -526,6 +680,11 @@ public class jugador_chara3d_al2 : jugador_al2
 	}
 	private void Update()
 	{
+		if(viento == false)
+		{
+			verticalVel = _rb.linearVelocity.y;
+			
+		}
 		if(skate == true)
 		{
 			skatecol2.enabled = true;
@@ -536,18 +695,14 @@ public class jugador_chara3d_al2 : jugador_al2
 			skatecol2.enabled = false;
 		}
 
-		if(anim.GetCurrentAnimatorStateInfo(1).IsName("skate"))
+		if(anim.GetCurrentAnimatorStateInfo(0).IsName("skate") && skate  == true)
 		{
 			skateobj.SetActive(true);
+			skatevis.SetActive(true);
 		}
-		else if(anim.GetCurrentAnimatorStateInfo(1).IsName("staticar"))
+		else if(anim.GetCurrentAnimatorStateInfo(0).IsName("staticar") && skate  == false)
 		{
 			skateobj.SetActive(false);
-		}
-		
-		if(viento == false)
-		{
-			verticalVel = _rb.linearVelocity.y;
 			
 		}
 
@@ -1168,6 +1323,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				{
 					if(manager.datosserial.armasjug[0] == true && tiempodisp > 0.2f)
 					{
+						armaname.text = "ParteCraneos";
 						armaimg[0].color = new Color(1,1,1,1f);
 
 						if(manager.datosserial.armasjug[2])
@@ -1182,6 +1338,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						if(manager.datosserial.armasel != 1 || manager.datosserial.nivelarmasjug[0] == manager.datosserial.palosel)
 						{
 							tiempodisp = 0;
+							
 							manager.datosserial.armasel = 1;
 							manager.datosserial.palosel = 1;
 							manager.datosserial.ruletainterior_armas = 0;
@@ -1258,6 +1415,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				{
 					if(manager.datosserial.armasjug[1] == true && tiempodisp > 0.2f)
 					{
+						armaname.text = "EL Gatillazonador";
 						armaimg[1].color = new Color(1,1,1,1f);
 
 
@@ -1300,7 +1458,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 				if(ruletaYc < 0f )
 				{
-					
+					armaname.text = "HARMONIZADORA";
 					if(manager.datosserial.armasjug[2] == true && tiempodisp > 0.2f)
 					{
 						if(manager.datosserial.armasjug[0])
@@ -1346,6 +1504,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 				if(ruletaXc < 0f )
 				{
+					armaname.text = "PX4000 Quebrada";
 					if(manager.datosserial.armasjug[2] == true && tiempodisp > 0.2f)
 					{
 						
@@ -1525,6 +1684,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				{
 					if(manager.datosserial.armasjug[4] == true && tiempodisp > 0.2f)
 					{
+						armaname.text = "VendeMotos";
 						if(manager.datosserial.armasjug[6])
 						{armaimg[2].color = new Color(1,1,1,0.1f);}
 
@@ -1556,6 +1716,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}	
 				if(ruletaXc > 0f )
 				{
+					armaname.text = "Generador de Pulsos";
 					if(manager.datosserial.armasjug[5] == true && tiempodisp > 0.2f)
 					{
 						armaimg[1].color = new Color(1,1,1,1f);
@@ -1591,6 +1752,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 				if(ruletaYc < 0f )
 				{
+					armaname.text = "RataTaPUM V1";
 					
 					if(manager.datosserial.armasjug[6] == true && tiempodisp > 0.2f)
 					{
@@ -1627,6 +1789,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 				if(ruletaXc < -0f )
 				{
+					armaname.text = " Carnicera";
 					if(manager.datosserial.armasjug[7] == true && tiempodisp > 0.2f)
 					{
 						
@@ -1791,6 +1954,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 				if(ruletaYc > 0f )
 				{
+					armaname.text = "Matasuegras";
 					if(manager.datosserial.armasjug[8] == true && tiempodisp > 0.2f)
 					{
 						if(manager.datosserial.armasjug[10])
@@ -1826,6 +1990,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				{
 					if(manager.datosserial.armasjug[9] == true && tiempodisp > 0.2f)
 					{
+						armaname.text = "S/C egadora";
 						armaimg[1].color = new Color(1,1,1,1f);
 
 
@@ -1860,6 +2025,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 				if(ruletaYc < 0f )
 				{
+					armaname.text = "SantosCielos";
 					
 					if(manager.datosserial.armasjug[10] == true && tiempodisp > 0.2f)
 					{
@@ -1896,6 +2062,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 				if(ruletaXc < -0f )
 				{
+					armaname.text = "Mina Guardian V1";
 					if(manager.datosserial.armasjug[11] == true && tiempodisp > 0.2f)
 					{
 						
@@ -2072,6 +2239,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 				if(ruletaYc > 0f  && skate == false)
 				{
+					armaname.text = "Hypertabla";
 					if(manager.datosserial.artilugiosjug[0] == true && tiempodisp > 0.2f)
 					{
 						if(manager.datosserial.artilugiosjug[2])
@@ -2106,6 +2274,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				{
 					if(manager.datosserial.artilugiosjug[0] == true && tiempodisp > 0.2f)
 					{
+						armaname.text = "Caña de Pesca";
 						armaimg[1].color = new Color(1,1,1,1f);
 
 
@@ -2140,7 +2309,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 				if(ruletaYc < 0f  && skate == false)
 				{
-					
+					armaname.text = "CortaReflejos";
 					if(manager.datosserial.artilugiosjug[2] == true && tiempodisp > 0.2f)
 					{
 						if(manager.datosserial.artilugiosjug[0])
@@ -2178,6 +2347,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				{
 					if(manager.datosserial.artilugiosjug[3] == true && tiempodisp > 0.2f)
 					{
+						armaname.text = "Mano Obrera";
 						
 						if(manager.datosserial.artilugiosjug[0])
 						{
@@ -2342,6 +2512,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 				if(ruletaYc > 0f  && skate == false)
 				{
+					armaname.text = "Arcana Modo 1";
 					if(manager.datosserial.artilugiosjug[4] == true && tiempodisp > 0.2f)
 					{
 						if(manager.datosserial.artilugiosjug[6])
@@ -2377,6 +2548,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				{
 					if(manager.datosserial.artilugiosjug[5] == true && tiempodisp > 0.2f)
 					{
+						armaname.text = "Arcana Modo 2";
 						armaimg[1].color = new Color(1,1,1,1f);
 
 
@@ -2414,6 +2586,7 @@ public class jugador_chara3d_al2 : jugador_al2
 					
 					if(manager.datosserial.artilugiosjug[6] == true && tiempodisp > 0.2f)
 					{
+						armaname.text = "Mando de la Nave";
 						if(manager.datosserial.artilugiosjug[4])
 						{
 							armaimg[0].color = new Color(1,1,1,0.1f);
@@ -2446,6 +2619,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 				if(ruletaXc < -0f  && skate == false)
 				{
+					armaname.text = "Persusora";
 					if(manager.datosserial.artilugiosjug[7] == true && tiempodisp > 0.2f)
 					{
 						
@@ -3023,13 +3197,14 @@ public class jugador_chara3d_al2 : jugador_al2
 							dashefect = false;
 							_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
 						}
-						else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity,0,QueryTriggerInteraction.Ignore)&& dashefect == true)
+						else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity)&& dashefect == true)
 						{
 							if(hit.distance < 1f)
 							{
 							anim.SetBool("stat",true);
 							dashefect = false;
-							_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
+							dashefect2 = false;
+							//_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
 							}
 							else
 							{
@@ -3184,15 +3359,17 @@ public class jugador_chara3d_al2 : jugador_al2
 					{
 						anim.SetBool("stat",true);
 						dashefect = false;
+						dashefect2 = false;
 						_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
 					}
-					else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity,0,QueryTriggerInteraction.Ignore)&& dashefect == true)
+					else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity)&& dashefect == true)
 					{
 						if(hit.distance < 1f)
 						{
 						anim.SetBool("stat",true);
 						dashefect = false;
-						_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
+						dashefect2 = false;
+						//_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
 						}
 						else
 						{
@@ -3436,14 +3613,16 @@ public class jugador_chara3d_al2 : jugador_al2
 			{
 				anim.SetBool("stat",true);
 				dashefect = false;
+				dashefect2 = false;
 			}
-			else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity,0,QueryTriggerInteraction.Ignore)&& dashefect == true)
+			else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity)&& dashefect == true)
 			{
 				if(hit.distance < 1f)
 				{
 				anim.SetBool("stat",true);
 				dashefect = false;
-				_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
+				dashefect2 = false;
+				//_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
 				}
 				else
 				{
@@ -3512,7 +3691,8 @@ public class jugador_chara3d_al2 : jugador_al2
 		
 			if(tiemposalto < 15)
 			{this.tiemposalto += Time.deltaTime;}
-			if (saltarc > 0f && saltop == true && tiemposalto > 1.4f)
+
+			if (saltarc > 0f && saltop == true)
 			{
 					this._rb.AddForce(this.jumpforce * Vector3.up);
 					saltop = false;
@@ -4035,7 +4215,7 @@ public class jugador_chara3d_al2 : jugador_al2
 							expltemp.transform.SetParent(this.gameObject.transform);
 
 							Destroy(expltemp,5f);
-							conseguido.text = "subiste la PX4000 a nivel "+manager.datosserial.nivelarmasjug[2];
+							conseguido.text = "subiste la PX4000 Quebrada a nivel "+manager.datosserial.nivelarmasjug[2];
 							conseguidoa.Play("nivelsub2");
 						}
 					}
@@ -4071,19 +4251,144 @@ public class jugador_chara3d_al2 : jugador_al2
 
 
 
-			//artilugios
-			if(manager.datosserial.artilugiosjug[0] == true  && manager.datosserial.armasel == 101)
-			{
-				if(dispararc > 0 && tiempodisp > 0.5f && controlact == true )
+				//artilugios
+				if(manager.datosserial.artilugiosjug[0] == true  && manager.datosserial.armasel == 101)
 				{
-					if(skate == false)
-					{anim.SetBool("skate", true);}
-					else if (skate == true) 
-					{anim.SetBool("skate", false);}
-					skate = !skate;
-					tiempodisp = 0;
+					if(dispararc > 0 && tiempodisp > 1.5f && controlact == true )
+					{
+						if(skate == false)
+						{anim.Play("skateact1");}
+						else if (skate == true) 
+						{
+							anim.Play("skateact2");
+							skatevis.SetActive(false);
+						}
+						skate = !skate;
+						tiempodisp = 0;
+						
+					}
+				}
+				if(manager.datosserial.artilugiosjug[1] == true  && manager.datosserial.armasel == 102)
+				{
+					if(dispararc > 0 && tiempodisp > 0.5f && controlact == true )
+					{
+						//cana
+					}
+				}
+				if(manager.datosserial.artilugiosjug[2] == true  && manager.datosserial.armasel == 103)
+				{
+					if(dispararc > 0 && controlact == true && tempdash3 > dash3 && tiempodisp > 0.95f && tempaerodash > 2.5f && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && temppause > 0.4f && movdire != new Vector3(0,0,0) 
+					|| dispararc > 0 && controlact == true  && tempdash3 > dash3  && tiempodisp > 0.95f && tempaerodash > 2.5f && anim.GetCurrentAnimatorStateInfo(1).IsName("escudogiratorio") && temppause > 0.4f && movdire != new Vector3(0,0,0))
+					{
+								Debug.Log(tempdash);
+								Debug.Log(dash);
+								Debug.Log(suelo);
+								Debug.Log(dash2);
+								anim.SetBool("saltoatras",false);
+								anim.SetBool("latder",false);
+								anim.SetBool("latizq",false);
+								anim.SetBool("dash",true);
+								anim.SetBool("rueda",false);
+
+								dashefect = true;
+								dashefect2 = true;
+								tiempodisp = 0;
+								disdash = 10;
+								veldash = 120;
+								tempdash3 = 0;
+								dashaeract = true;
+								movdirectaux = movdire;
+								dashairson.Play();
+								stamina -= 15;
+								staminaact = -2;
+								tempaerodash = 0;
+							
+					}
+				}
+				if(manager.datosserial.artilugiosjug[3] == true  && manager.datosserial.armasel == 104)
+				{
+					if(dispararc > 0 && controlact == true )
+					{
+						if(movXc != 0f && escalar == true || movYc != 0f && escalar == true)
+						{
+							anim.SetBool("escalar",true);
+							anim.Play("escalar");
+							_rb.linearVelocity = new Vector3(_rb.linearVelocity.x,7,_rb.linearVelocity.z);
+							Vector3 directionesc = pared.transform.position - transform.position;
+							Quaternion rotationesc = Quaternion.LookRotation(directionesc);
+							transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotationesc.eulerAngles.y,transform.rotation.eulerAngles.z),30f * Time.deltaTime);
+
+							mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation, 
+							Quaternion.Euler(mod.transform.localEulerAngles.x, 0, mod.transform.localEulerAngles.z),
+							10 * Time.deltaTime);
+						}
+						else
+						{
+							anim.SetBool("escalar",false);
+						}
+					
+					}
+					else
+					{
+						anim.SetBool("escalar",false);
+					}
+			}
+			else
+			{
+				anim.SetBool("escalar",false);
+			}
+
+			if(manager.datosserial.artilugiosjug[4] == true  && manager.datosserial.armasel == 105)
+				{
+					if(dispararc > 0 && controlact == true && tiempodisp > 0.7f)
+					{
+						if(balasaltadorR != null)
+						{
+							Destroy(balasaltadorR);
+						}
+
+						GameObject dispsaltador = Instantiate(balasaltador, mod.transform.position+ mod.transform.forward * 8,transform.rotation) as GameObject;
+                        Destroy(dispsaltador, 30f);
+                        tiempodisp = 0;         
+						balasaltadorR = dispsaltador;
+					
+					}
+			}
+			if(manager.datosserial.artilugiosjug[5] == true  && manager.datosserial.armasel == 106)
+				{
+					if(dispararc > 0 && controlact == true && tiempodisp > 0.7f)
+					{
+						if(balavelR != null)
+						{
+							Destroy(balavelR);
+						}
+
+						GameObject dispvel = Instantiate(balavel, mod.transform.position+ mod.transform.forward * 6,transform.rotation) as GameObject;
+                        Destroy(dispvel, 30f);
+                        tiempodisp = 0;         
+						balavelR = dispvel;
+					
+					}
+			}
+			if(manager.datosserial.artilugiosjug[6] == true  && manager.datosserial.armasel == 107)
+				{
+					if(dispararc > 0 && controlact == true && tiempodisp > 0.5f)
+					{
+
+						//teleport
+					}
+			}
+			if(manager.datosserial.artilugiosjug[6] == true  && manager.datosserial.armasel == 108)
+			{
+				if(dispararc > 0 && controlact == true && tiempodisp > 0.5f)
+				{
+
+					//Control
 				}
 			}
+
+
+			
 			
 
 				
@@ -4104,16 +4409,19 @@ public class jugador_chara3d_al2 : jugador_al2
 					anim.SetBool("rueda",false);
 
 					dashefect = true;
-					tiempodisp2 = 0;
+					tiempodisp = 0;
 					disdash = 10;
 					veldash = 120;
 					tempdash = 0;
+					tiempodisp2 = 0;
 					dashaeract = true;
-					movdirectaux = movdire;
-					dashairson.Play();
 					stamina -= 15;
 					staminaact = -2;
+					movdirectaux = movdire;
+					dashairson.Play();
+					palo.GetComponent<golpe_al2>().dano = 0.1f * danoextra * nivelfuerza;
 					tempaerodash = 0;
+					toquespalo = 999;
 				}
 				else if(dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0)
 				|| dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("escudogiratorio") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
@@ -4160,9 +4468,10 @@ public class jugador_chara3d_al2 : jugador_al2
 					toquespalo = 999;
 				}
 				Debug.DrawRay(transform.position + new Vector3(0,2,0),movdire * 100f, Color.green);
-				if(tempdash > dash && tempdash2 > dash2 )
+				if(tempdash > dash && tempdash2 > dash2 && tempdash3 > dash3)
 				{
 					dashefect = false;
+					dashefect2 = false;
 				}
 				
 				if (dashefect == true)
@@ -4183,18 +4492,20 @@ public class jugador_chara3d_al2 : jugador_al2
 						var sitio_dash = hit.transform.position - (transform.position + movdirectaux * disdash);
 						var distancia_dash = sitio_dash.magnitude;
 						
-						if(hit.distance > veldash * Time.deltaTime)
+						if(hit.distance > veldash * Time.deltaTime || hit.collider.CompareTag("pareddash") && dashefect2 == true)
 						{
 							Debug.Log("llego");
 							transform.position = Vector3.MoveTowards(transform.position,transform.position + movdirectaux * disdash, veldash * Time.deltaTime);
 						}
-						else
+						else if(hit.distance <= veldash * Time.deltaTime)
 						{
 							Debug.Log("llego2");
 							anim.SetBool("rueda",false);
 							tempdash = 4;
 							tempdash2 = 4;
+							tempdash3 = 4;
 							dashefect = false;
+							dashefect2 = false;
 						}
 					
 					}
@@ -4204,7 +4515,9 @@ public class jugador_chara3d_al2 : jugador_al2
 						anim.SetBool("rueda",false);
 						tempdash = 4;
 						tempdash2 = 4;
+						tempdash3 = 4;
 						dashefect = false;
+						dashefect2 = false;
 					}
 			
 					
@@ -4250,14 +4563,14 @@ public class jugador_chara3d_al2 : jugador_al2
 		
 		Debug.DrawRay(transform.position + new Vector3(0,3,0),movdirectaux * 300, Color.green);
 	
-			if(correrc > 0 && velact != true && stamina > 0 && movYc != 0 && controlact == true
-			|| correrc > 0 && velact != true && stamina > 0 && movXc != 0 && controlact == true)
+			if(correrc > 0 && velact != true && stamina > 0 && movYc != 0 && controlact == true && suelo == true
+			|| correrc > 0 && velact != true && stamina > 0 && movXc != 0 && controlact == true && suelo == true)
 			{
 				stamina -= 7 * Time.deltaTime;
 				staminaact = 0;
 				velocidad = velocidadmaxima;
 			}
-			else if (velact != true){velocidad = velocidadaux;}
+			else if (velact != true && suelo == true){velocidad = velocidadaux;}
 		
 		if(temp10 < 15)
         {temp10 += 1 * Time.deltaTime;}
@@ -4277,6 +4590,8 @@ public class jugador_chara3d_al2 : jugador_al2
         {tempdash += 1 * Time.deltaTime;}
 		if(tempdash2< 15)
         {tempdash2 += 1 * Time.deltaTime;}
+		if(tempdash3< 15)
+        {tempdash3 += 1 * Time.deltaTime;}
 		if(temppalo< 60)
         {temppalo += 1 * velrecextra * Time.deltaTime;}
 
@@ -4306,7 +4621,7 @@ public class jugador_chara3d_al2 : jugador_al2
 
 
 		
-			if(tempdash > dash)
+			if(tempdash > dash && tempdash3 > dash3)
 			{anim.SetBool("dash",false);}
 
 			if(tempdash2 > dash2)
@@ -4377,7 +4692,7 @@ public class jugador_chara3d_al2 : jugador_al2
 	public void OnCollisionEnter(Collision col)
 	{
 		
-		if (col.gameObject.tag == "suelo" || col.gameObject.tag == "lava" )
+		if (col.gameObject.tag == "suelo" || col.gameObject.tag == "lava"  || col.gameObject.tag == "escalar")
 		{
 			saltop = true;
             salto2 = false;
@@ -4404,14 +4719,14 @@ public class jugador_chara3d_al2 : jugador_al2
 	private void OnCollisionStay(Collision col)
 	{
 
-		if (col.gameObject.tag == "suelo")
+		if (col.gameObject.tag == "suelo"  || col.gameObject.tag == "lava"  || col.gameObject.tag == "escalar")
 		{
 			if(tiempovelint > 2)
 			{suelo = true;}
 			tempaerodash = 9;
 		
 		}
-		if (col.gameObject.tag == "suelo"  || col.gameObject.tag == "lava" )
+		if (col.gameObject.tag == "suelo"  || col.gameObject.tag == "lava"  || col.gameObject.tag == "escalar" )
 		{
 			anim.SetBool("salto",false);
 			
@@ -4423,7 +4738,11 @@ public class jugador_chara3d_al2 : jugador_al2
 	// Token: 0x06000023 RID: 35 RVA: 0x00003284 File Offset: 0x00001484
 	private void OnCollisionExit(Collision col)
 	{
-		if (col.gameObject.tag == "suelo" )
+		if (col.gameObject.tag == "escalar")
+		{
+			escalar = false;
+		}
+		if (col.gameObject.tag == "suelo" || col.gameObject.tag == "escalar" || col.gameObject.tag == "lava" )
 		{
 			anim.SetBool("salto",true);
 			suelo = false;
@@ -4432,6 +4751,11 @@ public class jugador_chara3d_al2 : jugador_al2
 	}
 	private void OnTriggerEnter(Collider col)
 	{
+		if (col.gameObject.tag == "escalar")
+		{
+			escalar = true;
+			pared = col.gameObject;
+		}
 		if (col.gameObject.tag == "suelo"   || col.gameObject.tag == "lava")
 		{
 			jumpforce = jumpforcebase;
@@ -4662,10 +4986,20 @@ public class jugador_chara3d_al2 : jugador_al2
 
 			
 		}
+		if (col.gameObject.tag == "control")
+		{
+			comando.text = "poser un aflamo";
+			menushow.SetBool("show",true);
+			control = true;
+		}
 
 	}
 	public void OnTriggerExit(Collider col)
 	{
+		if (col.gameObject.tag == "escalar")
+		{
+			escalar = false;
+		}
 		if (col.gameObject.tag == "viento")
 		{
 			viento = false;
@@ -4794,6 +5128,11 @@ public class jugador_chara3d_al2 : jugador_al2
         {
             menushow.SetBool("show",false);
         }
+		if (col.gameObject.tag == "control")
+		{
+			menushow.SetBool("show",false);
+			control = false;
+		}
 	}
 	public void OnTriggerStay(Collider col)
 	{
@@ -4882,7 +5221,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						vozMeet.Stop();
 						menuoff.SkipDialogue();
 						tiempodialogue = 0;
-						tiemposalto = 0.7f;
+						tiemposalto = 0f;
 					}
 					
 				}
@@ -4893,7 +5232,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						dialogueact = false;
 						manager.controlene = true;
 						controlact = true;
-						tiemposalto = 0.7f;
+						tiemposalto = 0;
 						Destroy(eventosdialogueE.gameObject);
 					}
 				}
