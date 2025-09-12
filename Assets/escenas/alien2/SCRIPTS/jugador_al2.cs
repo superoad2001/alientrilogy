@@ -20,6 +20,7 @@ public abstract class jugador_al2 : MonoBehaviour
 	[HideInInspector]public bool grind;
 	[HideInInspector]public bool control;
 	[HideInInspector]public float golpearMc;
+	[HideInInspector]public bool tiendat;
     public bool controlact = true;
 	public GameObject objplaneta;
 	[HideInInspector]public float tempdash3 = 12;
@@ -33,6 +34,7 @@ public abstract class jugador_al2 : MonoBehaviour
 	[HideInInspector]public float escopetabalas;
 	[HideInInspector]public bool dispF;
 	public float tempdano;
+	[HideInInspector]public bool tiendaact;
 	public int blanco;
 	public AudioSource audio2;
 	public int objeto;
@@ -45,7 +47,6 @@ public abstract class jugador_al2 : MonoBehaviour
 	public AudioSource combini;
 	[HideInInspector]public bool static_ev = false;
 	[HideInInspector]public int toquespalo;
-	public tutorialbase_al1 eventotut;
 	[HideInInspector]public float velrecextra = 1;
 	public Vector3 enmovdirectaux;
 	[HideInInspector]public float temppause;
@@ -138,7 +139,6 @@ public abstract class jugador_al2 : MonoBehaviour
 	public Animator menushow;
 	public DialogueManager menuoff;
 	public GameObject misionUI;
-	public enemigo1boss_al1 eneboss1;
     public GameObject pausa1;
 	public GameObject select1;
 	public Image vidab;
@@ -147,7 +147,7 @@ public abstract class jugador_al2 : MonoBehaviour
 	public Image escudoeneimg2;
 	public Image escudoeneimg3;
 	public Image iconodisp;
-	public misionA_al1 misionA;
+	public misionA_al2 misionA;
 	public string modo;
 	public manager_al2 manager;
 	public Animator ascensors;
@@ -161,6 +161,9 @@ public abstract class jugador_al2 : MonoBehaviour
 	public AudioSource tiendaMus;
 	public bool desactivarmusicacombate;
 	public bool skate;
+
+	public tienda_al2 tienda;
+	public GameObject tiendag;
 
 	private bool musicaCombateActiva = false;
 	private bool musicaNormalActiva = false;
@@ -233,7 +236,6 @@ public abstract class jugador_al2 : MonoBehaviour
 			musicajuego.time = UnityEngine.Random.Range(0,20);
 		}
 	}
-	
 
 
 
@@ -263,31 +265,6 @@ public abstract class jugador_al2 : MonoBehaviour
 
 	}
 	
-	public void tiendaact()
-	{
-		Time.timeScale = 0;
-		manager.pauseact = true;
-		musicajuego.Stop();
-		tiendaG.SetActive(true);
-		tiendaMus.Play();
-		controlact = false;
-		combo = 0;
-		if(modo == "Coche")
-		{
-			anim.SetBool("act2",true);
-		}
-		if(modo == "Nave")
-		{
-			anim.SetBool("act",true);
-		}
-		temp10 = 0;
-		if(manager.datosconfig.plat == 2)
-		{
-			tactil.SetActive(false);
-		}
-		Cursor.visible = true;
-		Cursor.lockState = CursorLockMode.None;
-	}
 	public void mision_aceptar()
 	{
 		

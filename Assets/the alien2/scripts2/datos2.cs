@@ -11,6 +11,14 @@ public class datos2
 	//[System.NonSerialized] usar para reiniciar datos
 
 
+	//economia[0]  gemas;
+	//economia[1]  llaves;
+	//economia[2]  fragllave;
+	//economia[3]  monedasrojas;
+	//economia[4]  monedasmoradas;
+	//economia[5]  monedasamarillas;
+	//economia[6]  licencias;
+
 	public bool datos_llenos;
 	public bool begin;
 	public int palosel;

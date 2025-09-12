@@ -1078,7 +1078,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				barraarmaimgnv3.fillAmount = 0;
 				barraarmaimgnv4.fillAmount = 0;
 			}
-		if(ruletapressc > 0 && tiempodisp > 0.2  && skate == false)
+		if(ruletapressc > 0 && tiempodisp > 0.2  && skate == false && tiendat == false)
 		{
 			ruletas++;
 			if(ruletas >= 3)
@@ -1096,7 +1096,7 @@ public class jugador_chara3d_al2 : jugador_al2
 			
 		}
 		
-		if(ruletas == 0)
+		if(ruletas == 0 && tiendat == false)
 		{
 
 			if(ruletac > 0 && tiempodisp > 0.2f)
@@ -2117,7 +2117,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 			}
 		}
-		if(ruletas == 1)
+		if(ruletas == 1 && tiendat == false)
 		{
 			if(ruletac > 0 && tiempodisp > 0.2f)
 			{
@@ -2674,7 +2674,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 			}
 		}
-		if(ruletas == 2)
+		if(ruletas == 2 && tiendat == false)
 		{
 			comandoarma.text = "Pociones";
 
@@ -3710,7 +3710,7 @@ public class jugador_chara3d_al2 : jugador_al2
 			if(tiemposalto < 15)
 			{this.tiemposalto += Time.deltaTime;}
 
-			if (saltarc > 0f && saltop == true)
+			if (saltarc > 0f && saltop == true  && tiendat == false)
 			{
 					this._rb.AddForce(this.jumpforce * Vector3.up);
 					saltop = false;
@@ -3719,7 +3719,7 @@ public class jugador_chara3d_al2 : jugador_al2
 					anim.SetBool("salto",true);
 
 			}
-			else if (saltarc > 0f && salto2 == true && tiemposalto > 0.3f && manager.datosserial.tengosaltod == 1 )
+			else if (saltarc > 0f && salto2 == true && tiemposalto > 0.3f && manager.datosserial.tengosaltod == 1  && tiendat == false)
 			{
 					this._rb.AddForce(this.jumpforce * Vector3.up);
 					saltodo.Play();
@@ -3730,7 +3730,7 @@ public class jugador_chara3d_al2 : jugador_al2
 			}
 		
 		
-			if(manager.datosserial.armasjug[0] == true )
+			if(manager.datosserial.armasjug[0] == true && tiendat == false)
 			{
 
 					if(manager.datosserial.armasel == 1 && manager.datosserial.palosel == 1 && temppalo > 3  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && tiempodisp > 0.5f &&  dispararc > 0 && controlact == true)
@@ -4105,7 +4105,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 
 			}
-			if(manager.datosserial.armasjug[1] == true && manager.datosserial.armasel == 2)
+			if(manager.datosserial.armasjug[1] == true && manager.datosserial.armasel == 2 && tiendat == false)
 			{
 				if(dispararc > 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[1]-1]  && controlact == true)
 				{
@@ -4156,7 +4156,7 @@ public class jugador_chara3d_al2 : jugador_al2
 
 				}
 			}
-			if(manager.datosserial.armasjug[3] == true  && manager.datosserial.armasel == 4)
+			if(manager.datosserial.armasjug[3] == true  && manager.datosserial.armasel == 4 && tiendat == false)
 			{
 				if(dispararc > 0 && tiempodisp > 0.5f && controlact == true)
 				{
@@ -4210,7 +4210,7 @@ public class jugador_chara3d_al2 : jugador_al2
 
 				}
 			}
-			if(manager.datosserial.armasjug[2] == true  && manager.datosserial.armasel == 3)
+			if(manager.datosserial.armasjug[2] == true  && manager.datosserial.armasel == 3 && tiendat == false)
 			{
 				if(dispararc > 0 && tiempodisp > 0.5f && controlact == true || dispF == true && controlact == true)
 				{
@@ -4270,7 +4270,7 @@ public class jugador_chara3d_al2 : jugador_al2
 
 
 				//artilugios
-				if(manager.datosserial.artilugiosjug[0] == true  && manager.datosserial.armasel == 101)
+				if(manager.datosserial.artilugiosjug[0] == true  && manager.datosserial.armasel == 101 && tiendat == false)
 				{
 					if(dispararc > 0 && tiempodisp > 1.5f && controlact == true )
 					{
@@ -4286,7 +4286,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						
 					}
 				}
-				if(manager.datosserial.artilugiosjug[1] == true  && manager.datosserial.armasel == 102)
+				if(manager.datosserial.artilugiosjug[1] == true  && manager.datosserial.armasel == 102 && tiendat == false)
 				{
 					if(dispararc > 0 && tiempodisp > 0.5f && controlact == true )
 					{
@@ -4324,7 +4324,7 @@ public class jugador_chara3d_al2 : jugador_al2
 							
 					}
 				}
-				if(manager.datosserial.artilugiosjug[3] == true  && manager.datosserial.armasel == 104)
+				if(manager.datosserial.artilugiosjug[3] == true  && manager.datosserial.armasel == 104 && tiendat == false)
 				{
 					if(dispararc > 0 && controlact == true )
 					{
@@ -4357,7 +4357,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				anim.SetBool("escalar",false);
 			}
 
-			if(manager.datosserial.artilugiosjug[4] == true  && manager.datosserial.armasel == 105)
+			if(manager.datosserial.artilugiosjug[4] == true  && manager.datosserial.armasel == 105 && tiendat == false)
 				{
 					if(dispararc > 0 && controlact == true && tiempodisp > 0.7f)
 					{
@@ -4373,7 +4373,7 @@ public class jugador_chara3d_al2 : jugador_al2
 					
 					}
 			}
-			if(manager.datosserial.artilugiosjug[5] == true  && manager.datosserial.armasel == 106)
+			if(manager.datosserial.artilugiosjug[5] == true  && manager.datosserial.armasel == 106 && tiendat == false)
 				{
 					if(dispararc > 0 && controlact == true && tiempodisp > 0.7f)
 					{
@@ -4389,7 +4389,7 @@ public class jugador_chara3d_al2 : jugador_al2
 					
 					}
 			}
-			if(manager.datosserial.artilugiosjug[6] == true  && manager.datosserial.armasel == 107)
+			if(manager.datosserial.artilugiosjug[6] == true  && manager.datosserial.armasel == 107 && tiendat == false)
 				{
 					if(dispararc > 0 && controlact == true && tiempodisp > 0.5f)
 					{
@@ -4397,7 +4397,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						//teleport
 					}
 			}
-			if(manager.datosserial.artilugiosjug[7] == true  && manager.datosserial.armasel == 108)
+			if(manager.datosserial.artilugiosjug[7] == true  && manager.datosserial.armasel == 108 && tiendat == false)
 			{
 				if(dispararc > 0 && controlact == true && tiempodisp > 0.5f)
 				{
@@ -4773,6 +4773,22 @@ public class jugador_chara3d_al2 : jugador_al2
 	}
 	private void OnTriggerEnter(Collider col)
 	{
+		if (col.gameObject.tag == "tiendat")
+		{
+            tienda = (tienda_al2)FindFirstObjectByType(typeof(tienda_al2));
+			tiendat = true;
+            if(manager.datosconfig.plat == 2)
+            {
+                tactil.SetActive(false);
+            }
+            tiendag.SetActive(true);
+            if(manager.datosconfig.plat == 2)
+            {
+                tactil.SetActive(true);
+            }
+            Cursor.visible = true;
+        	Cursor.lockState = CursorLockMode.None;
+		}
 		if (col.gameObject.tag == "escalar")
 		{
 			escalar = true;
@@ -5023,6 +5039,14 @@ public class jugador_chara3d_al2 : jugador_al2
 	}
 	public void OnTriggerExit(Collider col)
 	{
+		if (col.gameObject.tag == "tiendat")
+		{
+            tienda = (tienda_al2)FindFirstObjectByType(typeof(tienda_al2));
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+			tiendat = false;
+            tienda.salir_();
+		}
 		if (col.gameObject.tag == "escalar")
 		{
 			escalar = false;
