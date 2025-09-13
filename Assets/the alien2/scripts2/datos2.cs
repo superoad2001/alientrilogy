@@ -18,6 +18,7 @@ public class datos2
 	//economia[4]  monedasmoradas;
 	//economia[5]  monedasamarillas;
 	//economia[6]  licencias;
+	public bool newgameplus1;
 
 	public bool datos_llenos;
 	public bool begin;

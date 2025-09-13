@@ -306,7 +306,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c9ab1b56cc75eab4a88bb297dbdafdb2, type: 2}
+  - {fileID: 2100000, guid: f462324250ef4284baef319d496aadfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1365,7 +1365,7 @@ GameObject:
   - component: {fileID: 4764287764624308372}
   - component: {fileID: 4434928915889072910}
   - component: {fileID: 4049846533855203645}
-  - component: {fileID: 8131884739734659672}
+  - component: {fileID: 8093216269254746435}
   - component: {fileID: 3879311971772885649}
   m_Layer: 2
   m_Name: Sphere
@@ -1445,7 +1445,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8131884739734659672
+--- !u!114 &8093216269254746435
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1454,15 +1454,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4474653001541845974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dcb303b64deb9040a827126da1e7762, type: 3}
+  m_Script: {fileID: 11500000, guid: 26c8d952367294646aa4eeb2d1f3ae80, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemigodet2_al2
   manager: {fileID: 0}
   visto1: {fileID: 718723998440224874}
   temp: 0
   suelo: 0
   jugador: {fileID: 0}
-  enemigo: {fileID: 3493273302440517272}
+  enemigo: {fileID: 2787141357873360501}
 --- !u!65 &3879311971772885649
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2000,7 +2000,7 @@ GameObject:
   - component: {fileID: 3501561193344934878}
   - component: {fileID: 8398762321209255539}
   - component: {fileID: 6102090940601578233}
-  - component: {fileID: 7744098973404957720}
+  - component: {fileID: 3739898128976457750}
   - component: {fileID: 6520121053811574075}
   m_Layer: 2
   m_Name: Cylinder
@@ -2103,7 +2103,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &7744098973404957720
+--- !u!114 &3739898128976457750
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2112,9 +2112,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5673628069609443583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6467230d35753347839111ed27e97c0, type: 3}
+  m_Script: {fileID: 11500000, guid: fbcb620f633ca654787fdb2fb564922c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::golpe_al2
   dano: 0
   dest: {fileID: 6520121053811574075}
   toquespalo: 0
@@ -2249,7 +2249,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3965334256818566680}
   - {fileID: 4764287764624308372}
   - {fileID: 631977464427051596}
   - {fileID: 8983941992276329624}
@@ -2312,7 +2311,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a02b6dfe36317a445adb4c30fc598441, type: 2}
+  - {fileID: 2100000, guid: 36cb08fdad650704aab6552c13e32707, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3344,73 +3343,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4622238116950109364}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8599487360398737058
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3965334256818566680}
-  - component: {fileID: 1938454455546153438}
-  - component: {fileID: 2163070773967936454}
-  m_Layer: 2
-  m_Name: "da\xF1o"
-  m_TagString: pisar
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3965334256818566680
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8599487360398737058}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.846, z: 0}
-  m_LocalScale: {x: 4.14, y: 4.14, z: 4.14}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 941729747333533743}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1938454455546153438
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8599487360398737058}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.274198, y: 0.19131792, z: 0.299046}
-  m_Center: {x: 0, y: 0.1922017, z: -0.002475473}
---- !u!114 &2163070773967936454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8599487360398737058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5cf37f7371b80141bc1c081a415c518, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemigo: 2
 --- !u!1 &8610429226153839787
 GameObject:
   m_ObjectHideFlags: 0
@@ -3544,7 +3476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8983941992276329624}
-  - component: {fileID: 3493273302440517272}
+  - component: {fileID: 2787141357873360501}
   - component: {fileID: 6995426854743083863}
   - component: {fileID: 6765210519653001317}
   - component: {fileID: 5038766790589216054}
@@ -3574,7 +3506,7 @@ Transform:
   - {fileID: 6223863021882758409}
   m_Father: {fileID: 941729747333533743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3493273302440517272
+--- !u!114 &2787141357873360501
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3583,9 +3515,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8866145777078554342}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a19a970f619966d4dac97bcbed965dce, type: 3}
+  m_Script: {fileID: 11500000, guid: 59508e080ad4d7845986569f202752e0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemigo2_al2
   nivelactual: 1
   slash: {fileID: 3153472991145048103, guid: ca9e834f0484b14438c8c597c7fb0237, type: 3}
   escudoin: {fileID: 5098422728520705531}
@@ -3601,7 +3533,7 @@ MonoBehaviour:
   tempdanodef: 0
   destobj: 0
   destruible: {fileID: 0}
-  moneda: {fileID: 2172128802953418307, guid: 54efd5f1cf38aff4a931a38ce3656ad9, type: 3}
+  moneda: {fileID: 8134781121000536059, guid: b06ad296de49b764284bdb23f82b62c4, type: 3}
   objetivo: {fileID: 0}
   objetivob: {fileID: 0}
   rotation: {x: 0, y: 0, z: 0, w: 0}
@@ -3612,8 +3544,8 @@ MonoBehaviour:
   rb_: {fileID: 0}
   vel: 2
   desactivar: 0
-  enemigodet: {fileID: 8131884739734659672}
-  dano: {fileID: 8599487360398737058}
+  enemigodet: {fileID: 0}
+  dano: {fileID: 0}
   det: {fileID: 4474653001541845974}
   temp: 0
   anim: {fileID: 6765210519653001317}
@@ -3623,16 +3555,16 @@ MonoBehaviour:
   enemigo: 3
   balafrec: 1.5
   enemigo3: 0
-  balaprefab: {fileID: 1777860533906856, guid: 277a9768d20f79f42aa5c9c349972b41, type: 3}
+  balaprefab: {fileID: 1777860533906856, guid: 24d1828624a002e438eef2f119ceb30f, type: 3}
   disp: {fileID: 3942074557173167751}
   juego: {fileID: 0}
   pistola: {fileID: 3029654604944363150}
-  golpeson: {fileID: 0}
+  golpeson: {fileID: 9047231749060158576}
   tempe3: 0
   vida: 0
-  vidamax: 5
+  vidamax: 0
   vidab: {fileID: 0}
-  valorexp: 2
+  valorexp: 1.2
   vidabasetut: 9
   vidabase: 99
   vidabasemax: 999
@@ -3964,19 +3896,19 @@ MonoBehaviour:
   defensabase: 5
   defensabasemax: 50
   defensaplusmax: 500
-  ondasprefab: {fileID: 3438971746969148770, guid: cd35e87ad7bc0b346a07d1c7a7e7afb7, type: 3}
-  bombaprefab: {fileID: 1777860533906856, guid: 83b341ff7c936014990f9cef6e64a9a0, type: 3}
-  teleprefab: {fileID: 1777860533906856, guid: d6663cfb2e7abd54d9522eac23ba1ba2, type: 3}
-  zigzagprefab: {fileID: 7332590698050240100, guid: 2d4b5038a8dad074182c76e596965f32, type: 3}
+  ondasprefab: {fileID: 3438971746969148770, guid: a500f231d068cfa41a8f32963b62c2db, type: 3}
+  bombaprefab: {fileID: 1777860533906856, guid: c3183362d5eb7614c87887a2450a7f72, type: 3}
+  teleprefab: {fileID: 1777860533906856, guid: 062cfd8e8e0fdd1429fdb6cef7150d32, type: 3}
+  zigzagprefab: {fileID: 7332590698050240100, guid: ea9d9be9b430dfd46b240cfe758b9d4e, type: 3}
   division: 0
   division2: 0
   lanzarson: {fileID: 2456367423425769726}
   cura: 0
-  paloS: {fileID: 0}
+  paloS: {fileID: 3739898128976457750}
   frenetismo: 1
   cancelatk: 0
-  eneprefab1: {fileID: 5683604757432126685, guid: e2ab8a6e5809bb64d84e4f1eabbcd6c3, type: 3}
-  eneprefab2: {fileID: 5683604757432126685, guid: af0527e05b384c7438d1fd4a1c21e335, type: 3}
+  eneprefab1: {fileID: 5683604757432126685, guid: b9820644c43847648adb6cc221ffdc9b, type: 3}
+  eneprefab2: {fileID: 5683604757432126685, guid: 4c6b190b710c2814c8ce20e7e615be38, type: 3}
   tempcarga: 0
   tempcargaef: 0
   randomdec5: 0

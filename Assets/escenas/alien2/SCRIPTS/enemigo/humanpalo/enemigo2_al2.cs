@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class enemigo2_al1: MonoBehaviour
+public class enemigo2_al2: MonoBehaviour
 {
     public int nivelactual = 1;
     public GameObject slash;
     public GameObject escudoin;
-	public manager_al1 manager;
+	public manager_al2 manager;
     public AudioSource divson;
     public AudioSource curason;
     public AudioSource cargason;
@@ -32,12 +32,13 @@ public class enemigo2_al1: MonoBehaviour
     public Rigidbody rb_;
     public float vel = 2;
     public bool desactivar;
+    public enemigodet2_al2 enemigodet;
     public GameObject dano;
     public GameObject det;
     public float temp;
     public Animator anim;
     public GameObject explosion;
-    public jugador_al1 jugador1;
+    public jugador_al2 jugador1;
     public AudioSource muertes;
     public int enemigo = 1;
     public float balafrec = 1.5f;
@@ -85,7 +86,7 @@ public class enemigo2_al1: MonoBehaviour
     public float[] nivelfuerza_a = new float[100];
     public float[] nivelvida_a = new float[100];
     public float[] niveldefensa = new float[100];
-    public manager_ordas_al1 managerordas;
+    public manager_ordas_al2 managerordas;
 
     public string modo;
     public string mododisparos;
@@ -109,7 +110,7 @@ public class enemigo2_al1: MonoBehaviour
     public AudioSource lanzarson;
     
     public int cura;
-    public golpe_al1 paloS;
+    public golpe_al2 paloS;
     public float frenetismo;
     public float cancelatk;
     public GameObject eneprefab1;
@@ -134,7 +135,7 @@ public class enemigo2_al1: MonoBehaviour
         {
             frenetismo = 1.2f;
         }
-        paloS = palo.GetComponent<golpe_al1>();
+        paloS = palo.GetComponent<golpe_al2>();
         if(nivelactual >= 70)
         {
             cura = 3;
@@ -240,9 +241,9 @@ public class enemigo2_al1: MonoBehaviour
                 modo = mododisparos;
             }
         }
-        if((manager_ordas_al1)FindFirstObjectByType(typeof(manager_ordas_al1))!= null)
+        if((manager_ordas_al2)FindFirstObjectByType(typeof(manager_ordas_al2))!= null)
         {
-        	managerordas = (manager_ordas_al1)FindFirstObjectByType(typeof(manager_ordas_al1));
+        	managerordas = (manager_ordas_al2)FindFirstObjectByType(typeof(manager_ordas_al2));
         }
         objetivoa[0] = transform.position + new Vector3(0,0,-5);
         objetivoa[1] = transform.position + new Vector3(0,0,5);
@@ -297,9 +298,9 @@ public class enemigo2_al1: MonoBehaviour
         
         vida = vidamax;
         vidaUI = vida;
-        jugador1 = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+        jugador1 = (jugador_al2)FindFirstObjectByType(typeof(jugador_al2));
         jugador1.explosion = explosion;
-        manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();
         danoene = GameObject.Find("danoenemigosonido").GetComponent<AudioSource>();
         vidamenu = GameObject.Find("barravidaenemigobase");
@@ -307,8 +308,8 @@ public class enemigo2_al1: MonoBehaviour
     }
     public void Awake()
     {
-        manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
-        jugador1 = (jugador_al1)FindFirstObjectByType(typeof(jugador_al1));
+        manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
+        jugador1 = (jugador_al2)FindFirstObjectByType(typeof(jugador_al2));
     }
 
     // Update is called once per frame
@@ -531,20 +532,20 @@ public class enemigo2_al1: MonoBehaviour
                     anim.SetBool("eneatk1",true);
                     temp = -5;
                     paloS.toquespalo = 5;
-                    paloS.GetComponent<golpe_al1>().dano = danoj/5;
+                    paloS.GetComponent<golpe_al2>().dano = danoj/5;
 
 
                     GameObject BalaTemporal = Instantiate(teleprefab, pistola.transform.position,transform.rotation) as GameObject;
 
                     Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
 
-                    BalaTemporal.GetComponent<romperbala_al1>().objtele = objetivo.gameObject;
+                    BalaTemporal.GetComponent<romperbala_al2>().objtele = objetivo.gameObject;
 
-                    BalaTemporal.GetComponent<romperbala_al1>().vel = 8;
+                    BalaTemporal.GetComponent<romperbala_al2>().vel = 8;
 
-                    BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj/2;
+                    BalaTemporal.GetComponent<romperbala_al2>().danoj = danoj/2;
 
-                    BalaTemporal.GetComponent<romperbala_al1>().destb = 4f;
+                    BalaTemporal.GetComponent<romperbala_al2>().destb = 4f;
 
                     disp.Play();
 
@@ -602,11 +603,11 @@ public class enemigo2_al1: MonoBehaviour
                         Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
                         BalaTemporal.transform.SetParent(juego);
 
-                        BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj * 1;
+                        BalaTemporal.GetComponent<romperbala_al2>().danoj = danoj * 1;
 
                         rb.AddForce(BalaTemporal.transform.forward * 110 * 20);
 
-                        BalaTemporal.GetComponent<romperbala_al1>().destb = 4f;
+                        BalaTemporal.GetComponent<romperbala_al2>().destb = 4f;
 
                         disp.Play();
 
@@ -640,11 +641,11 @@ public class enemigo2_al1: MonoBehaviour
                         Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
                         BalaTemporal.transform.SetParent(juego);
 
-                        BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj ;
+                        BalaTemporal.GetComponent<romperbala_al2>().danoj = danoj ;
 
                         rb.AddForce(BalaTemporal.transform.forward * 110 * 5);
 
-                        BalaTemporal.GetComponent<romperbala_al1>().destb = 4f;
+                        BalaTemporal.GetComponent<romperbala_al2>().destb = 4f;
 
                         disp.Play();
 
@@ -678,11 +679,11 @@ public class enemigo2_al1: MonoBehaviour
                         Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
                         BalaTemporal.transform.SetParent(juego);
 
-                        BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj ;
+                        BalaTemporal.GetComponent<romperbala_al2>().danoj = danoj ;
 
                         rb.AddForce(new Vector3(0,BalaTemporal.transform.up.y,BalaTemporal.transform.forward.z) * 110 * 5);
 
-                        BalaTemporal.GetComponent<romperbala_al1>().destb = 4f;
+                        BalaTemporal.GetComponent<romperbala_al2>().destb = 4f;
 
                         disp.Play();
 
@@ -715,14 +716,14 @@ public class enemigo2_al1: MonoBehaviour
 
                         Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
 
-                        BalaTemporal.transform.GetChild(0).GetComponent<romperbala_al1>().danoj = danoj /2;
-                        BalaTemporal.transform.GetChild(1).GetComponent<romperbala_al1>().danoj = danoj /2;
+                        BalaTemporal.transform.GetChild(0).GetComponent<romperbala_al2>().danoj = danoj /2;
+                        BalaTemporal.transform.GetChild(1).GetComponent<romperbala_al2>().danoj = danoj /2;
 
                         rb.AddForce(BalaTemporal.transform.forward * 110 * 5);
 
 
-                        BalaTemporal.transform.GetChild(0).GetComponent<romperbala_al1>().destb = 4f;
-                        BalaTemporal.transform.GetChild(1).GetComponent<romperbala_al1>().destb = 4f;
+                        BalaTemporal.transform.GetChild(0).GetComponent<romperbala_al2>().destb = 4f;
+                        BalaTemporal.transform.GetChild(1).GetComponent<romperbala_al2>().destb = 4f;
 
                         disp.Play();
 
@@ -786,8 +787,8 @@ public class enemigo2_al1: MonoBehaviour
                         }
                         GameObject enetemp = Instantiate(eneprefab1, transform.position - new Vector3(7,0,0), transform.rotation);
                         GameObject enetemp2 = Instantiate(eneprefab2, transform.position + new Vector3(7,0,0), transform.rotation);
-                        enemigo2_al1 ene1tempS  = enetemp.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>();
-                        enemigo2_al1 ene2tempS = enetemp2.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>();
+                        enemigo2_al2 ene1tempS  = enetemp.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al2>();
+                        enemigo2_al2 ene2tempS = enetemp2.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al2>();
                         ene1tempS.valorexp = valorexp/2;
                         ene2tempS.valorexp = valorexp/2;
                         ene1tempS.nivelactual = nivelactual;
@@ -815,7 +816,7 @@ public class enemigo2_al1: MonoBehaviour
                             managerordas.contadorene += 1;
                         }
                         GameObject enetemp = Instantiate(eneprefab1, transform.position - new Vector3(7,0,0), transform.rotation);
-                        enemigo2_al1 ene1tempS = enetemp.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al1>();
+                        enemigo2_al2 ene1tempS = enetemp.transform.Find("enemigo").gameObject.GetComponent<enemigo2_al2>();
                         ene1tempS.valorexp = valorexp/1.5f;
                         ene1tempS.nivelactual = nivelactual;
                         ene1tempS.programable = true;
@@ -988,7 +989,7 @@ public class enemigo2_al1: MonoBehaviour
         
         if (col.gameObject.tag == "danoarma9" )
 		{
-            romperbala_al1 balajug = col.gameObject.GetComponent<romperbala_al1>();
+            romperbala_al2 balajug = col.gameObject.GetComponent<romperbala_al2>();
             jugador1.muertesjug.Stop();
             vida -= (balajug.danoj * extraD);
             cancelatk -= 0.2f * Time.deltaTime;
@@ -1009,7 +1010,7 @@ public class enemigo2_al1: MonoBehaviour
 		{
             cancelatk--;
             jugador1.toquespalo--;
-            vida -= (col.gameObject.GetComponent<golpe_al1>().dano * extraD);
+            vida -= (col.gameObject.GetComponent<golpe_al2>().dano * extraD);
             danoene.Play();
             jugador1.vidaeneact = true;
             temprb = 1;
@@ -1026,7 +1027,7 @@ public class enemigo2_al1: MonoBehaviour
 		}
         if (col.gameObject.tag == "danoarma10" && tempdanodef > 15f)
 		{
-            baladef_exp_al1 balajug = col.gameObject.GetComponent<baladef_exp_al1>();
+            baladef_exp_al2 balajug = col.gameObject.GetComponent<baladef_exp_al2>();
             jugador1.muertesjug.Stop();
             vida -= (balajug.danoj * extraD);
             cancelatk--;
@@ -1045,7 +1046,7 @@ public class enemigo2_al1: MonoBehaviour
         if (col.gameObject.tag == "danoarma8" )
 		{
             cancelatk--;
-            romperbala_al1 balajug = col.gameObject.GetComponent<romperbala_al1>();
+            romperbala_al2 balajug = col.gameObject.GetComponent<romperbala_al2>();
             jugador1.muertesjug.Stop();
             vida -= (balajug.danoj* extraD);
             jugador1.vidaenebarra.SetActive(true);
@@ -1070,7 +1071,7 @@ public class enemigo2_al1: MonoBehaviour
 	{
         if (col.gameObject.tag == "danoarma9")
 		{
-            romperbala_al1 balajug = col.gameObject.GetComponent<romperbala_al1>();
+            romperbala_al2 balajug = col.gameObject.GetComponent<romperbala_al2>();
             vida -= (balajug.danoj * extraD * Time.deltaTime);
             detectar = false;
 		}
