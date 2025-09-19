@@ -15,6 +15,7 @@ public class jugador_chara3d_al2 : jugador_al2
 {
 	
 	[Header("Propio 3D")]
+	private bool pulso;
 	public jugador2_al2 jugador2;
 	private GameObject balasaltadorR;
 	public GameObject balasaltador;
@@ -1030,7 +1031,7 @@ public class jugador_chara3d_al2 : jugador_al2
 			{
 				if(manager.datosserial.nivelarmasjug[manager.datosserial.armasel-1] == 1)
 				{
-					barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmasexpjug[manager.datosserial.armasel-1]/armapapasignv[manager.datosserial.nivelarmasjug[manager.datosserial.armasel-1]-1];
+					barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmasexpjug[manager.datosserial.armasel-1]/manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]];
 					barraarmaimgnv2.fillAmount = 0;
 					barraarmaimgnv3.fillAmount = 0;
 					barraarmaimgnv4.fillAmount = 0;
@@ -1038,7 +1039,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				else if(manager.datosserial.nivelarmasjug[manager.datosserial.armasel-1] == 2)
 				{
 					barraarmaimgnv1.fillAmount = 1;
-					barraarmaimgnv2.fillAmount = manager.datosserial.nivelarmasexpjug[manager.datosserial.armasel-1]/armapapasignv[manager.datosserial.nivelarmasjug[manager.datosserial.armasel-1]-1];
+					barraarmaimgnv2.fillAmount = manager.datosserial.nivelarmasexpjug[manager.datosserial.armasel-1]/manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[1]];
 					barraarmaimgnv3.fillAmount = 0;
 					barraarmaimgnv4.fillAmount = 0;
 				}
@@ -1046,7 +1047,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				{
 					barraarmaimgnv1.fillAmount = 1;
 					barraarmaimgnv2.fillAmount = 1;
-					barraarmaimgnv3.fillAmount = manager.datosserial.nivelarmasexpjug[manager.datosserial.armasel-1]/armapapasignv[manager.datosserial.nivelarmasjug[manager.datosserial.armasel-1]-1];
+					barraarmaimgnv3.fillAmount = manager.datosserial.nivelarmasexpjug[manager.datosserial.armasel-1]/manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[2]];
 					barraarmaimgnv4.fillAmount = 0;
 				}
 				else if(manager.datosserial.nivelarmasjug[manager.datosserial.armasel-1] == 4)
@@ -1054,7 +1055,7 @@ public class jugador_chara3d_al2 : jugador_al2
 					barraarmaimgnv1.fillAmount = 1;
 					barraarmaimgnv2.fillAmount = 1;
 					barraarmaimgnv3.fillAmount = 1;
-					barraarmaimgnv4.fillAmount = manager.datosserial.nivelarmasexpjug[manager.datosserial.armasel-1]/armapapasignv[manager.datosserial.nivelarmasjug[manager.datosserial.armasel-1]-1];
+					barraarmaimgnv4.fillAmount = manager.datosserial.nivelarmasexpjug[manager.datosserial.armasel-1]/manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[3]];
 				}
 				else if(manager.datosserial.nivelarmasjug[manager.datosserial.armasel-1] == 5)
 				{
@@ -3751,7 +3752,7 @@ public class jugador_chara3d_al2 : jugador_al2
 							}
 
 							
-							if(manager.datosserial.nivelarmasexpjug[0] >= armapalosignv[manager.datosserial.nivelarmasjug[0]-1] )
+							if(manager.datosserial.nivelarmasexpjug[0] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]])
 							{
 								manager.datosserial.nivelarmasjug[0]++;
 								manager.datosserial.nivelarmasexpjug[0] = 0;
@@ -3785,7 +3786,7 @@ public class jugador_chara3d_al2 : jugador_al2
 							}
 
 							
-							if(manager.datosserial.nivelarmasexpjug[0] >= armapalosignv[manager.datosserial.nivelarmasjug[0]-1] )
+							if(manager.datosserial.nivelarmasexpjug[0] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]])
 							{
 								manager.datosserial.nivelarmasjug[0]++;
 								manager.datosserial.nivelarmasexpjug[0] = 0;
@@ -3828,7 +3829,7 @@ public class jugador_chara3d_al2 : jugador_al2
 							}
 
 							
-							if(manager.datosserial.nivelarmasexpjug[0] >= armapalosignv[manager.datosserial.nivelarmasjug[0]-1] )
+							if(manager.datosserial.nivelarmasexpjug[0] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]])
 							{
 								manager.datosserial.nivelarmasjug[0]++;
 								manager.datosserial.nivelarmasexpjug[0] = 0;
@@ -3880,7 +3881,7 @@ public class jugador_chara3d_al2 : jugador_al2
 							}
 
 							
-							if(manager.datosserial.nivelarmasexpjug[0] >= armapalosignv[manager.datosserial.nivelarmasjug[0]-1] )
+							if(manager.datosserial.nivelarmasexpjug[0] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]])
 							{
 								manager.datosserial.nivelarmasjug[0]++;
 								manager.datosserial.nivelarmasexpjug[0] = 0;
@@ -3915,7 +3916,7 @@ public class jugador_chara3d_al2 : jugador_al2
 							}
 
 							
-							if(manager.datosserial.nivelarmasexpjug[0] >= armapalosignv[manager.datosserial.nivelarmasjug[0]-1] )
+							if(manager.datosserial.nivelarmasexpjug[0] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]])
 							{
 								manager.datosserial.nivelarmasjug[0]++;
 								manager.datosserial.nivelarmasexpjug[0] = 0;
@@ -4117,7 +4118,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						}
 
 						
-						if(manager.datosserial.nivelarmasexpjug[1] >= armapapasignv[manager.datosserial.nivelarmasjug[1]-1])
+						if(manager.datosserial.nivelarmasexpjug[1] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]])
 						{
 							manager.datosserial.nivelarmasjug[1]++;
 							manager.datosserial.nivelarmasexpjug[1] = 0;
@@ -4126,7 +4127,7 @@ public class jugador_chara3d_al2 : jugador_al2
 							expltemp.transform.SetParent(this.gameObject.transform);
 
 							Destroy(expltemp,5f);
-							conseguido.text = "subiste El Gatillazonador a nivel "+manager.datosserial.nivelarmasjug[1];
+							conseguido.text = "subiste El SantosCielos a nivel "+manager.datosserial.nivelarmasjug[1];
 							conseguidoa.Play("nivelsub2");
 						}
 					}
@@ -4140,16 +4141,16 @@ public class jugador_chara3d_al2 : jugador_al2
 					if(objetivotarget != null)
 					{
 						Vector3 dirTarget = (objetivotarget.transform.position - mod.transform.position).normalized;
-    					rbb.AddForce(dirTarget * 110 * balapadrevel[manager.datosserial.nivelarmasjug[1]-1]);
+    					rbb.AddForce(dirTarget * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[1]-1]);
 					}
 					else
 					{
-						rbb.AddForce(mod.transform.forward * 110 * balapadrevel[manager.datosserial.nivelarmasjug[1]-1]);
+						rbb.AddForce(mod.transform.forward * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[1]-1]);
 					}
 
 					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 4f;
 					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
-					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = balapadredano[manager.datosserial.nivelarmasjug[1]-1] * nivelfuerza;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[1]-1] * nivelfuerza;
 					
 
 					disp.Play();
@@ -4170,9 +4171,9 @@ public class jugador_chara3d_al2 : jugador_al2
 						}
 
 						
-						if(manager.datosserial.nivelarmasexpjug[3] >= armarelsignv[manager.datosserial.nivelarmasjug[3]-1] )
+						if(manager.datosserial.nivelarmasexpjug[3] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[3]])
 						{
-							manager.datosserial.nivelarmasjug[3]++;
+							manager.datosserial.nivelarmasjug[3]++;	
 							manager.datosserial.nivelarmasexpjug[3] = 0;
 							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
 
@@ -4184,10 +4185,10 @@ public class jugador_chara3d_al2 : jugador_al2
 						}
 					}
 					manager.guardar();
-					balaprefab = prebalarell[manager.datosserial.nivelarmasjug[2] -1];
+					balaprefab = prebalarell[manager.datosserial.nivelarmasjug[3] -1];
 					tiempodisp = 0; 
 
-					GameObject BalaTemporal = Instantiate(balaprefab, pistolamodels[2].transform.position,mod.transform.rotation) as GameObject;
+					GameObject BalaTemporal = Instantiate(balaprefab, pistolamodels[3].transform.position,mod.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 
@@ -4204,7 +4205,7 @@ public class jugador_chara3d_al2 : jugador_al2
 
 					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 15f;
 					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 50;
-					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = balareldano[manager.datosserial.nivelarmasjug[3]-1] * nivelfuerza;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[3]-1] * nivelfuerza;
 
 					disprel.Play();
 
@@ -4224,7 +4225,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						}
 
 						
-						if(manager.datosserial.nivelarmasexpjug[2] >= armadefsignv[manager.datosserial.nivelarmasjug[2]-1] )
+						if(manager.datosserial.nivelarmasexpjug[2] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[2]])
 						{
 							manager.datosserial.nivelarmasjug[2]++;
 							manager.datosserial.nivelarmasexpjug[2] = 0;
@@ -4258,9 +4259,398 @@ public class jugador_chara3d_al2 : jugador_al2
 
 					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 30f;
 					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 300;
-					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = baladefdano[manager.datosserial.nivelarmasjug[2]-1] * nivelfuerza;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[2]-1] * nivelfuerza;
 					dispF = false;
 					dispdef.Play();
+
+				}
+	
+			}
+			if(manager.datosserial.armasjug[4] == true  && manager.datosserial.armasel == 5 && tiendat == false)
+			{
+				if(dispararc > 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[4]-1]  && controlact == true)
+				{
+					if(manager.datosserial.nivelarmasjug[4] < 5)
+					{
+						if(manager.datosserial.licenciaarmas[4] >= manager.datosserial.nivelarmasjug[4])
+						{
+							manager.datosserial.nivelarmasexpjug[4]++;
+						}
+
+						
+						if(manager.datosserial.nivelarmasexpjug[4] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[4]])
+						{
+							manager.datosserial.nivelarmasjug[4]++;
+							manager.datosserial.nivelarmasexpjug[4] = 0;
+							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
+
+							expltemp.transform.SetParent(this.gameObject.transform);
+
+							Destroy(expltemp,5f);
+							conseguido.text = "subiste VendeMotos a nivel "+manager.datosserial.nivelarmasjug[4];
+							conseguidoa.Play("nivelsub2");
+						}
+					}
+					manager.guardar();
+					balaprefab = prebalapapal[manager.datosserial.nivelarmasjug[4] -1];
+					tiempodisp = 0;
+
+					GameObject BalaTemporal = Instantiate(balaprefab, mod.transform.position +( mod.transform.forward * 0.5f),mod.transform.rotation) as GameObject;
+
+					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
+
+
+					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 4f;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[4]-1] * nivelfuerza;
+					
+
+					disp.Play();
+
+				}
+	
+			}
+			if(manager.datosserial.armasjug[5] == true  && manager.datosserial.armasel == 5 && tiendat == false)
+			{
+				if(dispararc > 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[5]-1]  && controlact == true && pulso == false)
+				{
+					pulso = true;
+				}
+				else if(dispararc == 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[5]-1]  && controlact == true && pulso == true)
+				{
+					if(manager.datosserial.nivelarmasjug[5] < 5)
+					{
+						if(manager.datosserial.licenciaarmas[5] >= manager.datosserial.nivelarmasjug[5])
+						{
+							manager.datosserial.nivelarmasexpjug[5]++;
+						}
+
+						
+						if(manager.datosserial.nivelarmasexpjug[5] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[5]])
+						{
+							manager.datosserial.nivelarmasjug[5]++;
+							manager.datosserial.nivelarmasexpjug[5] = 0;
+							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
+
+							expltemp.transform.SetParent(this.gameObject.transform);
+
+							Destroy(expltemp,5f);
+							conseguido.text = "subiste Generador de Pulsos a nivel "+manager.datosserial.nivelarmasjug[5];
+							conseguidoa.Play("nivelsub2");
+						}
+					}
+					manager.guardar();
+					balaprefab = prebalapapal[manager.datosserial.nivelarmasjug[5] -1];
+					tiempodisp = 0;
+					pulso = false;
+
+					GameObject BalaTemporal = Instantiate(balaprefab, pistolamodels[5].transform.position,mod.transform.rotation) as GameObject;
+
+					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
+
+					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 4f;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[5]-1] * nivelfuerza;
+					
+
+					disp.Play();
+
+				}
+	
+			}
+			else
+			{
+				pulso = false;
+			}
+			if(manager.datosserial.armasjug[6] == true  && manager.datosserial.armasel == 5 && tiendat == false)
+			{
+				if(dispararc > 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[6]-1]  && controlact == true)
+				{
+					if(manager.datosserial.nivelarmasjug[6] < 5)
+					{
+						if(manager.datosserial.licenciaarmas[6] >= manager.datosserial.nivelarmasjug[6])
+						{
+							manager.datosserial.nivelarmasexpjug[6]++;
+						}
+
+						
+						if(manager.datosserial.nivelarmasexpjug[6] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[6]])
+						{
+							manager.datosserial.nivelarmasjug[6]++;
+							manager.datosserial.nivelarmasexpjug[6] = 0;
+							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
+
+							expltemp.transform.SetParent(this.gameObject.transform);
+
+							Destroy(expltemp,5f);
+							conseguido.text = "subiste RataTaPUM V1 a nivel "+manager.datosserial.nivelarmasjug[6];
+							conseguidoa.Play("nivelsub2");
+						}
+					}
+					manager.guardar();
+					balaprefab = prebalapapal[manager.datosserial.nivelarmasjug[6] -1];
+					tiempodisp = 0;
+
+					GameObject BalaTemporal = Instantiate(balaprefab, pistolamodels[6].transform.position,mod.transform.rotation) as GameObject;
+
+					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
+
+					rbb.AddForce(mod.transform.forward * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[6]-1]);
+					
+
+					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 4f;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[6]-1] * nivelfuerza;
+					
+
+					disp.Play();
+
+				}
+	
+			}
+			if(manager.datosserial.armasjug[7] == true  && manager.datosserial.armasel == 5 && tiendat == false)
+			{
+				if(dispararc > 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[7]-1]  && controlact == true)
+				{
+					if(manager.datosserial.nivelarmasjug[7] < 5)
+					{
+						if(manager.datosserial.licenciaarmas[7] >= manager.datosserial.nivelarmasjug[7])
+						{
+							manager.datosserial.nivelarmasexpjug[7]++;
+						}
+
+						
+						if(manager.datosserial.nivelarmasexpjug[7] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[7]])
+						{
+							manager.datosserial.nivelarmasjug[7]++;
+							manager.datosserial.nivelarmasexpjug[7] = 0;
+							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
+
+							expltemp.transform.SetParent(this.gameObject.transform);
+
+							Destroy(expltemp,5f);
+							conseguido.text = "subiste Carnicera a nivel "+manager.datosserial.nivelarmasjug[7];
+							conseguidoa.Play("nivelsub2");
+						}
+					}
+					manager.guardar();
+					balaprefab = prebalapapal[manager.datosserial.nivelarmasjug[7] -1];
+					tiempodisp = 0;
+
+					GameObject BalaTemporal = Instantiate(balaprefab, pistolamodels[7].transform.position,mod.transform.rotation) as GameObject;
+
+					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
+
+
+					rbb.AddForce(mod.transform.forward * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[7]-1]);
+					
+
+					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 4f;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[7]-1] * nivelfuerza;
+					
+
+					disp.Play();
+
+				}
+	
+			}
+
+			if(manager.datosserial.armasjug[8] == true  && manager.datosserial.armasel == 5 && tiendat == false)
+			{
+				if(dispararc > 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[8]-1]  && controlact == true)
+				{
+					if(manager.datosserial.nivelarmasjug[8] < 5)
+					{
+						if(manager.datosserial.licenciaarmas[8] >= manager.datosserial.nivelarmasjug[8])
+						{
+							manager.datosserial.nivelarmasexpjug[8]++;
+						}
+
+						
+						if(manager.datosserial.nivelarmasexpjug[8] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[8]])
+						{
+							manager.datosserial.nivelarmasjug[8]++;
+							manager.datosserial.nivelarmasexpjug[8] = 0;
+							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
+
+							expltemp.transform.SetParent(this.gameObject.transform);
+
+							Destroy(expltemp,5f);
+							conseguido.text = "subiste Matasuegras a nivel "+manager.datosserial.nivelarmasjug[8];
+							conseguidoa.Play("nivelsub2");
+						}
+					}
+					manager.guardar();
+					balaprefab = prebalapapal[manager.datosserial.nivelarmasjug[8] -1];
+					tiempodisp = 0;
+
+					GameObject BalaTemporal = Instantiate(balaprefab, pistolamodels[8].transform.position,mod.transform.rotation) as GameObject;
+
+					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
+					if(objetivotarget != null)
+					{
+						Vector3 dirTarget = (objetivotarget.transform.position - mod.transform.position).normalized;
+    					rbb.AddForce(dirTarget * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[8]-1]);
+					}
+					else
+					{
+						rbb.AddForce(mod.transform.forward * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[8]-1]);
+					}
+
+					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 4f;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[8]-1] * nivelfuerza;
+					
+
+					disp.Play();
+
+				}
+	
+			}
+			if(manager.datosserial.armasjug[9] == true  && manager.datosserial.armasel == 5 && tiendat == false)
+			{
+				if(dispararc > 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[9]-1]  && controlact == true)
+				{
+					if(manager.datosserial.nivelarmasjug[9] < 5)
+					{
+						if(manager.datosserial.licenciaarmas[9] >= manager.datosserial.nivelarmasjug[9])
+						{
+							manager.datosserial.nivelarmasexpjug[9]++;
+						}
+
+						
+						if(manager.datosserial.nivelarmasexpjug[9] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[9]])
+						{
+							manager.datosserial.nivelarmasjug[9]++;
+							manager.datosserial.nivelarmasexpjug[9] = 0;
+							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
+
+							expltemp.transform.SetParent(this.gameObject.transform);
+
+							Destroy(expltemp,5f);
+							conseguido.text = "subiste S/C egadora a nivel "+manager.datosserial.nivelarmasjug[9];
+							conseguidoa.Play("nivelsub2");
+						}
+					}
+					manager.guardar();
+					balaprefab = prebalapapal[manager.datosserial.nivelarmasjug[9] -1];
+					tiempodisp = 0;
+
+					GameObject BalaTemporal = Instantiate(balaprefab, pistolamodels[9].transform.position,mod.transform.rotation) as GameObject;
+
+					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
+					if(objetivotarget != null)
+					{
+						Vector3 dirTarget = (objetivotarget.transform.position - mod.transform.position).normalized;
+    					rbb.AddForce(dirTarget * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[9]-1]);
+					}
+					else
+					{
+						rbb.AddForce(mod.transform.forward * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[9]-1]);
+					}
+
+					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 4f;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[9]-1] * nivelfuerza;
+					
+
+					disp.Play();
+
+				}
+	
+			}
+			if(manager.datosserial.armasjug[10] == true  && manager.datosserial.armasel == 5 && tiendat == false)
+			{
+				if(dispararc > 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[10]-1]  && controlact == true)
+				{
+					if(manager.datosserial.nivelarmasjug[10] < 5)
+					{
+						if(manager.datosserial.licenciaarmas[10] >= manager.datosserial.nivelarmasjug[10])
+						{
+							manager.datosserial.nivelarmasexpjug[10]++;
+						}
+
+						
+						if(manager.datosserial.nivelarmasexpjug[10] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[10]])
+						{
+							manager.datosserial.nivelarmasjug[10]++;
+							manager.datosserial.nivelarmasexpjug[10] = 0;
+							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
+
+							expltemp.transform.SetParent(this.gameObject.transform);
+
+							Destroy(expltemp,5f);
+							conseguido.text = "subiste SantosCielos a nivel "+manager.datosserial.nivelarmasjug[10];
+							conseguidoa.Play("nivelsub2");
+						}
+					}
+					manager.guardar();
+					balaprefab = prebalapapal[manager.datosserial.nivelarmasjug[10] -1];
+					tiempodisp = 0;
+
+					GameObject BalaTemporal = Instantiate(balaprefab, mod.transform.position +( mod.transform.forward * 2.5f),mod.transform.rotation) as GameObject;
+
+					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
+
+					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 4f;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[10]-1] * nivelfuerza;
+					
+
+					disp.Play();
+
+				}
+	
+			}
+			if(manager.datosserial.armasjug[11] == true  && manager.datosserial.armasel == 5 && tiendat == false)
+			{
+				if(dispararc > 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[11]-1]  && controlact == true)
+				{
+					if(manager.datosserial.nivelarmasjug[11] < 5)
+					{
+						if(manager.datosserial.licenciaarmas[11] >= manager.datosserial.nivelarmasjug[11])
+						{
+							manager.datosserial.nivelarmasexpjug[11]++;
+						}
+
+						
+						if(manager.datosserial.nivelarmasexpjug[11] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[11]])
+						{
+							manager.datosserial.nivelarmasjug[11]++;
+							manager.datosserial.nivelarmasexpjug[11] = 0;
+							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
+
+							expltemp.transform.SetParent(this.gameObject.transform);
+
+							Destroy(expltemp,5f);
+							conseguido.text = "subiste Mina Guardian V1 a nivel "+manager.datosserial.nivelarmasjug[11];
+							conseguidoa.Play("nivelsub2");
+						}
+					}
+					manager.guardar();
+					balaprefab = prebalapapal[manager.datosserial.nivelarmasjug[11] -1];
+					tiempodisp = 0;
+
+					GameObject BalaTemporal = Instantiate(balaprefab, pistolamodels[11].transform.position,mod.transform.rotation) as GameObject;
+
+					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
+					if(objetivotarget != null)
+					{
+						Vector3 dirTarget = (objetivotarget.transform.position - mod.transform.position).normalized;
+    					rbb.AddForce(dirTarget * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[11]-1]);
+					}
+					else
+					{
+						rbb.AddForce(mod.transform.forward * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[11]-1]);
+					}
+
+					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 4f;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[11]-1] * nivelfuerza;
+					
+
+					disp.Play();
 
 				}
 	
@@ -4373,7 +4763,7 @@ public class jugador_chara3d_al2 : jugador_al2
 					
 					}
 			}
-			if(manager.datosserial.artilugiosjug[5] == true  && manager.datosserial.armasel == 106 && tiendat == false)
+			if(manager.datosserial.artilugiosjug[6] == true  && manager.datosserial.armasel == 106 && tiendat == false)
 				{
 					if(dispararc > 0 && controlact == true && tiempodisp > 0.7f)
 					{

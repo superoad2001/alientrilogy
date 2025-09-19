@@ -64,10 +64,6 @@ public abstract class jugador_al2 : MonoBehaviour
 	[HideInInspector]public GameObject objetivotarget2;
     [HideInInspector]public float[] nivelfuerza_a = new float[100];
     [HideInInspector]public float[] nivelvida_a = new float[100];
-	[NonSerialized] public float[] armapalosignv = new float[10];
-	[NonSerialized] public float[] armadefsignv = new float[10];
-	[NonSerialized] public float[] armapapasignv = new float[10];
-	[NonSerialized] public float[] armarelsignv = new float[10];
 	[HideInInspector]public bool bajar = false;
 	public float tempretarget;
 	[HideInInspector]public bool subir = false;

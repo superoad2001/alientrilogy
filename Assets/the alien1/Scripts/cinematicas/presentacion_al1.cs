@@ -68,6 +68,7 @@ public class presentacion_al1 : MonoBehaviour
 		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         gemas = manager.datosserial.economia[0];
         manager.cargarslot();
+        manager.cargar();
         if(manager.datosconfig .idioma == "es")
         {
             botones[0].text = "Estas seguro?";
@@ -96,7 +97,9 @@ public class presentacion_al1 : MonoBehaviour
         slot3b.SetActive(true);
         selectmode.SetActive(true);
         manager.datosslot.datos1slot = 1;
+        manager.guardarslot();
         manager.cargar();
+        borraractvol();
     }
     public void slot2p()
     {
@@ -110,7 +113,9 @@ public class presentacion_al1 : MonoBehaviour
         slot3b.SetActive(true);
         selectmode.SetActive(true);
         manager.datosslot.datos1slot = 2;
+        manager.guardarslot();
         manager.cargar();
+        borraractvol();
     }
     public void slot3p()
     {
@@ -124,7 +129,9 @@ public class presentacion_al1 : MonoBehaviour
         slot3b.SetActive(false);
         selectmode.SetActive(true);
         manager.datosslot.datos1slot = 3;
+        manager.guardarslot();
         manager.cargar();
+        borraractvol();
     }
     public void slotatras()
     {
@@ -335,7 +342,6 @@ public class presentacion_al1 : MonoBehaviour
 
             if(temp > 3f)
             {
-                
                 manager.datosserial.datos_llenos = true;        
                 manager.guardar();
                 mus_menu.Stop();
@@ -469,11 +475,11 @@ public class presentacion_al1 : MonoBehaviour
             }
             if(manager.datosserialallslots[1].datos_llenos == true)
             {
-                slotname[1].text = manager.datosserialallslots[1].nameCH[1];
+                slotname[1].text = manager.datosserialallslots[1].nameCH[0];
             }
             if(manager.datosserialallslots[2].datos_llenos == true)
             {
-                slotname[2].text = manager.datosserialallslots[2].nameCH[2];
+                slotname[2].text = manager.datosserialallslots[2].nameCH[0];
             }
         }
     }
@@ -507,6 +513,7 @@ public class presentacion_al1 : MonoBehaviour
             menu_a.SetInteger("modo",1);
             temp = -1;
             manager.cargarslot();
+            manager.cargar();
         }
     }
     public void borraract()
@@ -591,6 +598,7 @@ public class presentacion_al1 : MonoBehaviour
          //añadir que cuando le des te de opcion de borrar partida y que no se sobrescriba automaticamente
         if (temp >= 1)
         {
+            manager.cargarslot();
             manager.GetFilePath();
             manager.cargar();
             manager.guardar();

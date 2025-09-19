@@ -20,6 +20,14 @@ public class datos2
 	//economia[6]  licencias;
 	public bool newgameplus1;
 
+
+	public float[] armajugtiempo = new float[12];
+	public float[] armajugcadencia = new float[12];
+	public float[] armajugdano = new float[12];
+	public float[] armajugvel = new float[12];
+	public float[] armajugmunicion = new float[12];
+	public float[] armajugsignv = new float[12];
+
 	public bool datos_llenos;
 	public bool begin;
 	public int palosel;

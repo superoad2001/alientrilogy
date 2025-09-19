@@ -68,6 +68,7 @@ public class presentacion_al2 : MonoBehaviour
 		manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
         gemas = manager.datosserial.economia[0];
         manager.cargarslot();
+        manager.cargar();
         if(manager.datosconfig .idioma == "es")
         {
             botones[0].text = "Estas seguro?";
@@ -95,6 +96,7 @@ public class presentacion_al2 : MonoBehaviour
         slot3b.SetActive(true);
         selectmode.SetActive(true);
         manager.datosslot.datos1slot = 1;
+        manager.guardarslot();
         manager.cargar();
     }
     public void slot2p()
@@ -109,6 +111,7 @@ public class presentacion_al2 : MonoBehaviour
         slot3b.SetActive(true);
         selectmode.SetActive(true);
         manager.datosslot.datos1slot = 2;
+        manager.guardarslot();
         manager.cargar();
     }
     public void slot3p()
@@ -123,6 +126,7 @@ public class presentacion_al2 : MonoBehaviour
         slot3b.SetActive(false);
         selectmode.SetActive(true);
         manager.datosslot.datos1slot = 3;
+        manager.guardarslot();
         manager.cargar();
     }
     public void slotatras()
@@ -336,7 +340,6 @@ public class presentacion_al2 : MonoBehaviour
 
             if(temp > 3f)
             {
-                
                 manager.datosserial.datos_llenos = true;        
                 manager.guardar();
                 mus_menu.Stop();
@@ -509,6 +512,7 @@ public class presentacion_al2 : MonoBehaviour
             menu_a.SetInteger("modo",1);
             temp = -1;
             manager.cargarslot();
+            manager.cargar();
         }
     }
     public void borraract()
@@ -593,6 +597,7 @@ public class presentacion_al2 : MonoBehaviour
          //añadir que cuando le des te de opcion de borrar partida y que no se sobrescriba automaticamente
         if (temp >= 1)
         {
+            manager.cargarslot();
             manager.GetFilePath();
             manager.cargar();
             manager.guardar();

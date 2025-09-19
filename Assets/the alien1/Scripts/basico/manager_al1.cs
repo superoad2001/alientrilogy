@@ -175,11 +175,11 @@ public class manager_al1 : MonoBehaviour
         string result;
 
     	result = Path.Combine(Application.persistentDataPath,"AlienData");
-        repathallslots[slot] = Path.Combine(result, $"alien1data"+(slot-1).ToString()+".data");
+        repathallslots[slot] = Path.Combine(result, $"alien1data"+(slot+1).ToString()+".data");
 
 		#if UNITY_EDITOR
     	result = Path.Combine(Application.persistentDataPath,"AlienDatadev");
-       	repathallslots[slot] = Path.Combine(result, $"alien1data"+(slot-1).ToString()+".data");
+       	repathallslots[slot] = Path.Combine(result, $"alien1data"+(slot+1).ToString()+".data");
 		#endif
  
         if(File.Exists(repathallslots[slot]))
