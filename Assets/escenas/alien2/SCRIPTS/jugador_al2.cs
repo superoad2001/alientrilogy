@@ -14,6 +14,20 @@ public abstract class jugador_al2 : MonoBehaviour
 {
 
 	[Header("Posición")]
+	public int[] paloNV = new int[10];
+	public int[] pistolaNV = new int[10];
+	public int[] bombaNV = new int[10];
+	public int[] minaNV = new int[10];
+	public int[] defNV = new int[10];
+	public int[] escopetaNV = new int[10];
+	public int[] misilNV = new int[10];
+	public int[] cargaNV = new int[10];
+	public int[] relNV = new int[10];
+	public int[] ceboNV = new int[10];
+	public int[] rataNV = new int[10];
+
+
+
 	public int movact;
 	public bool saltop = true;
 	public bool movskate;
@@ -53,6 +67,8 @@ public abstract class jugador_al2 : MonoBehaviour
 	[HideInInspector]public float tempempujon;
 	public bool tarbossact;
 	[HideInInspector]public int combo;
+	[HideInInspector]public int comboa;
+	[HideInInspector]public int combosting;
 	public float vida = 9;
 	[HideInInspector]public bool dialogueact;
 	[HideInInspector]public float speed = 3;
@@ -169,9 +185,19 @@ public abstract class jugador_al2 : MonoBehaviour
 	[Header("resto")]
 	public Controles controles;
 
-	public void Update()
+	public void Awake()
 	{
-		
+		paloNV[1] = 9999;
+		pistolaNV[1] = 9999;
+		bombaNV[1] = 9999;
+		minaNV[1] = 9999;
+		defNV[1] = 9999;
+		escopetaNV[1] = 9999;
+		misilNV[1] = 9999;
+		cargaNV[1] = 9999;
+		relNV[1] = 9999;
+		ceboNV[1] = 9999;
+		rataNV[1] = 9999;
 	}
 	
 	public void saltoalto()
@@ -270,6 +296,7 @@ public abstract class jugador_al2 : MonoBehaviour
 		misionA.modo = 1;
 		controlact = false;
 		combo = 0;
+		comboa = 0;
 		if(modo == "Coche")
 		{
 			anim.SetBool("act2",true);
@@ -295,6 +322,7 @@ public abstract class jugador_al2 : MonoBehaviour
 		misionA.modo = 2;
 		controlact = false;
 		combo = 0;
+		comboa = 0;
 		if(modo == "Coche")
 		{
 			anim.SetBool("act2",true);

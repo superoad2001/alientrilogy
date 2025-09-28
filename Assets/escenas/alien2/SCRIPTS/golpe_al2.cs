@@ -10,6 +10,7 @@ public class golpe_al2 : MonoBehaviour
     public bool ultimo;
     public bool paloact;
     public GameObject guia;
+    public bool levantar;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

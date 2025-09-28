@@ -21,12 +21,11 @@ public class datos2
 	public bool newgameplus1;
 
 
-	public float[] armajugtiempo = new float[12];
-	public float[] armajugcadencia = new float[12];
-	public float[] armajugdano = new float[12];
-	public float[] armajugvel = new float[12];
-	public float[] armajugmunicion = new float[12];
-	public float[] armajugsignv = new float[12];
+	public float[] armajugtiempo = new float[12]{1,1,1,1,1,1,1,1,1,1,1,1};
+	public float[] armajugcadencia = new float[12]{1,1.2f,1,1,1, 1,0.8f,1.5f,1,1 ,1,1};
+	public float[] armajugdano = new float[12]{1,1,1,1,1,1,1,1,1,1,1,1};
+	public float[] armajugvel = new float[12]{1,7,1,1,1 ,1,13,5,15,1, 1,10};
+	public float[] armajugsignv = new float[12]{999,999,999,999,999,999,999,999,999,999,999,999};
 
 	public bool datos_llenos;
 	public bool begin;
@@ -66,7 +65,7 @@ public class datos2
 	public float nivelexp = 0;
 	public float signivelexp = 3;
 
-	public int[] licenciaarmas = new int[12]{0,0,0,0,0,0,0,0,0,0,0,0};
+	public int[] licenciaarmas = new int[12]{1,1,1,1,1,1,1,1,1,1,1,1};
 
 	public bool[] notas = new bool[20];
 	public bool[] gemaT = new bool[100];

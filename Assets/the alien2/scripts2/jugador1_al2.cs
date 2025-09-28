@@ -104,6 +104,7 @@ public class jugador1aa_al2 : MonoBehaviour
     public menures_al2 menures;
     public GameObject muertesaudio;
     public AudioSource muertes;
+    
 
 	
     // Start is called before the first frame update

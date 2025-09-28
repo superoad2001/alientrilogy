@@ -57,7 +57,7 @@ public class baladef_al2 : MonoBehaviour
                     explosiont.GetComponent<baladef_exp_al2>().danoj = this.gameObject.GetComponent<romperbalajug_al2>().danoj;
                     explosiont.GetComponent<baladef_exp_al2>().danoesc = this.gameObject.GetComponent<romperbalajug_al2>().danoesc;
                     explosiont.transform.localScale = transform.localScale;
-                    Destroy(explosiont, 13f);
+                    Destroy(explosiont, 2f);
                     Destroy(this.gameObject);
                     act = true;
                     

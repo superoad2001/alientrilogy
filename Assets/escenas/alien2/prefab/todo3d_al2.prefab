@@ -6268,6 +6268,7 @@ GameObject:
   - component: {fileID: 15527559382465163}
   - component: {fileID: 3929664951898050330}
   - component: {fileID: 2409453109252903505}
+  - component: {fileID: 5277548199863250094}
   - component: {fileID: 8317262575470765656}
   - component: {fileID: 1308698461413982653}
   - component: {fileID: 794557114020025698}
@@ -6292,7 +6293,7 @@ Transform:
   m_GameObject: {fileID: 1225071923906992598}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.527042, y: 3.03, z: 10.25}
+  m_LocalPosition: {x: -10.52704, y: 3.03, z: 10.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6323,6 +6324,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1626b6239ef23ba45abc03be778c617a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paloNV: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  pistolaNV: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  bombaNV: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  minaNV: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  defNV: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  escopetaNV: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  misilNV: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  cargaNV: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  relNV: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  ceboNV: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  rataNV: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   movact: 0
   saltop: 1
   movskate: 0
@@ -6362,6 +6374,8 @@ MonoBehaviour:
   tempempujon: 0
   tarbossact: 0
   combo: 0
+  comboa: 0
+  combosting: 0
   vida: 9
   dialogueact: 0
   speed: 3
@@ -6870,6 +6884,140 @@ MonoBehaviour:
   lateralc: 0
   ruletas: 0
   skatevis: {fileID: 5965692995215240742}
+  armasbalas: {fileID: 5277548199863250094}
+--- !u!114 &5277548199863250094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225071923906992598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9972212607c7ed40aa4242d889e1689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::prefabbala_al2
+  pistolaBalajug:
+  - {fileID: 1777860533906856, guid: 7f8ec2c172fd5bd4491e928789bf6200, type: 3}
+  - {fileID: 1777860533906856, guid: b0d4e1b8c6daa2149bbe1b3bbc4482bf, type: 3}
+  - {fileID: 1777860533906856, guid: 56945efb411ce6642abf88f5b6dbfe0c, type: 3}
+  - {fileID: 1777860533906856, guid: 3629366e105f66146aacb3c9d67834fc, type: 3}
+  - {fileID: 1777860533906856, guid: e358add8bb4326c4ea51f807b8b7f8f3, type: 3}
+  - {fileID: 1777860533906856, guid: 76dfe013c04b69949a685e8dfe15b078, type: 3}
+  - {fileID: 1777860533906856, guid: d6b86a6cad4a2574ba1856d396ff2973, type: 3}
+  - {fileID: 1777860533906856, guid: eebfed8714a35c140934e40383c3d14f, type: 3}
+  - {fileID: 1777860533906856, guid: 82a64d90e98b458498fe36d614fc8902, type: 3}
+  - {fileID: 1777860533906856, guid: 90686d6dbe8972d4a8049e91a0dfe0dc, type: 3}
+  bombaBalajug:
+  - {fileID: 1777860533906856, guid: 2cb1af208bba3b74198ada4889601b29, type: 3}
+  - {fileID: 1777860533906856, guid: 9904dcd7d0122aa4884e54aede2f1e05, type: 3}
+  - {fileID: 1777860533906856, guid: ce3c17a0ddb1019418d2ad1bfde1aacb, type: 3}
+  - {fileID: 1777860533906856, guid: c428c7cc14e05f24dbd7012207728a13, type: 3}
+  - {fileID: 1777860533906856, guid: dcd8861c78c03fd4282372e4e36b53e3, type: 3}
+  - {fileID: 1777860533906856, guid: 2b95e8ee25a957248a54cdd7e3826b79, type: 3}
+  - {fileID: 1777860533906856, guid: 051e16302708886458ecc2b6d5bb2509, type: 3}
+  - {fileID: 1777860533906856, guid: 1d40042162277fa4aa3fde5f1389be03, type: 3}
+  - {fileID: 1777860533906856, guid: b5b3fb23d989e7d4eb50bd160d78ee26, type: 3}
+  - {fileID: 1777860533906856, guid: 6d2cedc3ae3008f42841e67f03d7e2a2, type: 3}
+  relBalajug:
+  - {fileID: 1777860533906856, guid: 0920fb1abb65a0747aa51f34c38e516f, type: 3}
+  - {fileID: 1777860533906856, guid: 05b4dbed875e40e48ad535dbc62263ff, type: 3}
+  - {fileID: 1777860533906856, guid: 1576ed73c825b9b4ba8a38b42303e29e, type: 3}
+  - {fileID: 1777860533906856, guid: 46de98364b909604caeb5ed4f32125c5, type: 3}
+  - {fileID: 1777860533906856, guid: 55de8d5174307454b835b06425b40d18, type: 3}
+  - {fileID: 1777860533906856, guid: 550cea0b36703d041ac7244fe7aa5ee8, type: 3}
+  - {fileID: 1777860533906856, guid: 417e985db57447a4d89804dac502e5ab, type: 3}
+  - {fileID: 1777860533906856, guid: e1c3d0b17a78c724aa45aa2e1736c3a8, type: 3}
+  - {fileID: 1777860533906856, guid: fecab980e775c034b962d254548a3657, type: 3}
+  - {fileID: 1777860533906856, guid: df808ae526a2a5440853f730ae938944, type: 3}
+  ceboBalajug:
+  - {fileID: 7052942996231237983, guid: ebe80809e570a904ea370b6294cd8512, type: 3}
+  - {fileID: 7052942996231237983, guid: 767c5cf0c70c4fa449b3bf09b5da0cd0, type: 3}
+  - {fileID: 7052942996231237983, guid: eaf17a73753cf1748b85639839273388, type: 3}
+  - {fileID: 7052942996231237983, guid: 770df2810d0833f468a0763ab33e7814, type: 3}
+  - {fileID: 7052942996231237983, guid: 84e19abc877ee494f8d747a4dae066f9, type: 3}
+  - {fileID: 7052942996231237983, guid: 3e851cfd92810454c94eadd0291585ec, type: 3}
+  - {fileID: 7052942996231237983, guid: 1f61bd6cdd3f69841be2707c55814751, type: 3}
+  - {fileID: 7052942996231237983, guid: 01cbc04e99645e943bdee5bbdc076a56, type: 3}
+  - {fileID: 7052942996231237983, guid: f7941a4f7ae279c418d7cd31bfc9b125, type: 3}
+  - {fileID: 7052942996231237983, guid: 3d3e2bc1fc0fbd74189f2d80d33bc0d2, type: 3}
+  rataBalajug:
+  - {fileID: 1777860533906856, guid: 9d8c951e83ac8e049862e21936502c08, type: 3}
+  - {fileID: 1777860533906856, guid: c429ab740820efb4fa12a72ed4643041, type: 3}
+  - {fileID: 1777860533906856, guid: 444568001f930614789a52029dc41bf3, type: 3}
+  - {fileID: 1777860533906856, guid: e1ec96d095346fa44b6c89c1858a5abc, type: 3}
+  - {fileID: 1777860533906856, guid: 0dc45d2aaafe9744fb5a49b966bf8ed3, type: 3}
+  - {fileID: 1777860533906856, guid: ddb97ce0e8f2fac42959794bff58091e, type: 3}
+  - {fileID: 1777860533906856, guid: fbfd29bdcb2829d498d0a90dc457f1bb, type: 3}
+  - {fileID: 1777860533906856, guid: a199042691bb755418fea03b1dcae4a4, type: 3}
+  - {fileID: 1777860533906856, guid: a93f5a740f92f2d43b7e2af9b3e2d28e, type: 3}
+  - {fileID: 1777860533906856, guid: 1c9b084be279c89489775c86bcd46631, type: 3}
+  recBalajug:
+  - {fileID: 1777860533906856, guid: 9578768516953da4caa4957ff5349aee, type: 3}
+  - {fileID: 1777860533906856, guid: acc17bc313383ce4a9919b5bf47f3a41, type: 3}
+  - {fileID: 1777860533906856, guid: b3be91461114ab74d8bd7b11758deb9a, type: 3}
+  - {fileID: 1777860533906856, guid: ed8cc43c5e638e04abb2143584f73585, type: 3}
+  - {fileID: 1777860533906856, guid: f98176f18fae7c345a1937bf0bae4b14, type: 3}
+  - {fileID: 1777860533906856, guid: ab74d0754e600ca45ac02035e0a2418d, type: 3}
+  - {fileID: 1777860533906856, guid: b6525557996cf7e408dbb5240cc7938b, type: 3}
+  - {fileID: 1777860533906856, guid: d0e56e554ab74c64aaff591b41781ea3, type: 3}
+  - {fileID: 1777860533906856, guid: 8de06719aa9f7e44bbcfe774096368e3, type: 3}
+  - {fileID: 1777860533906856, guid: 8764097cdebb5744fa76725dc2db0ba8, type: 3}
+  escopetaBalajug:
+  - {fileID: 1777860533906856, guid: 3a39bf4643df88f43830112832b7f9a6, type: 3}
+  - {fileID: 1777860533906856, guid: fd825ba96817aef49b72476bddf7772c, type: 3}
+  - {fileID: 1777860533906856, guid: 6d838de2deda3c543a7b31d4ef9893c2, type: 3}
+  - {fileID: 1777860533906856, guid: b1d9b7bcd44f61043a79674f3c4eb2bd, type: 3}
+  - {fileID: 1777860533906856, guid: 2b345cd7a32f5614a94d9f447e563a38, type: 3}
+  - {fileID: 1777860533906856, guid: ba7435f9a7d52cc43b864c930c2fb88f, type: 3}
+  - {fileID: 1777860533906856, guid: 485379c5c2396f144801908b4edc8184, type: 3}
+  - {fileID: 1777860533906856, guid: 507e93fec12e9f146aa5f075c3395459, type: 3}
+  - {fileID: 1777860533906856, guid: 4dbc1b12099d5a348b151bfe0160f96d, type: 3}
+  - {fileID: 1777860533906856, guid: a7529b3adae79f446a8626f3985eb70e, type: 3}
+  minaBalajug:
+  - {fileID: 1777860533906856, guid: 1a6bd32b1c37c554ba352bab906c77fe, type: 3}
+  - {fileID: 1777860533906856, guid: 0947962990849aa4d9f5c6f575335cf5, type: 3}
+  - {fileID: 1777860533906856, guid: b0bb77ed2865db54fb2266b4b10f93f3, type: 3}
+  - {fileID: 1777860533906856, guid: 7833967f94750b4438efa73ffd5408fb, type: 3}
+  - {fileID: 1777860533906856, guid: eb8c84f670dede04a8ac3230b6fbce2b, type: 3}
+  - {fileID: 1777860533906856, guid: 9b65b9bd769b4a048ab5434811ca93ed, type: 3}
+  - {fileID: 1777860533906856, guid: 60646828556220a46906077b3433e720, type: 3}
+  - {fileID: 1777860533906856, guid: 0eac455360e1eb943b7411ee72ab565a, type: 3}
+  - {fileID: 1777860533906856, guid: 618478e202dddcf4d9990f5863b4dcf4, type: 3}
+  - {fileID: 1777860533906856, guid: 406105022b1e0b94e8a7bf570e456a12, type: 3}
+  defBalajug:
+  - {fileID: 1777860533906856, guid: b1faa9060ce27734aa057a5da6dd15d5, type: 3}
+  - {fileID: 1777860533906856, guid: 6880653fb4f551340bc83c6fed79df51, type: 3}
+  - {fileID: 1777860533906856, guid: 033045cd97db1a34992fe70f2979bc49, type: 3}
+  - {fileID: 1777860533906856, guid: 67e7a08d00979e440a9c7bc8cdeba725, type: 3}
+  - {fileID: 1777860533906856, guid: 664c1c534e3d7ed4c8c1d534169aff3c, type: 3}
+  - {fileID: 1777860533906856, guid: 2d82436a44ead83499682a333d866190, type: 3}
+  - {fileID: 1777860533906856, guid: 0e8214d569ff0d147bd0f27ab5fd3aa7, type: 3}
+  - {fileID: 1777860533906856, guid: 9fa49d771b94ae5468b67ea46eb3ffbf, type: 3}
+  - {fileID: 1777860533906856, guid: 574d8331e2c1bcf4a899965bc568f7a1, type: 3}
+  - {fileID: 1777860533906856, guid: 41e56befc8b47de48948fe7f47f362bc, type: 3}
+  escudoBalajug:
+  - {fileID: 1777860533906856, guid: 288309e29dcf9da4ba0bbe9cdb371ca2, type: 3}
+  - {fileID: 1777860533906856, guid: b36ec3072c4885f42a92c8b22e9df20a, type: 3}
+  - {fileID: 1777860533906856, guid: a3f703813e991874ab938bfa40719006, type: 3}
+  - {fileID: 1777860533906856, guid: 0ba93b56be927a544ba2cf8578c07cbc, type: 3}
+  - {fileID: 1777860533906856, guid: fbb7a1ab5fe5fe7489e6617b2ada37e9, type: 3}
+  - {fileID: 1777860533906856, guid: 4b21fd2b466d2f54fa3cd4c5afc7fc37, type: 3}
+  - {fileID: 1777860533906856, guid: 41b25df543ca65c45b566573b434d86e, type: 3}
+  - {fileID: 1777860533906856, guid: 9e5619f31c50c3640b724c8a335b6858, type: 3}
+  - {fileID: 1777860533906856, guid: a2a70f0681e51b94baff2e89ecafd3ff, type: 3}
+  - {fileID: 1777860533906856, guid: 57c80cc37ccfd504eb6da8c43b2060f6, type: 3}
+  misilBalajug:
+  - {fileID: 1777860533906856, guid: bf48338fa2abe8046bb4e69ea4e0af3d, type: 3}
+  - {fileID: 1777860533906856, guid: 4b5a132fa82f0ae47954f34a9fe21e11, type: 3}
+  - {fileID: 1777860533906856, guid: 94d6dd7475fd6b5438e3444fa5269a8f, type: 3}
+  - {fileID: 1777860533906856, guid: 37e706b479f3dc74e804570cd32e536e, type: 3}
+  - {fileID: 1777860533906856, guid: 12e53bd8c36a8034d82ec932f527ad1d, type: 3}
+  - {fileID: 1777860533906856, guid: 13b8a96eb7a264a4e80d45037aa0b643, type: 3}
+  - {fileID: 1777860533906856, guid: 69ec669c7c2011a419dbc58b8807c441, type: 3}
+  - {fileID: 1777860533906856, guid: e8167d2d41a3d2645a8bd0ef63565881, type: 3}
+  - {fileID: 1777860533906856, guid: 37638383f230b294fa7a566d072fb777, type: 3}
+  - {fileID: 1777860533906856, guid: 44326e89ba6e35143ac513422d0bad59, type: 3}
 --- !u!23 &8317262575470765656
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -51881,6 +52029,7 @@ MonoBehaviour:
   ultimo: 0
   paloact: 0
   guia: {fileID: 0}
+  levantar: 0
 --- !u!1 &7873404656258500326
 GameObject:
   m_ObjectHideFlags: 0
@@ -52434,7 +52583,7 @@ Transform:
   - {fileID: 5239938574716719305}
   - {fileID: 1630811975220031240}
   m_Father: {fileID: 978490154250747790}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.363, y: 0, z: 0}
 --- !u!1 &7942901244947963539
 GameObject:
   m_ObjectHideFlags: 0
@@ -61129,7 +61278,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 4d4427ac988e12241a14e2fa5838d5d7, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1

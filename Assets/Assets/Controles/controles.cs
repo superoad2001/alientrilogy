@@ -4093,7 +4093,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""id"": ""126bf64b-e6ce-424f-8743-7c81db288396"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": ""Tap"",
+                    ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {

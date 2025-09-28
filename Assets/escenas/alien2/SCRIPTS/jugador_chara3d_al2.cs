@@ -15,8 +15,10 @@ public class jugador_chara3d_al2 : jugador_al2
 {
 	
 	[Header("Propio 3D")]
-	private bool pulso;
-	public jugador2_al2 jugador2;
+	private bool pulso;	
+	private float tiempocarga;
+    private GameObject cargaalmacenada;
+    public jugador2_al2 jugador2;
 	private GameObject balasaltadorR;
 	public GameObject balasaltador;
 	private GameObject balavelR;
@@ -139,8 +141,6 @@ public class jugador_chara3d_al2 : jugador_al2
 	public Image[] backarmaimg = new Image[4];
 	public Image[] armaimg = new Image[4];
 	public Image[] circuloarmaimg = new Image[4];
-
-
 	public Sprite[] pocionsprite = new Sprite[4];
 
 	private float temppalo = 60;
@@ -192,9 +192,14 @@ public class jugador_chara3d_al2 : jugador_al2
 	private float teh2; 
     private bool peh;
     private bool fired;
+	private float tehg; 
+    private bool firedg;
+	private float teh2g; 
+    private bool pehg;
 	private Vector3 moveDirSK;
 	public GameObject skatevis;
 	private Camera camaracom;
+	public prefabbala_al2 armasbalas;
 	public void Awake()
     {
         controles = new Controles();
@@ -211,6 +216,7 @@ public class jugador_chara3d_al2 : jugador_al2
 	// Token: 0x0600001D RID: 29 RVA: 0x000025E8 File Offset: 0x000007E8
 	private void Start()
 	{
+		
 		critico.Pause();
 
 		fuebasetut = 1;
@@ -342,14 +348,14 @@ public class jugador_chara3d_al2 : jugador_al2
 			}
 			if(manager.datosserial.armasel == 3)
 			{
-				armaname.text = "HARMONIZADORA";
+				armaname.text = "PX4000 Quebrada";
 				iconodisp.sprite = armasspriteequipada[2];
 				cambiar_modelo_arma();
 				pistolamodels[3].SetActive(true);
 			}
 			if(manager.datosserial.armasel == 4)
 			{
-				armaname.text = "PX4000 Quebrada";
+				armaname.text = "HARMONIZADORA";
 				iconodisp.sprite = armasspriteequipada[3];
 				cambiar_modelo_arma();
 				pistolamodels[2].SetActive(true);
@@ -358,7 +364,7 @@ public class jugador_chara3d_al2 : jugador_al2
 
 			if(manager.datosserial.armasel == 5)
 			{
-				armaname.text = "VendeMotos";
+				armaname.text = "CopiaEspejo";
 				iconodisp.sprite = armasspriteequipada[4];
 				cambiar_modelo_arma();
 				pistolamodels[4].SetActive(true);
@@ -546,6 +552,8 @@ public class jugador_chara3d_al2 : jugador_al2
             tactil.SetActive(true);
 
         }
+
+		
 		
 		
 	}
@@ -919,8 +927,6 @@ public class jugador_chara3d_al2 : jugador_al2
 			UIYc = controles.al2_UI.UIY.ReadValue<float>();	
 			dispararc = controles.al2_3d.disparar.ReadValue<float>();	
 			dashc = controles.al2_3d.dash.ReadValue<float>();
-			golpearc = controles.al2_3d.golpear.ReadValue<float>();
-			golpearMc = controles.al2_3d.golpearM.ReadValue<float>();
 			interactuarc = controles.al2_3d.interactuar.ReadValue<float>();		
 			
 			
@@ -943,6 +949,20 @@ public class jugador_chara3d_al2 : jugador_al2
 				peh = false;
 			}
 
+			if (controles.al2_3d.golpearM.ReadValue<float>() > 0) { tehg += Time.deltaTime; if (!firedg && tehg >= 0.5f) { golpearMc = 1;firedg = true;} }
+			else { tehg = 0; golpearMc = 0;firedg = false; }
+
+			bool behg = controles.al2_3d.golpear.ReadValue<float>() > 0;
+
+			if (behg && !pehg) { pehg = true; teh2g = 0; }       // empezamos a contar
+			if (behg && pehg) teh2g += Time.deltaTime;        // acumulamos tiempo
+			if (!behg && pehg)                            // se soltó
+			{
+				if (teh2g < 0.5f) golpearc = 1;
+				pehg = false;
+			}
+
+
 			
 			
 
@@ -953,6 +973,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				pausa1.SetActive(true);
 				controlact = false;
 				combo = 0;
+				comboa = 0;
 				menu1c = 0;
 				temp10 = 0;
 				if(manager.datosconfig.plat == 2)
@@ -973,6 +994,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				pausatemp.RestoreOriginalControls();
 				controlact = false;
 				combo = 0;
+				comboa = 0;
 				menu2c = 0;
 				temp10 = 0;
 				if(manager.datosconfig.plat == 2)
@@ -1007,7 +1029,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				balaarmat.text = (int)((temppalo/60)*100)+"%";
 				armanvt.text = "nv"+manager.datosserial.nivelarmasjug[0];		
 			}
-			if(manager.datosserial.armasel != 1 && manager.datosserial.armasel <= 100)
+			if(manager.datosserial.armasel != 1 && manager.datosserial.armasel <= 100 && manager.datosserial.armasel > 0)
 			{
 				balaarmat.text = manager.datosserial.armasmun[manager.datosserial.armasel-1]+"/"+manager.datosserial.armasmun_max[manager.datosserial.armasel-1];
 				armanvt.text = "nv"+manager.datosserial.nivelarmasjug[1];			
@@ -1357,7 +1379,7 @@ public class jugador_chara3d_al2 : jugador_al2
 
 						
 						backarmaimg[0].color = new Color(1,1,1,0f);
-						if(manager.datosserial.armasel != 1 || manager.datosserial.nivelarmasjug[0] == manager.datosserial.palosel)
+						if(manager.datosserial.armasel != 1 || manager.datosserial.nivelarmasjug[0] == 1)
 						{
 							tiempodisp = 0;
 							
@@ -1372,13 +1394,13 @@ public class jugador_chara3d_al2 : jugador_al2
 								armaimg[0].sprite = armasspriteequipada[0];
 								backarmaimg[0].sprite = armasspriteequipada[0];
 							}
-							else if(manager.datosserial.nivelarmasjug[0] >= 2)
+							else if(manager.datosserial.nivelarmasjug[0] >= 3)
 							{
 								armaimg[0].sprite = arma1_2;
 								backarmaimg[0].sprite = arma1_2;
 							}
 						}
-						else if(manager.datosserial.palosel == 1 && manager.datosserial.nivelarmasjug[0] >= 2)
+						else if(manager.datosserial.palosel == 1 && manager.datosserial.nivelarmasjug[0] >= 3)
 						{
 							tiempodisp = 0;
 							manager.datosserial.armasel = 1;
@@ -1392,7 +1414,7 @@ public class jugador_chara3d_al2 : jugador_al2
 
 
 						}
-						else if(manager.datosserial.palosel == 2 && manager.datosserial.nivelarmasjug[0] >= 3)
+						else if(manager.datosserial.palosel == 2 && manager.datosserial.nivelarmasjug[0] >= 5)
 						{
 							tiempodisp = 0;
 							manager.datosserial.armasel = 1;
@@ -1404,7 +1426,7 @@ public class jugador_chara3d_al2 : jugador_al2
 							armaimg[0].sprite = arma1_4;
 							backarmaimg[0].sprite = arma1_4;
 						}
-						else if(manager.datosserial.palosel == 3 && manager.datosserial.nivelarmasjug[0] >= 4)
+						else if(manager.datosserial.palosel == 3 && manager.datosserial.nivelarmasjug[0] >= 7)
 						{
 							tiempodisp = 0;
 							manager.datosserial.armasel = 1;
@@ -1416,7 +1438,7 @@ public class jugador_chara3d_al2 : jugador_al2
 							armaimg[0].sprite = arma1_5;
 							backarmaimg[0].sprite = arma1_5;	
 						}
-						else if(manager.datosserial.palosel == 4 && manager.datosserial.nivelarmasjug[0] == 5)
+						else if(manager.datosserial.palosel == 4 && manager.datosserial.nivelarmasjug[0] == 8)
 						{
 							tiempodisp = 0;
 							manager.datosserial.armasel = 1;
@@ -1706,7 +1728,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				{
 					if(manager.datosserial.armasjug[4] == true && tiempodisp > 0.2f)
 					{
-						armaname.text = "VendeMotos";
+						armaname.text = "CopiaEspejo";
 						if(manager.datosserial.armasjug[6])
 						{armaimg[2].color = new Color(1,1,1,0.1f);}
 
@@ -2012,7 +2034,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				{
 					if(manager.datosserial.armasjug[9] == true && tiempodisp > 0.2f)
 					{
-						armaname.text = "S/C egadora";
+						armaname.text = "Mina Guardian V1";
 						armaimg[1].color = new Color(1,1,1,1f);
 
 
@@ -2084,7 +2106,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 				if(ruletaXc < -0f )
 				{
-					armaname.text = "Mina Guardian V1";
+					armaname.text = "S/C egadora";
 					if(manager.datosserial.armasjug[11] == true && tiempodisp > 0.2f)
 					{
 						
@@ -3740,6 +3762,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						temppalo -= 3;
 						toquespalo = 2;
 						palo.GetComponent<golpe_al2>().dano = 2 * danoextra * nivelfuerza;
+						palo.GetComponent<golpe_al2>().levantar = false;
 						anim.Play("arma3");
 						anim.SetBool("arma3",true);
 						tempatk = 0; 
@@ -3755,6 +3778,7 @@ public class jugador_chara3d_al2 : jugador_al2
 							if(manager.datosserial.nivelarmasexpjug[0] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]])
 							{
 								manager.datosserial.nivelarmasjug[0]++;
+								manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]] = paloNV[manager.datosserial.nivelarmasjug[0]];
 								manager.datosserial.nivelarmasexpjug[0] = 0;
 								GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
 
@@ -3773,6 +3797,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						tiempodisp = 0;
 						temppalo -= 40;
 						palo.GetComponent<golpe_al2>().dano = 5f * danoextra * nivelfuerza;
+						palo.GetComponent<golpe_al2>().levantar = false;
 						toquespalo = 999;
 						anim.Play("escudogiratorio");
 						tempatk = 0; 
@@ -3789,6 +3814,7 @@ public class jugador_chara3d_al2 : jugador_al2
 							if(manager.datosserial.nivelarmasexpjug[0] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]])
 							{
 								manager.datosserial.nivelarmasjug[0]++;
+								manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]] = paloNV[manager.datosserial.nivelarmasjug[0]];
 								manager.datosserial.nivelarmasexpjug[0] = 0;
 								GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
 
@@ -3813,6 +3839,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						tiempodisp = 0;
 						temppalo -= 5 * Time.deltaTime;
 						palo.GetComponent<golpe_al2>().dano = 2 * danoextra * nivelfuerza;
+						palo.GetComponent<golpe_al2>().levantar = false;
 						tempatk = 0;
 						toquespalo = 999;
 						transform.position = Vector3.MoveTowards(transform.position,transform.position + mod.transform.forward * 5, 20 * Time.deltaTime);
@@ -3832,6 +3859,7 @@ public class jugador_chara3d_al2 : jugador_al2
 							if(manager.datosserial.nivelarmasexpjug[0] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]])
 							{
 								manager.datosserial.nivelarmasjug[0]++;
+								manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]] = paloNV[manager.datosserial.nivelarmasjug[0]];
 								manager.datosserial.nivelarmasexpjug[0] = 0;
 								GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
 
@@ -3851,6 +3879,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						temppalo -= 5 * Time.deltaTime;
 						toquespalo = 999;
 						palo.GetComponent<golpe_al2>().dano = 2 * danoextra * nivelfuerza;
+						palo.GetComponent<golpe_al2>().levantar = false;
 						tempatk = 0;
 						anim.SetBool("dashtierra",true);
 						transform.position = Vector3.MoveTowards(transform.position,transform.position + mod.transform.forward * 5, 20 * Time.deltaTime);
@@ -3869,6 +3898,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						tiempodisp = 0;
 						temppalo -= 30;
 						palo.GetComponent<golpe_al2>().dano = 15 * danoextra * nivelfuerza;
+						palo.GetComponent<golpe_al2>().levantar = false;
 						tempatk = 0; 
 						toquespalo = 15;
 						anim.Play("espiralarea");
@@ -3884,6 +3914,7 @@ public class jugador_chara3d_al2 : jugador_al2
 							if(manager.datosserial.nivelarmasexpjug[0] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]])
 							{
 								manager.datosserial.nivelarmasjug[0]++;
+								manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]] = paloNV[manager.datosserial.nivelarmasjug[0]];
 								manager.datosserial.nivelarmasexpjug[0] = 0;
 								GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
 
@@ -3919,6 +3950,7 @@ public class jugador_chara3d_al2 : jugador_al2
 							if(manager.datosserial.nivelarmasexpjug[0] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]])
 							{
 								manager.datosserial.nivelarmasjug[0]++;
+								manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]] = paloNV[manager.datosserial.nivelarmasjug[0]];
 								manager.datosserial.nivelarmasexpjug[0] = 0;
 								GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
 
@@ -3932,13 +3964,116 @@ public class jugador_chara3d_al2 : jugador_al2
 						}
 						manager.guardar();
 					}
+				if(golpearMc > 0 && suelo == true && tiempodisp > 0.7f && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") &&  dispararc == 0 && stamina > 50 && skate == false)
+				{
+					anim.Play("levantar");
+					tiempodisp = -0.5f;
+					tempatk = 0; 
+					palo.GetComponent<golpe_al2>().dano = 2f * danoextra * nivelfuerza;
+					palo.GetComponent<golpe_al2>().levantar = true;
+					toquespalo = 999;
+					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
+					slasht.transform.SetParent(mod.transform);
+					Destroy(slasht,1f);
+					golpeson.Play();
+					stamina -= 10;
+					staminaact = -2;
+				}
+				else if(golpearc > 0 && tiempodisp > 0.1f && combosting < 2 && anim.GetCurrentAnimatorStateInfo(0).IsName("rueda") &&  dispararc == 0 && stamina > 10 && skate == false || golpearc > 0 &&  dispararc == 0 && tiempodisp > 0.1f && combosting < 2 && anim.GetCurrentAnimatorStateInfo(0).IsName("stinger") && stamina > 10 && skate == false)
+				{
+					anim.Play("stinger");
+					tiempodisp = 0f;
+					tempatk = 0; 
+					palo.GetComponent<golpe_al2>().dano = 2f * danoextra * nivelfuerza;
+					palo.GetComponent<golpe_al2>().levantar = false;
+					toquespalo = 999;
+					golpeson.Play();
+					stamina -= 10;
+					staminaact = -2;
+
+					anim.SetBool("saltoatras",false);
+					anim.SetBool("latder",false);
+					anim.SetBool("latizq",false);
+					anim.SetBool("dash",false);
+					dashefect = true;
+					tiempodisp2 = 0;
+					disdash = 10;
+					veldash = 80;
+					tempdash2 = 0;
+					dashson.Play();
+					combosting++;
+				}
+
+				else if(golpearc > 0 && suelo == false && tiempodisp > 0.1f  && comboa == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") &&  dispararc == 0 && stamina > 10 && skate == false)
+				{
+					anim.Play("modoaereo");
+					anim.SetBool("atka1",true);
+					tiempodisp = 0;
+					tempatk = 0; 
+					palo.GetComponent<golpe_al2>().dano = 0.3f * danoextra * nivelfuerza;
+					palo.GetComponent<golpe_al2>().levantar = false;
+					toquespalo = 999;
+					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
+					slasht.transform.SetParent(mod.transform);
+					Destroy(slasht,1f);
+					golpeson.Play();
+					comboa = 1;
+					stamina -= 10;
+					staminaact = -2;
+					this._rb.AddForce(200 * Vector3.up);
+				}
+				else if(golpearc > 0 && suelo == false && tiempodisp > 0.3f && comboa == 1 && anim.GetCurrentAnimatorStateInfo(1).IsName("atka1") &&  dispararc == 0  && stamina > 10  && skate == false)
+				{
+					anim.SetBool("atka2",true);
+					comboa = 2;
+					stamina -= 10;
+					staminaact = -2;
+					
+				}
+				else if(suelo == false && comboa == 2  && anim.GetCurrentAnimatorStateInfo(1).IsName("atka2"))
+				{
+					tiempodisp = 0;
+					tempatk = 0; 
+					toquespalo = 999;
+					palo.GetComponent<golpe_al2>().dano = 0.5f * danoextra * nivelfuerza;
+					palo.GetComponent<golpe_al2>().levantar = false;
+					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
+					slasht.transform.SetParent(mod.transform);
+					Destroy(slasht,1f);
+					golpeson.Play();
+					comboa = 3;
+					this._rb.AddForce(this.jumpforce * Vector3.up);
+				}
+				else if(golpearc > 0 && suelo == false && tiempodisp > 0.2f && comboa == 3 && anim.GetCurrentAnimatorStateInfo(1).IsName("atka2") &&  dispararc == 0 && stamina > 10  && skate == false)
+				{
+					anim.SetBool("atka3",true);
+					comboa = 4;
+					stamina -= 10;
+					staminaact = -2;
+					
+				}
+				else if(suelo == false && comboa == 4 && anim.GetCurrentAnimatorStateInfo(1).IsName("atka3")  && skate == false)
+				{
+					tiempodisp = 0;
+					tempatk = 0; 
+					toquespalo = 999;
+					palo.GetComponent<golpe_al2>().dano = 2 * danoextra * nivelfuerza;
+					palo.GetComponent<golpe_al2>().levantar = false;
+					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
+					slasht.transform.SetParent(mod.transform);
+					Destroy(slasht,1f);
+					golpeson.Play();
+					comboa = 0;
+					this._rb.AddForce(this.jumpforce * Vector3.up);
+				}
 				
-				if(golpearMc > 0 && suelo == true && tiempodisp > 0.7f  && combo == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") &&  dispararc == 0 && stamina > 10 && skate == false)
+				else if(golpearc > 0 && suelo == true && tiempodisp > 0.7f  && combo == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") &&  dispararc == 0 && stamina > 10 && skate == false)
 				{
 					anim.SetBool("atk",true);
 					tiempodisp = 0;
 					tempatk = 0; 
 					palo.GetComponent<golpe_al2>().dano = 0.3f * danoextra * nivelfuerza;
+					palo.GetComponent<golpe_al2>().levantar = false;
 					toquespalo = 999;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
@@ -3948,7 +4083,7 @@ public class jugador_chara3d_al2 : jugador_al2
 					stamina -= 10;
 					staminaact = -2;
 				}
-				else if(golpearMc > 0 && suelo == true && tiempodisp > 0.2f && combo == 1 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk") &&  dispararc == 0 && stamina > 10  && skate == false)
+				else if(golpearc > 0 && suelo == true && tiempodisp > 0.2f && combo == 1 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk") &&  dispararc == 0 && stamina > 10  && skate == false)
 				{
 					anim.SetBool("atk2",true);
 					combo = 2;
@@ -3962,13 +4097,14 @@ public class jugador_chara3d_al2 : jugador_al2
 					tempatk = 0; 
 					toquespalo = 999;
 					palo.GetComponent<golpe_al2>().dano = 0.2f * danoextra;
+					palo.GetComponent<golpe_al2>().levantar = false;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
 					golpeson.Play();
 					combo = 3;
 				}
-				else if(golpearMc > 0 && suelo == true && tiempodisp > 0.3f && combo == 3 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk2") &&  dispararc == 0  && stamina > 10  && skate == false)
+				else if(golpearc > 0 && suelo == true && tiempodisp > 0.3f && combo == 3 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk2") &&  dispararc == 0  && stamina > 10  && skate == false)
 				{
 					anim.SetBool("atk3",true);
 					combo = 4;
@@ -3982,6 +4118,7 @@ public class jugador_chara3d_al2 : jugador_al2
 					tempatk = 0; 
 					toquespalo = 999;
 					palo.GetComponent<golpe_al2>().dano = 0.5f * danoextra * nivelfuerza;
+					palo.GetComponent<golpe_al2>().levantar = false;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -3990,7 +4127,7 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 
 
-				else if(golpearMc > 0 && suelo == true && combo == 5 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk3") &&  dispararc == 0 && stamina > 10  && skate == false)
+				else if(golpearc > 0 && suelo == true && combo == 5 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk3") &&  dispararc == 0 && stamina > 10  && skate == false)
 				{
 					anim.SetBool("atk4",true);
 					combo = 6;
@@ -4004,13 +4141,14 @@ public class jugador_chara3d_al2 : jugador_al2
 					tempatk = 0; 
 					toquespalo = 999;
 					palo.GetComponent<golpe_al2>().dano = 0.1f * danoextra * nivelfuerza;
+					palo.GetComponent<golpe_al2>().levantar = false;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
 					golpeson.Play();
 					combo = 7;
 				}
-				else if(golpearMc > 0 && suelo == true && tiempodisp > 0.2f && combo == 7 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk4") &&  dispararc == 0 && stamina > 10  && skate == false)
+				else if(golpearc > 0 && suelo == true && tiempodisp > 0.2f && combo == 7 && anim.GetCurrentAnimatorStateInfo(1).IsName("atk4") &&  dispararc == 0 && stamina > 10  && skate == false)
 				{
 					anim.SetBool("atk5",true);
 					combo = 8;
@@ -4024,6 +4162,7 @@ public class jugador_chara3d_al2 : jugador_al2
 					tempatk = 0; 
 					toquespalo = 999;
 					palo.GetComponent<golpe_al2>().dano = 2 * danoextra * nivelfuerza;
+					palo.GetComponent<golpe_al2>().levantar = false;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -4038,6 +4177,7 @@ public class jugador_chara3d_al2 : jugador_al2
 					tiempodisp = 0;
 					toquespalo = 999;
 					palo.GetComponent<golpe_al2>().dano = 0.1f * danoextra * nivelfuerza;
+					palo.GetComponent<golpe_al2>().levantar = false;
 					this._rb.AddRelativeForce(500 * 2f * -Vector3.up);
 					lanzarson.Play();
 					stamina -= 20;
@@ -4068,14 +4208,27 @@ public class jugador_chara3d_al2 : jugador_al2
 				{
 					anim.SetBool("atk5",false);
 				}
-				if(anim.GetCurrentAnimatorStateInfo(1).IsName("staticar" ) )
+
+				if(anim.GetCurrentAnimatorStateInfo(1).IsName("atka1" ))
 				{
-					anim.SetBool("atk2",false);
-					anim.SetBool("atk3",false);
+					anim.SetBool("atka1",false);
 				}
-				if(anim.GetCurrentAnimatorStateInfo(1).IsName("staticar" ) && anim.GetBool("atk")  == false && anim.GetBool("atk2")  == false && anim.GetBool("atk3") == false )
+				if(anim.GetCurrentAnimatorStateInfo(1).IsName("atka2" ))
+				{
+					anim.SetBool("atka2",false);
+				}
+				if(anim.GetCurrentAnimatorStateInfo(1).IsName("atka3" ))
+				{
+					anim.SetBool("atka3",false);
+				}
+
+				if(anim.GetCurrentAnimatorStateInfo(1).IsName("staticar" ) && anim.GetBool("atk")  == false && anim.GetBool("atk2")  == false && anim.GetBool("atk3") == false && anim.GetBool("atk4") == false && anim.GetBool("atk5") == false )
 				{
 					combo = 0;
+				}
+				if(anim.GetCurrentAnimatorStateInfo(1).IsName("staticar" ) && anim.GetBool("atka1")  == false && anim.GetBool("atka2")  == false && anim.GetBool("atka3") == false )
+				{
+					comboa = 0;
 				}
 				if(manager.datosserial.armasel == 1)
 				{
@@ -4108,9 +4261,9 @@ public class jugador_chara3d_al2 : jugador_al2
 			}
 			if(manager.datosserial.armasjug[1] == true && manager.datosserial.armasel == 2 && tiendat == false)
 			{
-				if(dispararc > 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[1]-1]  && controlact == true)
+				if(dispararc > 0  && tiempodisp > manager.datosserial.armajugcadencia[1]  && controlact == true)
 				{
-					if(manager.datosserial.nivelarmasjug[1] < 5)
+					if(manager.datosserial.nivelarmasjug[1] < 10)
 					{
 						if(manager.datosserial.licenciaarmas[1] >= manager.datosserial.nivelarmasjug[1])
 						{
@@ -4118,16 +4271,17 @@ public class jugador_chara3d_al2 : jugador_al2
 						}
 
 						
-						if(manager.datosserial.nivelarmasexpjug[1] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]])
+						if(manager.datosserial.nivelarmasexpjug[1] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[1]])
 						{
 							manager.datosserial.nivelarmasjug[1]++;
+							manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[1]] = pistolaNV[manager.datosserial.nivelarmasjug[1]];
 							manager.datosserial.nivelarmasexpjug[1] = 0;
 							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
 
 							expltemp.transform.SetParent(this.gameObject.transform);
 
 							Destroy(expltemp,5f);
-							conseguido.text = "subiste El SantosCielos a nivel "+manager.datosserial.nivelarmasjug[1];
+							conseguido.text = "subiste El Gatillonizador a nivel "+manager.datosserial.nivelarmasjug[1];
 							conseguidoa.Play("nivelsub2");
 						}
 					}
@@ -4135,22 +4289,22 @@ public class jugador_chara3d_al2 : jugador_al2
 					balaprefab = prebalapapal[manager.datosserial.nivelarmasjug[1] -1];
 					tiempodisp = 0;
 
-					GameObject BalaTemporal = Instantiate(balaprefab, pistolamodels[1].transform.position,mod.transform.rotation) as GameObject;
+					GameObject BalaTemporal = Instantiate(armasbalas.pistolaBalajug[manager.datosserial.nivelarmasjug[1]-1], pistolamodels[1].transform.position,mod.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 					if(objetivotarget != null)
 					{
 						Vector3 dirTarget = (objetivotarget.transform.position - mod.transform.position).normalized;
-    					rbb.AddForce(dirTarget * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[1]-1]);
+    					rbb.AddForce(dirTarget * 110 * manager.datosserial.armajugvel[1]);
 					}
 					else
 					{
-						rbb.AddForce(mod.transform.forward * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[1]-1]);
+						rbb.AddForce(mod.transform.forward * 110 * manager.datosserial.armajugvel[1]);
 					}
 
 					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 4f;
 					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
-					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[1]-1] * nivelfuerza;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[1];
 					
 
 					disp.Play();
@@ -4174,6 +4328,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						if(manager.datosserial.nivelarmasexpjug[3] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[3]])
 						{
 							manager.datosserial.nivelarmasjug[3]++;	
+							manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[3]] = relNV[manager.datosserial.nivelarmasjug[3]];
 							manager.datosserial.nivelarmasexpjug[3] = 0;
 							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
 
@@ -4188,7 +4343,7 @@ public class jugador_chara3d_al2 : jugador_al2
 					balaprefab = prebalarell[manager.datosserial.nivelarmasjug[3] -1];
 					tiempodisp = 0; 
 
-					GameObject BalaTemporal = Instantiate(balaprefab, pistolamodels[3].transform.position,mod.transform.rotation) as GameObject;
+					GameObject BalaTemporal = Instantiate(armasbalas.relBalajug[manager.datosserial.nivelarmasjug[3]-1], pistolamodels[3].transform.position,mod.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 
@@ -4205,7 +4360,7 @@ public class jugador_chara3d_al2 : jugador_al2
 
 					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 15f;
 					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 50;
-					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[3]-1] * nivelfuerza;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[3];
 
 					disprel.Play();
 
@@ -4228,6 +4383,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						if(manager.datosserial.nivelarmasexpjug[2] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[2]])
 						{
 							manager.datosserial.nivelarmasjug[2]++;
+							manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[2]] = bombaNV[manager.datosserial.nivelarmasjug[2]];
 							manager.datosserial.nivelarmasexpjug[2] = 0;
 							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
 
@@ -4242,24 +4398,19 @@ public class jugador_chara3d_al2 : jugador_al2
 					balaprefab = prebaladefl[manager.datosserial.nivelarmasjug[2] -1];
 					tiempodisp = 0; 
 
-					GameObject BalaTemporal = Instantiate(balaprefab, pistolamodels[2].transform.position,mod.transform.rotation) as GameObject;
+					GameObject BalaTemporal = Instantiate(armasbalas.bombaBalajug[manager.datosserial.nivelarmasjug[2]-1], pistolamodels[2].transform.position,mod.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
-					if(objetivotarget != null)
-					{
-						Vector3 dirTarget = (objetivotarget.transform.position - mod.transform.position).normalized;
-						rbb.AddForce(new Vector3(0,mod.transform.up.y,dirTarget.z) * 110 * 10);
-					}
-					else
-					{
-						rbb.AddForce(new Vector3(0,mod.transform.up.y,mod.transform.forward.z) * 110 * 10);
-					}
+
+					rbb.AddForce(new Vector3(0,mod.transform.up.y,mod.transform.forward.z) * 110 * (5 + (BalaTemporal.GetComponent<baladef_al2>().escala/ 2)));
+					
+
 
 					
 
 					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 30f;
 					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 300;
-					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[2]-1] * nivelfuerza;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[2];
 					dispF = false;
 					dispdef.Play();
 
@@ -4268,7 +4419,7 @@ public class jugador_chara3d_al2 : jugador_al2
 			}
 			if(manager.datosserial.armasjug[4] == true  && manager.datosserial.armasel == 5 && tiendat == false)
 			{
-				if(dispararc > 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[4]-1]  && controlact == true)
+				if(dispararc > 0  && tiempodisp > 2  && controlact == true)
 				{
 					if(manager.datosserial.nivelarmasjug[4] < 5)
 					{
@@ -4281,28 +4432,30 @@ public class jugador_chara3d_al2 : jugador_al2
 						if(manager.datosserial.nivelarmasexpjug[4] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[4]])
 						{
 							manager.datosserial.nivelarmasjug[4]++;
+							manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[4]] = ceboNV[manager.datosserial.nivelarmasjug[4]];
 							manager.datosserial.nivelarmasexpjug[4] = 0;
 							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
 
 							expltemp.transform.SetParent(this.gameObject.transform);
 
 							Destroy(expltemp,5f);
-							conseguido.text = "subiste VendeMotos a nivel "+manager.datosserial.nivelarmasjug[4];
+							conseguido.text = "subiste CopiaEspejo a nivel "+manager.datosserial.nivelarmasjug[4];
 							conseguidoa.Play("nivelsub2");
 						}
 					}
 					manager.guardar();
-					balaprefab = prebalapapal[manager.datosserial.nivelarmasjug[4] -1];
 					tiempodisp = 0;
 
-					GameObject BalaTemporal = Instantiate(balaprefab, mod.transform.position +( mod.transform.forward * 0.5f),mod.transform.rotation) as GameObject;
-
+					GameObject BalaTemporal = Instantiate(armasbalas.ceboBalajug[manager.datosserial.nivelarmasjug[4]-1], mod.transform.position +( mod.transform.forward * 5.5f),mod.transform.rotation) as GameObject;
+					GameObject expcebo = Instantiate(explosion, mod.transform.position +( mod.transform.forward * 5.5f),mod.transform.rotation) as GameObject;
+                	expcebo.transform.localScale = BalaTemporal.transform.localScale;
+                	Destroy(expcebo,0.7f);
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 
 
-					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 4f;
+					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 60f;
 					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
-					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[4]-1] * nivelfuerza;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[4];
 					
 
 					disp.Play();
@@ -4310,14 +4463,29 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 	
 			}
-			if(manager.datosserial.armasjug[5] == true  && manager.datosserial.armasel == 5 && tiendat == false)
+			if(manager.datosserial.armasjug[5] == true  && manager.datosserial.armasel == 6 && tiendat == false)
 			{
-				if(dispararc > 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[5]-1]  && controlact == true && pulso == false)
+				if(dispararc > 0 && controlact == true && pulso == false)
 				{
 					pulso = true;
+					GameObject BalaTemporal = Instantiate(armasbalas.recBalajug[manager.datosserial.nivelarmasjug[5]-1], mod.transform.position,mod.transform.rotation) as GameObject;
+					BalaTemporal.transform.localScale = new Vector3(0.5f,0.5f,0.5f);
+					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[5];
+					cargaalmacenada = BalaTemporal;
+					tiempocarga = 0;
 				}
-				else if(dispararc == 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[5]-1]  && controlact == true && pulso == true)
+				else if(dispararc > 0 && controlact == true && pulso == true && tiempocarga < 3)
 				{
+					cargaalmacenada.transform.localScale += new Vector3(6 * Time.deltaTime,6 * Time.deltaTime,6 * Time.deltaTime);
+                	cargaalmacenada.transform.position = mod.transform.position;
+               		tiempocarga += 1 * Time.deltaTime;
+				}
+				else if(dispararc == 0  && controlact == true && pulso == true|| tiempocarga >= 3 && pulso == true)
+				{
+
+					Destroy(cargaalmacenada);
 					if(manager.datosserial.nivelarmasjug[5] < 5)
 					{
 						if(manager.datosserial.licenciaarmas[5] >= manager.datosserial.nivelarmasjug[5])
@@ -4329,6 +4497,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						if(manager.datosserial.nivelarmasexpjug[5] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[5]])
 						{
 							manager.datosserial.nivelarmasjug[5]++;
+							manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[5]] = cargaNV[manager.datosserial.nivelarmasjug[5]];
 							manager.datosserial.nivelarmasexpjug[5] = 0;
 							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
 
@@ -4340,18 +4509,9 @@ public class jugador_chara3d_al2 : jugador_al2
 						}
 					}
 					manager.guardar();
-					balaprefab = prebalapapal[manager.datosserial.nivelarmasjug[5] -1];
 					tiempodisp = 0;
 					pulso = false;
-
-					GameObject BalaTemporal = Instantiate(balaprefab, pistolamodels[5].transform.position,mod.transform.rotation) as GameObject;
-
-					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
-
-					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 4f;
-					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
-					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[5]-1] * nivelfuerza;
-					
+					tiempocarga = 0;
 
 					disp.Play();
 
@@ -4362,9 +4522,9 @@ public class jugador_chara3d_al2 : jugador_al2
 			{
 				pulso = false;
 			}
-			if(manager.datosserial.armasjug[6] == true  && manager.datosserial.armasel == 5 && tiendat == false)
+			if(manager.datosserial.armasjug[6] == true  && manager.datosserial.armasel == 7 && tiendat == false)
 			{
-				if(dispararc > 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[6]-1]  && controlact == true)
+				if(dispararc > 0  && tiempodisp > manager.datosserial.armajugcadencia[6] && controlact == true)
 				{
 					if(manager.datosserial.nivelarmasjug[6] < 5)
 					{
@@ -4377,6 +4537,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						if(manager.datosserial.nivelarmasexpjug[6] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[6]])
 						{
 							manager.datosserial.nivelarmasjug[6]++;
+							manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[6]] = rataNV[manager.datosserial.nivelarmasjug[6]];
 							manager.datosserial.nivelarmasexpjug[6] = 0;
 							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
 
@@ -4388,19 +4549,18 @@ public class jugador_chara3d_al2 : jugador_al2
 						}
 					}
 					manager.guardar();
-					balaprefab = prebalapapal[manager.datosserial.nivelarmasjug[6] -1];
 					tiempodisp = 0;
 
-					GameObject BalaTemporal = Instantiate(balaprefab, pistolamodels[6].transform.position,mod.transform.rotation) as GameObject;
+					GameObject BalaTemporal = Instantiate(armasbalas.rataBalajug[manager.datosserial.nivelarmasjug[6]-1], pistolamodels[6].transform.position,mod.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 
-					rbb.AddForce(mod.transform.forward * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[6]-1]);
+					rbb.AddForce(mod.transform.forward * 110 * manager.datosserial.armajugvel[6]);
 					
 
 					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 4f;
 					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
-					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[6]-1] * nivelfuerza;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[6];
 					
 
 					disp.Play();
@@ -4408,9 +4568,9 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 	
 			}
-			if(manager.datosserial.armasjug[7] == true  && manager.datosserial.armasel == 5 && tiendat == false)
+			if(manager.datosserial.armasjug[7] == true  && manager.datosserial.armasel == 8 && tiendat == false)
 			{
-				if(dispararc > 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[7]-1]  && controlact == true)
+				if(dispararc > 0  && tiempodisp > manager.datosserial.armajugcadencia[7]  && controlact == true)
 				{
 					if(manager.datosserial.nivelarmasjug[7] < 5)
 					{
@@ -4423,6 +4583,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						if(manager.datosserial.nivelarmasexpjug[7] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[7]])
 						{
 							manager.datosserial.nivelarmasjug[7]++;
+							manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[7]] = escopetaNV[manager.datosserial.nivelarmasjug[7]];
 							manager.datosserial.nivelarmasexpjug[7] = 0;
 							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
 
@@ -4434,20 +4595,19 @@ public class jugador_chara3d_al2 : jugador_al2
 						}
 					}
 					manager.guardar();
-					balaprefab = prebalapapal[manager.datosserial.nivelarmasjug[7] -1];
 					tiempodisp = 0;
 
-					GameObject BalaTemporal = Instantiate(balaprefab, pistolamodels[7].transform.position,mod.transform.rotation) as GameObject;
+					GameObject BalaTemporal = Instantiate(armasbalas.escopetaBalajug[manager.datosserial.nivelarmasjug[7]-1], pistolamodels[7].transform.position,mod.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 
 
-					rbb.AddForce(mod.transform.forward * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[7]-1]);
+					rbb.AddForce(mod.transform.forward * 110 * manager.datosserial.armajugvel[7]);
 					
 
 					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 4f;
 					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
-					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[7]-1] * nivelfuerza;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[7];
 					
 
 					disp.Play();
@@ -4456,9 +4616,9 @@ public class jugador_chara3d_al2 : jugador_al2
 	
 			}
 
-			if(manager.datosserial.armasjug[8] == true  && manager.datosserial.armasel == 5 && tiendat == false)
+			if(manager.datosserial.armasjug[8] == true  && manager.datosserial.armasel == 9 && tiendat == false)
 			{
-				if(dispararc > 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[8]-1]  && controlact == true)
+				if(dispararc > 0  && tiempodisp > 1f  && controlact == true)
 				{
 					if(manager.datosserial.nivelarmasjug[8] < 5)
 					{
@@ -4471,6 +4631,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						if(manager.datosserial.nivelarmasexpjug[8] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[8]])
 						{
 							manager.datosserial.nivelarmasjug[8]++;
+							manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[8]] = misilNV[manager.datosserial.nivelarmasjug[8]];
 							manager.datosserial.nivelarmasexpjug[8] = 0;
 							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
 
@@ -4485,22 +4646,22 @@ public class jugador_chara3d_al2 : jugador_al2
 					balaprefab = prebalapapal[manager.datosserial.nivelarmasjug[8] -1];
 					tiempodisp = 0;
 
-					GameObject BalaTemporal = Instantiate(balaprefab, pistolamodels[8].transform.position,mod.transform.rotation) as GameObject;
+					GameObject BalaTemporal = Instantiate(armasbalas.misilBalajug[manager.datosserial.nivelarmasjug[8]-1], pistolamodels[8].transform.position+( mod.transform.forward * 7.5f),mod.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 					if(objetivotarget != null)
 					{
 						Vector3 dirTarget = (objetivotarget.transform.position - mod.transform.position).normalized;
-    					rbb.AddForce(dirTarget * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[8]-1]);
+    					rbb.AddForce(dirTarget * 110 * manager.datosserial.armajugvel[8]);
 					}
 					else
 					{
-						rbb.AddForce(mod.transform.forward * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[8]-1]);
+						rbb.AddForce(mod.transform.forward * 110 * manager.datosserial.armajugvel[8]);
 					}
 
 					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 4f;
 					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
-					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[8]-1] * nivelfuerza;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[8];
 					
 
 					disp.Play();
@@ -4508,9 +4669,9 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 	
 			}
-			if(manager.datosserial.armasjug[9] == true  && manager.datosserial.armasel == 5 && tiendat == false)
+			if(manager.datosserial.armasjug[9] == true  && manager.datosserial.armasel == 12 && tiendat == false)
 			{
-				if(dispararc > 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[9]-1]  && controlact == true)
+				if(dispararc > 0  && tiempodisp > 1.5f  && controlact == true)
 				{
 					if(manager.datosserial.nivelarmasjug[9] < 5)
 					{
@@ -4523,8 +4684,9 @@ public class jugador_chara3d_al2 : jugador_al2
 						if(manager.datosserial.nivelarmasexpjug[9] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[9]])
 						{
 							manager.datosserial.nivelarmasjug[9]++;
+							manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[9]] = defNV[manager.datosserial.nivelarmasjug[9]];
 							manager.datosserial.nivelarmasexpjug[9] = 0;
-							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
+							GameObject expltemp = Instantiate(subirnivelexpl, transform.position + new Vector3 (0,1f,0),transform.rotation) as GameObject;
 
 							expltemp.transform.SetParent(this.gameObject.transform);
 
@@ -4537,22 +4699,15 @@ public class jugador_chara3d_al2 : jugador_al2
 					balaprefab = prebalapapal[manager.datosserial.nivelarmasjug[9] -1];
 					tiempodisp = 0;
 
-					GameObject BalaTemporal = Instantiate(balaprefab, pistolamodels[9].transform.position,mod.transform.rotation) as GameObject;
+					GameObject BalaTemporal = Instantiate(armasbalas.defBalajug[manager.datosserial.nivelarmasjug[9]-1], pistolamodels[9].transform.position +( mod.transform.forward * 3.5f),mod.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
-					if(objetivotarget != null)
-					{
-						Vector3 dirTarget = (objetivotarget.transform.position - mod.transform.position).normalized;
-    					rbb.AddForce(dirTarget * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[9]-1]);
-					}
-					else
-					{
-						rbb.AddForce(mod.transform.forward * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[9]-1]);
-					}
+					rbb.AddForce(new Vector3(0,mod.transform.up.y,mod.transform.forward.z) * 110 * 7);
 
-					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 4f;
+
+					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 20f;
 					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
-					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[9]-1] * nivelfuerza;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[9];
 					
 
 					disp.Play();
@@ -4560,9 +4715,9 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 	
 			}
-			if(manager.datosserial.armasjug[10] == true  && manager.datosserial.armasel == 5 && tiendat == false)
+			if(manager.datosserial.armasjug[10] == true  && manager.datosserial.armasel == 11 && tiendat == false)
 			{
-				if(dispararc > 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[10]-1]  && controlact == true)
+				if(dispararc > 0  && tiempodisp > 1.5f  && controlact == true)
 				{
 					if(manager.datosserial.nivelarmasjug[10] < 5)
 					{
@@ -4575,6 +4730,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						if(manager.datosserial.nivelarmasexpjug[10] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[10]])
 						{
 							manager.datosserial.nivelarmasjug[10]++;
+							manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[10]] = pistolaNV[manager.datosserial.nivelarmasjug[10]];
 							manager.datosserial.nivelarmasexpjug[10] = 0;
 							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
 
@@ -4589,13 +4745,17 @@ public class jugador_chara3d_al2 : jugador_al2
 					balaprefab = prebalapapal[manager.datosserial.nivelarmasjug[10] -1];
 					tiempodisp = 0;
 
-					GameObject BalaTemporal = Instantiate(balaprefab, mod.transform.position +( mod.transform.forward * 2.5f),mod.transform.rotation) as GameObject;
+					GameObject BalaTemporal = Instantiate(armasbalas.escudoBalajug[manager.datosserial.nivelarmasjug[10]-1], mod.transform.position +( mod.transform.forward * 6.5f)+new Vector3(0,2,0),mod.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 
-					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 4f;
+					GameObject expescudo = Instantiate(explosion, mod.transform.position +( mod.transform.forward * 6.5f)+new Vector3(0,2,0),mod.transform.rotation) as GameObject;
+                	expescudo.transform.localScale = BalaTemporal.transform.localScale;
+                	Destroy(expescudo,0.7f);
+
+					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 60f;
 					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
-					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[10]-1] * nivelfuerza;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[10];
 					
 
 					disp.Play();
@@ -4603,9 +4763,9 @@ public class jugador_chara3d_al2 : jugador_al2
 				}
 	
 			}
-			if(manager.datosserial.armasjug[11] == true  && manager.datosserial.armasel == 5 && tiendat == false)
+			if(manager.datosserial.armasjug[11] == true  && manager.datosserial.armasel == 10 && tiendat == false)
 			{
-				if(dispararc > 0  && tiempodisp > balapadrecaden[manager.datosserial.nivelarmasjug[11]-1]  && controlact == true)
+				if(dispararc > 0  && tiempodisp > 1f  && controlact == true)
 				{
 					if(manager.datosserial.nivelarmasjug[11] < 5)
 					{
@@ -4618,6 +4778,7 @@ public class jugador_chara3d_al2 : jugador_al2
 						if(manager.datosserial.nivelarmasexpjug[11] >= manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[11]])
 						{
 							manager.datosserial.nivelarmasjug[11]++;
+							manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[11]] = minaNV[manager.datosserial.nivelarmasjug[11]];
 							manager.datosserial.nivelarmasexpjug[11] = 0;
 							GameObject expltemp = Instantiate(subirnivelexpl, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
 
@@ -4632,22 +4793,16 @@ public class jugador_chara3d_al2 : jugador_al2
 					balaprefab = prebalapapal[manager.datosserial.nivelarmasjug[11] -1];
 					tiempodisp = 0;
 
-					GameObject BalaTemporal = Instantiate(balaprefab, pistolamodels[11].transform.position,mod.transform.rotation) as GameObject;
+					GameObject BalaTemporal = Instantiate(armasbalas.minaBalajug[manager.datosserial.nivelarmasjug[11]-1], pistolamodels[11].transform.position,mod.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
-					if(objetivotarget != null)
-					{
-						Vector3 dirTarget = (objetivotarget.transform.position - mod.transform.position).normalized;
-    					rbb.AddForce(dirTarget * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[11]-1]);
-					}
-					else
-					{
-						rbb.AddForce(mod.transform.forward * 110 * manager.datosserial.armajugvel[manager.datosserial.nivelarmasjug[11]-1]);
-					}
+					
+					rbb.AddForce(mod.transform.forward * 110 * manager.datosserial.armajugvel[11]);
+					
 
-					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 4f;
+					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 60f;
 					BalaTemporal.GetComponent<romperbalajug_al2>().danoesc = 10;
-					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[manager.datosserial.nivelarmasjug[11]-1] * nivelfuerza;
+					BalaTemporal.GetComponent<romperbalajug_al2>().danoj = manager.datosserial.armajugdano[11];
 					
 
 					disp.Play();
@@ -4844,6 +4999,7 @@ public class jugador_chara3d_al2 : jugador_al2
 					anim.SetBool("latizq",false);
 					anim.SetBool("rueda",true);
 					anim.SetBool("dash",false);
+					combosting = 0;
 					dashefect = true;
 					tiempodisp2 = 0;
 					disdash = 10;
@@ -4864,6 +5020,8 @@ public class jugador_chara3d_al2 : jugador_al2
 					anim.SetBool("latizq",false);
 					anim.SetBool("rueda",true);
 					anim.SetBool("dash",false);
+					combosting = 0;
+					
 					dashefect = true;
 					tiempodisp2 = 0;
 					disdash = 10;
@@ -5136,6 +5294,7 @@ public class jugador_chara3d_al2 : jugador_al2
 			{suelo = true;}
 			tempaerodash = 9;
 			tempaerodash2 = 9;
+			comboa = 0;
 		
 		}
 		if (col.gameObject.tag == "suelo"  || col.gameObject.tag == "lava"  || col.gameObject.tag == "escalar" )
