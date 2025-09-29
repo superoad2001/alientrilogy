@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using MeetAndTalk.Localization;
+using UnityEngine.Rendering;
 
 // Token: 0x02000008 RID: 8
 public class opcionespause : MonoBehaviour
@@ -24,6 +25,10 @@ public class opcionespause : MonoBehaviour
 
 	public int distancia;
 	public int postpro;
+
+	public RenderPipelineAsset calidad1;
+	public RenderPipelineAsset calidad2;
+
 
 	public Text platt;
 	public Text idiomat;
@@ -245,7 +250,7 @@ public class opcionespause : MonoBehaviour
 			#endif
 
 			manager.datosconfig.idioma = "es";
-			manager.datosconfig.postpro = 0;
+			manager.datosconfig.postpro = 1;
 			manager.datosconfig.distancia = 200;
 			}
 			manager.datosconfig.lastgame = 1;
@@ -297,11 +302,11 @@ public class opcionespause : MonoBehaviour
 		}
 		if(manager.datosconfig.postpro == 1)
 		{
-			conftxtpost.text = "Postprocesado: Desactivado";
+			conftxtpost.text = "calidad: baja";
 		}
 		if(manager.datosconfig.postpro == 2)
 		{
-			conftxtpost.text = "Postprocesado: Activado";
+			conftxtpost.text = "calidad: alta";
 		}
 		conftxtdistancia.text = "Distancia: "+distancia;
 		conftxtresolucion.text = "Resolucion: " +resolucion[ind].width +" X "+resolucion[ind].height+"P";
@@ -381,6 +386,7 @@ public class opcionespause : MonoBehaviour
 	}
 	public void aplicarpost()
     {
+		manager.datosconfig.calidad = QualitySettings.renderPipeline;
 		manager.datosconfig.postpro = postpro;
 		manager.guardar();
 		postm.SetActive(false);
@@ -389,10 +395,12 @@ public class opcionespause : MonoBehaviour
 	}
 	public void post_si()
     {
+		QualitySettings.renderPipeline = calidad2;
 		postpro = 2;
 	}
 	public void post_no()
     {
+		QualitySettings.renderPipeline = calidad1;
 		postpro = 1;
 	}
 	public void aplicardistancia()

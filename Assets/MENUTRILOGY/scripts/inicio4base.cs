@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
 
 // Token: 0x02000008 RID: 8
 public class inicio4base : MonoBehaviour
@@ -19,6 +20,8 @@ public class inicio4base : MonoBehaviour
 	public string idioma;
 	public GameObject Gobj;
 	public Text[] botones;
+	public RenderPipelineAsset calidad1;
+	public RenderPipelineAsset calidad2;
 
 
 	public int distancia;
@@ -299,11 +302,11 @@ public class inicio4base : MonoBehaviour
 		}
 		if(manager.datosconfig.postpro == 1)
 		{
-			conftxtpost.text = "postprocesado: desactivado";
+			conftxtpost.text = "calidad: baja";
 		}
 		if(manager.datosconfig.postpro == 2)
 		{
-			conftxtpost.text = "postprocesado: activado";
+			conftxtpost.text = "calidad: alta";
 		}
 		conftxtdistancia.text = "distancia: "+distancia;
 		conftxtresolucion.text = "resolucion: " +resolucion[ind].width +" X "+resolucion[ind].height+"P";
@@ -382,6 +385,7 @@ public class inicio4base : MonoBehaviour
 	}
 	public void aplicarpost()
     {
+		manager.datosconfig.calidad = QualitySettings.renderPipeline;
 		manager.datosconfig.postpro = postpro;
 		manager.guardar();
 		postm.SetActive(false);
@@ -390,10 +394,12 @@ public class inicio4base : MonoBehaviour
 	}
 	public void post_si()
     {
+		QualitySettings.renderPipeline = calidad2;
 		postpro = 2;
 	}
 	public void post_no()
     {
+		QualitySettings.renderPipeline = calidad1;
 		postpro = 1;
 	}
 	public void aplicardistancia()

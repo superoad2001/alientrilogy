@@ -30,6 +30,10 @@ public class inicio3base : MonoBehaviour
     public int lastgame = 0;
     public AudioSource musica1;
     public AudioSource musica2;
+    public bool alien1 = true;
+    public bool alien2 = true;
+    public bool alien3 = true;
+    public bool trofeos = true;
     
     public void Awake()
     {
@@ -63,29 +67,28 @@ public class inicio3base : MonoBehaviour
         if(presskip == true)
         {
 
-            // para alien 1
-            /*if(juego == 5)
-            {
-                juego = 1;
-                manager.move();
-            }*/
-            //para alien 2
-            /*if(juego == 4)
-            {
-                juego = 2;
-                manager.move();
-            }
-            else if(juego > 1)
-            {
-                juego -= 1;
-                manager.move();
-            }*/
 
-            //para alien 3
 
             if(juego > 1)
             {
+                int bakjug = juego;
                 juego -= 1;
+                if(juego == 4 && trofeos == false)
+                {
+                    juego = 3;
+                }
+                if(juego == 3 && alien3 == false)
+                {
+                    juego = 2;
+                }
+                if(juego == 2 && alien2 == false)
+                {
+                    juego = 1;
+                }
+                if(juego == 1 && alien1 == false)
+                {
+                    juego = bakjug;
+                }
                 manager.move();
             }
         }
@@ -94,30 +97,23 @@ public class inicio3base : MonoBehaviour
     {
         if(presskip == true)
         {
-            // para alien 1
-            /*if(juego == 1)
-            {
-                juego = 5;
-                manager.move();
-            }*/
-
-            //para alien 2
-            /*if(juego == 2)
-            {
-                juego = 4;
-                manager.move();
-            }
-            else if(juego < 5)
-            {
-                juego += 1;
-                manager.move();
-            }*/
-
-            //para alien 3
             if(juego < 5)
             {
-                juego += 1;
-                manager.move();
+            int bakjug2 = juego;
+            juego += 1;
+
+            if(juego == 2 && alien2 == false)
+            {
+                juego = 3;
+            }
+            if(juego == 3 && alien3 == false)
+            {
+                juego = 4;
+            }
+            if(juego == 4 && trofeos == false)
+            {
+                juego = 5;
+            }
             }
         }
     }

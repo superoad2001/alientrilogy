@@ -191,8 +191,8 @@ public class managerBASE : MonoBehaviour
             if(cmenu == 4)
             {
                 boton1.text = "Mejora grafica";
-                boton2.text = "Post procesado desactivado";
-                boton3.text = "Post procesado activado";
+                boton2.text = "Calidad: desactivado";
+                boton3.text = "Calidad: activado";
                 boton4.text = "Si juegas en un dispositivo con recursos moderados podras usar la mejora grafica";
                 boton5.text = "El post procesado puede crashear el juego en ciertos dispositivos si esto sucede resetea la configuracion con el boton de recuperacion al inicio del juego";
                 boton6.text = "Una vez selecionado para cambiarlo entra a opciones";
@@ -202,7 +202,7 @@ public class managerBASE : MonoBehaviour
                 boton1.text = "CONTROLES";
                 boton2.text = "IDIOMA";
                 boton3.text = "DISTANCIA DE DIBUJADO";
-                boton4.text = "POST PROCESADO";
+                boton4.text = "CALIDAD";
                 boton5.text = "SONIDO";
                 boton6.text = "MUSICA";
                 boton7.text = "VOCES";
@@ -238,9 +238,9 @@ public class managerBASE : MonoBehaviour
             }
             if(cmenu == 4)
             {
-                boton1.text = "mejora grafica";
-                boton2.text = "post processing disabled";
-                boton3.text = "post processing enabled";
+                boton1.text = "graphic improvement";
+                boton2.text = "Quality: disabled";
+                boton3.text = "Quality: enabled";
                 boton4.text = "If you play on a device with moderate resources you can use the graphic improvement";
                 boton5.text = "The post processing may crash the game on certain devices. If this happens, reset the settings with the recovery button at the start of the game.";
                 boton6.text = "once selected to change it go to settings";
@@ -250,7 +250,7 @@ public class managerBASE : MonoBehaviour
                 boton1.text = "controls";
                 boton2.text = "language";
                 boton3.text = "drawing distance";
-                boton4.text = "post processed";
+                boton4.text = "Quality";
                 boton5.text = "sound";
                 boton6.text = "music";
                 boton7.text = "voices";
@@ -287,8 +287,8 @@ public class managerBASE : MonoBehaviour
             if(cmenu == 4)
             {
                 boton1.text = "millora grafica";
-                boton2.text = "post procesat desactivat";
-                boton3.text = "post procesat activat";
+                boton2.text = "Calidad: inactiu";
+                boton3.text = "Calidad: actiu";
                 boton4.text = "si juegas en un dispositiu amb recursos moderats podras usar la millora grafica";
                 boton5.text = "el post procesat pot crashejar el joc en certs dispositius si aixo pasa resetea la configuracio amb el boton de recuperacion al inici del joc";
                 boton6.text = "una vegada selecionat per cambiaro entra a opcions";
@@ -298,7 +298,7 @@ public class managerBASE : MonoBehaviour
                 boton1.text = "controls";
                 boton2.text = "idioma";
                 boton3.text = "distancia de dibuxat";
-                boton4.text = "post procesat";
+                boton4.text = "qualitat";
                 boton5.text = "so";
                 boton6.text = "musica";
                 boton7.text = "veus";
@@ -322,7 +322,7 @@ public class managerBASE : MonoBehaviour
                 boton1.text = "Controles";
                 boton2.text = "Idioma";
                 boton3.text = "Distancia de Dibujado";
-                boton4.text = "Post Procesado";
+                boton4.text = "Calidad";
                 boton5.text = "Sonido";
                 boton6.text = "Musica";
                 boton7.text = "Voces";
@@ -337,7 +337,7 @@ public class managerBASE : MonoBehaviour
                 boton1.text = "controls";
                 boton2.text = "language";
                 boton3.text = "drawing distance";
-                boton4.text = "post processed";
+                boton4.text = "Quality";
                 boton5.text = "sound";
                 boton6.text = "music";
                 boton7.text = "voices";
@@ -352,7 +352,7 @@ public class managerBASE : MonoBehaviour
                 boton1.text = "controls";
                 boton2.text = "idioma";
                 boton3.text = "distancia de dibuxat";
-                boton4.text = "post procesat";
+                boton4.text = "qualitat";
                 boton5.text = "so";
                 boton6.text = "musica";
                 boton7.text = "veus";

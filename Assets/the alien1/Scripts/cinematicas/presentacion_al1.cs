@@ -425,7 +425,7 @@ public class presentacion_al1 : MonoBehaviour
                         manager.datosconfig.carga = manager.datosserial.nivelu;
                         manager.guardarconfig();
                         manager.guardar();
-				SceneManager.LoadScene("carga");
+				        SceneManager.LoadScene("carga");
                         temp = 0;
                     }
                     else

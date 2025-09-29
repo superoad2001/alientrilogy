@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+using UnityEngine.Rendering;
 
 [Serializable]
 public class datosconfig
 {
+    public RenderPipelineAsset calidad;
     public bool primera;
     public bool primerares;
     public string idioma = "es";
