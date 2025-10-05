@@ -80,6 +80,7 @@ public class bossencorbado_al1: MonoBehaviour
     public float []nivelfuerza_a = new float[100];
     public float []nivelvida_a = new float[100];
     public Text niveltxt;
+    private golpe_al1 paloSC;
     public void Awake()
     {
         controles = new Controles();
@@ -97,6 +98,7 @@ public class bossencorbado_al1: MonoBehaviour
     {
         vidaUI = vida;
         nivelvida_a[0] = vidabasetut;
+
 
         for(int i = 1 ;i <= 49;  i++ )
         {   
@@ -127,6 +129,7 @@ public class bossencorbado_al1: MonoBehaviour
         muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();
         danoene = GameObject.Find("danoenemigosonido").GetComponent<AudioSource>();
         juego = GameObject.Find("juego").transform;
+        paloSC = palo.GetComponent<golpe_al1>();
     }
     public void rbf()
     {
@@ -147,7 +150,7 @@ public class bossencorbado_al1: MonoBehaviour
         {tempgolpe += 1 * Time.deltaTime;}
         
         vidab.fillAmount = vidaUI/vidamax;
-        vidat.text = (int)vida+"/"+(int)vidamax;
+        vidat.text = string.Concat((int)vida,"/",(int)vidamax);
         if(vida < 1)
         {
             GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
@@ -211,8 +214,8 @@ public class bossencorbado_al1: MonoBehaviour
                 if(gigante == true)
                 {anim.SetBool("atkg",true);}
                 temp = 0;
-                palo.GetComponent<golpe_al1>().dano =  ((nivelfuerza / 2) * 1) + nivelfuerza;
-                palo.GetComponent<golpe_al1>().toquespalo = 5;
+                paloSC.dano =  ((nivelfuerza / 2) * 1) + nivelfuerza;
+                paloSC.toquespalo = 5;
                 GameObject slasht = Instantiate(slash, transform.position+ new Vector3 (0,2f,0),transform.rotation) as GameObject;
                 slasht.transform.SetParent(transform);
 				Destroy(slasht,1f);
@@ -248,10 +251,10 @@ public class bossencorbado_al1: MonoBehaviour
             {
                 if(temp > 1f)
             {
-                palo.GetComponent<golpe_al1>().toquespalo = 1;
+                paloSC.toquespalo = 1;
                 anim.SetBool("arma4",true);
                 temp = 0;
-                palo.GetComponent<golpe_al1>().dano =  ((nivelfuerza / 2) * 1) + nivelfuerza;
+                paloSC.dano =  ((nivelfuerza / 2) * 1) + nivelfuerza;
             }
             else{
                 anim.SetBool("arma4",false);
@@ -283,10 +286,10 @@ public class bossencorbado_al1: MonoBehaviour
             {
                 if(temp > 3f)
             {
-                palo.GetComponent<golpe_al1>().toquespalo = 2;
+                paloSC.toquespalo = 2;
                 rb_ = this.GetComponent<Rigidbody>();
                 anim.SetBool("encatk1",true);
-                palo.GetComponent<golpe_al1>().dano =  ((nivelfuerza / 2) * 2) + nivelfuerza;
+                paloSC.dano =  ((nivelfuerza / 2) * 2) + nivelfuerza;
                 this.rb_.AddForce(3000 * transform.TransformDirection(new Vector3 (0,0,1)));
                 temp = 0;
             }

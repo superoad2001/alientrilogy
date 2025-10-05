@@ -13,6 +13,7 @@ using System.Linq;
 public class jugador_chara2d_al1 : jugador_al1
 {
     [Header("Propio 2D")]
+	private golpe_al1 paloSC;
     private float temprebote;
     private float tiempogiro2;
 	public AudioSource critico;
@@ -468,9 +469,8 @@ public class jugador_chara2d_al1 : jugador_al1
 		mod = this.gameObject.transform.GetChild(0).gameObject;
 		
 		vida = vidamax;
-		if(manager.datosserial.tengopalo == false)
+		if(manager.datosserial.tengolanzar == false)
 		{
-
 			
 			palo.SetActive(false);
 			
@@ -498,6 +498,7 @@ public class jugador_chara2d_al1 : jugador_al1
 
 		vidaobj = vida;
 		staminaobj = stamina;
+		paloSC = palo.GetComponent<golpe_al1>();
 		
 		
 	}
@@ -508,6 +509,7 @@ public class jugador_chara2d_al1 : jugador_al1
 	
 	private void FixedUpdate()
 	{
+
 		if (enemigosEnContacto.Count == 0)
 		{
 			peligro = false;
@@ -703,9 +705,10 @@ public class jugador_chara2d_al1 : jugador_al1
 	staminaobj = Mathf.Lerp(staminaobj, stamina, Time.deltaTime * 4f);
 	vidaobj = Mathf.Lerp(vidaobj, vida, Time.deltaTime * 2f);
 	vidab.fillAmount = vidaobj/vidamax; 
-	vidat.text = "VIT:"+(int)vida+"/"+(int)vidamax;
+	
+	vidat.text = string.Concat("VIT:",(int)vida,"/",(int)vidamax);
 	niverlbarra.fillAmount = manager.datosserial.nivelexp/manager.datosserial.signivelexp; 
-	niveluit.text = "LEVEL "+ manager.datosserial.niveljug;
+	niveluit.text = string.Concat("LEVEL ",manager.datosserial.niveljug);
 	staminabarra.fillAmount = staminaobj/staminamax;
 	if(controlact == false)
 	{
@@ -821,8 +824,8 @@ public class jugador_chara2d_al1 : jugador_al1
 
 			if(manager.datosserial.armasel == 1)
 			{
-				balaarmat.text = (int)((temppalo/60)*100)+"%";
-				armanvt.text = "nv"+manager.datosserial.nivelarmapalo;
+				balaarmat.text = string.Concat((int)((temppalo/60)*100),"%");
+				armanvt.text = string.Concat("nv",manager.datosserial.nivelarmapalo);
 				if(manager.datosserial.nivelarmapalo == 1)
 				{
 					barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmapaloexp/armapalosignv[manager.datosserial.nivelarmapalo-1];
@@ -863,8 +866,8 @@ public class jugador_chara2d_al1 : jugador_al1
 			}
 			if(manager.datosserial.armasel == 2)
 			{
-				balaarmat.text = (int)((temppaparec/20)*100)+"%";
-				armanvt.text = "nv"+manager.datosserial.nivelarmapapa;
+				balaarmat.text = string.Concat((int)((temppaparec/20)*100),"%");
+				armanvt.text = string.Concat("nv",manager.datosserial.nivelarmapapa);
 
 
 				if(manager.datosserial.nivelarmapapa == 1)
@@ -905,8 +908,8 @@ public class jugador_chara2d_al1 : jugador_al1
 			}
 			if(manager.datosserial.armasel == 3)
 			{
-				balaarmat.text = (int)((tempdefrec/60)*100)+"%";
-				armanvt.text = "nv"+manager.datosserial.nivelarmadef;
+				balaarmat.text = string.Concat((int)((tempdefrec/60)*100),"%");
+				armanvt.text = string.Concat("nv",manager.datosserial.nivelarmadef);
 				if(manager.datosserial.nivelarmadef == 1)
 				{
 					barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmadefexp/armadefsignv[manager.datosserial.nivelarmadef-1];
@@ -946,8 +949,8 @@ public class jugador_chara2d_al1 : jugador_al1
 			}
 			if(manager.datosserial.armasel == 4)
 			{
-				balaarmat.text = (int)((temprelrec/40)*100)+"%";
-				armanvt.text = "nv"+manager.datosserial.nivelarmarel;
+				balaarmat.text = string.Concat((int)((temprelrec/40)*100),"%");
+				armanvt.text = string.Concat("nv",manager.datosserial.nivelarmarel);
 				if(manager.datosserial.nivelarmarel == 1)
 				{
 					barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmarelexp/armarelsignv[manager.datosserial.nivelarmarel-1];
@@ -2354,7 +2357,7 @@ public class jugador_chara2d_al1 : jugador_al1
 						tiempodisp = 0;
 						temppalo -= 3;
 						toquespalo = 2;
-						palo.GetComponent<golpe_al1>().dano = 2 * danoextra * nivelfuerza;
+						paloSC.dano = 2 * danoextra * nivelfuerza;
 						anim.Play("arma3");
 						anim.SetBool("arma3",true);
 						tempatk = 0; 
@@ -2376,7 +2379,7 @@ public class jugador_chara2d_al1 : jugador_al1
 								expltemp.transform.SetParent(this.gameObject.transform);
 
 								Destroy(expltemp,5f);
-								conseguido.text = "subiste La ParteCraneos a nivel "+manager.datosserial.nivelarmapalo;
+								conseguido.text = string.Concat("subiste La ParteCraneos a nivel ",manager.datosserial.nivelarmapalo);
 								conseguidoa.Play("nivelsub2");
 
 							}
@@ -2387,7 +2390,7 @@ public class jugador_chara2d_al1 : jugador_al1
 					{
 						tiempodisp = 0;
 						temppalo -= 40;
-						palo.GetComponent<golpe_al1>().dano = 3 * danoextra * nivelfuerza;
+						paloSC.dano = 3 * danoextra * nivelfuerza;
 						toquespalo = 999;
 						anim.Play("escudogiratorio");
 						tempatk = 0; 
@@ -2410,7 +2413,7 @@ public class jugador_chara2d_al1 : jugador_al1
 							expltemp.transform.SetParent(this.gameObject.transform);
 
 							Destroy(expltemp,5f);
-							conseguido.text = "subiste La ParteCraneos a nivel "+manager.datosserial.nivelarmapalo;
+							conseguido.text = string.Concat("subiste La ParteCraneos a nivel ",manager.datosserial.nivelarmapalo);
 							conseguidoa.Play("nivelsub2");
 							
 						}
@@ -2427,7 +2430,7 @@ public class jugador_chara2d_al1 : jugador_al1
 					{
 						tiempodisp = 0;
 						temppalo -= 5 * Time.deltaTime;
-						palo.GetComponent<golpe_al1>().dano = 2 * danoextra * nivelfuerza;
+						paloSC.dano = 2 * danoextra * nivelfuerza;
 						tempatk = 0;
 						toquespalo = 999;
 						transform.position = Vector3.MoveTowards(transform.position,transform.position + mod.transform.forward * 5, 20 * Time.deltaTime);
@@ -2454,7 +2457,7 @@ public class jugador_chara2d_al1 : jugador_al1
 							expltemp.transform.SetParent(this.gameObject.transform);
 
 							Destroy(expltemp,5f);
-							conseguido.text = "subiste La ParteCraneos a nivel "+manager.datosserial.nivelarmapalo;
+							conseguido.text = string.Concat("subiste La ParteCraneos a nivel ",manager.datosserial.nivelarmapalo);
 							conseguidoa.Play("nivelsub2");
 						}
 						}
@@ -2465,7 +2468,7 @@ public class jugador_chara2d_al1 : jugador_al1
 						tiempodisp = 0;
 						temppalo -= 5 * Time.deltaTime;
 						toquespalo = 999;
-						palo.GetComponent<golpe_al1>().dano = 2 * danoextra * nivelfuerza;
+						paloSC.dano = 2 * danoextra * nivelfuerza;
 						tempatk = 0;
 						anim.SetBool("dashtierra",true);
 						transform.position = Vector3.MoveTowards(transform.position,transform.position + mod.transform.forward * 5, 20 * Time.deltaTime);
@@ -2483,7 +2486,7 @@ public class jugador_chara2d_al1 : jugador_al1
 					{
 						tiempodisp = 0;
 						temppalo -= 30;
-						palo.GetComponent<golpe_al1>().dano = 2 * danoextra * nivelfuerza;
+						paloSC.dano = 2 * danoextra * nivelfuerza;
 						tempatk = 0; 
 						toquespalo = 15;
 						anim.Play("espiralarea");
@@ -2505,7 +2508,7 @@ public class jugador_chara2d_al1 : jugador_al1
 								expltemp.transform.SetParent(this.gameObject.transform);
 
 								Destroy(expltemp,5f);
-								conseguido.text = "subiste La ParteCraneos a nivel "+manager.datosserial.nivelarmapalo;
+								conseguido.text = string.Concat("subiste La ParteCraneos a nivel ",manager.datosserial.nivelarmapalo);
 								conseguidoa.Play("nivelsub2");
 								
 							}
@@ -2540,7 +2543,7 @@ public class jugador_chara2d_al1 : jugador_al1
 							expltemp.transform.SetParent(this.gameObject.transform);
 
 							Destroy(expltemp,5f);
-							conseguido.text = "subiste La ParteCraneos a nivel "+manager.datosserial.nivelarmapalo;
+							conseguido.text = string.Concat("subiste La ParteCraneos a nivel ",manager.datosserial.nivelarmapalo);
 							conseguidoa.Play("nivelsub2");
 						}
 						}
@@ -2552,7 +2555,7 @@ public class jugador_chara2d_al1 : jugador_al1
 					anim.SetBool("atk",true);
 					tiempodisp = 0;
 					tempatk = 0; 
-					palo.GetComponent<golpe_al1>().dano = 0.3f * danoextra * nivelfuerza;
+					paloSC.dano = 0.3f * danoextra * nivelfuerza;
 					toquespalo = 999;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
@@ -2575,7 +2578,7 @@ public class jugador_chara2d_al1 : jugador_al1
 					tiempodisp = 0;
 					tempatk = 0; 
 					toquespalo = 999;
-					palo.GetComponent<golpe_al1>().dano = 0.2f * danoextra;
+					paloSC.dano = 0.2f * danoextra;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2595,7 +2598,7 @@ public class jugador_chara2d_al1 : jugador_al1
 					tiempodisp = 0;
 					tempatk = 0; 
 					toquespalo = 999;
-					palo.GetComponent<golpe_al1>().dano = 0.5f * danoextra * nivelfuerza;
+					paloSC.dano = 0.5f * danoextra * nivelfuerza;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2617,7 +2620,7 @@ public class jugador_chara2d_al1 : jugador_al1
 					tiempodisp = 0;
 					tempatk = 0; 
 					toquespalo = 999;
-					palo.GetComponent<golpe_al1>().dano = 0.1f * danoextra * nivelfuerza;
+					paloSC.dano = 0.1f * danoextra * nivelfuerza;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2637,7 +2640,7 @@ public class jugador_chara2d_al1 : jugador_al1
 					tiempodisp = 0;
 					tempatk = 0; 
 					toquespalo = 999;
-					palo.GetComponent<golpe_al1>().dano = 2 * danoextra * nivelfuerza;
+					paloSC.dano = 2 * danoextra * nivelfuerza;
 					GameObject slasht = Instantiate(slash, mod.transform.position,mod.transform.rotation) as GameObject;
 					slasht.transform.SetParent(mod.transform);
 					Destroy(slasht,1f);
@@ -2651,7 +2654,7 @@ public class jugador_chara2d_al1 : jugador_al1
 					anim.SetBool("atks",true);
 					tiempodisp = 0;
 					toquespalo = 999;
-					palo.GetComponent<golpe_al1>().dano = 0.1f * danoextra * nivelfuerza;
+					paloSC.dano = 0.1f * danoextra * nivelfuerza;
 					this._rb.AddRelativeForce(500 * 2f * -Vector3.up);
 					lanzarson.Play();
 					stamina -= 20;
@@ -2741,7 +2744,7 @@ public class jugador_chara2d_al1 : jugador_al1
 							expltemp.transform.SetParent(this.gameObject.transform);
 
 							Destroy(expltemp,5f);
-							conseguido.text = "subiste El Gatillazonador a nivel "+manager.datosserial.nivelarmapapa;
+							conseguido.text = string.Concat("subiste El Gatillazonador a nivel ",manager.datosserial.nivelarmapapa);
 							conseguidoa.Play("nivelsub2");
 						}
 					}
@@ -2762,10 +2765,10 @@ public class jugador_chara2d_al1 : jugador_al1
 					{
 						rbb.AddForce(mod.transform.forward * 110 * balapadrevel[manager.datosserial.nivelarmapapa-1]);
 					}
-
-					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 4f;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoesc = 10;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balapadredano[manager.datosserial.nivelarmapapa-1] * nivelfuerza;
+					romperbalajug_al1 bala_temp1 = BalaTemporal.GetComponent<romperbalajug_al1>();
+					bala_temp1.destb = 4f;
+					bala_temp1.danoesc = 10;
+					bala_temp1.danoj = balapadredano[manager.datosserial.nivelarmapapa-1] * nivelfuerza;
 					
 
 					disp.Play();
@@ -2803,7 +2806,7 @@ public class jugador_chara2d_al1 : jugador_al1
 							expltemp.transform.SetParent(this.gameObject.transform);
 
 							Destroy(expltemp,5f);
-							conseguido.text = "subiste la HARMONIZADORA a nivel "+manager.datosserial.nivelarmarel;
+							conseguido.text = string.Concat("subiste la HARMONIZADORA a nivel ",manager.datosserial.nivelarmarel);
 							conseguidoa.Play("nivelsub2");
 						}
 					}
@@ -2826,10 +2829,10 @@ public class jugador_chara2d_al1 : jugador_al1
 					{
 						rbb.AddForce(mod.transform.forward * 110 * 4);
 					}
-
-					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 15f;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoesc = 50;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balareldano[manager.datosserial.nivelarmarel-1] * nivelfuerza;
+					romperbalajug_al1 bala_temp2 = BalaTemporal.GetComponent<romperbalajug_al1>();
+					bala_temp2.destb = 15f;
+					bala_temp2.danoesc = 50;
+					bala_temp2.danoj = balareldano[manager.datosserial.nivelarmarel-1] * nivelfuerza;
 
 					disprel.Play();
 
@@ -2860,7 +2863,7 @@ public class jugador_chara2d_al1 : jugador_al1
 							expltemp.transform.SetParent(this.gameObject.transform);
 
 							Destroy(expltemp,5f);
-							conseguido.text = "subiste la PX4000 a nivel "+manager.datosserial.nivelarmadef;
+							conseguido.text = string.Concat("subiste la PX4000 a nivel ",manager.datosserial.nivelarmadef);
 							conseguidoa.Play("nivelsub2");
 						}
 					}
@@ -2882,11 +2885,10 @@ public class jugador_chara2d_al1 : jugador_al1
 						rbb.AddForce(new Vector3(0,mod.transform.up.y,mod.transform.forward.z) * 110 * 10);
 					}
 
-					
-
-					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 30f;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoesc = 300;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = baladefdano[manager.datosserial.nivelarmadef-1] * nivelfuerza;
+					romperbalajug_al1 bala_temp3 = BalaTemporal.GetComponent<romperbalajug_al1>();
+					bala_temp3.destb = 30f;
+					bala_temp3.danoesc = 300;
+					bala_temp3.danoj = baladefdano[manager.datosserial.nivelarmadef-1] * nivelfuerza;
 					dispF = false;
 					dispdef.Play();
 
@@ -2936,7 +2938,7 @@ public class jugador_chara2d_al1 : jugador_al1
 					stamina -= 15;
 					staminaact = -2;
 					tempaerodash = 0;
-					palo.GetComponent<golpe_al1>().dano = 0.1f * danoextra * nivelfuerza;
+					paloSC.dano = 0.1f * danoextra * nivelfuerza;
 					toquespalo = 999;
 				}
 				else if(dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0)
@@ -2960,7 +2962,7 @@ public class jugador_chara2d_al1 : jugador_al1
 					dashson.Play();
 					stamina -= 15;
 					staminaact = -2;
-					palo.GetComponent<golpe_al1>().dano = 0.1f * danoextra * nivelfuerza;
+					paloSC.dano = 0.1f * danoextra * nivelfuerza;
 					toquespalo = 999;
 				}
 				else if(dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.05f  && anim.GetCurrentAnimatorStateInfo(1).IsName("arma3") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
@@ -2980,7 +2982,7 @@ public class jugador_chara2d_al1 : jugador_al1
 					dashson.Play();
 					stamina -= 15;
 					staminaact = -2;
-					palo.GetComponent<golpe_al1>().dano = 0.1f * danoextra * nivelfuerza;
+					paloSC.dano = 0.1f * danoextra * nivelfuerza;
 					toquespalo = 999;
 				}
 				Debug.DrawRay(transform.position + new Vector3(0,2,0),movdire * 100f, Color.green);
@@ -3334,7 +3336,9 @@ public class jugador_chara2d_al1 : jugador_al1
 					{
 						
 							enemigo1_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo1_al1>();
-							enec.vidapisar = true;
+							if(enec.nivelactual <= 10)
+							{
+								enec.vidapisar = true;
 							
 								if(col.gameObject != null)
 								{
@@ -3365,6 +3369,7 @@ public class jugador_chara2d_al1 : jugador_al1
 								if(enec.vida < 1)
 								{enec.temprb = 0;}
 								temprebote = 0;
+							}
 							
 						
 						
@@ -3374,6 +3379,8 @@ public class jugador_chara2d_al1 : jugador_al1
 					{
 						
 							enemigo2_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo2_al1>();
+							if(enec.nivelactual <= 10)
+							{
 							
 							enec.vida -= 1;
 							if(col.gameObject != null)
@@ -3390,6 +3397,7 @@ public class jugador_chara2d_al1 : jugador_al1
 							vidaenebarra.SetActive(true);
 							if(enec.vida < 1)
 							{enec.temprb = 0;}
+						}
 							
 						
 				}
@@ -3694,6 +3702,8 @@ public class jugador_chara2d_al1 : jugador_al1
 						
 						
 							enemigo1_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo1_al1>();
+							if(enec.nivelactual <= 10)
+							{
 							enec.vidapisar = true;
 
 
@@ -3728,6 +3738,7 @@ public class jugador_chara2d_al1 : jugador_al1
 								if(enec.vida < 1)
 								{enec.temprb = 0;}
                 				temprebote = 0;
+							}
 
 
 
@@ -3737,21 +3748,24 @@ public class jugador_chara2d_al1 : jugador_al1
 					{
 						
 							enemigo2_al1 enec = col.gameObject.transform.parent.gameObject.transform.Find("enemigo").GetComponent<enemigo2_al1>();
-							enec.vida -= 1;
-							if(col.gameObject != null)
+							if(enec.nivelactual <= 10)
 							{
-								_rb.AddRelativeForce(transform.up * 110 * 7);
-								enec.danoene.Play();
-								enec.temprb = 1;
-								
+								enec.vida -= 1;
+								if(col.gameObject != null)
+								{
+									_rb.AddRelativeForce(transform.up * 110 * 7);
+									enec.danoene.Play();
+									enec.temprb = 1;
+									
+								}
+								vidaeneact = true;			
+								vidaeneui = enec.vida;
+								vidaeneuimax = enec.vidamax;
+								niveleneui.text = enec.nivelactual.ToString();
+								vidaenebarra.SetActive(true);
+								if(enec.vida < 1)
+								{enec.temprb = 0;}
 							}
-							vidaeneact = true;			
-							vidaeneui = enec.vida;
-							vidaeneuimax = enec.vidamax;
-							niveleneui.text = enec.nivelactual.ToString();
-							vidaenebarra.SetActive(true);
-							if(enec.vida < 1)
-							{enec.temprb = 0;}
 							
 						
 				}

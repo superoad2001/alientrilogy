@@ -16,6 +16,7 @@ public class romperbalajug_al2: MonoBehaviour
     public float destb;
     public bool armadef;
     public bool destenter;
+    public bool destenterany;
     public bool tele;
     public GameObject objtele;
     public float danoesc;
@@ -51,6 +52,11 @@ public class romperbalajug_al2: MonoBehaviour
                 Destroy(col.gameObject);
                 Destroy(this.gameObject);
             }
+            else if (destenterany == true && col.gameObject.GetComponent<romperbala_al2>() != null)
+            {
+                Destroy(col.gameObject);
+                Destroy(this.gameObject);
+            }
         }
         else if (tele == true && objtele == null)
         {
@@ -71,6 +77,11 @@ public class romperbalajug_al2: MonoBehaviour
                 Destroy(this.gameObject);
             }
             else if (col.gameObject.tag == "enemigo" && destenter == true && col.gameObject.GetComponent<romperbala_al2>() != null)
+            {
+                Destroy(col.gameObject);
+                Destroy(this.gameObject);
+            }
+            else if (destenterany == true && col.gameObject.GetComponent<romperbala_al2>() != null)
             {
                 Destroy(col.gameObject);
                 Destroy(this.gameObject);

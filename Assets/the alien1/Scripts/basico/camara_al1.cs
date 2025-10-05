@@ -31,15 +31,6 @@ public class camara_al1 : MonoBehaviour
 	}
 
 	// Token: 0x0600000A RID: 10 RVA: 0x00002280 File Offset: 0x00000480
-	private void Update()
-	{
-		
-
-			
-			
-
-
-	}
 	private void LateUpdate()
 	{
 

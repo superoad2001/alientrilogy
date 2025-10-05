@@ -11,6 +11,14 @@ public class camaradistance : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        QualitySettings.vSyncCount = 1;
+
+        if (QualitySettings.vSyncCount == 0)
+        {
+            Application.targetFrameRate = 60;
+        }
+        
         managerBASE manager0 = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
         manager_al1 manager1 = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         manager_al2 manager2 = (manager_al2)FindFirstObjectByType(typeof(manager_al2));

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class enemigo2_al1: MonoBehaviour
 {
     public int nivelactual = 1;
+    public GameObject cerebro;
     public GameObject slash;
     public GameObject escudoin;
 	public manager_al1 manager;
@@ -294,6 +295,14 @@ public class enemigo2_al1: MonoBehaviour
         
 
         danoj = nivelfuerza;
+        if(nivelactual > 10)
+        {
+            cerebro.SetActive(false);
+        }
+        if(nivelactual <= 10)
+        {
+            cerebro.SetActive(true);
+        }
         
         vida = vidamax;
         vidaUI = vida;
@@ -537,6 +546,7 @@ public class enemigo2_al1: MonoBehaviour
                     GameObject BalaTemporal = Instantiate(teleprefab, pistola.transform.position,transform.rotation) as GameObject;
 
                     Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
+                    
 
                     BalaTemporal.GetComponent<romperbala_al1>().objtele = objetivo.gameObject;
 

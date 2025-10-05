@@ -182,7 +182,7 @@ public class teleport_al1 : MonoBehaviour
                 {
                     if (manager.datosconfig.idioma == "es")
                     {
-                        tutfinala.text = "Falta energia necesitas "+ cantgemas +" gemas";
+                        tutfinala.text = string.Concat("Falta energia necesitas ", cantgemas.ToString(), " gemas");
                     }
                 }
             }
@@ -214,7 +214,7 @@ public class teleport_al1 : MonoBehaviour
                 }
                 else if (languageTexts3.TryGetValue(manager.datosconfig.idioma, out string text2) && tipoTP == 2)
                 {
-                    tutfinala.text = text2+lugar;
+                    tutfinala.text = string.Concat(text2, lugar);
                 }
             }
 	    	
@@ -388,14 +388,14 @@ public class teleport_al1 : MonoBehaviour
                 {
                     if (languageTexts3.TryGetValue(manager.datosconfig.idioma, out string text2) )
                     {
-                        tutfinala.text = text2+lugar;
+                        tutfinala.text = string.Concat(text2, lugar);
                     }
                 }
                 else
                 {
                     if (manager.datosconfig.idioma == "es")
                     {
-                        tutfinala.text = "Falta energia necesitas "+ cantgemas +" gemas";
+                        tutfinala.text = string.Concat("Falta energia necesitas ", cantgemas.ToString(), " gemas");
                     }
                 }
             }
@@ -419,7 +419,7 @@ public class teleport_al1 : MonoBehaviour
                 }
                 else if (languageTexts3.TryGetValue(manager.datosconfig.idioma, out string text2) && tipoTP == 2)
                 {
-                    tutfinala.text = text2+lugar;
+                    tutfinala.text = string.Concat(text2, lugar);
                 }
             }
 

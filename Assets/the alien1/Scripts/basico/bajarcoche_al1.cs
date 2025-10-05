@@ -13,9 +13,6 @@ public class bajarcoche_al1 : MonoBehaviour
 	}
 
 	// Token: 0x06000003 RID: 3 RVA: 0x0000205A File Offset: 0x0000025A
-	private void Update()
-	{
-	}
 
 	// Token: 0x06000004 RID: 4 RVA: 0x0000205C File Offset: 0x0000025C
 	private void OnCollisionEnter(Collision col)

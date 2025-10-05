@@ -383,7 +383,7 @@ public class inicio7base : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        manager = (managerBASE)FindFirstObjectByType(typeof(managerBASE));
+        
         if(controles.al3.horizontalpad.ReadValue<float>() > 0 && temp > 0.3f)
         {
             der();

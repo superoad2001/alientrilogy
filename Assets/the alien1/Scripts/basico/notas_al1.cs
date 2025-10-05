@@ -35,9 +35,5 @@ public class notas_al1
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

@@ -310,29 +310,29 @@ public class pausa_al2 : MonoBehaviour
         {
 
         Estadisitcas_panel1.text =
-        "Enemigos asesinados : "+manager.datosserial.asesinatos+"\n"+
-        "Muertes : "+manager.datosserial.muertes+"\n"+
-        "Nivel Nave : "+manager.datosserial.niveljugnave+"\n"+
+        string.Concat("Enemigos asesinados : ",manager.datosserial.asesinatos,"\n",
+        "Muertes : ",manager.datosserial.muertes,"\n",
+        "Nivel Nave : ",manager.datosserial.niveljugnave,"\n",
 
-        "Nivel Alien : "+manager.datosserial.niveljug+"\n"+
-        "Experienca : "+(int)manager.datosserial.nivelexp+"\n"+
-        "Req.Sig NV : "+manager.datosserial.signivelexp+"\n"+
-        "Logros : "+manager.datosserial.Logros+"\n"+
-        "Jefes Ven : "+manager.datosserial.JefesVen+"\n"+ 
-        "Misiones Completadas : "+manager.MisionesCumplidas+"/12"+"\n"+
-        "Tiempo de Juego : "+manager.datosserial.horas+":"+manager.datosserial.minutos.ToString("D2")+":"+manager.datosserial.segundos.ToString("00");
+        "Nivel Alien : ",manager.datosserial.niveljug,"\n",
+        "Experienca : ",(int)manager.datosserial.nivelexp,"\n",
+        "Req.Sig NV : ",manager.datosserial.signivelexp,"\n",
+        "Logros : ",manager.datosserial.Logros,"\n",
+        "Jefes Ven : ",manager.datosserial.JefesVen,"\n",
+        "Misiones Completadas : ",manager.MisionesCumplidas,"/12"+"\n",
+        "Tiempo de Juego : ",manager.datosserial.horas,":",manager.datosserial.minutos.ToString("D2"),":",manager.datosserial.segundos.ToString("00"));
         Objetos_panel1.text =
-        "Armas Alien : "+manager.datosserial.ArmasAlienObtenidas +"\n"+
-        "Armas Nave : "+manager.datosserial.ArmasNaveObtenidas +"\n"+ 
-        "Habilidades Obt. : "+manager.datosserial.HabilidadesObtenidas+"\n"+
-        "NV La ParteCraneos : "+manager.datosserial.nivelarmasjug[0]+"\n"+
-        "NV El Gatillazonador : "+manager.datosserial.nivelarmasjug[1]+"\n"+
-        "NV HARMONIZADORA: "+manager.datosserial.nivelarmasjug[2]+"\n"+
-        "NV PX4000 : "+manager.datosserial.nivelarmasjug[3]+"\n"+
-        "NV RataTaPUM V2 : "+manager.datosserial.nivelarmasnave[0]+"\n"+
-        "NV REYNOVES : "+manager.datosserial.nivelarmasnave[1]+"\n"+
-        "NV Mina Guardian : "+manager.datosserial.nivelarmasnave[2]+"\n"+
-        "NV InSitu: "+manager.datosserial.nivelarmasnave[3];
+        string.Concat("Armas Alien : "+manager.datosserial.ArmasAlienObtenidas ,"\n",
+        "Armas Nave : "+manager.datosserial.ArmasNaveObtenidas ,"\n", 
+        "Habilidades Obt. : "+manager.datosserial.HabilidadesObtenidas ,"\n",   
+        "NV La ParteCraneos : "+manager.datosserial.nivelarmasjug[0] ,"\n",
+        "NV El Gatillazonador : "+manager.datosserial.nivelarmasjug[1] ,"\n",    
+        "NV HARMONIZADORA: "+manager.datosserial.nivelarmasjug[2] ,"\n",
+        "NV PX4000 : "+manager.datosserial.nivelarmasjug[3] ,"\n",
+        "NV RataTaPUM V2 : "+manager.datosserial.nivelarmasnave[0] ,"\n",
+        "NV REYNOVES : "+manager.datosserial.nivelarmasnave[1] ,"\n",
+        "NV Mina Guardian : "+manager.datosserial.nivelarmasnave[2] ,"\n",
+        "NV InSitu: "+manager.datosserial.nivelarmasnave[3]);
         }
         if(mapaact == true)
         {
@@ -465,13 +465,13 @@ public class pausa_al2 : MonoBehaviour
                 boton1.text = "Continuar";
                 boton4.text = "Mapa";
                 
-                gemas.text = manager.datosserial.economia[0]+"";
-                llave.text = manager.datosserial.economia[1]+"";
-                llaver.text = manager.datosserial.economia[2]+"";           
-                monedar.text = manager.datosserial.economia[3]+"";
-                monedam.text = manager.datosserial.economia[4]+"";
-                monedaa.text = manager.datosserial.economia[5]+"";
-                licencia.text = manager.datosserial.economia[6]+"";
+                gemas.text =string.Concat("Gemas : ",manager.datosserial.economia[0],"" );
+                llave.text = string.Concat("Llaves : ",manager.datosserial.economia[1],"" );
+                llaver.text = string.Concat("Frag Llave : ",manager.datosserial.economia[2],"" );           
+                monedar.text = string.Concat("Monedas Rojas : ",manager.datosserial.economia[3],"" );
+                monedam.text = string.Concat("Monedas Moradas : ",manager.datosserial.economia[4],"" );
+                monedaa.text = string.Concat("Monedas Amarillas : ",manager.datosserial.economia[5],"" );
+                licencia.text = string.Concat("Licencia : ",manager.datosserial.economia[6],"" );
 
                 mision1.text = manager.datosserial.misionS;
                 mision2.text = manager.datosserial.misiondescS;

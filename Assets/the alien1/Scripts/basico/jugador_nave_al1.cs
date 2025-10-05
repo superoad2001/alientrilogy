@@ -393,8 +393,8 @@ public class jugador_nave_al1 : jugador_al1
 		staminaobj = Mathf.Lerp(staminaobj, stamina, Time.deltaTime * 4f);
 		vidaobj = Mathf.Lerp(vidaobj, vida, Time.deltaTime * 2f);
 		vidab.fillAmount = vidaobj/vidamaxN; 
-		vidat.text = "VIT:"+(int)vida+"/"+(int)vidamaxN;
-		niveluit.text = "LEVEL "+ manager.datosserial.niveljugnave;
+		vidat.text = string.Concat("VIT:",(int)vida,"/",(int)vidamaxN);
+		niveluit.text = string.Concat("LEVEL ", manager.datosserial.niveljugnave);
 		staminabarra.fillAmount = staminaobj/staminamax;
 		if(staminaobj < 1)
 		{
@@ -640,30 +640,30 @@ public class jugador_nave_al1 : jugador_al1
 		{
 			//disparo
 			balaarmat.text = "infinty";
-			armanvt.text = "nv"+manager.datosserial.nivelarmanave1;
+			armanvt.text = string.Concat("nv",manager.datosserial.nivelarmanave1);
 			
 
 		}
 		if(armanavesel == 2)
 		{
 			//mina
-			balaarmat.text = (int)minabalas+"/"+minabalasmax[manager.datosserial.nivelarmanave2 -1];
-			armanvt.text = "nv"+manager.datosserial.nivelarmanave2;
+			balaarmat.text = string.Concat((int)minabalas,"/",minabalasmax[manager.datosserial.nivelarmanave2 -1]);
+			armanvt.text = string.Concat("nv",manager.datosserial.nivelarmanave2);
 
 
 		}
 		if(armanavesel == 3)
 		{
 			//misil
-			balaarmat.text = (int)misilbalas+"/"+misilbalasmax[manager.datosserial.nivelarmanave3 -1];
-			armanvt.text = "nv"+manager.datosserial.nivelarmanave3;
+			balaarmat.text = string.Concat((int)misilbalas,"/",misilbalasmax[manager.datosserial.nivelarmanave3 -1]);
+			armanvt.text = string.Concat("nv",manager.datosserial.nivelarmanave3);
 			
 		}
 		if(armanavesel == 4)
 		{
 			//escopeta
-			balaarmat.text = (int)escopetabalas+"/"+escopetabalasmax[manager.datosserial.nivelarmanave4 -1];
-			armanvt.text = "nv"+manager.datosserial.nivelarmanave4;
+			balaarmat.text = string.Concat((int)escopetabalas,"/",escopetabalasmax[manager.datosserial.nivelarmanave4 -1]);
+			armanvt.text = string.Concat("nv",manager.datosserial.nivelarmanave4);
 
 			
 		}
@@ -1374,10 +1374,10 @@ public class jugador_nave_al1 : jugador_al1
 
 					rbb.AddForce(mod.transform.forward * 110 * 200);
 					
-
-					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 4f;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoesc = 5;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balaarmanave1dano[manager.datosserial.nivelarmanave1 -1];
+					romperbalajug_al1 bala_temp = BalaTemporal.GetComponent<romperbalajug_al1>();
+					bala_temp.destb = 4f;
+					bala_temp.danoesc = 5;
+					bala_temp.danoj = balaarmanave1dano[manager.datosserial.nivelarmanave1 -1];
 					
 
 					disp.Play();
@@ -1402,10 +1402,11 @@ public class jugador_nave_al1 : jugador_al1
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 
 					rbb.AddForce(mod.transform.forward * 110 * 20);
-
-					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 60f;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoesc = 100;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balaarmanave2dano[manager.datosserial.nivelarmanave2 -1];
+					
+					romperbalajug_al1 bala_temp = BalaTemporal.GetComponent<romperbalajug_al1>();
+					bala_temp.destb = 60f;
+					bala_temp.danoesc = 100;
+					bala_temp.danoj = balaarmanave2dano[manager.datosserial.nivelarmanave2 -1];
 					
 
 					disp.Play();
@@ -1437,10 +1438,11 @@ public class jugador_nave_al1 : jugador_al1
 					{
 						rbb.AddForce(mod.transform.forward * 110 * 200);
 					}
-
-					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 4f;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoesc = 30;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balaarmanave3dano[manager.datosserial.nivelarmanave3 -1];
+					
+					romperbalajug_al1 bala_temp = BalaTemporal.GetComponent<romperbalajug_al1>();
+					bala_temp.destb = 4f;
+					bala_temp.danoesc = 30;
+					bala_temp.danoj = balaarmanave3dano[manager.datosserial.nivelarmanave3 -1];
 					
 
 					disp.Play();
@@ -1465,10 +1467,10 @@ public class jugador_nave_al1 : jugador_al1
 
 					rbb.AddForce(mod.transform.forward * 110 * 40);
 					
-
-					BalaTemporal.GetComponent<romperbalajug_al1>().destb = 0.4f;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoesc = 30;
-					BalaTemporal.GetComponent<romperbalajug_al1>().danoj = balaarmanave4dano[manager.datosserial.nivelarmanave4 -1];
+					romperbalajug_al1 bala_temp = BalaTemporal.GetComponent<romperbalajug_al1>();
+					bala_temp.destb = 0.4f;
+					bala_temp.danoesc = 30;
+					bala_temp.danoj = balaarmanave4dano[manager.datosserial.nivelarmanave4 -1];
 					
 
 					disp.Play();

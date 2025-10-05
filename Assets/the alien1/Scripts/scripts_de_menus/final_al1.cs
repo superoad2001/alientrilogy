@@ -29,11 +29,11 @@ public class final_al1 : MonoBehaviour
         {
 			tit.text = "volver al menu";
 			tit.text = "fin";
-			score.text = "enemigos vencidos: "+manager.datosserial.asesinatos+"\n"+
-			"Muertes sufridas: "+manager.datosserial.muertes+"\n"+
-			"Nivel Alien : "+manager.datosserial.niveljug+"\n"+
-			"Misiones Completadas : "+manager.MisionesCumplidas +"/12"+"\n"+
-			"Tiempo de Juego : "+manager.datosserial.horas+":"+manager.datosserial.minutos.ToString("D2")+":"+manager.datosserial.segundos.ToString("00");
+			score.text = string.Concat("enemigos vencidos: ",manager.datosserial.asesinatos,"\n",
+			"Muertes sufridas: ",manager.datosserial.muertes,"\n",
+			"Nivel Alien : ",manager.datosserial.niveljug,"\n",
+			"Misiones Completadas : ",manager.MisionesCumplidas,"/12","\n",
+			"Tiempo de Juego : ",manager.datosserial.horas,":",manager.datosserial.minutos.ToString("D2"),":",manager.datosserial.segundos.ToString("00"));
         }
 	}
 
@@ -45,11 +45,11 @@ public class final_al1 : MonoBehaviour
         {
 			tit.text = "volver al menu";
 			tit.text = "fin";
-			score.text = "enemigos vencidos: "+manager.datosserial.asesinatos+"\n"+
-			"Muertes sufridas: "+manager.datosserial.muertes+"\n"+
-			"Nivel Alien : "+manager.datosserial.niveljug+"\n"+
-			"Misiones Completadas : "+manager.MisionesCumplidas +"/12"+"\n"+
-			"Tiempo de Juego : "+manager.datosserial.horas+":"+manager.datosserial.minutos.ToString("D2")+":"+manager.datosserial.segundos.ToString("00");
+			score.text = string.Concat("enemigos vencidos: ",manager.datosserial.asesinatos,"\n",
+			"Muertes sufridas: ",manager.datosserial.muertes,"\n",
+			"Nivel Alien : ",manager.datosserial.niveljug,"\n",
+			"Misiones Completadas : ",manager.MisionesCumplidas,"/12","\n",
+			"Tiempo de Juego : ",manager.datosserial.horas,":",manager.datosserial.minutos.ToString("D2"),":",manager.datosserial.segundos.ToString("00"));
         }
 		if (botonm == true)
 		{

@@ -153,10 +153,6 @@ public abstract class jugador_al1 : MonoBehaviour
 	[Header("resto")]
 	public Controles controles;
 
-	public void Update()
-	{
-		
-	}
 	
 	public void saltoalto()
 	{

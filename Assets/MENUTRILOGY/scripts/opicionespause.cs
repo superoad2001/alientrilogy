@@ -57,6 +57,7 @@ public class opcionespause : MonoBehaviour
 	public Toggle toggle;
 	public Dropdown resoL;
 	public Resolution[] Allres;
+	private string disstring;
 	public List<Resolution> resolucion = new List<Resolution>();
 	public List<string> opcionesR = new List<string>();
 	public int C;
@@ -308,8 +309,8 @@ public class opcionespause : MonoBehaviour
 		{
 			conftxtpost.text = "calidad: alta";
 		}
-		conftxtdistancia.text = "Distancia: "+distancia;
-		conftxtresolucion.text = "Resolucion: " +resolucion[ind].width +" X "+resolucion[ind].height+"P";
+		conftxtdistancia.text = disstring;
+		//conftxtresolucion.text = "Resolucion: " +resolucion[ind].width +" X "+resolucion[ind].height+"P";
 
 
 		if(controles.menu.saltar.ReadValue<float>()  > 0 && temp > 0.5f)
@@ -414,22 +415,27 @@ public class opcionespause : MonoBehaviour
 	public void dist_200()
     {
 		distancia = 200;
+		disstring = "distancia: "+distancia;
 	}
 	public void dist_500()
     {
 		distancia = 500;
+		disstring = "distancia: "+distancia;
 	}
 	public void dist_1000()
     {
 		distancia = 1000;
+		disstring = "distancia: "+distancia;
 	}
 	public void dist_2000()
     {
 		distancia = 2000;
+		disstring = "distancia: "+distancia;
 	}
 	public void dist_3000()
     {
 		distancia = 3000;
+		disstring = "distancia: "+distancia;
 	}
 	public void aplicarmusica()
     {

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class enemigo1_al1: MonoBehaviour
 {
+    public GameObject cerebro;
     public int nivelactual = 1;
 	public manager_al1 manager;
     public bool detectar;
@@ -204,6 +205,14 @@ public class enemigo1_al1: MonoBehaviour
         danoene = GameObject.Find("danoenemigosonido").GetComponent<AudioSource>();
         manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
         vidamenu = GameObject.Find("barravidaenemigobase");
+        if(nivelactual > 10)
+        {
+            cerebro.SetActive(false);
+        }
+        if(nivelactual <= 10)
+        {
+            cerebro.SetActive(true);
+        }
 
 
         if(modo == "cura")

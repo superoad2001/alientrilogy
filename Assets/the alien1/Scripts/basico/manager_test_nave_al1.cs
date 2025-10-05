@@ -33,9 +33,4 @@ public class manager_test_nave_al1 : MonoBehaviour
         manager.guardar();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

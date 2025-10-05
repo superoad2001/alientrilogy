@@ -198,6 +198,10 @@ public class presentacion_al2 : MonoBehaviour
         {
             act();
         }
+         if(creacion > 0 && creacion <= 5 && controles.menu.aceptar.ReadValue<float>() > 0)
+        {
+            continuar_crear();
+        }
 
         if(manager.datosserial.datos_llenos == true)
         {

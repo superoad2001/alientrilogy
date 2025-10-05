@@ -22,7 +22,7 @@ public class inicio4base : MonoBehaviour
 	public Text[] botones;
 	public RenderPipelineAsset calidad1;
 	public RenderPipelineAsset calidad2;
-
+	private string disstring;
 
 	public int distancia;
 	public int postpro;
@@ -288,6 +288,7 @@ public class inicio4base : MonoBehaviour
 		{temp += 1 * Time.deltaTime;}
 		if (tempG < 15)
 		{tempG += 1 * Time.deltaTime;}
+		
 		if(manager.datosconfig.idioma == "es")
 		{
 			conftxtidi.text = "Idioma: Español";
@@ -308,8 +309,7 @@ public class inicio4base : MonoBehaviour
 		{
 			conftxtpost.text = "calidad: alta";
 		}
-		conftxtdistancia.text = "distancia: "+distancia;
-		conftxtresolucion.text = "resolucion: " +resolucion[ind].width +" X "+resolucion[ind].height+"P";
+		conftxtdistancia.text = disstring;
 
 		if(controles.menu.saltar.ReadValue<float>()  > 0 && temp > 0.5f)
 		{
@@ -413,22 +413,27 @@ public class inicio4base : MonoBehaviour
 	public void dist_200()
     {
 		distancia = 200;
+		disstring = "distancia: "+distancia;
 	}
 	public void dist_500()
     {
 		distancia = 500;
+		disstring = "distancia: "+distancia;
 	}
 	public void dist_1000()
     {
 		distancia = 1000;
+		disstring = "distancia: "+distancia;
 	}
 	public void dist_2000()
     {
 		distancia = 2000;
+		disstring = "distancia: "+distancia;
 	}
 	public void dist_3000()
     {
 		distancia = 3000;
+		disstring = "distancia: "+distancia;
 	}
 	public void aplicarmusica()
     {

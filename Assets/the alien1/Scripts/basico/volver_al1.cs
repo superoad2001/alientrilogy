@@ -12,10 +12,7 @@ public class volver_al1 : MonoBehaviour
 	{
 	}
 
-	// Token: 0x06000047 RID: 71 RVA: 0x00003B85 File Offset: 0x00001D85
-	private void Update()
-	{
-	}
+
 
 	// Token: 0x06000048 RID: 72 RVA: 0x00003B87 File Offset: 0x00001D87
 	private void OnCollisionEnter(Collision col)

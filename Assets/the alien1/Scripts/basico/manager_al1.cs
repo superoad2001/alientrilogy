@@ -106,6 +106,7 @@ public class manager_al1 : MonoBehaviour
 	public int IDhierronivel;
 
 	public bool findemo;
+	public hidemenu_al1 hide;
 	
 
 	// Token: 0x06000025 RID: 37 RVA: 0x0000334C File Offset: 0x0000154C
@@ -388,6 +389,7 @@ public class manager_al1 : MonoBehaviour
 	}
 	public void Start()
 	{
+		hide = (hidemenu_al1)FindFirstObjectByType(typeof(hidemenu_al1));
 		
 		cargarslot();
 
@@ -659,7 +661,7 @@ public class manager_al1 : MonoBehaviour
 
 			if(tempshow > 1f && jugador.modo == "Nave" && datosserial.tengomejora == 1)
 			{
-				hidemenu_al1 hide = (hidemenu_al1)FindFirstObjectByType(typeof(hidemenu_al1));
+				
 				hide.anim.SetBool("show2",false);
 			}
 			tempshow += 1f * Time.deltaTime;

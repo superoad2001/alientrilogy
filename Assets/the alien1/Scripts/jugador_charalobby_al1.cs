@@ -280,8 +280,9 @@ public class jugador_charalobby_al1 : jugador_al1
 			mod = this.gameObject.transform.GetChild(0).gameObject;
 		
 		vida = vidamax;
-		if(manager.datosserial.tengopalo == false)
+		if(manager.datosserial.tengolanzar == false)
 		{
+		
 
 
 		palo.SetActive(false);

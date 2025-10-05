@@ -29,7 +29,6 @@ public class inicio_al1 : MonoBehaviour
 
 	private void Update()
 	{
-		manager = (manager_al1)FindFirstObjectByType(typeof(manager_al1));
 
 		if (temp < 15)
 		{temp += 1 * Time.deltaTime;}

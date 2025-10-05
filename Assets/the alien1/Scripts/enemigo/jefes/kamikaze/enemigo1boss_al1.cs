@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class enemigo1boss_al1: MonoBehaviour
 {
     public float vida;
+    public GameObject cerebro;
     public GameObject plataformas;
     public float vidamax;
     public manager_al1 manager;
@@ -88,9 +89,15 @@ public class enemigo1boss_al1: MonoBehaviour
         tempmov = 5;
 
         if(manager.datosserial.newgameplus1 == false)
-        {valorexp = 30;}
+        {
+        valorexp = 30;
+        cerebro.SetActive(true);
+        }
         else
-        {valorexp = 100;}
+        {
+        valorexp = 100;
+        cerebro.SetActive(false);
+        }
         
         vidaUI = vida;
         nivelvida_a[0] = vidabasetut;
@@ -185,8 +192,8 @@ public class enemigo1boss_al1: MonoBehaviour
         {
            vidacabeza = 0;
         }
-		vidat.text = (int)vida+"/"+(int)vidamax;
-        vidat2.text = (int)(vidacabeza)+"/"+(int)vidacabezamax;
+		vidat.text = string.Concat((int)vida,"/",(int)vidamax);
+        vidat2.text = string.Concat((int)(vidacabeza),"/",(int)vidacabezamax);
 
         dano.transform.position = this.transform.position;
         
@@ -205,10 +212,11 @@ public class enemigo1boss_al1: MonoBehaviour
                             GameObject BalaTemporal = Instantiate(balaprefab,transform.position,transform.rotation) as GameObject;
 
                             Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
+                            romperbala_al1 bala_temp = BalaTemporal.GetComponent<romperbala_al1>();
 
-                            BalaTemporal.GetComponent<romperbala_al1>().danoj = nivelfuerza;
+                            bala_temp.danoj = nivelfuerza;
 
-                            BalaTemporal.GetComponent<romperbala_al1>().objtele = objetivo;
+                            bala_temp.objtele = objetivo;
 
                             disp.Play();
 

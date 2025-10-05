@@ -45,9 +45,5 @@ public class misiones_al1 : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

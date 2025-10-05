@@ -520,11 +520,13 @@ public class enemigo3_al1: MonoBehaviour
 
             Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
 
-            BalaTemporal.GetComponent<romperbala_al1>().danofijo = true;
-            BalaTemporal.GetComponent<romperbala_al1>().salir = true;
-            BalaTemporal.GetComponent<romperbala_al1>().porcentaje = 60;
+            romperbala_al1 bala_temp = BalaTemporal.GetComponent<romperbala_al1>();
 
-            BalaTemporal.GetComponent<romperbala_al1>().destb = 4f;
+            bala_temp.salir = true;
+            bala_temp.danofijo = true;
+            bala_temp.porcentaje = 60;
+
+            bala_temp.destb = 4f;
 
             escudos--;
             modoatk = "";
@@ -538,11 +540,14 @@ public class enemigo3_al1: MonoBehaviour
             GameObject BalaTemporal = Instantiate(explotar2prefab, transform.position,transform.rotation) as GameObject;
 
             Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
-            BalaTemporal.GetComponent<romperbala_al1>().salir = true;
-            BalaTemporal.GetComponent<romperbala_al1>().danofijo = true;
-            BalaTemporal.GetComponent<romperbala_al1>().porcentaje = 80;
 
-            BalaTemporal.GetComponent<romperbala_al1>().destb = 4f;
+            romperbala_al1 bala_temp = BalaTemporal.GetComponent<romperbala_al1>();
+
+            bala_temp.salir = true;
+            bala_temp.danofijo = true;
+            bala_temp.porcentaje = 80;
+
+            bala_temp.destb = 4f;
 
             escudos = 0;
             modoatk = "";
@@ -566,12 +571,14 @@ public class enemigo3_al1: MonoBehaviour
 
                     Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
                     BalaTemporal.transform.SetParent(juego);
+                    
+                    romperbala_al1 bala_temp = BalaTemporal.GetComponent<romperbala_al1>();
 
-                    BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj;
+                    bala_temp.danoj = danoj;
 
                     rb.AddForce(transform.forward * 110 * 5);
 
-                    BalaTemporal.GetComponent<romperbala_al1>().destb = 4f;
+                    bala_temp.destb = 4f;
 
                     disp.Play();
 
@@ -595,12 +602,14 @@ public class enemigo3_al1: MonoBehaviour
 
                 Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
                 BalaTemporal.transform.SetParent(juego);
+                
+                romperbala_al1 bala_temp = BalaTemporal.GetComponent<romperbala_al1>();
 
-                BalaTemporal.GetComponent<romperbala_al1>().danoj = danoj * 1.2f;
+                bala_temp.danoj = danoj * 1.2f;
 
                 rb.AddForce(new Vector3(0,BalaTemporal.transform.up.y,BalaTemporal.transform.forward.z) * 110 * 5);
 
-                BalaTemporal.GetComponent<romperbala_al1>().destb = 4f;
+                bala_temp.destb = 4f;
 
                 disp.Play();
 

@@ -179,6 +179,10 @@ public class presentacion_al1 : MonoBehaviour
             manager.guardar();
 			SceneManager.LoadScene("carga");
         }
+        if(creacion > 0 && creacion <= 5 && controles.menu.saltar.ReadValue<float>() > 0 && temp > 1)
+        {
+            continuar_crear();
+        }
         if(controles.al1_UI.menu1.ReadValue<float>() > 0 && inicio == false)
         {
             act();
@@ -217,10 +221,10 @@ public class presentacion_al1 : MonoBehaviour
                 {
                     resp = "no";
                 }
-                slotinfo2.text = "Tiempo de Juego : " + manager.datosserial.horas + ":" + manager.datosserial.minutos.ToString("D2")+ ":"+ manager.datosserial.segundos.ToString("00") + "\n" +
-                "Nivel Alien : "+manager.datosserial.niveljug+"\n"+
-                "Misiones Completadas : "+manager.MisionesCumplidas +"/12"+"\n"+
-                "Demo terminada : "+resp;
+                slotinfo2.text = string.Concat("Tiempo de Juego : ",manager.datosserial.horas,":",manager.datosserial.minutos.ToString("D2"),":",manager.datosserial.segundos.ToString("00"),"\n",
+                "Nivel Alien : ",manager.datosserial.niveljug,"\n",
+                "Misiones Completadas : ",manager.MisionesCumplidas,"/12","\n",
+                "Demo terminada : ",resp);
             }
 
         }

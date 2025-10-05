@@ -10,7 +10,7 @@ public class inicio3base : MonoBehaviour
     public Text exp1;
     public Text exp2;
     public Text exp3;
-
+    private bool actchange = false;
     public Text al1;
     public Text log2;
     public Text adv3;
@@ -61,6 +61,7 @@ public class inicio3base : MonoBehaviour
             musica2.Play();
             presskip = true;
         }
+        actchange = false;
     }
     public void izq()
     {
@@ -92,6 +93,7 @@ public class inicio3base : MonoBehaviour
                 manager.move();
             }
         }
+        actchange = false;
     }
     public void der()
     {
@@ -116,6 +118,7 @@ public class inicio3base : MonoBehaviour
             }
             }
         }
+        actchange = false;
     }
     public void salir()
     {
@@ -125,7 +128,7 @@ public class inicio3base : MonoBehaviour
     {
         if(presskip == true)
         {
-            if(juego == 1)
+            if(juego == 1 )
             {
                 manager.datosconfig.carga = "menu_de_carga_al1";
                 manager.guardar();
@@ -202,8 +205,9 @@ public class inicio3base : MonoBehaviour
             }
 
             
-            if(juego == 1) 
+            if(juego == 1 && actchange == false) 
             {
+                actchange = true;
                 al1.color = new Color32(255,64,64,255);
                 log2.color = new Color32(229,213,74,255);
                 adv3.color = new Color32(255,64,64,255);
@@ -213,8 +217,9 @@ public class inicio3base : MonoBehaviour
                 menu.SetInteger("juego",1);
                 camaraanim.SetInteger("juego",1);
             }
-            if(juego == 2) 
+            if(juego == 2 && actchange == false) 
             {
+                actchange = true;
                 al1.color = new Color32(255,64,64,255);
                 log2.color = new Color32(229,213,74,255);
                 adv3.color = new Color32(255,64,64,255);
@@ -224,8 +229,9 @@ public class inicio3base : MonoBehaviour
                 menu.SetInteger("juego",2);
                 camaraanim.SetInteger("juego",2);
             }
-            if(juego == 3) 
+            if(juego == 3 && actchange == false) 
             {
+                actchange = true;
                 al1.color = new Color32(255,0,239,255);
                 log2.color = new Color32(229,213,74,255);
                 adv3.color = new Color32(66,255,68,255);
@@ -235,8 +241,9 @@ public class inicio3base : MonoBehaviour
                 menu.SetInteger("juego",3);
                 camaraanim.SetInteger("juego",3);
             }
-            if(juego == 4) 
+            if(juego == 4 && actchange == false) 
             {
+                actchange = true;
                 al1.color = new Color32(255,64,64,255);
                 log2.color = new Color32(229,213,74,255);
                 adv3.color = new Color32(0,229,255,255);
@@ -257,8 +264,9 @@ public class inicio3base : MonoBehaviour
                 menu.SetInteger("juego",4);
                 camaraanim.SetInteger("juego",4);
             }
-            if(juego == 5) 
+            if(juego == 5 && actchange == false) 
             {
+                actchange = true;
                 al1.color = new Color32(255,64,64,255);
                 log2.color = new Color32(229,213,74,255);
                 adv3.color = new Color32(236,150,6,255);
