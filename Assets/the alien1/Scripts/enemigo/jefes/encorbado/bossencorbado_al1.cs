@@ -432,41 +432,76 @@ public class bossencorbado_al1: MonoBehaviour
             vida -= col.gameObject.GetComponent<golpe_al1>().dano;
             danoene.Play();    
 		}
-        if (col.gameObject.tag == "danoarma8")
+        if (col.gameObject.tag == "armajug")
 		{
-            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
-            jugador1.muertesjug.Stop();
-            vida -= balajug.danoj;
-            danoene.Play();
+            if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
+            {
+                if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 1)
+                {
+                    romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+                    jugador1.muertesjug.Stop();
+                    vida -= balajug.danoj;
+                    danoene.Play();
+                }
+            }
+            
 		}
-        if (col.gameObject.tag == "danoarma9")
+        if (col.gameObject.tag == "armajug")
 		{
-            detectar = false;
+            if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
+            {
+                if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 2)
+                {
+                    detectar = false;
+                }
+            }
+            
 		}
 	}
     private void OnTriggerStay(Collider col)
 	{
-        if (col.gameObject.tag == "danoarma9")
+        if (col.gameObject.tag == "armajug")
 		{
-            detectar = false;
+            if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
+            {
+                if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 2)
+                {
+                    detectar = false;
+                }
+            }
+            
 		}
 	}
     private void OnTriggerExit(Collider col)
 	{
-        if (col.gameObject.tag == "danoarma10")
+        if (col.gameObject.tag == "armajug")
 		{
-            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
-            jugador1.muertesjug.Stop();
-            vida -= balajug.danoj;
-            danoene.Play();
+            if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
+            {
+                if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 3)
+                {
+                    romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+                    jugador1.muertesjug.Stop();
+                    vida -= balajug.danoj;
+                    danoene.Play();
+                }
+            }
+            
 		}
-        if (col.gameObject.tag == "danoarma9")
+        if (col.gameObject.tag == "armajug")
 		{
-            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
-            jugador1.muertesjug.Stop();
-            vida -= balajug.danoj;
-            danoene.Play();
-            detectar = false;
+            if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
+            {
+                if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 2)
+                {
+                    romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+                    jugador1.muertesjug.Stop();
+                    vida -= balajug.danoj;
+                    danoene.Play();
+                    detectar = false;
+                }
+            }
+            
         }
     }
     private void OnCollisionEnter(Collision col) 

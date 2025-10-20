@@ -422,104 +422,134 @@ public class enemigo3nave_al1: MonoBehaviour
         
     }
     private void OnTriggerEnter(Collider col)
-	{
-        if (col.gameObject.tag == "danoarma8" && escudoact == true )
 		{
-            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
-            jugador1.muertesjug.Stop();
-            
-            if(escudos == 1)
-            {vidaescudo1 -= balajug.danoesc;}
-
-            escudovis1.SetActive(false);
-            escudovis2.SetActive(true);
-            tempesc = 0;
-
-            danoescudo.Play();
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.vidaeneact = true;
-            jugador1.escudosene = escudos;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.vidaescudoene1 = vidaescudo1;
-            jugador1.vidaescudomaxene = vidaescudomax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            if (vidaescudo1 <= 0 && escudos == 1)
+        if (col.gameObject.tag == "armajug" && escudoact == true )
+		{
+            if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
             {
-                escudos--;
-                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
-                Destroy(explosiont, 1f);
+                if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 1)
+                {
+                    romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+                    jugador1.muertesjug.Stop();
+                    
+                    if(escudos == 1)
+                    {vidaescudo1 -= balajug.danoesc;}
+
+                    escudovis1.SetActive(false);
+                    escudovis2.SetActive(true);
+                    tempesc = 0;
+
+                    danoescudo.Play();
+                    jugador1.vidaenebarra.SetActive(true);
+                    jugador1.vidaeneact = true;
+                    jugador1.escudosene = escudos;
+                    jugador1.vidaeneui = vida;
+                    jugador1.vidaeneuimax = vidamax;
+                    jugador1.vidaescudoene1 = vidaescudo1;
+                    jugador1.vidaescudomaxene = vidaescudomax;
+                    jugador1.niveleneui.text = nivelactual.ToString();
+                    if (vidaescudo1 <= 0 && escudos == 1)
+                    {
+                        escudos--;
+                        GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+                        Destroy(explosiont, 1f);
+                    }
+                    jugador1.escudoeneact = escudoact;
+                    if(jugador1.tempretarget > 1)  
+                    {jugador1.objetivotarget2 = this.gameObject;}
+                }
             }
-            jugador1.escudoeneact = escudoact;
-            if(jugador1.tempretarget > 1)  
-            {jugador1.objetivotarget2 = this.gameObject;}
+            
 		}
-        else if (col.gameObject.tag == "danoarma8" && escudoact == false )
+        else if (col.gameObject.tag == "armajug" && escudoact == false )
 		{
-            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
-            jugador1.muertesjug.Stop();
-            vida -= balajug.danoj;
-            danoene.Play();
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.vidaeneact = true;
-            jugador1.escudosene = escudos;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.vidaescudoene1 = vidaescudo1;
-            jugador1.vidaescudomaxene = vidaescudomax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            jugador1.escudoeneact = escudoact;
-            if(jugador1.tempretarget > 1)  
-            {jugador1.objetivotarget2 = this.gameObject;}
+            if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
+            {
+                if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 1)
+                {
+                    romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+                    jugador1.muertesjug.Stop();
+                    vida -= balajug.danoj;
+                    danoene.Play();
+                    jugador1.vidaenebarra.SetActive(true);
+                    jugador1.vidaeneact = true;
+                    jugador1.escudosene = escudos;
+                    jugador1.vidaeneui = vida;
+                    jugador1.vidaeneuimax = vidamax;
+                    jugador1.vidaescudoene1 = vidaescudo1;
+                    jugador1.vidaescudomaxene = vidaescudomax;
+                    jugador1.niveleneui.text = nivelactual.ToString();
+                    jugador1.escudoeneact = escudoact;
+                    if(jugador1.tempretarget > 1)  
+                    {jugador1.objetivotarget2 = this.gameObject;}
+                }
+            }
+            
 		}
 	}
     private void OnCollisionEnter(Collision col)
 	{
-        if (col.gameObject.tag == "danoarma9" && escudoact == true )
+        if (col.gameObject.tag == "armajug" && escudoact == true )
 		{
-            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
-            jugador1.muertesjug.Stop();
-            if(escudos == 1)
-            {vidaescudo1 -=  balajug.danoesc;}
-            escudovis1.SetActive(false);
-            escudovis2.SetActive(true);
-            tempesc = 0;
-            danoescudo.Play();
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.vidaeneact = true;
-            jugador1.escudosene = escudos;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.vidaescudoene1 = vidaescudo1;
-            jugador1.vidaescudomaxene = vidaescudomax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            if (vidaescudo1 <= 0 && escudos == 1)
+            if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
             {
-                escudos--;
-                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
-                Destroy(explosiont, 1f);
+                if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 2)
+                {
+                    romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+                    jugador1.muertesjug.Stop();
+                    if(escudos == 1)
+                    {vidaescudo1 -=  balajug.danoesc;}
+                    escudovis1.SetActive(false);
+                    escudovis2.SetActive(true);
+                    tempesc = 0;
+                    danoescudo.Play();
+                    jugador1.vidaenebarra.SetActive(true);
+                    jugador1.vidaeneact = true;
+                    jugador1.escudosene = escudos;
+                    jugador1.vidaeneui = vida;
+                    jugador1.vidaeneuimax = vidamax;
+                    jugador1.vidaescudoene1 = vidaescudo1;
+                    jugador1.vidaescudomaxene = vidaescudomax;
+                    jugador1.niveleneui.text = nivelactual.ToString();
+                    if (vidaescudo1 <= 0 && escudos == 1)
+                    {
+                        escudos--;
+                        GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+                        Destroy(explosiont, 1f);
+                    }
+                    jugador1.escudoeneact = escudoact;
+                    if(jugador1.tempretarget > 1)  
+                    {jugador1.objetivotarget2 = this.gameObject;}
+                }
             }
-            jugador1.escudoeneact = escudoact;
-            if(jugador1.tempretarget > 1)  
-            {jugador1.objetivotarget2 = this.gameObject;}
+            
 		}
-        else if (col.gameObject.tag == "danoarma9" && escudoact == false )
+        else if (col.gameObject.tag == "armajug" && escudoact == false )
 		{
-            romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
-            jugador1.muertesjug.Stop();
-            vida -= balajug.danoj;
-            danoene.Play();
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.vidaeneact = true;
-            jugador1.escudosene = escudos;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.vidaescudoene1 = vidaescudo1;
-            jugador1.vidaescudomaxene = vidaescudomax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            jugador1.escudoeneact = escudoact;
-            if(jugador1.tempretarget > 1)  
-            {jugador1.objetivotarget2 = this.gameObject;}
+            if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
+            {
+                if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 2)
+                {
+                    romperbalajug_al1 balajug = col.gameObject.GetComponent<romperbalajug_al1>();
+                    jugador1.muertesjug.Stop();
+                    vida -= balajug.danoj;
+                    danoene.Play();
+                    jugador1.vidaenebarra.SetActive(true);
+                    jugador1.vidaeneact = true;
+                    jugador1.escudosene = escudos;
+                    jugador1.vidaeneui = vida;
+                    jugador1.vidaeneuimax = vidamax;
+                    jugador1.vidaescudoene1 = vidaescudo1;
+                    jugador1.vidaescudomaxene = vidaescudomax;
+                    jugador1.niveleneui.text = nivelactual.ToString();
+                    jugador1.escudoeneact = escudoact;
+                    if(jugador1.tempretarget > 1)  
+                    {jugador1.objetivotarget2 = this.gameObject;}
+
+                    
+                }
+            }
+            
 		}
         
 

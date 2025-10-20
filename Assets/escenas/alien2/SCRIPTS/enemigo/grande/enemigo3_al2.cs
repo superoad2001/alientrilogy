@@ -781,59 +781,67 @@ public class enemigo3_al2: MonoBehaviour
     }
     private void OnTriggerStay(Collider col)
 	{
-         if (col.gameObject.tag == "danoarma9" && escudoact == true )
+         if (col.gameObject.tag == "armajug" && escudoact == true )
 		{
-            romperbalajug_al2 balajug = col.gameObject.GetComponent<romperbalajug_al2>();
-            jugador1.muertesjug.Stop();
 
-            if(escudos == 3)
-            {vidaescudo3 -= (balajug.danoj * Time.deltaTime);}
-            else if(escudos == 2)
-            {vidaescudo2 -= (balajug.danoj * Time.deltaTime);}
-            else if(escudos == 1)
-            {vidaescudo1 -= (balajug.danoj * Time.deltaTime);}
-            escudovis1_1.SetActive(false);
-            escudovis1_2.SetActive(false);
-            escudovis1_3.SetActive(false);
-            escudovis2.SetActive(true);
-            tempesc = 0;
+            if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
+            {
+                if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 2)
+                {
+                    romperbalajug_al2 balajug = col.gameObject.GetComponent<romperbalajug_al2>();
+                    jugador1.muertesjug.Stop();
 
-            danoescudo.Play();
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.vidaeneact = true;
-            jugador1.escudosene = escudos;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.vidaescudoene1 = vidaescudo1;
-            jugador1.vidaescudoene2 = vidaescudo2;
-            jugador1.vidaescudoene3 = vidaescudo3;
-            jugador1.vidaescudomaxene = vidaescudomax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            if (vidaescudo1 <= 0 && escudos == 1)
-            {
-                escudos--;
-                expson.Play();
-                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
-                Destroy(explosiont, 1f);
-            }    
-            else if (vidaescudo2 <= 0 && escudos == 2)
-            {
-                escudos--;
-                expson.Play();
-                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
-                Destroy(explosiont, 1f);
+                    if(escudos == 3)
+                    {vidaescudo3 -= (balajug.danoj * Time.deltaTime);}
+                    else if(escudos == 2)
+                    {vidaescudo2 -= (balajug.danoj * Time.deltaTime);}
+                    else if(escudos == 1)
+                    {vidaescudo1 -= (balajug.danoj * Time.deltaTime);}
+                    escudovis1_1.SetActive(false);
+                    escudovis1_2.SetActive(false);
+                    escudovis1_3.SetActive(false);
+                    escudovis2.SetActive(true);
+                    tempesc = 0;
+
+                    danoescudo.Play();
+                    jugador1.vidaenebarra.SetActive(true);
+                    jugador1.vidaeneact = true;
+                    jugador1.escudosene = escudos;
+                    jugador1.vidaeneui = vida;
+                    jugador1.vidaeneuimax = vidamax;
+                    jugador1.vidaescudoene1 = vidaescudo1;
+                    jugador1.vidaescudoene2 = vidaescudo2;
+                    jugador1.vidaescudoene3 = vidaescudo3;
+                    jugador1.vidaescudomaxene = vidaescudomax;
+                    jugador1.niveleneui.text = nivelactual.ToString();
+                    if (vidaescudo1 <= 0 && escudos == 1)
+                    {
+                        escudos--;
+                        expson.Play();
+                        GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+                        Destroy(explosiont, 1f);
+                    }    
+                    else if (vidaescudo2 <= 0 && escudos == 2)
+                    {
+                        escudos--;
+                        expson.Play();
+                        GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+                        Destroy(explosiont, 1f);
+                    }
+                    else if (vidaescudo3 <= 0 && escudos == 3)
+                    {
+                        escudos--;
+                        expson.Play();
+                        GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+                        Destroy(explosiont, 1f);
+                    }
+                    if(jugador1.tempretarget > 1)  
+                    {jugador1.objetivotarget2 = this.gameObject;}
+                    balajug.danoesc = 0;
+                    detect = true;
+                }
             }
-            else if (vidaescudo3 <= 0 && escudos == 3)
-            {
-                escudos--;
-                expson.Play();
-                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
-                Destroy(explosiont, 1f);
-            }
-            if(jugador1.tempretarget > 1)  
-            {jugador1.objetivotarget2 = this.gameObject;}
-            balajug.danoesc = 0;
-            detect = true;
+            
         }
     }
     private void OnTriggerEnter(Collider col)
@@ -859,59 +867,66 @@ public class enemigo3_al2: MonoBehaviour
             detect = true;
             
 		}
-        if (col.gameObject.tag == "danoarma10" && escudoact == true && tempdanodef > 15f)
+        if (col.gameObject.tag == "armajug" && escudoact == true && tempdanodef > 15f)
 		{
-            baladef_exp_al2 balajug = col.gameObject.GetComponent<baladef_exp_al2>();
-            jugador1.muertesjug.Stop();
-            if(escudos == 3)
-            {vidaescudo3 -= balajug.danoesc;}
-            else if(escudos == 2)
-            {vidaescudo2 -= balajug.danoesc;}
-            else if(escudos == 1)
-            {vidaescudo1 -= balajug.danoesc;}
-            escudovis1_1.SetActive(false);
-            escudovis1_2.SetActive(false);
-            escudovis1_3.SetActive(false);
-            escudovis2.SetActive(true);
-            tempesc = 0;
+             if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
+            {
+                if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 3)
+                {
+                    baladef_exp_al2 balajug = col.gameObject.GetComponent<baladef_exp_al2>();
+                    jugador1.muertesjug.Stop();
+                    if(escudos == 3)
+                    {vidaescudo3 -= balajug.danoesc;}
+                    else if(escudos == 2)
+                    {vidaescudo2 -= balajug.danoesc;}
+                    else if(escudos == 1)
+                    {vidaescudo1 -= balajug.danoesc;}
+                    escudovis1_1.SetActive(false);
+                    escudovis1_2.SetActive(false);
+                    escudovis1_3.SetActive(false);
+                    escudovis2.SetActive(true);
+                    tempesc = 0;
 
-            danoescudo.Play();
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.vidaeneact = true;
-            jugador1.escudosene = escudos;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.vidaescudoene1 = vidaescudo1;
-            jugador1.vidaescudoene2 = vidaescudo2;
-            jugador1.vidaescudoene3 = vidaescudo3;
-            jugador1.vidaescudomaxene = vidaescudomax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            if (vidaescudo1 <= 0 && escudos == 1)
-            {
-                escudos--;
-                expson.Play();
-                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
-                Destroy(explosiont, 1f);
-            }    
-            else if (vidaescudo2 <= 0 && escudos == 2)
-            {
-                escudos--;
-                expson.Play();
-                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
-                Destroy(explosiont, 1f);
+                    danoescudo.Play();
+                    jugador1.vidaenebarra.SetActive(true);
+                    jugador1.vidaeneact = true;
+                    jugador1.escudosene = escudos;
+                    jugador1.vidaeneui = vida;
+                    jugador1.vidaeneuimax = vidamax;
+                    jugador1.vidaescudoene1 = vidaescudo1;
+                    jugador1.vidaescudoene2 = vidaescudo2;
+                    jugador1.vidaescudoene3 = vidaescudo3;
+                    jugador1.vidaescudomaxene = vidaescudomax;
+                    jugador1.niveleneui.text = nivelactual.ToString();
+                    if (vidaescudo1 <= 0 && escudos == 1)
+                    {
+                        escudos--;
+                        expson.Play();
+                        GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+                        Destroy(explosiont, 1f);
+                    }    
+                    else if (vidaescudo2 <= 0 && escudos == 2)
+                    {
+                        escudos--;
+                        expson.Play();
+                        GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+                        Destroy(explosiont, 1f);
+                    }
+                    else if (vidaescudo3 <= 0 && escudos == 3)
+                    {
+                        escudos--;
+                        expson.Play();
+                        GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+                        Destroy(explosiont, 1f);
+                    }
+                    if(jugador1.tempretarget > 1)  
+                    {jugador1.objetivotarget2 = this.gameObject;}
+                    balajug.danoesc = 0;
+                    detect = true;
+                    tempdanodef = 0;
+                }
             }
-            else if (vidaescudo3 <= 0 && escudos == 3)
-            {
-                escudos--;
-                expson.Play();
-                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
-                Destroy(explosiont, 1f);
-            }
-            if(jugador1.tempretarget > 1)  
-            {jugador1.objetivotarget2 = this.gameObject;}
-            balajug.danoesc = 0;
-            detect = true;
-            tempdanodef = 0;
+            
 		}
         if (col.gameObject.tag == "danoarma8" )
 		{
@@ -968,12 +983,19 @@ public class enemigo3_al2: MonoBehaviour
             balajug.danoesc = 0;
             detect = true;
 		}
-        if (col.gameObject.tag == "danoarma9")
+        if (col.gameObject.tag == "armajug")
 		{
-            detectar = false;
-            if(jugador1.tempretarget > 1)  
-            {jugador1.objetivotarget2 = this.gameObject;}
-            detect = true;
+            if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
+            {
+                if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 2)
+                {
+                    detectar = false;
+                    if(jugador1.tempretarget > 1)  
+                    {jugador1.objetivotarget2 = this.gameObject;}
+                    detect = true;
+                }
+            }
+            
 		}
 	}
     private void OnCollisionEnter(Collision col) 
@@ -1016,57 +1038,64 @@ public class enemigo3_al2: MonoBehaviour
 
         if (col.gameObject.tag == "danoarma8" && escudoact == true && modoatk == "encerrar")
 		{
-            romperbalajug_al2 balajug = col.gameObject.GetComponent<romperbalajug_al2>();
-            jugador1.muertesjug.Stop();
-            
-            if(escudos == 3)
-            {vidaescudo3 -= balajug.danoesc;}
-            else if(escudos == 2)
-            {vidaescudo2 -= balajug.danoesc;}
-            else if(escudos == 1)
-            {vidaescudo1 -= balajug.danoesc;}
-            escudovis1_1.SetActive(false);
-            escudovis1_2.SetActive(false);
-            escudovis1_3.SetActive(false);
-            escudovis2.SetActive(true);
-            tempesc = 0;
+            if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
+            {
+                if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 1)
+                {
+                    romperbalajug_al2 balajug = col.gameObject.GetComponent<romperbalajug_al2>();
+                    jugador1.muertesjug.Stop();
+                    
+                    if(escudos == 3)
+                    {vidaescudo3 -= balajug.danoesc;}
+                    else if(escudos == 2)
+                    {vidaescudo2 -= balajug.danoesc;}
+                    else if(escudos == 1)
+                    {vidaescudo1 -= balajug.danoesc;}
+                    escudovis1_1.SetActive(false);
+                    escudovis1_2.SetActive(false);
+                    escudovis1_3.SetActive(false);
+                    escudovis2.SetActive(true);
+                    tempesc = 0;
 
-            danoescudo.Play();
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.vidaeneact = true;
-            jugador1.escudosene = escudos;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.vidaescudoene1 = vidaescudo1;
-            jugador1.vidaescudoene2 = vidaescudo2;
-            jugador1.vidaescudoene3 = vidaescudo3;
-            jugador1.vidaescudomaxene = vidaescudomax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            if (vidaescudo1 <= 0 && escudos == 1)
-            {
-                escudos--;
-                expson.Play();
-                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
-                Destroy(explosiont, 1f);
-            }    
-            else if (vidaescudo2 <= 0 && escudos == 2)
-            {
-                escudos--;
-                expson.Play();
-                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
-                Destroy(explosiont, 1f);
+                    danoescudo.Play();
+                    jugador1.vidaenebarra.SetActive(true);
+                    jugador1.vidaeneact = true;
+                    jugador1.escudosene = escudos;
+                    jugador1.vidaeneui = vida;
+                    jugador1.vidaeneuimax = vidamax;
+                    jugador1.vidaescudoene1 = vidaescudo1;
+                    jugador1.vidaescudoene2 = vidaescudo2;
+                    jugador1.vidaescudoene3 = vidaescudo3;
+                    jugador1.vidaescudomaxene = vidaescudomax;
+                    jugador1.niveleneui.text = nivelactual.ToString();
+                    if (vidaescudo1 <= 0 && escudos == 1)
+                    {
+                        escudos--;
+                        expson.Play();
+                        GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+                        Destroy(explosiont, 1f);
+                    }    
+                    else if (vidaescudo2 <= 0 && escudos == 2)
+                    {
+                        escudos--;
+                        expson.Play();
+                        GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+                        Destroy(explosiont, 1f);
+                    }
+                    else if (vidaescudo3 <= 0 && escudos == 3)
+                    {
+                        escudos--;
+                        expson.Play();
+                        GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
+                        Destroy(explosiont, 1f);
+                    }
+                    if(jugador1.tempretarget > 1)  
+                    {jugador1.objetivotarget2 = this.gameObject;}
+                    balajug.danoesc = 0;
+                    detect = true;
+                }
             }
-            else if (vidaescudo3 <= 0 && escudos == 3)
-            {
-                escudos--;
-                expson.Play();
-                GameObject explosiont = Instantiate(explosion, transform.position + new Vector3 (0,5f,0),transform.rotation) as GameObject;
-                Destroy(explosiont, 1f);
-            }
-            if(jugador1.tempretarget > 1)  
-            {jugador1.objetivotarget2 = this.gameObject;}
-            balajug.danoesc = 0;
-            detect = true;
+            
 		}
         
         

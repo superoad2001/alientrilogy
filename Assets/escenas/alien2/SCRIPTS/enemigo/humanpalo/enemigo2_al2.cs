@@ -987,21 +987,29 @@ public class enemigo2_al2: MonoBehaviour
     private void OnTriggerExit(Collider col)
 	{
         
-        if (col.gameObject.tag == "danoarma9" )
+        if (col.gameObject.tag == "armajug" )
 		{
-            romperbala_al2 balajug = col.gameObject.GetComponent<romperbala_al2>();
-            jugador1.muertesjug.Stop();
-            vida -= (balajug.danoj * extraD);
-            cancelatk -= 0.2f * Time.deltaTime;
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.vidaeneact = true;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            danoene.Play();
-            if(jugador1.tempretarget > 1)  
-            {jugador1.objetivotarget2 = this.gameObject;}
-            detect = true;
+            if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
+            {
+                if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 2)
+                {
+                    romperbala_al2 balajug = col.gameObject.GetComponent<romperbala_al2>();
+                    jugador1.muertesjug.Stop();
+                    vida -= (balajug.danoj * extraD);
+                    cancelatk -= 0.2f * Time.deltaTime;
+                    jugador1.vidaenebarra.SetActive(true);
+                    jugador1.vidaeneact = true;
+                    jugador1.vidaeneui = vida;
+                    jugador1.vidaeneuimax = vidamax;
+                    jugador1.niveleneui.text = nivelactual.ToString();
+                    danoene.Play();
+                    if(jugador1.tempretarget > 1)  
+                    {jugador1.objetivotarget2 = this.gameObject;}
+                    detect = true;
+                }
+            }
+            
+            
         }
     }
     private void OnTriggerEnter(Collider col)
@@ -1025,55 +1033,83 @@ public class enemigo2_al2: MonoBehaviour
             detect = true;
             
 		}
-        if (col.gameObject.tag == "danoarma10" && tempdanodef > 15f)
+        if (col.gameObject.tag == "armajug" && tempdanodef > 15f)
 		{
-            baladef_exp_al2 balajug = col.gameObject.GetComponent<baladef_exp_al2>();
-            jugador1.muertesjug.Stop();
-            vida -= (balajug.danoj * extraD);
-            cancelatk--;
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.vidaeneact = true;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            jugador1.niveleneui.text = nivelactual.ToString();
-            danoene.Play();
-            if(jugador1.tempretarget > 1)  
-            {jugador1.objetivotarget2 = this.gameObject;}
-            detect = true;
-            tempdanodef = 0;
+            if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
+            {
+                if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 3)
+                {
+                    baladef_exp_al2 balajug = col.gameObject.GetComponent<baladef_exp_al2>();
+                    jugador1.muertesjug.Stop();
+                    vida -= (balajug.danoj * extraD);
+                    cancelatk--;
+                    jugador1.vidaenebarra.SetActive(true);
+                    jugador1.vidaeneact = true;
+                    jugador1.vidaeneui = vida;
+                    jugador1.vidaeneuimax = vidamax;
+                    jugador1.niveleneui.text = nivelactual.ToString();
+                    danoene.Play();
+                    if(jugador1.tempretarget > 1)  
+                    {jugador1.objetivotarget2 = this.gameObject;}
+                    detect = true;
+                    tempdanodef = 0;
+                }
+            }
+            
             
 		}
-        if (col.gameObject.tag == "danoarma8" )
+        if (col.gameObject.tag == "armajug" )
 		{
-            cancelatk--;
-            romperbala_al2 balajug = col.gameObject.GetComponent<romperbala_al2>();
-            jugador1.muertesjug.Stop();
-            vida -= (balajug.danoj* extraD);
-            jugador1.vidaenebarra.SetActive(true);
-            jugador1.vidaeneact = true;
-            jugador1.vidaeneui = vida;
-            jugador1.vidaeneuimax = vidamax;
-            danoene.Play();
-            jugador1.niveleneui.text = nivelactual.ToString();
-            if(jugador1.tempretarget > 1)  
-            {jugador1.objetivotarget2 = this.gameObject;}
-            detect = true;
+            if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
+            {
+                if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 1)
+                {
+                    cancelatk--;
+                    romperbala_al2 balajug = col.gameObject.GetComponent<romperbala_al2>();
+                    jugador1.muertesjug.Stop();
+                    vida -= (balajug.danoj* extraD);
+                    jugador1.vidaenebarra.SetActive(true);
+                    jugador1.vidaeneact = true;
+                    jugador1.vidaeneui = vida;
+                    jugador1.vidaeneuimax = vidamax;
+                    danoene.Play();
+                    jugador1.niveleneui.text = nivelactual.ToString();
+                    if(jugador1.tempretarget > 1)  
+                    {jugador1.objetivotarget2 = this.gameObject;}
+                    detect = true;
+                }
+            }
+            
 		}
-        if (col.gameObject.tag == "danoarma9")
+        if (col.gameObject.tag == "armajug")
 		{
-            detectar = false;
-            if(jugador1.tempretarget > 1)  
-            {jugador1.objetivotarget2 = this.gameObject;}
-            detect = true;
+             if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
+            {
+                if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 2)
+                {
+                    detectar = false;
+                    if(jugador1.tempretarget > 1)  
+                    {jugador1.objetivotarget2 = this.gameObject;}
+                    detect = true;
+                }
+            }
+            
 		}
 	}
     private void OnTriggerStay(Collider col)
 	{
-        if (col.gameObject.tag == "danoarma9")
+        if (col.gameObject.tag == "armajug")
 		{
-            romperbala_al2 balajug = col.gameObject.GetComponent<romperbala_al2>();
-            vida -= (balajug.danoj * extraD * Time.deltaTime);
-            detectar = false;
+            if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
+            {
+                if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 2)
+                {
+                    romperbala_al2 balajug = col.gameObject.GetComponent<romperbala_al2>();
+                    vida -= (balajug.danoj * extraD * Time.deltaTime);
+                    detectar = false;
+                }
+            }
+            
 		}
     }
     private void OnCollisionEnter(Collision col) 

@@ -5508,7 +5508,7 @@ public class jugador_chara3d_al2 : jugador_al2
 			viento = true;
 		}
 
-		if (col.gameObject.tag == "dañox10" )
+		if (col.gameObject.tag == "armaene" )
 		{
 			if(col.gameObject.GetComponent<romperbala_al2>() != null)
 			{
@@ -5750,7 +5750,7 @@ public class jugador_chara3d_al2 : jugador_al2
 			viento = false;
 		}
 
-		if (col.gameObject.tag == "dañox10")
+		if (col.gameObject.tag == "armaene")
 		{
 			if(col.gameObject.GetComponent<romperbala_al2>() != null)
 			{

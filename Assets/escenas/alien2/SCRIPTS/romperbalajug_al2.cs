@@ -20,6 +20,8 @@ public class romperbalajug_al2: MonoBehaviour
     public bool tele;
     public GameObject objtele;
     public float danoesc;
+    public int idarma;
+    public bool noact; 
 
     public GameObject balajug;
     // Start is called before the first frame update
@@ -33,7 +35,7 @@ public class romperbalajug_al2: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(tele == true && objtele != null)
+        if(tele == true && objtele != null && noact == false)
         {
             transform.position = Vector3.MoveTowards(transform.position,objtele.transform.position,25 * Time.deltaTime);
 
@@ -41,7 +43,7 @@ public class romperbalajug_al2: MonoBehaviour
     }
     public void OnTriggerEnter(Collider col)
     {
-        if(tele == false)
+        if(tele == false && noact == false)
         {
             if (col.gameObject.tag == "enemigo" && destenter == true && col.gameObject.GetComponent<romperbala_al2>() == null)
             {           
@@ -58,7 +60,7 @@ public class romperbalajug_al2: MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
-        else if (tele == true && objtele == null)
+        else if (tele == true && objtele == null && noact == false)
         {
             if (col.gameObject.tag == "enemigo" && col.gameObject.GetComponent<romperbala_al2>() == null)
             {           
@@ -69,7 +71,7 @@ public class romperbalajug_al2: MonoBehaviour
     }
     public void OnCollisionEnter(Collision col)
     {
-        if (tele == true )
+        if (tele == true && noact == false)
         {
       
             if (col.gameObject.tag == "enemigo" && destenter == true && col.gameObject.GetComponent<romperbala_al2>() == null)
@@ -91,7 +93,7 @@ public class romperbalajug_al2: MonoBehaviour
     }
     public void OnDestroy()
     {
-        if(armadef == false)
+        if(armadef == false && noact == false)
         {
         GameObject exp = Instantiate(explosion, transform.position, transform.rotation);
         exp.transform.localScale = transform.localScale;

@@ -3504,7 +3504,7 @@ public class jugador_chara3d_al1 : jugador_al1
 		
 		}
 
-		if (col.gameObject.tag == "dañox10" )
+		if (col.gameObject.tag == "armaene" )
 		{
 			if(col.gameObject.GetComponent<romperbala_al1>() != null)
 			{
@@ -3814,7 +3814,7 @@ public class jugador_chara3d_al1 : jugador_al1
 	{
 		
 
-		if (col.gameObject.tag == "dañox10")
+		if (col.gameObject.tag == "armaene")
 		{
 			if(col.gameObject.GetComponent<romperbala_al1>() != null)
 			{

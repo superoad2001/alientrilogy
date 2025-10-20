@@ -1648,7 +1648,7 @@ public class jugador_nave_al1 : jugador_al1
         {
            munson.Play();
         }
-        if (col.gameObject.tag == "dañox10")
+        if (col.gameObject.tag == "armaene")
 		{
 			if(col.gameObject.GetComponent<romperbala_al1>() != null && escudoact == false)
 			{
@@ -1711,7 +1711,7 @@ public class jugador_nave_al1 : jugador_al1
 	}
 	public void OnTriggerExit(Collider col)
 	{
-		if (col.gameObject.tag == "dañox10")
+		if (col.gameObject.tag == "armaene")
 		{
 			if(col.gameObject.GetComponent<romperbala_al1>() != null && escudoact == false)
 			{
