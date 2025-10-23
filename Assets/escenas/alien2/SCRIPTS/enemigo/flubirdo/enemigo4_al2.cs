@@ -436,7 +436,7 @@ public class enemigo4_al2: MonoBehaviour
 		}
         if (col.gameObject.tag == "armajug" && tempdanodef > 15f)
 		{
-             if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
+            if(col.gameObject.GetComponent<romperbalajug_al2>() != null)
             {
                 if(col.gameObject.GetComponent<romperbalajug_al2>().idarma == 3)
                 {
