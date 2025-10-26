@@ -91,8 +91,13 @@ public class enemigo4_al2: MonoBehaviour
     public float cancelatk;
     public bool fuera;
     public bool gigante;
+    public float tempdisp;
+    public float temphab;
+    public float tempesp;
     public bool fly;
     public float fly_Y;
+    public float tempflyact;
+    public bool flyact;
     //tendra siempre la mitad de stats que el enemigo actual excepto si su vitalidad baja de 2 lo hara al bajar de 10%
 
 
@@ -328,6 +333,58 @@ public class enemigo4_al2: MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivo.transform.position.x,transform.position.y,objetivo.transform.position.z),3 * Time.deltaTime);
                 transform.position = Vector3.MoveTowards(transform.position,new Vector3(transform.position.x,fly_Y,transform.position.z),vel * Time.deltaTime);
                 temp += 1 * frenetismo * Time.deltaTime;
+            }
+
+            if(tempdisp >= 3)
+            {
+
+                //disaparos en random
+                
+                //disparonormal
+
+                //ondas
+
+                //ondasgigantes (solo grandes)
+
+                tempdisp = 0;
+                
+            }
+            if(temphab > 10)
+            {
+                //embestida
+
+                //golpe panza (grandes)
+            }
+            if(gigante == false && tempesp >= 120)
+            {
+                //crecer
+                tempesp = 0;
+            }
+            if(gigante == true && tempesp >= 180)
+            {
+                //invocar otra
+                tempesp = 0;
+            }
+
+
+            if(temphab < 15)
+            {temphab += 1 * Time.deltaTime;}
+            
+            if(tempesp < 500)
+            {tempesp += 1 * Time.deltaTime;}
+
+
+            if(tempdisp< 15)
+            {tempdisp += 1 * Time.deltaTime;}
+
+            if(flyact == true && tempflyact >= 30)
+            {
+                tempflyact = 0;
+                fly = true;
+            }
+            else if(tempflyact < 30)
+            {
+                tempflyact += 1 * Time.deltaTime;
             }
 
             
