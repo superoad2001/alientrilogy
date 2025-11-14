@@ -60,7 +60,7 @@ public class camara_al2 : MonoBehaviour
 			}
 		}
 
-		if(jugador.modo == "3D"|| jugador.modo == "2D" || jugador.modo == "Lobby" )
+		if(jugador.modo == "3D"|| jugador.modo == "2D" )
 		{
 			transform.position = Vector3.MoveTowards(transform.position,  boxcam2.transform.position + direction * distancia, Time.deltaTime * 120f);
 			transform.rotation = Quaternion.LookRotation(boxcam2.transform.position - transform.position);

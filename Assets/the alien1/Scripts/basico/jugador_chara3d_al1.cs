@@ -3096,11 +3096,11 @@ public class jugador_chara3d_al1 : jugador_al1
 					if(objetivotarget != null)
 					{
 						Vector3 dirTarget = (objetivotarget.transform.position - mod.transform.position).normalized;
-						rbb.AddForce(new Vector3(0,mod.transform.up.y,dirTarget.z) * 110 * 10);
+						rbb.AddForce((mod.transform.up + mod.transform.forward)  * 110 * 10);
 					}
 					else
 					{
-						rbb.AddForce(new Vector3(0,mod.transform.up.y,mod.transform.forward.z) * 110 * 10);
+						rbb.AddForce((mod.transform.up + mod.transform.forward)  * 110 * 10);
 					}
 
 					romperbalajug_al1 bala_temp = BalaTemporal.GetComponent<romperbalajug_al1>();

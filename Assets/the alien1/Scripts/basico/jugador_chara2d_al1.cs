@@ -478,14 +478,7 @@ public class jugador_chara2d_al1 : jugador_al1
 		
 			vidaenebarra.SetActive(false);
 		
-		if(dimensiion == true)
-		{
-			jugpos = transform.localPosition.x;
-		}
-		else if(dimensiion == false)
-		{
-			jugpos = transform.localPosition.z;
-		}
+
 		musicajuego = musicanoC;
 		musicajuego.Play();
 		musicajuego.time = Random.Range(0,20);
@@ -2819,7 +2812,6 @@ public class jugador_chara2d_al1 : jugador_al1
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 
-					rbb.AddForce(mod.transform.forward * 110 * 4);
 					if(objetivotarget != null)
 					{
 						Vector3 dirTarget = (objetivotarget.transform.position - mod.transform.position).normalized;
@@ -2827,7 +2819,7 @@ public class jugador_chara2d_al1 : jugador_al1
 					}
 					else
 					{
-						rbb.AddForce(mod.transform.forward * 110 * 4);
+						rbb.AddForce(mod.transform.forward * 70 * 4);
 					}
 					romperbalajug_al1 bala_temp2 = BalaTemporal.GetComponent<romperbalajug_al1>();
 					bala_temp2.destb = 15f;
@@ -2878,11 +2870,11 @@ public class jugador_chara2d_al1 : jugador_al1
 					if(objetivotarget != null)
 					{
 						Vector3 dirTarget = (objetivotarget.transform.position - mod.transform.position).normalized;
-						rbb.AddForce(new Vector3(0,mod.transform.up.y,dirTarget.z) * 110 * 10);
+						rbb.AddForce((mod.transform.up + mod.transform.forward)  * 110 * 10);
 					}
 					else
 					{
-						rbb.AddForce(new Vector3(0,mod.transform.up.y,mod.transform.forward.z) * 110 * 10);
+						rbb.AddForce((mod.transform.up + mod.transform.forward)  * 110 * 10);
 					}
 
 					romperbalajug_al1 bala_temp3 = BalaTemporal.GetComponent<romperbalajug_al1>();
@@ -3815,7 +3807,7 @@ public class jugador_chara2d_al1 : jugador_al1
 		}
 		if (col.gameObject.tag == "cambio")
         {
-            giro2D();
+            giro2D(col.transform.position);
         }
 		if (col.gameObject.tag == "evento" && eventoini == true)
 		{
@@ -3911,7 +3903,7 @@ public class jugador_chara2d_al1 : jugador_al1
 			}
 		}
 	}
-	public void giro2D()
+	public void giro2D(Vector3 G2D)
 	{
 		if (controles.al1_UI.interactuar.ReadValue<float>() > 0f )
 		{
@@ -3933,11 +3925,11 @@ public class jugador_chara2d_al1 : jugador_al1
 			}
 			if(dimensiion == true)
 			{
-				jugpos = transform.localPosition.x;
+				jugpos = G2D.x;
 			}
 			else if(dimensiion == false)
 			{
-				jugpos = transform.localPosition.z;
+				jugpos = G2D.z;
 			}
 			
 				

@@ -59,6 +59,10 @@ public class romperbalajug_al2: MonoBehaviour
                 Destroy(col.gameObject);
                 Destroy(this.gameObject);
             }
+            else if (col.gameObject.tag != "Player" && destenterany == true && col.gameObject.GetComponent<romperbala_al2>() == null)
+            {
+                Destroy(this.gameObject);
+            }
         }
         else if (tele == true && objtele == null && noact == false)
         {
@@ -88,6 +92,10 @@ public class romperbalajug_al2: MonoBehaviour
                 Destroy(col.gameObject);
                 Destroy(this.gameObject);
             }
+            else if (col.gameObject.tag != "Player" && destenterany == true && col.gameObject.GetComponent<romperbala_al2>() == null)
+            {
+                Destroy(this.gameObject);
+            }
             
         }
     }
@@ -95,9 +103,9 @@ public class romperbalajug_al2: MonoBehaviour
     {
         if(armadef == false && noact == false)
         {
-        GameObject exp = Instantiate(explosion, transform.position, transform.rotation);
-        exp.transform.localScale = transform.localScale;
-        Destroy(exp, 0.5f);
+            GameObject exp = Instantiate(explosion, transform.position, transform.rotation);
+            exp.transform.localScale = transform.localScale;
+            Destroy(exp, 0.5f);
         }
     }
     

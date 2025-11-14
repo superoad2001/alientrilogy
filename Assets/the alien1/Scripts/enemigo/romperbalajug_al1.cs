@@ -22,6 +22,7 @@ public class romperbalajug_al1: MonoBehaviour
     public bool noact;
 
     public GameObject balajug;
+    public bool destenterany;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +53,10 @@ public class romperbalajug_al1: MonoBehaviour
                 Destroy(col.gameObject);
                 Destroy(this.gameObject);
             }
+            else if (col.gameObject.tag != "Player" && destenterany == true && col.gameObject.GetComponent<romperbala_al2>() == null)
+            {
+                Destroy(this.gameObject);
+            }
         }
         else if (tele == true && objtele == null  && noact == false)
         {
@@ -74,6 +79,10 @@ public class romperbalajug_al1: MonoBehaviour
             else if (col.gameObject.tag == "enemigo" && destenter == true && col.gameObject.GetComponent<romperbala_al1>() != null)
             {
                 Destroy(col.gameObject);
+                Destroy(this.gameObject);
+            }
+            else if (col.gameObject.tag != "Player" && destenterany == true && col.gameObject.GetComponent<romperbala_al2>() == null)
+            {
                 Destroy(this.gameObject);
             }
             

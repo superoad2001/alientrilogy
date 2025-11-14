@@ -347,14 +347,14 @@ public class jugador_chara3d_al2 : jugador_al2
 			if(manager.datosserial.armasel == 3)
 			{
 				armaname.text = "PX4000 Quebrada";
-				iconodisp.sprite = armasspriteequipada[2];
+				iconodisp.sprite = armasspriteequipada[3];
 				cambiar_modelo_arma();
 				pistolamodels[3].SetActive(true);
 			}
 			if(manager.datosserial.armasel == 4)
 			{
 				armaname.text = "HARMONIZADORA";
-				iconodisp.sprite = armasspriteequipada[3];
+				iconodisp.sprite = armasspriteequipada[2];
 				cambiar_modelo_arma();
 				pistolamodels[2].SetActive(true);
 			}
@@ -4467,7 +4467,7 @@ public class jugador_chara3d_al2 : jugador_al2
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 
-					rbb.AddForce(new Vector3(0,mod.transform.up.y,mod.transform.forward.z) * 110 * (5 + (BalaTemporal.GetComponent<baladef_al2>().escala/ 2)));
+					rbb.AddForce((mod.transform.up + mod.transform.forward) * 110 * (5 + (BalaTemporal.GetComponent<baladef_al2>().escala/ 2)));
 					
 
 
