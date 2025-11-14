@@ -348,7 +348,7 @@ public class enemigo2_al1: MonoBehaviour
 
         if(jugador1.objetivotarget == transform.gameObject )
         {
-            target.SetActive(false);
+            target.SetActive(true);
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.escudoeneact = false;
@@ -464,7 +464,8 @@ public class enemigo2_al1: MonoBehaviour
             }
 
             GameObject monedae = Instantiate(moneda, transform.position , transform.rotation);
-            manager.datosserial.asesinatos++;
+            manager.datosserial.enemigosderrotados[1]++;
+			manager.datosserial.aliensderrotados++;
             manager.guardar();
 
             jugador1.vidaenebarra.SetActive(false);

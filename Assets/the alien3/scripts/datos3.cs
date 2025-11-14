@@ -14,6 +14,9 @@ public class datos3
 	public bool begin;
 	public string nivelu;
 
+	public int[] enemigosderrotados = new int[5];
+
+
 	public List<string> nameCH = new List<string>();
 
 	public int[] nivelarmasjug = new int [30];

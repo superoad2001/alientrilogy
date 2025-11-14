@@ -29,7 +29,7 @@ public class final_al1 : MonoBehaviour
         {
 			tit.text = "volver al menu";
 			tit.text = "fin";
-			score.text = string.Concat("enemigos vencidos: ",manager.datosserial.asesinatos,"\n",
+			score.text = string.Concat("enemigos vencidos: ",manager.datosserial.aliensderrotados,"\n",
 			"Muertes sufridas: ",manager.datosserial.muertes,"\n",
 			"Nivel Alien : ",manager.datosserial.niveljug,"\n",
 			"Misiones Completadas : ",manager.MisionesCumplidas,"/12","\n",
@@ -45,7 +45,7 @@ public class final_al1 : MonoBehaviour
         {
 			tit.text = "volver al menu";
 			tit.text = "fin";
-			score.text = string.Concat("enemigos vencidos: ",manager.datosserial.asesinatos,"\n",
+			score.text = string.Concat("enemigos vencidos: ",manager.datosserial.aliensderrotados,"\n",
 			"Muertes sufridas: ",manager.datosserial.muertes,"\n",
 			"Nivel Alien : ",manager.datosserial.niveljug,"\n",
 			"Misiones Completadas : ",manager.MisionesCumplidas,"/12","\n",

@@ -281,7 +281,7 @@ public class enemigo1boss_al1: MonoBehaviour
                         manager.datosserial.signivelexp += 7;
                         jugador1.subirnivel();
                     }
-                    manager.datosserial.asesinatos++;
+                    manager.datosserial.aliensderrotados++;
                     manager.datosserial.jefeV[0] = true;
                     manager.guardar();
                     manager.datosconfig.carga = "cin_postboss1_al1";

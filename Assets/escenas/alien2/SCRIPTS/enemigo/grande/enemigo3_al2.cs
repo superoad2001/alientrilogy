@@ -386,7 +386,8 @@ public class enemigo3_al2: MonoBehaviour
                 jugador1.objetivotarget2 = null;
                 jugador1.vidaenebarra.SetActive(false);
             }
-            manager.datosserial.asesinatos++;
+            manager.datosserial.enemigosderrotados[2]++;
+			manager.datosserial.aliensderrotados++;
             manager.guardar();
             jugador1.vidaenebarra.SetActive(false);
             jugador1.vidaeneact = false;

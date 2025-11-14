@@ -173,7 +173,7 @@ MonoBehaviour:
   rb_: {fileID: 0}
   vel: 2
   desactivar: 0
-  enemigodet: {fileID: 0}
+  enemigodet: {fileID: 5002519225658910900}
   dano: {fileID: 0}
   det: {fileID: 7317363467941001917}
   temp: 0
@@ -939,6 +939,7 @@ MonoBehaviour:
   ultimo: 0
   paloact: 0
   guia: {fileID: 0}
+  levantar: 0
 --- !u!82 &6735239936671139805
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1523,7 +1524,6 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8287117697130433291}
-  - {fileID: 7647729198929431806}
   - {fileID: 498922391238163069}
   - {fileID: 4688970186708293913}
   m_Father: {fileID: 0}
@@ -2903,73 +2903,6 @@ Transform:
   - {fileID: 7174375614086837009}
   m_Father: {fileID: 3026263467339960285}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6717470808782499844
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7647729198929431806}
-  - component: {fileID: 8627992334234849011}
-  - component: {fileID: 7618521397651309313}
-  m_Layer: 2
-  m_Name: "da\xF1o"
-  m_TagString: pisar
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7647729198929431806
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6717470808782499844}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.858, z: 0}
-  m_LocalScale: {x: 4.14, y: 4.14, z: 4.14}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5067049155544261199}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8627992334234849011
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6717470808782499844}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.274198, y: 0.19131792, z: 0.299046}
-  m_Center: {x: -0.0049713086, y: 0.1922017, z: -0.002475473}
---- !u!114 &7618521397651309313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6717470808782499844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5cf37f7371b80141bc1c081a415c518, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemigo: 2
 --- !u!1 &6732693719416183490
 GameObject:
   m_ObjectHideFlags: 0

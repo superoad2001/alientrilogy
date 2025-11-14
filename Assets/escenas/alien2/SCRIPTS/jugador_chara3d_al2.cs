@@ -131,9 +131,6 @@ public class jugador_chara3d_al2 : jugador_al2
 	public AudioSource disprel;
 	public AudioSource dispdef;
 	public Image barraarmaimgnv1;
-	public Image barraarmaimgnv2;
-	public Image barraarmaimgnv3;
-	public Image barraarmaimgnv4;
 	public Sprite arma1_1;
 	public Sprite arma1_2;
 	public Sprite arma1_3;
@@ -1052,55 +1049,15 @@ public class jugador_chara3d_al2 : jugador_al2
 			}
 			if(manager.datosserial.armasel != 0 && manager.datosserial.armasel <= 100)
 			{
-				if(manager.datosserial.nivelarmasjug[manager.datosserial.armasel-1] == 1)
-				{
-					barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmasexpjug[manager.datosserial.armasel-1]/manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[0]];
-					barraarmaimgnv2.fillAmount = 0;
-					barraarmaimgnv3.fillAmount = 0;
-					barraarmaimgnv4.fillAmount = 0;
-				}
-				else if(manager.datosserial.nivelarmasjug[manager.datosserial.armasel-1] == 2)
-				{
-					barraarmaimgnv1.fillAmount = 1;
-					barraarmaimgnv2.fillAmount = manager.datosserial.nivelarmasexpjug[manager.datosserial.armasel-1]/manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[1]];
-					barraarmaimgnv3.fillAmount = 0;
-					barraarmaimgnv4.fillAmount = 0;
-				}
-				else if(manager.datosserial.nivelarmasjug[manager.datosserial.armasel-1] == 3)
-				{
-					barraarmaimgnv1.fillAmount = 1;
-					barraarmaimgnv2.fillAmount = 1;
-					barraarmaimgnv3.fillAmount = manager.datosserial.nivelarmasexpjug[manager.datosserial.armasel-1]/manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[2]];
-					barraarmaimgnv4.fillAmount = 0;
-				}
-				else if(manager.datosserial.nivelarmasjug[manager.datosserial.armasel-1] == 4)
-				{
-					barraarmaimgnv1.fillAmount = 1;
-					barraarmaimgnv2.fillAmount = 1;
-					barraarmaimgnv3.fillAmount = 1;
-					barraarmaimgnv4.fillAmount = manager.datosserial.nivelarmasexpjug[manager.datosserial.armasel-1]/manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[3]];
-				}
-				else if(manager.datosserial.nivelarmasjug[manager.datosserial.armasel-1] == 5)
-				{
-					barraarmaimgnv1.fillAmount = 1;
-					barraarmaimgnv2.fillAmount = 1;
-					barraarmaimgnv3.fillAmount = 1;
-					barraarmaimgnv4.fillAmount = 1;
-				}
+				barraarmaimgnv1.fillAmount = manager.datosserial.nivelarmasexpjug[manager.datosserial.armasel-1]/manager.datosserial.armajugsignv[manager.datosserial.nivelarmasjug[3]];
 			}
 			else if(manager.datosserial.armasel >= 101 && manager.datosserial.armasel <= 108 )
 			{
 				barraarmaimgnv1.fillAmount = 1;
-				barraarmaimgnv2.fillAmount = 1;
-				barraarmaimgnv3.fillAmount = 1;
-				barraarmaimgnv4.fillAmount = 1;	
 			}
 			else
 			{
 				barraarmaimgnv1.fillAmount = 1;
-				barraarmaimgnv2.fillAmount = 0;
-				barraarmaimgnv3.fillAmount = 0;
-				barraarmaimgnv4.fillAmount = 0;
 			}
 		if(ruletapressc > 0 && tiempodisp > 0.2  && skate == false && tiendat == false)
 		{

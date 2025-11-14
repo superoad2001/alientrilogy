@@ -191,7 +191,7 @@ public class bossencorbado_al1: MonoBehaviour
                 jugador1.subirnivel();
             }
 
-            manager.datosserial.asesinatos++;
+            manager.datosserial.aliensderrotados++;
             manager.guardar();
             Destroy(transform.parent.gameObject);
             

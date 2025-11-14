@@ -19,6 +19,7 @@ public class datos2
 	//economia[5]  monedasamarillas;
 	//economia[6]  licencias;
 	public bool newgameplus1;
+	public int[] enemigosderrotados = new int[4];
 
 
 	public float[] armajugtiempo = new float[12]{1,1,1,1,1,1,1,1,1,1,1,1};
@@ -105,7 +106,7 @@ public class datos2
     public int plat = 0;
 	public int inicio;
 	public int Logros;
-	public int asesinatos;
+	public int aliensderrotados;
 	public int muertes;
 	public bool sala_secreta;
 	public bool final_alt;

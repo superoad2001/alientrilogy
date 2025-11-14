@@ -20,6 +20,8 @@ public class datos1
 	public string salirnivelsala;
 	public List<string> nameCH = new List<string>();
 
+	public int[] enemigosderrotados = new int[3];
+
 
 
 	public bool[] puertasdesbloqueadas = new bool[100];
@@ -96,7 +98,7 @@ public class datos1
 	public int pocionesmax;
 
 	public int muertes;
-	public int asesinatos;
+	public int aliensderrotados;
 	public bool salasecreta;
 
 	public bool[] jefeV = new bool[99];

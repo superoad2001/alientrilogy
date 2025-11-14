@@ -28,8 +28,7 @@ public class enemigo4_al2: MonoBehaviour
     public Rigidbody rb_;
     public float vel = 2;
     public bool desactivar;
-    public enemigodet2_al2 enemigodet;
-    public GameObject dano;
+    public enemigodet4_al2 enemigodet;
     public GameObject det;
     public float temp;
     public Animator anim;
@@ -98,6 +97,19 @@ public class enemigo4_al2: MonoBehaviour
     public float fly_Y;
     public float tempflyact;
     public bool flyact;
+    public bool programado;
+    private float danoazar;
+    private float minimodisp = 3;
+    private int contadordisp;
+    private bool actrafaga;
+    private int randomdisp = 0;
+    public GameObject pistola;
+    public golpe_al2 paloSC;
+    public GameObject ondasprefab;
+    public GameObject peque;
+    public GameObject grande;
+    public GameObject marcado;
+    private int randomdano;
     //tendra siempre la mitad de stats que el enemigo actual excepto si su vitalidad baja de 2 lo hara al bajar de 10%
 
 
@@ -115,12 +127,6 @@ public class enemigo4_al2: MonoBehaviour
         objetivoa[2] = transform.position + new Vector3(-5,0,0);
         objetivoa[3] = transform.position + new Vector3(5,0,0);
         objetivon = objetivoa[Random.Range(0,4)];
-        if(GetComponent<Rigidbody>() == null)
-        {
-            gameObject.AddComponent<Rigidbody>();
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-            rb_ = GetComponent<Rigidbody>();
-        }
         nivelvida_a[0] = vidabasetut;
         for(int i = 1 ;i <= 49;  i++ )
         {   
@@ -153,14 +159,17 @@ public class enemigo4_al2: MonoBehaviour
 
         nivelfuerza = nivelfuerza_a[nivelactual-1];
         nivelvida = nivelvida_a[nivelactual-1];
-
-        vidamax = nivelvida;
+        if(programado == false)
+        {
+            vidamax = nivelvida;
+            vida = vidamax;
+        }
         
         
 
         danoj = nivelfuerza;
         
-        vida = vidamax;
+        
         vidaUI = vida;
         jugador1 = (jugador_al2)FindFirstObjectByType(typeof(jugador_al2));
         jugador1.explosion = explosion;
@@ -169,6 +178,33 @@ public class enemigo4_al2: MonoBehaviour
         danoene = GameObject.Find("danoenemigosonido").GetComponent<AudioSource>();
         vidamenu = GameObject.Find("barravidaenemigobase");
         juego = GameObject.Find("juego").transform;
+
+        if(gigante == false && programado == false)
+        {
+            vidamax = vidamax * 2;
+            vida = vidamax;
+        }
+        if(nivelactual >= 10)
+        {
+            flyact = true;
+        }
+        if(nivelactual >= 70)
+        {
+            frenetismo = 1.2f;
+        }
+        if(gigante == false)
+        {
+            vel = 8;
+        }
+        else
+        {
+            vel = 6;
+        }
+        if(gigante == false && nivelactual >= 90)
+        {
+            vel = 10;
+        }
+
     }
     public void Awake()
     {
@@ -179,8 +215,24 @@ public class enemigo4_al2: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(gigante == true)
+        {
+            vel = 6;
+        }
+        int randomdano = 0;
+        if(nivelactual >= 50)
+        {
+            randomdano = Random.Range(0,2);
+        }
         
+        if(randomdano == 0)
+        {
+            danoazar = 1;
+        }
+        else if(randomdano == 1)
+        {
+            danoazar = 1.5f;
+        }
         
         if(cancelatk < 0)
         {
@@ -197,7 +249,7 @@ public class enemigo4_al2: MonoBehaviour
 
         if(jugador1.objetivotarget == transform.gameObject )
         {
-            target.SetActive(false);
+            target.SetActive(true);
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.escudoeneact = false;
@@ -240,7 +292,6 @@ public class enemigo4_al2: MonoBehaviour
 
 
         det.transform.position = this.transform.position;
-        dano.transform.position = new Vector3 (this.transform.position.x,this.transform.position.y + 4.14f,this.transform.position.z);
         if (vida < 1)
         {
             GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
@@ -299,7 +350,8 @@ public class enemigo4_al2: MonoBehaviour
             }
 
             GameObject monedae = Instantiate(moneda, transform.position , transform.rotation);
-            manager.datosserial.asesinatos++;
+            manager.datosserial.enemigosderrotados[3]++;
+			manager.datosserial.aliensderrotados++;
             manager.guardar();
 
             jugador1.vidaenebarra.SetActive(false);
@@ -314,6 +366,7 @@ public class enemigo4_al2: MonoBehaviour
         }
         else
         {
+
         }
         
 
@@ -321,48 +374,167 @@ public class enemigo4_al2: MonoBehaviour
         if(detectar == true && desactivar == false && manager.controlene == true && cancelatk == 0)
         {
 
-
+            Vector3 direction = objetivo1.position - transform.position;
+            rotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
             
             if(fly == false)
             {
-                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-3),vel * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position,objetivo.transform.position + new Vector3(0,0,-3),2 * Time.deltaTime);
                 temp += 1 * frenetismo * Time.deltaTime;
+                anim.SetInteger("modo",4);
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivo.transform.position.x,transform.position.y,objetivo.transform.position.z),3 * Time.deltaTime);
-                transform.position = Vector3.MoveTowards(transform.position,new Vector3(transform.position.x,fly_Y,transform.position.z),vel * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivo.transform.position.x,transform.position.y,objetivo.transform.position.z),vel * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position,new Vector3(transform.position.x,fly_Y,transform.position.z),2 * Time.deltaTime);
                 temp += 1 * frenetismo * Time.deltaTime;
+                anim.SetInteger("modo",3);
             }
-
-            if(tempdisp >= 3)
+            if(nivelactual >= 60 && tempdisp >= minimodisp)
+            {
+                if(contadordisp <= 0 && actrafaga == true)
+                {
+                    contadordisp = 3;
+                    minimodisp = 1;
+                    actrafaga = false;
+                }
+            }
+            else if(nivelactual < 60 && tempdisp >= minimodisp)
+            {
+                minimodisp = 3;
+            }
+            if(tempdisp >= minimodisp)
             {
 
-                //disaparos en random
+                //disparos en random
+
+                if(nivelactual >= 20)
+                {
+                    randomdisp = Random.Range(0,2);
+                }
+                else
+                {
+                    randomdisp = 0;
+                }
                 
-                //disparonormal
 
-                //ondas
+                if(randomdisp == 0)
+                {
+                        GameObject BalaTemporal = Instantiate(balaprefab, pistola.transform.position,transform.rotation) as GameObject;
 
-                //ondasgigantes (solo grandes)
+                        Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
+                        BalaTemporal.transform.SetParent(juego);
 
+                        BalaTemporal.GetComponent<romperbala_al2>().danoj = danoj * danoazar;
+
+                        rb.AddForce(BalaTemporal.transform.forward * 110 * 20);
+
+                        BalaTemporal.GetComponent<romperbala_al2>().destb = 4f;
+
+                        disp.Play();
+
+                        temp = 0;
+                }
+                else if(randomdisp == 1)
+                {
+                    GameObject BalaTemporal = Instantiate(ondasprefab, pistola.transform.position,transform.rotation) as GameObject;
+
+                        Rigidbody rb = BalaTemporal.GetComponent<Rigidbody>();
+                        BalaTemporal.transform.SetParent(juego);
+
+                        BalaTemporal.GetComponent<romperbala_al2>().danoj = danoj * danoazar;
+
+                        rb.AddForce(BalaTemporal.transform.forward * 110 * 5);
+
+                        BalaTemporal.GetComponent<romperbala_al2>().destb = 4f;
+
+                        disp.Play();
+
+                        temp = 0;
+                }
                 tempdisp = 0;
+
+                if(minimodisp >= 3)
+                {
+                    actrafaga = true;
+                }
+
+                if(contadordisp > 0)
+                {
+                    contadordisp -= 1;
+                }
+                else
+                {
+                    minimodisp = 3;
+                }
                 
             }
-            if(temphab > 10)
-            {
-                //embestida
 
-                //golpe panza (grandes)
-            }
-            if(gigante == false && tempesp >= 120)
+
+
+            if(temphab > 10 && nivelactual >= 40)
             {
-                //crecer
+                int Randomhab = 0;
+                if(gigante && nivelactual >= 50)
+                {
+                    Randomhab = Random.Range(0,2);
+                }
+                
+
+                if(Randomhab == 0)
+                {
+                    paloSC.toquespalo = 1;
+                    paloSC.dano =  danoj * danoazar;
+                    anim.Play("embestida");
+                    rb_.AddForce(3000 * transform.TransformDirection(new Vector3 (0,0,1)));
+                    temp = 0;
+                }
+                if(Randomhab == 1)
+                {
+                    paloSC.toquespalo = 1;
+                    paloSC.dano =  danoj * danoazar;
+                    anim.Play("panzazo");
+                    rb_.AddForce(1000 * transform.TransformDirection(new Vector3 (0,-1,0)));
+                    temp = 0;
+                }
+            }
+
+
+
+            if(gigante == false && tempesp >= 120 && marcado == null && nivelactual >= 80)
+            {
+                GameObject explosiont = Instantiate(explosion, transform.position,transform.rotation) as GameObject;
+                Destroy(explosiont, 1f);
+
+                GameObject enetemp2 = Instantiate(grande, transform.position , transform.rotation);
+                enemigo4_al2 ene2tempS = enetemp2.transform.Find("enemigo").gameObject.GetComponent<enemigo4_al2>();
+                ene2tempS.vidamax = vidamax * 2;
+                ene2tempS.vida = vida * 2;
+                ene2tempS.programado = true;
+                ene2tempS.nivelactual = nivelactual;
+                ene2tempS.detectar = true;
+                ene2tempS.gigante = true;
+                Destroy(transform.parent.gameObject);
                 tempesp = 0;
             }
-            if(gigante == true && tempesp >= 180)
+            
+            if(gigante == true && tempesp >= 180 && marcado == null && nivelactual >= 30)
             {
-                //invocar otra
+                if(managerordas != null)
+                {
+                    managerordas.contadorene += 1;
+                }
+                GameObject enetemp = Instantiate(peque, transform.position + new Vector3(0,0,4), transform.rotation);
+                enemigo4_al2 ene1tempS = enetemp.transform.Find("enemigo").gameObject.GetComponent<enemigo4_al2>();
+                ene1tempS.nivelactual = nivelactual;
+                ene1tempS.detectar = true;
+                ene1tempS.marcado = this.gameObject;
+                tempesp = 0;
+                marcado = ene1tempS.gameObject;
+            }
+            if (marcado != null)
+            {
                 tempesp = 0;
             }
 
@@ -382,7 +554,7 @@ public class enemigo4_al2: MonoBehaviour
                 tempflyact = 0;
                 fly = true;
             }
-            else if(tempflyact < 30)
+            else
             {
                 tempflyact += 1 * Time.deltaTime;
             }
@@ -408,12 +580,27 @@ public class enemigo4_al2: MonoBehaviour
                     }
                     Vector3 direction2 = objetivon - transform.position;
                     rotation = Quaternion.LookRotation(direction2);
-                    transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivon.x,transform.position.y,objetivon.z),vel * Time.deltaTime);
-                    anim.SetFloat("vely",1);
+                    transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),2f * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position,new Vector3(objetivon.x,transform.position.y,objetivon.z),2 * Time.deltaTime);
+                    if(fly == false)
+                    {
+                        anim.SetInteger("modo",4);
+                    }
+                    else
+                    {
+                        anim.SetInteger("modo",3);
+                    }
                 }
                 else if(jugador1.modo == "2D"   || staticene == true)
                 {
-                    anim.SetBool("Playeract",true);
+                    if(fly == false)
+                    {
+                        anim.SetInteger("modo",2);  
+                    }
+                    else
+                    {
+                        anim.SetInteger("modo",1);
+                    }
                 }
                     // Lanzar rayo hacia abajo
                 RaycastHit hit;
@@ -421,21 +608,20 @@ public class enemigo4_al2: MonoBehaviour
                 {
                     if (hit.distance < 0.1f)
                     {
-                        Destroy (GetComponent<Rigidbody>());
+                        
                     }
                 }
             }
             else if(detect == true && staticene2 == false)
             {
-                transform.position = Vector3.MoveTowards(transform.position,new Vector3(jugador1.transform.position.x,transform.position.y,jugador1.transform.position.z),vel * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position,new Vector3(jugador1.transform.position.x,transform.position.y,jugador1.transform.position.z),2 * Time.deltaTime);
             }
 
-            // Aplicar gravedad solo si no está en el suelo
             
         }
         else
         {
-            anim.SetBool("Playeract",false);
+
         }
         if(tempdanodef < 15)
         {tempdanodef += 1 * Time.deltaTime;}

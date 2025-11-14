@@ -33,7 +33,6 @@ public class enemigo2_al2: MonoBehaviour
     public float vel = 2;
     public bool desactivar;
     public enemigodet2_al2 enemigodet;
-    public GameObject dano;
     public GameObject det;
     public float temp;
     public Animator anim;
@@ -340,7 +339,7 @@ public class enemigo2_al2: MonoBehaviour
 
         if(jugador1.objetivotarget == transform.gameObject )
         {
-            target.SetActive(false);
+            target.SetActive(true);
             jugador1.vidaenebarra.SetActive(true);
             jugador1.vidaeneact = true;
             jugador1.escudoeneact = false;
@@ -377,7 +376,6 @@ public class enemigo2_al2: MonoBehaviour
 
 
         det.transform.position = this.transform.position;
-        dano.transform.position = new Vector3 (this.transform.position.x,this.transform.position.y + 4.14f,this.transform.position.z);
         if (muertetemp == true)
         {
             if(tempM > 45)
@@ -456,7 +454,8 @@ public class enemigo2_al2: MonoBehaviour
             }
 
             GameObject monedae = Instantiate(moneda, transform.position , transform.rotation);
-            manager.datosserial.asesinatos++;
+            manager.datosserial.enemigosderrotados[1]++;
+			manager.datosserial.aliensderrotados++;
             manager.guardar();
 
             jugador1.vidaenebarra.SetActive(false);

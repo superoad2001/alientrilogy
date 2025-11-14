@@ -261,7 +261,7 @@ public class enemigo3nave_al1: MonoBehaviour
                 managerordas.contadorene--;
             }
             GameObject monedae = Instantiate(moneda, transform.position , transform.rotation);
-            manager.datosserial.asesinatos++;
+			manager.datosserial.aliensderrotados++;
             manager.guardar();
             jugador1.vidaenebarra.SetActive(false);
             jugador1.vidaeneact = false;

@@ -310,7 +310,7 @@ public class pausa_al2 : MonoBehaviour
         {
 
         Estadisitcas_panel1.text =
-        string.Concat("Enemigos asesinados : ",manager.datosserial.asesinatos,"\n",
+        string.Concat("Enemigos asesinados : ",manager.datosserial.aliensderrotados,"\n",
         "Muertes : ",manager.datosserial.muertes,"\n",
         "Nivel Nave : ",manager.datosserial.niveljugnave,"\n",
 

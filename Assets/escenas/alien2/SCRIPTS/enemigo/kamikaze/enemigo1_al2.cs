@@ -651,7 +651,8 @@ public class enemigo1_al2: MonoBehaviour
                 jugador1.objetivotarget2 = null;
                 jugador1.vidaenebarra.SetActive(false);
             }
-			manager.datosserial.asesinatos++;
+            manager.datosserial.enemigosderrotados[0]++;
+			manager.datosserial.aliensderrotados++;
 			muertes.Play();
 			manager.guardar();
             Destroy(explosiont, 1f);
@@ -668,7 +669,8 @@ public class enemigo1_al2: MonoBehaviour
             }
                 GameObject explosiont = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
                 explosiont.transform.localScale = transform.localScale;
-                manager.datosserial.asesinatos++;
+                manager.datosserial.enemigosderrotados[0]++;
+			    manager.datosserial.aliensderrotados++;
                 GameObject monedae = Instantiate(moneda, transform.position , transform.rotation);
             if(destobj == true)
             {
@@ -728,7 +730,8 @@ public class enemigo1_al2: MonoBehaviour
                 manager.datosserial.signivelexp += 7;
                 jugador1.subirnivel();
             }
-            manager.datosserial.asesinatos++;
+            manager.datosserial.enemigosderrotados[0]++;
+			manager.datosserial.aliensderrotados++;
 			muertes.Play();
             GameObject monedae = Instantiate(moneda, transform.position , transform.rotation);
             if(destobj == true)

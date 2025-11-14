@@ -65,7 +65,7 @@ public class final_al2 : MonoBehaviour
 			{
 				fa = "no";
 			}
-			final.text = "enemgios asesinados : "+manager.datosserial.asesinatos+"                              muertes sufridas : "+manager.datosserial.muertes+"                        final malo : "+fm+"                                   final bueno : "+fb+"                     final alternativo : "+fa+"                     vida maxima : "+manager.datosserial.vidamaxima+"/6";
+			final.text = "enemgios asesinados : "+manager.datosserial.aliensderrotados+"                              muertes sufridas : "+manager.datosserial.muertes+"                        final malo : "+fm+"                                   final bueno : "+fb+"                     final alternativo : "+fa+"                     vida maxima : "+manager.datosserial.vidamaxima+"/6";
 		}
 		if(manager.datosconfig.idioma == "en")
         {
@@ -101,7 +101,7 @@ public class final_al2 : MonoBehaviour
 			{
 				fa = "no";
 			}
-			final.text = "enemies defeated : "+manager.datosserial.asesinatos+"                              deaths suffered : "+manager.datosserial.muertes+"                        bad ending : "+fm+"                                   good ending : "+fb+"                     alternate end : "+fa+"                     max life : "+manager.datosserial.vidamaxima+"/6";
+			final.text = "enemies defeated : "+manager.datosserial.aliensderrotados+"                              deaths suffered : "+manager.datosserial.muertes+"                        bad ending : "+fm+"                                   good ending : "+fb+"                     alternate end : "+fa+"                     max life : "+manager.datosserial.vidamaxima+"/6";
 		}
 		if(manager.datosconfig.idioma == "cat")
         {
@@ -137,7 +137,7 @@ public class final_al2 : MonoBehaviour
 			{
 				fa = "no";
 			}
-			final.text = "enemics morts : "+manager.datosserial.asesinatos+"                                                         morts : "+manager.datosserial.muertes+"                                              final dolent : "+fm+"                                                       final bo : "+fb+"                                         final alternatiu : "+fa+"                     vida maxima : "+manager.datosserial.vidamaxima+"/6";
+			final.text = "enemics morts : "+manager.datosserial.aliensderrotados+"                                                         morts : "+manager.datosserial.muertes+"                                              final dolent : "+fm+"                                                       final bo : "+fb+"                                         final alternatiu : "+fa+"                     vida maxima : "+manager.datosserial.vidamaxima+"/6";
 		}
 
 	}

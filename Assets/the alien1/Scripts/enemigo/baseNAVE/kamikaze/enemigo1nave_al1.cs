@@ -244,7 +244,7 @@ public class enemigo1nave_al1: MonoBehaviour
             {
                 Destroy(destruible);
             }
-			manager.datosserial.asesinatos++;
+			manager.datosserial.aliensderrotados++;
 			muertes.Play();
 			manager.guardar();
             Destroy(explosiont, 1f);

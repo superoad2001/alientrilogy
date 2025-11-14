@@ -310,7 +310,7 @@ public class pausa_al1 : MonoBehaviour
         {
 
         Estadisitcas_panel1.text =
-        "Enemigos asesinados : "+manager.datosserial.asesinatos+"\n"+
+        "Enemigos asesinados : "+manager.datosserial.aliensderrotados+"\n"+
         "Muertes : "+manager.datosserial.muertes+"\n"+
         "Nivel Nave : "+manager.datosserial.niveljugnave+"\n"+
 
