@@ -113,6 +113,7 @@ public class jugador_charaCen_al2 : jugador_al2
 	public bool carga;
 	public bool eventoini;
 	private float angulomod;
+	private float angulomod2;
 	private float pasotiempo;
 	private float temppaso = 1;
 	public GameObject tarboss;
@@ -194,7 +195,6 @@ public class jugador_charaCen_al2 : jugador_al2
     private bool firedg;
 	private float teh2g; 
     private bool pehg;
-	private Vector3 moveDirSK;
 	public GameObject skatevis;
 	private Camera camaracom;
 	public prefabbala_al2 armasbalas;
@@ -224,8 +224,6 @@ public class jugador_charaCen_al2 : jugador_al2
 		
 		rotspeed = 100;
 		
-		if(camara != null)
-        {cameraverticalangle2 = camara.transform.eulerAngles.y;}
 		if(GameObject.Find("muerteaudio") == true)
 		{muertes = GameObject.Find("muerteaudio").GetComponent<AudioSource>();}
 		manager = (manager_al2)FindFirstObjectByType(typeof(manager_al2));
@@ -527,8 +525,6 @@ public class jugador_charaCen_al2 : jugador_al2
 		
 		vidaenebarra.SetActive(false);
 		
-
-			camara.transform.eulerAngles = new Vector3(camara.transform.eulerAngles.x,transform.eulerAngles.y,camara.transform.eulerAngles.z);
 		
 
 		musicajuego = musicanoC;
@@ -3130,15 +3126,15 @@ public class jugador_charaCen_al2 : jugador_al2
 			}
 		
 		
-			camarascript.maxdis = 20;
+			camarascript.maxdis = 30;
 			
 			
-		if(skate == false)	
+		if(lateralc == 0 && skate == false)	
 		{
 			
 
 			movskate = false;
-			if(lateralc == 0 && controlact == true)
+			if(controlact == true)
             {
 
 				anim.SetBool("movlat",false);
@@ -3162,14 +3158,7 @@ public class jugador_charaCen_al2 : jugador_al2
 					Vector3 movdirnow = new Vector3 (movXc,0, movYc).normalized;
 
 
-
-
-						if (jugadorEntrando == true)
-						{
-								
-								boxcam2.transform.localRotation = Quaternion.Euler(0.35f, 0, 0);
-								this.jugadorEntrando = false;
-						}				
+		
 						
 						if(movXc != 0 || movYc != 0)
 						{
@@ -3181,12 +3170,6 @@ public class jugador_charaCen_al2 : jugador_al2
 							mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation, 
 																		Quaternion.Euler(mod.transform.localEulerAngles.x, angulomod, mod.transform.localEulerAngles.z),
 																		10 * Time.deltaTime);
-							
-							// Rotar el personaje para que mire en la dirección de la cámara
-							float camaraYRotation = camara.transform.eulerAngles.y;
-							transform.rotation = Quaternion.Slerp(transform.rotation, 
-																Quaternion.Euler(0, camaraYRotation, 0),
-																1 * Time.deltaTime);
 						}
 						else
 						{
@@ -3256,61 +3239,15 @@ public class jugador_charaCen_al2 : jugador_al2
 							{temppaso += 1 * Time.deltaTime;}
 						}
 
-						if(objetivotarget == null)
-						{
-						if(camXc != 0)
-						{rotationinput.x = camXc * rotspeed * Time.deltaTime;}
-						else{rotationinput.x = 0;}
-						}
-
-						if(camYc != 0)
-						{rotationinput.y = camYc * rotspeed * Time.deltaTime;}
-						else{rotationinput.y = 0;}
-						Debug.Log("camara");
-						
-
-							Vector3 horcam = Vector3.up * rotationinput.x;
-							Vector3 vercam = new Vector3(0,0,0);
-
-							
-							vercam = Vector3.right * -rotationinput.y;
-
-						
-							camara.transform.localEulerAngles += vercam + horcam;
-
-						Quaternion xRotationx = Quaternion.Euler(camara.transform.localEulerAngles.x,0,0);
-						float angle_f = Quaternion.Angle(Quaternion.identity, xRotationx);
-						float fixedAngle_f = angle_f;
-						if (xRotationx.eulerAngles.x>180)
-						{
-							fixedAngle_f *= -1;
-						}
-						float clampedX = Mathf.Clamp(fixedAngle_f, -20, 50);
-						camara.transform.localRotation = Quaternion.Euler(clampedX, camara.transform.localEulerAngles.y, camara.transform.localEulerAngles.z);
-						
-
 						if(objetivotarget != null)
 						{
 							Vector3 directiontt = objetivotarget.transform.position - transform.position;
 							Quaternion rotation = Quaternion.LookRotation(directiontt);
-							transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),30f * Time.deltaTime);
-							camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.y,camara.transform.localEulerAngles.z),30f* Time.deltaTime);	
+							mod.transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),30f * Time.deltaTime);
 						}
 
 
-						camaux = camara.transform.eulerAngles.y;
-						if(objetivotarget == null)
-						{
 
-							if (movXc != 0f && camXc != 0f|| movYc != 0 && camXc != 0f || movXc != 0f || movYc != 0)
-							{
-								transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.Euler(transform.eulerAngles.x,camaux,transform.eulerAngles.z),30f* Time.deltaTime);
-								camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.y,camara.transform.localEulerAngles.z),30f* Time.deltaTime);	
-							}
-								
-
-
-						}
 					
 
 					
@@ -3325,262 +3262,141 @@ public class jugador_charaCen_al2 : jugador_al2
 				
 
 			}
-			else if(lateralc > 0 && controlact == true)
+		}
+		else if(lateralc == 1 && skate == false)	
+		{
+			
+
+			movskate = false;
+			if(controlact == true)
             {
-				
-				
-				camarascript.maxdis = 20;
-				anim.SetBool("movlat",true);
-                camnomov = false;
-				anim.SetFloat("velx",movXc);
-				anim.SetFloat("vely",movYc);
+
+				anim.SetBool("movlat",false);
+				anim.SetBool("latizq",false);
+                anim.SetBool("latder",false);
+                anim.SetBool("saltoatras",false);
+
+
+
 				if(subir == false && bajar == false)
 				{
+					anim.SetFloat("velx",movXc);
+					anim.SetFloat("vely",movYc);
 					if(anim.GetCurrentAnimatorStateInfo(1).IsName("dashtierra"))
 					{
 						movXc = 0;
 						movYc = 0;
 					}
+					
 
 					Vector3 movdirnow = new Vector3 (movXc,0, movYc).normalized;
-					if(movXc != 0 || movYc != 0)
-					{
-
-						movPH = true;
-
-						angulomod =  Mathf.Atan2(movXc,movYc)* Mathf.Rad2Deg;
-
-
-						if(dash + 0.5f > tempdash)
+						if(camXc != 0 || camYc != 0)
 						{
-							mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(mod.transform.localEulerAngles.x,angulomod,mod.transform.localEulerAngles.z),10* Time.deltaTime);
+							
+							// Rotar el modelo en la dirección del movimiento
+							angulomod2 = Mathf.Atan2(camXc, camYc) * Mathf.Rad2Deg;
+							mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation, 
+																		Quaternion.Euler(mod.transform.localEulerAngles.x, angulomod2, mod.transform.localEulerAngles.z),
+																		10 * Time.deltaTime);
+						}
+
+		
+						
+						if(movXc != 0 || movYc != 0)
+						{
+
+							movPH = true;
+							
+							// Rotar el modelo en la dirección del movimiento
+							
 						}
 						else
 						{
-							mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation,Quaternion.Euler(mod.transform.localEulerAngles.x,0,mod.transform.localEulerAngles.z),10* Time.deltaTime);
+							movPH = false;
 						}
+						
+						// Gradualmente volver a la rotación normal cuando no está en modo planeta
+						Quaternion rotacionNormal = Quaternion.Euler(0, transform.eulerAngles.y, 0);
+						transform.rotation = Quaternion.Slerp(transform.rotation, rotacionNormal, Time.fixedDeltaTime * 3f);
 
 						
 						
-					}
-					else
-					{
-						movPH = false;
-					}
-					movdire = transform.TransformDirection(movdirnow * velocidad);
-					float distaxe = movdire.magnitude * Time.fixedDeltaTime;
-					movdire.Normalize();
-					RaycastHit hit;
+						
+						
+						movdire = transform.TransformDirection(movdirnow * velocidad);
+						float distaxe = movdire.magnitude * Time.fixedDeltaTime;
+						movdire.Normalize();
+						RaycastHit hit;
+						Vector3 moveDirection = new Vector3(movXc, 0, movYc).normalized;
 
-					if(movYc == 0f && movXc == 0f)
-					{
-						anim.SetBool("stat",true);
-						dashefect = false;
-						dashefect2 = false;
-						_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
-					}
-					else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity)&& dashefect == true)
-					{
-						if(hit.distance < 1f)
+						
+						
+						if(movYc == 0f && movXc == 0f)
 						{
-						anim.SetBool("stat",true);
-						dashefect = false;
-						dashefect2 = false;
+							anim.SetBool("stat",true);
+							dashefect = false;
+							_rb.linearVelocity = new Vector3 (0,_rb.linearVelocity.y,0);
+						}
+						else if(Physics.Raycast(transform.position + new Vector3(0,2,0),movdire,out hit,Mathf.Infinity)&& dashefect == true)
+						{
+							if(hit.distance < 1f)
+							{
+							anim.SetBool("stat",true);
+							dashefect = false;
+							dashefect2 = false;
+							}
+							else
+							{
+								anim.SetBool("stat",false);
+							}
+							Debug.Log(hit.distance);
 						}
 						else
 						{
 							anim.SetBool("stat",false);
 						}
-						Debug.Log(hit.distance);
-					}
-					else
-					{
-						anim.SetBool("stat",false);
-					}
-
-
-					
-
-
-					if (movXc >= 0.70f)
-					{
-						anim.SetBool("latder",true);
-						anim.SetBool("latizq",false);
-						anim.SetBool("saltoatras",false);
-					}
-					else if (movXc <= -0.70f)
-					{
-						anim.SetBool("latizq",true);
-						anim.SetBool("latder",false);
-						anim.SetBool("saltoatras",false);
-					}
-					else if (movYc <= -0.70f)
-					{
-						anim.SetBool("saltoatras",true);
-						anim.SetBool("latder",false);
-						anim.SetBool("latizq",false);
-					}
-					else if (movYc >= 0.70f)
-					{
-						anim.SetBool("saltoatras",false);
-						anim.SetBool("latder",false);
-						anim.SetBool("latizq",false);
-					}
-					else
-					{
-						anim.SetBool("saltoatras",false);
-						anim.SetBool("latder",false);
-						anim.SetBool("latizq",false);
-					
-					}
-				}
-                if(suelo == true && movYc < 0f || suelo == true && movYc > 0f || suelo == true && movXc < 0f|| suelo == true && movXc > 0f)
-                {
-                    if(temppaso > pasotiempo)
-                    {
-                        randompaso = UnityEngine.Random.Range(1,3);
-                        if(randompaso == 1)
-                        {
-                            pasos1.Play();
-                        }
-                        if(randompaso == 2)
-                        {
-                            pasos2.Play();
-                        }
-                        temppaso = 0;
-                        pasotiempo = UnityEngine.Random.Range(0.4f,0.6f);
-                    }
-                    if(temppaso < 15)
-                    {temppaso += 1 * Time.deltaTime;}
-                }
-                anim.SetFloat("vely",movYc);
-
-
-                if(objetivotarget == null)
-				{
-					if(camXc != 0)
-					{rotationinput.x = camXc * rotspeed * Time.deltaTime;}
-					else{rotationinput.x = 0;}
-				}
-
-				if(camYc != 0)
-				{rotationinput.y = camYc * rotspeed * Time.deltaTime;}
-				else{rotationinput.y = 0;}
-				
-
-					Vector3 horcam = Vector3.up * rotationinput.x;
-					Vector3 vercam = new Vector3(0,0,0);
-
-					
-					vercam = Vector3.right * -rotationinput.y;
-
-				
-					camara.transform.localEulerAngles += vercam;
-					transform.localEulerAngles += horcam;
-
-				Quaternion xRotationx = Quaternion.Euler(camara.transform.localEulerAngles.x,0,0);
-				float angle_f = Quaternion.Angle(Quaternion.identity, xRotationx);
-				float fixedAngle_f = angle_f;
-				if (xRotationx.eulerAngles.x>180)
-				{
-					fixedAngle_f *= -1;
-				}
-				float clampedX = Mathf.Clamp(fixedAngle_f, -20, 30);
-				camara.transform.localRotation = Quaternion.Euler(clampedX, camara.transform.localEulerAngles.y, camara.transform.localEulerAngles.z);
-				
-				camaux = camara.transform.eulerAngles.y;
-
-
-				
-
-					
-
-				
-
-			
-				
-                
-				if(objetivotarget == null)
-				{
-				
-						camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,0,camara.transform.localEulerAngles.z),10f* Time.deltaTime);		
-				
-				}
-				if(objetivotarget != null)
-				{
-					Vector3 directiontt = objetivotarget.transform.position - transform.position;
-					Quaternion rotation = Quaternion.LookRotation(directiontt);
-               		transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),30f * Time.deltaTime);
-					camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.y,camara.transform.localEulerAngles.z),30f* Time.deltaTime);
-				}
-
-
-                
-				
-                
-            }
-			else if(controlact == false)
-			{
-				camarascript.maxdis = 30;
-
-				
-				if(objetivotarget == null)
-				{
-				if(camXc != 0)
-				{rotationinput.x = camXc * rotspeed * Time.deltaTime;}
-				else{rotationinput.x = 0;}
-				}
-
-				if(camYc != 0)
-				{rotationinput.y = camYc * rotspeed * Time.deltaTime;}
-				else{rotationinput.y = 0;}
-				
-
-					Vector3 horcam = Vector3.up * rotationinput.x;
-					Vector3 vercam = new Vector3(0,0,0);
-
-					
-					vercam = Vector3.right * -rotationinput.y;
-
-				
-					camara.transform.localEulerAngles += vercam + horcam;
-
-				Quaternion xRotationx = Quaternion.Euler(camara.transform.localEulerAngles.x,0,0);
-				float angle_f = Quaternion.Angle(Quaternion.identity, xRotationx);
-				float fixedAngle_f = angle_f;
-				if (xRotationx.eulerAngles.x>180)
-				{
-					fixedAngle_f *= -1;
-				}
-				float clampedX = Mathf.Clamp(fixedAngle_f, -20, 30);
-				camara.transform.localRotation = Quaternion.Euler(clampedX, camara.transform.localEulerAngles.y, camara.transform.localEulerAngles.z);
-				
-
-				if(objetivotarget != null)
-				{
-					Vector3 directiontt = objetivotarget.transform.position - transform.position;
-					Quaternion rotation = Quaternion.LookRotation(directiontt);
-					transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotation.eulerAngles.y,transform.rotation.eulerAngles.z),30f * Time.deltaTime);
-					camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.y,camara.transform.localEulerAngles.z),30f* Time.deltaTime);	
-				}
-
-
-				camaux = camara.transform.eulerAngles.y;
-				if(objetivotarget == null)
-				{
-
-					if (movXc != 0f && camXc != 0f|| movYc != 0 && camXc != 0f || movXc != 0f || movYc != 0)
-					{
-						transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.Euler(transform.eulerAngles.x,camaux,transform.eulerAngles.z),30f* Time.deltaTime);
-						camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.y,camara.transform.localEulerAngles.z),30f* Time.deltaTime);	
-					}
+						
 						
 
+						if(suelo == true && movYc < 0f || suelo == true && movYc > 0f || suelo == true && movXc < 0f|| suelo == true && movXc > 0f)
+						{
+							if(temppaso > pasotiempo)
+							{
+								randompaso = UnityEngine.Random.Range(1,3);
+								if(randompaso == 1)
+								{
+									pasos1.Play();
+								}
+								if(randompaso == 2)
+								{
+									pasos2.Play();
+								}
+								temppaso = 0;
+								pasotiempo = UnityEngine.Random.Range(0.4f,0.6f);
+							}
+							if(temppaso < 15)
+							{temppaso += 1 * Time.deltaTime;}
+						}
+
+
+
+
+					
+
+					
+
+						
 
 				}
+					
+				
+
+
+				
+
 			}
 		}
-		if(skate == true)
+		else if(skate == true)
 		{
 
 			if(viento == true)
@@ -3603,22 +3419,18 @@ public class jugador_charaCen_al2 : jugador_al2
 
 
 
-			if(movXc != 0  && grind == false || movYc != 0 && grind == false)
+			if(movXc != 0 && grind == false || movYc != 0 && grind == false)
 			{
 
 				movskate = true;
 				
 				// Rotar el modelo en la dirección del movimiento
-				angulomod = Mathf.Atan2(movXc, movYc) * Mathf.Rad2Deg;
+				angulomod3 = Mathf.Atan2(movXc, movYc) * Mathf.Rad2Deg;
 				mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation, 
-															Quaternion.Euler(mod.transform.localEulerAngles.x, angulomod, mod.transform.localEulerAngles.z),
+															Quaternion.Euler(mod.transform.localEulerAngles.x, angulomod3, mod.transform.localEulerAngles.z),
 															10f * Time.deltaTime);
 				
-				// Rotar el personaje para que mire en la dirección de la cámara
-				float camaraYRotation = camara.transform.eulerAngles.y;
-				transform.rotation = Quaternion.Slerp(transform.rotation, 
-													Quaternion.Euler(0, camaraYRotation, 0),
-													1 * Time.deltaTime);
+
 			}
 			else
 			{
@@ -3650,48 +3462,15 @@ public class jugador_charaCen_al2 : jugador_al2
 				anim.SetBool("stat",true);
 			}
 
-			if(objetivotarget == null)
-			{
-			if(camXc != 0)
-			{rotationinput.x = camXc * rotspeed * Time.deltaTime;}
-			else{rotationinput.x = 0;}
-			}
-
-			if(camYc != 0)
-			{rotationinput.y = camYc * rotspeed * Time.deltaTime;}
-			else{rotationinput.y = 0;}
-			Debug.Log("camara");
-			
-
-				Vector3 horcam = Vector3.up * rotationinput.x;
-				Vector3 vercam = new Vector3(0,0,0);
-
-				
-				vercam = Vector3.right * -rotationinput.y;
-
-			
-				camara.transform.localEulerAngles += vercam + horcam;
-
-			Quaternion xRotationx = Quaternion.Euler(camara.transform.localEulerAngles.x,0,0);
-			float angle_f = Quaternion.Angle(Quaternion.identity, xRotationx);
-			float fixedAngle_f = angle_f;
-			if (xRotationx.eulerAngles.x>180)
-			{
-				fixedAngle_f *= -1;
-			}
-			float clampedX = Mathf.Clamp(fixedAngle_f, -20, 50);
-			camara.transform.localRotation = Quaternion.Euler(clampedX, camara.transform.localEulerAngles.y, camara.transform.localEulerAngles.z);
 						
 
 
-			camaux = camara.transform.eulerAngles.y;
 			if(objetivotarget == null)
 			{
 
 				if (movXc != 0f && camXc != 0f && grind == false|| movYc != 0 && camXc != 0f && grind == false|| movXc != 0f && grind == false || movYc != 0 && grind == false)
 				{
-					transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.Euler(transform.eulerAngles.x,camaux,transform.eulerAngles.z),30f* Time.deltaTime);
-					camara.transform.localRotation = Quaternion.Slerp(camara.transform.localRotation,Quaternion.Euler(camara.transform.localEulerAngles.x,giro.transform.localEulerAngles.y,camara.transform.localEulerAngles.z),30f* Time.deltaTime);	
+
 				}
 					
 
@@ -3821,7 +3600,7 @@ public class jugador_charaCen_al2 : jugador_al2
 						anim.SetBool("dashtierra",true);
 						dashairson.loop = true;
 						dashairson.Play();
-						mod.transform.rotation = Quaternion.Lerp(mod.transform.rotation,Quaternion.Euler(mod.transform.eulerAngles.x,camara.transform.eulerAngles.y,mod.transform.eulerAngles.z),10* Time.deltaTime);
+						mod.transform.rotation = Quaternion.Lerp(mod.transform.rotation,Quaternion.Euler(mod.transform.eulerAngles.x,mod.transform.eulerAngles.y,mod.transform.eulerAngles.z),10* Time.deltaTime);
 						if(manager.datosserial.nivelarmasjug[0] < 5)
 						{
 							if(manager.datosserial.licenciaarmas[0] >= manager.datosserial.nivelarmasjug[0] )
@@ -4415,15 +4194,14 @@ public class jugador_charaCen_al2 : jugador_al2
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 
-					rbb.AddForce(mod.transform.forward * 110 * 4);
 					if(objetivotarget != null)
 					{
 						Vector3 dirTarget = (objetivotarget.transform.position - mod.transform.position).normalized;
-						rbb.AddForce(dirTarget * 110 * 4);
+						rbb.AddForce(dirTarget * 70 * 4);
 					}
 					else
 					{
-						rbb.AddForce(mod.transform.forward * 110 * 4);
+						rbb.AddForce(mod.transform.forward * 70 * 4);
 					}
 
 					BalaTemporal.GetComponent<romperbalajug_al2>().destb = 15f;
@@ -4470,7 +4248,7 @@ public class jugador_charaCen_al2 : jugador_al2
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 
-					rbb.AddForce(new Vector3(0,mod.transform.up.y,mod.transform.forward.z) * 110 * (5 + (BalaTemporal.GetComponent<baladef_al2>().escala/ 2)));
+					rbb.AddForce((mod.transform.up + mod.transform.forward) * 110 * (5 + (BalaTemporal.GetComponent<baladef_al2>().escala/ 2)));
 					
 
 
@@ -4984,12 +4762,6 @@ public class jugador_charaCen_al2 : jugador_al2
 							anim.Play("escalar");
 							_rb.linearVelocity = new Vector3(_rb.linearVelocity.x,7,_rb.linearVelocity.z);
 							Vector3 directionesc = pared.transform.position - transform.position;
-							Quaternion rotationesc = Quaternion.LookRotation(directionesc);
-							transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotationesc.eulerAngles.y,transform.rotation.eulerAngles.z),30f * Time.deltaTime);
-
-							mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation, 
-							Quaternion.Euler(mod.transform.localEulerAngles.x, 0, mod.transform.localEulerAngles.z),
-							10 * Time.deltaTime);
 						}
 						else
 						{
@@ -5064,8 +4836,8 @@ public class jugador_charaCen_al2 : jugador_al2
 			
 			
 				
-				if(dashc > 0 && tempdash > dash && suelo == false && tiempodisp2 > 0.95f && tempaerodash > 2.5f && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f && movdire != new Vector3(0,0,0)
-				|| dashc > 0 && tempdash > dash && suelo == false && tiempodisp2 > 0.95f && tempaerodash > 2.5f && anim.GetCurrentAnimatorStateInfo(1).IsName("escudogiratorio") && stamina > 0 && temppause > 0.4f && movdire != new Vector3(0,0,0))
+				if(dashc > 0 && tempdash > dash && suelo == false && tiempodisp2 > 0.95f && tempaerodash > 2.5f && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f && movdire != new Vector3(0,0,0) && skate == false
+				|| dashc > 0 && tempdash > dash && suelo == false && tiempodisp2 > 0.95f && tempaerodash > 2.5f && anim.GetCurrentAnimatorStateInfo(1).IsName("escudogiratorio") && stamina > 0 && temppause > 0.4f && movdire != new Vector3(0,0,0) && skate == false)
 				{
 					Debug.Log(tempdash);
 					Debug.Log(dash);
@@ -5092,8 +4864,8 @@ public class jugador_charaCen_al2 : jugador_al2
 					tempaerodash = 0;
 					toquespalo = 999;
 				}
-				else if(dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0)
-				|| dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("escudogiratorio") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
+				else if(dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0) && skate == false
+				|| dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("escudogiratorio") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0) && skate == false)
 				{
 					Debug.Log(tempdash);
 					Debug.Log(dash);
@@ -5117,7 +4889,7 @@ public class jugador_charaCen_al2 : jugador_al2
 					paloSC.dano = 0.1f * danoextra * nivelfuerza;
 					toquespalo = 999;
 				}
-				else if(dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.05f  && anim.GetCurrentAnimatorStateInfo(1).IsName("arma3") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
+				else if(dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.05f  && anim.GetCurrentAnimatorStateInfo(1).IsName("arma3") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0) && skate == false)
 				{
 					anim.SetBool("arma3",false);
 					anim.SetBool("saltoatras",false);
@@ -5683,7 +5455,7 @@ public class jugador_charaCen_al2 : jugador_al2
 
 			
 		}
-		if (col.gameObject.tag == "control" && manager.datosserial.artilugiosjug[7] == true && manager.datosserial.armasel == 108 && manager.personaje != 2)
+		if (col.gameObject.tag == "control" && manager.datosserial.artilugiosjug[7] == true && manager.datosserial.armasel == 108 )
 		{
 			comando.text = "poser un aflamo";
 			menushow.SetBool("show",true);
@@ -5834,7 +5606,7 @@ public class jugador_charaCen_al2 : jugador_al2
         {
             menushow.SetBool("show",false);
         }
-		if (col.gameObject.tag == "control" && manager.personaje != 2)
+		if (col.gameObject.tag == "control")
 		{
 			menushow.SetBool("show",false);
 			control = false;
@@ -5845,7 +5617,7 @@ public class jugador_charaCen_al2 : jugador_al2
 		if (col.gameObject.tag == "control" && manager.personaje != 2)
 		{
 
-			if(manager.datosserial.artilugiosjug[7] == true && manager.datosserial.armasel == 108 && control == false)
+			if(manager.datosserial.artilugiosjug[7] == true && manager.datosserial.armasel == 108 )
 			{
 				comando.text = "poser un aflamo";
 				menushow.SetBool("show",true);
@@ -5855,6 +5627,7 @@ public class jugador_charaCen_al2 : jugador_al2
 			{
 				_rb.linearVelocity = Vector3.zero;
 				jugador2.tiempodisp = 0;
+				jugador2.tiemposalto = -0.2f;
 				tiempodisp = 0;
 				manager.personaje = 2;
 
@@ -5864,6 +5637,12 @@ public class jugador_charaCen_al2 : jugador_al2
 				menushow.SetBool("show",false);
 				control = false;
 			}
+			comando.text = "poser un aflamo";
+		}
+		else if (col.gameObject.tag == "control" && manager.personaje == 2)
+		{
+			comando.text = "desposer un aflamo";
+			menushow.SetBool("show",true);
 		}
 		if (col.gameObject.tag == "viento")
 		{

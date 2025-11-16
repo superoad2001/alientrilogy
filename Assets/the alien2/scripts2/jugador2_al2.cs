@@ -296,7 +296,7 @@ public class jugador2_al2 : MonoBehaviour
 	}
         if(manager.personaje == 2)
         {
-        if (saltarc > 0f && saltop == true && tiemposalto > 1.4f)
+        if (saltarc > 0f && saltop == true && tiemposalto > 0f)
         {
                 this._rb.AddForce(800 * Vector3.up);
                 saltop = false;
@@ -318,7 +318,7 @@ public class jugador2_al2 : MonoBehaviour
             manager.personaje = 1;
 		    
         }
-        if(controlact == true && jugador.modo == "3D")
+        if(controlact == true)
         {
 
 					
@@ -439,25 +439,6 @@ public class jugador2_al2 : MonoBehaviour
 
 				
 
-		}
-		
-        if(controlact == true && jugador.modo == "Cenital")
-        {
-           
-        }
-
-        if (controlact == true && jugador.modo == "2D" && this.dimensiion)
-		{
-            
-		
-			
-			
-			
-			
-		}
-		if (controlact == true && jugador.modo == "2D" && !this.dimensiion)
-		{
-            
 		}
     
         }

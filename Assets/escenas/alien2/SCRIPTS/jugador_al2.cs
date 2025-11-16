@@ -173,6 +173,8 @@ public abstract class jugador_al2 : MonoBehaviour
 	public AudioSource tiendaMus;
 	public bool desactivarmusicacombate;
 	public bool skate;
+	[HideInInspector]public Vector3 moveDirSK;
+	[HideInInspector]public float angulomod3;
 
 	public tienda_al2 tienda;
 	public GameObject tiendag;

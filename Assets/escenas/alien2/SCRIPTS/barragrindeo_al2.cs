@@ -37,7 +37,7 @@ public class barragrindeo_al2 : MonoBehaviour
     {
         if(col.gameObject.tag == "Player")
         {
-            if(player.controles.al2_3d.lateral.ReadValue<float>() > 0 && player.skate == true)
+            if(player.controles.al2_3d.lateral.ReadValue<float>() > 0 && player.skate == true && player.modo == "3D")
             {
                 player.anim.SetBool("salto",false);
                 if(act == false)
@@ -79,6 +79,96 @@ public class barragrindeo_al2 : MonoBehaviour
                 player.grind = true;
                 player.movskate = false;
             }
+            else if(player.controles.al2_3d.lateral.ReadValue<float>() > 0 && player.skate == true && player.modo == "2D")
+            {
+                player.anim.SetBool("salto",false);
+                if(act == false)
+                {
+                    if(player.mod.transform.localEulerAngles.y >= 1 && player.mod.transform.localEulerAngles.y <= 180)
+                    {
+                        dest = dest2;
+                    }
+                    else
+                    {
+                        dest = dest1;
+                    }
+                    act = true;
+                }
+                
+
+                player.mod.transform.rotation = Quaternion.Slerp(player.mod.transform.rotation, 
+                Quaternion.Euler(0, dest.transform.eulerAngles.y, 0),
+                10 * Time.deltaTime);
+
+                if(player._rb.linearVelocity.y < 0)
+                {
+                    player._rb.linearVelocity = Vector3.zero;
+                }
+                else
+                {
+                    player._rb.linearVelocity = new Vector3(0, player._rb.linearVelocity.y, 0);
+                }
+                
+                player.transform.position = Vector3.MoveTowards(player.transform.position,new Vector3(dest.transform.position.x,transform.position.y+4f,dest.transform.position.z),28 * Time.deltaTime);
+                
+
+                
+                
+			    
+                player.grind = true;
+                player.movskate = false;
+            }
+            else if(player.controles.al2_3d.lateral.ReadValue<float>() > 0 && player.skate == true && player.modo == "cenital")
+            {
+                player.anim.SetBool("salto",false);
+                if(act == false && transform.eulerAngles.y == 90)
+                {
+                    if(player.mod.transform.localEulerAngles.y >= 1 && player.mod.transform.localEulerAngles.y <= 180)
+                    {
+                        dest = dest2;
+                    }
+                    else
+                    {
+                        dest = dest1;
+                    }
+                    act = true;
+                }
+                if(act == false && transform.eulerAngles.y == 0)
+                {
+                    if(player.mod.transform.localEulerAngles.y >= 1 && player.mod.transform.localEulerAngles.y <= 90 || player.mod.transform.localEulerAngles.y >= 271 && player.mod.transform.localEulerAngles.y <= 360)   
+                    {
+                        dest = dest2;
+                    }
+                    else
+                    {
+                        dest = dest1;
+                    }
+                    act = true;
+                }
+                
+
+                player.mod.transform.rotation = Quaternion.Slerp(player.mod.transform.rotation, 
+                Quaternion.Euler(0,dest.transform.eulerAngles.y, 0),
+                10 * Time.deltaTime);
+
+                if(player._rb.linearVelocity.y < 0)
+                {
+                    player._rb.linearVelocity = Vector3.zero;
+                }
+                else
+                {
+                    player._rb.linearVelocity = new Vector3(0, player._rb.linearVelocity.y, 0);
+                }
+                
+                player.transform.position = Vector3.MoveTowards(player.transform.position,new Vector3(dest.transform.position.x,transform.position.y+4f,dest.transform.position.z),28 * Time.deltaTime);
+                
+
+                
+                
+			    
+                player.grind = true;
+                player.movskate = false;
+            }
             else
             {
                 player.grind = false;
@@ -86,7 +176,12 @@ public class barragrindeo_al2 : MonoBehaviour
                 player.anim.SetBool("salto",true);
             }
                
+        
+               
+        
+               
         }
+        
         
     }
 }

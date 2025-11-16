@@ -194,7 +194,6 @@ public class jugador_chara2d_al2 : jugador_al2
     private bool firedg;
 	private float teh2g; 
     private bool pehg;
-	private Vector3 moveDirSK;
 	public GameObject skatevis;
 	private Camera camaracom;
 	public prefabbala_al2 armasbalas;
@@ -3446,7 +3445,7 @@ public class jugador_chara2d_al2 : jugador_al2
 				
 				
 			}
-			if (!this.dimensiion  && controlact == true)
+			else if (!this.dimensiion  && controlact == true)
 			{
 				if(skate == false)
 				{
@@ -3677,6 +3676,44 @@ public class jugador_chara2d_al2 : jugador_al2
 				}
 					
 					
+			}
+			else if(controlact == false)
+			{
+
+				
+				if(camYc != 0)
+				{rotationinput.y = camYc * rotspeed * Time.deltaTime;}
+				else{rotationinput.y = 0;}
+				
+				rotationinput = rotationinput.normalized;
+				rotationinput = Vector3.ClampMagnitude(rotationinput, 1f);
+	
+
+
+				Vector3 vercam = new Vector3(0,0,0);
+				
+
+				vercam = Vector3.right * -rotationinput.y;
+				
+				
+
+				
+				boxcam2.transform.localEulerAngles += vercam;
+
+				Quaternion xRotationx = Quaternion.Euler(boxcam2.transform.localEulerAngles.x,0,0);
+				float angle_f = Quaternion.Angle(Quaternion.identity, xRotationx);
+				float fixedAngle_f = angle_f;
+				if (xRotationx.eulerAngles.x>180)
+				{
+					fixedAngle_f *= -1;
+				}
+				float clampedX = Mathf.Clamp(fixedAngle_f, -10, 30);
+				boxcam2.transform.localRotation = Quaternion.Euler(clampedX, boxcam2.transform.localEulerAngles.y, boxcam2.transform.localEulerAngles.z);
+
+				camaux = boxcam2.transform.eulerAngles.y;
+				
+
+
 			}
 
 			if(marcarc > 0 && temp10 > 0.2f)
@@ -5215,7 +5252,6 @@ public class jugador_chara2d_al2 : jugador_al2
 							_rb.linearVelocity = new Vector3(_rb.linearVelocity.x,7,_rb.linearVelocity.z);
 							Vector3 directionesc = pared.transform.position - transform.position;
 							Quaternion rotationesc = Quaternion.LookRotation(directionesc);
-							transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(transform.rotation.eulerAngles.x,rotationesc.eulerAngles.y,transform.rotation.eulerAngles.z),30f * Time.deltaTime);
 
 							mod.transform.localRotation = Quaternion.Lerp(mod.transform.localRotation, 
 							Quaternion.Euler(mod.transform.localEulerAngles.x, 0, mod.transform.localEulerAngles.z),
@@ -5294,8 +5330,8 @@ public class jugador_chara2d_al2 : jugador_al2
 			
 			
 				
-				if(dashc > 0 && tempdash > dash && suelo == false && tiempodisp2 > 0.95f && tempaerodash > 2.5f && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f && movdire != new Vector3(0,0,0)
-				|| dashc > 0 && tempdash > dash && suelo == false && tiempodisp2 > 0.95f && tempaerodash > 2.5f && anim.GetCurrentAnimatorStateInfo(1).IsName("escudogiratorio") && stamina > 0 && temppause > 0.4f && movdire != new Vector3(0,0,0))
+				if(dashc > 0 && tempdash > dash && suelo == false && tiempodisp2 > 0.95f && tempaerodash > 2.5f && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f && movdire != new Vector3(0,0,0) && skate == false
+				|| dashc > 0 && tempdash > dash && suelo == false && tiempodisp2 > 0.95f && tempaerodash > 2.5f && anim.GetCurrentAnimatorStateInfo(1).IsName("escudogiratorio") && stamina > 0 && temppause > 0.4f && movdire != new Vector3(0,0,0) && skate == false)
 				{
 					Debug.Log(tempdash);
 					Debug.Log(dash);
@@ -5322,8 +5358,8 @@ public class jugador_chara2d_al2 : jugador_al2
 					tempaerodash = 0;
 					toquespalo = 999;
 				}
-				else if(dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0)
-				|| dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("escudogiratorio") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
+				else if(dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("staticar") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0) && skate == false
+				|| dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.7f  && anim.GetCurrentAnimatorStateInfo(1).IsName("escudogiratorio") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0) && skate == false)
 				{
 					Debug.Log(tempdash);
 					Debug.Log(dash);
@@ -5347,7 +5383,7 @@ public class jugador_chara2d_al2 : jugador_al2
 					paloSC.dano = 0.1f * danoextra * nivelfuerza;
 					toquespalo = 999;
 				}
-				else if(dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.05f  && anim.GetCurrentAnimatorStateInfo(1).IsName("arma3") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0))
+				else if(dashc > 0 && tempdash2 > dash2 && suelo == true && tiempodisp2 > 0.05f  && anim.GetCurrentAnimatorStateInfo(1).IsName("arma3") && stamina > 0 && temppause > 0.4f  && movdire != new Vector3(0,0,0) && skate == false)
 				{
 					anim.SetBool("arma3",false);
 					anim.SetBool("saltoatras",false);
@@ -5947,7 +5983,7 @@ public class jugador_chara2d_al2 : jugador_al2
 
 			
 		}
-		if (col.gameObject.tag == "control" && manager.datosserial.artilugiosjug[7] == true && manager.datosserial.armasel == 108 && manager.personaje != 2)
+		if (col.gameObject.tag == "control" && manager.datosserial.artilugiosjug[7] == true && manager.datosserial.armasel == 108 )
 		{
 			comando.text = "poser un aflamo";
 			menushow.SetBool("show",true);
@@ -6098,7 +6134,7 @@ public class jugador_chara2d_al2 : jugador_al2
         {
             menushow.SetBool("show",false);
         }
-		if (col.gameObject.tag == "control" && manager.personaje != 2)
+		if (col.gameObject.tag == "control")
 		{
 			menushow.SetBool("show",false);
 			control = false;
@@ -6125,6 +6161,7 @@ public class jugador_chara2d_al2 : jugador_al2
 			{
 				_rb.linearVelocity = Vector3.zero;
 				jugador2.tiempodisp = 0;
+				jugador2.tiemposalto = -0.2f;
 				tiempodisp = 0;
 				manager.personaje = 2;
 
@@ -6134,7 +6171,14 @@ public class jugador_chara2d_al2 : jugador_al2
 				menushow.SetBool("show",false);
 				control = false;
 			}
+			comando.text = "poser un aflamo";
 		}
+		else if (col.gameObject.tag == "control" && manager.personaje == 2)
+		{
+			menushow.SetBool("show",true);
+			comando.text = "desposer un aflamo";
+		}
+
 		if (col.gameObject.tag == "viento")
 		{
 			anim.SetBool("salto",false);
