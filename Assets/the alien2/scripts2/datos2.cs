@@ -27,6 +27,7 @@ public class datos2
 	public float[] armajugdano = new float[12]{1,1,1,1,1,1,1,1,1,1,1,1};
 	public float[] armajugvel = new float[12]{1,7,1,1,1 ,1,13,5,15,1, 1,10};
 	public float[] armajugsignv = new float[12]{999,999,999,999,999,999,999,999,999,999,999,999};
+	public float[] armanavedano = new float[12]{1,1,1,1,1,1,1,1,1,1,1,1};
 
 	public bool datos_llenos;
 	public bool begin;

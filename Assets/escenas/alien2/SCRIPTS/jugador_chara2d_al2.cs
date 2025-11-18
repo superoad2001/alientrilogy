@@ -957,7 +957,7 @@ public class jugador_chara2d_al2 : jugador_al2
 			menu2c = controles.al2_2d.menu2.ReadValue<float>();	
 
 
-			if (controles.al2_3d.ruletapress.ReadValue<float>() > 0) { teh += Time.deltaTime; if (!fired && teh >= 0.5f) { ruletapressc = 1;fired = true;} }
+			if (controles.al2_2d.ruletapress.ReadValue<float>() > 0) { teh += Time.deltaTime; if (!fired && teh >= 0.5f) { ruletapressc = 1;fired = true;} }
 			else { teh = 0; ruletapressc = 0;fired = false; }
 
 			bool beh = controles.al2_2d.ruleta.ReadValue<float>() > 0;
@@ -6157,7 +6157,7 @@ public class jugador_chara2d_al2 : jugador_al2
 				menushow.SetBool("show",true);
 				control = true;
 			}
-			else if(controles.al2_3d.interactuar.ReadValue<float>() > 0f && control == true && tiempodisp > 0.5f && manager.datosserial.artilugiosjug[7] == true && manager.datosserial.armasel == 108)
+			else if(controles.al2_2d.interactuar.ReadValue<float>() > 0f && control == true && tiempodisp > 0.5f && manager.datosserial.artilugiosjug[7] == true && manager.datosserial.armasel == 108)
 			{
 				_rb.linearVelocity = Vector3.zero;
 				jugador2.tiempodisp = 0;

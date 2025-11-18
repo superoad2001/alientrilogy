@@ -887,14 +887,14 @@ public class jugador_charaCen_al2 : jugador_al2
 		{
 
 			
-				ruletaXc = controles.al2_3d.ruletaPAD.ReadValue<Vector2>().x;
-				ruletaYc = controles.al2_3d.ruletaPAD.ReadValue<Vector2>().y;
+				ruletaXc = controles.al2_cen.ruletaPAD.ReadValue<Vector2>().x;
+				ruletaYc = controles.al2_cen.ruletaPAD.ReadValue<Vector2>().y;
 
 
 
 				
-				camXc = controles.al2_3d.camX.ReadValue<float>();
-				camYc = controles.al2_3d.camY.ReadValue<float>();
+				camXc = controles.al2_cen.camX.ReadValue<float>();
+				camYc = controles.al2_cen.camY.ReadValue<float>();
 				
 
 
@@ -903,9 +903,9 @@ public class jugador_charaCen_al2 : jugador_al2
 
 				if(movact == 0)
 				{
-					movXc = controles.al2_3d.mov.ReadValue<Vector2>().x;
-					movYc = controles.al2_3d.mov.ReadValue<Vector2>().y;
-					saltarc = controles.al2_3d.saltar.ReadValue<float>();
+					movXc = controles.al2_cen.mov.ReadValue<Vector2>().x;
+					movYc = controles.al2_cen.mov.ReadValue<Vector2>().y;
+					saltarc = controles.al2_cen.saltar.ReadValue<float>();
 				}
 				else
 				{
@@ -916,24 +916,24 @@ public class jugador_charaCen_al2 : jugador_al2
 
 			
 
-			lateralc = controles.al2_3d.lateral.ReadValue<float>();
+			lateralc = controles.al2_cen.apuntar.ReadValue<float>();
 			UIXc = controles.al2_UI.UIX.ReadValue<float>();
 			UIYc = controles.al2_UI.UIY.ReadValue<float>();	
-			dispararc = controles.al2_3d.disparar.ReadValue<float>();	
-			dashc = controles.al2_3d.dash.ReadValue<float>();
-			interactuarc = controles.al2_3d.interactuar.ReadValue<float>();		
+			dispararc = controles.al2_cen.disparar.ReadValue<float>();	
+			dashc = controles.al2_cen.dash.ReadValue<float>();
+			interactuarc = controles.al2_cen.interactuar.ReadValue<float>();		
 			
 			
-			UIreducidoc = controles.al2_3d.UIreducido.ReadValue<float>();
-			marcarc = controles.al2_3d.marcar.ReadValue<float>();
-			correrc = controles.al2_3d.correr.ReadValue<float>();
-			menu1c = controles.al2_3d.menu1.ReadValue<float>();
-			menu2c = controles.al2_3d.menu2.ReadValue<float>();
+			UIreducidoc = controles.al2_cen.UIreducido.ReadValue<float>();
+			marcarc = controles.al2_cen.marcar.ReadValue<float>();
+			correrc = controles.al2_cen.correr.ReadValue<float>();
+			menu1c = controles.al2_cen.menu1.ReadValue<float>();
+			menu2c = controles.al2_cen.menu2.ReadValue<float>();
 
-			if (controles.al2_3d.ruletapress.ReadValue<float>() > 0) { teh += Time.deltaTime; if (!fired && teh >= 0.5f) { ruletapressc = 1;fired = true;} }
+			if (controles.al2_cen.ruletapress.ReadValue<float>() > 0) { teh += Time.deltaTime; if (!fired && teh >= 0.5f) { ruletapressc = 1;fired = true;} }
 			else { teh = 0; ruletapressc = 0;fired = false; }
 
-			bool beh = controles.al2_3d.ruleta.ReadValue<float>() > 0;
+			bool beh = controles.al2_cen.ruleta.ReadValue<float>() > 0;
 
 			if (beh && !peh) { peh = true; teh2 = 0; }       // empezamos a contar
 			if (beh && peh) teh2 += Time.deltaTime;        // acumulamos tiempo
@@ -943,10 +943,10 @@ public class jugador_charaCen_al2 : jugador_al2
 				peh = false;
 			}
 
-			if (controles.al2_3d.golpearM.ReadValue<float>() > 0) { tehg += Time.deltaTime; if (!firedg && tehg >= 0.5f) { golpearMc = 1;firedg = true;} }
+			if (controles.al2_cen.golpearM.ReadValue<float>() > 0) { tehg += Time.deltaTime; if (!firedg && tehg >= 0.5f) { golpearMc = 1;firedg = true;} }
 			else { tehg = 0; golpearMc = 0;firedg = false; }
 
-			bool behg = controles.al2_3d.golpear.ReadValue<float>() > 0;
+			bool behg = controles.al2_cen.golpear.ReadValue<float>() > 0;
 
 			if (behg && !pehg) { pehg = true; teh2g = 0; }       // empezamos a contar
 			if (behg && pehg) teh2g += Time.deltaTime;        // acumulamos tiempo
@@ -1005,10 +1005,10 @@ public class jugador_charaCen_al2 : jugador_al2
 		else
 		{
 			
-			camXc = controles.al2_3d.camX.ReadValue<float>();
-			camYc = controles.al2_3d.camY.ReadValue<float>();
-			marcarc = controles.al2_3d.marcar.ReadValue<float>();
-			dispararc = controles.al2_3d.disparar.ReadValue<float>();
+			camXc = controles.al2_cen.camX.ReadValue<float>();
+			camYc = controles.al2_cen.camY.ReadValue<float>();
+			marcarc = controles.al2_cen.marcar.ReadValue<float>();
+			dispararc = controles.al2_cen.disparar.ReadValue<float>();
 			
 			movXc = 0;
 			movYc = 0;
@@ -5623,7 +5623,7 @@ public class jugador_charaCen_al2 : jugador_al2
 				menushow.SetBool("show",true);
 				control = true;
 			}
-			else if(controles.al2_3d.interactuar.ReadValue<float>() > 0f && control == true && tiempodisp > 0.5f && manager.datosserial.artilugiosjug[7] == true && manager.datosserial.armasel == 108)
+			else if(controles.al2_cen.interactuar.ReadValue<float>() > 0f && control == true && tiempodisp > 0.5f && manager.datosserial.artilugiosjug[7] == true && manager.datosserial.armasel == 108)
 			{
 				_rb.linearVelocity = Vector3.zero;
 				jugador2.tiempodisp = 0;

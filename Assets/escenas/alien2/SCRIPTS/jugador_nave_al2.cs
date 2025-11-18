@@ -15,6 +15,15 @@ public class jugador_nave_al2 : jugador_al2
 
     [Header("Propio nave")]
 
+	private float ruletac;
+	private int ruletainterior;
+	public Text comandoarma;
+	public Image[] backarmaimg = new Image[4];
+	public Image[] armaimg = new Image[4];
+	public Image[] circuloarmaimg = new Image[4];
+	public Sprite[] armasspriterueda = new Sprite[12];
+	public Sprite[] armasspriteequipada = new Sprite[12];
+
     public AudioSource munson;
     public eventosdialogue_al1 eventosdialogueE;
 	public AudioSource critico;
@@ -31,7 +40,7 @@ public class jugador_nave_al2 : jugador_al2
 	private float temp9;
 	public GameObject tarboss;
 	private float vidaescudoUI1;
-	public int armanavesel = 1;
+	public int armasel = 1;
 	public prefabbala_al2 armasbalas;
 	public float vidaobj;
 	private float tempparry = 8;
@@ -75,7 +84,6 @@ public class jugador_nave_al2 : jugador_al2
 	private bool actTarget;
 	private float temppalo = 60;
 	private float tempatk;
-	private int numpociones;
 	public bool camnomov;
 	private float tiempodialogue = 2;
 	public float balavel = 20;
@@ -157,65 +165,27 @@ public class jugador_nave_al2 : jugador_al2
 		
 
 
-
-
-
-			if(manager.datosserial.armasnave[3] == false)
-			{
-				pistolaimg.sprite = nopimg;
-				backpistolaimg.sprite = nopimg;
-				pistolaimg.color = new Color(1,1,1,1f);
-			}
-			else
-			{
-				pistolaimg.color = new Color(1,1,1,0.1f);
-			}
-
-			if(manager.datosserial.armasnave[1]  == false)
-			{
-				relentizarimg.sprite = nopimg;
-				backrelentizarimg.sprite = nopimg;
-				relentizarimg.color = new Color(1,1,1,1f);
-			}
-			else
-			{
-				relentizarimg.color = new Color(1,1,1,0.1f);
-			}
-			
-			if(manager.datosserial.armasnave[2] == false)
-			{
-				armadefimg.sprite = nopimg;
-				backarmadefimg.sprite = nopimg;
-				armadefimg.color = new Color(1,1,1,1f);
-			}
-			else
-			{
-				armadefimg.color = new Color(1,1,1,0.1f);
-			}
-
-			
-			paloimg.color = new Color(1,1,1,1f);
 			
 			
 			
 
-			iconodisp.sprite = arma1;
+
 			
 		
 
 
 		
 
-			if(manager.datosconfig.plat == 1)
-			{
-				tactil.SetActive(false);
-				Cursor.visible = false;
-				Cursor.lockState = CursorLockMode.Locked;
-			}
-			if(manager.datosconfig.plat == 2)
-			{
-				tactil.SetActive(true);
-			}
+		if(manager.datosconfig.plat == 1)
+		{
+			tactil.SetActive(false);
+			Cursor.visible = false;
+			Cursor.lockState = CursorLockMode.Locked;
+		}
+		if(manager.datosconfig.plat == 2)
+		{
+			tactil.SetActive(true);
+		}
 		
 		this._rb = base.GetComponent<Rigidbody>();
 		velocidadaux = velocidad;
@@ -228,73 +198,22 @@ public class jugador_nave_al2 : jugador_al2
 		stamina = staminamax;
 		
 		tiempovelint = 3;
+				
+		vidamaxN = vidanivelesnave[manager.datosserial.niveljugnave - 1];
+		vida = vidamaxN;
+		staminaobj = stamina;
+		vidaobj = vida;
+		vidaenebarra.SetActive(false);
+
+		ruletainterior = 0;
+		armaname.text = "RataTaPUM V2";
+		armasel = 1;
+		iconodisp.sprite = armasspriteequipada[0];
+		
+
 		
 
 
-			balaarmanave1dano[0]  = 100;
-			balaarmanave1dano[1]  = 300;
-			balaarmanave1dano[2]  = 2000;
-
-			balaarmanave2dano[0]  = 1000;
-			balaarmanave2dano[1]  = 4000;
-			balaarmanave2dano[2]  = 20000;
-
-			balaarmanave3dano[0]  = 1000;
-			balaarmanave3dano[1]  = 2000f;
-			balaarmanave3dano[2]  = 10000;
-			
-			balaarmanave4dano[0]  = 1500;
-			balaarmanave4dano[1]  = 3000;
-			balaarmanave4dano[2]  = 15000;
-
-			minabalasmax[0] = 3;
-			minabalasmax[1] = 5;
-			minabalasmax[2] = 7;
-
-			misilbalasmax[0] = 10;
-			misilbalasmax[1] = 15;
-			misilbalasmax[2] = 20;
-
-			escopetabalasmax[0] = 8;
-			escopetabalasmax[1] = 10;
-			escopetabalasmax[2] = 12;
-
-
-			
-
-			minabalas = minabalasmax[manager.datosserial.nivelarmasnave[1]  -1];
-			misilbalas = misilbalasmax[manager.datosserial.nivelarmasnave[2]  -1];
-			escopetabalas = escopetabalasmax[manager.datosserial.nivelarmasnave[3]  -1];
-
-			vidanivelesnave.Add(999);
-			vidanivelesnave.Add(1999);
-			vidanivelesnave.Add(2999);
-			vidanivelesnave.Add(3999);
-			vidanivelesnave.Add(4999);
-
-			vidanivelesnave.Add(5999);
-			vidanivelesnave.Add(6999);
-			vidanivelesnave.Add(7999);
-			vidanivelesnave.Add(8999);
-			vidanivelesnave.Add(9999);
-
-			vidanivelesnave.Add(19999);
-			vidanivelesnave.Add(29999);
-			vidanivelesnave.Add(39999);
-			vidanivelesnave.Add(49999);
-			vidanivelesnave.Add(59999);
-
-			vidanivelesnave.Add(69999);
-			vidanivelesnave.Add(79999);
-			vidanivelesnave.Add(89999);
-			vidanivelesnave.Add(99999);
-			vidanivelesnave.Add(200000);
-
-			vidamaxN = vidanivelesnave[manager.datosserial.niveljugnave - 1];
-			vida = vidamaxN;
-			staminaobj = stamina;
-			vidaobj = vida;
-			vidaenebarra.SetActive(false);
 
 		
 		
@@ -552,37 +471,37 @@ public class jugador_nave_al2 : jugador_al2
 
 			
 
-		ruletaXc = controles.al1_nave.ruletaPAD.ReadValue<Vector2>().x;
-		ruletaYc = controles.al1_nave.ruletaPAD.ReadValue<Vector2>().y;
+		ruletaXc = controles.al2_nave.ruletaPAD.ReadValue<Vector2>().x;
+		ruletaYc = controles.al2_nave.ruletaPAD.ReadValue<Vector2>().y;
 
 
-		camXc = controles.al1_nave.camX.ReadValue<float>();
-		camYc = controles.al1_nave.camY.ReadValue<float>();
+		camXc = controles.al2_nave.camX.ReadValue<float>();
+		camYc = controles.al2_nave.camY.ReadValue<float>();
 		
 
 
 		if(movact == 0)
 		{
-			movXc = controles.al1_nave.mov.ReadValue<Vector2>().x;
-			movYc = controles.al1_nave.mov.ReadValue<Vector2>().y;	
+			movXc = controles.al2_nave.mov.ReadValue<Vector2>().x;
+			movYc = controles.al2_nave.mov.ReadValue<Vector2>().y;	
 		}
 
 		
-		acelerarc = controles.al1_nave.acelerar.ReadValue<float>();
-		M_desplacamientoc = controles.al1_nave.M_desplacamiento.ReadValue<float>();
+		acelerarc = controles.al2_nave.acelerar.ReadValue<float>();
+		M_desplacamientoc = controles.al2_nave.M_desplacamiento.ReadValue<float>();
 		UIXc = controles.al1_UI.UIX.ReadValue<float>();
 		UIYc = controles.al1_UI.UIY.ReadValue<float>();	
-		turboc = controles.al1_nave.turbo.ReadValue<float>();
-		giro180c = controles.al1_nave.giro180.ReadValue<float>();
-		interactuarc = controles.al1_nave.interactuar.ReadValue<float>();		
-		dispararc = controles.al1_nave.disparar.ReadValue<float>();
-		escudoc = controles.al1_nave.escudo.ReadValue<float>();	
-		UIreducidoc = controles.al1_nave.UIreducido.ReadValue<float>();
-		marcarc = controles.al1_nave.marcar.ReadValue<float>();
-		dashc = controles.al1_nave.dash.ReadValue<float>();
+		turboc = controles.al2_nave.turbo.ReadValue<float>();
+		giro180c = controles.al2_nave.giro180.ReadValue<float>();
+		interactuarc = controles.al2_nave.interactuar.ReadValue<float>();		
+		dispararc = controles.al2_nave.disparar.ReadValue<float>();
+		escudoc = controles.al2_nave.escudo.ReadValue<float>();	
+		UIreducidoc = controles.al2_nave.UIreducido.ReadValue<float>();
+		marcarc = controles.al2_nave.marcar.ReadValue<float>();
+		dashc = controles.al2_nave.dash.ReadValue<float>();
 
-		menu1c = controles.al1_nave.menu1.ReadValue<float>();
-		menu2c = controles.al1_nave.menu2.ReadValue<float>();
+		menu1c = controles.al2_nave.menu1.ReadValue<float>();
+		menu2c = controles.al2_nave.menu2.ReadValue<float>();
 
 
 		if (menu1c > 0 && temp10 > 0.7f)
@@ -628,8 +547,8 @@ public class jugador_nave_al2 : jugador_al2
 	else
 	{
 		
-		camXc = controles.al1_nave.camX.ReadValue<float>();
-		camYc = controles.al1_nave.camY.ReadValue<float>();
+		camXc = controles.al2_nave.camX.ReadValue<float>();
+		camYc = controles.al2_nave.camY.ReadValue<float>();
 		
 	}
 	
@@ -637,7 +556,7 @@ public class jugador_nave_al2 : jugador_al2
 			
 
 
-		if(armanavesel == 1)
+		if(armasel == 1)
 		{
 			//disparo
 			balaarmat.text = "infinty";
@@ -645,7 +564,7 @@ public class jugador_nave_al2 : jugador_al2
 			
 
 		}
-		if(armanavesel == 2)
+		if(armasel == 2)
 		{
 			//mina
 			balaarmat.text = string.Concat((int)minabalas,"/",minabalasmax[manager.datosserial.nivelarmasnave[1]  -1]);
@@ -653,14 +572,14 @@ public class jugador_nave_al2 : jugador_al2
 
 
 		}
-		if(armanavesel == 3)
+		if(armasel == 3)
 		{
 			//misil
 			balaarmat.text = string.Concat((int)misilbalas,"/",misilbalasmax[manager.datosserial.nivelarmasnave[2]  -1]);
 			armanvt.text = string.Concat("nv",manager.datosserial.nivelarmasnave[2] );
 			
 		}
-		if(armanavesel == 4)
+		if(armasel == 4)
 		{
 			//escopeta
 			balaarmat.text = string.Concat((int)escopetabalas,"/",escopetabalasmax[manager.datosserial.nivelarmasnave[3]  -1]);
@@ -706,128 +625,532 @@ public class jugador_nave_al2 : jugador_al2
 		{
 			pistolaimg.sprite  = nopimg;
 		}
-
-		if(ruletaYc > 0.5f)
-		{
-			if(tiempodisp > 0.2f)
-			{
-				armaname.text = "RataTaPUM V2";
-				paloimg.color = new Color(1,1,1,1f);
-				pistolaimg.color = new Color(1,1,1,0.1f);
-				relentizarimg.color = new Color(1,1,1,0.1f);
-				armadefimg.color = new Color(1,1,1,0.1f);
-
-				balaprefabpapa = armasbalas.disparoBalanave[manager.datosserial.nivelarmasnave[0]  -1];
-				tiempodisp = 0;
-				armanavesel = 1;
-
-
-				iconodisp.sprite = arma1;
-				paloimg.sprite = arma1;
-				backpaloimg.sprite = arma1;
-				
-			}
-		}
-		if(ruletaYc < -0.5f )
+		if(ruletac > 0 && tiempodisp > 0.2f)
 		{
 
-			if(manager.datosserial.armasnave[2]== true && tiempodisp > 0.2f)
-			{
-				armaname.text = "REYNOVES";
-				paloimg.color = new Color(1,1,1,0.1f);
-				pistolaimg.color = new Color(1,1,1,0.1f);
-				relentizarimg.color = new Color(1,1,1,0.1f);
-				armadefimg.color = new Color(1,1,1,1f);
-
-
-				armadefimg.sprite = arma3;
-				backarmadefimg.sprite = arma3;
-
-				balaprefabpapa = armasbalas.misilBalanave[manager.datosserial.nivelarmasnave[2]  -1];
-				tiempodisp = 0;
-				armanavesel = 3;
-				iconodisp.sprite = arma3;
-				
-			}
+			ruletainterior++;
+			if(ruletainterior >= 1)
+			{ruletainterior = 0;}
+			cambioruedaact = 0;
+			tiempodisp = 0;
 			
 		}
-		if(ruletaXc > 0.5f )
+		if(ruletainterior == 0)
 		{
-			if(manager.datosserial.armasnave[3] == true && tiempodisp > 0.2f)
-			{
-				armaname.text = "InSitu";
-				paloimg.color = new Color(1,1,1,0.1f);
-				pistolaimg.color = new Color(1,1,1,1f);
-				relentizarimg.color = new Color(1,1,1,0.1f);
-				armadefimg.color = new Color(1,1,1,0.1f);
+				comandoarma.text = "Armas 1";
+				if(manager.datosserial.armasjug[0] == true)
+				{
+
+					armaimg[0].fillAmount = 1;
+					circuloarmaimg[0].fillAmount = 1;
+
+					
+
+					
+				}
+				if(manager.datosserial.armasjug[1] == true)
+				{
+					armaimg[1].fillAmount = manager.datosserial.armasmun[1]/manager.datosserial.armasmun_max[1];
+					circuloarmaimg[1].fillAmount = manager.datosserial.armasmun[1]/manager.datosserial.armasmun_max[1];
+				}
+				if(manager.datosserial.armasjug[2] == true)
+				{
+					armaimg[2].fillAmount = manager.datosserial.armasmun[2]/manager.datosserial.armasmun_max[2];
+					circuloarmaimg[2].fillAmount = manager.datosserial.armasmun[2]/manager.datosserial.armasmun_max[2];
+				}
+				if(manager.datosserial.armasjug[3] == true)
+				{
+					armaimg[3].fillAmount = manager.datosserial.armasmun[3]/manager.datosserial.armasmun_max[3];
+					circuloarmaimg[3].fillAmount = manager.datosserial.armasmun[3]/manager.datosserial.armasmun_max[3];
+				}
+				if(cambioruedaact == 0)
+				{
+					
+
+					if(manager.datosserial.armasjug[0] == false)
+					{
+						armaimg[0].sprite = nopimg;
+						armaimg[0].color = new Color(1,1,1,1);
+						backarmaimg[0].sprite = nopimg;
+					}
+					else
+					{
+						if(armasel == 1)
+						{
+							armaimg[0].sprite = armasspriterueda[0];
+							armaimg[0].color = new Color(1,1,1,1);
+							backarmaimg[0].sprite = armasspriterueda[0];
+
+						}
+						else
+						{
+							armaimg[0].sprite = armasspriterueda[0];
+							armaimg[0].color = new Color(1,1,1,0.1f);
+							backarmaimg[0].sprite = armasspriterueda[0];
+
+						}
+					}
+
+					if(manager.datosserial.armasjug[1] == false)
+					{
+						armaimg[1].sprite = nopimg;
+						armaimg[1].color = new Color(1,1,1,1);
+						backarmaimg[1].sprite = nopimg;
+					}
+					else 
+					{
+						if(armasel == 2)
+						{
+
+							armaimg[1].sprite = armasspriterueda[1];
+
+							
+							armaimg[1].color = new Color(1,1,1,1);
+							backarmaimg[1].sprite = armasspriterueda[1];
+						}
+						else
+						{
+							armaimg[1].sprite = armasspriterueda[1];
+							armaimg[1].color = new Color(1,1,1,0.1f);
+							backarmaimg[1].sprite = armasspriterueda[1];
+						}
+
+					}
+
+					if(manager.datosserial.armasjug[3] == false)
+					{
+						armaimg[3].sprite = nopimg;
+						armaimg[3].color = new Color(1,1,1,1);
+						backarmaimg[3].sprite = nopimg;
+					}
+					else
+					{
+						if(armasel == 4)
+						{
+							armaimg[3].sprite = armasspriterueda[3];
+							armaimg[3].color = new Color(1,1,1,1);
+							backarmaimg[3].sprite = armasspriterueda[3];
+						}
+						else
+						{
+							armaimg[3].sprite = armasspriterueda[3];
+							armaimg[3].color = new Color(1,1,1,0.1f);
+							backarmaimg[3].sprite = armasspriterueda[3];
+						}
+					}
+					
+					if(manager.datosserial.armasjug[2] == false)
+					{
+						armaimg[2].sprite = nopimg;
+						armaimg[2].color = new Color(1,1,1,1);
+						backarmaimg[2].sprite = nopimg;
+						
+					}
+					else
+					{
+						if(armasel == 3)
+						{
+							armaimg[2].sprite = armasspriterueda[2];
+							armaimg[2].color = new Color(1,1,1,1);
+							backarmaimg[2].sprite = armasspriterueda[2];
+
+						}
+						else
+						{
+							armaimg[2].sprite = armasspriterueda[2];
+							armaimg[2].color = new Color(1,1,1,0.1f);
+							backarmaimg[2].sprite = armasspriterueda[2];
+
+						}
+					}
+					cambioruedaact = 1;
+				}
+
+				if(ruletaYc > 0f )
+				{
+					if(manager.datosserial.armasjug[0] == true && tiempodisp > 0.2f)
+					{
+						armaname.text = "RataTaPUM V2";
+						armaimg[0].color = new Color(1,1,1,1f);
+
+						if(manager.datosserial.armasjug[2])
+						{armaimg[2].color = new Color(1,1,1,0.1f);}
+						if(manager.datosserial.armasjug[2])
+						{armaimg[3].color = new Color(1,1,1,0.1f);}
+						if(manager.datosserial.armasjug[1])
+						{armaimg[1].color = new Color(1,1,1,0.1f);}
+
+						armaimg[1].color = new Color(1,1,1,1);
+						backarmaimg[1].color = new Color(1,1,1,0.3f);
 
 
-				pistolaimg.sprite = arma4;
+						tiempodisp = 0;
+						armasel = 1;
+						manager.datosserial.ruletainterior_armas = 0;
+						iconodisp.sprite = armasspriteequipada[0];
+						manager.guardar();
 
-				backpistolaimg.sprite = arma4;
-				balaprefabpapa = armasbalas.escopetaBalanave[manager.datosserial.nivelarmasnave[3]  -1];
-				tiempodisp = 0;
-				armanavesel = 4;
-				iconodisp.sprite = arma4;
-				
-			}		
-		}
-		if(ruletaXc < -0.5f )
-		{
-			if(manager.datosserial.armasnave[1] == true && tiempodisp > 0.2f)
-			{
-				armaname.text = "Mina Guardian V2";
-				paloimg.color = new Color(1,1,1,0.1f);
-				pistolaimg.color = new Color(1,1,1,0.1f);
-				relentizarimg.color = new Color(1,1,1,1f);
-				armadefimg.color = new Color(1,1,1,0.1f);
+						
+						
+						
+						
+					}
+				}
+			
+				if(ruletaXc > 0f )
+				{
+					if(manager.datosserial.armasjug[1] == true && tiempodisp > 0.2f)
+					{
+						armaname.text = "REYNOVES";
+						armaimg[1].color = new Color(1,1,1,1f);
 
-				relentizarimg.sprite = arma2;
-				backrelentizarimg.sprite = arma2;
-				balaprefabpapa = armasbalas.minaBalanave[manager.datosserial.nivelarmasnave[1]  -1];
-				tiempodisp = 0;
-				armanavesel = 2;
-				iconodisp.sprite = arma2;
-				
-			}
-		}
-		if(manager.datosserial.armasnave[3] == false)
-		{
-			pistolaimg.sprite = nopimg;
-			backpistolaimg.sprite = nopimg;
-			pistolaimg.color = new Color(1,1,1,1f);
-		}
-		else if(manager.datosserial.armasnave[3] == true && armanavesel != 4)
 
-		{
-			pistolaimg.color = new Color(1,1,1,0.1f);
-		}
+						if(manager.datosserial.armasjug[0])
+						{
+							armaimg[0].color = new Color(1,1,1,0.1f);
+							backarmaimg[0].color = new Color(1,1,1,0.3f);
+						}
+						
+						if(manager.datosserial.armasjug[3])
+						{armaimg[3].color = new Color(1,1,1,0.1f);}
 
-		if(manager.datosserial.armasnave[1]  == false)
-		{
-			relentizarimg.sprite = nopimg;
-			backrelentizarimg.sprite = nopimg;
-			relentizarimg.color = new Color(1,1,1,1f);
-		}
-		else if(manager.datosserial.armasnave[1] == true && armanavesel != 2)
-		{
-			relentizarimg.color = new Color(1,1,1,0.1f);
-		}
-		
-		if(manager.datosserial.armasnave[2] == false)
-		{
-			armadefimg.sprite = nopimg;
-			backarmadefimg.sprite = nopimg;
-			armadefimg.color = new Color(1,1,1,1f);
-		}
-		else if(manager.datosserial.armasnave[2] == true && armanavesel != 3)
-		{
-			armadefimg.color = new Color(1,1,1,0.1f);
-		}
+						if(manager.datosserial.armasjug[2])
+						{armaimg[2].color = new Color(1,1,1,0.1f);}
 
-		if(armanavesel != 1)
+						
+						armaimg[1].color = new Color(1,1,1,1);
+						backarmaimg[1].color = new Color(1,1,1,0.3f);
+
+
+						
+						tiempodisp = 0;
+						armasel = 2;
+						manager.datosserial.ruletainterior_armas = 0;
+						iconodisp.sprite = armasspriteequipada[1];
+						manager.guardar();
+						
+
+					}
+				}
+				if(ruletaYc < 0f )
+				{
+					armaname.text = "InSitu";
+					if(manager.datosserial.armasjug[2] == true && tiempodisp > 0.2f)
+					{
+						if(manager.datosserial.armasjug[0])
+						{
+							armaimg[0].color = new Color(1,1,1,0.1f);
+							backarmaimg[0].color = new Color(1,1,1,0.3f);
+						}
+
+						if(manager.datosserial.armasjug[2])
+						{armaimg[3].color = new Color(1,1,1,0.1f);}
+
+						if(manager.datosserial.armasjug[1])
+						{armaimg[1].color = new Color(1,1,1,0.1f);}
+
+
+						
+						
+						
+						armaimg[2].color = new Color(1,1,1,1f);
+						backarmaimg[2].color = new Color(1,1,1,0.3f);
+
+						
+						tiempodisp = 0;
+						armasel = 3;
+						manager.datosserial.ruletainterior_armas = 0;
+						manager.guardar();
+						iconodisp.sprite = armasspriteequipada[2];
+						
+					}
+				}
+				if(ruletaXc < 0f )
+				{
+					armaname.text = "PX4000 Quebrada";
+					if(manager.datosserial.armasjug[3] == true && tiempodisp > 0.2f)
+					{
+						armaname.text = "Mina Guardian V2";
+						if(manager.datosserial.armasjug[0])
+						{
+							armaimg[0].color = new Color(1,1,1,0.1f);
+							backarmaimg[0].color = new Color(1,1,1,0.3f);
+						}
+
+						if(manager.datosserial.armasjug[1])
+						{armaimg[1].color = new Color(1,1,1,0.1f);}
+
+						if(manager.datosserial.armasjug[2])
+						{armaimg[2].color = new Color(1,1,1,0.1f);}
+
+
+						armaimg[3].color = new Color(1,1,1,1f);
+						backarmaimg[3].color = new Color(1,1,1,0.3f);
+
+						
+						tiempodisp = 0;
+						armasel = 4;
+						manager.datosserial.ruletainterior_armas = 0;
+						manager.guardar();
+						iconodisp.sprite = armasspriteequipada[3];
+					}
+				}
+		}
+		if(ruletainterior == 1)
 		{
-			paloimg.color = new Color(1,1,1,0.1f);
+
+				comandoarma.text = "Armas 2";
+				if(manager.datosserial.armasjug[4] == true)
+				{
+					armaimg[0].fillAmount = manager.datosserial.armasmun[4]/manager.datosserial.armasmun_max[4];
+					circuloarmaimg[0].fillAmount = manager.datosserial.armasmun[4]/manager.datosserial.armasmun_max[4];
+				}
+				if(manager.datosserial.armasjug[5] == true)
+				{
+					armaimg[1].fillAmount = manager.datosserial.armasmun[5]/manager.datosserial.armasmun_max[5];
+					circuloarmaimg[1].fillAmount = manager.datosserial.armasmun[5]/manager.datosserial.armasmun_max[5];
+				}
+				if(manager.datosserial.armasjug[6] == true)
+				{
+					armaimg[2].fillAmount = manager.datosserial.armasmun[6]/manager.datosserial.armasmun_max[6];
+					circuloarmaimg[2].fillAmount = manager.datosserial.armasmun[6]/manager.datosserial.armasmun_max[6];
+				}
+				if(manager.datosserial.armasjug[7] == true)
+				{
+					armaimg[3].fillAmount = manager.datosserial.armasmun[7]/manager.datosserial.armasmun_max[7];
+					circuloarmaimg[3].fillAmount = manager.datosserial.armasmun[7]/manager.datosserial.armasmun_max[7];
+				}
+				if(cambioruedaact == 0)
+				{
+					
+					if(manager.datosserial.armasjug[4] == false)
+					{
+						armaimg[0].sprite = nopimg;
+						armaimg[0].color = new Color(1,1,1,1);
+						backarmaimg[0].sprite = nopimg;
+					}
+					else 
+					{
+						if(armasel == 5)
+						{
+
+							armaimg[0].sprite = armasspriterueda[4];
+
+							
+							armaimg[0].color = new Color(1,1,1,1);
+							backarmaimg[0].sprite = armasspriterueda[4];
+						}
+						else
+						{
+							armaimg[0].sprite = armasspriterueda[4];
+							armaimg[0].color = new Color(1,1,1,0.1f);
+							backarmaimg[0].sprite = armasspriterueda[4];
+							backarmaimg[0].color = new Color(1,1,1,0.3f);
+						}
+
+					}
+
+					if(manager.datosserial.armasjug[5] == false)
+					{
+						armaimg[1].sprite = nopimg;
+						armaimg[1].color = new Color(1,1,1,1);
+						backarmaimg[1].sprite = nopimg;
+					}
+					else 
+					{
+						if(armasel == 6)
+						{
+
+							armaimg[1].sprite = armasspriterueda[5];
+
+							
+							armaimg[1].color = new Color(1,1,1,1);
+							backarmaimg[1].sprite = armasspriterueda[5];
+						}
+						else
+						{
+							armaimg[1].sprite = armasspriterueda[5];
+							armaimg[1].color = new Color(1,1,1,0.1f);
+							backarmaimg[1].sprite = armasspriterueda[5];
+						}
+
+					}
+					if(manager.datosserial.armasjug[6] == false)
+					{
+						armaimg[2].sprite = nopimg;
+						armaimg[2].color = new Color(1,1,1,1);
+						backarmaimg[2].sprite = nopimg;
+						
+					}
+					else
+					{
+						if(armasel == 7)
+						{
+							armaimg[2].sprite = armasspriterueda[6];
+							armaimg[2].color = new Color(1,1,1,1);
+							backarmaimg[2].sprite = armasspriterueda[6];
+
+						}
+						else
+						{
+							armaimg[2].sprite = armasspriterueda[6];
+							armaimg[2].color = new Color(1,1,1,0.1f);
+							backarmaimg[2].sprite = armasspriterueda[6];
+
+						}
+					}
+					if(manager.datosserial.armasjug[7] == false)
+					{
+						armaimg[3].sprite = nopimg;
+						armaimg[3].color = new Color(1,1,1,1);
+						backarmaimg[3].sprite = nopimg;
+					}
+					else
+					{
+						if(armasel == 8)
+						{
+							armaimg[3].sprite = armasspriterueda[7];
+							armaimg[3].color = new Color(1,1,1,1);
+							backarmaimg[3].sprite = armasspriterueda[7];
+						}
+						else
+						{
+							armaimg[3].sprite = armasspriterueda[7];
+							armaimg[3].color = new Color(1,1,1,0.1f);
+							backarmaimg[3].sprite = armasspriterueda[7];
+						}
+					}
+					
+					
+					cambioruedaact = 1;
+				}
+
+
+				if(ruletaYc > 0f )
+				{
+					if(manager.datosserial.armasjug[4] == true && tiempodisp > 0.2f)
+					{
+						armaname.text = "null";
+						if(manager.datosserial.armasjug[6])
+						{armaimg[2].color = new Color(1,1,1,0.1f);}
+
+						if(manager.datosserial.armasjug[7])
+						{armaimg[3].color = new Color(1,1,1,0.1f);}
+
+						if(manager.datosserial.armasjug[5])
+						{armaimg[1].color = new Color(1,1,1,0.1f);}
+
+
+						
+						
+						
+						armaimg[0].color = new Color(1,1,1,1f);
+						backarmaimg[0].color = new Color(1,1,1,0.3f);
+						
+						tiempodisp = 0;
+						armasel = 5;
+						manager.datosserial.ruletainterior_armas = 1;
+						manager.guardar();
+						iconodisp.sprite = armasspriteequipada[4];
+
+						
+					}
+				}	
+				if(ruletaXc > 0f )
+				{
+					armaname.text = "null";
+					if(manager.datosserial.armasjug[5] == true && tiempodisp > 0.2f)
+					{
+						armaimg[1].color = new Color(1,1,1,1f);
+
+
+						if(manager.datosserial.armasjug[4])
+						{
+							armaimg[0].color = new Color(1,1,1,0.1f);
+							backarmaimg[0].color = new Color(1,1,1,0.3f);
+						}
+
+						if(manager.datosserial.armasjug[7])
+						{armaimg[3].color = new Color(1,1,1,0.1f);}
+
+						if(manager.datosserial.armasjug[6])
+						{armaimg[2].color = new Color(1,1,1,0.1f);}
+
+						
+						armaimg[1].color = new Color(1,1,1,1f);
+						backarmaimg[1].color = new Color(1,1,1,0.3f);
+
+						
+						tiempodisp = 0;
+						armasel = 6;
+						manager.datosserial.ruletainterior_armas = 1;
+						manager.guardar();
+						iconodisp.sprite = armasspriteequipada[5];
+					}
+				}
+				if(ruletaYc < 0f )
+				{
+					armaname.text = "null";
+					
+					if(manager.datosserial.armasjug[6] == true && tiempodisp > 0.2f)
+					{
+						if(manager.datosserial.armasjug[4])
+						{
+							armaimg[0].color = new Color(1,1,1,0.1f);
+							backarmaimg[0].color = new Color(1,1,1,0.3f);
+						}
+
+						if(manager.datosserial.armasjug[7])
+						{armaimg[3].color = new Color(1,1,1,0.1f);}
+
+						if(manager.datosserial.armasjug[5])
+						{armaimg[1].color = new Color(1,1,1,0.1f);}
+
+
+						
+						
+						
+						armaimg[2].color = new Color(1,1,1,1f);
+						backarmaimg[2].color = new Color(1,1,1,0.3f);
+						
+						tiempodisp = 0;
+						armasel = 7;
+						manager.datosserial.ruletainterior_armas = 1;
+						manager.guardar();
+						iconodisp.sprite = armasspriteequipada[6];
+						
+					}
+				}
+				if(ruletaXc < -0f )
+				{
+					armaname.text = " null";
+					if(manager.datosserial.armasjug[7] == true && tiempodisp > 0.2f)
+					{
+						
+						if(manager.datosserial.armasjug[4])
+						{
+							armaimg[0].color = new Color(1,1,1,0.1f);
+							backarmaimg[0].color = new Color(1,1,1,0.3f);
+						}
+
+						if(manager.datosserial.armasjug[5])
+						{armaimg[1].color = new Color(1,1,1,0.1f);}
+
+						if(manager.datosserial.armasjug[6])
+						{armaimg[2].color = new Color(1,1,1,0.1f);}
+
+
+						armaimg[3].color = new Color(1,1,1,1f);
+						backarmaimg[3].color = new Color(1,1,1,0.3f);
+
+						
+						tiempodisp = 0;
+						armasel = 8;
+						manager.datosserial.ruletainterior_armas = 1;
+						manager.guardar();
+						iconodisp.sprite = armasspriteequipada[7];
+					}
+				}
 		}
 
 
@@ -1359,17 +1682,16 @@ public class jugador_nave_al2 : jugador_al2
 			
 		
 
-			if(armanavesel == 1)
+			if(armasel == 1)
 			{
 
 				//disparo
 				if(dispararc > 0 && tiempodisp2 > 0.1f)
 				{
 
-					balaprefabpapa = armasbalas.disparoBalanave[manager.datosserial.nivelarmasnave[0] -1];
 					tiempodisp2 = 0;
 
-					GameObject BalaTemporal = Instantiate(balaprefabpapa, pistolap.transform.position,pistolap.transform.rotation) as GameObject;
+					GameObject BalaTemporal = Instantiate(armasbalas.disparoBalanave[manager.datosserial.nivelarmasjug[6]-1], pistolap.transform.position,pistolap.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 
@@ -1378,7 +1700,7 @@ public class jugador_nave_al2 : jugador_al2
 					romperbalajug_al1 bala_temp = BalaTemporal.GetComponent<romperbalajug_al1>();
 					bala_temp.destb = 4f;
 					bala_temp.danoesc = 5;
-					bala_temp.danoj = balaarmanave1dano[manager.datosserial.nivelarmasnave[0]  -1];
+					bala_temp.danoj = manager.datosserial.armanavedano[0];
 					
 
 					disp.Play();
@@ -1386,19 +1708,18 @@ public class jugador_nave_al2 : jugador_al2
 				}
 
 			}
-			if(armanavesel == 2)
+			if(armasel == 2)
 			{
 
 				//mina
 				if(dispararc > 0 && tiempodisp2 > 1f && minabalas > 0)
 				{
 
-					balaprefabpapa = armasbalas.minaBalanave[manager.datosserial.nivelarmasnave[1]  -1];
 					tiempodisp2 = 0;
 
 					minabalas--;
 
-					GameObject BalaTemporal = Instantiate(balaprefabpapa, pistolap.transform.position,pistolap.transform.rotation) as GameObject;
+					GameObject BalaTemporal = Instantiate(armasbalas.minaBalanave[manager.datosserial.nivelarmasjug[6]-1], pistolap.transform.position,pistolap.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 
@@ -1407,25 +1728,24 @@ public class jugador_nave_al2 : jugador_al2
 					romperbalajug_al1 bala_temp = BalaTemporal.GetComponent<romperbalajug_al1>();
 					bala_temp.destb = 60f;
 					bala_temp.danoesc = 100;
-					bala_temp.danoj = balaarmanave2dano[manager.datosserial.nivelarmasnave[1]  -1];
+					bala_temp.danoj = manager.datosserial.armanavedano[1];
 					
 
 					disp.Play();
 
 				}
 			}
-			if(armanavesel == 3)
+			if(armasel == 3)
 			{
 				//misil
 				if(dispararc > 0 && tiempodisp2 > 1f && misilbalas > 0)
 				{
 
-					balaprefabpapa = armasbalas.misilBalanave[manager.datosserial.nivelarmasnave[2]  -1];
 					tiempodisp2 = 0;
 
 					misilbalas--;
 
-					GameObject BalaTemporal = Instantiate(balaprefabpapa, pistolap.transform.position,pistolap.transform.rotation) as GameObject;
+					GameObject BalaTemporal = Instantiate(armasbalas.misilBalanave[manager.datosserial.nivelarmasjug[6]-1], pistolap.transform.position,pistolap.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 					if(objetivotarget != null)
@@ -1443,26 +1763,25 @@ public class jugador_nave_al2 : jugador_al2
 					romperbalajug_al1 bala_temp = BalaTemporal.GetComponent<romperbalajug_al1>();
 					bala_temp.destb = 4f;
 					bala_temp.danoesc = 30;
-					bala_temp.danoj = balaarmanave3dano[manager.datosserial.nivelarmasnave[2]  -1];
+					bala_temp.danoj = manager.datosserial.armanavedano[2];
 					
 
 					disp.Play();
 
 				}
 			}
-			if(armanavesel == 4)
+			if(armasel == 4)
 			{
 
 				//escopeta
 				if(dispararc > 0 && tiempodisp2 > 1f && escopetabalas > 0)
 				{
 
-					balaprefabpapa = armasbalas.escopetaBalanave[manager.datosserial.nivelarmasnave[3]  -1];
 					tiempodisp2 = 0;
 
 					escopetabalas--;
 
-					GameObject BalaTemporal = Instantiate(balaprefabpapa, pistolap.transform.position,pistolap.transform.rotation) as GameObject;
+					GameObject BalaTemporal = Instantiate(armasbalas.rataBalajug[manager.datosserial.nivelarmasjug[6]-1], pistolap.transform.position,pistolap.transform.rotation) as GameObject;
 
 					Rigidbody rbb = BalaTemporal.GetComponent<Rigidbody>();
 
@@ -1471,7 +1790,7 @@ public class jugador_nave_al2 : jugador_al2
 					romperbalajug_al1 bala_temp = BalaTemporal.GetComponent<romperbalajug_al1>();
 					bala_temp.destb = 0.4f;
 					bala_temp.danoesc = 30;
-					bala_temp.danoj = balaarmanave4dano[manager.datosserial.nivelarmasnave[3]  -1];
+					bala_temp.danoj = manager.datosserial.armanavedano[3];
 					
 
 					disp.Play();
